@@ -7,7 +7,7 @@
 - Extensive collection of neuroimaging command line tool metadata
 - Generates idiomatic Python wrappers for popular neuroimaging tools
 - Based on [Boutiques Descriptor Schema](https://github.com/boutiques/boutiques)
-- Powered by [Styx compiler](https://github.com/childmindresearch/styx)
+- Powered by [Styx compiler](https://github.com/styx-api/styx)
 
 ## 🧰 Supported Packages
 
@@ -50,7 +50,7 @@ niwrap/
 └── packages/       # Package-specific metadata
 ```
 
-## 🐍 [Python Package](https://github.com/childmindresearch/niwrap/blob/main/python/README.md)
+## 🐍 [Python Package](https://github.com/styx-api/niwrap/blob/main/python/README.md)
 
 Install the `niwrap` Python package to use the generated wrappers:
 
@@ -58,7 +58,7 @@ Install the `niwrap` Python package to use the generated wrappers:
 pip install niwrap
 ```
 
-See the [NiWrap Python package readme](https://github.com/childmindresearch/niwrap/blob/main/python/README.md) for more details.
+See the [NiWrap Python package readme](https://github.com/styx-api/niwrap/blob/main/python/README.md) for more details.
 
 ## 🤝 Contributing
 
@@ -72,4 +72,4 @@ The NiWrap project itself, including all metadata and generated Python wrappers,
 
 ## 🙋‍♀️ Support
 
-For support, please open an issue in the [GitHub issue tracker](https://github.com/childmindresearch/niwrap/issues).
+For support, please open an issue in the [GitHub issue tracker](https://github.com/styx-api/niwrap/issues).

@@ -32,7 +32,7 @@ jobs:
       - name: Checkout pages repo
         uses: actions/checkout@v4
         with:
-          repository: childmindresearch/niwrap-test-report
+          repository: styx-api/niwrap-test-report
           token: ${{ secrets.PAGES_DEPLOY_TOKEN }}
           path: pages-repo
 

@@ -58,10 +58,8 @@ def stream_descriptors():
 def compile_wrappers():
     rmtree(PATH_OUTPUT, ignore_errors=True)
 
-    for py, module_path in compile_language(PythonLanguageProvider(), (optimize(d) for d in stream_descriptors())):
-        path_out = Path(str(PATH_OUTPUT / "/".join(module_path)) + ".py")
-        path_out.parent.mkdir(parents=True, exist_ok=True)
-        path_out.write_text(py, encoding="utf8")
+    for compiled_file in compile_language("python", (optimize(d) for d in stream_descriptors())):
+        compiled_file.write(PATH_OUTPUT)
 
 
 # =============================================================================
