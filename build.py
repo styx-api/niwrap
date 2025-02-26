@@ -3,7 +3,7 @@ import os
 from pathlib import Path
 from shutil import rmtree
 
-from styx.backend.generic.core import compile_language 
+from styx.backend import compile_language 
 from styx.backend.python.languageprovider import PythonLanguageProvider 
 from styx.frontend.boutiques import from_boutiques
 from styx.ir.core import Documentation
