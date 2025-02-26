@@ -6,7 +6,7 @@ import pathlib
 from styxdefs import *
 
 DWIBIASCORRECT_METADATA = Metadata(
-    id="e83d9f4b1c64834e7ce4b8084fa8aefaad7cc322.boutiques",
+    id="9185a0c94cb9a81f571005ce1de2411183c6df3f.boutiques",
     name="dwibiascorrect",
     package="mrtrix",
     container_image_tag="mrtrix3/mrtrix3:3.0.4",
@@ -37,7 +37,6 @@ DwibiascorrectParameters = typing.TypedDict('DwibiascorrectParameters', {
     "debug": bool,
     "force": bool,
     "nthreads": typing.NotRequired[float | None],
-    "config": typing.NotRequired[list[str] | None],
     "help": bool,
     "version": bool,
     "ants_b": typing.NotRequired[str | None],
@@ -154,7 +153,6 @@ def dwibiascorrect_params(
     debug: bool = False,
     force: bool = False,
     nthreads: float | None = None,
-    config: list[str] | None = None,
     help_: bool = False,
     version: bool = False,
     ants_b: str | None = None,
@@ -188,7 +186,6 @@ def dwibiascorrect_params(
         force: Force overwrite of output files.
         nthreads: Use this number of threads in multi-threaded applications\
             (set to 0 to disable multi-threading).
-        config: Temporarily set the value of an MRtrix config file entry.
         help_: Display help information and exit.
         version: Display version information and exit.
         ants_b: N4BiasFieldCorrection option -b (initial mesh resolution in mm,\
@@ -227,8 +224,6 @@ def dwibiascorrect_params(
         params["continue_scratch_dir"] = continue_scratch_dir
     if nthreads is not None:
         params["nthreads"] = nthreads
-    if config is not None:
-        params["config"] = config
     if ants_b is not None:
         params["ants_b"] = ants_b
     if ants_c is not None:
@@ -298,11 +293,7 @@ def dwibiascorrect_cargs(
             "-nthreads",
             str(params.get("nthreads"))
         ])
-    if params.get("config") is not None:
-        cargs.extend([
-            "-config",
-            *params.get("config")
-        ])
+    cargs.append("[CONFIG]")
     if params.get("help"):
         cargs.append("-help")
     if params.get("version"):
@@ -387,7 +378,6 @@ def dwibiascorrect(
     debug: bool = False,
     force: bool = False,
     nthreads: float | None = None,
-    config: list[str] | None = None,
     help_: bool = False,
     version: bool = False,
     ants_b: str | None = None,
@@ -427,7 +417,6 @@ def dwibiascorrect(
         force: Force overwrite of output files.
         nthreads: Use this number of threads in multi-threaded applications\
             (set to 0 to disable multi-threading).
-        config: Temporarily set the value of an MRtrix config file entry.
         help_: Display help information and exit.
         version: Display version information and exit.
         ants_b: N4BiasFieldCorrection option -b (initial mesh resolution in mm,\
@@ -458,7 +447,6 @@ def dwibiascorrect(
         debug=debug,
         force=force,
         nthreads=nthreads,
-        config=config,
         help_=help_,
         version=version,
         ants_b=ants_b,
