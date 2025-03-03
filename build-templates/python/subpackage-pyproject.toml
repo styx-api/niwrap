@@ -1,0 +1,17 @@
+[project]
+name = "niwrap_{{PACKAGE}}"
+version = "{{VERSION}}"
+description = "{{PACKAGE_DESCRIPTION}}"
+license = "LGPL-2.1"
+authors = [{ name = "CMI DAIR", email = "dair@childmind.org" }]
+requires-python = ">=3.10"
+dependencies = [
+    "styxdefs{{STYXDEFS_VERSION}}"
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/niwrap_{{PACKAGE}}"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

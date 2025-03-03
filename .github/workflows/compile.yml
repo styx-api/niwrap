@@ -1,11 +1,12 @@
 name: Styx compile
-
 # This action works with pull requests and pushes
 on:
   workflow_run:
     workflows: ["Format Descriptors"]
     types:
       - completed
+    branches: 
+      - main
 
 permissions:
   contents: write
@@ -13,13 +14,12 @@ permissions:
 jobs:
   styx:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout main
         uses: actions/checkout@v4
         with:
           ref: ${{ github.head_ref }}
-
+          
       - name: Checkout styx
         uses: actions/checkout@v4
         with:
@@ -28,27 +28,81 @@ jobs:
     
       - name: Install poetry
         run: pipx install poetry
-
+        
       - uses: actions/setup-python@v5
         with:
           python-version-file: styx/pyproject.toml
           cache: poetry
-
+          
       - name: Install styx
         run: poetry install --directory=styx
-
+        
       - name: Set up Git
         run: |
-            git config --global user.email "github-actions[bot]@users.noreply.github.com"
-            git config --global user.name "GitHub Actions"
-
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "GitHub Actions"
+      
       - name: Compile
         run: |
-            rm -rf python/src/
-            mkdir -p python/src/niwrap/
-            poetry --directory styx run python ../build.py
-            git add python/
-            git add packages/
-            git add README.md
-            git diff --quiet HEAD || git commit -m "Compile"
-            git push
+          rm -rf python/src/
+          mkdir -p python/src/niwrap/
+          poetry --directory styx run python ../build.py
+          git add python/
+          git add packages/
+          git add README.md
+          git diff --quiet HEAD || git commit -m "Compile"
+          git push
+          
+      - name: Generate GitHub App token
+        id: generate-token
+        uses: tibdex/github-app-token@v2
+        with:
+          app_id: ${{ secrets.GH_APP_ID }}
+          private_key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+          
+      - name: Push to component repos
+        env:
+          GH_TOKEN: ${{ steps.generate-token.outputs.token }}
+          ORG_NAME: "styx-api"
+        run: |
+          # Check if dist directory exists
+          if [ ! -d "dist" ]; then
+            echo "No dist directory found, skipping component pushes"
+            exit 0
+          fi
+          
+          # For each subdirectory in dist/
+          for dir in dist/*/; do
+            # Extract repo name from directory path
+            repo_name=$(basename "$dir")
+            echo "Processing repo: $repo_name"
+            
+            # Check if repository exists in the organization
+            repo_check=$(gh repo view "$ORG_NAME/$repo_name" --json name 2>/dev/null || echo "not_found")
+            
+            if [[ "$repo_check" == "not_found" ]]; then
+              echo "Creating new repository: $ORG_NAME/$repo_name"
+              gh repo create "$ORG_NAME/$repo_name" --public --description "Auto-generated repository for $repo_name"
+            else
+              echo "Repository $ORG_NAME/$repo_name already exists"
+            fi
+            
+            # Create a temporary directory for the repo
+            tmp_dir=$(mktemp -d)
+            
+            # Navigate to the component directory
+            cd "$dir"
+            
+            # Initialize git repo and push to GitHub
+            git init
+            git add .
+            git commit -m "Automated update from Styx compile workflow"
+            git branch -M main
+            git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/$ORG_NAME/$repo_name.git"
+            git push -f origin main
+            
+            # Return to original directory
+            cd ../..
+            
+            echo "Successfully pushed to $ORG_NAME/$repo_name"
+          done
