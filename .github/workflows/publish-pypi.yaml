@@ -40,6 +40,34 @@ jobs:
         run: |
           poetry --directory styx run python ../build.py
 
+          - name: Install uv
+          run: |
+            pip install uv
+        
+      - name: Build Python packages
+        run: |
+          # First, see what packages we have
+          echo "Available packages in dist/niwrap-python/:"
+          ls -la dist/niwrap-python/
+          
+          # Create a directory for the built packages
+          mkdir -p dist/built_packages
+          
+          # Build each package using uv
+          for pkg_dir in dist/niwrap-python/*/; do
+            echo "Building package in $pkg_dir"
+            cd "$pkg_dir"
+            
+            # Build source distribution and wheel using uv
+            uv build --sdist --wheel -o ../../built_packages
+            
+            cd - # Return to original directory
+          done
+          
+          # Verify built packages
+          echo "Built packages:"
+          ls -la dist/built_packages/
+
       - name: Publish to PyPi
         id: pypi_publish
         uses: pypa/gh-action-pypi-publish@release/v1
@@ -47,4 +75,4 @@ jobs:
           user: __token__
           password: ${{ secrets.PYPI_TOKEN }}
           verbose: true
-          packages-dir: dist/niwrap-python
+          packages-dir: dist/built_packages
