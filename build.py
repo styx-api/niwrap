@@ -110,6 +110,9 @@ def compile_wrappers():
     TEMPLATE_README = (PATH_BUILD_TEMPLATES / "python/README-template.md").read_text(
         encoding="utf8"
     )
+    SNIPPET_EXTRA_UTILS = (PATH_BUILD_TEMPLATES / "python/extra-utils.py").read_text(
+        encoding="utf8"
+    )
 
     PATH_DIST_PYTHON.mkdir(parents=True, exist_ok=True)
 
@@ -178,7 +181,8 @@ This package contains wrappers only and has no affiliation with the original aut
 
     (path_niwrap_root / "src/niwrap").mkdir(parents=True, exist_ok=True)
     (path_niwrap_root / "src/niwrap/__init__.py").write_text(
-        "\n".join([f"from niwrap_{x} import {x}" for x in package_reexports]),
+        "\n".join([f"from niwrap_{x} import {x}" for x in package_reexports])
+        + f"\n{SNIPPET_EXTRA_UTILS}",
         encoding="utf8",
     )
 

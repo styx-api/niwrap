@@ -7,10 +7,8 @@ on:
       - completed
     branches: 
       - main
-
 permissions:
   contents: write
-
 jobs:
   styx:
     runs-on: ubuntu-latest
@@ -83,26 +81,38 @@ jobs:
             if [[ "$repo_check" == "not_found" ]]; then
               echo "Creating new repository: $ORG_NAME/$repo_name"
               gh repo create "$ORG_NAME/$repo_name" --public --description "Auto-generated repository for $repo_name"
+              # For new repos, we'll initialize with the first commit
+              cd "$dir"
+              git init
+              git add .
+              git commit -m "Initial commit from Styx compile workflow"
+              git branch -M main
+              git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/$ORG_NAME/$repo_name.git"
+              git push origin main
+              cd ../..
             else
-              echo "Repository $ORG_NAME/$repo_name already exists"
+              echo "Repository $ORG_NAME/$repo_name already exists, updating it while preserving history"
+              # Clone the existing repo
+              tmp_dir=$(mktemp -d)
+              git clone "https://x-access-token:${GH_TOKEN}@github.com/$ORG_NAME/$repo_name.git" "$tmp_dir"
+              
+              # Remove all files (except .git directory) to prepare for new files
+              cd "$tmp_dir"
+              find . -mindepth 1 -maxdepth 1 -not -name .git -exec rm -rf {} \;
+              
+              # Copy all files from the dist directory to the cloned repo
+              cp -r "../../$dir"/* .
+              
+              # Commit and push changes
+              git add .
+              # Only commit if there are changes
+              git diff --cached --quiet || git commit -m "Automated update from Styx compile workflow"
+              git push origin main
+              
+              # Return to original directory
+              cd ../..
+              rm -rf "$tmp_dir"
             fi
-            
-            # Create a temporary directory for the repo
-            tmp_dir=$(mktemp -d)
-            
-            # Navigate to the component directory
-            cd "$dir"
-            
-            # Initialize git repo and push to GitHub
-            git init
-            git add .
-            git commit -m "Automated update from Styx compile workflow"
-            git branch -M main
-            git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/$ORG_NAME/$repo_name.git"
-            git push -f origin main
-            
-            # Return to original directory
-            cd ../..
             
             echo "Successfully pushed to $ORG_NAME/$repo_name"
           done
