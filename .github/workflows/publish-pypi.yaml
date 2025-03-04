@@ -40,9 +40,9 @@ jobs:
         run: |
           poetry --directory styx run python ../build.py
 
-          - name: Install uv
-          run: |
-            pip install uv
+      - name: Install uv
+        run: |
+          pip install uv
         
       - name: Build Python packages
         run: |
