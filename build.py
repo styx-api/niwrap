@@ -12,7 +12,6 @@ from styx.ir.optimize import optimize
 
 PATH_PACKAGES = Path("packages")
 PATH_DESCRIPTORS = Path("descriptors")
-PATH_OUTPUT = Path("python/src/niwrap")
 
 PATH_BUILD_TEMPLATES = Path("build-templates")
 PATH_DIST_ROOT = Path("dist")
@@ -310,15 +309,15 @@ def validate_build():
     print("Validating build...")
 
     # Check if the output directory exists
-    if not PATH_OUTPUT.exists():
-        raise ValueError(f"Output directory {PATH_OUTPUT} does not exist.")
+    if not PATH_DIST_PYTHON.exists():
+        raise ValueError(f"Output directory {PATH_DIST_PYTHON} does not exist.")
 
     # Check if there are Python files in the output directory
     python_files = [
         f for f in PATH_DIST_PYTHON.glob("**/*.py") if f.name != "__init__.py"
     ]
     if not python_files:
-        raise ValueError(f"No Python files found in {PATH_OUTPUT}")
+        raise ValueError(f"No Python files found in {PATH_DIST_PYTHON}")
 
     # Check if the number of Python files matches the number of descriptors
     descriptor_count = sum(1 for _ in Path(PATH_DESCRIPTORS).glob("**/*.json"))
