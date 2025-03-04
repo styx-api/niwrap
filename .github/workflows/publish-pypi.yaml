@@ -14,23 +14,37 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Install poetry
-      run: pipx install poetry
-    - uses: actions/setup-python@v5
-      with:
-        python-version-file: python/pyproject.toml
-    - name: Install dependencies and build
-      run: |
-        cd python || exit
-        poetry install
-        poetry build
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          
+      - name: Checkout styx
+        uses: actions/checkout@v4
+        with:
+          repository: 'styx-api/styx'
+          path: 'styx'
+    
+      - name: Install poetry
+        run: pipx install poetry
+        
+      - uses: actions/setup-python@v5
+        with:
+          python-version-file: styx/pyproject.toml
+          cache: poetry
+          
+      - name: Install styx
+        run: poetry install --directory=styx
+      
+      - name: Compile
+        run: |
+          poetry --directory styx run python ../build.py
 
-    - name: Publish to PyPi
-      id: pypi_publish
-      uses: pypa/gh-action-pypi-publish@release/v1
-      with:
-        user: __token__
-        password: ${{ secrets.PYPI_TOKEN }}
-        verbose: true
-        packages-dir: dist/python
+      - name: Publish to PyPi
+        id: pypi_publish
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_TOKEN }}
+          verbose: true
+          packages-dir: dist/python
