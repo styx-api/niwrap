@@ -42,14 +42,7 @@ jobs:
       
       - name: Compile
         run: |
-          rm -rf python/src/
-          mkdir -p python/src/niwrap/
           poetry --directory styx run python ../build.py
-          git add python/
-          git add packages/
-          git add README.md
-          git diff --quiet HEAD || git commit -m "Compile"
-          git push
           
       - name: Generate GitHub App token
         id: generate-token
@@ -63,14 +56,17 @@ jobs:
           GH_TOKEN: ${{ steps.generate-token.outputs.token }}
           ORG_NAME: "styx-api"
         run: |
+          # Store absolute path of the workspace
+          WORKSPACE_DIR=$(pwd)
+          
           # Check if dist directory exists
-          if [ ! -d "dist" ]; then
+          if [ ! -d "$WORKSPACE_DIR/dist" ]; then
             echo "No dist directory found, skipping component pushes"
             exit 0
           fi
           
           # For each subdirectory in dist/
-          for dir in dist/*/; do
+          for dir in "$WORKSPACE_DIR/dist"/*/; do
             # Extract repo name from directory path
             repo_name=$(basename "$dir")
             echo "Processing repo: $repo_name"
@@ -78,22 +74,25 @@ jobs:
             # Check if repository exists in the organization
             repo_check=$(gh repo view "$ORG_NAME/$repo_name" --json name 2>/dev/null || echo "not_found")
             
+            # Create a temporary directory for the repo
+            tmp_dir=$(mktemp -d)
+            
             if [[ "$repo_check" == "not_found" ]]; then
               echo "Creating new repository: $ORG_NAME/$repo_name"
               gh repo create "$ORG_NAME/$repo_name" --public --description "Auto-generated repository for $repo_name"
               # For new repos, we'll initialize with the first commit
-              cd "$dir"
+              cd "$tmp_dir"
               git init
+              # Copy all files from the dist directory to the new repo
+              cp -r "$dir"* .
               git add .
               git commit -m "Initial commit from Styx compile workflow"
               git branch -M main
               git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/$ORG_NAME/$repo_name.git"
               git push origin main
-              cd ../..
             else
               echo "Repository $ORG_NAME/$repo_name already exists, updating it while preserving history"
               # Clone the existing repo
-              tmp_dir=$(mktemp -d)
               git clone "https://x-access-token:${GH_TOKEN}@github.com/$ORG_NAME/$repo_name.git" "$tmp_dir"
               
               # Remove all files (except .git directory) to prepare for new files
@@ -101,18 +100,17 @@ jobs:
               find . -mindepth 1 -maxdepth 1 -not -name .git -exec rm -rf {} \;
               
               # Copy all files from the dist directory to the cloned repo
-              cp -r "../../$dir"/* .
+              echo "Copying from $dir to $(pwd)"
+              cp -r "$dir"* .
               
               # Commit and push changes
               git add .
               # Only commit if there are changes
               git diff --cached --quiet || git commit -m "Automated update from Styx compile workflow"
               git push origin main
-              
-              # Return to original directory
-              cd ../..
-              rm -rf "$tmp_dir"
             fi
             
+            # Return to the workspace directory
+            cd "$WORKSPACE_DIR"
             echo "Successfully pushed to $ORG_NAME/$repo_name"
           done
