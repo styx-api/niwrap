@@ -16,6 +16,7 @@ PATH_DESCRIPTORS = Path("descriptors")
 PATH_BUILD_TEMPLATES = Path("build-templates")
 PATH_DIST_ROOT = Path("dist")
 PATH_DIST_PYTHON = PATH_DIST_ROOT / "niwrap-python"
+PATH_DIST_JS = PATH_DIST_ROOT / "niwrap-js"
 
 
 def iter_packages():
@@ -184,7 +185,43 @@ This package contains wrappers only and has no affiliation with the original aut
         + f"\n{SNIPPET_EXTRA_UTILS}",
         encoding="utf8",
     )
+    
+    # ------ TYPESCRIPT ------------------------------------------------------
 
+    PATH_DIST_JS.mkdir(parents=True, exist_ok=True)
+
+    TEMPLATE_BUILD_JS = (
+        PATH_BUILD_TEMPLATES / "js/build.js"
+    ).read_text(encoding="utf8")
+    TEMPLATE_PACKAGE_JSON = (
+        PATH_BUILD_TEMPLATES / "js/package.json"
+    ).read_text(encoding="utf8")
+    TEMPLATE_TSCONFIG_JSON = (
+        PATH_BUILD_TEMPLATES / "js/tsconfig.json"
+    ).read_text(encoding="utf8")
+
+    package_reexports = []
+    for _, package in iter_packages():
+        package_reexports.append(package["id"])
+        path_package = PATH_DIST_JS / "src"
+        path_package.mkdir(parents=True, exist_ok=True)
+
+        for compiled_file in compile_language(
+            "typescript", (optimize(d) for d in stream_descriptors_package(package))
+        ):
+            compiled_file.write(path_package)
+
+
+    # import * as afni from './afni'
+    (PATH_DIST_JS / "src/index.ts").write_text(
+        "\n".join([f"export * as {x} from './{x}'" for x in package_reexports]) +
+        f"\nexport * from 'styxdefs'\nexport const version = '{niwrap_version}';",
+        encoding="utf8",
+    )
+
+    (PATH_DIST_JS / "build.js").write_text(TEMPLATE_BUILD_JS, encoding="utf8")
+    (PATH_DIST_JS / "package.json").write_text(TEMPLATE_PACKAGE_JSON, encoding="utf8")
+    (PATH_DIST_JS / "tsconfig.json").write_text(TEMPLATE_TSCONFIG_JSON, encoding="utf8")
 
 # =============================================================================
 # |                           UPDATE README                                   |
