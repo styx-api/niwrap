@@ -25,24 +25,14 @@ jobs:
           repository: 'styx-api/styx'
           path: 'styx'
     
-      - name: Install poetry
-        run: pipx install poetry
-        
-      - uses: actions/setup-python@v5
+      - name: Install the latest version of uv
+        uses: astral-sh/setup-uv@v5
         with:
-          python-version-file: styx/pyproject.toml
-          cache: poetry
-          
-      - name: Install styx
-        run: poetry install --directory=styx
+          pyproject-file: "styx/pyproject.toml"
       
       - name: Compile
         run: |
-          poetry --directory styx run python ../build.py
-
-      - name: Install uv
-        run: |
-          pip install uv
+          uv --directory styx run ../build.py
         
       - name: Build Python packages
         run: |
