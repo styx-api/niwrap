@@ -1,11 +1,13 @@
 name: Styx compile
-# This action works with pull requests and pushes
+
 on:
-  workflow_run:
-    branches: 
+  push:
+    branches:
       - main
+
 permissions:
   contents: write
+
 jobs:
   styx:
     runs-on: ubuntu-latest
