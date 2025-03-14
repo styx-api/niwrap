@@ -4,10 +4,15 @@
   "author": "AFNI Developers",
   "description": "Computes the correlation matrix of the input 1D files and their inverse correlation matrix.",
   "url": "https://afni.nimh.nih.gov/",
-  "command-line": "1ddot [ONE_FLAG] [DEM_FLAG] [COV_FLAG] [INN_FLAG] [RANK_FLAG] [TERSE_FLAG] [OKZERO_FLAG] [INPUT_FILES] > stdout.txt",
+  "command-line": "1ddot [ONE_FLAG] [DEM_FLAG] [COV_FLAG] [INN_FLAG] [RANK_FLAG] [TERSE_FLAG] [OKZERO_FLAG] [INPUT_FILES]",
   "container-image": {
     "type": "docker",
     "image": "afni/afni_make_build:AFNI_24.2.06"
+  },
+  "stdout-output": {
+    "id": "stdout",
+    "description": "output text file",
+    "name": "stdout"
   },
   "inputs": [
     {

@@ -4,7 +4,7 @@
   "author": "AFNI Developers",
   "description": "Transforms the DICOM xyz coordinates in the input XYZfile.1D based on specified warp.",
   "url": "https://afni.nimh.nih.gov/",
-  "command-line": "3dNwarpXYZ [OPTIONS] -nwarp '[WARP_SPEC]' [XYZFILE] > [OUTPUT_FILE]",
+  "command-line": "3dNwarpXYZ [XYZFILE] [WARP_SPEC] [IWARP] [OUTPUT_FILE]",
   "inputs": [
     {
       "description": "XYZ coordinate file containing 3 columns",
@@ -31,6 +31,16 @@
       "optional": true,
       "id": "iwarp",
       "name": "Inverse warp flag"
+    },
+    {
+      "command-line-flag": ">",
+      "command-line-flag-separator": " ",
+      "description": "Warped XYZ coordinates output file",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_file",
+      "name": "Output XYZ file"
     }
   ],
   "output-files": [

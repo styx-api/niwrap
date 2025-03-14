@@ -5,7 +5,7 @@
   "descriptor-url": "https://github.com/aces/3dREMLfit.json",
   "description": "Generalized least squares time series fit, with REML estimation of the temporal auto-correlation structure",
   "url": "https://afni.nimh.nih.gov/",
-  "command-line": "3dREMLfit [INPUT_FILE] [REGRESSION_MATRIX] [BASELINE_FILES] [SORT_NODS] [TEMP_STORAGE] [MASK] [OUTPUT_PREFIX] [GO_FOR_IT] [MAX_B_PARAM] [GRID_PARAM] [NEGATIVE_CORR]",
+  "command-line": "3dREMLfit [INPUT_FILE] [REGRESSION_MATRIX] [BASELINE_FILES] [SORT_NODS] [TEMP_STORAGE] [MASK] [OUTPUT_PREFIX] [NO_FDR_CURVE] [GO_FOR_IT] [MAX_A_PARAM] [MAX_B_PARAM] [GRID_PARAM] [NEGATIVE_CORR] [QUIET] [VERBOSE]",
   "container-image": {
     "type": "docker",
     "image": "afni/afni_make_build:AFNI_24.2.06"

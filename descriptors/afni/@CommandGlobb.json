@@ -3,11 +3,12 @@
   "name": "@CommandGlobb",
   "author": "AFNI Developers",
   "description": "A command-line tool to execute a specified program command line on a list of input bricks.",
-  "command-line": "@CommandGlobb -com '[PROGRAM_COMMAND]' -session '[OUTPUT_DIR]' -newxt '[EXTENSION]' [BRICK_LIST]",
+  "command-line": "@CommandGlobb [PROGRAM_COMMAND] [OUTPUT_DIR] [EXTENSION] [BRICK_LIST]",
   "inputs": [
     {
       "description": "The entire command line for the program desired. The command is best put between single quotes, do not use the \\ to break a long line within the quotes.",
       "value-key": "[PROGRAM_COMMAND]",
+      "command-line-flag": "-com",
       "type": "String",
       "optional": false,
       "id": "program_command",
@@ -16,6 +17,7 @@
     {
       "description": "The output directory where the results will be saved.",
       "value-key": "[OUTPUT_DIR]",
+      "command-line-flag": "-session",
       "type": "String",
       "optional": false,
       "id": "output_dir",
@@ -24,6 +26,7 @@
     {
       "description": "If the program requires a -prefix option, then you can specify the extension which will get appended to the Brick names before +orig.",
       "value-key": "[EXTENSION]",
+      "command-line-flag": "-newext",
       "type": "String",
       "optional": true,
       "id": "extension",

@@ -1,6 +1,6 @@
 {
   "name": "3dLFCD",
-  "command-line": "3dLFCD [IN_FILE] [AUTOCLIP] [AUTOMASK] [MASK] [OUT_FILE] [OUTPUTTYPE] [POLORT] [THRESH]",
+  "command-line": "3dLFCD [IN_FILE] [AUTOCLIP] [AUTOMASK] [MASK] [NUM_THREADS] [OUT_FILE] [OUTPUTTYPE] [POLORT] [THRESH]",
   "author": "AFNI Developers",
   "description": "Performs degree centrality on a dataset using a given maskfile via the 3dLFCD command",
   "url": "https://afni.nimh.nih.gov/",
@@ -76,6 +76,15 @@
       "command-line-flag": "-thresh",
       "description": "Threshold to exclude connections where corr <= thresh.",
       "optional": true
+    },
+    {
+      "name": "Out file",
+      "id": "out_file",
+      "optional": true,
+      "description": "Output image file name.",
+      "value-key": "[OUT_FILE]",
+      "command-line-flag": "-prefix",
+      "type": "String"
     }
   ],
   "output-files": [
@@ -87,13 +96,6 @@
       "path-template": "[IN_FILE]_afni",
       "value-key": "[OUT_FILE]",
       "command-line-flag": "-prefix"
-    },
-    {
-      "name": "Out file",
-      "id": "out_file",
-      "path-template": "out_file",
-      "optional": true,
-      "description": "Output file."
     }
   ],
   "tool-version": "24.2.06",

@@ -5,7 +5,7 @@
   "descriptor-url": "https://github.com/afni/afni",
   "description": "Converts a byte-valued 0/1 dataset into an ASCII string, or vice versa.",
   "url": "https://afni.nimh.nih.gov/",
-  "command-line": "3dMaskToASCII [TOBIN_FLAG] [DATASET] > [OUTPUTFILE]",
+  "command-line": "3dMaskToASCII [TOBIN_FLAG] [DATASET] [OUTPUTFILE]",
   "container-image": {
     "type": "docker",
     "image": "afni/afni_make_build:AFNI_24.2.06"
@@ -27,6 +27,16 @@
       "optional": true,
       "id": "tobin_flag",
       "name": "To binary flag"
+    },
+    {
+      "command-line-flag": ">",
+      "command-line-flag-separator": " ",
+      "value-key": "[OUTPUTFILE]",
+      "type": "String",
+      "description": "Output file where ASCII string mask or binary mask will be written.",
+      "optional": false,
+      "id": "outputfile",
+      "name": "Output file"
     }
   ],
   "schema-version": "0.5",

@@ -5,7 +5,7 @@
   "descriptor-url": "https://example.com/descriptors/imrotate.json",
   "description": "Shifts and rotates an image",
   "url": "https://afni.nimh.nih.gov/",
-  "command-line": "imrotate [FOURIER_INTERPOLATION] [DX] [DY] [PHI] [INPUT_IMAGE] [OUTPUT_IMAGE]",
+  "command-line": "imrotate [LINEAR_INTERPOLATION] [FOURIER_INTERPOLATION] [DX] [DY] [PHI] [INPUT_IMAGE] [OUTPUT_IMAGE]",
   "container-image": {
     "type": "docker",
     "image": "afni/afni_make_build:AFNI_24.2.06"

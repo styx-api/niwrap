@@ -4,7 +4,7 @@
   "author": "AFNI Developers",
   "description": "Computes 6 principal direction tensors from multiple gradient vectors and corresponding DTI image volumes.",
   "url": "https://afni.nimh.nih.gov/",
-  "command-line": "3dDWItoDT [OPTIONS] [GRADIENT_FILE] [DATASET]",
+  "command-line": "3dDWItoDT [GRADIENT_FILE] [DATASET] [PREFIX] [AUTOMASK] [MASK] [BMATRIX_NZ] [BMATRIX_Z] [BMATRIX_FULL] [SCALE_OUT_1000] [BMAX_REF] [NONLINEAR] [LINEAR] [REWEIGHT] [MAX_ITER] [MAX_ITER_RW] [EIGS] [DEBUG_BRIKS] [CUMULATIVE_WTS] [VERBOSE] [DRIVE_AFNI] [SEP_DSETS] [CSF_VAL] [MIN_BAD_MD] [CSF_FA] [OPT] [MEAN_B0]",
   "inputs": [
     {
       "id": "gradient_file",
