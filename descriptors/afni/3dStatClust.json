@@ -3,7 +3,7 @@
   "name": "3dStatClust",
   "author": "AFNI Developers",
   "description": "Perform agglomerative hierarchical clustering for user specified parameter sub-bricks, for all voxels whose threshold statistic is above a user specified value.",
-  "command-line": "3dStatClust [PREFIX] [SESSION_DIR] [VERBOSE] [DIST_COR] [THRESH] [NCLUST] [DATASETS]",
+  "command-line": "3dStatClust [PREFIX] [SESSION_DIR] [VERBOSE] [DIST_EUC] [DIST_IND] [DIST_COR] [THRESH] [NCLUST] [DATASETS]",
   "container-image": {
     "type": "docker",
     "image": "afni/afni_make_build:AFNI_24.2.06"

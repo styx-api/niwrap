@@ -4,7 +4,7 @@
   "author": "AFNI Developers",
   "description": "Compute optimal combined weights dataset for multi-echo EPI data.",
   "url": "https://afni.nimh.nih.gov/",
-  "command-line": "@compute_OC_weights [ECHO_TIMES] [ECHO_DSETS] [PREFIX] [DEF_TO_EQUAL] [OC_METHOD] [SUM_WEIGHT_TOLERANCE] [T2_STAR_LIMIT] [WORK_DIR] [VERBOSITY]",
+  "command-line": "@compute_OC_weights [ECHO_TIMES] [ECHO_TIMES_FILE] [ECHO_DSETS] [PREFIX] [DEF_TO_EQUAL] [OC_METHOD] [SUM_WEIGHT_TOLERANCE] [T2_STAR_LIMIT] [WORK_DIR] [VERBOSITY]",
   "inputs": [
     {
       "description": "Specify echo times as list (e.g., \"15 30.5 41\"). Use either -echo_times or -echo_times_files.",

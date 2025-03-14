@@ -3,7 +3,7 @@
   "name": "fat_proc_convert_dcm_anat",
   "author": "AFNI Developers",
   "description": "Converts an anatomical dataset from DICOM files into a volume, specifically designed to fit in line with other processing such as DTI analysis.",
-  "command-line": "fat_proc_convert_dcm_anat [NIFTI_INPUT] [PREFIX] [WORKDIR] [ORIENT] [NO_CLEAN] [REORIG_REORIENT_OFF] [QC_PREFIX] [NO_CMD_OUT] [NO_QC_VIEW]",
+  "command-line": "fat_proc_convert_dcm_anat [DICOM_DIRECTORY] [NIFTI_INPUT] [PREFIX] [WORKDIR] [ORIENT] [NO_CLEAN] [REORIG_REORIENT_OFF] [QC_PREFIX] [NO_CMD_OUT] [NO_QC_VIEW]",
   "container-image": {
     "type": "docker",
     "image": "afni/afni_make_build:AFNI_24.2.06"

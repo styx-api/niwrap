@@ -3,7 +3,7 @@
   "name": "3dAmpToRSFC",
   "author": "AFNI Developers",
   "description": "Convert spectral amplitudes into standard RSFC parameters.",
-  "command-line": "3dAmpToRSFC { [IN_AMP] | [IN_POW] } [PREFIX] [BAND] { [MASK] } { -nifti }",
+  "command-line": "3dAmpToRSFC [IN_AMP] [IN_POW] [PREFIX] [BAND] [MASK] [NIFTI]",
   "container-image": {
     "type": "docker",
     "image": "afni/afni_make_build:AFNI_24.2.06"

@@ -4,7 +4,7 @@
   "author": "AFNI Developers",
   "description": "Computes the principal singular vector of the time series vectors extracted from the input dataset over the input mask",
   "url": "https://afni.nimh.nih.gov/",
-  "command-line": "3dmaskSVD [OPTIONS] [INPUT_DATASET]",
+  "command-line": "3dmaskSVD [INPUT_DATASET] [VNORM] [SVAL] [MASK_FILE] [AUTOMASK] [POLORT] [BANDPASS] [ORT] [ALT_INPUT]",
   "container-image": {
     "type": "docker",
     "image": "afni/afni_make_build:AFNI_24.2.06"

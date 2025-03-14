@@ -4,7 +4,7 @@
   "author": "AFNI Developers",
   "description": "Create a labelled set of ROIs from input data, useful in combining functional and tractographic/structural data.",
   "url": "https://afni.nimh.nih.gov/",
-  "command-line": "3dROIMaker [INSET] [THRESH] [PREFIX] [REFSET] [VOLTHR] [ONLY_CONN_TOP] [INFLATE] [TRIM_OFF_WM] [WM_SKEL] [SKEL_THR] [SKEL_STOP] [SKEL_STOP_STRICT] [CSF_SKEL] [MASK] [NEIGH_UPTO_VERT] [NIFTI] [PREINFL_INSET] [PREINFL_INFLATE] [DUMP_NO_LABTAB]",
+  "command-line": "3dROIMaker [INSET] [THRESH] [PREFIX] [REFSET] [VOLTHR] [ONLY_SOME_TOP] [ONLY_CONN_TOP] [INFLATE] [TRIM_OFF_WM] [WM_SKEL] [SKEL_THR] [SKEL_STOP] [SKEL_STOP_STRICT] [CSF_SKEL] [MASK] [NEIGH_UPTO_VERT] [NIFTI] [PREINFL_INSET] [PREINFL_INFLATE] [DUMP_NO_LABTAB]",
   "container-image": {
     "type": "docker",
     "image": "afni/afni_make_build:AFNI_24.2.06"

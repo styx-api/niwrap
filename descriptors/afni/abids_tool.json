@@ -3,7 +3,7 @@
   "name": "abids_tool.py",
   "author": "AFNI Developers",
   "description": "A tool to work with BIDS formatted datasets created with dcm2niix_afni or dcm2niix, mainly to pull information from the matching JSON file and refit the input dataset using 3drefit.",
-  "command-line": "abids_tool.py [INPUT_FILES] [COPY_PREFIX]",
+  "command-line": "abids_tool.py [INPUT_FILES] [TR_MATCH] [ADD_TR] [ADD_SLICE_TIMES] [COPY_PREFIX] [HELP_FLAG]",
   "container-image": {
     "type": "docker",
     "image": "afni/afni_make_build:AFNI_24.2.06"
