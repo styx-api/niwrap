@@ -1,6 +1,6 @@
 {
   "name": "antsCorticalThickness.sh",
-  "command-line": "antsCorticalThickness.sh [IMAGE_DIMENSION] [ANATOMICAL_IMAGE] [BRAIN_TEMPLATE] [BRAIN_EXTRACTION_PROBABILITY_MASK] [BRAIN_SEGMENTATION_PRIORS] [ADDITIONAL_PARAMETERS] [OUTPUT_PREFIX]",
+  "command-line": "antsCorticalThickness.sh [IMAGE_DIMENSION] [ANATOMICAL_IMAGE] [BRAIN_TEMPLATE] [BRAIN_EXTRACTION_PROBABILITY_MASK] [BRAIN_SEGMENTATION_PRIORS] [OUTPUT_PREFIX] [IMAGE_FILE_SUFFIX] [TEMPLATE_FOR_T1_REGISTRATION] [EXTRACTION_REGISTRATION_MASK] [KEEP_TEMPORARY_FILES] [DENOISE_ANATOMICAL_IMAGES] [MAX_ITERATIONS_FOR_REGISTRATION] [ATROPOS_PRIOR_SEGMENTATION_WEIGHT] [NUMBER_OF_SEGMENTATION_ITERATIONS] [POSTERIOR_FORMULATION] [USE_FLOATING_POINT_PRECISION] [USE_RANDOM_SEEDING] [USE_B_SPLINE_SMOOTHING] [CORTICAL_THICKNESS_PRIOR_IMAGE] [LABEL_PROPAGATION] [ADDITIONAL_PRIORS_FOR_THICKNESS] [USE_QUICK_REGISTRATION_PARAMETERS] [ATROPOS_ITERATIONS] [SCRIPT_STAGE_TO_RUN] [TEST_DEBUG_MODE]",
   "author": "ANTs Developers",
   "description": "This script performs T1 anatomical brain processing including brain extraction, brain n-tissue segmentation, cortical thickness estimation, and optional registration to a template.",
   "url": "https://github.com/ANTsX/ANTs",
@@ -14,7 +14,10 @@
       "type": "Number",
       "integer": true,
       "command-line-flag": "-d",
-      "value-choices": [2, 3],
+      "value-choices": [
+        2,
+        3
+      ],
       "description": "2 or 3 for 2- or 3-dimensional image"
     },
     {
@@ -91,7 +94,10 @@
       "optional": true,
       "type": "Number",
       "integer": true,
-      "value-choices": [0, 1],
+      "value-choices": [
+        0,
+        1
+      ],
       "command-line-flag": "-k",
       "description": "Keep brain extraction/segmentation warps, etc (default = 0)."
     },
@@ -102,7 +108,10 @@
       "optional": true,
       "type": "Number",
       "integer": true,
-      "value-choices": [0, 1],
+      "value-choices": [
+        0,
+        1
+      ],
       "command-line-flag": "-g",
       "description": "Denoise anatomical images (default = 0)."
     },
@@ -150,7 +159,10 @@
       "optional": true,
       "type": "Number",
       "integer": true,
-      "value-choices": [0, 1],
+      "value-choices": [
+        0,
+        1
+      ],
       "command-line-flag": "-j",
       "description": "Use single float precision in registrations (default = 0)."
     },
@@ -161,7 +173,10 @@
       "optional": true,
       "type": "Number",
       "integer": true,
-      "value-choices": [0, 1],
+      "value-choices": [
+        0,
+        1
+      ],
       "command-line-flag": "-u",
       "description": "Use random number generated from system clock (default = 1)."
     },
@@ -172,7 +187,10 @@
       "optional": true,
       "type": "Number",
       "integer": true,
-      "value-choices": [0, 1],
+      "value-choices": [
+        0,
+        1
+      ],
       "command-line-flag": "-v",
       "description": "Use B-spline SyN for registrations and B-spline exponential mapping in DiReCT (default = 0)."
     },
@@ -210,7 +228,10 @@
       "optional": true,
       "type": "Number",
       "integer": true,
-      "value-choices": [0, 1],
+      "value-choices": [
+        0,
+        1
+      ],
       "command-line-flag": "-q",
       "description": "Use antsRegistrationSyNQuick.sh for registrations (default = 0)."
     },

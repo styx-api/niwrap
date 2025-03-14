@@ -3,7 +3,7 @@
   "name": "hiam_make_surfaces",
   "author": "FreeSurfer Developers",
   "description": "Surface creation tool for specified brain structures",
-  "command-line": "hiam_make_surfaces [OPTIONS] [SUBJECT_NAME] [STRUCTURE]",
+  "command-line": "hiam_make_surfaces [SUBJECT_NAME] [STRUCTURE]",
   "schema-version": "0.5",
   "inputs": [
     {
@@ -21,7 +21,12 @@
       "optional": false,
       "id": "structure",
       "name": "Structure",
-      "value-choices": ["RA", "LA", "RH", "LH"]
+      "value-choices": [
+        "RA",
+        "LA",
+        "RH",
+        "LH"
+      ]
     }
   ],
   "container-image": {

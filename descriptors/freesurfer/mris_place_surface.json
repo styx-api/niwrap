@@ -1,7 +1,7 @@
 {
   "name": "mris_place_surface",
   "description": "This program positions the triangular mesh representing a cortical surface, either the 'white' surface (ie, white/gray boundary) or the 'pial' surface (ie, the gray/csf boundary).",
-  "command-line": "mris_place_surface [OUTPUT_SURFACE] [INPUT_SURFACE] [AUTODETECT_GRAY_WHITE_STATS] [INPUT_VOLUME] [SURFACE_TYPE_GROUP] [HEMI_GROUP] [WM_SEGMENT] [OUT_VOLUME] [OUT_VOLUME_ONLY] [RESTORE_255] [SEGMENTATION] [CORTICAL_PARCELLATION] [NSMOOTH] [SMOOTH_AFTER_RIP] [MAX_CBV_DIST] [RIP_LABEL] [RIP_MIDLINE] [RIP_BG] [RIP_BG_NO_ANNOT] [NO_RIP_FREEZE] [RIP_WMSA] [RIP_LESION] [NO_RIP] [RIP_OVERLAY] [RIP_SURFACE] [RIP_PROJECTION] [REPULSE_SURFACE] [WHITE_SURFACE] [BLEND_SURFACE] [MULTIMODAL_INPUT] [MM_REFINE] [PIN_MEDIAL_WALL] [NO_INTENSITY_PROC] [DEBUG_VERTEX] [RIPFLAG_OUT] [LOCAL_MAX] [TARGET_SURF] [STOP_MASK] [MM_INTENSITY_LIMITS] [COVER_SEG] [FIRST_PEAK_D1] [FIRST_PEAK_D2] [WHITE_BORDER_LOW_FACTOR] [FILL_LATERAL_VENTRICLES] [COST_FUNCTION_ARGS]",
+  "command-line": "mris_place_surface [OUTPUT_SURFACE] [INPUT_SURFACE] [AUTODETECT_GRAY_WHITE_STATS] [INPUT_VOLUME] [SURFACE_TYPE_GROUP] [HEMI_GROUP] [WM_SEGMENT] [OUT_VOLUME] [OUT_VOLUME_ONLY] [RESTORE_255] [SEGMENTATION] [CORTICAL_PARCELLATION] [NSMOOTH] [SMOOTH_AFTER_RIP] [MAX_CBV_DIST] [RIP_LABEL] [RIP_MIDLINE] [RIP_BG] [RIP_BG_NO_ANNOT] [NO_RIP_FREEZE] [RIP_WMSA] [RIP_LESION] [NO_RIP] [RIP_OVERLAY] [RIP_SURFACE] [RIP_PROJECTION] [REPULSE_SURFACE] [WHITE_SURFACE] [BLEND_SURFACE] [MULTIMODAL_INPUT] [MM_REFINE] [PIN_MEDIAL_WALL] [NO_INTENSITY_PROC] [DEBUG_VERTEX] [RIPFLAG_OUT] [LOCAL_MAX] [TARGET_SURF] [STOP_MASK] [MM_INTENSITY_LIMITS] [COVER_SEG] [FIRST_PEAK_D1] [FIRST_PEAK_D2] [WHITE_BORDER_LOW_FACTOR] [FILL_LATERAL_VENTRICLES]",
   "schema-version": "0.5",
   "inputs": [
     {
@@ -46,7 +46,10 @@
       "optional": false,
       "id": "surface_type_group",
       "type": "String",
-      "value-choices": ["--white", "--pial"],
+      "value-choices": [
+        "--white",
+        "--pial"
+      ],
       "name": "Surface Type"
     },
     {
@@ -55,7 +58,10 @@
       "optional": false,
       "id": "hemi_group",
       "type": "String",
-      "value-choices": ["--lh", "--rh"],
+      "value-choices": [
+        "--lh",
+        "--rh"
+      ],
       "name": "Hemisphere"
     },
     {
