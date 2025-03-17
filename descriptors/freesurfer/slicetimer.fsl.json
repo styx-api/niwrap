@@ -3,7 +3,7 @@
   "name": "slicetimer.fsl",
   "author": "FreeSurfer Developers",
   "description": "FMRIB's Interpolation for Slice Timing correction in FMRI data",
-  "command-line": "slicetimer --in [INFILE] [OUTFILE] [TR] [DIRECTION] [INTERLEAVED] [REVERSE] [CUSTOM_TIMINGS] [GLOBAL_SHIFT] [CUSTOM_INTERLEAVE_ORDER] [VERBOSE]",
+  "command-line": "slicetimer.fsl [INFILE] [OUTFILE] [TR] [DIRECTION] [INTERLEAVED] [REVERSE] [CUSTOM_TIMINGS] [GLOBAL_SHIFT] [CUSTOM_INTERLEAVE_ORDER] [VERBOSE]",
   "schema-version": "0.5",
   "inputs": [
     {
@@ -41,7 +41,11 @@
       "optional": true,
       "id": "direction",
       "name": "Acquisition direction",
-      "value-choices": ["x", "y", "z"]
+      "value-choices": [
+        "x",
+        "y",
+        "z"
+      ]
     },
     {
       "command-line-flag": "--odd",

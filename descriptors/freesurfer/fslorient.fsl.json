@@ -2,7 +2,7 @@
   "name": "fslorient.fsl",
   "tool-version": "7.4.1",
   "description": "A tool for managing the orientations and orientation headers of NIFTI images.",
-  "command-line": "fslorient [SWAP_ORIENT] [FILENAME] [SET_QFORM] [SET_QFORM_CODE]",
+  "command-line": "fslorient.fsl [FILENAME] [GET_ORIENT] [GET_SFORM] [GET_QFORM] [SET_SFORM] [SET_QFORM] [GET_SFORM_CODE] [GET_QFORM_CODE] [SET_SFORM_CODE] [SET_QFORM_CODE] [COPY_SFORM_TO_QFORM] [COPY_QFORM_TO_SFORM] [DELETE_ORIENT] [FORCE_RADIOLOGICAL] [FORCE_NEUROLOGICAL] [SWAP_ORIENT]",
   "container-image": {
     "type": "docker",
     "image": "freesurfer/freesurfer:7.4.1"
