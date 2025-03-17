@@ -4,7 +4,7 @@
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Tool for handling half-cosine basis functions in FSL",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
-  "command-line": "halfcosbasis [HRF_PARAM_FILE_HF] [VERBOSE_FLAG] [DEBUG_LEVEL_DEBUGLEVEL] [TIMING_ON_FLAG] [LOG_DIR_LOGDIR] [NUM_HRF_SAMPLES] [NUM_HRF_BASIS_FUNCS] [NUM_SECS_NSECS] [TEMP_RES]",
+  "command-line": "halfcosbasis [HRF_PARAM_FILE] [HRF_PARAM_FILE_HF] [VERBOSE_FLAG] [DEBUG_LEVEL] [DEBUG_LEVEL_DEBUG] [DEBUG_LEVEL_DEBUGLEVEL] [TIMING_ON_FLAG] [LOG_DIR] [LOG_DIR_LD] [LOG_DIR_LOGDIR] [NUM_HRF_SAMPLES] [NUM_HRF_BASIS_FUNCS] [NUM_SECS] [NUM_SECS_NSECS] [TEMP_RES] [HELP_FLAG] [HELP_FLAG_LONG]",
   "container-image": {
     "type": "docker",
     "image": "brainlife/fsl:6.0.4-patched2"

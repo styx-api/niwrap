@@ -3,7 +3,7 @@
   "name": "surf2surf",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Conversions between surface formats and/or conventions",
-  "command-line": "surf2surf -i [INPUT_SURFACE] -o [OUTPUT_SURFACE] [INPUT_CONVENTION] [OUTPUT_CONVENTION] [INPUT_REF_VOLUME] [OUTPUT_REF_VOLUME] [TRANSFORM] [OUTPUT_TYPE] [OUTPUT_VALUES]",
+  "command-line": "surf2surf [INPUT_SURFACE] [OUTPUT_SURFACE] [INPUT_CONVENTION] [OUTPUT_CONVENTION] [INPUT_REF_VOLUME] [OUTPUT_REF_VOLUME] [TRANSFORM] [OUTPUT_TYPE] [OUTPUT_VALUES]",
   "container-image": {
     "type": "docker",
     "image": "brainlife/fsl:6.0.4-patched2"
@@ -13,6 +13,7 @@
       "description": "Input surface",
       "value-key": "[INPUT_SURFACE]",
       "command-line-flag": "--surfin",
+      "command-line-flag-separator": "=",
       "type": "File",
       "optional": false,
       "id": "input_surface",
@@ -22,6 +23,7 @@
       "description": "Output surface",
       "value-key": "[OUTPUT_SURFACE]",
       "command-line-flag": "--surfout",
+      "command-line-flag-separator": "=",
       "type": "File",
       "optional": false,
       "id": "output_surface",
