@@ -5,7 +5,7 @@
   "descriptor-url": "https://example.com/3dOverlap_descriptor.json",
   "description": "Counts the number of voxels that are nonzero in all input datasets",
   "url": "https://afni.nimh.nih.gov/",
-  "command-line": "3dOverlap [OPTIONS] [DATASET1] [DATASET2]",
+  "command-line": "3dOverlap [DATASET1] [DATASET2] [SAVE_PREFIX]",
   "container-image": {
     "type": "docker",
     "image": "afni/afni_make_build:AFNI_24.2.06"

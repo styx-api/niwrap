@@ -4,7 +4,7 @@
   "author": "AFNI Developers",
   "description": "Nonparametric Wilcoxon signed-rank test for paired comparisons of two samples",
   "url": "https://afni.nimh.nih.gov/",
-  "command-line": "3dWilcoxon [WORKMEM] [VOXEL] -dset 1 [DSET1_X] -dset 2 [DSET2_Y] [OUTPUT_PREFIX]",
+  "command-line": "3dWilcoxon [WORKMEM] [VOXEL] [DSET1_X] [DSET2_Y] [OUTPUT_PREFIX]",
   "container-image": {
     "type": "docker",
     "image": "afni/afni_make_build:AFNI_24.2.06"
@@ -13,6 +13,7 @@
     {
       "description": "Data set for X observations. The user must specify 1 and only 1 sub-brick with each -dset command.",
       "value-key": "[DSET1_X]",
+      "command-line-flag": "-dset 1",
       "type": "File",
       "list": true,
       "id": "dset1_x",
@@ -22,6 +23,7 @@
     {
       "description": "Data set for Y observations. The user must specify 1 and only 1 sub-brick with each -dset command.",
       "value-key": "[DSET2_Y]",
+      "command-line-flag": "-dset 2",
       "type": "File",
       "list": true,
       "id": "dset2_y",

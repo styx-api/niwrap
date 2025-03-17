@@ -5,7 +5,7 @@
   "descriptor-url": "https://github.com/afni/afni",
   "description": "3dcopy copies datasets with or without altering prefixes and converting formats.",
   "url": "https://afni.nimh.nih.gov/",
-  "command-line": "3dcopy [VERBOSE] [DENOTE] {OLD_PREFIX}+{VIEW} {NEW_PREFIX}",
+  "command-line": "3dcopy [VERBOSE] [DENOTE] [OLD_PREFIX][VIEW] [NEW_PREFIX]",
   "container-image": {
     "type": "docker",
     "image": "afni/afni_make_build:AFNI_24.2.06"

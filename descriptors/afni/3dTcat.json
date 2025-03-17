@@ -1,6 +1,6 @@
 {
   "name": "3dTcat",
-  "command-line": "3dTcat [RLT][IN_FILES] [OUT_FILE] [OUTPUTTYPE] [VERBOSE]",
+  "command-line": "3dTcat [RLT][IN_FILES] [OUT_FILE] [OUTPUTTYPE] [NUM_THREADS] [VERBOSE]",
   "author": "AFNI Developers",
   "description": "Concatenate sub-bricks from input datasets into one big 3D+time dataset.\nTODO Replace InputMultiPath in_files with Traits.List, if possible. Current version adds extra whitespace.",
   "url": "https://afni.nimh.nih.gov/",
@@ -51,6 +51,15 @@
       "command-line-flag": "-verb",
       "description": "Print out some verbose output as the program.",
       "optional": true
+    },
+    {
+      "name": "Out file",
+      "id": "out_file",
+      "optional": true,
+      "description": "Output image file name.",
+      "value-key": "[OUT_FILE]",
+      "command-line-flag": "-prefix",
+      "type": "String"
     }
   ],
   "output-files": [
@@ -62,13 +71,6 @@
       "path-template": "[IN_FILES]_tcat",
       "value-key": "[OUT_FILE]",
       "command-line-flag": "-prefix"
-    },
-    {
-      "name": "Out file",
-      "id": "out_file",
-      "path-template": "out_file",
-      "optional": true,
-      "description": "Output file."
     }
   ],
   "tool-version": "24.2.06",

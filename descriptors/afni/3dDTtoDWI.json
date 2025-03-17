@@ -3,7 +3,7 @@
   "name": "3dDTtoDWI",
   "author": "AFNI Developers",
   "description": "Tool to compute multiple gradient images from tensors and gradient vector coordinates applied to the I0-dataset.",
-  "command-line": "3dDTtoDWI [OPTIONS] [GRADIENT_FILE] [I0_DATASET] [DT_DATASET]",
+  "command-line": "3dDTtoDWI [GRADIENT_FILE] [I0_DATASET] [DT_DATASET] [PREFIX] [AUTOMASK] [DATUM_TYPE] [SCALE_OUT_1000] [HELP]",
   "container-image": {
     "type": "docker",
     "image": "afni/afni_make_build:AFNI_24.2.06"
