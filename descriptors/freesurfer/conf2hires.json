@@ -3,7 +3,7 @@
   "name": "conf2hires",
   "author": "FreeSurfer Developers",
   "description": "Places the surfaces on high resolution T1 (and maybe T2) volumes based on an initial placement on a conformed volume.",
-  "command-line": "conf2hires [SUBJECT] [NO_T2] [MM_NORM_SIGMA] [NO_FLAIR] [THREADS] [COPY_BIAS_FROM_CONF] [NORM_OPTS_RCA] [TRILIN] [NO_DEV] [BBR_T2] [FIRST_PEAK_D1] [FIRST_PEAK_D2] [STOPMASK] [EXPERT] [FORCE_UPDATE]",
+  "command-line": "conf2hires [SUBJECT] [T2] [NO_T2] [MM_NORM_SIGMA] [FLAIR] [NO_FLAIR] [THREADS] [COPY_BIAS_FROM_CONF] [NORM_OPTS_RCA] [CUBIC] [TRILIN] [DEV] [NO_DEV] [BBR_CON] [BBR_T1] [BBR_T2] [FIRST_PEAK_D1] [FIRST_PEAK_D2] [STOPMASK] [EXPERT] [FORCE_UPDATE]",
   "container-image": {
     "type": "docker",
     "image": "freesurfer/freesurfer:7.4.1"

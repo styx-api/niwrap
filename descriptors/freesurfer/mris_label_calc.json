@@ -4,7 +4,7 @@
   "author": "FreeSurfer Developers",
   "descriptor-url": "https://example.com/descriptors/mris_label_calc.json",
   "description": "Tool for surface label calculations",
-  "command-line": "mris_label_calc [COMMAND] [INPUT1] [INPUT2] [OUTPUT]",
+  "command-line": "mris_label_calc [COMMAND] [INPUT1] [INPUT2] [OUTPUT] [ITERATIONS]",
   "schema-version": "0.5",
   "inputs": [
     {
@@ -12,7 +12,13 @@
       "id": "command",
       "name": "Command",
       "type": "String",
-      "value-choices": ["union", "intersect", "invert", "erode", "dilate"],
+      "value-choices": [
+        "union",
+        "intersect",
+        "invert",
+        "erode",
+        "dilate"
+      ],
       "optional": false,
       "value-key": "[COMMAND]"
     },

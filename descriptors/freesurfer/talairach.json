@@ -4,7 +4,7 @@
   "author": "FreeSurfer Developers",
   "descriptor-url": "https://github.com/aces/cbrain-plugins-neuro/blob/master/cbrain_task_descriptors/minc_talairach.json",
   "description": "Front-end for MINC's mritotal to compute the Talairach transform mapping the input volume to the MNI305.",
-  "command-line": "mri_nu_correct.mni -[INPUT_VOLUME] -[OUTPUT_TRANSFORM] [LOG_FLAG] [DEBUG_FLAG]",
+  "command-line": "talairach [INPUT_VOLUME] [OUTPUT_TRANSFORM] [LOG_FLAG] [DEBUG_FLAG]",
   "container-image": {
     "type": "docker",
     "image": "freesurfer/freesurfer:7.4.1"

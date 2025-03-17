@@ -4,7 +4,7 @@
   "author": "FreeSurfer Developers",
   "descriptor-url": "https://freesurfer.net/fswiki/segment_subject_sc",
   "description": "Front-end for MINC's mritotal. Computes the Talairach transform for mapping the input volume to the MNI305 space.",
-  "command-line": "mri_nu_correct.mni -[INVOL] -[OUTXFM] [LOG] [DEBUG]",
+  "command-line": "segment_subject_sc [INVOL] [OUTXFM] [LOG] [DEBUG]",
   "container-image": {
     "type": "docker",
     "image": "freesurfer/freesurfer:7.4.1"
