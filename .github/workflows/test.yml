@@ -1,4 +1,4 @@
-name: Validate & Spell-Check
+name: Validate & Test
 on:
   push:
       branches:
@@ -27,14 +27,12 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - name: Set up Python
         uses: actions/setup-python@v5
-
       - name: Install dependencies
         run: |
           pip install pytest
-
       - name: Run tests
         run: |
           pytest tests
-
