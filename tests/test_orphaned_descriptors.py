@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 
 def load_packages():
-    return list(Path('packages').glob('*.json'))
+    return map(str, Path('packages').glob('*.json'))  # pytest print output does not like pathlib
 
 @pytest.mark.parametrize('package_path', load_packages())
 class TestOrphanedDescriptors:
