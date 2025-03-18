@@ -9,7 +9,7 @@ on:
 
 
 jobs:
-  validate:
+  check-schema:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -23,10 +23,18 @@ jobs:
           ajv_strict_mode: false
           use_gitignore: false
           json_exclude_regex: ''
-      # Disable Spell-Check for now, consider re-enabling or running codespace locally for qc at a later date
-      #- name: Spell-Check JSON
-      #  uses: codespell-project/actions-codespell@v2
-      #  with:
-      #      only_warn: 1
-      #      ignore_words_file: .codespellignore
-      #      path: descriptors
+          
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v5
+
+      - name: Install dependencies
+        run: |
+          pip install pytest
+
+      - name: Run tests
+        run: |
+          pytest tests
+
