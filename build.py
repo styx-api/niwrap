@@ -161,7 +161,7 @@ This package contains wrappers only and has no affiliation with the original aut
     tsp = TEMPLATE_ROOT_PYPROJECT
 
     tsp = tsp.replace(
-        "{{DEPENDENCIES}}", ",\n".join([f'  "niwrap_{x}"' for x in package_reexports])
+        "{{DEPENDENCIES}}", ",\n".join([f'  "niwrap_{x}=={niwrap_version}"' for x in package_reexports])
     )
     tsp = tsp.replace("{{VERSION}}", niwrap_version)
 
