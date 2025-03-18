@@ -180,12 +180,7 @@
       "command-line-flag-separator": "=",
       "value-key": "[FLM]",
       "description": "First level EC model (movement/linear/quadratic/cubic, default quadratic)",
-      "value-choices": [
-        "movement",
-        "linear",
-        "quadratic",
-        "cubic"
-      ],
+      "value-choices": ["movement", "linear", "quadratic", "cubic"],
       "type": "String",
       "optional": true
     },
@@ -196,11 +191,7 @@
       "command-line-flag-separator": "=",
       "value-key": "[SLM]",
       "description": "Second level EC model (none/linear/quadratic, default none)",
-      "value-choices": [
-        "none",
-        "linear",
-        "quadratic"
-      ],
+      "value-choices": ["none", "linear", "quadratic"],
       "type": "String",
       "optional": true
     },
@@ -268,10 +259,7 @@
       "command-line-flag-separator": "=",
       "value-key": "[INTERP]",
       "description": "Interpolation model for estimation step (spline/trilinear, default spline)",
-      "value-choices": [
-        "spline",
-        "trilinear"
-      ],
+      "value-choices": ["spline", "trilinear"],
       "type": "String",
       "optional": true
     },
@@ -282,10 +270,7 @@
       "command-line-flag-separator": "=",
       "value-key": "[S2V_INTERP]",
       "description": "Slice-to-vol interpolation model for estimation step (spline/trilinear, default trilinear)",
-      "value-choices": [
-        "spline",
-        "trilinear"
-      ],
+      "value-choices": ["spline", "trilinear"],
       "type": "String",
       "optional": true
     },
@@ -296,10 +281,7 @@
       "command-line-flag-separator": "=",
       "value-key": "[RESAMP]",
       "description": "Final resampling method (jac/lsr, default jac)",
-      "value-choices": [
-        "jac",
-        "lsr"
-      ],
+      "value-choices": ["jac", "lsr"],
       "type": "String",
       "optional": true
     },
@@ -369,11 +351,7 @@
       "command-line-flag-separator": "=",
       "value-key": "[OL_TYPE]",
       "description": "Type of outliers, slicewise (sw), groupwise (gw) or both (both). (default sw)",
-      "value-choices": [
-        "sw",
-        "gw",
-        "both"
-      ],
+      "value-choices": ["sw", "gw", "both"],
       "type": "String",
       "optional": true
     },
