@@ -4,7 +4,7 @@
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "FSL tool to manipulate NIfTI header orientation information",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
-  "command-line": "fslorient [SWAP_ORIENT] [FILENAME]",
+  "command-line": "fslorient [GET_ORIENT] [GET_SFORM] [GET_QFORM] [SET_SFORM] [SET_QFORM] [SET_SFORM_CODE] [SET_QFORM_CODE] [GET_QFORM_CODE] [GET_SFORM_CODE] [COPY_QFORM_TO_SFORM][COPY_SFORM_TO_QFORM] [DELETE_ORIENT] [FORCE_NEUROLOGICAL] [FORCE_RADIOLOGICAL] [SWAP_ORIENT] [FILENAME]",
   "container-image": {
     "type": "docker",
     "image": "brainlife/fsl:6.0.4-patched2"

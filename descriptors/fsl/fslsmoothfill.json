@@ -3,7 +3,7 @@
   "name": "fslsmoothfill",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Smoothfill is a tool designed to fill in holes in images by smoothly interpolating the pixel values.",
-  "command-line": "fslsmoothfill -i [INPUT_IMAGE] -m [MASK_IMAGE] -o [OUTPUT_IMAGE] [NUMBER_OF_ITERATIONS] [DEBUG_FLAG] [VERBOSE_FLAG]",
+  "command-line": "fslsmoothfill [INPUT_IMAGE] [MASK_IMAGE] [OUTPUT_IMAGE] [NUMBER_OF_ITERATIONS] [DEBUG_FLAG] [VERBOSE_FLAG]",
   "container-image": {
     "type": "docker",
     "image": "brainlife/fsl:6.0.4-patched2"
@@ -16,7 +16,8 @@
       "optional": false,
       "id": "input_image",
       "name": "Input Image",
-      "command-line-flag": "--in"
+      "command-line-flag": "--in",
+      "command-line-flag-separator": "="
     },
     {
       "description": "Filename of the mask image.",
@@ -25,7 +26,8 @@
       "optional": false,
       "id": "mask_image",
       "name": "Mask Image",
-      "command-line-flag": "--mask"
+      "command-line-flag": "--mask",
+      "command-line-flag-separator": "="
     },
     {
       "description": "Filename for the output smoothed result image.",
@@ -34,7 +36,8 @@
       "optional": false,
       "id": "output_image",
       "name": "Output Image",
-      "command-line-flag": "--out"
+      "command-line-flag": "--out",
+      "command-line-flag-separator": "="
     },
     {
       "description": "Number of iterations.",

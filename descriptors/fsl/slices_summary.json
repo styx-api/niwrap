@@ -2,7 +2,7 @@
   "tool-version": "6.0.4",
   "name": "slices_summary",
   "description": "Generate summary PNG images for 4D neuroimaging data.",
-  "command-line": "slices_summary [4D_INPUT_FILE] [THRESHOLD] [BACKGROUND_IMAGE] [PICTURES_SUM_SECOND] [SINGLE_SLICE_FLAG] [DARKER_BACKGROUND_FLAG] [DUMB_RULE_FLAG] | slices_summary [PICTURES_SUM_SECOND] [OUTPUT_PNG] [TIMEPOINTS]",
+  "command-line": "slices_summary [4D_INPUT_FILE] [THRESHOLD] [BACKGROUND_IMAGE] [PICTURES_SUM] [SINGLE_SLICE_FLAG] [DARKER_BACKGROUND_FLAG] [DUMB_RULE_FLAG] [PICTURES_SUM_SECOND] [OUTPUT_PNG] [TIMEPOINTS]",
   "container-image": {
     "type": "docker",
     "image": "brainlife/fsl:6.0.4-patched2"

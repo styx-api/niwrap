@@ -3,7 +3,7 @@
   "name": "baycest",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Bayesian analysis for chemical exchange saturation transfer z-spectra",
-  "command-line": "baycest --data=[DATA_FILE] --mask=[MASK_FILE] --output=[OUTPUT_DIR] --pools=[POOLS_FILE] --spec=[SPEC_FILE] --ptrain=[PTRAIN_FILE] [SPATIAL_FLAG] [T12PRIOR_FLAG]",
+  "command-line": "baycest [DATA_FILE] [MASK_FILE] [OUTPUT_DIR] [POOLS_FILE] [SPEC_FILE] [PTRAIN_FILE] [SPATIAL_FLAG] [T12PRIOR_FLAG]",
   "container-image": {
     "type": "docker",
     "image": "brainlife/fsl:6.0.4-patched2"
@@ -15,7 +15,9 @@
       "type": "File",
       "optional": false,
       "id": "data_file",
-      "name": "Data file"
+      "name": "Data file",
+      "command-line-flag": "--data",
+      "command-line-flag-separator": "="
     },
     {
       "description": "Specify mask file (nifti image)",
@@ -23,7 +25,9 @@
       "type": "File",
       "optional": false,
       "id": "mask_file",
-      "name": "Mask file"
+      "name": "Mask file",
+      "command-line-flag": "--mask",
+      "command-line-flag-separator": "="
     },
     {
       "description": "Specify output directory name",
@@ -31,7 +35,9 @@
       "type": "String",
       "optional": false,
       "id": "output_dir",
-      "name": "Output directory"
+      "name": "Output directory",
+      "command-line-flag": "--output",
+      "command-line-flag-separator": "="
     },
     {
       "description": "Specify pools to be included in model (ascii matrix)",
@@ -39,7 +45,9 @@
       "type": "File",
       "optional": false,
       "id": "pools_file",
-      "name": "Pools file"
+      "name": "Pools file",
+      "command-line-flag": "--pools",
+      "command-line-flag-separator": "="
     },
     {
       "description": "Data specification (ascii matrix)",
@@ -47,7 +55,9 @@
       "type": "File",
       "optional": false,
       "id": "spec_file",
-      "name": "Specification file"
+      "name": "Specification file",
+      "command-line-flag": "--spec",
+      "command-line-flag-separator": "="
     },
     {
       "description": "Specify pulse shape (ascii matrix)",
@@ -55,7 +65,9 @@
       "type": "File",
       "optional": false,
       "id": "ptrain_file",
-      "name": "Pulse shape file"
+      "name": "Pulse shape file",
+      "command-line-flag": "--ptrain",
+      "command-line-flag-separator": "="
     },
     {
       "command-line-flag": "--spatial",

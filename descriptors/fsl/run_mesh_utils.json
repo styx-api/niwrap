@@ -3,7 +3,7 @@
   "name": "run_mesh_utils",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "A tool for various mesh operations as part of FSL.",
-  "command-line": "run_mesh_utils [BASE_MESH] [OUTPUT_IMAGE] [INPUT_IMAGE] [SECOND_INPUT_IMAGE] [WEIGHTING_IMAGE_FORCE] [OPTIONAL_PARAMS...]",
+  "command-line": "run_mesh_utils [BASE_MESH] [OUTPUT_IMAGE] [INPUT_IMAGE] [SECOND_INPUT_IMAGE] [WEIGHTING_IMAGE_FORCE] [DO_UNCENTRE_MODEL] [DO_SUBTRACT_CONSTANT_FROM_SCALARS] [DO_VERTEX_SCALARS_TO_IMAGE_VOLUME] [BASE_MESH2] [USE_SC2] [FLIRT_MATRIX] [DO_MESH_REG] [THRESHOLD] [DEGREES_OF_FREEDOM] [INVERSE] [VERBOSE] [HELP]",
   "container-image": {
     "type": "docker",
     "image": "brainlife/fsl:6.0.4-patched2"
