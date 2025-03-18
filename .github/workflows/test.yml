@@ -16,7 +16,7 @@ jobs:
       - name: Validate JSON
         uses: GrantBirki/json-yaml-validate@v3.2.1
         with:
-          mode: warn
+          mode: fail
           base_dir: descriptors
           json_schema: schemas/descriptor.schema.json
           json_schema_version: draft-07

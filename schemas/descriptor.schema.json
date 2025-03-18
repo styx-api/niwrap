@@ -655,7 +655,6 @@
                             "output-files": {
                                 "$id": "http://github.com/boutiques/boutiques-schema/tests/test-case/assertions/out-files",
                                 "type": "array",
-                                "minItems": 1,
                                 "items": {
                                     "$id": "http://github.com/boutiques/boutiques-schema/test-case/assertions/out-files/output",
                                     "type": "object",
@@ -679,19 +678,7 @@
                                     ]
                                 }
                             }
-                        },
-                        "anyOf": [
-                            {
-                                "required": [
-                                    "exit-code"
-                                ]
-                            },
-                            {
-                                "required": [
-                                    "output-files"
-                                ]
-                            }
-                        ]
+                        }
                     }
                 },
                 "required": [
