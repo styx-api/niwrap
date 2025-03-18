@@ -1,6 +1,6 @@
 {
   "name": "DenoiseImage",
-  "command-line": "DenoiseImage [IMAGE_DIMENSIONALITY] [NOISE_MODEL] [SHRINK_FACTOR] [MASK_IMAGE] [PATCH_RADIUS] [SEARCH_RADIUS] [VERBOSE] [INPUT_IMAGE]   --output [[CORRECTED_IMAGE_PATH],[NOISE_IMAGE_PATH]]",
+  "command-line": "DenoiseImage [IMAGE_DIMENSIONALITY] [NOISE_MODEL] [SHRINK_FACTOR] [MASK_IMAGE] [PATCH_RADIUS] [SEARCH_RADIUS] [VERBOSE] [INPUT_IMAGE] [OUTPUT]",
   "author": "ANTs Developers",
   "description": "Denoise an image using a spatially adaptive filter originally described in J. V. Manjon, P. Coupe, Luis Marti-Bonmati, D. L. Collins, and M. Robles. Adaptive Non-Local Means Denoising of MR Images With Spatially Varying Noise Levels, Journal of Magnetic Resonance Imaging, 31:192-203, June 2010.",
   "url": "https://github.com/ANTsX/ANTs",
@@ -90,35 +90,87 @@
       "description": "-i, --input-image inputImageFilename. A scalar image is expected as input for noise correction."
     },
     {
-      "id": "corrected_image_path",
-      "name": "Corrected image path",
-      "value-key": "[CORRECTED_IMAGE_PATH]",
-      "type": "String",
+      "id": "output",
+      "name": "output",
+      "value-key": "[OUTPUT]",
+      "command-line-flag": "--output",
+      "description": "The denoised version of the input image, with optional noise map image.",
       "optional": false,
-      "description": "The noise corrected version of the input image."
-    },
-    {
-      "id": "noise_image_path",
-      "name": "Noise image path",
-      "value-key": "[NOISE_IMAGE_PATH]",
-      "type": "String",
-      "optional": false,
-      "description": "Estimated noise image."
+      "type": [
+        {
+          "id": "correctedOutput",
+          "name": "Denoised image path",
+          "command-line": "[OUTPUT]",
+          "description": "Denoised version of the input image.",
+          "inputs": [
+            {
+              "id": "correctedOutputFileName",
+              "name": "Denoised output file name",
+              "type": "String",
+              "value-key": "[OUTPUT]",
+              "description": "Output file name."
+            }
+          ],
+          "output-files": [
+            {
+              "name": "Output image",
+              "id": "output_image_outfile",
+              "path-template": "[OUTPUT]",
+              "optional": false,
+              "description": "Denoised image."
+            }
+          ]
+        },
+        {
+          "id": "correctedOutputNoise",
+          "name": "Denoise image path with noise map",
+          "command-line": "[[OUTPUT][NOISE_IMAGE_PATH]]",
+          "description": "Denoised version of the input image, along with noise image.",
+          "inputs": [
+            {
+              "id": "correctedOutputFileName",
+              "name": "Denoised output file name",
+              "type": "String",
+              "value-key": "[OUTPUT]",
+              "description": "Output file name."
+            },
+            {
+              "id": "noiseFile",
+              "name": "Noise output file name",
+              "type": "String",
+              "command-line-flag": ",",
+              "command-line-flag-separator": "",
+              "value-key": "[NOISE_IMAGE_PATH]",
+              "description": "Output noise map image.",
+              "optional": true
+            }
+          ],
+          "output-files": [
+            {
+              "name": "Output image",
+              "id": "output_image_outfile",
+              "path-template": "[OUTPUT]",
+              "optional": false,
+              "description": "Denoised output image."
+            },
+            {
+              "name": "Noise map image",
+              "id": "output_bias_image",
+              "path-template": "[NOISE_IMAGE_PATH]",
+              "optional": true,
+              "description": "Noise map image."
+            }
+          ]
+        }
+      ]
     }
   ],
   "output-files": [
     {
       "id": "corrected_image",
       "name": "Corrected image",
-      "path-template": "[CORRECTED_IMAGE_PATH]",
-      "description": "The noise corrected version of the input image.",
-      "optional": false
-    },
-    {
-      "id": "noise_image",
-      "name": "Noise image",
-      "path-template": "[NOISE_IMAGE_PATH]",
-      "description": "Estimated noise image.",
+      "path-template": "[OUTPUT]",
+      "description": "The bias corrected version of the input image.",
       "optional": false
     }
   ]
