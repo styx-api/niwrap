@@ -63,35 +63,34 @@ yarn add niwrap
 <summary><b>Python</b></summary>
 
 ```python
-from niwrap import fsl, ants, mrtrix3
+from niwrap import fsl, ants, mrtrix
 
 # Optional: Use Docker to run all tools (no local installation needed)
 import niwrap
 niwrap.use_docker()
 
 # Run FSL's BET brain extraction
-outputs = fsl.bet("input.nii.gz", "brain.nii.gz", f=0.5)
-# outputs.output_file -> "brain.nii.gz"
-# outputs.mask_file -> "brain_mask.nii.gz"
-
-# Chain outputs into next step
-reg_outputs = ants.antsRegistration(
-    fixed="t1.nii.gz", 
-    moving=outputs.output_file,  # Use the BET output
-    output_prefix="reg_",
-    transform_type="s"  # Rigid transformation
+outputs = fsl.bet(
+    infile="input.nii.gz", 
+    maskfile="brain.nii.gz", 
+    fractional_intensity=0.5,
+    binary_mask=True,
 )
-# reg_outputs.warped_image -> "reg_Warped.nii.gz"
-# reg_outputs.inverse_warped_image -> "reg_InverseWarped.nii.gz"
+# outputs.outfile -> "brain.nii.gz"
+# outputs.binary_mask -> "brain_mask.nii.gz"
 
 # Calculate fiber orientation distributions with MRTrix3
-fod_outputs = mrtrix3.dwi2fod(
+fod_outputs = mrtrix.dwi2fod(
     algorithm="csd",
-    in_file="dwi.mif",
-    wm_txt="wm_response.txt",
-    wm_odf="wmfod.mif"
+    dwi="dwi.mif",
+    response_odf=[
+        mrtrix.dwi2fod_response_odf_params(
+            response="wm_response.txt",
+            odf="wmfod.mif",
+        ),
+    ]
 )
-# fod_outputs.wm_odf -> "wmfod.mif"
+# fod_outputs.response_odf[0].odf -> "wmfod.mif"
 ```
 </details>
 
@@ -112,16 +111,6 @@ const outputs = await fsl.bet({
 });
 // outputs.outputFile -> "brain.nii.gz"
 // outputs.maskFile -> "brain_mask.nii.gz"
-
-// Chain outputs into next step
-const regOutputs = await ants.antsRegistration({
-    fixed: "t1.nii.gz", 
-    moving: outputs.outputFile,  // Use the BET output
-    outputPrefix: "reg_",
-    transformType: "s"  // Rigid transformation
-});
-// regOutputs.warpedImage -> "reg_Warped.nii.gz"
-// regOutputs.inverseWarpedImage -> "reg_InverseWarped.nii.gz"
 
 // Calculate fiber orientation distributions with MRTrix3
 const fodOutputs = await mrtrix3.dwi2fod({
@@ -144,7 +133,7 @@ library(niwrap)
 niwrap$use_docker()
 
 # Run FSL's BET brain extraction
-outputs <- fsl$bet("input.nii.gz", "brain.nii.gz", f=0.5)
+outputs <- fsl$bet("input.nii.gz", "brain.nii.gz", fractional_intensity=0.5)
 # outputs$output_file -> "brain.nii.gz"
 # outputs$mask_file -> "brain_mask.nii.gz"
 
