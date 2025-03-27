@@ -22,7 +22,22 @@ NiWrap provides seamless, programmatic access to powerful neuroimaging command-l
 ## 🧰 Supported Packages
 
 <!-- START_PACKAGES_TABLE -->
-<!-- Package table will be auto-generated here -->
+
+| Package | Status | Version | API Coverage |
+| --- | --- | --- | --- |
+| [AFNI](https://afni.nimh.nih.gov/) | Experimental | [`24.2.06`](https://hub.docker.com/r/afni/afni_make_build) | 565/611 (92.5%) |
+| [ANTs](https://github.com/ANTsX/ANTs) | Experimental | [`2.5.3`](https://hub.docker.com/r/antsx/ants) | 71/113 (62.8%) |
+| [Connectome Workbench](https://github.com/Washington-University/workbench) | Experimental | [`1.5.0`](https://hub.docker.com/r/brainlife/connectome_workbench) | 202/202 (100% 🎉) |
+| [Convert3D](http://www.itksnap.org/pmwiki/pmwiki.php?n=Convert3D.Convert3D) | Experimental | [`1.1.0`](https://hub.docker.com/r/pyushkevich/itksnap) | 2/2 (100% 🎉) |
+| [FSL](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki) | Experimental | [`6.0.5`](https://hub.docker.com/r/brainlife/fsl) | 245/313 (78.3%) |
+| [FastSurfer](https://github.com/Deep-MI/FastSurfer) | Experimental | [`2.3.3`](https://hub.docker.com/r/deepmi/fastsurfer) | 1/1 (100% 🎉) |
+| [FreeSurfer](https://github.com/freesurfer/freesurfer) | Experimental | [`7.4.1`](https://hub.docker.com/r/freesurfer/freesurfer) | 696/789 (88.2%) |
+| [Greedy](https://sites.google.com/view/greedyreg/about) | Experimental | [`1.0.1`](https://hub.docker.com/r/pyushkevich/itksnap) | 1/1 (100% 🎉) |
+| [MRTrix3](https://www.mrtrix.org/) | Well tested | [`3.0.4`](https://hub.docker.com/r/mrtrix3/mrtrix3) | 115/121 (95.0%) |
+| [MRTrix3Tissue](https://3tissue.github.io/) | Well tested | [`5.2.8`](https://hub.docker.com/r/brainlife/3tissue) | 1/1 (100% 🎉) |
+| [NiftyReg](http://cmictig.cs.ucl.ac.uk/wiki/index.php/NiftyReg) | Experimental | [`1.4.0`](https://hub.docker.com/r/vnmd/niftyreg_1.4.0) | 7/7 (100% 🎉) |
+| [dcm2niix](https://github.com/rordenlab/dcm2niix) | Experimental | [`1.0.20240202`](https://hub.docker.com/r/vnmd/dcm2niix_v1.0.20240202) | 1/1 (100% 🎉) |
+
 <!-- END_PACKAGES_TABLE -->
 <small>*API Coverage: The percentages shown represent the proportion of tool binaries with available NiWrap descriptors, not the completeness of each descriptor.*</small>
 
