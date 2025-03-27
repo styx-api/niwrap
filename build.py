@@ -1,3 +1,5 @@
+"""Run Styx to compile descriptors into wrappers & generate package metadata."""
+
 import json
 import os
 from pathlib import Path
@@ -161,7 +163,8 @@ This package contains wrappers only and has no affiliation with the original aut
     tsp = TEMPLATE_ROOT_PYPROJECT
 
     tsp = tsp.replace(
-        "{{DEPENDENCIES}}", ",\n".join([f'  "niwrap_{x}=={niwrap_version}"' for x in package_reexports])
+        "{{DEPENDENCIES}}",
+        ",\n".join([f'  "niwrap_{x}=={niwrap_version}"' for x in package_reexports]),
     )
     tsp = tsp.replace("{{VERSION}}", niwrap_version)
 
@@ -185,20 +188,20 @@ This package contains wrappers only and has no affiliation with the original aut
         + f"\n{SNIPPET_EXTRA_UTILS}",
         encoding="utf8",
     )
-    
+
     # ------ TYPESCRIPT ------------------------------------------------------
 
     PATH_DIST_JS.mkdir(parents=True, exist_ok=True)
 
-    TEMPLATE_BUILD_JS = (
-        PATH_BUILD_TEMPLATES / "js/build.js"
-    ).read_text(encoding="utf8")
-    TEMPLATE_PACKAGE_JSON = (
-        PATH_BUILD_TEMPLATES / "js/package.json"
-    ).read_text(encoding="utf8")
-    TEMPLATE_TSCONFIG_JSON = (
-        PATH_BUILD_TEMPLATES / "js/tsconfig.json"
-    ).read_text(encoding="utf8")
+    TEMPLATE_BUILD_JS = (PATH_BUILD_TEMPLATES / "js/build.js").read_text(
+        encoding="utf8"
+    )
+    TEMPLATE_PACKAGE_JSON = (PATH_BUILD_TEMPLATES / "js/package.json").read_text(
+        encoding="utf8"
+    )
+    TEMPLATE_TSCONFIG_JSON = (PATH_BUILD_TEMPLATES / "js/tsconfig.json").read_text(
+        encoding="utf8"
+    )
 
     package_reexports = []
     for _, package in iter_packages():
@@ -211,11 +214,10 @@ This package contains wrappers only and has no affiliation with the original aut
         ):
             compiled_file.write(path_package)
 
-
     # import * as afni from './afni'
     (PATH_DIST_JS / "src/index.ts").write_text(
-        "\n".join([f"export * as {x} from './{x}'" for x in package_reexports]) +
-        f"\nexport * from 'styxdefs'\nexport const version = '{niwrap_version}';",
+        "\n".join([f"export * as {x} from './{x}'" for x in package_reexports])
+        + f"\nexport * from 'styxdefs'\nexport const version = '{niwrap_version}';",
         encoding="utf8",
     )
 
@@ -223,12 +225,14 @@ This package contains wrappers only and has no affiliation with the original aut
     (PATH_DIST_JS / "package.json").write_text(TEMPLATE_PACKAGE_JSON, encoding="utf8")
     (PATH_DIST_JS / "tsconfig.json").write_text(TEMPLATE_TSCONFIG_JSON, encoding="utf8")
 
+
 # =============================================================================
-# |                           UPDATE README                                   |
+# |                       PACKAGE OVERVIEW TABLE                              |
 # =============================================================================
 
 
 def build_package_overview_table():
+    """Build same table as in update_readme.md (for now)"""
     packages = sorted(
         [package for _, package in iter_packages()], key=lambda x: x["name"]
     )
@@ -273,68 +277,6 @@ def build_package_overview_table():
 
         buf += f"| {name_link} | {package['status']} | {container if container_tag else '?'} | {coverage} |\n"
     return buf
-
-
-def update_endpoint_lists():
-    package_dir = "packages"
-    descriptors_dir = "descriptors"
-    changes_summary = []
-
-    # Iterate through all JSON files in the packages directory
-    for package_file in os.listdir(package_dir):
-        if package_file.endswith(".json"):
-            package_path = os.path.join(package_dir, package_file)
-
-            # Load the package JSON file
-            with open(package_path, "r", encoding="utf-8") as f:
-                package_data = json.load(f)
-
-            package_id = package_data.get("id")
-            if not package_id:
-                print(f"Missing 'id' in {package_file}")
-                continue
-
-            # Check each endpoint's descriptor
-            updated = False
-            for endpoint in package_data.get("api", {}).get("endpoints", []):
-                target = endpoint.get("target")
-                target = target.removeprefix("wb_command -")
-                status = endpoint.get("status")
-                if not target:
-                    continue
-
-                descriptor_path = os.path.join(
-                    descriptors_dir, package_id, f"{target}.json"
-                )
-
-                # Check if the descriptor file exists
-                if os.path.exists(descriptor_path):
-                    if status != "done":
-                        endpoint["status"] = "done"
-                        endpoint["descriptor"] = descriptor_path.replace("\\", "/")
-                        updated = True
-                else:
-                    if status == "ignore":
-                        continue  # Skip if status is 'ignore'
-                    if status != "missing":
-                        endpoint["status"] = "missing"
-                        endpoint.pop("descriptor", None)  # Remove descriptor if missing
-                        updated = True
-
-            # If updates were made, save the updated package file
-            if updated:
-                with open(package_path, "w", encoding="utf-8") as f:
-                    json.dump(package_data, f, indent=2)
-
-                changes_summary.append(f"Updated {package_file}")
-
-    # Print the summary of changes
-    if changes_summary:
-        print("Summary of changes:")
-        for change in changes_summary:
-            print(f"  {change}")
-    else:
-        print("No changes made.")
 
 
 # =============================================================================
@@ -402,7 +344,6 @@ if __name__ == "__main__":
 
     # Execute each step with timing information
     time_execution(compile_wrappers, "Compile Wrappers")
-    time_execution(update_endpoint_lists, "Update Endpoint List")
     time_execution(validate_build, "Validate Build")
 
     print("\n✅ Build process completed successfully!")
