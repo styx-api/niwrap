@@ -227,7 +227,7 @@ NiWrap is powered by the [Styx](https://github.com/styx-api/styx) compiler, whic
 
 ## 📚 Documentation
 
-For complete documentation on using NiWrap, configuring Styx, and contributing to the project, please visit our [Styx Book](https://styx-api.github.io/styx-book/).
+For complete documentation on using NiWrap, configuring Styx, and contributing to the project, please visit our [Styx Book](https://styx-api.github.io/styxbook/).
 
 ## 📋 Prerequisites
 
@@ -237,7 +237,7 @@ To use NiWrap without containers, you need to have the corresponding neuroimagin
 
 We welcome contributions! Whether you want to add support for new neuroimaging tools, improve existing descriptors, or fix bugs, please feel free to open an issue or submit a pull request.
 
-See our [contribution guide](https://styx-api.github.io/styx-book/contributing.html) for more information.
+See our [contribution guide](https://styx-api.github.io/styxbook/contributing.html) for more information.
 
 ## 📄 License
 
@@ -262,5 +262,5 @@ If you use NiWrap in your research, please consider citing:
 ## 🔗 Related Projects
 
 - [Styx Compiler](https://github.com/styx-api/styx)
-- [Styx Documentation](https://styx-api.github.io/styx-book/)
+- [Styx Documentation](https://styx-api.github.io/styxbook/)
 - [Boutiques](https://boutiques.github.io/)
