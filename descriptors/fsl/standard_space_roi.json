@@ -30,7 +30,6 @@
       "description": "Mask output using transformed standard space FOV",
       "value-key": "[MASK_FOV_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "mask_fov_flag",
       "name": "Mask FOV"
     },
@@ -48,7 +47,6 @@
       "description": "Do not mask output",
       "value-key": "[MASK_NONE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "mask_none_flag",
       "name": "Do not mask output"
     },
@@ -57,7 +55,6 @@
       "description": "Cut down input FOV using bounding box of the transformed standard space FOV",
       "value-key": "[ROI_FOV_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "roi_fov_flag",
       "name": "Cut down FOV using standard space bounding box"
     },
@@ -75,7 +72,6 @@
       "description": "Do not cut down input FOV",
       "value-key": "[ROI_NONE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "roi_none_flag",
       "name": "Do not cut down input FOV"
     },
@@ -102,7 +98,6 @@
       "description": "Debug mode (don't delete intermediate files)",
       "value-key": "[DEBUG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug_flag",
       "name": "Debug flag"
     },
@@ -111,7 +106,6 @@
       "description": "Equivalent to: -maskMASK /usr/local/fsl/data/standard/MNI152_T1_2mm_brain_mask_dil -roiNONE",
       "value-key": "[BET_PREMASK_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "bet_premask_flag",
       "name": "BET pre-mask"
     }

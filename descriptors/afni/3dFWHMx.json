@@ -32,7 +32,6 @@
       "description": "Compute a mask from THIS dataset",
       "value-key": "[AUTOMASK]",
       "type": "Flag",
-      "optional": true,
       "id": "automask",
       "name": "Automask flag"
     },
@@ -41,7 +40,6 @@
       "description": "if the input dataset has more than one sub-brick then subtract the median of each voxel's time series before processing FWHM",
       "value-key": "[DEMED]",
       "type": "Flag",
-      "optional": true,
       "id": "demed",
       "name": "Demethod flag"
     },
@@ -50,7 +48,6 @@
       "description": "Normalize each voxel's time series to have the same MAD before processing FWHM, implies -demed",
       "value-key": "[UNIF]",
       "type": "Flag",
-      "optional": true,
       "id": "unif",
       "name": "Uniform normalization flag"
     },
@@ -77,7 +74,6 @@
       "description": "Compute the final estimate as the geometric mean",
       "value-key": "[GEOM]",
       "type": "Flag",
-      "optional": true,
       "id": "geom",
       "name": "Geometric mean flag"
     },
@@ -86,7 +82,6 @@
       "description": "Compute the final estimate as the arithmetic mean",
       "value-key": "[ARITH]",
       "type": "Flag",
-      "optional": true,
       "id": "arith",
       "name": "Arithmetic mean flag"
     },
@@ -95,7 +90,6 @@
       "description": "Combine the final measurements along each axis into one result",
       "value-key": "[COMBINE]",
       "type": "Flag",
-      "optional": true,
       "id": "combine",
       "name": "Combine flag"
     },
@@ -113,7 +107,6 @@
       "description": "Be compatible with the older 3dFWHM",
       "value-key": "[COMPAT]",
       "type": "Flag",
-      "optional": true,
       "id": "compat",
       "name": "Compatibility flag"
     },

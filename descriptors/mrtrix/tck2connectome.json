@@ -4,10 +4,7 @@
   "author": "MRTrix3 Developers",
   "tool-version": "3.0.4",
   "schema-version": "0.5",
-  "container-image": {
-    "image": "mrtrix3/mrtrix3:3.0.4",
-    "type": "docker"
-  },
+  "container-image": { "image": "mrtrix3/mrtrix3:3.0.4", "type": "docker" },
   "command-line": "tck2connectome [STRUCTURAL_CONNECTOME_STREAMLINE_ASSIGNMENT_OPTION_ASSIGNMENT_END_VOXELS] [STRUCTURAL_CONNECTOME_STREAMLINE_ASSIGNMENT_OPTION_ASSIGNMENT_RADIAL_SEARCH] [STRUCTURAL_CONNECTOME_STREAMLINE_ASSIGNMENT_OPTION_ASSIGNMENT_REVERSE_SEARCH] [STRUCTURAL_CONNECTOME_STREAMLINE_ASSIGNMENT_OPTION_ASSIGNMENT_FORWARD_SEARCH] [STRUCTURAL_CONNECTOME_STREAMLINE_ASSIGNMENT_OPTION_ASSIGNMENT_ALL_VOXELS] [STRUCTURAL_CONNECTOME_METRIC_OPTIONS_SCALE_LENGTH] [STRUCTURAL_CONNECTOME_METRIC_OPTIONS_SCALE_INVLENGTH] [STRUCTURAL_CONNECTOME_METRIC_OPTIONS_SCALE_INVNODEVOL] [STRUCTURAL_CONNECTOME_METRIC_OPTIONS_SCALE_FILE] [OPTIONS_FOR_OUTPUTTING_CONNECTOME_MATRICES_SYMMETRIC] [OPTIONS_FOR_OUTPUTTING_CONNECTOME_MATRICES_ZERO_DIAGONAL] [OTHER_OPTIONS_FOR_TCK2CONNECTOME_STAT_EDGE] [OTHER_OPTIONS_FOR_TCK2CONNECTOME_TCK_WEIGHTS_IN] [OTHER_OPTIONS_FOR_TCK2CONNECTOME_KEEP_UNASSIGNED] [OTHER_OPTIONS_FOR_TCK2CONNECTOME_OUT_ASSIGNMENTS] [OTHER_OPTIONS_FOR_TCK2CONNECTOME_VECTOR] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION] [TRACKS_IN] [NODES_IN] [CONNECTOME_OUT]",
   "inputs": [
     {
@@ -40,8 +37,7 @@
       "command-line-flag": "-assignment_end_voxels",
       "value-key": "[STRUCTURAL_CONNECTOME_STREAMLINE_ASSIGNMENT_OPTION_ASSIGNMENT_END_VOXELS]",
       "description": "use a simple voxel lookup value at each streamline endpoint",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "assignment_radial_search",
@@ -79,8 +75,7 @@
       "command-line-flag": "-assignment_all_voxels",
       "value-key": "[STRUCTURAL_CONNECTOME_STREAMLINE_ASSIGNMENT_OPTION_ASSIGNMENT_ALL_VOXELS]",
       "description": "assign the streamline to all nodes it intersects along its length (note that this means a streamline may be assigned to more than two nodes, or indeed none at all)",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "scale_length",
@@ -88,8 +83,7 @@
       "command-line-flag": "-scale_length",
       "value-key": "[STRUCTURAL_CONNECTOME_METRIC_OPTIONS_SCALE_LENGTH]",
       "description": "scale each contribution to the connectome edge by the length of the streamline",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "scale_invlength",
@@ -97,8 +91,7 @@
       "command-line-flag": "-scale_invlength",
       "value-key": "[STRUCTURAL_CONNECTOME_METRIC_OPTIONS_SCALE_INVLENGTH]",
       "description": "scale each contribution to the connectome edge by the inverse of the streamline length",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "scale_invnodevol",
@@ -106,8 +99,7 @@
       "command-line-flag": "-scale_invnodevol",
       "value-key": "[STRUCTURAL_CONNECTOME_METRIC_OPTIONS_SCALE_INVNODEVOL]",
       "description": "scale each contribution to the connectome edge by the inverse of the two node volumes",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "scale_file",
@@ -124,8 +116,7 @@
       "command-line-flag": "-symmetric",
       "value-key": "[OPTIONS_FOR_OUTPUTTING_CONNECTOME_MATRICES_SYMMETRIC]",
       "description": "Make matrices symmetric on output",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "zero_diagonal",
@@ -133,8 +124,7 @@
       "command-line-flag": "-zero_diagonal",
       "value-key": "[OPTIONS_FOR_OUTPUTTING_CONNECTOME_MATRICES_ZERO_DIAGONAL]",
       "description": "Set matrix diagonal to zero on output",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "stat_edge",
@@ -160,8 +150,7 @@
       "command-line-flag": "-keep_unassigned",
       "value-key": "[OTHER_OPTIONS_FOR_TCK2CONNECTOME_KEEP_UNASSIGNED]",
       "description": "By default, the program discards the information regarding those streamlines that are not successfully assigned to a node pair. Set this option to keep these values (will be the first row/column in the output matrix)",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "out_assignments",
@@ -178,8 +167,7 @@
       "command-line-flag": "-vector",
       "value-key": "[OTHER_OPTIONS_FOR_TCK2CONNECTOME_VECTOR]",
       "description": "output a vector representing connectivities from a given seed point to target nodes, rather than a matrix of node-node connectivities",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "info",
@@ -187,8 +175,7 @@
       "command-line-flag": "-info",
       "value-key": "[__STANDARD_OPTIONS_INFO]",
       "description": "display information messages.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "quiet",
@@ -196,8 +183,7 @@
       "command-line-flag": "-quiet",
       "value-key": "[__STANDARD_OPTIONS_QUIET]",
       "description": "do not display information messages or progress status; alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "debug",
@@ -205,8 +191,7 @@
       "command-line-flag": "-debug",
       "value-key": "[__STANDARD_OPTIONS_DEBUG]",
       "description": "display debugging messages.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "force",
@@ -214,8 +199,7 @@
       "command-line-flag": "-force",
       "value-key": "[__STANDARD_OPTIONS_FORCE]",
       "description": "force overwrite of output files (caution: using the same file as input and output might cause unexpected behaviour).",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "nthreads",
@@ -266,8 +250,7 @@
       "command-line-flag": "-help",
       "value-key": "[__STANDARD_OPTIONS_HELP]",
       "description": "display this information page and exit.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "version",
@@ -275,8 +258,7 @@
       "command-line-flag": "-version",
       "value-key": "[__STANDARD_OPTIONS_VERSION]",
       "description": "display version information and exit.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     }
   ],
   "output-files": [

@@ -39,8 +39,7 @@
       "description": "Assume T1 contrast, White Matter brighter than Grey Matter.",
       "type": "Flag",
       "value-key": "[CONTRAST_TYPE_T1]",
-      "command-line-flag": "--t1",
-      "optional": true
+      "command-line-flag": "--t1"
     },
     {
       "id": "contrast_type_t2",
@@ -48,8 +47,7 @@
       "description": "Assume T2 contrast, Grey Matter brighter than White Matter. Same as --bold and --dti.",
       "type": "Flag",
       "value-key": "[CONTRAST_TYPE_T2]",
-      "command-line-flag": "--t2",
-      "optional": true
+      "command-line-flag": "--t2"
     },
     {
       "id": "vsm",
@@ -66,8 +64,7 @@
       "description": "Initialize with FreeSurfer mri_coreg program.",
       "type": "Flag",
       "value-key": "[INIT_COREG]",
-      "command-line-flag": "--init-coreg",
-      "optional": true
+      "command-line-flag": "--init-coreg"
     },
     {
       "id": "no_coreg_ref_mask",
@@ -75,8 +72,7 @@
       "description": "Do not use aparc+aseg.mgz as a reference mask.",
       "type": "Flag",
       "value-key": "[NO_COREG_REF_MASK]",
-      "command-line-flag": "--no-coreg-ref-mask",
-      "optional": true
+      "command-line-flag": "--no-coreg-ref-mask"
     },
     {
       "id": "init_header",
@@ -84,8 +80,7 @@
       "description": "Use geometry info for close voxel-to-voxel registration. Typically valid if acquired in same session.",
       "type": "Flag",
       "value-key": "[INIT_HEADER]",
-      "command-line-flag": "--init-header",
-      "optional": true
+      "command-line-flag": "--init-header"
     },
     {
       "id": "init_reg",
@@ -111,8 +106,7 @@
       "description": "Register to middle frame (not with --frame option).",
       "type": "Flag",
       "value-key": "[MID_FRAME]",
-      "command-line-flag": "--mid-frame",
-      "optional": true
+      "command-line-flag": "--mid-frame"
     },
     {
       "id": "frame_no",
@@ -147,8 +141,7 @@
       "description": "Get subject name from registration file.",
       "type": "Flag",
       "value-key": "[S_FROM_REG]",
-      "command-line-flag": "--s-from-reg",
-      "optional": true
+      "command-line-flag": "--s-from-reg"
     }
   ],
   "output-files": [

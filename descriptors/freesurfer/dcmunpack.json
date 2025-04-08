@@ -45,7 +45,6 @@
       "description": "Unpack series with 'scout' or 'setter' in the name.",
       "value-key": "[KEEP_SCOUTS]",
       "type": "Flag",
-      "optional": true,
       "id": "keep_scouts",
       "name": "Keep Scouts Flag",
       "command-line-flag": "-keep-scouts"
@@ -63,7 +62,6 @@
       "description": "Assume that there is only one dicom series in each subdir.",
       "value-key": "[ONE_PER_DIR]",
       "type": "Flag",
-      "optional": true,
       "id": "one_per_dir",
       "name": "One Per Directory Flag",
       "command-line-flag": "-one-per-dir"
@@ -99,7 +97,6 @@
       "description": "Do not create the fname-infodump.dat file.",
       "value-key": "[NO_INFODUMP]",
       "type": "Flag",
-      "optional": true,
       "id": "no_infodump",
       "name": "No Infodump Flag",
       "command-line-flag": "-no-infodump"
@@ -108,7 +105,6 @@
       "description": "Do not use FSFAST hierarchy.",
       "value-key": "[GENERIC]",
       "type": "Flag",
-      "optional": true,
       "id": "generic",
       "name": "Generic Flag",
       "command-line-flag": "-generic"
@@ -117,7 +113,6 @@
       "description": "Only copy dicom files to output directory (implies -no-convert).",
       "value-key": "[COPY_ONLY]",
       "type": "Flag",
-      "optional": true,
       "id": "copy_only",
       "name": "Copy Only Flag",
       "command-line-flag": "-copy-only"
@@ -126,7 +121,6 @@
       "description": "Do not convert to output format.",
       "value-key": "[NO_CONVERT]",
       "type": "Flag",
-      "optional": true,
       "id": "no_convert",
       "name": "No Convert Flag",
       "command-line-flag": "-no-convert"
@@ -135,7 +129,6 @@
       "description": "Convert even if output is newer than the input dicom.",
       "value-key": "[FORCE_UPDATE]",
       "type": "Flag",
-      "optional": true,
       "id": "force_update",
       "name": "Force Update Flag",
       "command-line-flag": "-force-update"
@@ -144,7 +137,6 @@
       "description": "Print out max in given dicom file.",
       "value-key": "[MAX]",
       "type": "Flag",
-      "optional": true,
       "id": "max",
       "name": "Max Flag",
       "command-line-flag": "-max"
@@ -153,7 +145,6 @@
       "description": "Report filename without path.",
       "value-key": "[BASE]",
       "type": "Flag",
-      "optional": true,
       "id": "base",
       "name": "Base Flag",
       "command-line-flag": "-base"
@@ -189,7 +180,6 @@
       "description": "Add -it dicom to mri_convert cmd line.",
       "value-key": "[IT_DICOM]",
       "type": "Flag",
-      "optional": true,
       "id": "it_dicom",
       "name": "IT DICOM Flag",
       "command-line-flag": "-itdicom"
@@ -198,7 +188,6 @@
       "description": "Continue to unpack data even if there is an error in conversion.",
       "value-key": "[NO_EXIT_ON_ERROR]",
       "type": "Flag",
-      "optional": true,
       "id": "no_exit_on_error",
       "name": "No Exit on Error Flag",
       "command-line-flag": "-no-exit-on-error"
@@ -216,7 +205,6 @@
       "description": "Turn off DICOM rescaling based on tags (0028,1052) (0028,1053).",
       "value-key": "[NO_RESCALE_DICOM]",
       "type": "Flag",
-      "optional": true,
       "id": "no_rescale_dicom",
       "name": "No Rescale DICOM Flag",
       "command-line-flag": "-no-rescale-dicom"
@@ -225,7 +213,6 @@
       "description": "Turn DICOM rescaling on.",
       "value-key": "[RESCALE_DICOM]",
       "type": "Flag",
-      "optional": true,
       "id": "rescale_dicom",
       "name": "Rescale DICOM Flag",
       "command-line-flag": "-rescale-dicom"
@@ -234,7 +221,6 @@
       "description": "Turn off trying to read DWI parameters.",
       "value-key": "[NO_DWI]",
       "type": "Flag",
-      "optional": true,
       "id": "no_dwi",
       "name": "No DWI Flag",
       "command-line-flag": "-no-dwi"
@@ -273,7 +259,6 @@
       "description": "Add session info to each line of the info file (pat, date, man, scan, field, serno).",
       "value-key": "[EXTRA_INFO]",
       "type": "Flag",
-      "optional": true,
       "id": "extra_info",
       "name": "Extra Info Flag",
       "command-line-flag": "-extra-info"
@@ -282,7 +267,6 @@
       "description": "Copy first dicom file into output folder.",
       "value-key": "[FIRST_DICOM]",
       "type": "Flag",
-      "optional": true,
       "id": "first_dicom",
       "name": "First DICOM Flag",
       "command-line-flag": "-first-dicom"
@@ -291,7 +275,6 @@
       "description": "Turn off dcm2niix conversion.",
       "value-key": "[NO_DCM2NIIX]",
       "type": "Flag",
-      "optional": true,
       "id": "no_dcm2niix",
       "name": "No DCM2NIIX Flag",
       "command-line-flag": "-no-dcm2niix"
@@ -300,7 +283,6 @@
       "description": "Add the string _phase to volumes that are phase images based on ImageType.",
       "value-key": "[PHASE]",
       "type": "Flag",
-      "optional": true,
       "id": "phase",
       "name": "Phase Flag",
       "command-line-flag": "-phase"
@@ -327,7 +309,6 @@
       "description": "For fips, only create xml file, do not convert to output.",
       "value-key": "[XML_ONLY]",
       "type": "Flag",
-      "optional": true,
       "id": "xml_only",
       "name": "XML Only Flag",
       "command-line-flag": "-xml-only"
@@ -345,7 +326,6 @@
       "description": "Enable debug mode.",
       "value-key": "[DEBUG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug",
       "name": "Debug Flag",
       "command-line-flag": "-debug"

@@ -21,8 +21,7 @@
       "type": "Flag",
       "value-key": "[DESPIKE_2DFILTER]",
       "command-line-flag": "--despike",
-      "description": "Apply a 2d de-spiking filter.",
-      "optional": true
+      "description": "Apply a 2d de-spiking filter."
     },
     {
       "id": "despike_threshold",
@@ -81,7 +80,6 @@
       "value-key": "[FORWARD_WARPING]",
       "command-line-flag": "--forward_warping",
       "description": "Apply forward warping instead of unwarping.",
-      "optional": true,
       "default-value": false
     },
     {
@@ -102,7 +100,6 @@
       "value-key": "[ICORR]",
       "command-line-flag": "--icorr",
       "description": "Apply intensity correction to unwarping (pixel shift method only).",
-      "optional": true,
       "requires-inputs": ["shift_in_file"]
     },
     {
@@ -112,7 +109,6 @@
       "value-key": "[ICORR_ONLY]",
       "command-line-flag": "--icorronly",
       "description": "Apply intensity correction only.",
-      "optional": true,
       "requires-inputs": ["unwarped_file"]
     },
     {
@@ -141,8 +137,7 @@
       "type": "Flag",
       "value-key": "[MEDIAN_2DFILTER]",
       "command-line-flag": "--median",
-      "description": "Apply 2d median filtering.",
-      "optional": true
+      "description": "Apply 2d median filtering."
     },
     {
       "id": "no_extend",
@@ -150,8 +145,7 @@
       "type": "Flag",
       "value-key": "[NO_EXTEND]",
       "command-line-flag": "--noextend",
-      "description": "Do not apply rigid-body extrapolation to the fieldmap.",
-      "optional": true
+      "description": "Do not apply rigid-body extrapolation to the fieldmap."
     },
     {
       "id": "no_gap_fill",
@@ -159,8 +153,7 @@
       "type": "Flag",
       "value-key": "[NO_GAP_FILL]",
       "command-line-flag": "--nofill",
-      "description": "Do not apply gap-filling measure to the fieldmap.",
-      "optional": true
+      "description": "Do not apply gap-filling measure to the fieldmap."
     },
     {
       "id": "nokspace",
@@ -168,8 +161,7 @@
       "type": "Flag",
       "value-key": "[NOKSPACE]",
       "command-line-flag": "--nokspace",
-      "description": "Do not use k-space forward warping.",
-      "optional": true
+      "description": "Do not use k-space forward warping."
     },
     {
       "id": "output_type",
@@ -186,8 +178,7 @@
       "type": "Flag",
       "value-key": "[PAVA]",
       "command-line-flag": "--pava",
-      "description": "Apply monotonic enforcement via pava.",
-      "optional": true
+      "description": "Apply monotonic enforcement via pava."
     },
     {
       "id": "phase_conjugate",
@@ -195,8 +186,7 @@
       "type": "Flag",
       "value-key": "[PHASE_CONJUGATE]",
       "command-line-flag": "--phaseconj",
-      "description": "Apply phase conjugate method of unwarping.",
-      "optional": true
+      "description": "Apply phase conjugate method of unwarping."
     },
     {
       "id": "phasemap_in_file",
@@ -225,8 +215,7 @@
       "type": "Flag",
       "value-key": "[SAVE_FMAP]",
       "command-line-flag": "--save_fmap",
-      "description": "Write field map volume.",
-      "optional": true
+      "description": "Write field map volume."
     },
     {
       "id": "save_shift",
@@ -234,8 +223,7 @@
       "type": "Flag",
       "value-key": "[SAVE_SHIFT]",
       "command-line-flag": "--save_shift",
-      "description": "Write pixel shift volume.",
-      "optional": true
+      "description": "Write pixel shift volume."
     },
     {
       "id": "save_unmasked_fmap",
@@ -243,8 +231,7 @@
       "type": "Flag",
       "value-key": "[SAVE_UNMASKED_FMAP]",
       "command-line-flag": "--unmaskfmap",
-      "description": "Saves the unmasked fieldmap when using --savefmap.",
-      "optional": true
+      "description": "Saves the unmasked fieldmap when using --savefmap."
     },
     {
       "id": "save_unmasked_shift",
@@ -252,8 +239,7 @@
       "type": "Flag",
       "value-key": "[SAVE_UNMASKED_SHIFT]",
       "command-line-flag": "--unmaskshift",
-      "description": "Saves the unmasked shiftmap when using --saveshift.",
-      "optional": true
+      "description": "Saves the unmasked shiftmap when using --saveshift."
     },
     {
       "id": "shift_in_file",

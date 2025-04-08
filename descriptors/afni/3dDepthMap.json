@@ -38,7 +38,6 @@
       "name": "Output Distance Squared",
       "description": "Output EDT values as distance squared",
       "type": "Flag",
-      "optional": true,
       "command-line-flag": "-dist_sq",
       "value-key": "[DIST_SQUARED]"
     },
@@ -47,7 +46,6 @@
       "name": "Ignore Voxel Dimensions",
       "description": "Ignore voxel dimensions, producing outputs as if each voxel dimension was unity",
       "type": "Flag",
-      "optional": true,
       "command-line-flag": "-ignore_voxdims",
       "value-key": "[IGNORE_VOXDIMS]"
     },
@@ -65,7 +63,6 @@
       "name": "Zeros Are Zero",
       "description": "EDT values only reported within nonzero locations of the input dataset",
       "type": "Flag",
-      "optional": true,
       "command-line-flag": "-zeros_are_zero",
       "value-key": "[ZEROS_ARE_ZERO]"
     },
@@ -74,7 +71,6 @@
       "name": "Zeros Are Negative",
       "description": "EDT values in the zero/background regions will be negative",
       "type": "Flag",
-      "optional": true,
       "command-line-flag": "-zeros_are_neg",
       "value-key": "[ZEROS_ARE_NEG]"
     },
@@ -83,7 +79,6 @@
       "name": "Nonzero Are Negative",
       "description": "EDT values in the nonzero ROI regions will be negative",
       "type": "Flag",
-      "optional": true,
       "command-line-flag": "-nz_are_neg",
       "value-key": "[NZ_ARE_NEG]"
     },
@@ -92,7 +87,6 @@
       "name": "Bounds Are Not Zero",
       "description": "Treat FOV boundaries for nonzero ROIs as open (i.e., continue infinitely)",
       "type": "Flag",
-      "optional": true,
       "command-line-flag": "-bounds_are_not_zero",
       "value-key": "[BOUNDS_ARE_NOT_ZERO]"
     },
@@ -110,7 +104,6 @@
       "name": "Binary Only",
       "description": "Treat the input as a binary mask for a faster calculation",
       "type": "Flag",
-      "optional": true,
       "command-line-flag": "-binary_only",
       "value-key": "[BINARY_ONLY]"
     },

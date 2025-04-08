@@ -52,7 +52,6 @@
       "description": "Original resampling method for processed dataset.",
       "value-key": "[RESAMPLE_OLD]",
       "type": "Flag",
-      "optional": true,
       "id": "resample_old",
       "name": "Old resampling method"
     },
@@ -79,7 +78,6 @@
       "description": "Order the voxels by how well they match the two leading principal components of their partition.",
       "value-key": "[PVORDER]",
       "type": "Flag",
-      "optional": true,
       "id": "pvorder",
       "name": "PV order"
     },
@@ -88,7 +86,6 @@
       "description": "Order the voxels by their Ljung-Box statistics, a measure of temporal correlation.",
       "value-key": "[LJORDER]",
       "type": "Flag",
-      "optional": true,
       "id": "LJorder",
       "name": "LJ order"
     },
@@ -97,7 +94,6 @@
       "description": "Order the voxels by how many 'peel' steps are needed to get from the partition boundary to the voxel.",
       "value-key": "[PEELORDER]",
       "type": "Flag",
-      "optional": true,
       "id": "peelorder",
       "name": "Peel order"
     },
@@ -106,7 +102,6 @@
       "description": "Default intra-partition ordering by dataset 3D index ('ijk').",
       "value-key": "[IJKORDER]",
       "type": "Flag",
-      "optional": true,
       "id": "ijkorder",
       "name": "IJK order"
     },
@@ -124,7 +119,6 @@
       "description": "Scale values to percent differences from the mean of each voxel timeseries. Suitable for raw time series datasets.",
       "value-key": "[PERCENT]",
       "type": "Flag",
-      "optional": true,
       "id": "percent",
       "name": "Percent scaling"
     },

@@ -32,7 +32,6 @@
       "description": "Archive mode; same as -dR --preserve=all.",
       "value-key": "[ARCHIVE]",
       "type": "Flag",
-      "optional": true,
       "id": "archive",
       "name": "Archive"
     },
@@ -41,7 +40,6 @@
       "description": "Don't copy the file data, just the attributes.",
       "value-key": "[ATTRIBUTES_ONLY]",
       "type": "Flag",
-      "optional": true,
       "id": "attributes_only",
       "name": "Attributes only"
     },
@@ -60,7 +58,6 @@
       "description": "Like --backup but does not accept an argument.",
       "value-key": "[BACKUP_NOARG]",
       "type": "Flag",
-      "optional": true,
       "id": "backup_noarg",
       "name": "Backup without argument"
     },
@@ -69,7 +66,6 @@
       "description": "Copy contents of special files when recursive.",
       "value-key": "[COPY_CONTENTS]",
       "type": "Flag",
-      "optional": true,
       "id": "copy_contents",
       "name": "Copy contents"
     },
@@ -78,7 +74,6 @@
       "description": "Same as --no-dereference --preserve=links.",
       "value-key": "[NO_DEREFERENCE_PRESERVE_LINKS]",
       "type": "Flag",
-      "optional": true,
       "id": "no_dereference_preserve_links",
       "name": "No dereference & preserve links"
     },
@@ -87,7 +82,6 @@
       "description": "If an existing destination file cannot be opened, remove it and try again.",
       "value-key": "[FORCE]",
       "type": "Flag",
-      "optional": true,
       "id": "force",
       "name": "Force"
     },
@@ -96,7 +90,6 @@
       "description": "Prompt before overwrite.",
       "value-key": "[INTERACTIVE]",
       "type": "Flag",
-      "optional": true,
       "id": "interactive",
       "name": "Interactive"
     },
@@ -105,7 +98,6 @@
       "description": "Follow command-line symbolic links in SOURCE.",
       "value-key": "[FOLLOW_SYMLINKS_CMDLINE]",
       "type": "Flag",
-      "optional": true,
       "id": "follow_symlinks_cmdline",
       "name": "Follow command-line symbolic links"
     },
@@ -114,7 +106,6 @@
       "description": "Hard link files instead of copying.",
       "value-key": "[HARD_LINK]",
       "type": "Flag",
-      "optional": true,
       "id": "hard_link",
       "name": "Hard link"
     },
@@ -123,7 +114,6 @@
       "description": "Always follow symbolic links in SOURCE.",
       "value-key": "[DEREFERENCE]",
       "type": "Flag",
-      "optional": true,
       "id": "dereference",
       "name": "Dereference"
     },
@@ -132,7 +122,6 @@
       "description": "Do not overwrite an existing file.",
       "value-key": "[NO_CLOBBER]",
       "type": "Flag",
-      "optional": true,
       "id": "no_clobber",
       "name": "No-clobber"
     },
@@ -141,7 +130,6 @@
       "description": "Never follow symbolic links in SOURCE.",
       "value-key": "[NO_DEREFERENCE]",
       "type": "Flag",
-      "optional": true,
       "id": "no_dereference",
       "name": "No dereference"
     },
@@ -150,7 +138,6 @@
       "description": "Preserve mode, ownership, and timestamps.",
       "value-key": "[PRESERVE]",
       "type": "Flag",
-      "optional": true,
       "id": "preserve",
       "name": "Preserve"
     },
@@ -169,7 +156,6 @@
       "description": "Deprecated, same as --preserve=context.",
       "value-key": "[PRESERVE_CONTEXT]",
       "type": "Flag",
-      "optional": true,
       "id": "preserve_context",
       "name": "Preserve context"
     },
@@ -188,7 +174,6 @@
       "description": "Use full source file name under DIRECTORY.",
       "value-key": "[PARENTS]",
       "type": "Flag",
-      "optional": true,
       "id": "parents",
       "name": "Parents"
     },
@@ -197,7 +182,6 @@
       "description": "Copy directories recursively.",
       "value-key": "[RECURSIVE]",
       "type": "Flag",
-      "optional": true,
       "id": "recursive",
       "name": "Recursive"
     },
@@ -216,7 +200,6 @@
       "description": "Remove each existing destination file before attempting to open it.",
       "value-key": "[REMOVE_DESTINATION]",
       "type": "Flag",
-      "optional": true,
       "id": "remove_destination",
       "name": "Remove destination"
     },
@@ -235,7 +218,6 @@
       "description": "Remove any trailing slashes from each SOURCE argument.",
       "value-key": "[STRIP_TRAILING_SLASHES]",
       "type": "Flag",
-      "optional": true,
       "id": "strip_trailing_slashes",
       "name": "Strip trailing slashes"
     },
@@ -244,7 +226,6 @@
       "description": "Make symbolic links instead of copying.",
       "value-key": "[SYMBOLIC_LINK]",
       "type": "Flag",
-      "optional": true,
       "id": "symbolic_link",
       "name": "Symbolic link"
     },
@@ -273,7 +254,6 @@
       "description": "Treat DEST as a normal file.",
       "value-key": "[NO_TARGET_DIRECTORY]",
       "type": "Flag",
-      "optional": true,
       "id": "no_target_directory",
       "name": "No target directory"
     },
@@ -282,7 +262,6 @@
       "description": "Copy only when the SOURCE file is newer than the destination file or when the destination file is missing.",
       "value-key": "[UPDATE]",
       "type": "Flag",
-      "optional": true,
       "id": "update",
       "name": "Update"
     },
@@ -291,7 +270,6 @@
       "description": "Explain what is being done.",
       "value-key": "[VERBOSE]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose",
       "name": "Verbose"
     },
@@ -300,7 +278,6 @@
       "description": "Stay on this file system.",
       "value-key": "[ONE_FILE_SYSTEM]",
       "type": "Flag",
-      "optional": true,
       "id": "one_file_system",
       "name": "One file system"
     },
@@ -309,7 +286,6 @@
       "description": "Set SELinux security context of destination file to default type.",
       "value-key": "[SELINUX_CONTEXT]",
       "type": "Flag",
-      "optional": true,
       "id": "selinux_context",
       "name": "SELinux context"
     },
@@ -328,7 +304,6 @@
       "description": "Display this help and exit.",
       "value-key": "[HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "help",
       "name": "Help"
     },
@@ -337,7 +312,6 @@
       "description": "Output version information and exit.",
       "value-key": "[VERSION]",
       "type": "Flag",
-      "optional": true,
       "id": "version",
       "name": "Version"
     }

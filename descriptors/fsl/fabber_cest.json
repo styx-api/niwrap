@@ -50,7 +50,6 @@
       "description": "Print usage help",
       "value-key": "[HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "help",
       "name": "Help",
       "command-line-flag": "--help"
@@ -59,7 +58,6 @@
       "description": "List all known inference methods",
       "value-key": "[LISTMETHODS]",
       "type": "Flag",
-      "optional": true,
       "id": "listmethods",
       "name": "List Methods",
       "command-line-flag": "--listmethods"
@@ -68,7 +66,6 @@
       "description": "List all known forward models",
       "value-key": "[LISTMODELS]",
       "type": "Flag",
-      "optional": true,
       "id": "listmodels",
       "name": "List Models",
       "command-line-flag": "--listmodels"
@@ -77,7 +74,6 @@
       "description": "List model parameters",
       "value-key": "[LISTPARAMS]",
       "type": "Flag",
-      "optional": true,
       "id": "listparams",
       "name": "List Parameters",
       "command-line-flag": "--listparams"
@@ -86,7 +82,6 @@
       "description": "Describe model parameters",
       "value-key": "[DESCPARAMS]",
       "type": "Flag",
-      "optional": true,
       "id": "descparams",
       "name": "Describe Parameters",
       "command-line-flag": "--descparams"
@@ -95,7 +90,6 @@
       "description": "List additional model outputs",
       "value-key": "[LISTOUTPUTS]",
       "type": "Flag",
-      "optional": true,
       "id": "listoutputs",
       "name": "List Outputs",
       "command-line-flag": "--listoutputs"
@@ -132,7 +126,6 @@
       "description": "Simple output series of lines each giving progress as percentage",
       "value-key": "[SIMPLE_OUTPUT]",
       "type": "Flag",
-      "optional": true,
       "id": "simple_output",
       "name": "Simple Output",
       "command-line-flag": "--simple-output"
@@ -141,7 +134,6 @@
       "description": "Overwrite existing output",
       "value-key": "[OVERWRITE]",
       "type": "Flag",
-      "optional": true,
       "id": "overwrite",
       "name": "Overwrite Output",
       "command-line-flag": "--overwrite"
@@ -150,7 +142,6 @@
       "description": "Create a link to the most recent output directory with the prefix _latest",
       "value-key": "[LINK_TO_LATEST]",
       "type": "Flag",
-      "optional": true,
       "id": "link_to_latest",
       "name": "Link to Latest",
       "command-line-flag": "--link-to-latest"
@@ -215,7 +206,6 @@
       "description": "Write the file paramnames.txt containing the names of the model parameters",
       "value-key": "[DUMP_PARAM_NAMES]",
       "type": "Flag",
-      "optional": true,
       "id": "dump_param_names",
       "name": "Dump Parameter Names",
       "command-line-flag": "--dump-param-names"
@@ -224,7 +214,6 @@
       "description": "Output the model prediction as a 4d volume",
       "value-key": "[SAVE_MODEL_FIT]",
       "type": "Flag",
-      "optional": true,
       "id": "save_model_fit",
       "name": "Save Model Fit",
       "command-line-flag": "--save-model-fit"
@@ -233,7 +222,6 @@
       "description": "Output the residuals (difference between the data and the model prediction)",
       "value-key": "[SAVE_RESIDUALS]",
       "type": "Flag",
-      "optional": true,
       "id": "save_residuals",
       "name": "Save Residuals",
       "command-line-flag": "--save-residuals"
@@ -242,7 +230,6 @@
       "description": "Output additional model-specific timeseries data",
       "value-key": "[SAVE_MODEL_EXTRAS]",
       "type": "Flag",
-      "optional": true,
       "id": "save_model_extras",
       "name": "Save Model Extras",
       "command-line-flag": "--save-model-extras"
@@ -251,7 +238,6 @@
       "description": "Output the final MVN distributions.",
       "value-key": "[SAVE_MVN]",
       "type": "Flag",
-      "optional": true,
       "id": "save_mvn",
       "name": "Save MVN",
       "command-line-flag": "--save-mvn"
@@ -260,7 +246,6 @@
       "description": "Output the parameter means.",
       "value-key": "[SAVE_MEAN]",
       "type": "Flag",
-      "optional": true,
       "id": "save_mean",
       "name": "Save Mean",
       "command-line-flag": "--save-mean"
@@ -269,7 +254,6 @@
       "description": "Output the parameter standard deviations.",
       "value-key": "[SAVE_STD]",
       "type": "Flag",
-      "optional": true,
       "id": "save_std",
       "name": "Save Std",
       "command-line-flag": "--save-std"
@@ -278,7 +262,6 @@
       "description": "Output the parameter variances.",
       "value-key": "[SAVE_VAR]",
       "type": "Flag",
-      "optional": true,
       "id": "save_var",
       "name": "Save Var",
       "command-line-flag": "--save-var"
@@ -287,7 +270,6 @@
       "description": "Output the parameter Zstats.",
       "value-key": "[SAVE_ZSTAT]",
       "type": "Flag",
-      "optional": true,
       "id": "save_zstat",
       "name": "Save Zstat",
       "command-line-flag": "--save-zstat"
@@ -296,7 +278,6 @@
       "description": "Output the noise means.",
       "value-key": "[SAVE_NOISE_MEAN]",
       "type": "Flag",
-      "optional": true,
       "id": "save_noise_mean",
       "name": "Save Noise Mean",
       "command-line-flag": "--save-noise-mean"
@@ -305,7 +286,6 @@
       "description": "Output the noise standard deviations.",
       "value-key": "[SAVE_NOISE_STD]",
       "type": "Flag",
-      "optional": true,
       "id": "save_noise_std",
       "name": "Save Noise Std",
       "command-line-flag": "--save-noise-std"
@@ -314,7 +294,6 @@
       "description": "Output the free energy, if calculated.",
       "value-key": "[SAVE_FREE_ENERGY]",
       "type": "Flag",
-      "optional": true,
       "id": "save_free_energy",
       "name": "Save Free Energy",
       "command-line-flag": "--save-free-energy"
@@ -332,7 +311,6 @@
       "description": "Output large amounts of debug information. ONLY USE WITH VERY SMALL NUMBERS OF VOXELS",
       "value-key": "[DEBUG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug",
       "name": "Debug",
       "command-line-flag": "--debug"

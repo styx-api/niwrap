@@ -27,7 +27,6 @@
       "description": "Print help text and exit.",
       "value-key": "[HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "help",
       "name": "Help flag"
     },
@@ -36,7 +35,6 @@
       "description": "Print version information and exit.",
       "value-key": "[VERSION]",
       "type": "Flag",
-      "optional": true,
       "id": "version",
       "name": "Version flag"
     },
@@ -45,7 +43,6 @@
       "description": "Print expanded command line arguments.",
       "value-key": "[ARGUMENTS]",
       "type": "Flag",
-      "optional": true,
       "id": "arguments",
       "name": "Arguments flag"
     },
@@ -54,7 +51,6 @@
       "description": "Quiet mode, print no warnings and errors.",
       "value-key": "[QUIET]",
       "type": "Flag",
-      "optional": true,
       "id": "quiet",
       "name": "Quiet flag"
     },
@@ -63,7 +59,6 @@
       "description": "Verbose mode, print processing details.",
       "value-key": "[VERBOSE]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose",
       "name": "Verbose flag"
     },
@@ -72,7 +67,6 @@
       "description": "Debug mode, print debug information.",
       "value-key": "[DEBUG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug",
       "name": "Debug flag"
     },
@@ -99,7 +93,6 @@
       "description": "Read file format or data set (default).",
       "value-key": "[READ_FILE]",
       "type": "Flag",
-      "optional": true,
       "id": "read_file",
       "name": "Read file flag"
     },
@@ -108,7 +101,6 @@
       "description": "Read file format only.",
       "value-key": "[READ_FILE_ONLY]",
       "type": "Flag",
-      "optional": true,
       "id": "read_file_only",
       "name": "Read file only flag"
     },
@@ -117,7 +109,6 @@
       "description": "Read data set without file meta information.",
       "value-key": "[READ_DATASET]",
       "type": "Flag",
-      "optional": true,
       "id": "read_dataset",
       "name": "Read dataset flag"
     },
@@ -126,7 +117,6 @@
       "description": "Keep same SOP Instance UID (default).",
       "value-key": "[UID_DEFAULT]",
       "type": "Flag",
-      "optional": true,
       "id": "uid_default",
       "name": "UID default flag"
     },
@@ -135,7 +125,6 @@
       "description": "Always assign new UID.",
       "value-key": "[UID_ALWAYS]",
       "type": "Flag",
-      "optional": true,
       "id": "uid_always",
       "name": "UID always flag"
     },
@@ -144,7 +133,6 @@
       "description": "Most significant byte first (default).",
       "value-key": "[BYTE_ORDER_DEFAULT]",
       "type": "Flag",
-      "optional": true,
       "id": "byte_order_default",
       "name": "Byte order default flag"
     },
@@ -153,7 +141,6 @@
       "description": "Least significant byte first.",
       "value-key": "[BYTE_ORDER_REVERSE]",
       "type": "Flag",
-      "optional": true,
       "id": "byte_order_reverse",
       "name": "Byte order reverse flag"
     },
@@ -162,7 +149,6 @@
       "description": "Write file format (default).",
       "value-key": "[WRITE_FILE]",
       "type": "Flag",
-      "optional": true,
       "id": "write_file",
       "name": "Write file flag"
     },
@@ -171,7 +157,6 @@
       "description": "Write data set without file meta information.",
       "value-key": "[WRITE_DATASET]",
       "type": "Flag",
-      "optional": true,
       "id": "write_dataset",
       "name": "Write dataset flag"
     },
@@ -180,7 +165,6 @@
       "description": "Write with explicit VR little endian (default).",
       "value-key": "[WRITE_XFER_LITTLE]",
       "type": "Flag",
-      "optional": true,
       "id": "write_xfer_little",
       "name": "Write xfer little flag"
     },
@@ -189,7 +173,6 @@
       "description": "Write with explicit VR big endian TS.",
       "value-key": "[WRITE_XFER_BIG]",
       "type": "Flag",
-      "optional": true,
       "id": "write_xfer_big",
       "name": "Write xfer big flag"
     },
@@ -198,7 +181,6 @@
       "description": "Write with implicit VR little endian TS.",
       "value-key": "[WRITE_XFER_IMPLICIT]",
       "type": "Flag",
-      "optional": true,
       "id": "write_xfer_implicit",
       "name": "Write xfer implicit flag"
     },
@@ -207,7 +189,6 @@
       "description": "Enable support for new VRs (UN/UT) (default).",
       "value-key": "[ENABLE_NEW_VR]",
       "type": "Flag",
-      "optional": true,
       "id": "enable_new_vr",
       "name": "Enable new VR flag"
     },
@@ -216,7 +197,6 @@
       "description": "Disable support for new VRs, convert to OB.",
       "value-key": "[DISABLE_NEW_VR]",
       "type": "Flag",
-      "optional": true,
       "id": "disable_new_vr",
       "name": "Disable new VR flag"
     },
@@ -225,7 +205,6 @@
       "description": "Recalculate group lengths if present (default).",
       "value-key": "[GROUP_LENGTH_RECALC]",
       "type": "Flag",
-      "optional": true,
       "id": "group_length_recalc",
       "name": "Group length recalc flag"
     },
@@ -234,7 +213,6 @@
       "description": "Always write with group length elements.",
       "value-key": "[GROUP_LENGTH_CREATE]",
       "type": "Flag",
-      "optional": true,
       "id": "group_length_create",
       "name": "Group length create flag"
     },
@@ -243,7 +221,6 @@
       "description": "Always write without group length elements.",
       "value-key": "[GROUP_LENGTH_REMOVE]",
       "type": "Flag",
-      "optional": true,
       "id": "group_length_remove",
       "name": "Group length remove flag"
     },
@@ -252,7 +229,6 @@
       "description": "Write with explicit lengths (default).",
       "value-key": "[LENGTH_EXPLICIT]",
       "type": "Flag",
-      "optional": true,
       "id": "length_explicit",
       "name": "Length explicit flag"
     },
@@ -261,7 +237,6 @@
       "description": "Write with undefined lengths.",
       "value-key": "[LENGTH_UNDEFINED]",
       "type": "Flag",
-      "optional": true,
       "id": "length_undefined",
       "name": "Length undefined flag"
     },
@@ -270,7 +245,6 @@
       "description": "Do not change padding.",
       "value-key": "[PADDING_RETAIN]",
       "type": "Flag",
-      "optional": true,
       "id": "padding_retain",
       "name": "Padding retain flag"
     },
@@ -279,7 +253,6 @@
       "description": "No padding (implicit if --write-dataset).",
       "value-key": "[PADDING_OFF]",
       "type": "Flag",
-      "optional": true,
       "id": "padding_off",
       "name": "Padding off flag"
     },

@@ -4,10 +4,7 @@
   "author": "MRTrix3 Developers",
   "tool-version": "3.0.4",
   "schema-version": "0.5",
-  "container-image": {
-    "image": "mrtrix3/mrtrix3:3.0.4",
-    "type": "docker"
-  },
+  "container-image": { "image": "mrtrix3/mrtrix3:3.0.4", "type": "docker" },
   "command-line": "mrgrid [REGRIDDING_OPTIONS__INVOLVES_IMAGE_INTERPOLATION__APPLIED_TO_SPATIAL_AXES_ONLY__TEMPLATE] [REGRIDDING_OPTIONS__INVOLVES_IMAGE_INTERPOLATION__APPLIED_TO_SPATIAL_AXES_ONLY__SIZE] [REGRIDDING_OPTIONS__INVOLVES_IMAGE_INTERPOLATION__APPLIED_TO_SPATIAL_AXES_ONLY__VOXEL] [REGRIDDING_OPTIONS__INVOLVES_IMAGE_INTERPOLATION__APPLIED_TO_SPATIAL_AXES_ONLY__SCALE] [REGRIDDING_OPTIONS__INVOLVES_IMAGE_INTERPOLATION__APPLIED_TO_SPATIAL_AXES_ONLY__INTERP] [REGRIDDING_OPTIONS__INVOLVES_IMAGE_INTERPOLATION__APPLIED_TO_SPATIAL_AXES_ONLY__OVERSAMPLE] [PAD_AND_CROP_OPTIONS__NO_IMAGE_INTERPOLATION_IS_PERFORMED__HEADER_TRANSFORMATION_IS_ADJUSTED__AS] [PAD_AND_CROP_OPTIONS__NO_IMAGE_INTERPOLATION_IS_PERFORMED__HEADER_TRANSFORMATION_IS_ADJUSTED__UNIFORM] [PAD_AND_CROP_OPTIONS__NO_IMAGE_INTERPOLATION_IS_PERFORMED__HEADER_TRANSFORMATION_IS_ADJUSTED__MASK] [PAD_AND_CROP_OPTIONS__NO_IMAGE_INTERPOLATION_IS_PERFORMED__HEADER_TRANSFORMATION_IS_ADJUSTED__CROP_UNBOUND] [PAD_AND_CROP_OPTIONS__NO_IMAGE_INTERPOLATION_IS_PERFORMED__HEADER_TRANSFORMATION_IS_ADJUSTED__AXIS] [PAD_AND_CROP_OPTIONS__NO_IMAGE_INTERPOLATION_IS_PERFORMED__HEADER_TRANSFORMATION_IS_ADJUSTED__ALL_AXES] [GENERAL_OPTIONS_FILL] [STRIDE_OPTIONS_STRIDES] [DATA_TYPE_OPTIONS_DATATYPE] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION] [INPUT] [OPERATION] [OUTPUT]",
   "inputs": [
     {
@@ -134,8 +131,7 @@
       "command-line-flag": "-crop_unbound",
       "value-key": "[PAD_AND_CROP_OPTIONS__NO_IMAGE_INTERPOLATION_IS_PERFORMED__HEADER_TRANSFORMATION_IS_ADJUSTED__CROP_UNBOUND]",
       "description": "Allow padding beyond the original FOV when cropping.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "axis",
@@ -177,8 +173,7 @@
       "command-line-flag": "-all_axes",
       "value-key": "[PAD_AND_CROP_OPTIONS__NO_IMAGE_INTERPOLATION_IS_PERFORMED__HEADER_TRANSFORMATION_IS_ADJUSTED__ALL_AXES]",
       "description": "Crop or pad all, not just spatial axes.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "fill",
@@ -243,8 +238,7 @@
       "command-line-flag": "-info",
       "value-key": "[__STANDARD_OPTIONS_INFO]",
       "description": "display information messages.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "quiet",
@@ -252,8 +246,7 @@
       "command-line-flag": "-quiet",
       "value-key": "[__STANDARD_OPTIONS_QUIET]",
       "description": "do not display information messages or progress status; alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "debug",
@@ -261,8 +254,7 @@
       "command-line-flag": "-debug",
       "value-key": "[__STANDARD_OPTIONS_DEBUG]",
       "description": "display debugging messages.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "force",
@@ -270,8 +262,7 @@
       "command-line-flag": "-force",
       "value-key": "[__STANDARD_OPTIONS_FORCE]",
       "description": "force overwrite of output files (caution: using the same file as input and output might cause unexpected behaviour).",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "nthreads",
@@ -322,8 +313,7 @@
       "command-line-flag": "-help",
       "value-key": "[__STANDARD_OPTIONS_HELP]",
       "description": "display this information page and exit.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "version",
@@ -331,8 +321,7 @@
       "command-line-flag": "-version",
       "value-key": "[__STANDARD_OPTIONS_VERSION]",
       "description": "display version information and exit.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     }
   ],
   "output-files": [

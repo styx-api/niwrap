@@ -37,7 +37,6 @@
       "name": "Automatic mask",
       "type": "Flag",
       "description": "Mask dataset so that tensors are computed only for high-intensity (presumably brain) voxels.",
-      "optional": true,
       "value-key": "[AUTOMASK]"
     },
     {
@@ -82,7 +81,6 @@
       "name": "Scale output by 1000",
       "type": "Flag",
       "description": "Increase output parameters with physical units by multiplying them by 1000.",
-      "optional": true,
       "value-key": "[SCALE_OUT_1000]"
     },
     {
@@ -101,7 +99,6 @@
       "name": "Nonlinear computation",
       "type": "Flag",
       "description": "Compute iterative solution to avoid negative eigenvalues. This is the default method.",
-      "optional": true,
       "value-key": "[NONLINEAR]"
     },
     {
@@ -110,7 +107,6 @@
       "name": "Linear computation",
       "type": "Flag",
       "description": "Compute simple linear solution.",
-      "optional": true,
       "value-key": "[LINEAR]"
     },
     {
@@ -119,7 +115,6 @@
       "name": "Recompute weight factors",
       "type": "Flag",
       "description": "Recompute weight factors at end of iterations and restart.",
-      "optional": true,
       "value-key": "[REWEIGHT]"
     },
     {
@@ -148,7 +143,6 @@
       "name": "Compute Eigen parameters",
       "type": "Flag",
       "description": "Compute eigenvalues, eigenvectors, fractional anisotropy, and mean diffusivity in sub-briks 6-19.",
-      "optional": true,
       "value-key": "[EIGS]"
     },
     {
@@ -157,7 +151,6 @@
       "name": "Add debugging sub-briks",
       "type": "Flag",
       "description": "Add sub-briks with error functional, original error, number of steps to convergence, and modeled B0 volume.",
-      "optional": true,
       "value-key": "[DEBUG_BRIKS]"
     },
     {
@@ -166,7 +159,6 @@
       "name": "Show weight factors",
       "type": "Flag",
       "description": "Show overall weight factors for each gradient level.",
-      "optional": true,
       "value-key": "[CUMULATIVE_WTS]"
     },
     {
@@ -195,7 +187,6 @@
       "name": "Separate datasets",
       "type": "Flag",
       "description": "Save tensor, eigenvalues, vectors, FA, MD in separate datasets.",
-      "optional": true,
       "value-key": "[SEP_DSETS]"
     },
     {
@@ -243,7 +234,6 @@
       "name": "Use mean b=0",
       "type": "Flag",
       "description": "Use mean of all b=0 volumes for linear computation and initial linear for nonlinear method.",
-      "optional": true,
       "value-key": "[MEAN_B0]"
     }
   ],

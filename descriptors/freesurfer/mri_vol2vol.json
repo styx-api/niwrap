@@ -99,7 +99,6 @@
       "description": "Sample from targ to mov",
       "value-key": "[INV]",
       "type": "Flag",
-      "optional": true,
       "id": "inv",
       "name": "Inverse transform flag"
     },
@@ -108,7 +107,6 @@
       "description": "Map to a sub FOV of MNI305 (with --reg only)",
       "value-key": "[TAL]",
       "type": "Flag",
-      "optional": true,
       "id": "tal",
       "name": "Talairach mapping flag"
     },
@@ -144,7 +142,6 @@
       "description": "Compute and use the inverse of the m3z morph",
       "value-key": "[INV_MORPH]",
       "type": "Flag",
-      "optional": true,
       "id": "inv_morph",
       "name": "Inverse morph flag"
     },
@@ -182,7 +179,6 @@
       "description": "Reverse order of slices, update vox2ras",
       "value-key": "[SLICE_REVERSE]",
       "type": "Flag",
-      "optional": true,
       "id": "slice_reverse",
       "name": "Slice reverse flag"
     },
@@ -209,7 +205,6 @@
       "description": "Compute mean of all source voxels in a given target voxel",
       "value-key": "[FILL_AVERAGE]",
       "type": "Flag",
-      "optional": true,
       "id": "fill_average",
       "name": "Fill average flag"
     },
@@ -218,7 +213,6 @@
       "description": "Compute sum of all source voxels in a given target voxel",
       "value-key": "[FILL_CONSERVE]",
       "type": "Flag",
-      "optional": true,
       "id": "fill_conserve",
       "name": "Fill conserve flag"
     },
@@ -254,7 +248,6 @@
       "description": "Set output precision to that of the input",
       "value-key": "[KEEP_PRECISION]",
       "type": "Flag",
-      "optional": true,
       "id": "keep_precision",
       "name": "Keep input precision flag"
     },
@@ -263,7 +256,6 @@
       "description": "Save the trilinear interpolation kernel at each voxel instead of the interpolated image",
       "value-key": "[KERNEL]",
       "type": "Flag",
-      "optional": true,
       "id": "kernel",
       "name": "Trilinear interpolation kernel flag"
     },
@@ -272,7 +264,6 @@
       "description": "Setenv FS_COPY_HEADER_CTAB to copy any ctab in the mov header",
       "value-key": "[COPY_CTAB]",
       "type": "Flag",
-      "optional": true,
       "id": "copy_ctab",
       "name": "Copy ctab flag"
     },
@@ -317,7 +308,6 @@
       "description": "Do not resample, just change vox2ras matrix",
       "value-key": "[NO_RESAMPLE]",
       "type": "Flag",
-      "optional": true,
       "id": "no_resample",
       "name": "No resampling flag"
     },
@@ -371,7 +361,6 @@
       "description": "Replace input with white Gaussian noise",
       "value-key": "[SYNTH]",
       "type": "Flag",
-      "optional": true,
       "id": "synth",
       "name": "Synthesize noise flag"
     },
@@ -389,7 +378,6 @@
       "description": "Write out output volume registration matrix",
       "value-key": "[SAVE_REG]",
       "type": "Flag",
-      "optional": true,
       "id": "save_reg",
       "name": "Save registration flag"
     },
@@ -398,7 +386,6 @@
       "description": "Turn on debugging output",
       "value-key": "[DEBUG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug",
       "name": "Debug flag"
     },
@@ -407,7 +394,6 @@
       "description": "Print out version string and exit",
       "value-key": "[VERSION]",
       "type": "Flag",
-      "optional": true,
       "id": "version",
       "name": "Version flag"
     }

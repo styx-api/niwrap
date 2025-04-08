@@ -40,7 +40,6 @@
       "description": "Output the p-value (on the same line, after q)",
       "value-key": "[PVAL]",
       "type": "Flag",
-      "optional": true,
       "id": "pval",
       "name": "Output p-value flag"
     },
@@ -49,7 +48,6 @@
       "description": "Don't output q-values, just p-values",
       "value-key": "[PONLY]",
       "type": "Flag",
-      "optional": true,
       "id": "ponly",
       "name": "Output only p-values flag"
     },
@@ -58,7 +56,6 @@
       "description": "Don't output p-values, just q-values",
       "value-key": "[QONLY]",
       "type": "Flag",
-      "optional": true,
       "id": "qonly",
       "name": "Output only q-values flag"
     },
@@ -67,7 +64,6 @@
       "description": "The 'val' inputs are taken to be q-values and then the outputs are the corresponding statistical thresholds.",
       "value-key": "[QINPUT]",
       "type": "Flag",
-      "optional": true,
       "id": "qinput",
       "name": "Input q-values flag"
     },
@@ -76,7 +72,6 @@
       "description": "Inverse of the usual operation. 'Val' inputs must be between 0 and 1 (exclusive). Cannot be used with '-ponly' or '-pval'.",
       "value-key": "[INVERSE]",
       "type": "Flag",
-      "optional": true,
       "id": "inverse",
       "name": "Inverse operation flag"
     }

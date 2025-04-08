@@ -6,10 +6,7 @@
   "url": "https://github.com/ANTsX/ANTs",
   "tool-version": "2.5.3",
   "schema-version": "0.5",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  },
+  "container-image": { "type": "docker", "image": "antsx/ants:v2.5.3" },
   "inputs": [
     {
       "id": "mask",
@@ -64,7 +61,6 @@
       "name": "Spatial map",
       "value-key": "[SPATIAL_MAP]",
       "type": "Flag",
-      "optional": true,
       "command-line-flag": "-s",
       "description": "Output image of displacement magnitude."
     },
@@ -73,7 +69,6 @@
       "name": "Timeseries displacement",
       "value-key": "[TIMESERIES_DISPLACEMENT]",
       "type": "Flag",
-      "optional": true,
       "command-line-flag": "-d",
       "description": "Output 4d time-series image of displacement magnitude."
     },

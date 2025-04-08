@@ -63,8 +63,7 @@
       "type": "Flag",
       "value-key": "[SEGMENTS]",
       "description": "outputs a separate binary image for each tissue type",
-      "command-line-flag": "-g",
-      "optional": true
+      "command-line-flag": "-g"
     },
     {
       "name": "Init transform",
@@ -91,8 +90,7 @@
       "type": "Flag",
       "value-key": "[OUTPUT_BIASFIELD]",
       "description": "Output estimated bias field.",
-      "command-line-flag": "-b",
-      "optional": true
+      "command-line-flag": "-b"
     },
     {
       "name": "Output biascorrected",
@@ -100,8 +98,7 @@
       "type": "Flag",
       "value-key": "[OUTPUT_BIASCORRECTED]",
       "description": "Output restored image (bias-corrected image).",
-      "command-line-flag": "-B",
-      "optional": true
+      "command-line-flag": "-B"
     },
     {
       "name": "No bias",
@@ -109,8 +106,7 @@
       "type": "Flag",
       "value-key": "[NO_BIAS]",
       "description": "Do not remove bias field.",
-      "command-line-flag": "-N",
-      "optional": true
+      "command-line-flag": "-N"
     },
     {
       "name": "Channels",
@@ -139,7 +135,6 @@
       "value-key": "[USE_PRIORS]",
       "description": "Use priors throughout.",
       "command-line-flag": "-P",
-      "optional": true,
       "requires-inputs": ["init_transform"]
     },
     {
@@ -148,8 +143,7 @@
       "type": "Flag",
       "value-key": "[NO_PVE]",
       "description": "Turn off pve (partial volume estimation).",
-      "command-line-flag": "--nopve",
-      "optional": true
+      "command-line-flag": "--nopve"
     },
     {
       "name": "Segment iters",
@@ -199,8 +193,7 @@
       "type": "Flag",
       "value-key": "[VERBOSE]",
       "description": "Switch on diagnostic messages.",
-      "command-line-flag": "-v",
-      "optional": true
+      "command-line-flag": "-v"
     },
     {
       "name": "Manual seg",

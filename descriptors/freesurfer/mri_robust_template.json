@@ -43,7 +43,6 @@
       "description": "Auto-detect good sensitivity (recommended for head or full brain scans).",
       "value-key": "[SATIT_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "satit_flag",
       "name": "Auto-detect sensitivity"
     },
@@ -92,7 +91,6 @@
       "description": "Weights (outlier) map will be inverted (0=outlier), as in earlier versions.",
       "value-key": "[ONEMINUSW_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "oneminusw_flag",
       "name": "Invert outlier weights"
     },
@@ -121,7 +119,6 @@
       "description": "Map everything to init TP# (init TP is not resampled).",
       "value-key": "[FIXTP_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "fixtp_flag",
       "name": "Fix initial TP"
     },
@@ -130,7 +127,6 @@
       "description": "Allow also intensity scaling (default off).",
       "value-key": "[ISCALE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "iscale_flag",
       "name": "Intensity scaling"
     },
@@ -139,7 +135,6 @@
       "description": "Only perform iscale (no transformation, default off).",
       "value-key": "[ISCALEONLY_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "iscaleonly_flag",
       "name": "Intensity scaling only"
     },
@@ -168,7 +163,6 @@
       "description": "Find 3 parameter translation only.",
       "value-key": "[TRANSONLY_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "transonly_flag",
       "name": "Translation only"
     },
@@ -177,7 +171,6 @@
       "description": "Find 12 parameter affine transform.",
       "value-key": "[AFFINE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "affine_flag",
       "name": "Affine transform"
     },
@@ -206,7 +199,6 @@
       "description": "Output VOX2VOX lta file (default is RAS2RAS).",
       "value-key": "[VOX2VOX_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "vox2vox_flag",
       "name": "VOX2VOX output"
     },
@@ -215,7 +207,6 @@
       "description": "Use least squares instead of robust M-estimator (for testing only).",
       "value-key": "[LEASTSQUARES_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "leastsquares_flag",
       "name": "Least squares"
     },
@@ -224,7 +215,6 @@
       "description": "Do not iterate, just create first template.",
       "value-key": "[NOIT_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "noit_flag",
       "name": "No iteration"
     },
@@ -291,7 +281,6 @@
       "description": "Do not use multi-resolution (only highest resolution).",
       "value-key": "[NOMULTI_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "nomulti_flag",
       "name": "Disable multi-resolution"
     },
@@ -300,7 +289,6 @@
       "description": "Convert images to float internally (default: keep input type).",
       "value-key": "[FLOATTYPE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "floattype_flag",
       "name": "Convert to float"
     },
@@ -309,7 +297,6 @@
       "description": "Use nearest neighbor in final interpolation when creating average.",
       "value-key": "[FINALNEAREST_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "finalnearest_flag",
       "name": "Nearest neighbor interpolation"
     },
@@ -318,7 +305,6 @@
       "description": "Use double precision instead of float internally (large memory usage).",
       "value-key": "[DOUBLEPREC_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "doubleprec_flag",
       "name": "Double precision"
     },
@@ -327,7 +313,6 @@
       "description": "Center template at average CRAS, instead of average barycenter.",
       "value-key": "[CRAS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "cras_flag",
       "name": "Center at CRAS"
     },
@@ -354,7 +339,6 @@
       "description": "Show debug output (default no debug output).",
       "value-key": "[DEBUG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug_flag",
       "name": "Debug mode"
     }

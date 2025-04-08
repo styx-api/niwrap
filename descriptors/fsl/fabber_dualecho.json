@@ -96,7 +96,6 @@
       "description": "Print this usage method. If given with --method or --model, display relevant method/model usage information",
       "value-key": "[HELP_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "help_flag",
       "name": "Help Flag"
     },
@@ -105,7 +104,6 @@
       "description": "List all known inference methods",
       "value-key": "[LIST_METHODS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "list_methods_flag",
       "name": "List Methods Flag"
     },
@@ -114,7 +112,6 @@
       "description": "List all known forward models",
       "value-key": "[LIST_MODELS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "list_models_flag",
       "name": "List Models Flag"
     },
@@ -123,7 +120,6 @@
       "description": "List model parameters (requires model configuration options to be given)",
       "value-key": "[LIST_PARAMS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "list_params_flag",
       "name": "List Parameters Flag"
     },
@@ -132,7 +128,6 @@
       "description": "Descript model parameters (name, description, units) - requires model configuration options to be given. Note that not all models provide parameter descriptions",
       "value-key": "[DESC_PARAMS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "desc_params_flag",
       "name": "Describe Parameters Flag"
     },
@@ -141,7 +136,6 @@
       "description": "List additional model outputs (requires model configuration options to be given)",
       "value-key": "[LIST_OUTPUTS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "list_outputs_flag",
       "name": "List Outputs Flag"
     },
@@ -177,7 +171,6 @@
       "description": "Instead of usual standard output, simply output series of lines each giving progress as percentage",
       "value-key": "[SIMPLE_OUTPUT_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "simple_output_flag",
       "name": "Simple Output Flag"
     },
@@ -186,7 +179,6 @@
       "description": "If set will overwrite existing output. If not set, new output directories will be created by appending '+' to the directory name",
       "value-key": "[OVERWRITE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "overwrite_flag",
       "name": "Overwrite Flag"
     },
@@ -195,7 +187,6 @@
       "description": "Try to create a link to the most recent output directory with the prefix _latest",
       "value-key": "[LINK_TO_LATEST_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "link_to_latest_flag",
       "name": "Link to Latest Flag"
     },
@@ -213,7 +204,6 @@
       "description": "Write the file paramnames.txt containing the names of the model parameters",
       "value-key": "[DUMP_PARAM_NAMES_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "dump_param_names_flag",
       "name": "Dump Parameter Names Flag"
     },
@@ -222,7 +212,6 @@
       "description": "Output the model prediction as a 4d volume",
       "value-key": "[SAVE_MODEL_FIT_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "save_model_fit_flag",
       "name": "Save Model Fit Flag"
     },
@@ -231,7 +220,6 @@
       "description": "Output the residuals (difference between the data and the model prediction)",
       "value-key": "[SAVE_RESIDUALS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "save_residuals_flag",
       "name": "Save Residuals Flag"
     },
@@ -240,7 +228,6 @@
       "description": "Output any additional model-specific timeseries data",
       "value-key": "[SAVE_MODEL_EXTRAS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "save_model_extras_flag",
       "name": "Save Model Extras Flag"
     },
@@ -249,7 +236,6 @@
       "description": "Output the final MVN distributions.",
       "value-key": "[SAVE_MVN_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "save_mvn_flag",
       "name": "Save MVN Flag"
     },
@@ -258,7 +244,6 @@
       "description": "Output the parameter means.",
       "value-key": "[SAVE_MEAN_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "save_mean_flag",
       "name": "Save Means Flag"
     },
@@ -267,7 +252,6 @@
       "description": "Output the parameter standard deviations.",
       "value-key": "[SAVE_STD_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "save_std_flag",
       "name": "Save Standard Deviation Flag"
     },
@@ -276,7 +260,6 @@
       "description": "Output the parameter variances.",
       "value-key": "[SAVE_VAR_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "save_var_flag",
       "name": "Save Variance Flag"
     },
@@ -285,7 +268,6 @@
       "description": "Output the parameter Zstats.",
       "value-key": "[SAVE_ZSTAT_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "save_zstat_flag",
       "name": "Save Z-statistics Flag"
     },
@@ -294,7 +276,6 @@
       "description": "Output the noise means. The noise distribution inferred is the precision of a Gaussian noise source",
       "value-key": "[SAVE_NOISE_MEAN_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "save_noise_mean_flag",
       "name": "Save Noise Mean Flag"
     },
@@ -303,7 +284,6 @@
       "description": "Output the noise standard deviations.",
       "value-key": "[SAVE_NOISE_STD_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "save_noise_std_flag",
       "name": "Save Noise Standard Deviation Flag"
     },
@@ -312,7 +292,6 @@
       "description": "Output the free energy, if calculated.",
       "value-key": "[SAVE_FREE_ENERGY_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "save_free_energy_flag",
       "name": "Save Free Energy Flag"
     },
@@ -321,7 +300,6 @@
       "description": "Output large amounts of debug information. ONLY USE WITH VERY SMALL NUMBERS OF VOXELS",
       "value-key": "[DEBUG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug_flag",
       "name": "Debug Flag"
     }

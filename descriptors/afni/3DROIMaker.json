@@ -86,7 +86,6 @@
       "description": "Trim the INSET to exclude voxels in WM by excluding those which overlap an input WM skeleton.",
       "value-key": "[TRIM_OFF_WM]",
       "type": "Flag",
-      "optional": true,
       "id": "trim_off_wm",
       "name": "Trim off WM"
     },
@@ -113,7 +112,6 @@
       "description": "Stop inflation at locations which are already on WM skeleton.",
       "value-key": "[SKEL_STOP]",
       "type": "Flag",
-      "optional": true,
       "id": "skel_stop",
       "name": "Stop at WM skeleton"
     },
@@ -122,7 +120,6 @@
       "description": "Do not allow any inflation into the skel-region.",
       "value-key": "[SKEL_STOP_STRICT]",
       "type": "Flag",
-      "optional": true,
       "id": "skel_stop_strict",
       "name": "Strictly stop at WM skeleton"
     },
@@ -149,7 +146,6 @@
       "description": "Define neighbors loosely so that voxels can be grouped into the same ROI if they share at least one vertex.",
       "value-key": "[NEIGH_UPTO_VERT]",
       "type": "Flag",
-      "optional": true,
       "id": "neigh_upto_vert",
       "name": "Vertex neighbor grouping"
     },
@@ -158,7 +154,6 @@
       "description": "Switch to output *.nii.gz GM and GMI files",
       "value-key": "[NIFTI]",
       "type": "Flag",
-      "optional": true,
       "id": "nifti",
       "name": "Output NIFTI files"
     },
@@ -185,7 +180,6 @@
       "description": "Switch for turning off labeltable attachment to the output GM and GMI files.",
       "value-key": "[DUMP_NO_LABTAB]",
       "type": "Flag",
-      "optional": true,
       "id": "dump_no_labtab",
       "name": "Disable labeltable"
     }

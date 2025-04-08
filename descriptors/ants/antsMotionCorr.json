@@ -52,7 +52,6 @@
       "name": "Use scales estimator",
       "value-key": "[USE_SCALES_ESTIMATOR]",
       "type": "Flag",
-      "optional": true,
       "command-line-flag": "--useScalesEstimator",
       "description": "Use the scale estimator to control optimization."
     },
@@ -106,7 +105,6 @@
       "name": "Average image",
       "value-key": "[AVERAGE_IMAGE]",
       "type": "Flag",
-      "optional": true,
       "command-line-flag": "--average-image",
       "description": "Average the input time series image."
     },
@@ -115,7 +113,6 @@
       "name": "Write displacement",
       "value-key": "[WRITE_DISPLACEMENT]",
       "type": "Flag",
-      "optional": true,
       "command-line-flag": "--write-displacement",
       "description": "Write the low-dimensional 3D transforms to a 4D displacement field."
     },
@@ -196,8 +193,5 @@
     }
   ],
   "url": "https://github.com/ANTsX/ANTs",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  }
+  "container-image": { "type": "docker", "image": "antsx/ants:v2.5.3" }
 }

@@ -97,7 +97,6 @@
       "description": "List all known inference methods",
       "value-key": "[LISTMETHODS]",
       "type": "Flag",
-      "optional": true,
       "id": "listmethods",
       "name": "List Methods"
     },
@@ -106,7 +105,6 @@
       "description": "List all known forward models",
       "value-key": "[LISTMODELS]",
       "type": "Flag",
-      "optional": true,
       "id": "listmodels",
       "name": "List Models"
     },
@@ -115,7 +113,6 @@
       "description": "List model parameters (requires model configuration options to be given)",
       "value-key": "[LISTPARAMS]",
       "type": "Flag",
-      "optional": true,
       "id": "listparams",
       "name": "List Parameters"
     },
@@ -124,7 +121,6 @@
       "description": "Descript model parameters (name, description, units) - requires model configuration options to be given. Note that not all models provide parameter descriptions",
       "value-key": "[DESCPARAMS]",
       "type": "Flag",
-      "optional": true,
       "id": "descparams",
       "name": "Describe Parameters"
     },
@@ -133,7 +129,6 @@
       "description": "List additional model outputs (requires model configuration options to be given)",
       "value-key": "[LISTOUTPUTS]",
       "type": "Flag",
-      "optional": true,
       "id": "listoutputs",
       "name": "List Outputs"
     },
@@ -169,7 +164,6 @@
       "description": "Instead of usual standard output, simply output series of lines each giving progress as percentage",
       "value-key": "[SIMPLE_OUTPUT]",
       "type": "Flag",
-      "optional": true,
       "id": "simple_output",
       "name": "Simple Output"
     },
@@ -178,7 +172,6 @@
       "description": "If set will overwrite existing output. If not set, new output directories will be created by appending '+' to the directory name",
       "value-key": "[OVERWRITE]",
       "type": "Flag",
-      "optional": true,
       "id": "overwrite",
       "name": "Overwrite Output"
     },
@@ -187,7 +180,6 @@
       "description": "Try to create a link to the most recent output directory with the prefix _latest",
       "value-key": "[LINK_LATEST]",
       "type": "Flag",
-      "optional": true,
       "id": "link_latest",
       "name": "Link to Latest"
     },
@@ -205,7 +197,6 @@
       "description": "Write the file paramnames.txt containing the names of the model parameters",
       "value-key": "[DUMP_PARAM_NAMES]",
       "type": "Flag",
-      "optional": true,
       "id": "dump_param_names",
       "name": "Dump Parameter Names"
     },
@@ -214,7 +205,6 @@
       "description": "Output the model prediction as a 4d volume",
       "value-key": "[SAVE_MODEL_FIT]",
       "type": "Flag",
-      "optional": true,
       "id": "save_model_fit",
       "name": "Save Model Fit"
     },
@@ -223,7 +213,6 @@
       "description": "Output the residuals (difference between the data and the model prediction)",
       "value-key": "[SAVE_RESIDUALS]",
       "type": "Flag",
-      "optional": true,
       "id": "save_residuals",
       "name": "Save Residuals"
     },
@@ -232,7 +221,6 @@
       "description": "Output any additional model-specific timeseries data",
       "value-key": "[SAVE_MODEL_EXTRAS]",
       "type": "Flag",
-      "optional": true,
       "id": "save_model_extras",
       "name": "Save Model Extras"
     },
@@ -241,7 +229,6 @@
       "description": "Output the final MVN distributions.",
       "value-key": "[SAVE_MVN]",
       "type": "Flag",
-      "optional": true,
       "id": "save_mvn",
       "name": "Save MVN"
     },
@@ -250,7 +237,6 @@
       "description": "Output the parameter means.",
       "value-key": "[SAVE_MEAN]",
       "type": "Flag",
-      "optional": true,
       "id": "save_mean",
       "name": "Save Mean"
     },
@@ -259,7 +245,6 @@
       "description": "Output the parameter standard deviations.",
       "value-key": "[SAVE_STD]",
       "type": "Flag",
-      "optional": true,
       "id": "save_std",
       "name": "Save Standard Deviation"
     },
@@ -268,7 +253,6 @@
       "description": "Output the parameter variances.",
       "value-key": "[SAVE_VAR]",
       "type": "Flag",
-      "optional": true,
       "id": "save_var",
       "name": "Save Variance"
     },
@@ -277,7 +261,6 @@
       "description": "Output the parameter Zstats.",
       "value-key": "[SAVE_ZSTAT]",
       "type": "Flag",
-      "optional": true,
       "id": "save_zstat",
       "name": "Save Zstats"
     },
@@ -286,7 +269,6 @@
       "description": "Output the noise means. The noise distribution inferred is the precision of a Gaussian noise source",
       "value-key": "[SAVE_NOISE_MEAN]",
       "type": "Flag",
-      "optional": true,
       "id": "save_noise_mean",
       "name": "Save Noise Mean"
     },
@@ -295,7 +277,6 @@
       "description": "Output the noise standard deviations.",
       "value-key": "[SAVE_NOISE_STD]",
       "type": "Flag",
-      "optional": true,
       "id": "save_noise_std",
       "name": "Save Noise Standard Deviation"
     },
@@ -304,7 +285,6 @@
       "description": "Output the free energy, if calculated.",
       "value-key": "[SAVE_FREE_ENERGY]",
       "type": "Flag",
-      "optional": true,
       "id": "save_free_energy",
       "name": "Save Free Energy"
     },
@@ -322,7 +302,6 @@
       "description": "Output large amounts of debug information. ONLY USE WITH VERY SMALL NUMBERS OF VOXELS",
       "value-key": "[DEBUG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug",
       "name": "Debug Flag"
     }

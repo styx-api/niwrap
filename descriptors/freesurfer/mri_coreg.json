@@ -61,7 +61,6 @@
       "description": "Enable 7 dof registration with scaling in Z.",
       "value-key": "[ZSCALE]",
       "type": "Flag",
-      "optional": true,
       "id": "zscale",
       "name": "Z-scale flag"
     },
@@ -70,7 +69,6 @@
       "description": "For 2D images: uses shifts in x and z and rotation about y (no scale).",
       "value-key": "[XZTRANS_YROT]",
       "type": "Flag",
-      "optional": true,
       "id": "xztrans_yrot",
       "name": "XZ Translation and Y Rotation flag"
     },
@@ -79,7 +77,6 @@
       "description": "For 2D images: uses shifts in x and y and rotation about z (no scale).",
       "value-key": "[XYTRANS_ZROT]",
       "type": "Flag",
-      "optional": true,
       "id": "xytrans_zrot",
       "name": "XY Translation and Z Rotation flag"
     },
@@ -88,7 +85,6 @@
       "description": "For 2D images: uses shifts in x and y, rotation about z, scale in xy, and xy shear.",
       "value-key": "[XYTRANS_ZROT_XYSCALE_XYSHEAR]",
       "type": "Flag",
-      "optional": true,
       "id": "xytrans_zrot_xyscale_xyshear",
       "name": "XY Trans, Z Rot, XY Scale, XY Shear flag"
     },
@@ -106,7 +102,6 @@
       "description": "Do not mask reference volume.",
       "value-key": "[NO_REF_MASK]",
       "type": "Flag",
-      "optional": true,
       "id": "no_ref_mask",
       "name": "No Reference Mask flag"
     },
@@ -152,7 +147,6 @@
       "description": "Turn off coordinate dithering.",
       "value-key": "[NO_COORD_DITHER]",
       "type": "Flag",
-      "optional": true,
       "id": "no_coord_dither",
       "name": "No Coordinate Dither flag"
     },
@@ -161,7 +155,6 @@
       "description": "Turn off intensity dithering.",
       "value-key": "[NO_INTENSITY_DITHER]",
       "type": "Flag",
-      "optional": true,
       "id": "no_intensity_dither",
       "name": "No Intensity Dither flag"
     },
@@ -257,7 +250,6 @@
       "description": "Do not set translation parameters to align centers of mov and ref.",
       "value-key": "[NO_CRAS0]",
       "type": "Flag",
-      "optional": true,
       "id": "no_cras0",
       "name": "No CRAS0 flag"
     },
@@ -266,7 +258,6 @@
       "description": "Initialize by aligning centroids of mov and ref.",
       "value-key": "[CENTROID]",
       "type": "Flag",
-      "optional": true,
       "id": "centroid",
       "name": "Centroid flag"
     },
@@ -275,7 +266,6 @@
       "description": "Save output LTA as RAS2RAS.",
       "value-key": "[RAS2RAS]",
       "type": "Flag",
-      "optional": true,
       "id": "ras2ras",
       "name": "RAS2RAS flag"
     },
@@ -331,7 +321,6 @@
       "description": "Conform the reference without rescaling.",
       "value-key": "[CONF_REF]",
       "type": "Flag",
-      "optional": true,
       "id": "conf_ref",
       "name": "Conform Reference flag"
     },
@@ -340,7 +329,6 @@
       "description": "Do not perform brute force search.",
       "value-key": "[NO_BF]",
       "type": "Flag",
-      "optional": true,
       "id": "no_bf",
       "name": "No Brute Force flag"
     },
@@ -368,7 +356,6 @@
       "description": "Do not apply smoothing to either ref or mov.",
       "value-key": "[NO_SMOOTH]",
       "type": "Flag",
-      "optional": true,
       "id": "no_smooth",
       "name": "No Smoothing flag"
     },
@@ -386,7 +373,6 @@
       "description": "Count mov voxels that are out-of-bounds as 0.",
       "value-key": "[MOV_OOB]",
       "type": "Flag",
-      "optional": true,
       "id": "mov_oob",
       "name": "Mov Out of Bounds flag"
     },
@@ -489,7 +475,6 @@
       "description": "Enable debugging mode.",
       "value-key": "[DEBUG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug",
       "name": "Debug Flag"
     },
@@ -498,7 +483,6 @@
       "description": "Check options and exit without running.",
       "value-key": "[CHECKOPTS]",
       "type": "Flag",
-      "optional": true,
       "id": "checkopts",
       "name": "Check Options Flag"
     },
@@ -507,7 +491,6 @@
       "description": "Print out version and exit.",
       "value-key": "[VERSION]",
       "type": "Flag",
-      "optional": true,
       "id": "version",
       "name": "Version Flag"
     }

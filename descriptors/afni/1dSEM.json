@@ -83,7 +83,6 @@
       "description": "No modeling at all, just calculate the cost function for the coefficients as given in the theta file.",
       "value-key": "[CALCULATE_COST]",
       "type": "Flag",
-      "optional": true,
       "id": "calculate_cost",
       "name": "Calculate Cost Flag"
     },
@@ -102,7 +101,6 @@
       "description": "Search for best model by growing a model for one additional coefficient from the previous model for n-1 coefficients.",
       "value-key": "[TREE_GROWTH]",
       "type": "Flag",
-      "optional": true,
       "id": "tree_growth",
       "name": "Tree Growth Flag"
     },
@@ -111,7 +109,6 @@
       "description": "Search for best model by growing a model for one additional coefficient from the previous model for n-1 coefficients.",
       "value-key": "[MODEL_SEARCH]",
       "type": "Flag",
-      "optional": true,
       "id": "model_search",
       "name": "Model Search Flag"
     },
@@ -139,7 +136,6 @@
       "description": "Search over all possible models by comparing models at incrementally increasing number of path coefficients.",
       "value-key": "[FOREST_GROWTH]",
       "type": "Flag",
-      "optional": true,
       "id": "forest_growth",
       "name": "Forest Growth Flag"
     },
@@ -148,7 +144,6 @@
       "description": "Search over all possible models by comparing models at incrementally increasing number of path coefficients.",
       "value-key": "[GROW_ALL]",
       "type": "Flag",
-      "optional": true,
       "id": "grow_all",
       "name": "Grow All Flag"
     },
@@ -157,7 +152,6 @@
       "description": "Expands the search optimization to look at multiple paths to avoid local minimum. This method is the default technique for tree growth and standard coefficient searches.",
       "value-key": "[LEAFPICKER]",
       "type": "Flag",
-      "optional": true,
       "id": "leafpicker",
       "name": "Leafpicker Flag"
     }

@@ -4,10 +4,7 @@
   "author": "MRTrix3 Developers",
   "tool-version": "3.0.4",
   "schema-version": "0.5",
-  "container-image": {
-    "image": "mrtrix3/mrtrix3:3.0.4",
-    "type": "docker"
-  },
+  "container-image": { "image": "mrtrix3/mrtrix3:3.0.4", "type": "docker" },
   "command-line": "maskfilter [OPTIONS_FOR_MASK_CLEANING_FILTER_SCALE] [OPTIONS_FOR_CONNECTED_COMPONENT_FILTER_AXES] [OPTIONS_FOR_CONNECTED_COMPONENT_FILTER_LARGEST] [OPTIONS_FOR_CONNECTED_COMPONENT_FILTER_CONNECTIVITY] [OPTIONS_FOR_DILATE___ERODE_FILTERS_NPASS] [OPTIONS_FOR_MEDIAN_FILTER_EXTENT] [STRIDE_OPTIONS_STRIDES] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION] [INPUT] [FILTER] [OUTPUT]",
   "inputs": [
     {
@@ -62,8 +59,7 @@
       "command-line-flag": "-largest",
       "value-key": "[OPTIONS_FOR_CONNECTED_COMPONENT_FILTER_LARGEST]",
       "description": "only retain the largest connected component",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "connectivity",
@@ -71,8 +67,7 @@
       "command-line-flag": "-connectivity",
       "value-key": "[OPTIONS_FOR_CONNECTED_COMPONENT_FILTER_CONNECTIVITY]",
       "description": "use 26-voxel-neighbourhood connectivity (Default: 6)",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "npass",
@@ -140,8 +135,7 @@
       "command-line-flag": "-info",
       "value-key": "[__STANDARD_OPTIONS_INFO]",
       "description": "display information messages.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "quiet",
@@ -149,8 +143,7 @@
       "command-line-flag": "-quiet",
       "value-key": "[__STANDARD_OPTIONS_QUIET]",
       "description": "do not display information messages or progress status; alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "debug",
@@ -158,8 +151,7 @@
       "command-line-flag": "-debug",
       "value-key": "[__STANDARD_OPTIONS_DEBUG]",
       "description": "display debugging messages.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "force",
@@ -167,8 +159,7 @@
       "command-line-flag": "-force",
       "value-key": "[__STANDARD_OPTIONS_FORCE]",
       "description": "force overwrite of output files (caution: using the same file as input and output might cause unexpected behaviour).",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "nthreads",
@@ -219,8 +210,7 @@
       "command-line-flag": "-help",
       "value-key": "[__STANDARD_OPTIONS_HELP]",
       "description": "display this information page and exit.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "version",
@@ -228,8 +218,7 @@
       "command-line-flag": "-version",
       "value-key": "[__STANDARD_OPTIONS_VERSION]",
       "description": "display version information and exit.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     }
   ],
   "output-files": [

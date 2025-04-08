@@ -51,7 +51,6 @@
       "description": "Generate Melodic web report",
       "value-key": "[GENERATE_REPORT]",
       "type": "Flag",
-      "optional": true,
       "id": "generate_report",
       "name": "Generate report"
     },
@@ -60,7 +59,6 @@
       "description": "Input/output as CIFTI (warning: auto-dimensionality estimation for CIFTI data is currently inaccurate)",
       "value-key": "[CIFTI_IO]",
       "type": "Flag",
-      "optional": true,
       "id": "cifti_io",
       "name": "CIFTI input/output"
     },
@@ -69,7 +67,6 @@
       "description": "Switch off variance normalization",
       "value-key": "[VARIANCE_NORMALIZATION]",
       "type": "Flag",
-      "optional": true,
       "id": "variance_normalization",
       "name": "Variance normalization"
     },
@@ -78,7 +75,6 @@
       "description": "Switch off masking",
       "value-key": "[NO_MASKING]",
       "type": "Flag",
-      "optional": true,
       "id": "no_masking",
       "name": "No masking"
     },
@@ -87,7 +83,6 @@
       "description": "Switch off mask updating",
       "value-key": "[UPDATE_MASKING]",
       "type": "Flag",
-      "optional": true,
       "id": "update_masking",
       "name": "Update masking"
     },
@@ -96,7 +91,6 @@
       "description": "Switch off BET",
       "value-key": "[NO_BET]",
       "type": "Flag",
-      "optional": true,
       "id": "no_bet",
       "name": "No BET"
     },
@@ -123,7 +117,6 @@
       "description": "Switch on separate variance normalization for each input dataset (off by default)",
       "value-key": "[SEPARATE_VARIANCE_NORMALIZATION]",
       "type": "Flag",
-      "optional": true,
       "id": "separate_variance_normalization",
       "name": "Separate variance normalization"
     },
@@ -132,7 +125,6 @@
       "description": "Switch off MIGP data reduction when using -a concat (full temporal concatenation will be used)",
       "value-key": "[DISABLE_MIGP]",
       "type": "Flag",
-      "optional": true,
       "id": "disable_migp",
       "name": "Disable MIGP"
     },
@@ -150,7 +142,6 @@
       "description": "Randomize MIGP file order (default: TRUE)",
       "value-key": "[MIGP_SHUFFLE]",
       "type": "Flag",
-      "optional": true,
       "id": "migp_shuffle",
       "name": "Randomize MIGP order"
     },
@@ -240,7 +231,6 @@
       "description": "Switch off mixture modeling on IC maps",
       "value-key": "[NO_MIXTURE_MODELING]",
       "type": "Flag",
-      "optional": true,
       "id": "no_mixture_modeling",
       "name": "No mixture modeling"
     },
@@ -303,7 +293,6 @@
       "description": "Calculate log of power for frequency spectrum",
       "value-key": "[LOG_POWER_CALC]",
       "type": "Flag",
-      "optional": true,
       "id": "log_power_calc",
       "name": "Log power calculation"
     },
@@ -348,7 +337,6 @@
       "description": "Output unmixing matrix",
       "value-key": "[OUTPUT_UNMIXING_MATRIX]",
       "type": "Flag",
-      "optional": true,
       "id": "output_unmixing_matrix",
       "name": "Output unmixing matrix"
     },
@@ -357,7 +345,6 @@
       "description": "Output thresholded maps and probability maps",
       "value-key": "[OUTPUT_STATS]",
       "type": "Flag",
-      "optional": true,
       "id": "output_stats",
       "name": "Output thresholded and probability maps"
     },
@@ -366,7 +353,6 @@
       "description": "Output PCA results",
       "value-key": "[OUTPUT_PCA]",
       "type": "Flag",
-      "optional": true,
       "id": "output_pca",
       "name": "Output PCA results"
     },
@@ -375,7 +361,6 @@
       "description": "Output whitening/dewhitening matrices",
       "value-key": "[OUTPUT_WHITENING]",
       "type": "Flag",
-      "optional": true,
       "id": "output_whitening",
       "name": "Output whitening/dewhitening matrices"
     },
@@ -384,7 +369,6 @@
       "description": "Output the original ICs",
       "value-key": "[OUTPUT_ORIGINAL_ICS]",
       "type": "Flag",
-      "optional": true,
       "id": "output_original_ics",
       "name": "Output original ICs"
     },
@@ -393,7 +377,6 @@
       "description": "Output mean volume",
       "value-key": "[OUTPUT_MEAN_VOLUME]",
       "type": "Flag",
-      "optional": true,
       "id": "output_mean_volume",
       "name": "Output mean volume"
     },
@@ -402,7 +385,6 @@
       "description": "Prints version information",
       "value-key": "[VERSION]",
       "type": "Flag",
-      "optional": true,
       "id": "version",
       "name": "Version"
     },
@@ -411,7 +393,6 @@
       "description": "Prints copyright information",
       "value-key": "[COPYRIGHT]",
       "type": "Flag",
-      "optional": true,
       "id": "copyright",
       "name": "Copyright"
     },
@@ -420,7 +401,6 @@
       "description": "Prints this help message",
       "value-key": "[HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "help",
       "name": "Help"
     },
@@ -429,7 +409,6 @@
       "description": "Switch on debug messages",
       "value-key": "[DEBUG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug",
       "name": "Debug"
     },
@@ -447,7 +426,6 @@
       "description": "Do not subtract mean volume",
       "value-key": "[KEEP_MEANVOL]",
       "type": "Flag",
-      "optional": true,
       "id": "keep_meanvol",
       "name": "Keep mean volume"
     }

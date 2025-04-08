@@ -42,7 +42,6 @@
       "name": "Tightest Bounding Box",
       "value-key": "[TIGHTEST_BOUNDING_BOX]",
       "type": "Flag",
-      "optional": true,
       "command-line-flag": "--tightest-bounding-box",
       "description": "Compute the tightest bounding box using all affine transformations."
     },
@@ -51,7 +50,6 @@
       "name": "Reslice by Header",
       "value-key": "[RESLICE_BY_HEADER]",
       "type": "Flag",
-      "optional": true,
       "command-line-flag": "--reslice-by-header",
       "description": "Use the orientation matrix and origin encoded in the image file header for reslicing."
     },
@@ -60,7 +58,6 @@
       "name": "Use Nearest Neighbor Interpolation",
       "value-key": "[USE_NEAREST_NEIGHBOR]",
       "type": "Flag",
-      "optional": true,
       "command-line-flag": "--use-NN",
       "description": "Use Nearest Neighbor Interpolator for the transformation."
     },
@@ -100,8 +97,5 @@
     }
   ],
   "author": "ANTs Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  }
+  "container-image": { "type": "docker", "image": "antsx/ants:v2.5.3" }
 }

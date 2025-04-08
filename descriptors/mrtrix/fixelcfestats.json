@@ -4,10 +4,7 @@
   "author": "MRTrix3 Developers",
   "tool-version": "3.0.4",
   "schema-version": "0.5",
-  "container-image": {
-    "image": "mrtrix3/mrtrix3:3.0.4",
-    "type": "docker"
-  },
+  "container-image": { "image": "mrtrix3/mrtrix3:3.0.4", "type": "docker" },
   "command-line": "fixelcfestats [OPTIONS_MASK] [OPTIONS_RELATING_TO_SHUFFLING_OF_DATA_FOR_NONPARAMETRIC_STATISTICAL_INFERENCE_NOTEST] [OPTIONS_RELATING_TO_SHUFFLING_OF_DATA_FOR_NONPARAMETRIC_STATISTICAL_INFERENCE_ERRORS] [OPTIONS_RELATING_TO_SHUFFLING_OF_DATA_FOR_NONPARAMETRIC_STATISTICAL_INFERENCE_EXCHANGE_WITHIN] [OPTIONS_RELATING_TO_SHUFFLING_OF_DATA_FOR_NONPARAMETRIC_STATISTICAL_INFERENCE_EXCHANGE_WHOLE] [OPTIONS_RELATING_TO_SHUFFLING_OF_DATA_FOR_NONPARAMETRIC_STATISTICAL_INFERENCE_STRONG] [OPTIONS_RELATING_TO_SHUFFLING_OF_DATA_FOR_NONPARAMETRIC_STATISTICAL_INFERENCE_NSHUFFLES] [OPTIONS_RELATING_TO_SHUFFLING_OF_DATA_FOR_NONPARAMETRIC_STATISTICAL_INFERENCE_PERMUTATIONS] [OPTIONS_RELATING_TO_SHUFFLING_OF_DATA_FOR_NONPARAMETRIC_STATISTICAL_INFERENCE_NONSTATIONARITY] [OPTIONS_RELATING_TO_SHUFFLING_OF_DATA_FOR_NONPARAMETRIC_STATISTICAL_INFERENCE_SKEW_NONSTATIONARITY] [OPTIONS_RELATING_TO_SHUFFLING_OF_DATA_FOR_NONPARAMETRIC_STATISTICAL_INFERENCE_NSHUFFLES_NONSTATIONARITY] [OPTIONS_RELATING_TO_SHUFFLING_OF_DATA_FOR_NONPARAMETRIC_STATISTICAL_INFERENCE_PERMUTATIONS_NONSTATIONARITY] [PARAMETERS_FOR_THE_CONNECTIVITY_BASED_FIXEL_ENHANCEMENT_ALGORITHM_CFE_DH] [PARAMETERS_FOR_THE_CONNECTIVITY_BASED_FIXEL_ENHANCEMENT_ALGORITHM_CFE_E] [PARAMETERS_FOR_THE_CONNECTIVITY_BASED_FIXEL_ENHANCEMENT_ALGORITHM_CFE_H] [PARAMETERS_FOR_THE_CONNECTIVITY_BASED_FIXEL_ENHANCEMENT_ALGORITHM_CFE_C] [PARAMETERS_FOR_THE_CONNECTIVITY_BASED_FIXEL_ENHANCEMENT_ALGORITHM_CFE_LEGACY] [OPTIONS_RELATED_TO_THE_GENERAL_LINEAR_MODEL__GLM__VARIANCE] [OPTIONS_RELATED_TO_THE_GENERAL_LINEAR_MODEL__GLM__FTESTS] [OPTIONS_RELATED_TO_THE_GENERAL_LINEAR_MODEL__GLM__FONLY] [OPTIONS_RELATED_TO_THE_GENERAL_LINEAR_MODEL__GLM__COLUMN] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION] [IN_FIXEL_DIRECTORY] [SUBJECTS] [DESIGN] [CONTRAST] [CONNECTIVITY] [OUT_FIXEL_DIRECTORY]",
   "inputs": [
     {
@@ -102,8 +99,7 @@
       "command-line-flag": "-notest",
       "value-key": "[OPTIONS_RELATING_TO_SHUFFLING_OF_DATA_FOR_NONPARAMETRIC_STATISTICAL_INFERENCE_NOTEST]",
       "description": "don't perform statistical inference; only output population statistics (effect size, stdev etc)",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "errors",
@@ -138,8 +134,7 @@
       "command-line-flag": "-strong",
       "value-key": "[OPTIONS_RELATING_TO_SHUFFLING_OF_DATA_FOR_NONPARAMETRIC_STATISTICAL_INFERENCE_STRONG]",
       "description": "use strong familywise error control across multiple hypotheses",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "nshuffles",
@@ -166,8 +161,7 @@
       "command-line-flag": "-nonstationarity",
       "value-key": "[OPTIONS_RELATING_TO_SHUFFLING_OF_DATA_FOR_NONPARAMETRIC_STATISTICAL_INFERENCE_NONSTATIONARITY]",
       "description": "perform non-stationarity correction",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "skew_nonstationarity",
@@ -244,8 +238,7 @@
       "command-line-flag": "-cfe_legacy",
       "value-key": "[PARAMETERS_FOR_THE_CONNECTIVITY_BASED_FIXEL_ENHANCEMENT_ALGORITHM_CFE_LEGACY]",
       "description": "use the legacy (non-normalised) form of the cfe equation",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "variance",
@@ -271,8 +264,7 @@
       "command-line-flag": "-fonly",
       "value-key": "[OPTIONS_RELATED_TO_THE_GENERAL_LINEAR_MODEL__GLM__FONLY]",
       "description": "only assess F-tests; do not perform statistical inference on entries in the contrast matrix",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "column",
@@ -305,8 +297,7 @@
       "command-line-flag": "-info",
       "value-key": "[__STANDARD_OPTIONS_INFO]",
       "description": "display information messages.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "quiet",
@@ -314,8 +305,7 @@
       "command-line-flag": "-quiet",
       "value-key": "[__STANDARD_OPTIONS_QUIET]",
       "description": "do not display information messages or progress status; alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "debug",
@@ -323,8 +313,7 @@
       "command-line-flag": "-debug",
       "value-key": "[__STANDARD_OPTIONS_DEBUG]",
       "description": "display debugging messages.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "force",
@@ -332,8 +321,7 @@
       "command-line-flag": "-force",
       "value-key": "[__STANDARD_OPTIONS_FORCE]",
       "description": "force overwrite of output files (caution: using the same file as input and output might cause unexpected behaviour).",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "nthreads",
@@ -384,8 +372,7 @@
       "command-line-flag": "-help",
       "value-key": "[__STANDARD_OPTIONS_HELP]",
       "description": "display this information page and exit.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "version",
@@ -393,8 +380,7 @@
       "command-line-flag": "-version",
       "value-key": "[__STANDARD_OPTIONS_VERSION]",
       "description": "display version information and exit.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     }
   ],
   "output-files": [],

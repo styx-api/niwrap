@@ -4,10 +4,7 @@
   "author": "MRTrix3 Developers",
   "tool-version": "3.0.4",
   "schema-version": "0.5",
-  "container-image": {
-    "image": "mrtrix3/mrtrix3:3.0.4",
-    "type": "docker"
-  },
+  "container-image": { "image": "mrtrix3/mrtrix3:3.0.4", "type": "docker" },
   "command-line": "mrregister [OPTIONS_TYPE] [OPTIONS_TRANSFORMED] [OPTIONS_TRANSFORMED_MIDWAY] [OPTIONS_MASK1] [OPTIONS_MASK2] [OPTIONS_NAN] [RIGID_REGISTRATION_OPTIONS_RIGID] [RIGID_REGISTRATION_OPTIONS_RIGID_1TOMIDWAY] [RIGID_REGISTRATION_OPTIONS_RIGID_2TOMIDWAY] [RIGID_REGISTRATION_OPTIONS_RIGID_INIT_TRANSLATION] [RIGID_REGISTRATION_OPTIONS_RIGID_INIT_ROTATION] [RIGID_REGISTRATION_OPTIONS_RIGID_INIT_MATRIX] [RIGID_REGISTRATION_OPTIONS_RIGID_SCALE] [RIGID_REGISTRATION_OPTIONS_RIGID_NITER] [RIGID_REGISTRATION_OPTIONS_RIGID_METRIC] [RIGID_REGISTRATION_OPTIONS_RIGID_METRIC_DIFF_ESTIMATOR] [RIGID_REGISTRATION_OPTIONS_RIGID_LMAX] [RIGID_REGISTRATION_OPTIONS_RIGID_LOG] [AFFINE_REGISTRATION_OPTIONS_AFFINE] [AFFINE_REGISTRATION_OPTIONS_AFFINE_1TOMIDWAY] [AFFINE_REGISTRATION_OPTIONS_AFFINE_2TOMIDWAY] [AFFINE_REGISTRATION_OPTIONS_AFFINE_INIT_TRANSLATION] [AFFINE_REGISTRATION_OPTIONS_AFFINE_INIT_ROTATION] [AFFINE_REGISTRATION_OPTIONS_AFFINE_INIT_MATRIX] [AFFINE_REGISTRATION_OPTIONS_AFFINE_SCALE] [AFFINE_REGISTRATION_OPTIONS_AFFINE_NITER] [AFFINE_REGISTRATION_OPTIONS_AFFINE_METRIC] [AFFINE_REGISTRATION_OPTIONS_AFFINE_METRIC_DIFF_ESTIMATOR] [AFFINE_REGISTRATION_OPTIONS_AFFINE_LMAX] [AFFINE_REGISTRATION_OPTIONS_AFFINE_LOG] [ADVANCED_LINEAR_TRANSFORMATION_INITIALISATION_OPTIONS_INIT_TRANSLATION_UNMASKED1] [ADVANCED_LINEAR_TRANSFORMATION_INITIALISATION_OPTIONS_INIT_TRANSLATION_UNMASKED2] [ADVANCED_LINEAR_TRANSFORMATION_INITIALISATION_OPTIONS_INIT_ROTATION_UNMASKED1] [ADVANCED_LINEAR_TRANSFORMATION_INITIALISATION_OPTIONS_INIT_ROTATION_UNMASKED2] [ADVANCED_LINEAR_TRANSFORMATION_INITIALISATION_OPTIONS_INIT_ROTATION_SEARCH_ANGLES] [ADVANCED_LINEAR_TRANSFORMATION_INITIALISATION_OPTIONS_INIT_ROTATION_SEARCH_SCALE] [ADVANCED_LINEAR_TRANSFORMATION_INITIALISATION_OPTIONS_INIT_ROTATION_SEARCH_DIRECTIONS] [ADVANCED_LINEAR_TRANSFORMATION_INITIALISATION_OPTIONS_INIT_ROTATION_SEARCH_RUN_GLOBAL] [ADVANCED_LINEAR_TRANSFORMATION_INITIALISATION_OPTIONS_INIT_ROTATION_SEARCH_GLOBAL_ITERATIONS] [ADVANCED_LINEAR_REGISTRATION_STAGE_OPTIONS_LINSTAGE_ITERATIONS] [ADVANCED_LINEAR_REGISTRATION_STAGE_OPTIONS_LINSTAGE_OPTIMISER_FIRST] [ADVANCED_LINEAR_REGISTRATION_STAGE_OPTIONS_LINSTAGE_OPTIMISER_LAST] [ADVANCED_LINEAR_REGISTRATION_STAGE_OPTIONS_LINSTAGE_OPTIMISER_DEFAULT] [ADVANCED_LINEAR_REGISTRATION_STAGE_OPTIONS_LINSTAGE_DIAGNOSTICS_PREFIX] [NON_LINEAR_REGISTRATION_OPTIONS_NL_WARP] [NON_LINEAR_REGISTRATION_OPTIONS_NL_WARP_FULL] [NON_LINEAR_REGISTRATION_OPTIONS_NL_INIT] [NON_LINEAR_REGISTRATION_OPTIONS_NL_SCALE] [NON_LINEAR_REGISTRATION_OPTIONS_NL_NITER] [NON_LINEAR_REGISTRATION_OPTIONS_NL_UPDATE_SMOOTH] [NON_LINEAR_REGISTRATION_OPTIONS_NL_DISP_SMOOTH] [NON_LINEAR_REGISTRATION_OPTIONS_NL_GRAD_STEP] [NON_LINEAR_REGISTRATION_OPTIONS_NL_LMAX] [NON_LINEAR_REGISTRATION_OPTIONS_DIAGNOSTICS_IMAGE] [FOD_REGISTRATION_OPTIONS_DIRECTIONS] [FOD_REGISTRATION_OPTIONS_NOREORIENTATION] [MULTI_CONTRAST_OPTIONS_MC_WEIGHTS] [DATA_TYPE_OPTIONS_DATATYPE] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION] [IMAGE1_IMAGE2] [CONTRAST1_CONTRAST2]",
   "inputs": [
     {
@@ -138,8 +135,7 @@
       "command-line-flag": "-nan",
       "value-key": "[OPTIONS_NAN]",
       "description": "use NaN as out of bounds value. (Default: 0.0)",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "rigid",
@@ -375,8 +371,7 @@
       "command-line-flag": "-init_translation.unmasked1",
       "value-key": "[ADVANCED_LINEAR_TRANSFORMATION_INITIALISATION_OPTIONS_INIT_TRANSLATION_UNMASKED1]",
       "description": "disregard mask1 for the translation initialisation (affects 'mass')",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "init_translation_unmasked2",
@@ -384,8 +379,7 @@
       "command-line-flag": "-init_translation.unmasked2",
       "value-key": "[ADVANCED_LINEAR_TRANSFORMATION_INITIALISATION_OPTIONS_INIT_TRANSLATION_UNMASKED2]",
       "description": "disregard mask2 for the translation initialisation (affects 'mass')",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "init_rotation_unmasked1",
@@ -393,8 +387,7 @@
       "command-line-flag": "-init_rotation.unmasked1",
       "value-key": "[ADVANCED_LINEAR_TRANSFORMATION_INITIALISATION_OPTIONS_INIT_ROTATION_UNMASKED1]",
       "description": "disregard mask1 for the rotation initialisation (affects 'search' and 'moments')",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "init_rotation_unmasked2",
@@ -402,8 +395,7 @@
       "command-line-flag": "-init_rotation.unmasked2",
       "value-key": "[ADVANCED_LINEAR_TRANSFORMATION_INITIALISATION_OPTIONS_INIT_ROTATION_UNMASKED2]",
       "description": "disregard mask2 for the rotation initialisation (affects 'search' and 'moments')",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "init_rotation_search_angles",
@@ -442,8 +434,7 @@
       "command-line-flag": "-init_rotation.search.run_global",
       "value-key": "[ADVANCED_LINEAR_TRANSFORMATION_INITIALISATION_OPTIONS_INIT_ROTATION_SEARCH_RUN_GLOBAL]",
       "description": "perform a global search. (Default: local)",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "init_rotation_search_global_iterations",
@@ -652,8 +643,7 @@
       "command-line-flag": "-noreorientation",
       "value-key": "[FOD_REGISTRATION_OPTIONS_NOREORIENTATION]",
       "description": "turn off FOD reorientation. Reorientation is on by default if the number of volumes in the 4th dimension corresponds to the number of coefficients in an antipodally symmetric spherical harmonic series (i.e. 6, 15, 28, 45, 66 etc)",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "mc_weights",
@@ -681,8 +671,7 @@
       "command-line-flag": "-info",
       "value-key": "[__STANDARD_OPTIONS_INFO]",
       "description": "display information messages.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "quiet",
@@ -690,8 +679,7 @@
       "command-line-flag": "-quiet",
       "value-key": "[__STANDARD_OPTIONS_QUIET]",
       "description": "do not display information messages or progress status; alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "debug",
@@ -699,8 +687,7 @@
       "command-line-flag": "-debug",
       "value-key": "[__STANDARD_OPTIONS_DEBUG]",
       "description": "display debugging messages.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "force",
@@ -708,8 +695,7 @@
       "command-line-flag": "-force",
       "value-key": "[__STANDARD_OPTIONS_FORCE]",
       "description": "force overwrite of output files (caution: using the same file as input and output might cause unexpected behaviour).",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "nthreads",
@@ -760,8 +746,7 @@
       "command-line-flag": "-help",
       "value-key": "[__STANDARD_OPTIONS_HELP]",
       "description": "display this information page and exit.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "version",
@@ -769,8 +754,7 @@
       "command-line-flag": "-version",
       "value-key": "[__STANDARD_OPTIONS_VERSION]",
       "description": "display version information and exit.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     }
   ],
   "output-files": [

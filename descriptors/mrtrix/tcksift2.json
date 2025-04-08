@@ -4,10 +4,7 @@
   "author": "MRTrix3 Developers",
   "tool-version": "3.0.4",
   "schema-version": "0.5",
-  "container-image": {
-    "image": "mrtrix3/mrtrix3:3.0.4",
-    "type": "docker"
-  },
+  "container-image": { "image": "mrtrix3/mrtrix3:3.0.4", "type": "docker" },
   "command-line": "tcksift2 [OPTIONS_FOR_SETTING_THE_PROCESSING_MASK_FOR_THE_SIFT_FIXEL_STREAMLINES_COMPARISON_MODEL_PROC_MASK] [OPTIONS_FOR_SETTING_THE_PROCESSING_MASK_FOR_THE_SIFT_FIXEL_STREAMLINES_COMPARISON_MODEL_ACT] [OPTIONS_AFFECTING_THE_SIFT_MODEL_FD_SCALE_GM] [OPTIONS_AFFECTING_THE_SIFT_MODEL_NO_DILATE_LUT] [OPTIONS_AFFECTING_THE_SIFT_MODEL_MAKE_NULL_LOBES] [OPTIONS_AFFECTING_THE_SIFT_MODEL_REMOVE_UNTRACKED] [OPTIONS_AFFECTING_THE_SIFT_MODEL_FD_THRESH] [OPTIONS_TO_MAKE_SIFT_PROVIDE_ADDITIONAL_OUTPUT_FILES_CSV] [OPTIONS_TO_MAKE_SIFT_PROVIDE_ADDITIONAL_OUTPUT_FILES_OUT_MU] [OPTIONS_TO_MAKE_SIFT_PROVIDE_ADDITIONAL_OUTPUT_FILES_OUTPUT_DEBUG] [OPTIONS_TO_MAKE_SIFT_PROVIDE_ADDITIONAL_OUTPUT_FILES_OUT_COEFFS] [REGULARISATION_OPTIONS_FOR_SIFT2_REG_TIKHONOV] [REGULARISATION_OPTIONS_FOR_SIFT2_REG_TV] [OPTIONS_FOR_CONTROLLING_THE_SIFT2_OPTIMISATION_ALGORITHM_MIN_TD_FRAC] [OPTIONS_FOR_CONTROLLING_THE_SIFT2_OPTIMISATION_ALGORITHM_MIN_ITERS] [OPTIONS_FOR_CONTROLLING_THE_SIFT2_OPTIMISATION_ALGORITHM_MAX_ITERS] [OPTIONS_FOR_CONTROLLING_THE_SIFT2_OPTIMISATION_ALGORITHM_MIN_FACTOR] [OPTIONS_FOR_CONTROLLING_THE_SIFT2_OPTIMISATION_ALGORITHM_MIN_COEFF] [OPTIONS_FOR_CONTROLLING_THE_SIFT2_OPTIMISATION_ALGORITHM_MAX_FACTOR] [OPTIONS_FOR_CONTROLLING_THE_SIFT2_OPTIMISATION_ALGORITHM_MAX_COEFF] [OPTIONS_FOR_CONTROLLING_THE_SIFT2_OPTIMISATION_ALGORITHM_MAX_COEFF_STEP] [OPTIONS_FOR_CONTROLLING_THE_SIFT2_OPTIMISATION_ALGORITHM_MIN_CF_DECREASE] [OPTIONS_FOR_CONTROLLING_THE_SIFT2_OPTIMISATION_ALGORITHM_LINEAR] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION] [IN_TRACKS] [IN_FOD] [OUT_WEIGHTS]",
   "inputs": [
     {
@@ -58,8 +55,7 @@
       "command-line-flag": "-fd_scale_gm",
       "value-key": "[OPTIONS_AFFECTING_THE_SIFT_MODEL_FD_SCALE_GM]",
       "description": "provide this option (in conjunction with -act) to heuristically downsize the fibre density estimates based on the presence of GM in the voxel. This can assist in reducing tissue interface effects when using a single-tissue deconvolution algorithm",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "no_dilate_lut",
@@ -67,8 +63,7 @@
       "command-line-flag": "-no_dilate_lut",
       "value-key": "[OPTIONS_AFFECTING_THE_SIFT_MODEL_NO_DILATE_LUT]",
       "description": "do NOT dilate FOD lobe lookup tables; only map streamlines to FOD lobes if the precise tangent lies within the angular spread of that lobe",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "make_null_lobes",
@@ -76,8 +71,7 @@
       "command-line-flag": "-make_null_lobes",
       "value-key": "[OPTIONS_AFFECTING_THE_SIFT_MODEL_MAKE_NULL_LOBES]",
       "description": "add an additional FOD lobe to each voxel, with zero integral, that covers all directions with zero / negative FOD amplitudes",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "remove_untracked",
@@ -85,8 +79,7 @@
       "command-line-flag": "-remove_untracked",
       "value-key": "[OPTIONS_AFFECTING_THE_SIFT_MODEL_REMOVE_UNTRACKED]",
       "description": "remove FOD lobes that do not have any streamline density attributed to them; this improves filtering slightly, at the expense of longer computation time (and you can no longer do quantitative comparisons between reconstructions if this is enabled)",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "fd_thresh",
@@ -122,8 +115,7 @@
       "command-line-flag": "-output_debug",
       "value-key": "[OPTIONS_TO_MAKE_SIFT_PROVIDE_ADDITIONAL_OUTPUT_FILES_OUTPUT_DEBUG]",
       "description": "provide various output images for assessing & debugging performance etc.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "out_coeffs",
@@ -250,8 +242,7 @@
       "command-line-flag": "-linear",
       "value-key": "[OPTIONS_FOR_CONTROLLING_THE_SIFT2_OPTIMISATION_ALGORITHM_LINEAR]",
       "description": "perform a linear estimation of streamline weights, rather than the standard non-linear optimisation (typically does not provide as accurate a model fit; but only requires a single pass)",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "info",
@@ -259,8 +250,7 @@
       "command-line-flag": "-info",
       "value-key": "[__STANDARD_OPTIONS_INFO]",
       "description": "display information messages.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "quiet",
@@ -268,8 +258,7 @@
       "command-line-flag": "-quiet",
       "value-key": "[__STANDARD_OPTIONS_QUIET]",
       "description": "do not display information messages or progress status; alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "debug",
@@ -277,8 +266,7 @@
       "command-line-flag": "-debug",
       "value-key": "[__STANDARD_OPTIONS_DEBUG]",
       "description": "display debugging messages.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "force",
@@ -286,8 +274,7 @@
       "command-line-flag": "-force",
       "value-key": "[__STANDARD_OPTIONS_FORCE]",
       "description": "force overwrite of output files (caution: using the same file as input and output might cause unexpected behaviour).",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "nthreads",
@@ -338,8 +325,7 @@
       "command-line-flag": "-help",
       "value-key": "[__STANDARD_OPTIONS_HELP]",
       "description": "display this information page and exit.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "version",
@@ -347,8 +333,7 @@
       "command-line-flag": "-version",
       "value-key": "[__STANDARD_OPTIONS_VERSION]",
       "description": "display version information and exit.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     }
   ],
   "output-files": [

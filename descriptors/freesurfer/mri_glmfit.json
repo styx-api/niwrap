@@ -66,7 +66,6 @@
       "description": "Construct X and C as a one-sample group mean.",
       "value-key": "[OSGM_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "osgm_flag",
       "name": "One-sample group mean"
     },
@@ -75,7 +74,6 @@
       "description": "Do not fail if no contrasts are specified.",
       "value-key": "[NO_CONTRASTS_OK_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "no_contrasts_ok_flag",
       "name": "No contrasts OK flag"
     },
@@ -170,7 +168,6 @@
       "description": "Invert weights.",
       "value-key": "[WEIGHT_INV_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "weight_inv_flag",
       "name": "Invert weights flag"
     },
@@ -179,7 +176,6 @@
       "description": "Square root of (inverted) weights.",
       "value-key": "[WEIGHT_SQRT_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "weight_sqrt_flag",
       "name": "Square root weights flag"
     },
@@ -206,7 +202,6 @@
       "description": "Do not mask when smoothing.",
       "value-key": "[NO_MASK_SMOOTH_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "no_mask_smooth_flag",
       "name": "Skip mask during smoothing"
     },
@@ -215,7 +210,6 @@
       "description": "Turn off FWHM output estimation.",
       "value-key": "[NO_EST_FWHM_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "no_est_fwhm_flag",
       "name": "No FWHM estimation"
     },
@@ -242,7 +236,6 @@
       "description": "Do NOT use a mask, same as --no-cortex.",
       "value-key": "[NO_MASK_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "no_mask_flag",
       "name": "No mask flag"
     },
@@ -251,7 +244,6 @@
       "description": "Do NOT use subjects ?h.cortex.label as --label.",
       "value-key": "[NO_CORTEX_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "no_cortex_flag",
       "name": "No cortex label flag"
     },
@@ -260,7 +252,6 @@
       "description": "Invert mask for analysis.",
       "value-key": "[MASK_INV_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "mask_inv_flag",
       "name": "Invert mask flag"
     },
@@ -269,7 +260,6 @@
       "description": "Remove voxels that do not have a non-zero value at each frame.",
       "value-key": "[PRUNE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "prune_flag",
       "name": "Prune zero-value voxels"
     },
@@ -278,7 +268,6 @@
       "description": "Do not prune zero-value voxels.",
       "value-key": "[NO_PRUNE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "no_prune_flag",
       "name": "Do not prune voxels"
     },
@@ -287,7 +276,6 @@
       "description": "Compute natural log of y prior to analysis.",
       "value-key": "[LOGY_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "logy_flag",
       "name": "Log transform y"
     },
@@ -296,7 +284,6 @@
       "description": "Do not compute natural log of y prior to analysis.",
       "value-key": "[NO_LOGY_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "no_logy_flag",
       "name": "No log transform of y"
     },
@@ -305,7 +292,6 @@
       "description": "Subtract the (masked) mean from each frame.",
       "value-key": "[RM_SPATIAL_MEAN_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "rm_spatial_mean_flag",
       "name": "Remove spatial mean"
     },
@@ -314,7 +300,6 @@
       "description": "Save signal estimate (yhat).",
       "value-key": "[YHAT_SAVE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "yhat_save_flag",
       "name": "Save signal estimate"
     },
@@ -323,7 +308,6 @@
       "description": "Save residual error (eres).",
       "value-key": "[ERES_SAVE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "eres_save_flag",
       "name": "Save residual error"
     },
@@ -332,7 +316,6 @@
       "description": "Save residual error spatial correlation matrix (eres.scm).",
       "value-key": "[ERES_SCM_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "eres_scm_flag",
       "name": "Save residual SCM"
     },
@@ -341,7 +324,6 @@
       "description": "Save voxel-wise map of FWHM estimates.",
       "value-key": "[SAVE_FWHM_MAP_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "save_fwhm_map_flag",
       "name": "Save FWHM map"
     },
@@ -368,7 +350,6 @@
       "description": "Compute skew and p-value for skew.",
       "value-key": "[SKEW_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "skew_flag",
       "name": "Compute skewness"
     },
@@ -377,7 +358,6 @@
       "description": "Compute kurtosis and p-value for kurtosis.",
       "value-key": "[KURTOSIS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "kurtosis_flag",
       "name": "Compute kurtosis"
     },
@@ -415,7 +395,6 @@
       "description": "Permute input for testing purposes (not related to simulation).",
       "value-key": "[PERMUTE_INPUT_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "permute_input_flag",
       "name": "Permute input flag"
     },
@@ -424,7 +403,6 @@
       "description": "Perform PCA/SVD analysis on the residual.",
       "value-key": "[PCA_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "pca_flag",
       "name": "Perform PCA"
     },
@@ -433,7 +411,6 @@
       "description": "Compute and save temporal AR1 of residual.",
       "value-key": "[TAR1_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "tar1_flag",
       "name": "Compute temporal AR1"
     },
@@ -442,7 +419,6 @@
       "description": "Flag to save the signal estimate.",
       "value-key": "[SAVE_YHAT_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "save_yhat_flag",
       "name": "Save signal estimate flag"
     },
@@ -451,7 +427,6 @@
       "description": "Flag to save design matrix condition at each voxel.",
       "value-key": "[SAVE_COND_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "save_cond_flag",
       "name": "Save condition number"
     },
@@ -481,7 +456,6 @@
       "description": "Replace input data with Gaussian noise for testing.",
       "value-key": "[SYNTH_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "synth_flag",
       "name": "Synthesize Gaussian noise"
     },
@@ -538,7 +512,6 @@
       "description": "Set negative BP voxels to 0.",
       "value-key": "[BP_CLIP_NEG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "bp_clip_neg_flag",
       "name": "Clip negative BP"
     },
@@ -556,7 +529,6 @@
       "description": "Force permutation test, even when design matrix is not orthogonal.",
       "value-key": "[PERM_FORCE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "perm_force_flag",
       "name": "Force permutation test"
     },
@@ -574,7 +546,6 @@
       "description": "Save significant volume and exit from first simulation loop.",
       "value-key": "[DIAG_CLUSTER_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "diag_cluster_flag",
       "name": "Cluster diagnostic"
     },
@@ -583,7 +554,6 @@
       "description": "Turn on debugging mode.",
       "value-key": "[DEBUG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug_flag",
       "name": "Debug mode"
     },
@@ -592,7 +562,6 @@
       "description": "Check options and exit without executing.",
       "value-key": "[CHECKOPTS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "checkopts_flag",
       "name": "Check options only"
     },
@@ -601,7 +570,6 @@
       "description": "Display help information.",
       "value-key": "[HELP_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "help_flag",
       "name": "Help"
     },
@@ -610,7 +578,6 @@
       "description": "Print out version and exit.",
       "value-key": "[VERSION_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "version_flag",
       "name": "Version"
     },
@@ -619,7 +586,6 @@
       "description": "Turn off fixing of vertex area (backward compatibility).",
       "value-key": "[NO_FIX_VERTEX_AREA_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "no_fix_vertex_area_flag",
       "name": "No fix vertex area"
     },
@@ -628,7 +594,6 @@
       "description": "Allow subject names to repeat in the fsgd file.",
       "value-key": "[ALLOWSUBJREP_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "allowsubjrep_flag",
       "name": "Allow subject repetition"
     },
@@ -637,7 +602,6 @@
       "description": "Allow analyses with zero degrees of freedom.",
       "value-key": "[ALLOW_ZERO_DOF_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "allow_zero_dof_flag",
       "name": "Allow zero DOF"
     },
@@ -646,7 +610,6 @@
       "description": "Allow ill-conditioned design matrices.",
       "value-key": "[ILLCOND_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "illcond_flag",
       "name": "Allow ill-condition"
     },
@@ -664,7 +627,6 @@
       "description": "Compute sig = -log10(p) from float p value, not double.",
       "value-key": "[NO_SIG_DOUBLE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "no_sig_double_flag",
       "name": "No double precision"
     }

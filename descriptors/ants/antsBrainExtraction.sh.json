@@ -6,10 +6,7 @@
   "url": "https://github.com/ANTsX/ANTs",
   "tool-version": "2.5.3",
   "schema-version": "0.5",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  },
+  "container-image": { "type": "docker", "image": "antsx/ants:v2.5.3" },
   "inputs": [
     {
       "description": "Output prefix",
@@ -82,7 +79,6 @@
       "description": "Keep temporary files",
       "value-key": "[KEEP_TEMPORARY_FILES]",
       "type": "Flag",
-      "optional": true,
       "id": "keep_temporary_files",
       "name": "Keep Temporary Files"
     },
@@ -91,7 +87,6 @@
       "description": "Use single floating point precision",
       "value-key": "[SINGLE_FLOATING_POINT_PRECISION]",
       "type": "Flag",
-      "optional": true,
       "id": "single_floating_point_precision",
       "name": "Single Floating Point Precision"
     },
@@ -136,7 +131,6 @@
       "description": "Use random seeding",
       "value-key": "[RANDOM_SEEDING]",
       "type": "Flag",
-      "optional": true,
       "id": "random_seeding",
       "name": "Use Random Seeding"
     },
@@ -145,7 +139,6 @@
       "description": "Test / debug mode",
       "value-key": "[DEBUG_MODE]",
       "type": "Flag",
-      "optional": true,
       "id": "debug_mode",
       "name": "Debug Mode"
     }

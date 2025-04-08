@@ -42,7 +42,6 @@
       "description": "Flag to enable the omission of a mask file. Required if '-mask' is not used.",
       "value-key": "[NO_MODEL_MASK]",
       "type": "Flag",
-      "optional": true,
       "id": "no_model_mask",
       "name": "No model mask flag"
     },
@@ -161,7 +160,6 @@
       "description": "Flag to output sum of weighted linear support vectors to the bucket file.",
       "value-key": "[WOUT]",
       "type": "Flag",
-      "optional": true,
       "id": "wout",
       "name": "Weight output flag"
     },
@@ -188,7 +186,6 @@
       "description": "Flag to specify that prediction files should be integer-valued, corresponding to class category decisions.",
       "value-key": "[CLASSOUT]",
       "type": "Flag",
-      "optional": true,
       "id": "classout",
       "name": "Class-out flag"
     },
@@ -197,7 +194,6 @@
       "description": "Do not write predicted values for censored time-points to predictions file.",
       "value-key": "[NOPRED_CENSORED]",
       "type": "Flag",
-      "optional": true,
       "id": "nopred_censored",
       "name": "No predicted censored flag"
     },
@@ -206,7 +202,6 @@
       "description": "Flag to specify that prediction files should NOT be linearly detrended.",
       "value-key": "[NODETREND]",
       "type": "Flag",
-      "optional": true,
       "id": "nodetrend",
       "name": "No detrend flag"
     },
@@ -215,7 +210,6 @@
       "description": "Do not scale predictions. Values below 0.0 correspond to (class A) and values above 0.0 to (class B).",
       "value-key": "[NOPRED_SCALE]",
       "type": "Flag",
-      "optional": true,
       "id": "nopred_scale",
       "name": "No prediction scaling flag"
     },
@@ -243,7 +237,6 @@
       "description": "Print help message",
       "value-key": "[HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "help",
       "name": "Help flag"
     },
@@ -252,7 +245,6 @@
       "description": "Print version history",
       "value-key": "[VERSION]",
       "type": "Flag",
-      "optional": true,
       "id": "version",
       "name": "Version flag"
     }

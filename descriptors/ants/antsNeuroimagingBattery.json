@@ -6,10 +6,7 @@
   "url": "https://github.com/ANTsX/ANTs",
   "tool-version": "2.5.3",
   "schema-version": "0.5",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  },
+  "container-image": { "type": "docker", "image": "antsx/ants:v2.5.3" },
   "inputs": [
     {
       "id": "input_directory",
@@ -169,7 +166,6 @@
       "name": "Help",
       "value-key": "[HELP]",
       "type": "Flag",
-      "optional": true,
       "command-line-flag": "--help",
       "description": "Display help information."
     },
@@ -178,7 +174,6 @@
       "name": "Info Only",
       "value-key": "[INFO_ONLY]",
       "type": "Flag",
-      "optional": true,
       "command-line-flag": "--info-only",
       "description": "Look for inputs, output what is there, but don't process any data."
     }

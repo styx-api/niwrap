@@ -23,7 +23,6 @@
       "description": "Get the information from the header only (default)",
       "value-key": "[QUICK]",
       "type": "Flag",
-      "optional": true,
       "id": "quick",
       "name": "Quick flag"
     },
@@ -32,7 +31,6 @@
       "description": "Read the whole dataset to find the min and max values",
       "value-key": "[SLOW]",
       "type": "Flag",
-      "optional": true,
       "id": "slow",
       "name": "Slow flag"
     },
@@ -41,7 +39,6 @@
       "description": "Print the minimum value in dataset",
       "value-key": "[MIN]",
       "type": "Flag",
-      "optional": true,
       "id": "min",
       "name": "Minimum value flag"
     },
@@ -50,7 +47,6 @@
       "description": "Print the maximum value in dataset (default)",
       "value-key": "[MAX]",
       "type": "Flag",
-      "optional": true,
       "id": "max",
       "name": "Maximum value flag"
     },
@@ -59,7 +55,6 @@
       "description": "Print the mean value in dataset",
       "value-key": "[MEAN]",
       "type": "Flag",
-      "optional": true,
       "id": "mean",
       "name": "Mean value flag"
     },
@@ -68,7 +63,6 @@
       "description": "Print the sum of values in the dataset",
       "value-key": "[SUM]",
       "type": "Flag",
-      "optional": true,
       "id": "sum",
       "name": "Sum value flag"
     },
@@ -77,7 +71,6 @@
       "description": "Print the variance in the dataset",
       "value-key": "[VAR]",
       "type": "Flag",
-      "optional": true,
       "id": "var",
       "name": "Variance value flag"
     },
@@ -86,7 +79,6 @@
       "description": "Print the standard deviation in the dataset",
       "value-key": "[STDEV]",
       "type": "Flag",
-      "optional": true,
       "id": "stdev",
       "name": "Standard deviation flag"
     },
@@ -95,7 +87,6 @@
       "description": "Print the number of voxels included",
       "value-key": "[COUNT]",
       "type": "Flag",
-      "optional": true,
       "id": "count",
       "name": "Count flag"
     },
@@ -104,7 +95,6 @@
       "description": "Print the volume of voxels included in microliters",
       "value-key": "[VOLUME]",
       "type": "Flag",
-      "optional": true,
       "id": "volume",
       "name": "Volume flag"
     },
@@ -113,7 +103,6 @@
       "description": "Include only positive voxel values",
       "value-key": "[POSITIVE]",
       "type": "Flag",
-      "optional": true,
       "id": "positive",
       "name": "Positive flag"
     },
@@ -122,7 +111,6 @@
       "description": "Include only negative voxel values",
       "value-key": "[NEGATIVE]",
       "type": "Flag",
-      "optional": true,
       "id": "negative",
       "name": "Negative flag"
     },
@@ -131,7 +119,6 @@
       "description": "Include only zero voxel values",
       "value-key": "[ZERO]",
       "type": "Flag",
-      "optional": true,
       "id": "zero",
       "name": "Zero flag"
     },
@@ -140,7 +127,6 @@
       "description": "Include only voxel values 0 or negative",
       "value-key": "[NON_POSITIVE]",
       "type": "Flag",
-      "optional": true,
       "id": "non_positive",
       "name": "Non-positive flag"
     },
@@ -149,7 +135,6 @@
       "description": "Include only voxel values 0 or greater",
       "value-key": "[NON_NEGATIVE]",
       "type": "Flag",
-      "optional": true,
       "id": "non_negative",
       "name": "Non-negative flag"
     },
@@ -158,7 +143,6 @@
       "description": "Include only voxel values not equal to 0",
       "value-key": "[NON_ZERO]",
       "type": "Flag",
-      "optional": true,
       "id": "non_zero",
       "name": "Non-zero flag"
     },
@@ -167,7 +151,6 @@
       "description": "Use absolute value of voxel values for all calculations",
       "value-key": "[ABSOLUTE]",
       "type": "Flag",
-      "optional": true,
       "id": "absolute",
       "name": "Absolute value flag"
     },
@@ -176,7 +159,6 @@
       "description": "Include only voxel values that are NaN or inf. Forces -slow mode.",
       "value-key": "[NAN]",
       "type": "Flag",
-      "optional": true,
       "id": "nan",
       "name": "NaN value flag"
     },
@@ -185,7 +167,6 @@
       "description": "Exclude voxel values that are NaN or inf.",
       "value-key": "[NONAN]",
       "type": "Flag",
-      "optional": true,
       "id": "nonan",
       "name": "Exclude NaN value flag"
     },
@@ -224,7 +205,6 @@
       "description": "Automatically compute mask for dataset. Cannot be combined with -mask.",
       "value-key": "[AUTOMASK]",
       "type": "Flag",
-      "optional": true,
       "id": "automask",
       "name": "Automask flag"
     },
@@ -255,7 +235,6 @@
       "description": "Shortcut for -percentile 50 1 50 (or -perclist 1 50)",
       "value-key": "[MEDIAN]",
       "type": "Flag",
-      "optional": true,
       "id": "median",
       "name": "Median value flag"
     },
@@ -264,7 +243,6 @@
       "description": "Only print percentile results, not input percentile cutoffs",
       "value-key": "[PERC_QUIET]",
       "type": "Flag",
-      "optional": true,
       "id": "perc_quiet",
       "name": "Percentile quiet flag"
     },
@@ -273,7 +251,6 @@
       "description": "Print author and version info",
       "value-key": "[VER]",
       "type": "Flag",
-      "optional": true,
       "id": "ver",
       "name": "Version info flag"
     },
@@ -282,7 +259,6 @@
       "description": "Print help screen",
       "value-key": "[HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "help",
       "name": "Help flag"
     }

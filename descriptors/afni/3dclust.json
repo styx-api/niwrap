@@ -39,7 +39,6 @@
       "description": "1st nearest-neighbor clustering (faces touching).",
       "value-key": "[NN1]",
       "type": "Flag",
-      "optional": true,
       "id": "nn1",
       "name": "First nearest neighbor clustering flag"
     },
@@ -48,7 +47,6 @@
       "description": "2nd nearest-neighbor clustering (edges touching).",
       "value-key": "[NN2]",
       "type": "Flag",
-      "optional": true,
       "id": "nn2",
       "name": "Second nearest neighbor clustering flag"
     },
@@ -57,7 +55,6 @@
       "description": "3rd nearest-neighbor clustering (corners touching).",
       "value-key": "[NN3]",
       "type": "Flag",
-      "optional": true,
       "id": "nn3",
       "name": "Third nearest neighbor clustering flag"
     },
@@ -66,7 +63,6 @@
       "description": "Use the signed voxel intensities for calculations.",
       "value-key": "[NOABS]",
       "type": "Flag",
-      "optional": true,
       "id": "noabs",
       "name": "No absolute value flag"
     },
@@ -75,7 +71,6 @@
       "description": "Write out only the total nonzero voxel count and volume for each dataset.",
       "value-key": "[SUMMARIZE]",
       "type": "Flag",
-      "optional": true,
       "id": "summarize",
       "name": "Summarize flag"
     },
@@ -84,7 +79,6 @@
       "description": "Suppress printout of the totals.",
       "value-key": "[NOSUM]",
       "type": "Flag",
-      "optional": true,
       "id": "nosum",
       "name": "No summarize flag"
     },
@@ -93,7 +87,6 @@
       "description": "Print out a progress report to stderr as computations proceed.",
       "value-key": "[VERB]",
       "type": "Flag",
-      "optional": true,
       "id": "verb",
       "name": "Verbosity flag"
     },
@@ -102,7 +95,6 @@
       "description": "Write output in 1D format (default).",
       "value-key": "[ONED_FORMAT]",
       "type": "Flag",
-      "optional": true,
       "id": "oned_format",
       "name": "1D format flag"
     },
@@ -111,7 +103,6 @@
       "description": "Do not write output in 1D format.",
       "value-key": "[NO_ONED_FORMAT]",
       "type": "Flag",
-      "optional": true,
       "id": "no_oned_format",
       "name": "No 1D format flag"
     },
@@ -120,7 +111,6 @@
       "description": "Suppress all non-essential output.",
       "value-key": "[QUIET]",
       "type": "Flag",
-      "optional": true,
       "id": "quiet",
       "name": "Quiet flag"
     },
@@ -129,7 +119,6 @@
       "description": "Transform output xyz-coordinates from TLRC to MNI space if the input dataset has the +tlrc view.",
       "value-key": "[MNI]",
       "type": "Flag",
-      "optional": true,
       "id": "mni",
       "name": "MNI space transformation flag"
     },
@@ -138,7 +127,6 @@
       "description": "Clusters will be formed only from contiguous voxels that also have the same value.",
       "value-key": "[ISOVALUE]",
       "type": "Flag",
-      "optional": true,
       "id": "isovalue",
       "name": "Isovalue clustering flag"
     },
@@ -147,7 +135,6 @@
       "description": "Clusters will be formed from each distinct value in the dataset; spatial contiguity will not be used.",
       "value-key": "[ISOMERGE]",
       "type": "Flag",
-      "optional": true,
       "id": "isomerge",
       "name": "Isomerge clustering flag"
     },
@@ -156,7 +143,6 @@
       "description": "Use an internal mask from the dataset to eliminate voxels before clustering.",
       "value-key": "[INMASK]",
       "type": "Flag",
-      "optional": true,
       "id": "inmask",
       "name": "Inmask flag"
     },
@@ -183,7 +169,6 @@
       "description": "Turn the output of '-savemask' into a binary (0 or 1) mask.",
       "value-key": "[BINARY]",
       "type": "Flag",
-      "optional": true,
       "id": "binary",
       "name": "Binary mask flag"
     }

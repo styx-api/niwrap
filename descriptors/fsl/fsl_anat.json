@@ -42,7 +42,6 @@
       "description": "If .anat directory exists (as specified by -o or default from -i) then delete it and make a new one",
       "value-key": "[CLOBBER_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "clobber_flag",
       "name": "Clobber Flag"
     },
@@ -51,7 +50,6 @@
       "description": "Used for images with very strong bias fields",
       "value-key": "[STRONGBIAS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "strongbias_flag",
       "name": "Strong Bias Flag"
     },
@@ -60,7 +58,6 @@
       "description": "Used for images with smoother, more typical, bias fields (default setting)",
       "value-key": "[WEAKBIAS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "weakbias_flag",
       "name": "Weak Bias Flag"
     },
@@ -69,7 +66,6 @@
       "description": "Turn off step that does reorientation to standard (fslreorient2std)",
       "value-key": "[NOREORIENT_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "noreorient_flag",
       "name": "No Reorient Flag"
     },
@@ -78,7 +74,6 @@
       "description": "Turn off step that does automated cropping (robustfov)",
       "value-key": "[NOCROP_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "nocrop_flag",
       "name": "No Crop Flag"
     },
@@ -87,7 +82,6 @@
       "description": "Turn off steps that do bias field correction (via FAST)",
       "value-key": "[NOBIAS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "nobias_flag",
       "name": "No Bias Correction Flag"
     },
@@ -96,7 +90,6 @@
       "description": "Turn off steps that do registration to standard (FLIRT and FNIRT)",
       "value-key": "[NOREG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "noreg_flag",
       "name": "No Registration Flag"
     },
@@ -105,7 +98,6 @@
       "description": "Turn off step that does non-linear registration (FNIRT)",
       "value-key": "[NONONLINREG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "nononlinreg_flag",
       "name": "No Non-linear Registration Flag"
     },
@@ -114,7 +106,6 @@
       "description": "Turn off step that does tissue-type segmentation (FAST)",
       "value-key": "[NOSEG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "noseg_flag",
       "name": "No Segmentation Flag"
     },
@@ -123,7 +114,6 @@
       "description": "Turn off step that does sub-cortical segmentation (FIRST)",
       "value-key": "[NOSUBCORTSEG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "nosubcortseg_flag",
       "name": "No Sub-cortical Segmentation Flag"
     },
@@ -150,7 +140,6 @@
       "description": "Specify that linear registration uses the -nosearch option (FLIRT)",
       "value-key": "[NOSEARCH_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "nosearch_flag",
       "name": "No Search Flag"
     },
@@ -168,7 +157,6 @@
       "description": "Do not remove intermediate files",
       "value-key": "[NOCLEANUP_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "nocleanup_flag",
       "name": "No Cleanup Flag"
     }

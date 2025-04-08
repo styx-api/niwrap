@@ -40,7 +40,6 @@
       "description": "Don't put transformed locations of dset's tags into the output dataset [default = keep tags].",
       "value-key": "[NO_KEEP_TAGS]",
       "type": "Flag",
-      "optional": true,
       "id": "no_keep_tags",
       "name": "No keep tags flag"
     },
@@ -58,7 +57,6 @@
       "description": "Compute the transformation as a rotation + shift (default).",
       "value-key": "[ROTATE]",
       "type": "Flag",
-      "optional": true,
       "id": "rotate",
       "name": "Rotate flag"
     },
@@ -67,7 +65,6 @@
       "description": "Compute the transformation as a general affine map, where the matrix is a general 3x3 matrix.",
       "value-key": "[AFFINE]",
       "type": "Flag",
-      "optional": true,
       "id": "affine",
       "name": "Affine transformation flag"
     },
@@ -76,7 +73,6 @@
       "description": "Compute transformation as a rotation times an isotropic scaling; where matrix is an orthogonal matrix times a scalar.",
       "value-key": "[ROTSCL]",
       "type": "Flag",
-      "optional": true,
       "id": "rotscl",
       "name": "Rotation and isotropic scaling flag"
     },
@@ -94,7 +90,6 @@
       "description": "Print progress reports.",
       "value-key": "[VERBOSE]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose",
       "name": "Verbose flag"
     },
@@ -103,7 +98,6 @@
       "description": "Don't actually rotate the dataset, just compute the transformation matrix and vector. If '-matvec' is used, the mfile will be written.",
       "value-key": "[DUMMY]",
       "type": "Flag",
-      "optional": true,
       "id": "dummy",
       "name": "Dummy flag"
     },
@@ -112,7 +106,6 @@
       "description": "Use linear interpolation method.",
       "value-key": "[LINEAR_INTERPOLATION]",
       "type": "Flag",
-      "optional": true,
       "id": "linear_interpolation",
       "name": "Linear interpolation"
     },
@@ -121,7 +114,6 @@
       "description": "Use cubic interpolation method (default).",
       "value-key": "[CUBIC_INTERPOLATION]",
       "type": "Flag",
-      "optional": true,
       "id": "cubic_interpolation",
       "name": "Cubic interpolation"
     },
@@ -130,7 +122,6 @@
       "description": "Use nearest neighbour interpolation method.",
       "value-key": "[NEAREST_NEIGHBOR_INTERPOLATION]",
       "type": "Flag",
-      "optional": true,
       "id": "nearest_neighbor_interpolation",
       "name": "Nearest neighbour interpolation"
     },
@@ -139,7 +130,6 @@
       "description": "Use quintic interpolation method.",
       "value-key": "[QUINTIC_INTERPOLATION]",
       "type": "Flag",
-      "optional": true,
       "id": "quintic_interpolation",
       "name": "Quintic interpolation"
     }

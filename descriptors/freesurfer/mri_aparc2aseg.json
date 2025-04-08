@@ -29,7 +29,6 @@
       "description": "Use mri/hemi.ribbon.mgz as a mask for the cortex",
       "value-key": "[OLD_RIBBON]",
       "type": "Flag",
-      "optional": true,
       "id": "old_ribbon",
       "name": "Old Ribbon Flag"
     },
@@ -38,7 +37,6 @@
       "description": "Mask cortical voxels with mri/ribbon.mgz. Same as --volmask",
       "value-key": "[NEW_RIBBON]",
       "type": "Flag",
-      "optional": true,
       "id": "new_ribbon",
       "name": "New Ribbon Flag"
     },
@@ -47,7 +45,6 @@
       "description": "Use ?h.aparc.a2005s.annot. Output will be aparc.a2005s+aseg.mgz.",
       "value-key": "[A2005S]",
       "type": "Flag",
-      "optional": true,
       "id": "a2005s",
       "name": "A2005s Flag"
     },
@@ -56,7 +53,6 @@
       "description": "Use ?h.aparc.a2009s.annot. Output will be aparc.a2009s+aseg.mgz.",
       "value-key": "[A2009S]",
       "type": "Flag",
-      "optional": true,
       "id": "a2009s",
       "name": "A2009s Flag"
     },
@@ -92,7 +88,6 @@
       "description": "Re-assign white matter voxel labels to the closest cortical point if within distance.",
       "value-key": "[LABEL_WM]",
       "type": "Flag",
-      "optional": true,
       "id": "label_wm",
       "name": "Label WM Flag"
     },
@@ -110,7 +105,6 @@
       "description": "Do not label WM based on 'unknown' cortical label",
       "value-key": "[RIP_UNKNOWN]",
       "type": "Flag",
-      "optional": true,
       "id": "rip_unknown",
       "name": "Rip Unknown Flag"
     },
@@ -119,7 +113,6 @@
       "description": "Label hypointensities as WM",
       "value-key": "[HYPO_AS_WM]",
       "type": "Flag",
-      "optional": true,
       "id": "hypo_as_wm",
       "name": "Hypo as WM Flag"
     },
@@ -128,7 +121,6 @@
       "description": "Do not remove unconnected regions from WM parahip",
       "value-key": "[NO_FIX_PARAHIP]",
       "type": "Flag",
-      "optional": true,
       "id": "no_fix_parahip",
       "name": "No Fix Parahip Flag"
     },
@@ -155,7 +147,6 @@
       "description": "Only process the left hemisphere",
       "value-key": "[LEFT_HEMISPHERE]",
       "type": "Flag",
-      "optional": true,
       "id": "left_hemisphere",
       "name": "Left Hemisphere Flag"
     },
@@ -164,7 +155,6 @@
       "description": "Only process the right hemisphere",
       "value-key": "[RIGHT_HEMISPHERE]",
       "type": "Flag",
-      "optional": true,
       "id": "right_hemisphere",
       "name": "Right Hemisphere Flag"
     },
@@ -182,7 +172,6 @@
       "description": "Print out information on how to use this program",
       "value-key": "[HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "help",
       "name": "Help Flag"
     },
@@ -191,7 +180,6 @@
       "description": "Print out version and exit",
       "value-key": "[VERSION]",
       "type": "Flag",
-      "optional": true,
       "id": "version",
       "name": "Version Flag"
     }

@@ -124,7 +124,6 @@
       "description": "Compute the square of the input before computing stats.",
       "value-key": "[SQUARE_INPUT]",
       "type": "Flag",
-      "optional": true,
       "name": "Square input",
       "id": "square_input"
     },
@@ -133,7 +132,6 @@
       "description": "Compute the square root of the input before computing stats.",
       "value-key": "[SQRT_INPUT]",
       "type": "Flag",
-      "optional": true,
       "name": "Square root input",
       "id": "sqrt_input"
     },
@@ -160,7 +158,6 @@
       "description": "Save mean/std as extra column in output table.",
       "value-key": "[SNR_COLUMN]",
       "type": "Flag",
-      "optional": true,
       "name": "Save SNR column",
       "id": "snr_column"
     },
@@ -169,7 +166,6 @@
       "description": "Compute absolute value of input before spatial average.",
       "value-key": "[ABSOLUTE_VALUE]",
       "type": "Flag",
-      "optional": true,
       "name": "Absolute value",
       "id": "absolute_value"
     },
@@ -178,7 +174,6 @@
       "description": "Save mean*nvoxels instead of mean.",
       "value-key": "[ACCUMULATE_MEAN]",
       "type": "Flag",
-      "optional": true,
       "name": "Accumulate mean",
       "id": "accumulate_mean"
     },
@@ -196,7 +191,6 @@
       "description": "Use default color table from FreeSurferColorLUT.txt.",
       "value-key": "[DEFAULT_COLOR_TABLE]",
       "type": "Flag",
-      "optional": true,
       "name": "Use default color table",
       "id": "default_color_table"
     },
@@ -232,7 +226,6 @@
       "description": "Exclude cortical gray and white matter based on predefined IDs.",
       "value-key": "[EXCLUDE_GM_WM]",
       "type": "Flag",
-      "optional": true,
       "name": "Exclude cortical GM and WM",
       "id": "exclude_gm_wm"
     },
@@ -241,7 +234,6 @@
       "description": "Compute cortical matter volume based on the white surface volume.",
       "value-key": "[SURF_WM_VOL]",
       "type": "Flag",
-      "optional": true,
       "name": "Surface-based WM volume",
       "id": "surf_wm_vol"
     },
@@ -250,7 +242,6 @@
       "description": "Compute cortical volumes from surface.",
       "value-key": "[SURF_CTX_VOL]",
       "type": "Flag",
-      "optional": true,
       "name": "Surface-based cortex volume",
       "id": "surf_ctx_vol"
     },
@@ -259,7 +250,6 @@
       "description": "Turns off computation of global stats.",
       "value-key": "[NO_GLOBAL_STATS]",
       "type": "Flag",
-      "optional": true,
       "name": "No global stats",
       "id": "no_global_stats"
     },
@@ -268,7 +258,6 @@
       "description": "Report on segmentations listed in the color table even if they are not found in the segmentation volume.",
       "value-key": "[EMPTY_SEGMENTS]",
       "type": "Flag",
-      "optional": true,
       "name": "Report empty segmentations",
       "id": "empty_segments"
     },
@@ -322,7 +311,6 @@
       "description": "After applying all the masking criteria, invert the mask.",
       "value-key": "[INVERT_MASK]",
       "type": "Flag",
-      "optional": true,
       "name": "Invert mask",
       "id": "invert_mask"
     },
@@ -340,7 +328,6 @@
       "description": "Get volume of brain as the sum of the volumes of the segmentations that are in the brain.",
       "value-key": "[BRAIN_VOL_SEG]",
       "type": "Flag",
-      "optional": true,
       "name": "Brain volume from segmentation",
       "id": "brain_vol_seg"
     },
@@ -358,7 +345,6 @@
       "description": "Compute volume of subcortical gray matter.",
       "value-key": "[SUBCORTICAL_GRAY]",
       "type": "Flag",
-      "optional": true,
       "name": "Subcortical gray matter volume",
       "id": "subcortical_gray"
     },
@@ -367,7 +353,6 @@
       "description": "Compute volume of total gray matter.",
       "value-key": "[TOTAL_GRAY]",
       "type": "Flag",
-      "optional": true,
       "name": "Total gray matter volume",
       "id": "total_gray"
     },
@@ -376,7 +361,6 @@
       "description": "Compute intracranial volume from talairach.xfm.",
       "value-key": "[INTRACRANIAL_VOLUME]",
       "type": "Flag",
-      "optional": true,
       "name": "Intracranial volume",
       "id": "intracranial_volume"
     },
@@ -385,7 +369,6 @@
       "description": "Compute intracranial volume from talairach.xfm and exit.",
       "value-key": "[INTRACRANIAL_VOLUME_ONLY]",
       "type": "Flag",
-      "optional": true,
       "name": "Intracranial volume only",
       "id": "intracranial_volume_only"
     },
@@ -394,7 +377,6 @@
       "description": "Compute intracranial volume from talairach_with_skull.lta and exit.",
       "value-key": "[OLD_INTRACRANIAL_VOLUME_ONLY]",
       "type": "Flag",
-      "optional": true,
       "name": "Old intracranial volume only",
       "id": "old_intracranial_volume_only"
     },
@@ -421,7 +403,6 @@
       "description": "Write out number of defect holes based on the Euler number.",
       "value-key": "[EULER_HOLE_COUNT]",
       "type": "Flag",
-      "optional": true,
       "name": "Euler hole count",
       "id": "euler_hole_count"
     },
@@ -457,7 +438,6 @@
       "description": "Remove temporal mean from avgwf and avgwfvol.",
       "value-key": "[REMOVE_AVGWF_MEAN]",
       "type": "Flag",
-      "optional": true,
       "name": "Remove avgwf temporal mean",
       "id": "remove_avgwf_mean"
     },
@@ -502,7 +482,6 @@
       "description": "Replace segmentations based on GTM default.",
       "value-key": "[GTM_DEFAULT_SEG_MERGE]",
       "type": "Flag",
-      "optional": true,
       "name": "GTM default segmentation merge",
       "id": "gtm_default_seg_merge"
     },
@@ -511,7 +490,6 @@
       "description": "Replace segmentations based on GTM default excluding choroid.",
       "value-key": "[GTM_DEFAULT_SEG_MERGE_CHOROID]",
       "type": "Flag",
-      "optional": true,
       "name": "GTM default segmentation merge choroid",
       "id": "gtm_default_seg_merge_choroid"
     },

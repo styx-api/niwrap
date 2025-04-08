@@ -60,7 +60,6 @@
       "description": "Assume input and seg share scanner space",
       "value-key": "[REGHEADER]",
       "type": "Flag",
-      "optional": true,
       "id": "regheader",
       "name": "Regheader flag"
     },
@@ -69,7 +68,6 @@
       "description": "Assume that input is in anatomical space",
       "value-key": "[REG_IDENTITY]",
       "type": "Flag",
-      "optional": true,
       "id": "reg_identity",
       "name": "Reg Identity flag"
     },
@@ -106,7 +104,6 @@
       "description": "Do not reduce FoV to encompass mask",
       "value-key": "[NO_REDUCE_FOV]",
       "type": "Flag",
-      "optional": true,
       "id": "no_reduce_fov",
       "name": "No reduce field of view"
     },
@@ -115,7 +112,6 @@
       "description": "Reduce FoV to encompass mask but force nc=nr and ns to be odd",
       "value-key": "[REDUCE_FOV_EQODD]",
       "type": "Flag",
-      "optional": true,
       "id": "reduce_fov_eqodd",
       "name": "Reduce FoV to odd dimensions"
     },
@@ -133,7 +129,6 @@
       "description": "Default schema for merging ROIs",
       "value-key": "[DEFAULT_SEG_MERGE]",
       "type": "Flag",
-      "optional": true,
       "id": "default_seg_merge",
       "name": "Default segmentation merge"
     },
@@ -142,7 +137,6 @@
       "description": "Merge left and right hypointensites into ROI",
       "value-key": "[MERGE_HYPOS]",
       "type": "Flag",
-      "optional": true,
       "id": "merge_hypos",
       "name": "Merge hypointensites"
     },
@@ -151,7 +145,6 @@
       "description": "Cerebellum WM gyri back into cerebellum WM",
       "value-key": "[MERGE_CBLUM_WM_GYRI]",
       "type": "Flag",
-      "optional": true,
       "id": "merge_cblum_wm_gyri",
       "name": "Merge cerebellum WM gyri"
     },
@@ -160,7 +153,6 @@
       "description": "Reduce segmentation to that of a tissue type",
       "value-key": "[TT_REDUCE]",
       "type": "Flag",
-      "optional": true,
       "id": "tt_reduce",
       "name": "Tissue-type reduce"
     },
@@ -196,7 +188,6 @@
       "description": "Do not global rescale such that mean of reference region is scaleref",
       "value-key": "[NO_RESCALE]",
       "type": "Flag",
-      "optional": true,
       "id": "no_rescale",
       "name": "No rescale"
     },
@@ -223,7 +214,6 @@
       "description": "Use default color table",
       "value-key": "[CTAB_DEFAULT]",
       "type": "Flag",
-      "optional": true,
       "id": "ctab_default",
       "name": "Default color table"
     },
@@ -232,7 +222,6 @@
       "description": "Changes tissue type of VentralDC, BrainStem, and Pons to be SubcortGM",
       "value-key": "[TT_UPDATE]",
       "type": "Flag",
-      "optional": true,
       "id": "tt_update",
       "name": "Tissue type update"
     },
@@ -241,7 +230,6 @@
       "description": "Lateralize tissue types",
       "value-key": "[LATERALIZATION]",
       "type": "Flag",
-      "optional": true,
       "id": "lateralization",
       "name": "Lateralization"
     },
@@ -250,7 +238,6 @@
       "description": "Do not correct for tissue fraction effect",
       "value-key": "[NO_TFE]",
       "type": "Flag",
-      "optional": true,
       "id": "no_tfe",
       "name": "No TFE correction"
     },
@@ -259,7 +246,6 @@
       "description": "Turns off PVC entirely",
       "value-key": "[NO_PVC]",
       "type": "Flag",
-      "optional": true,
       "id": "no_pvc",
       "name": "No PVC"
     },
@@ -277,7 +263,6 @@
       "description": "Perform RBV PVC",
       "value-key": "[RBV]",
       "type": "Flag",
-      "optional": true,
       "id": "rbv",
       "name": "RBV PVC"
     },
@@ -304,7 +289,6 @@
       "description": "Set MG RefIds to 2 and 41",
       "value-key": "[MG_REF_CEREBRAL_WM]",
       "type": "Flag",
-      "optional": true,
       "id": "mg_ref_cerebral_wm",
       "name": "MG Reference Cerebral WM"
     },
@@ -313,7 +297,6 @@
       "description": "Set MG RefIds to those for lobes when using wm subseg",
       "value-key": "[MG_REF_LOBES_WM]",
       "type": "Flag",
-      "optional": true,
       "id": "mg_ref_lobes_wm",
       "name": "MG Reference Lobes WM"
     },
@@ -358,7 +341,6 @@
       "description": "Save X matrix in matlab4 format as X.mat",
       "value-key": "[SAVE_X]",
       "type": "Flag",
-      "optional": true,
       "id": "save_x",
       "name": "Save X matrix"
     },
@@ -367,7 +349,6 @@
       "description": "Save y matrix in matlab4 format as y.mat",
       "value-key": "[SAVE_Y]",
       "type": "Flag",
-      "optional": true,
       "id": "save_y",
       "name": "Save y matrix"
     },
@@ -376,7 +357,6 @@
       "description": "Save beta matrix in matlab4 format as beta.mat",
       "value-key": "[SAVE_BETA]",
       "type": "Flag",
-      "optional": true,
       "id": "save_beta",
       "name": "Save beta matrix"
     },
@@ -385,7 +365,6 @@
       "description": "Save X0 matrix in matlab4 format as X0.mat",
       "value-key": "[SAVE_X0]",
       "type": "Flag",
-      "optional": true,
       "id": "save_x0",
       "name": "Save X0 matrix"
     },
@@ -394,7 +373,6 @@
       "description": "Saves rescaled input as input.rescaled.nii.gz",
       "value-key": "[SAVE_INPUT]",
       "type": "Flag",
-      "optional": true,
       "id": "save_input",
       "name": "Save rescaled input"
     },
@@ -403,7 +381,6 @@
       "description": "Saves residual error",
       "value-key": "[SAVE_ERES]",
       "type": "Flag",
-      "optional": true,
       "id": "save_eres",
       "name": "Save residual error"
     },
@@ -412,7 +389,6 @@
       "description": "Saves yhat",
       "value-key": "[SAVE_YHAT]",
       "type": "Flag",
-      "optional": true,
       "id": "save_yhat",
       "name": "Save yhat"
     },
@@ -430,7 +406,6 @@
       "description": "Saves yhat in full FoV (if FoV was reduced)",
       "value-key": "[SAVE_YHAT_FULL_FOV]",
       "type": "Flag",
-      "optional": true,
       "id": "save_yhat_full_fov",
       "name": "Save yhat full FoV"
     },
@@ -439,7 +414,6 @@
       "description": "Saves yhat prior to smoothing",
       "value-key": "[SAVE_YHAT0]",
       "type": "Flag",
-      "optional": true,
       "id": "save_yhat0",
       "name": "Save yhat0"
     },
@@ -457,7 +431,6 @@
       "description": "Exit after doing synthesis (implies --synth-save)",
       "value-key": "[SYNTH_ONLY]",
       "type": "Flag",
-      "optional": true,
       "id": "synth_only",
       "name": "Synthesize only"
     },
@@ -466,7 +439,6 @@
       "description": "With --synth saves synthesized volume to outdir/synth.nii.gz",
       "value-key": "[SYNTH_SAVE]",
       "type": "Flag",
-      "optional": true,
       "id": "synth_save",
       "name": "Synthesize save"
     },
@@ -475,7 +447,6 @@
       "description": "Save demeaned GTM values out to text files named after the seg",
       "value-key": "[SAVE_TEXT]",
       "type": "Flag",
-      "optional": true,
       "id": "save_text",
       "name": "Save text"
     },
@@ -493,7 +464,6 @@
       "description": "Use the maximum allowable number of threads for this computer",
       "value-key": "[MAX_THREADS]",
       "type": "Flag",
-      "optional": true,
       "id": "max_threads",
       "name": "Max threads"
     },
@@ -502,7 +472,6 @@
       "description": "Use one less than the maximum allowable number of threads for this computer",
       "value-key": "[MAX_THREADS_MINUS_ONE]",
       "type": "Flag",
-      "optional": true,
       "id": "max_threads_minus_one",
       "name": "Max threads minus one"
     },
@@ -538,7 +507,6 @@
       "description": "Turn on debugging",
       "value-key": "[DEBUG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug",
       "name": "Debug"
     },
@@ -547,7 +515,6 @@
       "description": "Don't run anything, just check options and exit",
       "value-key": "[CHECKOPTS]",
       "type": "Flag",
-      "optional": true,
       "id": "checkopts",
       "name": "Check options"
     },
@@ -556,7 +523,6 @@
       "description": "Print out information on how to use this program",
       "value-key": "[HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "help",
       "name": "Help"
     },
@@ -565,7 +531,6 @@
       "description": "Print out version and exit",
       "value-key": "[VERSION]",
       "type": "Flag",
-      "optional": true,
       "id": "version",
       "name": "Version"
     }

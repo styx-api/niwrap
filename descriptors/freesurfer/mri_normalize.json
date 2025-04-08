@@ -33,7 +33,6 @@
       "id": "disable_1d",
       "name": "Disable 1D Normalization",
       "type": "Flag",
-      "optional": true,
       "description": "Disable 1D normalization",
       "command-line-flag": "-no1d",
       "value-key": "[DISABLE_1D]"
@@ -51,7 +50,6 @@
       "id": "conform",
       "name": "Conform Volume",
       "type": "Flag",
-      "optional": true,
       "description": "Interpolate and embed volume to be 256^3",
       "command-line-flag": "-conform",
       "value-key": "[CONFORM]"
@@ -60,7 +58,6 @@
       "id": "nonconform",
       "name": "Non-Conform Volume",
       "type": "Flag",
-      "optional": true,
       "description": "Do not conform the volume",
       "command-line-flag": "-noconform",
       "value-key": "[NONCONFORM]"
@@ -69,7 +66,6 @@
       "id": "gentle",
       "name": "Gentle Normalization",
       "type": "Flag",
-      "optional": true,
       "description": "Perform kinder gentler normalization",
       "command-line-flag": "-gentle",
       "value-key": "[GENTLE]"
@@ -150,7 +146,6 @@
       "id": "prune",
       "name": "Prune Control Points",
       "type": "Flag",
-      "optional": true,
       "description": "Turn pruning of control points on/off (default=off)",
       "command-line-flag": "-prune",
       "value-key": "[PRUNE]"
@@ -159,7 +154,6 @@
       "id": "no_gentle_cp",
       "name": "No Gentle Control Points",
       "type": "Flag",
-      "optional": true,
       "description": "Do not use gentle normalization with control points file",
       "command-line-flag": "-no-gentle-cp",
       "value-key": "[NO_GENTLE_CP]"
@@ -186,7 +180,6 @@
       "id": "noskull",
       "name": "No Skull",
       "type": "Flag",
-      "optional": true,
       "description": "Do not consider skull regions",
       "command-line-flag": "-noskull",
       "value-key": "[NOSKULL]"
@@ -195,7 +188,6 @@
       "id": "monkey",
       "name": "Monkey Mode",
       "type": "Flag",
-      "optional": true,
       "description": "Turns off 1D, sets num_3d_iter=1",
       "command-line-flag": "-monkey",
       "value-key": "[MONKEY]"
@@ -204,7 +196,6 @@
       "id": "nosnr",
       "name": "Disable SNR Normalization",
       "type": "Flag",
-      "optional": true,
       "description": "Disable SNR normalization",
       "command-line-flag": "-nosnr",
       "value-key": "[NOSNR]"
@@ -303,7 +294,6 @@
       "id": "print_help",
       "name": "Print Help",
       "type": "Flag",
-      "optional": true,
       "description": "Print usage",
       "command-line-flag": "-u",
       "value-key": "[PRINT_HELP]"

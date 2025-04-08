@@ -4,10 +4,7 @@
   "author": "MRTrix3 Developers",
   "tool-version": "3.0.4",
   "schema-version": "0.5",
-  "container-image": {
-    "image": "mrtrix3/mrtrix3:3.0.4",
-    "type": "docker"
-  },
+  "container-image": { "image": "mrtrix3/mrtrix3:3.0.4", "type": "docker" },
   "command-line": "mrtransform [AFFINE_TRANSFORMATION_OPTIONS_LINEAR] [AFFINE_TRANSFORMATION_OPTIONS_FLIP] [AFFINE_TRANSFORMATION_OPTIONS_INVERSE] [AFFINE_TRANSFORMATION_OPTIONS_HALF] [AFFINE_TRANSFORMATION_OPTIONS_REPLACE] [AFFINE_TRANSFORMATION_OPTIONS_IDENTITY] [REGRIDDING_OPTIONS_TEMPLATE] [REGRIDDING_OPTIONS_MIDWAY_SPACE] [REGRIDDING_OPTIONS_INTERP] [REGRIDDING_OPTIONS_OVERSAMPLE] [NON_LINEAR_TRANSFORMATION_OPTIONS_WARP] [NON_LINEAR_TRANSFORMATION_OPTIONS_WARP_FULL] [NON_LINEAR_TRANSFORMATION_OPTIONS_FROM] [FIBRE_ORIENTATION_DISTRIBUTION_HANDLING_OPTIONS_MODULATE] [FIBRE_ORIENTATION_DISTRIBUTION_HANDLING_OPTIONS_DIRECTIONS] [FIBRE_ORIENTATION_DISTRIBUTION_HANDLING_OPTIONS_REORIENT_FOD] [DW_GRADIENT_TABLE_IMPORT_OPTIONS_GRAD] [DW_GRADIENT_TABLE_IMPORT_OPTIONS_FSLGRAD] [DW_GRADIENT_TABLE_EXPORT_OPTIONS_EXPORT_GRAD_MRTRIX] [DW_GRADIENT_TABLE_EXPORT_OPTIONS_EXPORT_GRAD_FSL] [DATA_TYPE_OPTIONS_DATATYPE] [STRIDE_OPTIONS_STRIDES] [ADDITIONAL_GENERIC_OPTIONS_FOR_MRTRANSFORM_NAN] [ADDITIONAL_GENERIC_OPTIONS_FOR_MRTRANSFORM_NO_REORIENTATION] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION] [INPUT] [OUTPUT]",
   "inputs": [
     {
@@ -53,8 +50,7 @@
       "command-line-flag": "-inverse",
       "value-key": "[AFFINE_TRANSFORMATION_OPTIONS_INVERSE]",
       "description": "apply the inverse transformation",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "half",
@@ -62,8 +58,7 @@
       "command-line-flag": "-half",
       "value-key": "[AFFINE_TRANSFORMATION_OPTIONS_HALF]",
       "description": "apply the matrix square root of the transformation. This can be combined with the inverse option.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "replace",
@@ -80,8 +75,7 @@
       "command-line-flag": "-identity",
       "value-key": "[AFFINE_TRANSFORMATION_OPTIONS_IDENTITY]",
       "description": "set the header transform of the image to the identity matrix",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "template",
@@ -98,8 +92,7 @@
       "command-line-flag": "-midway_space",
       "value-key": "[REGRIDDING_OPTIONS_MIDWAY_SPACE]",
       "description": "reslice the input image to the midway space. Requires either the -template or -warp option. If used with -template and -linear option the input image will be resliced onto the grid halfway between the input and template. If used with the -warp option the input will be warped to the midway space defined by the grid of the input warp (i.e. half way between image1 and image2)",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "interp",
@@ -325,8 +318,7 @@
       "command-line-flag": "-nan",
       "value-key": "[ADDITIONAL_GENERIC_OPTIONS_FOR_MRTRANSFORM_NAN]",
       "description": "Use NaN as the out of bounds value (Default: 0.0)",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "no_reorientation",
@@ -334,8 +326,7 @@
       "command-line-flag": "-no_reorientation",
       "value-key": "[ADDITIONAL_GENERIC_OPTIONS_FOR_MRTRANSFORM_NO_REORIENTATION]",
       "description": "deprecated, use -reorient_fod instead",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "info",
@@ -343,8 +334,7 @@
       "command-line-flag": "-info",
       "value-key": "[__STANDARD_OPTIONS_INFO]",
       "description": "display information messages.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "quiet",
@@ -352,8 +342,7 @@
       "command-line-flag": "-quiet",
       "value-key": "[__STANDARD_OPTIONS_QUIET]",
       "description": "do not display information messages or progress status; alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "debug",
@@ -361,8 +350,7 @@
       "command-line-flag": "-debug",
       "value-key": "[__STANDARD_OPTIONS_DEBUG]",
       "description": "display debugging messages.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "force",
@@ -370,8 +358,7 @@
       "command-line-flag": "-force",
       "value-key": "[__STANDARD_OPTIONS_FORCE]",
       "description": "force overwrite of output files (caution: using the same file as input and output might cause unexpected behaviour).",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "nthreads",
@@ -422,8 +409,7 @@
       "command-line-flag": "-help",
       "value-key": "[__STANDARD_OPTIONS_HELP]",
       "description": "display this information page and exit.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "version",
@@ -431,8 +417,7 @@
       "command-line-flag": "-version",
       "value-key": "[__STANDARD_OPTIONS_VERSION]",
       "description": "display version information and exit.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     }
   ],
   "output-files": [

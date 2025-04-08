@@ -41,7 +41,6 @@
       "description": "3 point linear filter: 0.15*a + 0.70*b + 0.15*c",
       "value-key": "[LIN_FILTER]",
       "type": "Flag",
-      "optional": true,
       "id": "lin_filter",
       "name": "Linear Filter"
     },
@@ -50,7 +49,6 @@
       "description": "3 point median filter: median(a,b,c)",
       "value-key": "[MED_FILTER]",
       "type": "Flag",
-      "optional": true,
       "id": "med_filter",
       "name": "Median Filter"
     },
@@ -59,7 +57,6 @@
       "description": "3 point order statistics filter: 0.15*min(a,b,c) + 0.70*median(a,b,c) + 0.15*max(a,b,c)",
       "value-key": "[OSF_FILTER]",
       "type": "Flag",
-      "optional": true,
       "id": "osf_filter",
       "name": "Order Statistics Filter"
     },
@@ -109,7 +106,6 @@
       "description": "BEFORE: use the first value; AFTER: use the last value.",
       "value-key": "[EXTEND]",
       "type": "Flag",
-      "optional": true,
       "id": "extend",
       "name": "Extend Values"
     },
@@ -118,7 +114,6 @@
       "description": "BEFORE and AFTER: use zero.",
       "value-key": "[ZERO]",
       "type": "Flag",
-      "optional": true,
       "id": "zero",
       "name": "Zero Padding"
     },
@@ -127,7 +122,6 @@
       "description": "Compute a linear trend, and extrapolate BEFORE and AFTER.",
       "value-key": "[TREND]",
       "type": "Flag",
-      "optional": true,
       "id": "trend",
       "name": "Trend Extrapolation"
     },

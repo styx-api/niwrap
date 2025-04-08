@@ -6,10 +6,7 @@
   "url": "https://www.mrtrix.org/",
   "command-line": "dwigradcheck [INPUT_IMAGE] [GRAD] [FSLGRAD_BVECS] [MASK_IMAGE] [NUMBER] [EXPORT_GRAD_MRTRIX] [EXPORT_GRAD_FSL] [NOCLEANUP] [SCRATCH] [CONTINUE_SCRATCH] [INFO] [QUIET] [DEBUG] [FORCE] [NTHREADS] [CONFIG] [HELP] [VERSION]",
   "schema-version": "0.5",
-  "container-image": {
-    "image": "mrtrix3/mrtrix3:3.0.4",
-    "type": "docker"
-  },
+  "container-image": { "image": "mrtrix3/mrtrix3:3.0.4", "type": "docker" },
   "inputs": [
     {
       "id": "input_image",
@@ -139,8 +136,7 @@
       "type": "Flag",
       "value-key": "[NOCLEANUP]",
       "command-line-flag": "-nocleanup",
-      "description": "Do not delete intermediate files during script execution, and do not delete scratch directory at script completion",
-      "optional": true
+      "description": "Do not delete intermediate files during script execution, and do not delete scratch directory at script completion"
     },
     {
       "id": "scratch_dir",
@@ -169,8 +165,7 @@
       "type": "Flag",
       "value-key": "[INFO]",
       "command-line-flag": "-info",
-      "description": "Display information messages",
-      "optional": true
+      "description": "Display information messages"
     },
     {
       "id": "quiet",
@@ -178,8 +173,7 @@
       "type": "Flag",
       "value-key": "[QUIET]",
       "command-line-flag": "-quiet",
-      "description": "Do not display information messages or progress status",
-      "optional": true
+      "description": "Do not display information messages or progress status"
     },
     {
       "id": "debug",
@@ -187,8 +181,7 @@
       "type": "Flag",
       "value-key": "[DEBUG]",
       "command-line-flag": "-debug",
-      "description": "Display debugging messages",
-      "optional": true
+      "description": "Display debugging messages"
     },
     {
       "id": "force",
@@ -196,8 +189,7 @@
       "type": "Flag",
       "value-key": "[FORCE]",
       "command-line-flag": "-force",
-      "description": "Force overwrite of output files",
-      "optional": true
+      "description": "Force overwrite of output files"
     },
     {
       "id": "nthreads",
@@ -224,8 +216,7 @@
       "type": "Flag",
       "value-key": "[HELP]",
       "command-line-flag": "-help",
-      "description": "Display help information and exit",
-      "optional": true
+      "description": "Display help information and exit"
     },
     {
       "id": "version",
@@ -233,8 +224,7 @@
       "type": "Flag",
       "value-key": "[VERSION]",
       "command-line-flag": "-version",
-      "description": "Display version information and exit",
-      "optional": true
+      "description": "Display version information and exit"
     }
   ],
   "output-files": [

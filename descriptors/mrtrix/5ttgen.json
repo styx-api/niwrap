@@ -4,10 +4,7 @@
   "author": "MRTrix3 Developers",
   "tool-version": "3.0.4",
   "schema-version": "0.5",
-  "container-image": {
-    "image": "mrtrix3/mrtrix3:3.0.4",
-    "type": "docker"
-  },
+  "container-image": { "image": "mrtrix3/mrtrix3:3.0.4", "type": "docker" },
   "command-line": "5ttgen [ALGORITHM] [NOCROP] [SGM_AMYG_HIPP] [OPTIONS_NOCLEANUP] [OPTIONS_SCRATCH] [OPTIONS_CONTINUE] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION]",
   "inputs": [
     {
@@ -226,8 +223,7 @@
       "value-key": "[NOCROP]",
       "command-line-flag": "-nocrop",
       "description": "Do NOT crop the resulting 5TT image to reduce its size (keep the same dimensions as the input image)",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "sgm_amyg_hipp",
@@ -235,8 +231,7 @@
       "command-line-flag": "-sgm_amyg_hipp",
       "value-key": "[SGM_AMYG_HIPP]",
       "description": "Represent the amygdalae and hippocampi as sub-cortical grey matter in the 5TT image",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "nocleanup",
@@ -244,8 +239,7 @@
       "command-line-flag": "-nocleanup",
       "value-key": "[OPTIONS_NOCLEANUP]",
       "description": "do not delete intermediate files during script execution, and do not delete scratch directory at script completion.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "scratch",
@@ -271,8 +265,7 @@
       "command-line-flag": "-info",
       "value-key": "[__STANDARD_OPTIONS_INFO]",
       "description": "display information messages.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "quiet",
@@ -280,8 +273,7 @@
       "command-line-flag": "-quiet",
       "value-key": "[__STANDARD_OPTIONS_QUIET]",
       "description": "do not display information messages or progress status; alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "debug",
@@ -289,8 +281,7 @@
       "command-line-flag": "-debug",
       "value-key": "[__STANDARD_OPTIONS_DEBUG]",
       "description": "display debugging messages.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "force",
@@ -298,8 +289,7 @@
       "command-line-flag": "-force",
       "value-key": "[__STANDARD_OPTIONS_FORCE]",
       "description": "force overwrite of output files (caution: using the same file as input and output might cause unexpected behaviour).",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "nthreads",
@@ -350,8 +340,7 @@
       "command-line-flag": "-help",
       "value-key": "[__STANDARD_OPTIONS_HELP]",
       "description": "display this information page and exit.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "version",
@@ -359,8 +348,7 @@
       "command-line-flag": "-version",
       "value-key": "[__STANDARD_OPTIONS_VERSION]",
       "description": "display version information and exit.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     }
   ],
   "url": "https://www.mrtrix.org/"

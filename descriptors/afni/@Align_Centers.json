@@ -40,7 +40,6 @@
       "description": "Echo all commands to terminal for debugging.",
       "value-key": "[ECHO]",
       "type": "Flag",
-      "optional": true,
       "id": "echo",
       "name": "Echo Flag"
     },
@@ -49,7 +48,6 @@
       "description": "Overwrite existing output files.",
       "value-key": "[OVERWRITE]",
       "type": "Flag",
-      "optional": true,
       "id": "overwrite",
       "name": "Overwrite Flag"
     },
@@ -67,7 +65,6 @@
       "description": "Only output the transform needed to align the centers without shifting any child volumes.",
       "value-key": "[MATRIX_ONLY]",
       "type": "Flag",
-      "optional": true,
       "id": "matrix_only",
       "name": "1D Matrix Only Flag"
     },
@@ -76,7 +73,6 @@
       "description": "Like -1Dmat_only, but no datasets are created or changed.",
       "value-key": "[MATRIX_ONLY_NO_DSET]",
       "type": "Flag",
-      "optional": true,
       "id": "matrix_only_no_dset",
       "name": "1D Matrix Only No Dataset Flag"
     },
@@ -85,7 +81,6 @@
       "description": "Do not create new data; shift existing ones. Use with caution.",
       "value-key": "[NO_CP]",
       "type": "Flag",
-      "optional": true,
       "id": "no_cp",
       "name": "No Copy Flag"
     },
@@ -94,7 +89,6 @@
       "description": "Center is that of the volume's grid (default).",
       "value-key": "[CENTER_GRID]",
       "type": "Flag",
-      "optional": true,
       "id": "center_grid",
       "name": "Center Grid Flag"
     },
@@ -103,7 +97,6 @@
       "description": "Center is the center of mass of the volume.",
       "value-key": "[CENTER_CM]",
       "type": "Flag",
-      "optional": true,
       "id": "center_cm",
       "name": "Center of Mass Flag"
     },
@@ -112,7 +105,6 @@
       "description": "Like -cm, but with no automask.",
       "value-key": "[CENTER_CM_NO_AMASK]",
       "type": "Flag",
-      "optional": true,
       "id": "center_cm_no_amask",
       "name": "Center of Mass No Automask Flag"
     },

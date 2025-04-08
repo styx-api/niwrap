@@ -20,8 +20,7 @@
       "type": "Flag",
       "value-key": "[AUTOMASK]",
       "command-line-flag": "-automask",
-      "description": "Create a mask from the input dataset.",
-      "optional": true
+      "description": "Create a mask from the input dataset."
     },
     {
       "id": "blur",
@@ -38,8 +37,7 @@
       "type": "Flag",
       "value-key": "[DESPIKE]",
       "command-line-flag": "-despike",
-      "description": "Despike each time series before other processing. hopefully, you don't actually need to do this, which is why it is optional.",
-      "optional": true
+      "description": "Despike each time series before other processing. hopefully, you don't actually need to do this, which is why it is optional."
     },
     {
       "id": "highpass",
@@ -99,8 +97,7 @@
       "type": "Flag",
       "value-key": "[NO_DETREND]",
       "command-line-flag": "-nodetrend",
-      "description": "Skip the quadratic detrending of the input that occurs before the fft-based bandpassing. you would only want to do this if the dataset had been detrended already in some other program.",
-      "optional": true
+      "description": "Skip the quadratic detrending of the input that occurs before the fft-based bandpassing. you would only want to do this if the dataset had been detrended already in some other program."
     },
     {
       "id": "normalize",
@@ -108,8 +105,7 @@
       "type": "Flag",
       "value-key": "[NORMALIZE]",
       "command-line-flag": "-norm",
-      "description": "Make all output time series have l2 norm = 1 (i.e., sum of squares = 1).",
-      "optional": true
+      "description": "Make all output time series have l2 norm = 1 (i.e., sum of squares = 1)."
     },
     {
       "id": "notrans",
@@ -117,8 +113,7 @@
       "type": "Flag",
       "value-key": "[NOTRANS]",
       "command-line-flag": "-notrans",
-      "description": "Don't check for initial positive transients in the data. the test is a little slow, so skipping it is ok, if you know the data time series are transient-free.",
-      "optional": true
+      "description": "Don't check for initial positive transients in the data. the test is a little slow, so skipping it is ok, if you know the data time series are transient-free."
     },
     {
       "id": "orthogonalize_dset",

@@ -27,7 +27,6 @@
       "description": "Print whether a volume is conformed",
       "value-key": "[CONFORMED]",
       "type": "Flag",
-      "optional": true,
       "id": "conformed",
       "name": "Conformed flag"
     },
@@ -36,7 +35,6 @@
       "description": "Print whether a volume is conformed-to-min",
       "value-key": "[CONFORMED_TO_MIN]",
       "type": "Flag",
-      "optional": true,
       "id": "conformed_to_min",
       "name": "Conformed to min flag"
     },
@@ -45,7 +43,6 @@
       "description": "Print whether the voxel size is 1mm isotropic",
       "value-key": "[IS_1MM_ISO]",
       "type": "Flag",
-      "optional": true,
       "id": "is_1mm_iso",
       "name": "1mm isometric voxel size flag"
     },
@@ -54,7 +51,6 @@
       "description": "Print the voxel type/precision",
       "value-key": "[TYPE]",
       "type": "Flag",
-      "optional": true,
       "id": "type",
       "name": "Voxel type flag"
     },
@@ -63,7 +59,6 @@
       "description": "Print TR",
       "value-key": "[TR]",
       "type": "Flag",
-      "optional": true,
       "id": "tr",
       "name": "TR flag"
     },
@@ -72,7 +67,6 @@
       "description": "Print TE",
       "value-key": "[TE]",
       "type": "Flag",
-      "optional": true,
       "id": "te",
       "name": "TE flag"
     },
@@ -81,7 +75,6 @@
       "description": "Print TI",
       "value-key": "[TI]",
       "type": "Flag",
-      "optional": true,
       "id": "ti",
       "name": "TI flag"
     },
@@ -90,7 +83,6 @@
       "description": "Print flip angle",
       "value-key": "[FA]",
       "type": "Flag",
-      "optional": true,
       "id": "fa",
       "name": "Flip angle flag"
     },
@@ -99,7 +91,6 @@
       "description": "Print phase encode direction",
       "value-key": "[PEDIR]",
       "type": "Flag",
-      "optional": true,
       "id": "pedir",
       "name": "Phase encode direction flag"
     },
@@ -108,7 +99,6 @@
       "description": "Print column, row, slice, and frame resolution",
       "value-key": "[RES]",
       "type": "Flag",
-      "optional": true,
       "id": "res",
       "name": "Resolution flag"
     },
@@ -117,7 +107,6 @@
       "description": "Print column voxel size",
       "value-key": "[CRES]",
       "type": "Flag",
-      "optional": true,
       "id": "cres",
       "name": "Column voxel size flag"
     },
@@ -126,7 +115,6 @@
       "description": "Print row voxel size",
       "value-key": "[RRES]",
       "type": "Flag",
-      "optional": true,
       "id": "rres",
       "name": "Row voxel size flag"
     },
@@ -135,7 +123,6 @@
       "description": "Print slice voxel size",
       "value-key": "[SRES]",
       "type": "Flag",
-      "optional": true,
       "id": "sres",
       "name": "Slice voxel size flag"
     },
@@ -144,7 +131,6 @@
       "description": "Print voxel volume",
       "value-key": "[VOXVOL]",
       "type": "Flag",
-      "optional": true,
       "id": "voxvol",
       "name": "Voxel volume flag"
     },
@@ -153,7 +139,6 @@
       "description": "Compute sum of all voxels times the voxel volume",
       "value-key": "[VOXVOLSUM]",
       "type": "Flag",
-      "optional": true,
       "id": "voxvolsum",
       "name": "Voxel volume sum flag"
     },
@@ -162,7 +147,6 @@
       "description": "Print number of columns",
       "value-key": "[NCOLS]",
       "type": "Flag",
-      "optional": true,
       "id": "ncols",
       "name": "Number of columns flag"
     },
@@ -171,7 +155,6 @@
       "description": "Print number of rows",
       "value-key": "[NROWS]",
       "type": "Flag",
-      "optional": true,
       "id": "nrows",
       "name": "Number of rows flag"
     },
@@ -180,7 +163,6 @@
       "description": "Print number of slices",
       "value-key": "[NSLICES]",
       "type": "Flag",
-      "optional": true,
       "id": "nslices",
       "name": "Number of slices flag"
     },
@@ -189,7 +171,6 @@
       "description": "Print number of columns, rows, slices, and frames",
       "value-key": "[DIM]",
       "type": "Flag",
-      "optional": true,
       "id": "dim",
       "name": "Dimensions flag"
     },
@@ -198,7 +179,6 @@
       "description": "Print column direction cosine (x_{r,a,s})",
       "value-key": "[CDC]",
       "type": "Flag",
-      "optional": true,
       "id": "cdc",
       "name": "Column direction cosine flag"
     },
@@ -207,7 +187,6 @@
       "description": "Print row direction cosine (y_{r,a,s})",
       "value-key": "[RDC]",
       "type": "Flag",
-      "optional": true,
       "id": "rdc",
       "name": "Row direction cosine flag"
     },
@@ -216,7 +195,6 @@
       "description": "Print slice direction cosine (z_{r,a,s})",
       "value-key": "[SDC]",
       "type": "Flag",
-      "optional": true,
       "id": "sdc",
       "name": "Slice direction cosine flag"
     },
@@ -225,7 +203,6 @@
       "description": "Print the native/qform vox2ras matrix",
       "value-key": "[VOX2RAS]",
       "type": "Flag",
-      "optional": true,
       "id": "vox2ras",
       "name": "Vox2RAS matrix flag"
     },
@@ -234,7 +211,6 @@
       "description": "Print the native/qform ras2vox matrix",
       "value-key": "[RAS2VOX]",
       "type": "Flag",
-      "optional": true,
       "id": "ras2vox",
       "name": "RAS2Vox matrix flag"
     },
@@ -243,7 +219,6 @@
       "description": "Print the tkregister vox2ras matrix",
       "value-key": "[VOX2RAS_TKR]",
       "type": "Flag",
-      "optional": true,
       "id": "vox2ras_tkr",
       "name": "Vox2RAS TKR matrix flag"
     },
@@ -252,7 +227,6 @@
       "description": "Print the tkregister ras2vox matrix",
       "value-key": "[RAS2VOX_TKR]",
       "type": "Flag",
-      "optional": true,
       "id": "ras2vox_tkr",
       "name": "RAS2Vox TKR matrix flag"
     },
@@ -261,7 +235,6 @@
       "description": "Print the FSL/FLIRT vox2ras matrix",
       "value-key": "[VOX2RAS_FSL]",
       "type": "Flag",
-      "optional": true,
       "id": "vox2ras_fsl",
       "name": "Vox2RAS FSL matrix flag"
     },
@@ -270,7 +243,6 @@
       "description": "Print tkrRAS-to-scannerRAS matrix",
       "value-key": "[TKR2SCANNER]",
       "type": "Flag",
-      "optional": true,
       "id": "tkr2scanner",
       "name": "TKR2Scanner matrix flag"
     },
@@ -279,7 +251,6 @@
       "description": "Print scannerRAS-to-tkrRAS matrix",
       "value-key": "[SCANNER2TKR]",
       "type": "Flag",
-      "optional": true,
       "id": "scanner2tkr",
       "name": "Scanner2TKR matrix flag"
     },
@@ -288,7 +259,6 @@
       "description": "Print the ras_good_flag",
       "value-key": "[RAS_GOOD]",
       "type": "Flag",
-      "optional": true,
       "id": "ras_good",
       "name": "RAS good flag"
     },
@@ -297,7 +267,6 @@
       "description": "Print the RAS near the center of the volume",
       "value-key": "[CRAS]",
       "type": "Flag",
-      "optional": true,
       "id": "cras",
       "name": "CRAS flag"
     },
@@ -306,7 +275,6 @@
       "description": "Print the RAS at the actual center of the volume",
       "value-key": "[CENTER]",
       "type": "Flag",
-      "optional": true,
       "id": "center",
       "name": "Center RAS flag"
     },
@@ -315,7 +283,6 @@
       "description": "Zero the center ras",
       "value-key": "[ZERO_CRAS]",
       "type": "Flag",
-      "optional": true,
       "id": "zero_cras",
       "name": "Zero CRAS flag"
     },
@@ -324,7 +291,6 @@
       "description": "Print the RAS at voxel (0,0,0)",
       "value-key": "[P0]",
       "type": "Flag",
-      "optional": true,
       "id": "p0",
       "name": "P0 flag"
     },
@@ -333,7 +299,6 @@
       "description": "Print the determinant of the vox2ras matrix",
       "value-key": "[DET]",
       "type": "Flag",
-      "optional": true,
       "id": "det",
       "name": "Determinant flag"
     },
@@ -342,7 +307,6 @@
       "description": "Print the degrees of freedom stored in the header",
       "value-key": "[DOF]",
       "type": "Flag",
-      "optional": true,
       "id": "dof",
       "name": "Degrees of freedom flag"
     },
@@ -351,7 +315,6 @@
       "description": "Print the number of frames",
       "value-key": "[NFRAMES]",
       "type": "Flag",
-      "optional": true,
       "id": "nframes",
       "name": "Number of frames flag"
     },
@@ -360,7 +323,6 @@
       "description": "Print the middle frame",
       "value-key": "[MID_FRAME]",
       "type": "Flag",
-      "optional": true,
       "id": "mid_frame",
       "name": "Middle frame flag"
     },
@@ -369,7 +331,6 @@
       "description": "Print file format",
       "value-key": "[FORMAT]",
       "type": "Flag",
-      "optional": true,
       "id": "format",
       "name": "Format flag"
     },
@@ -378,7 +339,6 @@
       "description": "Print orientation string (e.g., LPS, RAS, RPI)",
       "value-key": "[ORIENTATION]",
       "type": "Flag",
-      "optional": true,
       "id": "orientation",
       "name": "Orientation flag"
     },
@@ -387,7 +347,6 @@
       "description": "Print primary slice direction (e.g., axial)",
       "value-key": "[SLICEDIRECTION]",
       "type": "Flag",
-      "optional": true,
       "id": "slicedirection",
       "name": "Slice direction flag"
     },
@@ -396,7 +355,6 @@
       "description": "Print auto align matrix (if it exists)",
       "value-key": "[AUTOALIGN]",
       "type": "Flag",
-      "optional": true,
       "id": "autoalign",
       "name": "Autoalign matrix flag"
     },
@@ -405,7 +363,6 @@
       "description": "Print embedded color lookup table",
       "value-key": "[CTAB]",
       "type": "Flag",
-      "optional": true,
       "id": "ctab",
       "name": "Color lookup table flag"
     },
@@ -414,7 +371,6 @@
       "description": "Print command-line provenance info",
       "value-key": "[CMDS]",
       "type": "Flag",
-      "optional": true,
       "id": "cmds",
       "name": "Commands flag"
     },
@@ -423,7 +379,6 @@
       "description": "Print FA, TR, TE, TI, etc",
       "value-key": "[DUMP]",
       "type": "Flag",
-      "optional": true,
       "id": "dump",
       "name": "Dump flag"
     },
@@ -444,7 +399,6 @@
       "description": "Compute and print entropy",
       "value-key": "[ENTROPY]",
       "type": "Flag",
-      "optional": true,
       "id": "entropy",
       "name": "Entropy flag"
     },
@@ -462,7 +416,6 @@
       "description": "Print orig Ras2Vox matrix if present",
       "value-key": "[ORIG_RAS2VOX]",
       "type": "Flag",
-      "optional": true,
       "id": "orig_ras2vox",
       "name": "Orig Ras2Vox matrix flag"
     },

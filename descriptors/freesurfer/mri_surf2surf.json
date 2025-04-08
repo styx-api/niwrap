@@ -238,7 +238,6 @@
       "description": "Assume source ?h.?h.surfreg file name.",
       "value-key": "[DUAL_HEMI]",
       "type": "Flag",
-      "optional": true,
       "id": "dual_hemi",
       "name": "Dual Hemisphere Flag"
     },
@@ -247,7 +246,6 @@
       "description": "Turn on jacobian correction, needed when applying to area or volume.",
       "value-key": "[JAC]",
       "type": "Flag",
-      "optional": true,
       "id": "jac",
       "name": "Jacobian Correction Flag"
     },
@@ -340,7 +338,6 @@
       "description": "Use ?h.cortex.label as a smoothing mask.",
       "value-key": "[CORTEX]",
       "type": "Flag",
-      "optional": true,
       "id": "cortex",
       "name": "Cortex Flag"
     },
@@ -349,7 +346,6 @@
       "description": "Do NOT use ?h.cortex.label as a smoothing mask (default).",
       "value-key": "[NO_CORTEX]",
       "type": "Flag",
-      "optional": true,
       "id": "no_cortex",
       "name": "No Cortex Flag"
     },
@@ -394,7 +390,6 @@
       "description": "Reshape output to multiple 'slices'.",
       "value-key": "[RESHAPE]",
       "type": "Flag",
-      "optional": true,
       "id": "reshape",
       "name": "Reshape Flag"
     },
@@ -413,7 +408,6 @@
       "description": "Reshape fsaverage (ico7) into 42 x 47 x 83.",
       "value-key": "[RESHAPE3D]",
       "type": "Flag",
-      "optional": true,
       "id": "reshape3d",
       "name": "Reshape 3D Flag"
     },
@@ -422,7 +416,6 @@
       "description": "Output each frame separately.",
       "value-key": "[SPLIT]",
       "type": "Flag",
-      "optional": true,
       "id": "split",
       "name": "Split Output Flag"
     },
@@ -431,7 +424,6 @@
       "description": "Replace input with white Gaussian noise.",
       "value-key": "[SYNTH]",
       "type": "Flag",
-      "optional": true,
       "id": "synth",
       "name": "Synthesize Input Flag"
     },
@@ -440,7 +432,6 @@
       "description": "Replace input with 1s.",
       "value-key": "[ONES]",
       "type": "Flag",
-      "optional": true,
       "id": "ones",
       "name": "Replace with Ones Flag"
     },
@@ -449,7 +440,6 @@
       "description": "Rescale so that stddev=1 (good with --synth).",
       "value-key": "[NORMVAR]",
       "type": "Flag",
-      "optional": true,
       "id": "normvar",
       "name": "Normalize Variance Flag"
     },
@@ -468,7 +458,6 @@
       "description": "Remove any voxel that is zero in any time point (for smoothing).",
       "value-key": "[PRUNE]",
       "type": "Flag",
-      "optional": true,
       "id": "prune",
       "name": "Prune Zero Voxels Flag"
     },
@@ -477,7 +466,6 @@
       "description": "Do not prune (default).",
       "value-key": "[NO_PRUNE]",
       "type": "Flag",
-      "optional": true,
       "id": "no_prune",
       "name": "No Pruning Flag"
     },

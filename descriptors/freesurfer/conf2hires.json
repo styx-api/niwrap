@@ -24,7 +24,6 @@
       "description": "Enable T2 processing",
       "value-key": "[T2]",
       "type": "Flag",
-      "optional": true,
       "id": "t2",
       "name": "T2 Flag"
     },
@@ -33,7 +32,6 @@
       "description": "Disable T2 processing (default)",
       "value-key": "[NO_T2]",
       "type": "Flag",
-      "optional": true,
       "id": "no_t2",
       "name": "No T2 Flag"
     },
@@ -52,7 +50,6 @@
       "description": "Enable FLAIR processing",
       "value-key": "[FLAIR]",
       "type": "Flag",
-      "optional": true,
       "id": "flair",
       "name": "FLAIR Flag"
     },
@@ -61,7 +58,6 @@
       "description": "Disable FLAIR processing (default)",
       "value-key": "[NO_FLAIR]",
       "type": "Flag",
-      "optional": true,
       "id": "no_flair",
       "name": "No FLAIR Flag"
     },
@@ -79,7 +75,6 @@
       "description": "Copy bias field from conformed instead of computing directly",
       "value-key": "[COPY_BIAS_FROM_CONF]",
       "type": "Flag",
-      "optional": true,
       "id": "copy_bias_from_conf",
       "name": "Copy Bias From Conf"
     },
@@ -88,7 +83,6 @@
       "description": "Compute bias directly using recon-all opts to mri_normalize",
       "value-key": "[NORM_OPTS_RCA]",
       "type": "Flag",
-      "optional": true,
       "id": "norm_opts_rca",
       "name": "Norm Opts RCA Flag"
     },
@@ -97,7 +91,6 @@
       "description": "Use cubic normalization (applies with --copy-bias-from-conf)",
       "value-key": "[CUBIC]",
       "type": "Flag",
-      "optional": true,
       "id": "cubic",
       "name": "Cubic Flag"
     },
@@ -106,7 +99,6 @@
       "description": "Use trilinear normalization (default, applies with --copy-bias-from-conf)",
       "value-key": "[TRILIN]",
       "type": "Flag",
-      "optional": true,
       "id": "trilin",
       "name": "Trilin Flag"
     },
@@ -115,7 +107,6 @@
       "description": "Use mris_make_surfaces.dev",
       "value-key": "[DEV]",
       "type": "Flag",
-      "optional": true,
       "id": "dev",
       "name": "Dev Flag"
     },
@@ -124,7 +115,6 @@
       "description": "Do not use mris_make_surfaces.dev (default)",
       "value-key": "[NO_DEV]",
       "type": "Flag",
-      "optional": true,
       "id": "no_dev",
       "name": "No Dev Flag"
     },
@@ -142,7 +132,6 @@
       "description": "Set BBR contrast type to t1",
       "value-key": "[BBR_T1]",
       "type": "Flag",
-      "optional": true,
       "id": "bbr_t1",
       "name": "BBR T1 Flag"
     },
@@ -151,7 +140,6 @@
       "description": "Set BBR contrast type to t2",
       "value-key": "[BBR_T2]",
       "type": "Flag",
-      "optional": true,
       "id": "bbr_t2",
       "name": "BBR T2 Flag"
     },
@@ -160,7 +148,6 @@
       "description": "Refine surface targets in MRIScomputeBorderValues() using first peak method D1",
       "value-key": "[FIRST_PEAK_D1]",
       "type": "Flag",
-      "optional": true,
       "id": "first_peak_d1",
       "name": "First Peak D1 Flag"
     },
@@ -169,7 +156,6 @@
       "description": "Refine surface targets in MRIScomputeBorderValues() using first peak method D2",
       "value-key": "[FIRST_PEAK_D2]",
       "type": "Flag",
-      "optional": true,
       "id": "first_peak_d2",
       "name": "First Peak D2 Flag"
     },
@@ -196,7 +182,6 @@
       "description": "Force update of final surfaces",
       "value-key": "[FORCE_UPDATE]",
       "type": "Flag",
-      "optional": true,
       "id": "force_update",
       "name": "Force Update Flag"
     }

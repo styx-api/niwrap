@@ -51,7 +51,6 @@
       "description": "Print this usage method. If given with --method or --model, display relevant method/model usage information",
       "value-key": "[HELP_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "help_flag",
       "name": "Help Flag"
     },
@@ -60,7 +59,6 @@
       "description": "List all known inference methods",
       "value-key": "[LISTMETHODS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "listmethods_flag",
       "name": "List Methods Flag"
     },
@@ -69,7 +67,6 @@
       "description": "List all known forward models",
       "value-key": "[LISTMODELS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "listmodels_flag",
       "name": "List Models Flag"
     },
@@ -78,7 +75,6 @@
       "description": "List model parameters (requires model configuration options to be given)",
       "value-key": "[LISTPARAMS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "listparams_flag",
       "name": "List Parameters Flag"
     },
@@ -87,7 +83,6 @@
       "description": "Describe model parameters (name, description, units) - requires model configuration options to be given. Note that not all models provide parameter descriptions",
       "value-key": "[DESCPARAMS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "descparams_flag",
       "name": "Describe Parameters Flag"
     },
@@ -96,7 +91,6 @@
       "description": "List additional model outputs (requires model configuration options to be given)",
       "value-key": "[LISTOUTPUTS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "listoutputs_flag",
       "name": "List Outputs Flag"
     },
@@ -133,7 +127,6 @@
       "description": "Instead of usual standard output, simply output a series of lines each giving progress as a percentage",
       "value-key": "[SIMPLE_OUTPUT_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "simple_output_flag",
       "name": "Simple Output"
     },
@@ -142,7 +135,6 @@
       "description": "If set, will overwrite existing output. If not set, new output directories will be created by appending '+' to the directory name",
       "value-key": "[OVERWRITE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "overwrite_flag",
       "name": "Overwrite Existing Output"
     },
@@ -151,7 +143,6 @@
       "description": "Try to create a link to the most recent output directory with the prefix _latest",
       "value-key": "[LINK_TO_LATEST_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "link_to_latest_flag",
       "name": "Link to Latest Output"
     },
@@ -215,7 +206,6 @@
       "description": "Write the file paramnames.txt containing the names of the model parameters",
       "value-key": "[DUMP_PARAM_NAMES_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "dump_param_names_flag",
       "name": "Dump Parameter Names"
     },
@@ -224,7 +214,6 @@
       "description": "Output the model prediction as a 4d volume",
       "value-key": "[SAVE_MODEL_FIT_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "save_model_fit_flag",
       "name": "Save Model Fit"
     },
@@ -233,7 +222,6 @@
       "description": "Output the residuals (difference between the data and the model prediction)",
       "value-key": "[SAVE_RESIDUALS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "save_residuals_flag",
       "name": "Save Residuals"
     },
@@ -242,7 +230,6 @@
       "description": "Output any additional model-specific timeseries data",
       "value-key": "[SAVE_MODEL_EXTRAS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "save_model_extras_flag",
       "name": "Save Model Extras"
     },
@@ -251,7 +238,6 @@
       "description": "Output the final MVN distributions",
       "value-key": "[SAVE_MVN_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "save_mvn_flag",
       "name": "Save MVN Distributions"
     },
@@ -260,7 +246,6 @@
       "description": "Output the parameter means",
       "value-key": "[SAVE_MEAN_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "save_mean_flag",
       "name": "Save Parameter Means"
     },
@@ -269,7 +254,6 @@
       "description": "Output the parameter standard deviations",
       "value-key": "[SAVE_STD_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "save_std_flag",
       "name": "Save Parameter Standard Deviations"
     },
@@ -278,7 +262,6 @@
       "description": "Output the parameter variances",
       "value-key": "[SAVE_VAR_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "save_var_flag",
       "name": "Save Parameter Variances"
     },
@@ -287,7 +270,6 @@
       "description": "Output the parameter Z stats",
       "value-key": "[SAVE_ZSTAT_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "save_zstat_flag",
       "name": "Save Parameter Zstats"
     },
@@ -296,7 +278,6 @@
       "description": "Output the noise means. The noise distribution inferred is the precision of a Gaussian noise source",
       "value-key": "[SAVE_NOISE_MEAN_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "save_noise_mean_flag",
       "name": "Save Noise Means"
     },
@@ -305,7 +286,6 @@
       "description": "Output the noise standard deviations",
       "value-key": "[SAVE_NOISE_STD_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "save_noise_std_flag",
       "name": "Save Noise Standard Deviations"
     },
@@ -314,7 +294,6 @@
       "description": "Output the free energy, if calculated",
       "value-key": "[SAVE_FREE_ENERGY_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "save_free_energy_flag",
       "name": "Save Free Energy"
     },
@@ -332,7 +311,6 @@
       "description": "Output large amounts of debug information. ONLY USE WITH VERY SMALL NUMBERS OF VOXELS",
       "value-key": "[DEBUG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug_flag",
       "name": "Debug Flag"
     }
