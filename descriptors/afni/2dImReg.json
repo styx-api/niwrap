@@ -109,43 +109,37 @@
       "id": "output_dataset",
       "name": "Output dataset",
       "description": "Output 3d+time dataset",
-      "path-template": "[PREFIX].nii",
-      "optional": false
+      "path-template": "[PREFIX].nii"
     },
     {
       "id": "dx_file",
       "name": "DX file",
       "description": "File containing dx registration parameters in pixels/mm",
-      "path-template": "[DPREFIX].dx",
-      "optional": true
+      "path-template": "[DPREFIX].dx"
     },
     {
       "id": "dy_file",
       "name": "DY file",
       "description": "File containing dy registration parameters in pixels/mm",
-      "path-template": "[DPREFIX].dy",
-      "optional": true
+      "path-template": "[DPREFIX].dy"
     },
     {
       "id": "psi_file",
       "name": "PSI file",
       "description": "File containing psi registration parameters in degrees",
-      "path-template": "[DPREFIX].psi",
-      "optional": true
+      "path-template": "[DPREFIX].psi"
     },
     {
       "id": "oldrms_file",
       "name": "Old RMS file",
       "description": "File containing the volume RMS error for the original dataset",
-      "path-template": "[RPREFIX].oldrms",
-      "optional": true
+      "path-template": "[RPREFIX].oldrms"
     },
     {
       "id": "newrms_file",
       "name": "New RMS file",
       "description": "File containing the volume RMS error for the registered dataset",
-      "path-template": "[RPREFIX].newrms",
-      "optional": true
+      "path-template": "[RPREFIX].newrms"
     }
   ],
   "container-image": {

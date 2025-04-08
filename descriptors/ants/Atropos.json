@@ -6,10 +6,7 @@
   "url": "https://github.com/ANTsX/ANTs",
   "tool-version": "2.5.3",
   "schema-version": "0.5",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  },
+  "container-image": { "type": "docker", "image": "antsx/ants:v2.5.3" },
   "inputs": [
     {
       "id": "image_dimensionality",
@@ -206,8 +203,7 @@
       "id": "posterior_probability_images",
       "name": "Posterior Probability Images",
       "description": "Output posterior probability images in specified format.",
-      "path-template": "[POSTERIOR_PROBABILITY_IMAGE_FILE_NAME_FORMAT]",
-      "optional": true
+      "path-template": "[POSTERIOR_PROBABILITY_IMAGE_FILE_NAME_FORMAT]"
     }
   ]
 }

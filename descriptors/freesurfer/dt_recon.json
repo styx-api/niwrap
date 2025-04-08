@@ -164,49 +164,42 @@
     {
       "path-template": "[OUTPUT_DIR]/dwi.nii.gz",
       "description": "Converted input to NIFTI format.",
-      "optional": true,
       "id": "dwi_nifti",
       "name": "DWI NIFTI File"
     },
     {
       "path-template": "[OUTPUT_DIR]/dwi-ec.nii.gz",
       "description": "DWI after eddy-current correction.",
-      "optional": true,
       "id": "dwi_eddy_corrected",
       "name": "Eddy-Corrected DWI"
     },
     {
       "path-template": "[OUTPUT_DIR]/tensor.nii.gz",
       "description": "Tensor map.",
-      "optional": true,
       "id": "tensor_map",
       "name": "Tensor Map"
     },
     {
       "path-template": "[OUTPUT_DIR]/fa.nii.gz",
       "description": "Fractional anisotropy (FA) map.",
-      "optional": true,
       "id": "fa_map",
       "name": "FA Map"
     },
     {
       "path-template": "[OUTPUT_DIR]/fa-tal.nii.gz",
       "description": "FA map in Talairach space.",
-      "optional": true,
       "id": "fa_tal_map",
       "name": "FA Talairach Map"
     },
     {
       "path-template": "[OUTPUT_DIR]/register.lta",
       "description": "Registration file.",
-      "optional": true,
       "id": "register_file_output",
       "name": "Registration File"
     },
     {
       "path-template": "[OUTPUT_DIR]/mask.nii.gz",
       "description": "Mask file.",
-      "optional": true,
       "id": "mask_file",
       "name": "Mask File"
     }

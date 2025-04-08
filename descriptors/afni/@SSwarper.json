@@ -211,98 +211,84 @@
     {
       "path-template": "anatDO.[SUBJECT_ID].nii",
       "description": "Deobliqued version of original dataset",
-      "optional": true,
       "id": "anatDO",
       "name": "Deobliqued Dataset"
     },
     {
       "path-template": "anatU.[SUBJECT_ID].nii",
       "description": "Intensity uniform-ized original dataset",
-      "optional": true,
       "id": "anatU",
       "name": "Uniformized Dataset"
     },
     {
       "path-template": "anatUA.[SUBJECT_ID].nii",
       "description": "Anisotropically smoothed version of the uniformized dataset",
-      "optional": true,
       "id": "anatUA",
       "name": "Anisotropically Smoothed Dataset"
     },
     {
       "path-template": "anatUAC.[SUBJECT_ID].nii",
       "description": "Ceiling-capped version of the anisotropically smoothed dataset",
-      "optional": true,
       "id": "anatUAC",
       "name": "Ceiling-capped Dataset"
     },
     {
       "path-template": "anatS.[SUBJECT_ID].nii",
       "description": "First pass skull-stripped original dataset",
-      "optional": true,
       "id": "anatS",
       "name": "First Pass Skull-stripped Dataset"
     },
     {
       "path-template": "anatSS.[SUBJECT_ID].nii",
       "description": "Second pass skull-stripped original dataset",
-      "optional": true,
       "id": "anatSS",
       "name": "Second Pass Skull-stripped Dataset"
     },
     {
       "path-template": "anatQQ.[SUBJECT_ID].nii",
       "description": "Skull-stripped dataset nonlinearly warped to the base template space",
-      "optional": true,
       "id": "anatQQ",
       "name": "Nonlinearly Warped Dataset"
     },
     {
       "path-template": "anatQQ.[SUBJECT_ID].aff12.1D",
       "description": "Affine matrix to transform original dataset to base template space",
-      "optional": true,
       "id": "anatQQ_affine",
       "name": "Affine Transformation Matrix"
     },
     {
       "path-template": "anatQQ.[SUBJECT_ID]_WARP.nii",
       "description": "Incremental warp from affine transformation to nonlinearly aligned dataset",
-      "optional": true,
       "id": "anatQQ_warp",
       "name": "Incremental Warp"
     },
     {
       "path-template": "AM[SUBJECT_ID].jpg",
       "description": "3x3 snapshot image of the nonlinearly warped dataset with edges from the base template overlaid",
-      "optional": true,
       "id": "AM_snapshot",
       "name": "AM Snapshot"
     },
     {
       "path-template": "MA[SUBJECT_ID].jpg",
       "description": "Similar to AM_snapshot, but with roles of the template and anatomical dataset reversed",
-      "optional": true,
       "id": "MA_snapshot",
       "name": "MA Snapshot"
     },
     {
       "path-template": "QC_anatQQ.[SUBJECT_ID].jpg",
       "description": "3 rows of 8 slices snapshot image for checking alignment",
-      "optional": true,
       "id": "QC_anatQQ",
       "name": "QC anatQQ Snapshot"
     },
     {
       "path-template": "QC_anatSS.[SUBJECT_ID].jpg",
       "description": "Snapshot image to check skullstripping in original space",
-      "optional": true,
       "id": "QC_anatSS",
       "name": "QC anatSS Snapshot"
     },
     {
       "path-template": "init_qc_00_overlap_uinp_obase.jpg",
       "description": "Montage to check initial overlap of source and base datasets",
-      "optional": true,
       "id": "init_overlap_qc",
       "name": "Initial Overlap QC"
     }

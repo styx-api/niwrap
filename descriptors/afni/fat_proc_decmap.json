@@ -112,42 +112,36 @@
     {
       "path-template": "[PREFIX]_dec.nii.gz",
       "description": "Single file of type 'rgb' for RGB coloration display.",
-      "optional": true,
       "id": "outfile_dec_rgb",
       "name": "Output DEC RGB"
     },
     {
       "path-template": "[PREFIX]_dec_unwt_thr.nii.gz",
       "description": "Single file of type 'rgb' without FA weighting but using FA to threshold where DEC values are calculated.",
-      "optional": true,
       "id": "outfile_dec_unwt_thr",
       "name": "Output DEC Unweighted Thresholded"
     },
     {
       "path-template": "[PREFIX]_dec_sca*.nii.gz",
       "description": "DEC file additionally scaled by a value (such as 0.7).",
-      "optional": true,
       "id": "outfile_dec_sca",
       "name": "Output DEC Scaled"
     },
     {
       "path-template": "[PREFIX]_qc_dec*.png",
       "description": "Set of cor, axi, and sag images (each a 5x3 montage) of the DEC data.",
-      "optional": true,
       "id": "qc_dec_images",
       "name": "QC DEC Images"
     },
     {
       "path-template": "[PREFIX]_qc_dec_unwt_thrx*.png",
       "description": "Set of cor, axi, and sag images (each a 5x3 montage) of the DEC unweighted thresholded data.",
-      "optional": true,
       "id": "qc_dec_unwt_thrx_images",
       "name": "QC DEC Unweighted Thresholded Images"
     },
     {
       "path-template": "[PREFIX]_qc_dec_sca*.png",
       "description": "Set of cor, axi, and sag images (each a 5x3 montage) of the DEC scaled data.",
-      "optional": true,
       "id": "qc_dec_sca_images",
       "name": "QC DEC Scaled Images"
     }

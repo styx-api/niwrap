@@ -320,36 +320,31 @@
       "id": "segmentation",
       "name": "Segmentation Output",
       "description": "FastSurferVINN segmentation output",
-      "path-template": "[SUBJECTS_DIR]/[SID]/mri/aparc.DKTatlas+aseg.deep.mgz",
-      "optional": true
+      "path-template": "[SUBJECTS_DIR]/[SID]/mri/aparc.DKTatlas+aseg.deep.mgz"
     },
     {
       "id": "surface_files",
       "name": "Surface Files",
       "description": "Generated surface files",
-      "path-template": "[SUBJECTS_DIR]/[SID]/surf/",
-      "optional": true
+      "path-template": "[SUBJECTS_DIR]/[SID]/surf/"
     },
     {
       "id": "cerebellum_seg",
       "name": "Cerebellum Segmentation",
       "description": "Cerebellum segmentation output",
-      "path-template": "[SUBJECTS_DIR]/[SID]/mri/cerebellum.CerebNet.nii.gz",
-      "optional": true
+      "path-template": "[SUBJECTS_DIR]/[SID]/mri/cerebellum.CerebNet.nii.gz"
     },
     {
       "id": "qc_snapshots",
       "name": "QC Snapshots",
       "description": "Quality control snapshot images",
-      "path-template": "[SUBJECTS_DIR]/[SID]/qc_snapshots/",
-      "optional": true
+      "path-template": "[SUBJECTS_DIR]/[SID]/qc_snapshots/"
     },
     {
       "id": "bias_corrected",
       "name": "Bias Corrected Image",
       "description": "Bias field corrected image",
-      "path-template": "[SUBJECTS_DIR]/[SID]/mri/orig_nu.mgz",
-      "optional": true
+      "path-template": "[SUBJECTS_DIR]/[SID]/mri/orig_nu.mgz"
     }
   ]
 }

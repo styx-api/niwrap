@@ -153,35 +153,30 @@
     {
       "path-template": "[OUTPUT_PREFIX]_badmask.nii.gz",
       "description": "Mask of potentially bad slices across the input dataset.",
-      "optional": true,
       "id": "bad_slice_mask",
       "name": "Bad Slice Mask"
     },
     {
       "path-template": "[OUTPUT_PREFIX]_badvols.1D",
       "description": "1D file containing a list of the bad volumes.",
-      "optional": true,
       "id": "bad_volumes_list",
       "name": "Bad Volumes List"
     },
     {
       "path-template": "[OUTPUT_PREFIX]_param.1D",
       "description": "1D file of the per-volume parameters used to detect badness.",
-      "optional": true,
       "id": "per_volume_params",
       "name": "Per Volume Parameters"
     },
     {
       "path-template": "[OUTPUT_PREFIX]_sli.1D",
       "description": "1D file of the slices within which calculations were made.",
-      "optional": true,
       "id": "calculated_slices",
       "name": "Calculated Slices"
     },
     {
       "path-template": "[OUTPUT_PREFIX]_goodvols.txt",
       "description": "Text file with the selector string of *good* volumes.",
-      "optional": true,
       "id": "good_volumes_selector",
       "name": "Good Volumes Selector"
     }

@@ -23,21 +23,18 @@
     {
       "path-template": "[INPUT_VTK]_pvals.vtk",
       "description": "Output VTK file with corrected p-values",
-      "optional": false,
       "id": "pvals_vtk",
       "name": "Corrected p-values VTK"
     },
     {
       "path-template": "[INPUT_VTK]_Fthresh.vtk",
       "description": "Output VTK file with FDR thresholded values",
-      "optional": false,
       "id": "fthresh_vtk",
       "name": "FDR thresholded values VTK"
     },
     {
       "path-template": "[INPUT_VTK]_*",
       "description": "Additional output NIFTI images",
-      "optional": true,
       "id": "nifti_images",
       "name": "Output NIFTI images"
     }

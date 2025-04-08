@@ -4,10 +4,7 @@
   "description": "A script to quickly compute a SyN-based registration between two images using ANTS.",
   "schema-version": "0.5",
   "tool-version": "2.5.3",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  },
+  "container-image": { "type": "docker", "image": "antsx/ants:v2.5.3" },
   "inputs": [
     {
       "id": "dimensionality",
@@ -68,14 +65,12 @@
       "id": "output_warp",
       "name": "Output Warp",
       "path-template": "[OUTPUT_PREFIX]1Warp.nii.gz",
-      "optional": true,
       "description": "Warp field resulting from the registration."
     },
     {
       "id": "output_inverse_warp",
       "name": "Output Inverse Warp",
       "path-template": "[OUTPUT_PREFIX]1InverseWarp.nii.gz",
-      "optional": true,
       "description": "Inverse warp field resulting from the registration."
     },
     {

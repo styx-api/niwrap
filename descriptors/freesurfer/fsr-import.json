@@ -88,28 +88,24 @@
     {
       "path-template": "[OUTDIR]/t1w/*.mgz",
       "description": "Output directory for T1-weighted images",
-      "optional": false,
       "id": "out_t1w",
       "name": "Output T1-weighted directory"
     },
     {
       "path-template": "[OUTDIR]/t2w/*.mgz",
       "description": "Output directory for T2-weighted images",
-      "optional": false,
       "id": "out_t2w",
       "name": "Output T2-weighted directory"
     },
     {
       "path-template": "[OUTDIR]/flair/*.mgz",
       "description": "Output directory for FLAIR images",
-      "optional": false,
       "id": "out_flair",
       "name": "Output FLAIR directory"
     },
     {
       "path-template": "[OUTDIR]/*/*.mgz",
       "description": "Output directory for custom modality images based on mode",
-      "optional": true,
       "id": "out_custom_modes",
       "name": "Output custom modalities directory"
     }

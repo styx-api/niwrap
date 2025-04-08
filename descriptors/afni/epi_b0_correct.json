@@ -226,35 +226,30 @@
     {
       "path-template": "[PREFIX]_WARP.nii.gz",
       "description": "Warp dataset containing the warp along the phase encode axis.",
-      "optional": true,
       "id": "warp_dset",
       "name": "Warp dataset"
     },
     {
       "path-template": "[PREFIX]_cmds.tcsh",
       "description": "Script of the commands used to generate the warp and process the EPI.",
-      "optional": true,
       "id": "cmds_script",
       "name": "Commands script"
     },
     {
       "path-template": "[PREFIX]_pars.txt",
       "description": "Text file of parameters input or derived from datasets.",
-      "optional": true,
       "id": "params_txt",
       "name": "Parameters text file"
     },
     {
       "path-template": "[PREFIX]_unwarped.nii.gz",
       "description": "EPI dataset with estimated distortion correction applied.",
-      "optional": true,
       "id": "unwarped_epi",
       "name": "Unwarped EPI dataset"
     },
     {
       "path-template": "[PREFIX]_QC/",
       "description": "Directory containing QC images.",
-      "optional": true,
       "id": "qc_image_dir",
       "name": "QC images directory"
     }

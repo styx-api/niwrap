@@ -239,105 +239,90 @@
     {
       "path-template": "[MASKFILE].nii.gz",
       "description": "Main default mask output of BET",
-      "optional": true,
       "id": "outfile",
       "name": "Output mask file"
     },
     {
       "path-template": "[MASKFILE]_mask.nii.gz",
       "description": "Binary mask file (from -m option)",
-      "optional": true,
       "id": "binary_mask",
       "name": "Output binary mask file"
     },
     {
       "path-template": "[MASKFILE]_overlay.nii.gz",
       "description": "Overlaid brain surface onto original image",
-      "optional": true,
       "id": "overlay_file",
       "name": "Surface overlay file"
     },
     {
       "path-template": "[MASKFILE]_skull.nii.gz",
       "description": "Approximate skull image file",
-      "optional": true,
       "id": "approx_skull_img",
       "name": "Approximate skull file"
     },
     {
       "path-template": "[MASKFILE]_mesh.vtk",
       "description": "Mesh in VTK format",
-      "optional": true,
       "id": "output_vtk_mesh",
       "name": "VTK mesh"
     },
     {
       "path-template": "[MASKFILE]_skull_mask.nii.gz",
       "description": "Output mask for skull image",
-      "optional": true,
       "id": "skull_mask",
       "name": "Skull mask image"
     },
     {
       "path-template": "[MASKFILE]_inskull_mask.nii.gz",
       "description": "The in-skull mask file from betsurf (from -A or -A2)",
-      "optional": true,
       "id": "out_inskull_mask",
       "name": "Output in-skull mask file"
     },
     {
       "path-template": "[MASKFILE]_inskull_mesh.nii.gz",
       "description": "The in-skull mesh file from betsurf (from -A or -A2)",
-      "optional": true,
       "id": "out_inskull_mesh",
       "name": "Output in-skull mesh file"
     },
     {
       "path-template": "[MASKFILE]_inskull_mesh.off",
       "description": "The in-skull mesh .off file from betsurf (from -A or -A2)",
-      "optional": true,
       "id": "out_inskull_off",
       "name": "Output in-skull mesh off file"
     },
     {
       "path-template": "[MASKFILE]_outskin_mask.nii.gz",
       "description": "The out-skin mask file from betsurf (from -A or -A2)",
-      "optional": true,
       "id": "out_outskin_mask",
       "name": "Output out-skin mask file"
     },
     {
       "path-template": "[MASKFILE]_outskin_mesh.nii.gz",
       "description": "The out-skin mesh file from betsurf (from -A or -A2)",
-      "optional": true,
       "id": "out_outskin_mesh",
       "name": "Output out-skin mesh file"
     },
     {
       "path-template": "[MASKFILE]_outskin_mesh.off",
       "description": "The out-skin mesh .off file from betsurf (from -A or -A2)",
-      "optional": true,
       "id": "out_outskin_off",
       "name": "Output out-skin mesh off file"
     },
     {
       "path-template": "[MASKFILE]_outskull_mask.nii.gz",
       "description": "The out-skull mask file from betsurf (from -A or -A2)",
-      "optional": true,
       "id": "out_outskull_mask",
       "name": "Output out-skull mask file"
     },
     {
       "path-template": "[MASKFILE]_outskull_mesh.nii.gz",
       "description": "The out-skull mesh file from betsurf (from -A or -A2)",
-      "optional": true,
       "id": "out_outskull_mesh",
       "name": "Output out-skull mesh file"
     },
     {
       "path-template": "[MASKFILE]_outskull_mesh.off",
       "description": "The out-skull mesh .off file from betsurf (from -A or -A2)",
-      "optional": true,
       "id": "out_outskull_off",
       "name": "Output out-skull mesh off file"
     }

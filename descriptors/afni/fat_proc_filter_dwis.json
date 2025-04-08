@@ -109,22 +109,19 @@
       "id": "filtered_dwi",
       "name": "Filtered DWI Data",
       "path-template": "[OUTPUT_PREFIX]_filtered.nii.gz",
-      "description": "Filtered 4D DWI dataset.",
-      "optional": false
+      "description": "Filtered 4D DWI dataset."
     },
     {
       "id": "filtered_bvecs",
       "name": "Filtered Gradient File",
       "path-template": "[OUTPUT_PREFIX]_filtered.bvecs",
-      "description": "Filtered gradient file matching input format.",
-      "optional": false
+      "description": "Filtered gradient file matching input format."
     },
     {
       "id": "filtered_bvals",
       "name": "Filtered Bvals File",
       "path-template": "[OUTPUT_PREFIX]_filtered.bvals",
-      "description": "Filtered b-values file, if provided.",
-      "optional": true
+      "description": "Filtered b-values file, if provided."
     }
   ],
   "container-image": {

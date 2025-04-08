@@ -6,10 +6,7 @@
   "url": "https://github.com/ANTsX/ANTs",
   "tool-version": "2.5.3",
   "schema-version": "0.5",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  },
+  "container-image": { "type": "docker", "image": "antsx/ants:v2.5.3" },
   "inputs": [
     {
       "id": "dimensionality",
@@ -1512,8 +1509,7 @@
       "id": "inverse_warp",
       "name": "Inverse warp",
       "description": "The output is the inverse warp field.",
-      "path-template": "[OUTPUT]1InverseWarp.nii.gz",
-      "optional": true
+      "path-template": "[OUTPUT]1InverseWarp.nii.gz"
     },
     {
       "id": "warped",
@@ -1525,8 +1521,7 @@
       "id": "warp",
       "name": "Warp",
       "description": "The output is the warp field.",
-      "path-template": "[OUTPUT]1Warp.nii.gz",
-      "optional": true
+      "path-template": "[OUTPUT]1Warp.nii.gz"
     }
   ]
 }

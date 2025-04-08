@@ -62,42 +62,36 @@
     {
       "path-template": "DR2_[PREFIX]_*.nii.gz",
       "description": "Changes in R2* parameter, assumed to represent neuronal-related signal changes",
-      "optional": true,
       "id": "dr2_output",
       "name": "DR2 output volume"
     },
     {
       "path-template": "DR2fit_[PREFIX]_*.nii.gz",
       "description": "Convolution of DR2 with HRF, one volume per echo",
-      "optional": true,
       "id": "dr2fit_output",
       "name": "DR2fit output volume"
     },
     {
       "path-template": "DS0_[PREFIX]_*.nii.gz",
       "description": "Changes in net magnetization (S0) (if estimated)",
-      "optional": true,
       "id": "ds0_output",
       "name": "DS0 output volume"
     },
     {
       "path-template": "lambda_[PREFIX]_*.nii.gz",
       "description": "Regularization parameter",
-      "optional": true,
       "id": "lambda_output",
       "name": "Lambda output volume"
     },
     {
       "path-template": "sigmas_MAD_[PREFIX]_*.nii.gz",
       "description": "Estimate of the noise standard deviation after wavelet decomposition for each input dataset",
-      "optional": true,
       "id": "sigmas_mad_output",
       "name": "Sigmas MAD output volume"
     },
     {
       "path-template": "costs_[PREFIX]_*.nii.gz",
       "description": "Cost function to select the regularization parameter (lambda) according to selection criterion",
-      "optional": true,
       "id": "costs_output",
       "name": "Costs output volume"
     }

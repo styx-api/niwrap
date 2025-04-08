@@ -172,28 +172,24 @@
     {
       "path-template": "[OUTPUT_FILEROOT]_mask.nii.gz",
       "description": "Binary brain mask output (if mask flag is set)",
-      "optional": true,
       "id": "output_mask",
       "name": "Binary mask file"
     },
     {
       "path-template": "[OUTPUT_FILEROOT]_skull.nii.gz",
       "description": "Approximate skull image output (if skull flag is set)",
-      "optional": true,
       "id": "output_skull",
       "name": "Approximate skull file"
     },
     {
       "path-template": "[OUTPUT_FILEROOT]_mesh.vtk",
       "description": "Brain surface mesh output in VTK format (if mesh flag is set)",
-      "optional": true,
       "id": "output_mesh",
       "name": "VTK format mesh file"
     },
     {
       "path-template": "[OUTPUT_FILEROOT]_overlay.nii.gz",
       "description": "Brain surface outline overlaid onto original image (if outline flag is set)",
-      "optional": true,
       "id": "output_overlay",
       "name": "Brain surface outline file"
     }

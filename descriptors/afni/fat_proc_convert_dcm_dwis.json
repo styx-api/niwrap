@@ -167,42 +167,36 @@
     {
       "path-template": "[OUTPUT_PREFIX].nii.gz",
       "description": "A NIFTI file with N volumes.",
-      "optional": false,
       "id": "output_nifti",
       "name": "Output NIFTI"
     },
     {
       "path-template": "[OUTPUT_PREFIX].rvec",
       "description": "A row-wise (3xN) bvec file of the (unit-magnitude) gradient orientations.",
-      "optional": false,
       "id": "output_rvec",
       "name": "Output rvec"
     },
     {
       "path-template": "[OUTPUT_PREFIX].bval",
       "description": "A row-wise (1xN) bval file of the gradient magnitudes.",
-      "optional": false,
       "id": "output_bval",
       "name": "Output bval"
     },
     {
       "path-template": "[OUTPUT_PREFIX]_matA.dat",
       "description": "A column-wise (Nx6) AFNI-style matrix file of the (scaled) b-matrix values.",
-      "optional": true,
       "id": "output_matA",
       "name": "Output matA"
     },
     {
       "path-template": "[OUTPUT_PREFIX]_matT.dat",
       "description": "A column-wise (Nx6) TORTOISE-style matrix file of the (scaled) b-matrix values.",
-      "optional": true,
       "id": "output_matT",
       "name": "Output matT"
     },
     {
       "path-template": "[OUTPUT_PREFIX]_cvec.dat",
       "description": "A column-wise (Nx3) bvec file of the (b-magn scaled) gradient orientations.",
-      "optional": true,
       "id": "output_cvec",
       "name": "Output cvec"
     }

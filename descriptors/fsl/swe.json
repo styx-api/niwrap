@@ -363,56 +363,48 @@
     {
       "path-template": "[OUTPUT_ROOT]_logp.nii.gz",
       "description": "Output -log_10(p) images",
-      "optional": true,
       "id": "logp_img",
       "name": "-log_10(p) images"
     },
     {
       "path-template": "[OUTPUT_ROOT]_corrp.nii.gz",
       "description": "Output voxel-corrected p-value images",
-      "optional": true,
       "id": "corrp_img",
       "name": "Corrected p-value images"
     },
     {
       "path-template": "[OUTPUT_ROOT]_raw.nii.gz",
       "description": "Output raw voxelwise statistic images",
-      "optional": true,
       "id": "raw_img",
       "name": "Raw voxelwise stats"
     },
     {
       "path-template": "[OUTPUT_ROOT]_equiv.nii.gz",
       "description": "Output equivalent z or chi-squared statistic images",
-      "optional": true,
       "id": "equiv_img",
       "name": "Equivalent statistics"
     },
     {
       "path-template": "[OUTPUT_ROOT]_dof.nii.gz",
       "description": "Output effective number of degrees of freedom images",
-      "optional": true,
       "id": "dof_img",
       "name": "Degrees of freedom"
     },
     {
       "path-template": "[OUTPUT_ROOT]_uncorrp.nii.gz",
       "description": "Output uncorrected p-value images",
-      "optional": true,
       "id": "uncorrp_img",
       "name": "Uncorrected p-values"
     },
     {
       "path-template": "[OUTPUT_ROOT]_null_dist.txt",
       "description": "Output null distribution text files",
-      "optional": true,
       "id": "null_dist_file",
       "name": "Null distribution"
     },
     {
       "path-template": "[OUTPUT_ROOT]_glm.nii.gz",
       "description": "Output GLM information (pe, cope, & varcope)",
-      "optional": true,
       "id": "glm_output_file",
       "name": "GLM output"
     }

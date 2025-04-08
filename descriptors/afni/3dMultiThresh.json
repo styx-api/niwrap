@@ -109,21 +109,18 @@
     {
       "path-template": "[PREFIX].nii.gz",
       "description": "Thresholded version of the input dataset.",
-      "optional": true,
       "id": "output_file",
       "name": "Output File"
     },
     {
       "path-template": "[PREFIX]_mask.nii.gz",
       "description": "0/1 mask dataset of voxels that survive the process.",
-      "optional": true,
       "id": "mask_output",
       "name": "Mask Output File"
     },
     {
       "path-template": "[ALL_MASK].nii.gz",
       "description": "Multi-volume dataset where each volume is the binary mask of voxels that pass ONE of the tests.",
-      "optional": true,
       "id": "all_mask_output",
       "name": "All Mask Output File"
     }

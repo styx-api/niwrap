@@ -156,56 +156,48 @@
     {
       "path-template": "[OUTFILE].nii.gz",
       "description": "Defaced T1w image",
-      "optional": false,
       "id": "outfile",
       "name": "Output defaced file"
     },
     {
       "path-template": "[DEFACING_MASK].nii.gz",
       "description": "Defacing mask file",
-      "optional": true,
       "id": "out_defacing_mask",
       "name": "Output defacing mask file"
     },
     {
       "path-template": "[CROPPED_STRUC].nii.gz",
       "description": "Cropped structural image file",
-      "optional": true,
       "id": "out_cropped_struc",
       "name": "Output cropped struct file"
     },
     {
       "path-template": "[ORIG_TO_STD_MAT].mat",
       "description": "Affine matrix from original struct to std",
-      "optional": true,
       "id": "out_orig_to_std_mat",
       "name": "Output original to std matrix"
     },
     {
       "path-template": "[ORIG_TO_CROPPED_MAT].mat",
       "description": "Affine matrix from original struct to cropped struct",
-      "optional": true,
       "id": "out_orig_to_cropped_mat",
       "name": "Output original to cropped matrix"
     },
     {
       "path-template": "[CROPPED_TO_STD_MAT].mat",
       "description": "Affine matrix from cropped struct to std",
-      "optional": true,
       "id": "out_cropped_to_std_mat",
       "name": "Output cropped to std matrix"
     },
     {
       "path-template": "[QC_IMAGES]_defaced_original.png",
       "description": "QC image for defacing (original)",
-      "optional": true,
       "id": "qc_image_original",
       "name": "QC Image Original"
     },
     {
       "path-template": "[QC_IMAGES]_defaced_cropped.png",
       "description": "QC image for defacing (cropped)",
-      "optional": true,
       "id": "qc_image_cropped",
       "name": "QC Image Cropped"
     }

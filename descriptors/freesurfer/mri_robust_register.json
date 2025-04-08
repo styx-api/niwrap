@@ -433,84 +433,72 @@
     {
       "path-template": "[OUTPUT_REGISTRATION]",
       "description": "Registration output file containing the transformation from movable to destination.",
-      "optional": false,
       "id": "reg_output",
       "name": "Registration Output"
     },
     {
       "path-template": "[MAPPED_MOVABLE]",
       "description": "Movable volume mapped and resampled at destination.",
-      "optional": true,
       "id": "mapped_output",
       "name": "Mapped Movable Output"
     },
     {
       "path-template": "[MAPPED_MOVABLE_HDR]",
       "description": "Movable volume aligned to destination (header only).",
-      "optional": true,
       "id": "mapped_hdr_output",
       "name": "Mapped Movable Header Output"
     },
     {
       "path-template": "[WEIGHTS]",
       "description": "Weights indicating outlier probabilities in destination space.",
-      "optional": true,
       "id": "weights_output_file",
       "name": "Weights Output File"
     },
     {
       "path-template": "[ISCALE_OUT]",
       "description": "Output text file containing the intensity scale value.",
-      "optional": true,
       "id": "iscale_out_file",
       "name": "Intensity Scale Output File"
     },
     {
       "path-template": "[HALF_MOV]",
       "description": "Half-way movable volume resampled.",
-      "optional": true,
       "id": "half_mov_file",
       "name": "Half Movable Volume"
     },
     {
       "path-template": "[HALF_DST]",
       "description": "Half-way destination volume resampled.",
-      "optional": true,
       "id": "half_dst_file",
       "name": "Half Destination Volume"
     },
     {
       "path-template": "[HALF_WEIGHTS]",
       "description": "Half-way weights resampled in halfway space.",
-      "optional": true,
       "id": "half_weights_file",
       "name": "Half Weights File"
     },
     {
       "path-template": "[HALF_MOV_LTA]",
       "description": "Transform output from movable to half-way space.",
-      "optional": true,
       "id": "half_mov_lta_file",
       "name": "Half Movable LTA File"
     },
     {
       "path-template": "[HALF_DST_LTA]",
       "description": "Transform output from destination to half-way space.",
-      "optional": true,
       "id": "half_dst_lta_file",
       "name": "Half Destination LTA File"
     },
     {
       "path-template": "[ENT_MOV]",
       "description": "Movable entropy image for ROBENT cost function.",
-      "optional": true,
       "id": "ent_mov_file",
       "name": "Movable Entropy Image"
     },
     {
       "path-template": "[ENT_DST]",
       "description": "Target entropy image for ROBENT cost function.",
-      "optional": true,
       "id": "ent_dst_file",
       "name": "Destination Entropy Image"
     }

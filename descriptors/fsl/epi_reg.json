@@ -138,98 +138,84 @@
       "name": "Epi2str inv",
       "id": "epi2str_inv",
       "path-template": "epi2str_inv.mat",
-      "optional": true,
       "description": "Rigid structural-to-epi transform."
     },
     {
       "name": "Epi2str mat",
       "id": "epi2str_mat",
       "path-template": "epi2struct.mat",
-      "optional": true,
       "description": "Rigid epi-to-structural transform."
     },
     {
       "name": "Fmap2epi mat",
       "id": "fmap2epi_mat",
       "path-template": "fmap2epi.mat",
-      "optional": true,
       "description": "Rigid fieldmap-to-epi transform."
     },
     {
       "name": "Fmap2str mat",
       "id": "fmap2str_mat",
       "path-template": "fmap2str.mat",
-      "optional": true,
       "description": "Rigid fieldmap-to-structural transform."
     },
     {
       "name": "Fmap epi",
       "id": "fmap_epi",
       "path-template": "fmap_epi.nii.gz",
-      "optional": true,
       "description": "Fieldmap in epi space."
     },
     {
       "name": "Fmap str",
       "id": "fmap_str",
       "path-template": "fmap_str.nii.gz",
-      "optional": true,
       "description": "Fieldmap in structural space."
     },
     {
       "name": "Fmapmag str",
       "id": "fmapmag_str",
       "path-template": "fmapmag_str.nii.gz",
-      "optional": true,
       "description": "Fieldmap magnitude image in structural space."
     },
     {
       "name": "Fullwarp",
       "id": "fullwarp",
       "path-template": "fullwarp.nii.gz",
-      "optional": true,
       "description": "Warpfield to unwarp epi and transform into structural space."
     },
     {
       "name": "Out 1vol",
       "id": "out_1vol",
       "path-template": "out_1vol.nii.gz",
-      "optional": true,
       "description": "Unwarped and coregistered single volume."
     },
     {
       "name": "Out file",
       "id": "out_file",
       "path-template": "[OUT_BASE_NAME].nii.gz",
-      "optional": true,
       "description": "Unwarped and coregistered epi input."
     },
     {
       "name": "Seg",
       "id": "seg",
       "path-template": "[OUT_BASE_NAME]_fast_seg.nii.gz",
-      "optional": true,
       "description": "White matter, gray matter, csf segmentation."
     },
     {
       "name": "Shiftmap",
       "id": "shiftmap",
       "path-template": "shiftmap.nii.gz",
-      "optional": true,
       "description": "Shiftmap in epi space."
     },
     {
       "name": "Wmedge",
       "id": "wmedge",
       "path-template": "[OUT_BASE_NAME]_fast_wmedge.nii.gz",
-      "optional": true,
       "description": "White matter edges for visualization."
     },
     {
       "name": "Wmseg",
       "id": "wmseg_outfile",
       "path-template": "[OUT_BASE_NAME]_fast_wmseg.nii.gz",
-      "optional": true,
       "description": "White matter segmentation used in flirt bbr."
     }
   ],

@@ -103,28 +103,24 @@
     {
       "path-template": "run_ap_[SUBJID]",
       "description": "afni_proc.py command script",
-      "optional": true,
       "id": "run_ap_script",
       "name": "afni_proc.py Command Script"
     },
     {
       "path-template": "proc.[SUBJID]",
       "description": "proc script (if AP is run)",
-      "optional": true,
       "id": "proc_script",
       "name": "Proc Script"
     },
     {
       "path-template": "[SUBJID].results",
       "description": "proc results directory (if run)",
-      "optional": true,
       "id": "proc_results_dir",
       "name": "Proc Results Directory"
     },
     {
       "path-template": "out.*",
       "description": "Text output files from AP and proc scripts",
-      "optional": true,
       "id": "text_output_files",
       "name": "Text Output Files"
     }

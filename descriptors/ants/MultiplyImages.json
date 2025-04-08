@@ -6,10 +6,7 @@
   "url": "https://github.com/ANTsX/ANTs",
   "tool-version": "2.5.3",
   "schema-version": "0.5",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  },
+  "container-image": { "type": "docker", "image": "antsx/ants:v2.5.3" },
   "inputs": [
     {
       "id": "dimension",
@@ -69,7 +66,6 @@
       "name": "Output product image",
       "id": "output_product_image_outfile",
       "path-template": "[OUTPUT_PRODUCT_IMAGE]",
-      "optional": true,
       "description": "Average image file."
     }
   ],

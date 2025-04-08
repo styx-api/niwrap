@@ -5,10 +5,7 @@
   "description": "antsAtroposN4.sh iterates between N4 <-> Atropos to improve segmentation results.",
   "tool-version": "2.5.3",
   "schema-version": "0.5",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  },
+  "container-image": { "type": "docker", "image": "antsx/ants:v2.5.3" },
   "inputs": [
     {
       "id": "image_dimension",
@@ -264,22 +261,19 @@
       "id": "n4_corrected",
       "name": "N4 Corrected Image",
       "description": "N4 corrected image.",
-      "path-template": "[OUTPUT_PREFIX]N4Corrected.[OUTPUT_SUFFIX]",
-      "optional": false
+      "path-template": "[OUTPUT_PREFIX]N4Corrected.[OUTPUT_SUFFIX]"
     },
     {
       "id": "segmentation",
       "name": "Segmentation Image",
       "description": "Segmentation image.",
-      "path-template": "[OUTPUT_PREFIX]Segmentation.[OUTPUT_SUFFIX]",
-      "optional": false
+      "path-template": "[OUTPUT_PREFIX]Segmentation.[OUTPUT_SUFFIX]"
     },
     {
       "id": "segmentation_posteriors",
       "name": "Segmentation Posteriors Image",
       "description": "Segmentation posteriors image.",
-      "path-template": "[OUTPUT_PREFIX]SegmentationPosteriors.[OUTPUT_SUFFIX]",
-      "optional": false
+      "path-template": "[OUTPUT_PREFIX]SegmentationPosteriors.[OUTPUT_SUFFIX]"
     }
   ],
   "url": "https://github.com/ANTsX/ANTs"

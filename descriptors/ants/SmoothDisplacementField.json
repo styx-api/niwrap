@@ -5,10 +5,7 @@
   "author": "ANTs Developers",
   "tool-version": "2.5.3",
   "schema-version": "0.5",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  },
+  "container-image": { "type": "docker", "image": "antsx/ants:v2.5.3" },
   "inputs": [
     {
       "id": "image_dimension",
@@ -94,8 +91,7 @@
       "id": "confidence_image_out",
       "name": "Confidence Image Output",
       "description": "The output file containing confidence information from the smoothing process.",
-      "path-template": "[CONFIDENCE_IMAGE]",
-      "optional": true
+      "path-template": "[CONFIDENCE_IMAGE]"
     }
   ],
   "url": "https://github.com/ANTsX/ANTs"

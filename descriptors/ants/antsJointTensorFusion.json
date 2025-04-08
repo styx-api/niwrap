@@ -6,10 +6,7 @@
   "url": "https://github.com/ANTsX/ANTs",
   "tool-version": "2.5.3",
   "schema-version": "0.5",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  },
+  "container-image": { "type": "docker", "image": "antsx/ants:v2.5.3" },
   "inputs": [
     {
       "id": "dimensionality",
@@ -195,22 +192,19 @@
       "id": "intensity_fusion_image",
       "name": "Intensity Fusion Image",
       "description": "The intensity fusion image output.",
-      "path-template": "[OUTPUT]_IntensityFusion.nii.gz",
-      "optional": true
+      "path-template": "[OUTPUT]_IntensityFusion.nii.gz"
     },
     {
       "id": "label_posterior_probability_image",
       "name": "Label Posterior Probability Image",
       "description": "The label posterior probability images.",
-      "path-template": "[OUTPUT]_LabelPosterior.nii.gz",
-      "optional": true
+      "path-template": "[OUTPUT]_LabelPosterior.nii.gz"
     },
     {
       "id": "atlas_voting_weight_image",
       "name": "Atlas Voting Weight Image",
       "description": "The atlas voting weight images.",
-      "path-template": "[OUTPUT]_AtlasVoting.nii.gz",
-      "optional": true
+      "path-template": "[OUTPUT]_AtlasVoting.nii.gz"
     }
   ]
 }
