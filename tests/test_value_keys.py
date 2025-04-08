@@ -1,6 +1,7 @@
 import glob
 import json
 import re
+from collections import defaultdict
 
 import pytest
 
@@ -11,14 +12,19 @@ def load_descriptors():
 
 @pytest.mark.parametrize("descriptor_path", load_descriptors())
 class TestInputValueKeys:
-    def test_unused_value_keys(self, descriptor_path):
-        """All input value-keys should be used in the command-line."""
-
+    def load_descriptor(self, descriptor_path):
+        """Load individual descriptor."""
         with open(descriptor_path) as f:
             descriptor = json.load(f)
 
         command_line = descriptor.get("command-line")
         assert command_line, f"No command-line found in {descriptor_path}"
+
+        return descriptor, command_line
+
+    def test_unused_value_keys(self, descriptor_path):
+        """All input value-keys should be used in the command-line."""
+        descriptor, command_line = self.load_descriptor(descriptor_path)
 
         # Collect all value-keys from inputs
         value_keys = set()
@@ -40,12 +46,7 @@ class TestInputValueKeys:
 
     def test_unmapped_command_entries(self, descriptor_path):
         """All [UPPER_CASE] entries in command-line should match input value-keys."""
-
-        with open(descriptor_path) as f:
-            descriptor = json.load(f)
-
-        command_line = descriptor.get("command-line")
-        assert command_line, f"No command-line found in {descriptor_path}"
+        descriptor, command_line = self.load_descriptor(descriptor_path)
 
         # Collect all value-keys from inputs
         value_keys = set()
@@ -71,9 +72,7 @@ class TestInputValueKeys:
 
     def test_value_key_format(self, descriptor_path):
         """All value-keys should follow the [UPPER_CASE] format."""
-
-        with open(descriptor_path) as f:
-            descriptor = json.load(f)
+        descriptor, _ = self.load_descriptor(descriptor_path)
 
         invalid_keys = set()
         pattern = r"^\[[A-Z0-9_]+\]$"
@@ -88,18 +87,16 @@ class TestInputValueKeys:
             f"{chr(10).join('  ' + key for key in invalid_keys)}"
         )
 
-    def test_duplicate_value_key(self, descriptor_path):
+    def test_duplicate_command_value_key(self, descriptor_path):
         """All input value keys should be unique."""
-        with open(descriptor_path) as f:
-            descriptor = json.load(f)
-
-        command_line = descriptor.get("command-line")
-        assert command_line, f"No command-line found in {descriptor_path}"
+        descriptor, command_line = self.load_descriptor(descriptor_path)
 
         # Check each value-key only appears once
-        seen = set()
-        duplicates = set()
-        for value_key in command_line.split():
+        pattern = r"\[([A-Z0-9_]+)\]"
+        command_entries = set(re.findall(pattern, command_line))
+
+        seen, duplicates = set(), set()
+        for value_key in command_entries:
             if value_key in seen:
                 duplicates.add(value_key)
             else:
@@ -108,4 +105,22 @@ class TestInputValueKeys:
         assert len(duplicates) == 0, (
             f"Found duplicate value-keys in {descriptor_path}:\n"
             f"{chr(10).join('  ' + key for key in duplicates)}"
+        )
+
+    def test_aliased_inputs(self, descriptor_path):
+        """Ensure inputs are using subcommands or unique value-keys."""
+        descriptor, _ = self.load_descriptor(descriptor_path)
+
+        aliased_input = defaultdict(list)
+        for input_item in descriptor.get("inputs", []):
+            value_key = input_item.get("value-key")
+            if value_key is None:
+                continue
+            aliased_input[value_key].append(input_item.get("command-line-flag"))
+
+        aliased_input = {k: v for k, v in aliased_input.items() if len(v) > 1}
+
+        assert aliased_input == {}, (
+            f"Found aliased value-keys in {descriptor_path}:\n"
+            f"{chr(10).join('  ' + f'{k}: {v}' for k, v in aliased_input.items())}"
         )
