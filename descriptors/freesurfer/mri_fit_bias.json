@@ -103,7 +103,6 @@
       "description": "Turn on debugging mode",
       "value-key": "[DEBUG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug",
       "name": "Debug Flag"
     },
@@ -112,7 +111,6 @@
       "description": "Don't run anything, just check options and exit",
       "value-key": "[CHECKOPTS]",
       "type": "Flag",
-      "optional": true,
       "id": "checkopts",
       "name": "Check Options Flag"
     }
@@ -121,14 +119,12 @@
     {
       "path-template": "[OUTVOL]",
       "description": "Bias corrected output volume",
-      "optional": false,
       "id": "corrected_output",
       "name": "Corrected Output Volume"
     },
     {
       "path-template": "[BIASFIELD]",
       "description": "Generated bias field",
-      "optional": false,
       "id": "generated_bias_field",
       "name": "Bias Field Output"
     }

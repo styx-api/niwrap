@@ -41,7 +41,6 @@
       "description": "Store data as 16-bit shorts.",
       "value-key": "[SHORT_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "short_flag",
       "name": "Short flag"
     },
@@ -50,7 +49,6 @@
       "description": "Store data as 8-bit bytes.",
       "value-key": "[BYTE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "byte_flag",
       "name": "Byte flag"
     },
@@ -68,7 +66,6 @@
       "description": "Delete input datasets from disk after processing.",
       "value-key": "[DELETE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "delete_flag",
       "name": "Delete flag"
     },
@@ -98,14 +95,12 @@
     {
       "path-template": "[PREFIX].grpincorr.niml",
       "description": "Text file containing the header information describing the data file.",
-      "optional": false,
       "id": "niml_file",
       "name": "NIML file"
     },
     {
       "path-template": "[PREFIX].grpincorr.data",
       "description": "Data file containing all the time series from all the datasets.",
-      "optional": false,
       "id": "data_file",
       "name": "Data file"
     }

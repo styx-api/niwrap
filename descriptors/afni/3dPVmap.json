@@ -32,7 +32,6 @@
       "description": "Automatically generate a mask from the input dataset",
       "value-key": "[AUTOMASK]",
       "type": "Flag",
-      "optional": true,
       "id": "automask",
       "name": "Automask Flag"
     },
@@ -50,21 +49,18 @@
     {
       "path-template": "[PREFIX]+orig.BRIK",
       "description": "Output PVmap file",
-      "optional": true,
       "id": "outbrik",
       "name": "Output PVmap BRIK File"
     },
     {
       "path-template": "[PREFIX]+orig.HEAD",
       "description": "Output PVmap header file",
-      "optional": true,
       "id": "outhead",
       "name": "Output PVmap Head File"
     },
     {
       "path-template": "[PREFIX].1D",
       "description": "Principal component time series vectors",
-      "optional": true,
       "id": "pc_vectors",
       "name": "Principal Component Time Series Vectors"
     }

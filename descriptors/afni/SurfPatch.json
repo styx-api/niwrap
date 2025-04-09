@@ -87,7 +87,6 @@
       "description": "Calculate the volume formed by the patch on surf_A and surf_B. Requires only two surfaces specified with surf_A and surf_B.",
       "command-line-flag": "-vol",
       "type": "Flag",
-      "optional": true,
       "id": "vol",
       "name": "Calculate Volume",
       "value-key": "[VOL]"
@@ -96,7 +95,6 @@
       "description": "Only calculate the volume, don't write out patches.",
       "command-line-flag": "-vol_only",
       "type": "Flag",
-      "optional": true,
       "id": "vol_only",
       "name": "Volume Only",
       "value-key": "[VOL_ONLY]"
@@ -105,7 +103,6 @@
       "description": "Turn surface patch into a surface where only nodes used in forming the mesh are preserved.",
       "command-line-flag": "-patch2surf",
       "type": "Flag",
-      "optional": true,
       "id": "patch2surf",
       "name": "Patch to Surface",
       "value-key": "[PATCH2SURF]"
@@ -123,7 +120,6 @@
       "description": "Check if the patch has a section hanging by one node to the rest of the mesh. Default when -vol or -vol_only are used.",
       "command-line-flag": "-check_bowtie",
       "type": "Flag",
-      "optional": true,
       "id": "check_bowtie",
       "name": "Check Bowtie",
       "value-key": "[CHECK_BOWTIE]"
@@ -132,7 +128,6 @@
       "description": "Modify patch to eliminate bowties.",
       "command-line-flag": "-fix_bowtie",
       "type": "Flag",
-      "optional": true,
       "id": "fix_bowtie",
       "name": "Fix Bowtie",
       "value-key": "[FIX_BOWTIE]"
@@ -141,7 +136,6 @@
       "description": "Do not check for, or fix bowties. Default when -vol* are not used.",
       "command-line-flag": "-ok_bowtie",
       "type": "Flag",
-      "optional": true,
       "id": "ok_bowtie",
       "name": "OK Bowtie",
       "value-key": "[OK_BOWTIE]"
@@ -150,7 +144,6 @@
       "description": "Shrink patch contours at nodes that were not in nodefile.",
       "command-line-flag": "-adjust_contour",
       "type": "Flag",
-      "optional": true,
       "id": "adjust_contour",
       "name": "Adjust Contour",
       "value-key": "[ADJUST_CONTOUR]"
@@ -159,7 +152,6 @@
       "description": "Do not adjust contours. This is the default.",
       "command-line-flag": "-do-not-adjust_contour",
       "type": "Flag",
-      "optional": true,
       "id": "do_not_adjust_contour",
       "name": "Do Not Adjust Contour",
       "value-key": "[DO_NOT_ADJUST_CONTOUR]"
@@ -177,7 +169,6 @@
       "description": "Change orientation of triangles before writing surfaces.",
       "command-line-flag": "-flip_orientation",
       "type": "Flag",
-      "optional": true,
       "id": "flip_orientation",
       "name": "Flip Orientation",
       "value-key": "[FLIP_ORIENTATION]"
@@ -201,21 +192,18 @@
     {
       "path-template": "[PREFIX]_A",
       "description": "Output patch for surface A",
-      "optional": true,
       "id": "outpatch_A",
       "name": "Output Patch A"
     },
     {
       "path-template": "[PREFIX]_B",
       "description": "Output patch for surface B",
-      "optional": true,
       "id": "outpatch_B",
       "name": "Output Patch B"
     },
     {
       "path-template": "[PREFIX]_stitched",
       "description": "Stitched surface file",
-      "optional": true,
       "id": "out_stitched_surface",
       "name": "Stitched Surface"
     }

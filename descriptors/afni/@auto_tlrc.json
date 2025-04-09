@@ -29,7 +29,6 @@
       "name": "No Skull Stripping",
       "description": "Do not strip skull of input data set because the skull has already been removed or because the template still has the skull.",
       "command-line-flag": "-no_ss",
-      "optional": true,
       "type": "Flag",
       "value-key": "[NO_SS]"
     },
@@ -38,7 +37,6 @@
       "name": "Warp Original Volume",
       "description": "Produce a TLRC version of the input volume, rather than a TLRC version of the skull-stripped input.",
       "command-line-flag": "-warp_orig_vol",
-      "optional": true,
       "type": "Flag",
       "value-key": "[WARP_ORIG_VOL]"
     },
@@ -92,7 +90,6 @@
       "name": "Keep Temporary Files",
       "description": "Keep temporary files.",
       "command-line-flag": "-keep_tmp",
-      "optional": true,
       "type": "Flag",
       "value-key": "[KEEP_TMP]"
     },
@@ -101,7 +98,6 @@
       "name": "Clean Temporary Files",
       "description": "Clean all temporary files, likely left from -keep_tmp option then exit.",
       "command-line-flag": "-clean",
-      "optional": true,
       "type": "Flag",
       "value-key": "[CLEAN]"
     },
@@ -119,7 +115,6 @@
       "name": "No Avoid Eyes",
       "description": "An option that gets passed to 3dSkullStrip. Use it when parts of the frontal lobes get clipped.",
       "command-line-flag": "-no_avoid_eyes",
-      "optional": true,
       "type": "Flag",
       "value-key": "[NO_AVOID_EYES]"
     },
@@ -128,7 +123,6 @@
       "name": "No Coarse Rotation",
       "description": "Do not use -coarserot option for 3dWarpDrive, which is a default.",
       "command-line-flag": "-ncr",
-      "optional": true,
       "type": "Flag",
       "value-key": "[NCR]"
     },
@@ -137,7 +131,6 @@
       "name": "Single Pass Registration",
       "description": "Turns off -twopass option for 3dWarpDrive. This will speed up the registration but might fail if the datasets are far apart.",
       "command-line-flag": "-onepass",
-      "optional": true,
       "type": "Flag",
       "value-key": "[ONEPASS]"
     },
@@ -146,7 +139,6 @@
       "name": "Two Pass Registration",
       "description": "Opposite of -onepass, default.",
       "command-line-flag": "-twopass",
-      "optional": true,
       "type": "Flag",
       "value-key": "[TWOPASS]"
     },
@@ -164,7 +156,6 @@
       "name": "Not OK Maximum Iterations",
       "description": "Continue running even if maximum iterations is reached.",
       "command-line-flag": "-not_OK_maxite",
-      "optional": true,
       "type": "Flag",
       "value-key": "[NOT_OK_MAXITE]"
     },
@@ -173,7 +164,6 @@
       "name": "Input Weight",
       "description": "Apply -weight INPUT (in 3dWarpDrive). By default, 3dWarpDrive uses the BASE dataset to weight the alignment cost.",
       "command-line-flag": "-inweight",
-      "optional": true,
       "type": "Flag",
       "value-key": "[INWEIGHT]"
     },
@@ -182,7 +172,6 @@
       "name": "Rigid Body Alignment",
       "description": "Output the rigid-body version of the alignment. Resultant volume is NOT in TLRC space.",
       "command-line-flag": "-rigid_equiv",
-      "optional": true,
       "type": "Flag",
       "value-key": "[RIGID_EQUIV]"
     },
@@ -200,7 +189,6 @@
       "name": "Delete Temporary Dataset",
       "description": "Delete temporary dataset created by -init_xform",
       "command-line-flag": "-no_pre",
-      "optional": true,
       "type": "Flag",
       "value-key": "[NO_PRE]"
     },
@@ -218,7 +206,6 @@
       "name": "Use 3dAllineate",
       "description": "Use 3dAllineate with the lpa+ZZ cost function instead of 3dWarpDrive.",
       "command-line-flag": "-3dAllineate",
-      "optional": true,
       "type": "Flag",
       "value-key": "[3DALLINEATE]"
     },
@@ -236,7 +223,6 @@
       "name": "Overwrite Output",
       "description": "Overwrite existing output.",
       "command-line-flag": "-overwrite",
-      "optional": true,
       "type": "Flag",
       "value-key": "[OVERWRITE]"
     },
@@ -272,7 +258,6 @@
       "name": "Single Interpolation Step",
       "description": "Create follower data with one interpolation step, instead of two. This option reduces blurring of the output data.",
       "command-line-flag": "-onewarp",
-      "optional": true,
       "type": "Flag",
       "value-key": "[ONEWARP]"
     },
@@ -281,7 +266,6 @@
       "name": "Two Interpolation Steps",
       "description": "Create follower data with two interpolations step, instead of one. This option is for backward compatibility.",
       "command-line-flag": "-twowarp",
-      "optional": true,
       "type": "Flag",
       "value-key": "[TWOWARP]"
     },
@@ -317,7 +301,6 @@
       "name": "Keep Output View",
       "description": "Do not mark output dataset as +tlrc.",
       "command-line-flag": "-keep_view",
-      "optional": true,
       "type": "Flag",
       "value-key": "[KEEP_VIEW]"
     },
@@ -335,7 +318,6 @@
       "name": "List Base Dataset Path",
       "description": "List the full path of the base dataset.",
       "command-line-flag": "-base_list",
-      "optional": true,
       "type": "Flag",
       "value-key": "[BASE_LIST]"
     },
@@ -344,7 +326,6 @@
       "name": "Use GZIP Compression",
       "description": "When using '-suffix ..', behave as if you had provided a prefix with '*.gz' at the end.",
       "command-line-flag": "-use_gz",
-      "optional": true,
       "type": "Flag",
       "value-key": "[USE_GZ]"
     },
@@ -353,7 +334,6 @@
       "name": "Verbose",
       "description": "Increase verbosity of the script.",
       "command-line-flag": "-verb",
-      "optional": true,
       "type": "Flag",
       "value-key": "[VERB]"
     }
@@ -363,14 +343,12 @@
     {
       "path-template": "[PREFIX].nii.gz",
       "description": "Transformed anatomical volume dataset in TLRC space.",
-      "optional": false,
       "id": "output_dataset",
       "name": "Transformed Anatomical Dataset"
     },
     {
       "path-template": "[PREFIX].Xat.1D",
       "description": "Transform used to align the anatomical dataset to the template.",
-      "optional": true,
       "id": "transform_file",
       "name": "Transformation File"
     }

@@ -87,7 +87,6 @@
       "description": "Run script with 'set echo' (i.e., verbosely)",
       "value-key": "[ECHO]",
       "type": "Flag",
-      "optional": true,
       "id": "echo",
       "name": "Echo flag"
     },
@@ -96,7 +95,6 @@
       "description": "Do not remove temp files (probably just for testing)",
       "value-key": "[NO_CLEAN]",
       "type": "Flag",
-      "optional": true,
       "id": "no_clean",
       "name": "No clean flag"
     }
@@ -106,21 +104,18 @@
     {
       "path-template": "[OUTDIR]/isurf.[HEMI].*.gii",
       "description": "Interpolated surfaces files",
-      "optional": true,
       "id": "interpolated_surfaces",
       "name": "Interpolated Surfaces"
     },
     {
       "path-template": "[OUTDIR]/*",
       "description": "Additional files if -spec option was used",
-      "optional": true,
       "id": "additional_spec_files",
       "name": "Additional Spec Files"
     },
     {
       "path-template": "[OUTDIR]/run*tcsh",
       "description": "Run script to view output directly",
-      "optional": true,
       "id": "run_view_script",
       "name": "Run View Script"
     }

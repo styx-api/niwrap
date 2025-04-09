@@ -2,7 +2,6 @@
   "tool-version": "6.0.4",
   "name": "tbss_skeleton",
   "author": "FMRIB Analysis Group, University of Oxford",
-  "descriptor-url": "https://www.fmrib.ox.ac.uk/fsl",
   "description": "A tool for defining a 'skeleton' of white matter tracts in the brain to help compare them across subjects.",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "tbss_skeleton [INPUT_IMAGE] [OUTPUT_IMAGE] [SKELETON_PARAMS] [ALT_4D] [ALT_SKELETON] [DEBUG_FLAG] [DEBUG2_FLAG]",
@@ -64,7 +63,6 @@
       "description": "Switch on debugging image outputs",
       "value-key": "[DEBUG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug_flag",
       "name": "Debug Flag"
     },
@@ -104,35 +102,30 @@
     {
       "path-template": "[OUTPUT_IMAGE]",
       "description": "Output skeleton image",
-      "optional": true,
       "id": "output_image_file",
       "name": "Output Image File"
     },
     {
       "path-template": "[PROJECTED_4D]",
       "description": "Projected 4D data",
-      "optional": true,
       "id": "projected_4d_file",
       "name": "Projected 4D Data File"
     },
     {
       "path-template": "[ALT_4D]",
       "description": "Alternative 4D data",
-      "optional": true,
       "id": "alt_4d_file",
       "name": "Alternative 4D Data File"
     },
     {
       "path-template": "[ALT_SKELETON]",
       "description": "Alternative skeleton image",
-      "optional": true,
       "id": "alt_skeleton_file",
       "name": "Alternative Skeleton Image"
     },
     {
       "path-template": "[DEBUG2_FLAG]",
       "description": "De-projected skelpoints points on skeleton back to all_FA space",
-      "optional": true,
       "id": "debug2_image_outputs",
       "name": "Debug2 Image Outputs"
     }

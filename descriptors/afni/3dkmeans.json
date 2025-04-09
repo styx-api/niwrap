@@ -14,7 +14,6 @@
       "name": "Version information",
       "type": "Flag",
       "command-line-flag": "--version",
-      "optional": true,
       "value-key": "[VERSION]"
     },
     {
@@ -153,7 +152,6 @@
       "name": "Verbose",
       "type": "Flag",
       "command-line-flag": "-verb",
-      "optional": true,
       "description": "Enable verbose mode.",
       "value-key": "[VERBOSE]"
     },
@@ -162,7 +160,6 @@
       "name": "Write distances",
       "type": "Flag",
       "command-line-flag": "-write_dists",
-      "optional": true,
       "description": "Output text files containing various distance measures.",
       "value-key": "[WRITE_DISTS]"
     },
@@ -193,50 +190,43 @@
       "id": "cluster_membership",
       "name": "Cluster membership volume",
       "path-template": "[JOBNAME]_membership.nii.gz",
-      "description": "Output volume for the cluster membership.",
-      "optional": true
+      "description": "Output volume for the cluster membership."
     },
     {
       "id": "cluster_distance",
       "name": "Cluster distance volume",
       "path-template": "[JOBNAME]_distance.nii.gz",
-      "description": "Output volume for the cluster distance measures.",
-      "optional": true
+      "description": "Output volume for the cluster distance measures."
     },
     {
       "id": "distances_text_file",
       "name": "Distances text file",
       "path-template": "FILE.dis.1D",
-      "description": "Output text file containing distances between clusters.",
-      "optional": true
+      "description": "Output text file containing distances between clusters."
     },
     {
       "id": "centroids_text_file",
       "name": "Centroids text file",
       "path-template": "FILE.cen.1D",
-      "description": "Output text file containing cluster centroids.",
-      "optional": true
+      "description": "Output text file containing cluster centroids."
     },
     {
       "id": "within_cluster_sum_text_file",
       "name": "Within cluster sum text file",
       "path-template": "FILE.info1.1D",
-      "description": "Output text file containing within cluster sum of distances.",
-      "optional": true
+      "description": "Output text file containing within cluster sum of distances."
     },
     {
       "id": "max_distance_text_file",
       "name": "Maximum distance within cluster text file",
       "path-template": "FILE.info2.1D",
-      "description": "Output text file containing maximum distance within each cluster.",
-      "optional": true
+      "description": "Output text file containing maximum distance within each cluster."
     },
     {
       "id": "voxel_distance_to_centroid",
       "name": "Voxel distance to centroid text file",
       "path-template": "FILE.vcd.1D",
-      "description": "Output text file containing distance from voxel to its centroid.",
-      "optional": true
+      "description": "Output text file containing distance from voxel to its centroid."
     }
   ],
   "schema-version": "0.5",

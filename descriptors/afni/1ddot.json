@@ -29,7 +29,6 @@
       "description": "Make 1st vector be all 1's.",
       "value-key": "[ONE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "one_flag",
       "name": "One Flag"
     },
@@ -38,7 +37,6 @@
       "description": "Remove mean from all vectors (conflicts with '-one').",
       "value-key": "[DEM_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "dem_flag",
       "name": "Dem Flag"
     },
@@ -47,7 +45,6 @@
       "description": "Compute with covariance matrix instead of correlation.",
       "value-key": "[COV_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "cov_flag",
       "name": "Covariance Flag"
     },
@@ -56,7 +53,6 @@
       "description": "Compute with inner product matrix instead.",
       "value-key": "[INN_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "inn_flag",
       "name": "Inner Product Flag"
     },
@@ -65,7 +61,6 @@
       "description": "Compute Spearman rank correlation instead (also implies '-terse').",
       "value-key": "[RANK_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "rank_flag",
       "name": "Rank Correlation Flag"
     },
@@ -74,7 +69,6 @@
       "description": "Output only the correlation or covariance matrix without any garnish.",
       "value-key": "[TERSE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "terse_flag",
       "name": "Terse Output Flag"
     },
@@ -83,7 +77,6 @@
       "description": "Do not quit if a vector is all zeros. The correlation matrix will have 0 where NaNs ought to go.",
       "value-key": "[OKZERO_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "okzero_flag",
       "name": "OK Zero Flag"
     }
@@ -93,7 +86,6 @@
     {
       "path-template": "stdout.txt",
       "description": "Output correlation or covariance matrix printed to stdout.",
-      "optional": false,
       "id": "stdout_output",
       "name": "Standard Output"
     }

@@ -49,7 +49,6 @@
       "description": "Print out disk space required for program execution",
       "value-key": "[DISKSPACE]",
       "type": "Flag",
-      "optional": true,
       "id": "diskspace",
       "name": "Diskspace flag"
     },
@@ -152,35 +151,30 @@
     {
       "path-template": "[PREFIX].fift+orig.HEAD",
       "description": "Output fift dataset",
-      "optional": true,
       "id": "output_fift",
       "name": "F-test dataset"
     },
     {
       "path-template": "[PREFIX].fith+orig.HEAD",
       "description": "Output fith dataset",
-      "optional": true,
       "id": "output_fith",
       "name": "R^2 dataset"
     },
     {
       "path-template": "[PREFIX].fitt+orig.HEAD",
       "description": "Output fitt dataset",
-      "optional": true,
       "id": "output_fitt",
       "name": "t-test dataset"
     },
     {
       "path-template": "[PREFIX].bucket+orig.HEAD",
       "description": "Output bucket dataset",
-      "optional": true,
       "id": "output_bucket",
       "name": "Bucket dataset"
     },
     {
       "path-template": "[PREFIX].bucket+orig.BRIK",
       "description": "Output bucket BRIK file",
-      "optional": true,
       "id": "output_bucket_brik",
       "name": "Bucket dataset BRIK"
     }

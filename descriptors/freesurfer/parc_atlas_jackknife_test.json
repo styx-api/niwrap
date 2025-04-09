@@ -9,7 +9,6 @@
       "description": "Run mris_register: creates .sphere.reg files",
       "value-key": "[REGISTER]",
       "type": "Flag",
-      "optional": true,
       "id": "register",
       "name": "Register Flag"
     },
@@ -45,7 +44,6 @@
       "description": "Run mris_ca_train: creates .gcs files",
       "value-key": "[TRAIN]",
       "type": "Flag",
-      "optional": true,
       "id": "train",
       "name": "Train Flag"
     },
@@ -54,7 +52,6 @@
       "description": "Run mris_ca_label: creates .annot files",
       "value-key": "[CLASSIFY]",
       "type": "Flag",
-      "optional": true,
       "id": "classify",
       "name": "Classify Flag"
     },
@@ -63,7 +60,6 @@
       "description": "Run mris_compute_parc_overlap",
       "value-key": "[TEST]",
       "type": "Flag",
-      "optional": true,
       "id": "test",
       "name": "Test Flag"
     },
@@ -72,7 +68,6 @@
       "description": "Run train, classify, and test",
       "value-key": "[ALL]",
       "type": "Flag",
-      "optional": true,
       "id": "all",
       "name": "All Flag"
     },
@@ -108,7 +103,6 @@
       "description": "Don't execute the commands",
       "value-key": "[DONTRUN]",
       "type": "Flag",
-      "optional": true,
       "id": "dontrun",
       "name": "Don\u2019t Run Flag"
     }
@@ -117,7 +111,6 @@
     {
       "path-template": "jackknife/*",
       "description": "Output files written to the directory named 'jackknife'.",
-      "optional": true,
       "id": "jackknife_output",
       "name": "Jackknife Output Files"
     }

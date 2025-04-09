@@ -2,7 +2,6 @@
   "tool-version": "6.0.4",
   "name": "AnatomicalAverage",
   "author": "FMRIB Analysis Group, University of Oxford",
-  "descriptor-url": "https://example.com/anatomicalaverage.json",
   "description": "Tool to create an anatomical average of input brain images",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "AnatomicalAverage [OUTPUT_BASENAME] [INPUT_IMAGES] [STANDARD_IMAGE] [STANDARD_BRAIN_MASK] [NO_CROP_FLAG] [WORK_DIR] [BRAINSIZE] [NOCLEAN_FLAG] [VERBOSE_FLAG]",
@@ -52,7 +51,6 @@
       "description": "Do not crop images",
       "value-key": "[NO_CROP_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "no_crop_flag",
       "name": "No Crop Flag"
     },
@@ -79,7 +77,6 @@
       "description": "Do not run the cleanup",
       "value-key": "[NOCLEAN_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "noclean_flag",
       "name": "No Cleanup Flag"
     },
@@ -88,7 +85,6 @@
       "description": "Verbose output",
       "value-key": "[VERBOSE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose_flag",
       "name": "Verbose Flag"
     }
@@ -114,7 +110,6 @@
     {
       "path-template": "[OUTPUT_BASENAME]_avg.nii.gz",
       "description": "Averaged anatomical image",
-      "optional": true,
       "id": "avg_output",
       "name": "Averaged Image"
     }

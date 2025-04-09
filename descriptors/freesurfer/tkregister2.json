@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "tkregister2",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "unknown",
   "description": "tkregister2 is a tool from FreeSurfer used for registration of MRI images.",
   "command-line": "tkregister2 [FIXED_VOLUME] [MOVING_VOLUME] [REG_FILE] [NOEDIT] [LTA] [SURF_REG] [REG_ONLY] [HELP]",
   "container-image": {
@@ -40,7 +39,6 @@
       "description": "Run in no-edit mode, useful for scripting.",
       "value-key": "[NOEDIT]",
       "type": "Flag",
-      "optional": true,
       "id": "noedit",
       "name": "No Edit Mode"
     },
@@ -49,7 +47,6 @@
       "description": "Use LTA format for registration file.",
       "value-key": "[LTA]",
       "type": "Flag",
-      "optional": true,
       "id": "lta",
       "name": "LTA Format"
     },
@@ -58,7 +55,6 @@
       "description": "Use surface registration.",
       "value-key": "[SURF_REG]",
       "type": "Flag",
-      "optional": true,
       "id": "surf_reg",
       "name": "Surface Registration"
     },
@@ -67,7 +63,6 @@
       "description": "Don't show GUI, just save registration.",
       "value-key": "[REG_ONLY]",
       "type": "Flag",
-      "optional": true,
       "id": "reg_only",
       "name": "Registration Only"
     },
@@ -76,7 +71,6 @@
       "description": "Display help information.",
       "value-key": "[HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "help",
       "name": "Help Flag"
     }
@@ -85,7 +79,6 @@
     {
       "path-template": "[REG_FILE]",
       "description": "Resulting registration file",
-      "optional": true,
       "id": "output_reg_file",
       "name": "Output Registration File"
     }

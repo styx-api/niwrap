@@ -2,7 +2,6 @@
   "tool-version": "6.0.4",
   "name": "popp",
   "author": "FMRIB Analysis Group, University of Oxford",
-  "descriptor-url": "http://example.com/popp_descriptor.json",
   "description": "Physiological data processing tool of FSL",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "popp [INPUT_FILE] [OUTPUT_BASENAME] [SAMPLING_RATE] [TR_VALUE] [RESP_COLUMN] [CARDIAC_COLUMN] [TRIGGER_COLUMN] [RVT_FLAG] [HEART_RATE_FLAG] [PULSEOX_TRIGGER_FLAG] [SMOOTH_CARD] [SMOOTH_RESP] [HIGH_FREQ_CUTOFF] [LOW_FREQ_CUTOFF] [INIT_THRESH_C] [N_THRESH_C] [INIT_THRESH_R] [N_THRESH_R] [INVERT_RESP_FLAG] [INVERT_CARDIAC_FLAG] [NOCLEAN1_FLAG] [NOCLEAN2_FLAG] [LOAD_CARD_PHASE] [LOAD_RESP_PHASE] [VOL_FILE] [START_SAMPLE] [RESP_ADD] [RESP_DEL] [CARD_ADD] [CARD_DEL] [VERBOSE_FLAG] [DEBUG_FLAG] [HELP_FLAG]",
@@ -80,7 +79,6 @@
       "description": "Generate RVT data",
       "value-key": "[RVT_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "rvt_flag",
       "name": "RVT Flag"
     },
@@ -89,7 +87,6 @@
       "description": "Generate heartrate data",
       "value-key": "[HEART_RATE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "heart_rate_flag",
       "name": "Heartrate Flag"
     },
@@ -98,7 +95,6 @@
       "description": "Specify that cardiac data is a trigger",
       "value-key": "[PULSEOX_TRIGGER_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "pulseox_trigger_flag",
       "name": "Pulseox Trigger Flag"
     },
@@ -185,7 +181,6 @@
       "description": "Invert respiratory trace",
       "value-key": "[INVERT_RESP_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "invert_resp_flag",
       "name": "Invert Respiratory Flag"
     },
@@ -194,7 +189,6 @@
       "description": "Invert cardiac trace",
       "value-key": "[INVERT_CARDIAC_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "invert_cardiac_flag",
       "name": "Invert Cardiac Flag"
     },
@@ -203,7 +197,6 @@
       "description": "Turn off cleanup phase 1",
       "value-key": "[NOCLEAN1_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "noclean1_flag",
       "name": "No Clean Phase 1 Flag"
     },
@@ -212,7 +205,6 @@
       "description": "Turn off cleanup phase 2",
       "value-key": "[NOCLEAN2_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "noclean2_flag",
       "name": "No Clean Phase 2 Flag"
     },
@@ -293,7 +285,6 @@
       "description": "Switch on diagnostic messages",
       "value-key": "[VERBOSE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose_flag",
       "name": "Verbose Flag"
     },
@@ -302,7 +293,6 @@
       "description": "Output debugging information",
       "value-key": "[DEBUG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug_flag",
       "name": "Debug Flag"
     },
@@ -311,7 +301,6 @@
       "description": "Display this help message",
       "value-key": "[HELP_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "help_flag",
       "name": "Help Flag"
     }
@@ -361,28 +350,24 @@
     {
       "path-template": "[OUTPUT_BASENAME]_processed.txt",
       "description": "Processed physiological data output",
-      "optional": false,
       "id": "processed_data_output",
       "name": "Processed Data Output"
     },
     {
       "path-template": "[OUTPUT_BASENAME]_timing.txt",
       "description": "Timing and triggers output",
-      "optional": true,
       "id": "timing_output",
       "name": "Timing and Triggers Output"
     },
     {
       "path-template": "[OUTPUT_BASENAME]_rvt.txt",
       "description": "RVT data output file",
-      "optional": true,
       "id": "rvt_data_output",
       "name": "RVT Data Output"
     },
     {
       "path-template": "[OUTPUT_BASENAME]_heartrate.txt",
       "description": "Heartrate data output file",
-      "optional": true,
       "id": "heartrate_data_output",
       "name": "Heartrate Data Output"
     }

@@ -79,7 +79,6 @@
       "description": "Create a binary mask instead of loading surfval",
       "value-key": "[MKMASK]",
       "type": "Flag",
-      "optional": true,
       "id": "mkmask",
       "name": "Make Mask"
     },
@@ -116,7 +115,6 @@
       "description": "Fill the entire ribbon",
       "value-key": "[FILL_RIBBON]",
       "type": "Flag",
-      "optional": true,
       "id": "fill_ribbon",
       "name": "Fill Ribbon"
     },
@@ -197,7 +195,6 @@
       "description": "Mask to cortex label",
       "value-key": "[MASK_TO_CORTEX]",
       "type": "Flag",
-      "optional": true,
       "id": "mask_to_cortex",
       "name": "Mask to Cortex"
     },
@@ -234,7 +231,6 @@
       "description": "Copy color table header",
       "value-key": "[COPY_CTAB]",
       "type": "Flag",
-      "optional": true,
       "id": "copy_ctab",
       "name": "Copy CTAB"
     },
@@ -262,7 +258,6 @@
       "description": "Print version and exit",
       "value-key": "[VERSION]",
       "type": "Flag",
-      "optional": true,
       "id": "version",
       "name": "Version"
     },
@@ -271,7 +266,6 @@
       "description": "Display help information",
       "value-key": "[HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "help",
       "name": "Help"
     }
@@ -280,14 +274,12 @@
     {
       "path-template": "[OUTFILE]",
       "description": "Output volume with resampled surface",
-      "optional": false,
       "id": "output_volume",
       "name": "Output Volume"
     },
     {
       "path-template": "[VTXVOL]",
       "description": "Vertex map volume indicating mapped voxels",
-      "optional": true,
       "id": "vertex_volume",
       "name": "Vertex Volume"
     }

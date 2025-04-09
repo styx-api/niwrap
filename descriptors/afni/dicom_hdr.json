@@ -23,7 +23,6 @@
       "description": "Include hexadecimal printout for integer values.",
       "value-key": "[HEX]",
       "type": "Flag",
-      "optional": true,
       "id": "hex",
       "name": "Hexadecimal printout flag"
     },
@@ -32,7 +31,6 @@
       "description": "Don't include element names in the printout.",
       "value-key": "[NONAME]",
       "type": "Flag",
-      "optional": true,
       "id": "noname",
       "name": "No element names flag"
     },
@@ -41,7 +39,6 @@
       "description": "Dump Siemens EXtra INFO text (0029 1020), if present (can be VERY lengthy).",
       "value-key": "[SEXINFO]",
       "type": "Flag",
-      "optional": true,
       "id": "sexinfo",
       "name": "Siemens EXtra INFO flag"
     },
@@ -50,7 +47,6 @@
       "description": "Dump multi-frame information, if present (1 line per frame, plus an XML-style header/footer). This option also implies -noname.",
       "value-key": "[MULFRAM]",
       "type": "Flag",
-      "optional": true,
       "id": "mulfram",
       "name": "Multi-frame information flag"
     },
@@ -68,7 +64,6 @@
       "description": "Skip lengths and offsets (helps diffs).",
       "value-key": "[NO_LENGTH]",
       "type": "Flag",
-      "optional": true,
       "id": "no_length",
       "name": "No lengths and offsets flag"
     },
@@ -77,7 +72,6 @@
       "description": "Show slice times from Siemens mosaic images.",
       "value-key": "[SLICE_TIMES]",
       "type": "Flag",
-      "optional": true,
       "id": "slice_times",
       "name": "Slice times flag"
     },
@@ -86,7 +80,6 @@
       "description": "Show slice times from Siemens mosaic images verbosely. (multiple uses increase verbosity, can dump CSA data)",
       "value-key": "[SLICE_TIMES_VERB]",
       "type": "Flag",
-      "optional": true,
       "id": "slice_times_verb",
       "name": "Verbose slice times flag"
     },
@@ -95,7 +88,6 @@
       "description": "Same as 3 -slice_times_verb opts.",
       "value-key": "[SIEMENS_CSA_DATA]",
       "type": "Flag",
-      "optional": true,
       "id": "siemens_csa_data",
       "name": "Siemens CSA data flag"
     }

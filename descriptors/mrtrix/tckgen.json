@@ -4,10 +4,7 @@
   "author": "MRTrix3 Developers",
   "tool-version": "3.0.4",
   "schema-version": "0.5",
-  "container-image": {
-    "image": "mrtrix3/mrtrix3:3.0.4",
-    "type": "docker"
-  },
+  "container-image": { "image": "mrtrix3/mrtrix3:3.0.4", "type": "docker" },
   "command-line": "tckgen [OPTIONS_ALGORITHM] [STREAMLINES_TRACTOGRAPHY_OPTIONS_SELECT] [STREAMLINES_TRACTOGRAPHY_OPTIONS_STEP] [STREAMLINES_TRACTOGRAPHY_OPTIONS_ANGLE] [STREAMLINES_TRACTOGRAPHY_OPTIONS_MINLENGTH] [STREAMLINES_TRACTOGRAPHY_OPTIONS_MAXLENGTH] [STREAMLINES_TRACTOGRAPHY_OPTIONS_CUTOFF] [STREAMLINES_TRACTOGRAPHY_OPTIONS_TRIALS] [STREAMLINES_TRACTOGRAPHY_OPTIONS_NOPRECOMPUTED] [STREAMLINES_TRACTOGRAPHY_OPTIONS_RK4] [STREAMLINES_TRACTOGRAPHY_OPTIONS_STOP] [STREAMLINES_TRACTOGRAPHY_OPTIONS_DOWNSAMPLE] [TRACTOGRAPHY_SEEDING_MECHANISMS__AT_LEAST_ONE_MUST_BE_PROVIDED_SEED_IMAGE] [TRACTOGRAPHY_SEEDING_MECHANISMS__AT_LEAST_ONE_MUST_BE_PROVIDED_SEED_SPHERE] [TRACTOGRAPHY_SEEDING_MECHANISMS__AT_LEAST_ONE_MUST_BE_PROVIDED_SEED_RANDOM_PER_VOXEL] [TRACTOGRAPHY_SEEDING_MECHANISMS__AT_LEAST_ONE_MUST_BE_PROVIDED_SEED_GRID_PER_VOXEL] [TRACTOGRAPHY_SEEDING_MECHANISMS__AT_LEAST_ONE_MUST_BE_PROVIDED_SEED_REJECTION] [TRACTOGRAPHY_SEEDING_MECHANISMS__AT_LEAST_ONE_MUST_BE_PROVIDED_SEED_GMWMI] [TRACTOGRAPHY_SEEDING_MECHANISMS__AT_LEAST_ONE_MUST_BE_PROVIDED_SEED_DYNAMIC] [TRACTOGRAPHY_SEEDING_OPTIONS_AND_PARAMETERS_SEEDS] [TRACTOGRAPHY_SEEDING_OPTIONS_AND_PARAMETERS_MAX_ATTEMPTS_PER_SEED] [TRACTOGRAPHY_SEEDING_OPTIONS_AND_PARAMETERS_SEED_CUTOFF] [TRACTOGRAPHY_SEEDING_OPTIONS_AND_PARAMETERS_SEED_UNIDIRECTIONAL] [TRACTOGRAPHY_SEEDING_OPTIONS_AND_PARAMETERS_SEED_DIRECTION] [TRACTOGRAPHY_SEEDING_OPTIONS_AND_PARAMETERS_OUTPUT_SEEDS] [REGION_OF_INTEREST_PROCESSING_OPTIONS_INCLUDE] [REGION_OF_INTEREST_PROCESSING_OPTIONS_INCLUDE_ORDERED] [REGION_OF_INTEREST_PROCESSING_OPTIONS_EXCLUDE] [REGION_OF_INTEREST_PROCESSING_OPTIONS_MASK] [ANATOMICALLY_CONSTRAINED_TRACTOGRAPHY_OPTIONS_ACT] [ANATOMICALLY_CONSTRAINED_TRACTOGRAPHY_OPTIONS_BACKTRACK] [ANATOMICALLY_CONSTRAINED_TRACTOGRAPHY_OPTIONS_CROP_AT_GMWMI] [OPTIONS_SPECIFIC_TO_THE_IFOD_TRACKING_ALGORITHMS_POWER] [OPTIONS_SPECIFIC_TO_THE_IFOD2_TRACKING_ALGORITHM_SAMPLES] [DW_GRADIENT_TABLE_IMPORT_OPTIONS_GRAD] [DW_GRADIENT_TABLE_IMPORT_OPTIONS_FSLGRAD] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION] [SOURCE] [TRACKS]",
   "inputs": [
     {
@@ -111,8 +108,7 @@
       "command-line-flag": "-noprecomputed",
       "value-key": "[STREAMLINES_TRACTOGRAPHY_OPTIONS_NOPRECOMPUTED]",
       "description": "do NOT pre-compute legendre polynomial values. Warning: this will slow down the algorithm by a factor of approximately 4.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "rk4",
@@ -120,8 +116,7 @@
       "command-line-flag": "-rk4",
       "value-key": "[STREAMLINES_TRACTOGRAPHY_OPTIONS_RK4]",
       "description": "use 4th-order Runge-Kutta integration (slower, but eliminates curvature overshoot in 1st-order deterministic methods)",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "stop",
@@ -129,8 +124,7 @@
       "command-line-flag": "-stop",
       "value-key": "[STREAMLINES_TRACTOGRAPHY_OPTIONS_STOP]",
       "description": "stop propagating a streamline once it has traversed all include regions",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "downsample",
@@ -358,8 +352,7 @@
       "command-line-flag": "-seed_unidirectional",
       "value-key": "[TRACTOGRAPHY_SEEDING_OPTIONS_AND_PARAMETERS_SEED_UNIDIRECTIONAL]",
       "description": "track from the seed point in one direction only (default is to track in both directions).",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "seed_direction",
@@ -584,8 +577,7 @@
       "command-line-flag": "-backtrack",
       "value-key": "[ANATOMICALLY_CONSTRAINED_TRACTOGRAPHY_OPTIONS_BACKTRACK]",
       "description": "allow tracks to be truncated and re-tracked if a poor structural termination is encountered",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "crop_at_gmwmi",
@@ -593,8 +585,7 @@
       "command-line-flag": "-crop_at_gmwmi",
       "value-key": "[ANATOMICALLY_CONSTRAINED_TRACTOGRAPHY_OPTIONS_CROP_AT_GMWMI]",
       "description": "crop streamline endpoints more precisely as they cross the GM-WM interface",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "power",
@@ -663,8 +654,7 @@
       "command-line-flag": "-info",
       "value-key": "[__STANDARD_OPTIONS_INFO]",
       "description": "display information messages.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "quiet",
@@ -672,8 +662,7 @@
       "command-line-flag": "-quiet",
       "value-key": "[__STANDARD_OPTIONS_QUIET]",
       "description": "do not display information messages or progress status; alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "debug",
@@ -681,8 +670,7 @@
       "command-line-flag": "-debug",
       "value-key": "[__STANDARD_OPTIONS_DEBUG]",
       "description": "display debugging messages.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "force",
@@ -690,8 +678,7 @@
       "command-line-flag": "-force",
       "value-key": "[__STANDARD_OPTIONS_FORCE]",
       "description": "force overwrite of output files (caution: using the same file as input and output might cause unexpected behaviour).",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "nthreads",
@@ -742,8 +729,7 @@
       "command-line-flag": "-help",
       "value-key": "[__STANDARD_OPTIONS_HELP]",
       "description": "display this information page and exit.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "version",
@@ -751,8 +737,7 @@
       "command-line-flag": "-version",
       "value-key": "[__STANDARD_OPTIONS_VERSION]",
       "description": "display version information and exit.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     }
   ],
   "output-files": [

@@ -2,7 +2,6 @@
   "tool-version": "6.0.4",
   "name": "systemnoise",
   "author": "FMRIB Analysis Group, University of Oxford",
-  "descriptor-url": "https://example.com/descriptors/systemnoise.json",
   "description": "Tool for adding system noise to a given signal using FSL's utilities",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "systemnoise [INPUT_SIGNAL] [OUTPUT_SIGNAL] [NOISE_STANDARD_DEVIATION] [SEED] [VERBOSE_FLAG] [HELP_FLAG]",
@@ -52,7 +51,6 @@
       "description": "Switch on diagnostic messages",
       "value-key": "[VERBOSE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose_flag",
       "name": "Verbose Flag"
     },
@@ -61,7 +59,6 @@
       "description": "Display help message",
       "value-key": "[HELP_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "help_flag",
       "name": "Help Flag"
     }
@@ -85,7 +82,6 @@
     {
       "path-template": "[OUTPUT_SIGNAL]",
       "description": "Output signal with added system noise",
-      "optional": false,
       "id": "output_signal_file",
       "name": "Output Signal File"
     }

@@ -73,7 +73,6 @@
       "name": "Load Aseg",
       "type": "Flag",
       "description": "Load aseg.mgz as segmentation volume",
-      "optional": true,
       "command-line-flag": "--aseg",
       "value-key": "[ASEG_FLAG]"
     },
@@ -82,7 +81,6 @@
       "name": "Load Aparc+Aseg",
       "type": "Flag",
       "description": "Load aparc+aseg.mgz as segmentation volume",
-      "optional": true,
       "command-line-flag": "--aparc+aseg",
       "value-key": "[APARC_ASEG_FLAG]"
     },
@@ -100,7 +98,6 @@
       "name": "Load WM Surfaces",
       "type": "Flag",
       "description": "Load left and right hemisphere white matter surfaces",
-      "optional": true,
       "command-line-flag": "--surfs",
       "value-key": "[SURFS_FLAG]"
     },
@@ -109,7 +106,6 @@
       "name": "Load Pial Surfaces",
       "type": "Flag",
       "description": "Load pial surfaces instead of white matter surfaces",
-      "optional": true,
       "command-line-flag": "--pial-surfs",
       "value-key": "[PIAL_SURFS_FLAG]"
     },
@@ -118,7 +114,6 @@
       "name": "Load All Surfaces",
       "type": "Flag",
       "description": "Load both pial and white matter surfaces",
-      "optional": true,
       "command-line-flag": "--all-surfs",
       "value-key": "[ALL_SURFS_FLAG]"
     },
@@ -127,7 +122,6 @@
       "name": "No Surfaces",
       "type": "Flag",
       "description": "Do not load any surfaces",
-      "optional": true,
       "command-line-flag": "--no-surfs",
       "value-key": "[NO_SURFS_FLAG]"
     },
@@ -136,7 +130,6 @@
       "name": "Left Hemisphere Only",
       "type": "Flag",
       "description": "Load only left hemisphere surface",
-      "optional": true,
       "command-line-flag": "--lh-only",
       "value-key": "[LH_ONLY_FLAG]"
     },
@@ -145,7 +138,6 @@
       "name": "Right Hemisphere Only",
       "type": "Flag",
       "description": "Load only right hemisphere surface",
-      "optional": true,
       "command-line-flag": "--rh-only",
       "value-key": "[RH_ONLY_FLAG]"
     },
@@ -181,7 +173,6 @@
       "name": "No Configuration Window",
       "type": "Flag",
       "description": "Do not automatically raise transform config window",
-      "optional": true,
       "command-line-flag": "--no-config",
       "value-key": "[NO_CONFIG_FLAG]"
     },
@@ -226,7 +217,6 @@
       "name": "Use Heat Map",
       "type": "Flag",
       "description": "Use heat map color tables for all volumes",
-      "optional": true,
       "command-line-flag": "--heat",
       "value-key": "[HEAT_FLAG]"
     },
@@ -235,7 +225,6 @@
       "name": "Regheader",
       "type": "Flag",
       "description": "Create registration file assuming the two volumes share a RAS",
-      "optional": true,
       "command-line-flag": "--regheader",
       "value-key": "[REGHEADER_FLAG]"
     },
@@ -254,7 +243,6 @@
       "name": "Flip X-Axis",
       "type": "Flag",
       "description": "Regheader with rx=180",
-      "optional": true,
       "command-line-flag": "--flip-x",
       "value-key": "[FLIP_X_FLAG]"
     },
@@ -263,7 +251,6 @@
       "name": "Flip Y-Axis",
       "type": "Flag",
       "description": "Regheader with ry=180",
-      "optional": true,
       "command-line-flag": "--flip-y",
       "value-key": "[FLIP_Y_FLAG]"
     },
@@ -272,7 +259,6 @@
       "name": "Flip Z-Axis",
       "type": "Flag",
       "description": "Regheader with rz=180",
-      "optional": true,
       "command-line-flag": "--flip-z",
       "value-key": "[FLIP_Z_FLAG]"
     },
@@ -281,7 +267,6 @@
       "name": "FSTalairach",
       "type": "Flag",
       "description": "Modify the talairach.xfm with subject",
-      "optional": true,
       "command-line-flag": "--fstal",
       "value-key": "[FSTAL]"
     },

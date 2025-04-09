@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "rPkgsInstall",
   "author": "AFNI Developers",
-  "descriptor-url": "https://afni.nimh.nih.gov/gangchen_homepage",
   "description": "A tool for installing, checking, updating, or removing R packages for AFNI.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "rPkgsInstall [PACKAGES] [DOWNLOAD_SITE] [CHECK] [UPDATE] [REMOVE]",
@@ -34,7 +33,6 @@
       "description": "Verify whether the specified R packages are installed on the computer without installing/updating/removing them.",
       "value-key": "[CHECK]",
       "type": "Flag",
-      "optional": true,
       "id": "check",
       "name": "Check flag"
     },
@@ -43,7 +41,6 @@
       "description": "Update the specified R packages. If packages are not installed, they will be installed.",
       "value-key": "[UPDATE]",
       "type": "Flag",
-      "optional": true,
       "id": "update",
       "name": "Update flag"
     },
@@ -52,7 +49,6 @@
       "description": "Remove the specified R packages from the system.",
       "value-key": "[REMOVE]",
       "type": "Flag",
-      "optional": true,
       "id": "remove",
       "name": "Remove flag"
     }
@@ -62,7 +58,6 @@
     {
       "path-template": "[PACKAGES]",
       "description": "Output R packages after installation, update, or removal",
-      "optional": true,
       "id": "output_packages",
       "name": "Output R packages log"
     }

@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "1dDW_Grad_o_Mat++",
   "author": "AFNI Developers",
-  "descriptor-url": "https://afni.nimh.nih.gov/pub/dist/bin/misc_help/1dDW_Grad_o_Mat++.html",
   "description": "Manipulation of diffusion-weighted (DW) gradient vector files, b-value files, and b- or g-matrices with various input and output configurations.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "1dDW_Grad_o_Mat++ [IN_ROW_VEC] [IN_COL_VEC] [IN_COL_MATA] [IN_COL_MATT] [FLIP_X] [FLIP_Y] [FLIP_Z] [NO_FLIP] [OUT_ROW_VEC] [OUT_COL_VEC] [OUT_COL_MATA] [OUT_COL_MATT] [IN_BVALS] [OUT_COL_BVAL] [OUT_ROW_BVAL_SEP] [OUT_COL_BVAL_SEP] [UNIT_MAG_OUT] [CHECK_ABS_MIN] [BREF_MEAN_TOP] [PUT_ZEROS_TOP] [BMAX_REF]",
@@ -52,7 +51,6 @@
       "description": "Change sign of first column of gradients (or of the x-component parts of the matrix)",
       "value-key": "[FLIP_X]",
       "type": "Flag",
-      "optional": true,
       "id": "flip_x",
       "name": "Flip X"
     },
@@ -61,7 +59,6 @@
       "description": "Change sign of second column of gradients (or of the y-component parts of the matrix)",
       "value-key": "[FLIP_Y]",
       "type": "Flag",
-      "optional": true,
       "id": "flip_y",
       "name": "Flip Y"
     },
@@ -70,7 +67,6 @@
       "description": "Change sign of third column of gradients (or of the z-component parts of the matrix)",
       "value-key": "[FLIP_Z]",
       "type": "Flag",
-      "optional": true,
       "id": "flip_z",
       "name": "Flip Z"
     },
@@ -79,7 +75,6 @@
       "description": "Don't change any gradient/matrix signs (default behavior)",
       "value-key": "[NO_FLIP]",
       "type": "Flag",
-      "optional": true,
       "id": "no_flip",
       "name": "No Flip"
     },
@@ -133,7 +128,6 @@
       "description": "Switch to put a column of the bvalues as the first column in the output data",
       "value-key": "[OUT_COL_BVAL]",
       "type": "Flag",
-      "optional": true,
       "id": "out_col_bval",
       "name": "Output Column B-Values"
     },
@@ -160,7 +154,6 @@
       "description": "Switch to scale each vector/matrix from the INFILE to either unit or zero magnitude",
       "value-key": "[UNIT_MAG_OUT]",
       "type": "Flag",
-      "optional": true,
       "id": "unit_mag_out",
       "name": "Unit Magnitude Output"
     },
@@ -178,7 +171,6 @@
       "description": "When averaging the reference 'b0' values, represent the mean of X values in the top row",
       "value-key": "[BREF_MEAN_TOP]",
       "type": "Flag",
-      "optional": true,
       "id": "bref_mean_top",
       "name": "Reference Mean Top"
     },
@@ -187,7 +179,6 @@
       "description": "Add a row at the top with all zeros in the output format",
       "value-key": "[PUT_ZEROS_TOP]",
       "type": "Flag",
-      "optional": true,
       "id": "put_zeros_top",
       "name": "Put Zeros at Top"
     },
@@ -206,21 +197,18 @@
     {
       "path-template": "[OUT_ROW_VEC]",
       "description": "Output file of gradients or matrices",
-      "optional": true,
       "id": "outfile",
       "name": "Output File"
     },
     {
       "path-template": "[OUT_ROW_BVAL_SEP]",
       "description": "Output b-values file in a single row",
-      "optional": true,
       "id": "out_row_bval_file",
       "name": "Output Row B-Values File"
     },
     {
       "path-template": "[OUT_ROW_BVAL_SEP]",
       "description": "Output b-values file in a single column",
-      "optional": true,
       "id": "out_col_bval_file",
       "name": "Output Column B-Values File"
     }

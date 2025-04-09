@@ -32,8 +32,7 @@
       "id": "read_only",
       "name": "Read Only",
       "type": "Flag",
-      "value-key": "[READ_ONLY]",
-      "optional": true
+      "value-key": "[READ_ONLY]"
     },
     {
       "command-line-flag": "-nw",
@@ -41,8 +40,7 @@
       "id": "no_write",
       "name": "No Write",
       "type": "Flag",
-      "value-key": "[NO_WRITE]",
-      "optional": true
+      "value-key": "[NO_WRITE]"
     },
     {
       "command-line-flag": "-ii",
@@ -50,8 +48,7 @@
       "id": "in_info",
       "name": "Input Volume Information",
       "type": "Flag",
-      "value-key": "[IN_INFO]",
-      "optional": true
+      "value-key": "[IN_INFO]"
     },
     {
       "command-line-flag": "-oi",
@@ -59,8 +56,7 @@
       "id": "out_info",
       "name": "Output Volume Information",
       "type": "Flag",
-      "value-key": "[OUT_INFO]",
-      "optional": true
+      "value-key": "[OUT_INFO]"
     },
     {
       "command-line-flag": "-is",
@@ -68,8 +64,7 @@
       "id": "in_stats",
       "name": "Input Statistics",
       "type": "Flag",
-      "value-key": "[IN_STATS]",
-      "optional": true
+      "value-key": "[IN_STATS]"
     },
     {
       "command-line-flag": "-os",
@@ -77,8 +72,7 @@
       "id": "out_stats",
       "name": "Output Statistics",
       "type": "Flag",
-      "value-key": "[OUT_STATS]",
-      "optional": true
+      "value-key": "[OUT_STATS]"
     },
     {
       "command-line-flag": "--upsample",
@@ -95,8 +89,7 @@
       "id": "force_ras_good",
       "name": "Force RAS Good",
       "type": "Flag",
-      "value-key": "[FORCE_RAS_GOOD]",
-      "optional": true
+      "value-key": "[FORCE_RAS_GOOD]"
     },
     {
       "command-line-flag": "--apply_transform",
@@ -167,8 +160,7 @@
       "id": "bfile_little_endian",
       "name": "Bfile Little Endian",
       "type": "Flag",
-      "value-key": "[BFILE_LITTLE_ENDIAN]",
-      "optional": true
+      "value-key": "[BFILE_LITTLE_ENDIAN]"
     },
     {
       "command-line-flag": "--sphinx",
@@ -176,15 +168,13 @@
       "id": "sphinx",
       "name": "Sphinx Orientation",
       "type": "Flag",
-      "value-key": "[SPHINX]",
-      "optional": true
+      "value-key": "[SPHINX]"
     }
   ],
   "output-files": [
     {
       "path-template": "[OUT_VOLUME]",
       "description": "Converted volume output file",
-      "optional": false,
       "id": "converted_volume",
       "name": "Converted Volume"
     }

@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "CompareSurfaces",
   "author": "AFNI Developers",
-  "descriptor-url": "https://afni.nimh.nih.gov/pub/dist/doc/htmldoc/SUMA/main_toc.html",
   "description": "Calculates distance at each node in Surface 1 (S1) to Surface 2 (S2) along the local surface normal at each node in S1. Superseded by SurfToSurf.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "CompareSurfaces [SPEC_FILE] [HEMISPHERE] [VOLUME_PARENT_1] [VOLUME_PARENT_2] [FILE_PREFIX] [ONE_NODE] [NODE_RANGE] [NO_CONSISTENCY_CHECK] [NO_VOLREG] [NO_TRANSFORM] [SET_ENVIRONMENT_VARIABLE] [TRACE] [EXTREME_TRACE] [NO_MEMORY_TRACE] [YES_MEMORY_TRACE]",
@@ -82,7 +81,6 @@
       "description": "Skip mesh orientation consistency check. This speeds up the start time so it is useful for debugging runs.",
       "value-key": "[NO_CONSISTENCY_CHECK]",
       "type": "Flag",
-      "optional": true,
       "id": "no_consistency_check",
       "name": "No consistency check"
     },
@@ -91,7 +89,6 @@
       "description": "Ignore any Rotate, Volreg, Tagalign, or WarpDrive transformations present in the Surface Volume.",
       "value-key": "[NO_VOLREG]",
       "type": "Flag",
-      "optional": true,
       "id": "no_volreg",
       "name": "No volume registration"
     },
@@ -100,7 +97,6 @@
       "description": "Same as -novolreg.",
       "value-key": "[NO_TRANSFORM]",
       "type": "Flag",
-      "optional": true,
       "id": "no_transform",
       "name": "No transform"
     },
@@ -118,7 +114,6 @@
       "description": "Turns on In/Out debug and Memory tracing.",
       "value-key": "[TRACE]",
       "type": "Flag",
-      "optional": true,
       "id": "trace",
       "name": "Trace"
     },
@@ -127,7 +122,6 @@
       "description": "Turns on extreme tracing.",
       "value-key": "[EXTREME_TRACE]",
       "type": "Flag",
-      "optional": true,
       "id": "extreme_trace",
       "name": "Extreme trace"
     },
@@ -136,7 +130,6 @@
       "description": "Turn off memory tracing.",
       "value-key": "[NO_MEMORY_TRACE]",
       "type": "Flag",
-      "optional": true,
       "id": "no_memory_trace",
       "name": "No memory trace"
     },
@@ -145,7 +138,6 @@
       "description": "Turn on memory tracing (default).",
       "value-key": "[YES_MEMORY_TRACE]",
       "type": "Flag",
-      "optional": true,
       "id": "yes_memory_trace",
       "name": "Yes memory trace"
     }
@@ -155,14 +147,12 @@
     {
       "path-template": "[FILE_PREFIX]_distance.txt",
       "description": "Distance output file.",
-      "optional": true,
       "id": "distance_output_file",
       "name": "Distance output file"
     },
     {
       "path-template": "[FILE_PREFIX]_color.txt",
       "description": "Node color output file.",
-      "optional": true,
       "id": "color_output_file",
       "name": "Color output file"
     }

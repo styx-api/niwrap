@@ -77,7 +77,6 @@
       "description": "Apply correction for timing difference between AIF and tissue curve (optional)",
       "value-key": "[TCORRECT]",
       "type": "Flag",
-      "optional": true,
       "id": "tcorrect",
       "name": "Timing correction"
     },
@@ -104,7 +103,6 @@
       "description": "Estimate tissue BAT from data and save this image (optional)",
       "value-key": "[BAT]",
       "type": "Flag",
-      "optional": true,
       "id": "bat",
       "name": "Estimate tissue BAT"
     },
@@ -141,7 +139,6 @@
       "description": "Calculate standard deviations on perfusion values using wild bootstrapping (optional)",
       "value-key": "[STD]",
       "type": "Flag",
-      "optional": true,
       "id": "std",
       "name": "Calculate standard deviations"
     },
@@ -159,7 +156,6 @@
       "description": "Specify this is a Turbo QUASAR Sequence (optional)",
       "value-key": "[TURBO_QUASAR]",
       "type": "Flag",
-      "optional": true,
       "id": "turbo_quasar",
       "name": "Turbo QUASAR Sequence"
     },
@@ -178,7 +174,6 @@
       "description": "Enable verbose mode",
       "value-key": "[VERBOSE]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose",
       "name": "Verbose mode"
     }
@@ -222,14 +217,12 @@
     {
       "path-template": "[OUT]/results.nii.gz",
       "description": "Output results from ASL model-free analysis",
-      "optional": true,
       "id": "result_file",
       "name": "Results file"
     },
     {
       "path-template": "[OUT]/bat.nii.gz",
       "description": "Estimated tissue BAT image file",
-      "optional": true,
       "id": "bat_img",
       "name": "BAT image file"
     }

@@ -81,7 +81,6 @@
       "description": "Fit all models from 1 up to N fibres and choose the best using BIC",
       "value-key": "[FIT_ALL_MODELS]",
       "type": "Flag",
-      "optional": true,
       "id": "fit_all_models",
       "name": "Fit all models using BIC"
     },
@@ -90,7 +89,6 @@
       "description": "Model1: Apply constrained nonlinear optimization on the diffusivity, volume fractions and their sum",
       "value-key": "[CONSTRAINED_NONLINEAR]",
       "type": "Flag",
-      "optional": true,
       "id": "constrained_nonlinear",
       "name": "Constrained nonlinear optimization"
     },
@@ -99,7 +97,6 @@
       "description": "Model1: Apply constrained nonlinear optimization on the diffusivity, volume fractions and their sum. Return n fanning angle estimates, using the Hessian of the cost function",
       "value-key": "[CONSTRAINED_NONLINEAR_F]",
       "type": "Flag",
-      "optional": true,
       "id": "constrained_nonlinear_f",
       "name": "Constrained nonlinear optimization with fanning"
     },
@@ -108,7 +105,6 @@
       "description": "Use grid search (on the fanning eigenvalues). Default=off",
       "value-key": "[GRID_SEARCH]",
       "type": "Flag",
-      "optional": true,
       "id": "grid_search",
       "name": "Grid search"
     },
@@ -117,7 +113,6 @@
       "description": "Include noise floor parameter in the model",
       "value-key": "[INCLUDE_NOISE_FLOOR]",
       "type": "Flag",
-      "optional": true,
       "id": "include_noise_floor",
       "name": "Include noise floor"
     },
@@ -126,7 +121,6 @@
       "description": "Save BIC for certain models",
       "value-key": "[SAVE_BIC]",
       "type": "Flag",
-      "optional": true,
       "id": "save_bic",
       "name": "Save BIC"
     },
@@ -135,7 +129,6 @@
       "description": "Switch on diagnostic messages",
       "value-key": "[VERBOSE]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose",
       "name": "Verbose"
     },
@@ -144,7 +137,6 @@
       "description": "Display help message",
       "value-key": "[HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "help",
       "name": "Help"
     }
@@ -180,14 +172,12 @@
     {
       "path-template": "[OUTPUT_BASENAME].nii.gz",
       "description": "Main output file",
-      "optional": true,
       "id": "output_file",
       "name": "Output file"
     },
     {
       "path-template": "[OUTPUT_BASENAME]_BIC.nii.gz",
       "description": "Optional: Saved BIC (Bayesian Information Criterion) for certain models",
-      "optional": true,
       "id": "bic_file",
       "name": "BIC file"
     }

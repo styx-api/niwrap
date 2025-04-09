@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "PTA",
   "author": "AFNI Developers",
-  "descriptor-url": "https://afni.nimh.nih.gov",
   "description": "Program for Profile Tracking Analysis - estimates nonlinear trajectories through smoothing splines.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "PTA [PREFIX] [INPUT_FILE] [MODEL_FORMULA] [VT_FORMULATION] [PREDICTION_TABLE] [VERBOSITY_LEVEL] [RESPONSE_VAR] [DBG_ARGS]",
@@ -78,7 +77,6 @@
       "description": "Enable R to save parameters for debugging",
       "value-key": "[DBG_ARGS]",
       "type": "Flag",
-      "optional": true,
       "id": "dbg_args",
       "name": "Debug Args",
       "command-line-flag": "-dbgArgs"
@@ -89,14 +87,12 @@
     {
       "path-template": "[PREFIX]-stat.txt",
       "description": "Statistical evidence output of PTA",
-      "optional": false,
       "id": "stat_output",
       "name": "Statistical Output"
     },
     {
       "path-template": "[PREFIX]-prediction.txt",
       "description": "Predicted values and their standard errors",
-      "optional": true,
       "id": "prediction_output",
       "name": "Prediction Output"
     }

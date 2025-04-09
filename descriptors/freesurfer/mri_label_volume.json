@@ -55,7 +55,6 @@
       "description": "Compute volume of all non-zero voxels (e.g. for computing brain volume)",
       "value-key": "[NON_ZERO_VOXELS]",
       "type": "Flag",
-      "optional": true,
       "id": "non_zero_voxels",
       "name": "Non-Zero Voxels Flag"
     },
@@ -90,7 +89,6 @@
       "description": "Compute volume as a percentage of all non-zero labels",
       "value-key": "[PERCENTAGE]",
       "type": "Flag",
-      "optional": true,
       "id": "percentage",
       "name": "Percentage Flag"
     },
@@ -151,14 +149,12 @@
     {
       "path-template": "volume_label_results.txt",
       "description": "Computed volume results.",
-      "optional": true,
       "id": "output_volume_results",
       "name": "Output Volume Results File"
     },
     {
       "path-template": "volume_log.txt",
       "description": "Log file if -l option is used.",
-      "optional": true,
       "id": "output_log_results",
       "name": "Output Log Results File"
     }

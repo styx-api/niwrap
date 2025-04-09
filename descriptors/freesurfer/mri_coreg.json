@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "mri_coreg",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "https://github.com/freesurfer/freesurfer/blob/dev/mri_coreg/cbsd.json",
   "description": "mri_coreg performs a linear registration between two volumes using the method compatible with spm_coreg.",
   "command-line": "mri_coreg [MOVVOL] [REFVOL] [REG] [SUBJECT] [DOF] [ZSCALE] [XZTRANS_YROT] [XYTRANS_ZROT] [XYTRANS_ZROT_XYSCALE_XYSHEAR] [REF_MASKVOL] [NO_REF_MASK] [MOV_MASKVOL] [THREADS] [SUBJECTS_DIR] [REGDAT] [NO_COORD_DITHER] [NO_INTENSITY_DITHER] [SPATIAL_SCALES] [TRANS] [ROT] [SCALE] [SHEAR] [INIT_REG] [OUT_PARAM_FILE] [OUT_COST_FILE] [NO_CRAS0] [CENTROID] [RAS2RAS] [NITERSMAX] [FTOL] [LINMINTOL] [SEED] [SAT] [CONF_REF] [NO_BF] [BF_LIM] [BF_NSAMP] [NO_SMOOTH] [REF_FWHM] [MOV_OOB] [INIT_REG_SAVE] [INIT_REG_SAVE_ONLY] [MAT2PAR] [MAT2ROT] [PAR2MAT] [LRREV] [LANDMARKS] [RMS] [MOVOUT] [MOV_IDITHER] [DEBUG] [CHECKOPTS] [VERSION]",
   "container-image": {
@@ -62,7 +61,6 @@
       "description": "Enable 7 dof registration with scaling in Z.",
       "value-key": "[ZSCALE]",
       "type": "Flag",
-      "optional": true,
       "id": "zscale",
       "name": "Z-scale flag"
     },
@@ -71,7 +69,6 @@
       "description": "For 2D images: uses shifts in x and z and rotation about y (no scale).",
       "value-key": "[XZTRANS_YROT]",
       "type": "Flag",
-      "optional": true,
       "id": "xztrans_yrot",
       "name": "XZ Translation and Y Rotation flag"
     },
@@ -80,7 +77,6 @@
       "description": "For 2D images: uses shifts in x and y and rotation about z (no scale).",
       "value-key": "[XYTRANS_ZROT]",
       "type": "Flag",
-      "optional": true,
       "id": "xytrans_zrot",
       "name": "XY Translation and Z Rotation flag"
     },
@@ -89,7 +85,6 @@
       "description": "For 2D images: uses shifts in x and y, rotation about z, scale in xy, and xy shear.",
       "value-key": "[XYTRANS_ZROT_XYSCALE_XYSHEAR]",
       "type": "Flag",
-      "optional": true,
       "id": "xytrans_zrot_xyscale_xyshear",
       "name": "XY Trans, Z Rot, XY Scale, XY Shear flag"
     },
@@ -107,7 +102,6 @@
       "description": "Do not mask reference volume.",
       "value-key": "[NO_REF_MASK]",
       "type": "Flag",
-      "optional": true,
       "id": "no_ref_mask",
       "name": "No Reference Mask flag"
     },
@@ -153,7 +147,6 @@
       "description": "Turn off coordinate dithering.",
       "value-key": "[NO_COORD_DITHER]",
       "type": "Flag",
-      "optional": true,
       "id": "no_coord_dither",
       "name": "No Coordinate Dither flag"
     },
@@ -162,7 +155,6 @@
       "description": "Turn off intensity dithering.",
       "value-key": "[NO_INTENSITY_DITHER]",
       "type": "Flag",
-      "optional": true,
       "id": "no_intensity_dither",
       "name": "No Intensity Dither flag"
     },
@@ -258,7 +250,6 @@
       "description": "Do not set translation parameters to align centers of mov and ref.",
       "value-key": "[NO_CRAS0]",
       "type": "Flag",
-      "optional": true,
       "id": "no_cras0",
       "name": "No CRAS0 flag"
     },
@@ -267,7 +258,6 @@
       "description": "Initialize by aligning centroids of mov and ref.",
       "value-key": "[CENTROID]",
       "type": "Flag",
-      "optional": true,
       "id": "centroid",
       "name": "Centroid flag"
     },
@@ -276,7 +266,6 @@
       "description": "Save output LTA as RAS2RAS.",
       "value-key": "[RAS2RAS]",
       "type": "Flag",
-      "optional": true,
       "id": "ras2ras",
       "name": "RAS2RAS flag"
     },
@@ -332,7 +321,6 @@
       "description": "Conform the reference without rescaling.",
       "value-key": "[CONF_REF]",
       "type": "Flag",
-      "optional": true,
       "id": "conf_ref",
       "name": "Conform Reference flag"
     },
@@ -341,7 +329,6 @@
       "description": "Do not perform brute force search.",
       "value-key": "[NO_BF]",
       "type": "Flag",
-      "optional": true,
       "id": "no_bf",
       "name": "No Brute Force flag"
     },
@@ -369,7 +356,6 @@
       "description": "Do not apply smoothing to either ref or mov.",
       "value-key": "[NO_SMOOTH]",
       "type": "Flag",
-      "optional": true,
       "id": "no_smooth",
       "name": "No Smoothing flag"
     },
@@ -387,7 +373,6 @@
       "description": "Count mov voxels that are out-of-bounds as 0.",
       "value-key": "[MOV_OOB]",
       "type": "Flag",
-      "optional": true,
       "id": "mov_oob",
       "name": "Mov Out of Bounds flag"
     },
@@ -490,7 +475,6 @@
       "description": "Enable debugging mode.",
       "value-key": "[DEBUG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug",
       "name": "Debug Flag"
     },
@@ -499,7 +483,6 @@
       "description": "Check options and exit without running.",
       "value-key": "[CHECKOPTS]",
       "type": "Flag",
-      "optional": true,
       "id": "checkopts",
       "name": "Check Options Flag"
     },
@@ -508,7 +491,6 @@
       "description": "Print out version and exit.",
       "value-key": "[VERSION]",
       "type": "Flag",
-      "optional": true,
       "id": "version",
       "name": "Version Flag"
     }
@@ -517,49 +499,42 @@
     {
       "path-template": "[REG]",
       "description": "Output registration (LTA format)",
-      "optional": false,
       "id": "out_registration",
       "name": "Output Registration"
     },
     {
       "path-template": "[OUT_PARAM_FILE]",
       "description": "File with output parameters",
-      "optional": true,
       "id": "out_params",
       "name": "Output Parameters"
     },
     {
       "path-template": "[OUT_COST_FILE]",
       "description": "Final cost value file",
-      "optional": true,
       "id": "out_cost",
       "name": "Output Cost"
     },
     {
       "path-template": "[INIT_REG_SAVE]",
       "description": "Saved initial registration",
-      "optional": true,
       "id": "saved_init_reg",
       "name": "Saved Initial Registration"
     },
     {
       "path-template": "[INIT_REG_SAVE_ONLY]",
       "description": "Saved initial registration (exit after save)",
-      "optional": true,
       "id": "saved_init_reg_only",
       "name": "Saved Initial Registration Only"
     },
     {
       "path-template": "[MOVOUT]",
       "description": "Preprocessed moving volume",
-      "optional": true,
       "id": "movout_volume",
       "name": "Preprocessed Mov Volume"
     },
     {
       "path-template": "[MOV_IDITHER]",
       "description": "Moving intensity dither volume",
-      "optional": true,
       "id": "mov_idither_volume",
       "name": "Intensity Dither Volume"
     }

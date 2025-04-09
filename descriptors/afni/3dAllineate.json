@@ -111,7 +111,6 @@
       "description": "Do not use zero-padding on the base image",
       "value-key": "[NOPAD]",
       "type": "Flag",
-      "optional": true,
       "id": "nopad",
       "name": "No padding flag"
     },
@@ -120,7 +119,6 @@
       "description": "Print out verbose progress reports",
       "value-key": "[VERBOSE]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose",
       "name": "Verbose flag"
     },
@@ -129,7 +127,6 @@
       "description": "Don't print out verbose stuff",
       "value-key": "[QUIET]",
       "type": "Flag",
-      "optional": true,
       "id": "quiet",
       "name": "Quiet flag"
     }
@@ -139,28 +136,24 @@
     {
       "path-template": "[PREFIX]+orig.BRIK",
       "description": "Output dataset brick file",
-      "optional": true,
       "id": "out_brik",
       "name": "Output brick file"
     },
     {
       "path-template": "[PREFIX]+orig.HEAD",
       "description": "Output dataset head file",
-      "optional": true,
       "id": "out_head",
       "name": "Output head file"
     },
     {
       "path-template": "[PARAM_SAVE]",
       "description": "File holding saved warp parameters",
-      "optional": true,
       "id": "out_param_save",
       "name": "Saved parameters file"
     },
     {
       "path-template": "[MATRIX_SAVE]",
       "description": "File holding saved matrix transformations",
-      "optional": true,
       "id": "out_matrix_save",
       "name": "Saved matrix file"
     }

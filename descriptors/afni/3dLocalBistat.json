@@ -58,7 +58,6 @@
       "description": "Compute the mask as in program 3dAutomask. Mutually exclusive with -mask.",
       "value-key": "[AUTOMASK]",
       "type": "Flag",
-      "optional": true,
       "id": "automask",
       "name": "Automatic mask"
     },
@@ -128,14 +127,12 @@
     {
       "path-template": "[PREFIX]+orig.HEAD",
       "description": "Output dataset header for AFNI format",
-      "optional": false,
       "id": "output_head",
       "name": "Output Header"
     },
     {
       "path-template": "[PREFIX]+orig.BRIK",
       "description": "Output dataset BRIK for AFNI format",
-      "optional": false,
       "id": "output_brik",
       "name": "Output BRIK"
     }

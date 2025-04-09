@@ -6,10 +6,7 @@
   "url": "https://www.mrtrix.org/",
   "command-line": "dwibiascorrect [ALGORITHM] [INPUT_IMAGE] [OUTPUT_IMAGE] [GRAD] [FSLGRAD_BVECS] [MASK_IMAGE] [BIAS_IMAGE] [NOCLEANUP] [SCRATCH] [CONTINUE_SCRATCH] [INFO] [QUIET] [DEBUG] [FORCE] [NTHREADS] [__STANDARD_OPTIONS_CONFIG] [HELP] [VERSION] [ANTS_B] [ANTS_C] [ANTS_S]",
   "schema-version": "0.5",
-  "container-image": {
-    "image": "mrtrix3/mrtrix3:3.0.4",
-    "type": "docker"
-  },
+  "container-image": { "image": "mrtrix3/mrtrix3:3.0.4", "type": "docker" },
   "inputs": [
     {
       "id": "algorithm",
@@ -100,8 +97,7 @@
       "type": "Flag",
       "value-key": "[NOCLEANUP]",
       "command-line-flag": "-nocleanup",
-      "description": "Do not delete intermediate files during script execution, and do not delete scratch directory at script completion",
-      "optional": true
+      "description": "Do not delete intermediate files during script execution, and do not delete scratch directory at script completion"
     },
     {
       "id": "scratch_dir",
@@ -130,8 +126,7 @@
       "type": "Flag",
       "value-key": "[INFO]",
       "command-line-flag": "-info",
-      "description": "Display information messages",
-      "optional": true
+      "description": "Display information messages"
     },
     {
       "id": "quiet",
@@ -139,8 +134,7 @@
       "type": "Flag",
       "value-key": "[QUIET]",
       "command-line-flag": "-quiet",
-      "description": "Do not display information messages or progress status",
-      "optional": true
+      "description": "Do not display information messages or progress status"
     },
     {
       "id": "debug",
@@ -148,8 +142,7 @@
       "type": "Flag",
       "value-key": "[DEBUG]",
       "command-line-flag": "-debug",
-      "description": "Display debugging messages",
-      "optional": true
+      "description": "Display debugging messages"
     },
     {
       "id": "force",
@@ -157,8 +150,7 @@
       "type": "Flag",
       "value-key": "[FORCE]",
       "command-line-flag": "-force",
-      "description": "Force overwrite of output files",
-      "optional": true
+      "description": "Force overwrite of output files"
     },
     {
       "id": "nthreads",
@@ -208,8 +200,7 @@
       "type": "Flag",
       "value-key": "[HELP]",
       "command-line-flag": "-help",
-      "description": "Display help information and exit",
-      "optional": true
+      "description": "Display help information and exit"
     },
     {
       "id": "version",
@@ -217,8 +208,7 @@
       "type": "Flag",
       "value-key": "[VERSION]",
       "command-line-flag": "-version",
-      "description": "Display version information and exit",
-      "optional": true
+      "description": "Display version information and exit"
     },
     {
       "id": "ants_b",
@@ -253,15 +243,13 @@
       "id": "output_image_file",
       "name": "Corrected Image Series",
       "path-template": "[OUTPUT_IMAGE]",
-      "description": "File containing the corrected image series",
-      "optional": false
+      "description": "File containing the corrected image series"
     },
     {
       "id": "bias_image_file",
       "name": "Estimated Bias Field",
       "path-template": "[BIAS_IMAGE]",
-      "description": "File containing the estimated bias field",
-      "optional": true
+      "description": "File containing the estimated bias field"
     }
   ]
 }

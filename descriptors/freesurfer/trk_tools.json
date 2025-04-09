@@ -46,8 +46,7 @@
       "description": "Update TRK header with reference image",
       "value-key": "[UPDATE_HEADER]",
       "type": "Flag",
-      "command-line-flag": "-u",
-      "optional": true
+      "command-line-flag": "-u"
     },
     {
       "id": "output_vtk",
@@ -64,22 +63,19 @@
       "id": "trk_output_file",
       "name": "TRK Output File",
       "description": "The processed output TRK file",
-      "path-template": "[OUTPUT_TRK]",
-      "optional": true
+      "path-template": "[OUTPUT_TRK]"
     },
     {
       "id": "image_output_file",
       "name": "Image Output File",
       "description": "Image exported from TRK file",
-      "path-template": "[OUTPUT_IMAGE]",
-      "optional": true
+      "path-template": "[OUTPUT_IMAGE]"
     },
     {
       "id": "vtk_output_file",
       "name": "VTK Output File",
       "description": "VTK file containing streamlines",
-      "path-template": "[OUTPUT_VTK]",
-      "optional": true
+      "path-template": "[OUTPUT_VTK]"
     }
   ],
   "schema-version": "0.5",

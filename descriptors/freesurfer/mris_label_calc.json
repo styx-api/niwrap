@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "mris_label_calc",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "https://example.com/descriptors/mris_label_calc.json",
   "description": "Tool for surface label calculations",
   "command-line": "mris_label_calc [COMMAND] [INPUT1] [INPUT2] [OUTPUT] [ITERATIONS]",
   "schema-version": "0.5",
@@ -55,7 +54,6 @@
     {
       "path-template": "[OUTPUT].label",
       "description": "The resulting label file after operation",
-      "optional": false,
       "id": "output_label",
       "name": "Output Label"
     }

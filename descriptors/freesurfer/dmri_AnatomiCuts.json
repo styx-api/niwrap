@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "dmri_AnatomiCuts",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "https://example.com/dmri_AnatomiCuts.json",
   "description": "AnatomiCuts tool for DTI fibers segmentation",
   "command-line": "dmri_AnatomiCuts [SEGMENTATION_FILE] [FIBER_FILE] [CLUSTERS] [POINTS] [FIBERS_EIGEN] [OUTPUT_FOLDER] [DIRECTION_FLAG]",
   "schema-version": "0.5",
@@ -76,7 +75,6 @@
     {
       "path-template": "[OUTPUT_FOLDER]/output.vtk",
       "description": "Output VTK file of the segmentation",
-      "optional": true,
       "id": "output_vtk",
       "name": "Output VTK File"
     }

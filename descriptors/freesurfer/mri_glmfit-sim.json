@@ -69,7 +69,6 @@
       "description": "Use permutation on the residual instead of raw data for non-orthogonal designs.",
       "value-key": "[PERM_RESID]",
       "type": "Flag",
-      "optional": true,
       "id": "perm_resid",
       "name": "Permutation on Residual"
     },
@@ -78,7 +77,6 @@
       "description": "Use sign flipping instead of shuffling for permutation.",
       "value-key": "[PERM_SIGNFLIP]",
       "type": "Flag",
-      "optional": true,
       "id": "perm_signflip",
       "name": "Permutation Sign Flipping"
     },
@@ -96,7 +94,6 @@
       "description": "Apply additional Bonferroni correction across 2 spaces.",
       "value-key": "[SPACES_2]",
       "type": "Flag",
-      "optional": true,
       "id": "spaces_2",
       "name": "Correction for 2 Spaces"
     },
@@ -105,7 +102,6 @@
       "description": "Apply additional Bonferroni correction across 3 spaces.",
       "value-key": "[SPACES_3]",
       "type": "Flag",
-      "optional": true,
       "id": "spaces_3",
       "name": "Correction for 3 Spaces"
     },
@@ -114,7 +110,6 @@
       "description": "Delete previous CSDs.",
       "value-key": "[OVERWRITE]",
       "type": "Flag",
-      "optional": true,
       "id": "overwrite",
       "name": "Overwrite Previous CSDs"
     },
@@ -141,7 +136,6 @@
       "description": "Use aparc.a2009s instead of aparc for region of vertex max.",
       "value-key": "[A2009S]",
       "type": "Flag",
-      "optional": true,
       "id": "a2009s",
       "name": "Use a2009s Annotation"
     },
@@ -224,7 +218,6 @@
       "description": "Do not output a cluster annotation.",
       "value-key": "[NO_OUT_ANNOT]",
       "type": "Flag",
-      "optional": true,
       "id": "no_out_annot",
       "name": "No Output Annotation"
     },
@@ -233,7 +226,6 @@
       "description": "Do not compute means of each subject in each cluster.",
       "value-key": "[NO_CLUSTER_MEAN]",
       "type": "Flag",
-      "optional": true,
       "id": "no_cluster_mean",
       "name": "No Cluster Mean"
     },
@@ -251,7 +243,6 @@
       "description": "Report the coordinates/annotation of the centroid instead of max.",
       "value-key": "[CENTROID]",
       "type": "Flag",
-      "optional": true,
       "id": "centroid",
       "name": "Centroid Reporting"
     },
@@ -260,7 +251,6 @@
       "description": "Compute the sum over voxels in the cluster rather than the average.",
       "value-key": "[SPATIAL_SUM]",
       "type": "Flag",
-      "optional": true,
       "id": "spatial_sum",
       "name": "Spatial Sum"
     },
@@ -269,7 +259,6 @@
       "description": "Show the help message and exit.",
       "value-key": "[HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "help",
       "name": "Help"
     }
@@ -278,49 +267,42 @@
     {
       "path-template": "[BASE].sig.voxel.mgh",
       "description": "Sig volume corrected for voxel-wise multiple comparisons.",
-      "optional": true,
       "id": "sig_voxel_mgh",
       "name": "Corrected Sig Voxel"
     },
     {
       "path-template": "[BASE].sig.cluster.mgh",
       "description": "Sig volume corrected for cluster-wise multiple comparisons.",
-      "optional": true,
       "id": "sig_cluster_mgh",
       "name": "Corrected Sig Cluster"
     },
     {
       "path-template": "[BASE].sig.cluster.summary",
       "description": "Cluster summary table.",
-      "optional": true,
       "id": "sig_cluster_summary",
       "name": "Cluster Summary"
     },
     {
       "path-template": "[BASE].y.ocn.dat",
       "description": "Summary of the input (y) over each cluster.",
-      "optional": true,
       "id": "y_ocn_dat",
       "name": "Y OCN Data"
     },
     {
       "path-template": "[BASE].sig.ocn.mgh",
       "description": "Output cluster number volume.",
-      "optional": true,
       "id": "sig_ocn_mgh",
       "name": "Cluster Number Volume"
     },
     {
       "path-template": "[BASE].sig.ocn.annot",
       "description": "Cluster annotation for surfaces.",
-      "optional": true,
       "id": "sig_ocn_annot",
       "name": "Cluster Annotation"
     },
     {
       "path-template": "[BASE].sig.masked.mgh",
       "description": "Original sig volume masked to show only clusters.",
-      "optional": true,
       "id": "sig_masked_mgh",
       "name": "Masked Sig Volume"
     }

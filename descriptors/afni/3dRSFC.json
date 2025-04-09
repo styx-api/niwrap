@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "3dRSFC",
   "author": "AFNI Developers",
-  "descriptor-url": "https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dRSFC.html",
   "description": "Program to calculate common resting state functional connectivity (RSFC) parameters.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dRSFC [FBOT] [FTOP] [INPUT_DATASET] [DESPIKE] [ORT_FILE] [DSORT_FILE] [NODETREND] [TIME_STEP] [NFFT] [NORM] [MASK] [AUTOMASK] [BLUR] [LOCALPV] [INPUT_ALT] [BAND] [PREFIX] [QUIET] [NO_RS_OUT] [UN_BANDPASS_OUT] [NO_RSFA] [BP_AT_END] [NOTRANS] [NOSAT]",
@@ -42,7 +41,6 @@
       "description": "Despike each time series before other processing.",
       "value-key": "[DESPIKE]",
       "type": "Flag",
-      "optional": true,
       "id": "despike",
       "name": "Despike Flag"
     },
@@ -69,7 +67,6 @@
       "description": "Skip the quadratic detrending of input before FFT-based bandpassing.",
       "value-key": "[NODETREND]",
       "type": "Flag",
-      "optional": true,
       "id": "nodetrend",
       "name": "No Detrend Flag"
     },
@@ -98,7 +95,6 @@
       "description": "Make all output time series have L2 norm = 1.",
       "value-key": "[NORM]",
       "type": "Flag",
-      "optional": true,
       "id": "norm",
       "name": "Normalize Flag"
     },
@@ -116,7 +112,6 @@
       "description": "Create a mask from the input dataset.",
       "value-key": "[AUTOMASK]",
       "type": "Flag",
-      "optional": true,
       "id": "automask",
       "name": "Automask Flag"
     },
@@ -175,7 +170,6 @@
       "description": "Turn off the fun and informative messages.",
       "value-key": "[QUIET]",
       "type": "Flag",
-      "optional": true,
       "id": "quiet",
       "name": "Quiet Flag"
     },
@@ -184,7 +178,6 @@
       "description": "Don't output processed time series, just output parameters.",
       "value-key": "[NO_RS_OUT]",
       "type": "Flag",
-      "optional": true,
       "id": "no_rs_out",
       "name": "No RS Output Flag"
     },
@@ -193,7 +186,6 @@
       "description": "Output the un-bandpassed series as well.",
       "value-key": "[UN_BANDPASS_OUT]",
       "type": "Flag",
-      "optional": true,
       "id": "un_bandpass_out",
       "name": "Un-Bandpass Output Flag"
     },
@@ -202,7 +194,6 @@
       "description": "Exclude RSFA output (default is to include).",
       "value-key": "[NO_RSFA]",
       "type": "Flag",
-      "optional": true,
       "id": "no_rsfa",
       "name": "No RSFA Flag"
     },
@@ -211,7 +202,6 @@
       "description": "Bandpassing as the last step in the processing sequence.",
       "value-key": "[BP_AT_END]",
       "type": "Flag",
-      "optional": true,
       "id": "bp_at_end",
       "name": "Bandpass at End Flag"
     },
@@ -220,7 +210,6 @@
       "description": "Don't check for initial positive transients in the data.",
       "value-key": "[NOTRANS]",
       "type": "Flag",
-      "optional": true,
       "id": "notrans",
       "name": "No Transients Flag"
     },
@@ -229,7 +218,6 @@
       "description": "Equivalent to -notrans, skips checking for initial transients.",
       "value-key": "[NOSAT]",
       "type": "Flag",
-      "optional": true,
       "id": "nosat",
       "name": "No Saturation Flag"
     }
@@ -239,14 +227,12 @@
     {
       "path-template": "[PREFIX]_LFF+orig.*",
       "description": "Filtered time series output",
-      "optional": true,
       "id": "filtered_time_series",
       "name": "Filtered Time Series"
     },
     {
       "path-template": "[PREFIX]_unBP+orig.*",
       "description": "Un-bandpassed series output",
-      "optional": true,
       "id": "un_bandpassed_series",
       "name": "Un-bandpassed Series"
     }

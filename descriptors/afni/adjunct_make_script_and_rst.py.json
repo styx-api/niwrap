@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "adjunct_make_script_and_rst.py",
   "author": "AFNI Developers",
-  "descriptor-url": "local",
   "description": "Program to take a script with some special markup and turn it into both an RST page and a script for the online Sphinx documentation.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "adjunct_make_script_and_rst.py [INPUT_SCRIPT] [PREFIX_RST] [PREFIX_SCRIPT] [REFLINK] [EXECUTE_SCRIPT]",
@@ -52,7 +51,6 @@
       "description": "Flag to create the RST and script files, and also execute the script.",
       "value-key": "[EXECUTE_SCRIPT]",
       "type": "Flag",
-      "optional": true,
       "id": "execute_script",
       "name": "Execute script flag"
     }
@@ -62,21 +60,18 @@
     {
       "path-template": "[PREFIX_RST]",
       "description": "Generated RST documentation file.",
-      "optional": true,
       "id": "rst_file",
       "name": "RST output file"
     },
     {
       "path-template": "[PREFIX_SCRIPT]",
       "description": "Generated script file.",
-      "optional": true,
       "id": "script_file",
       "name": "Script output file"
     },
     {
       "path-template": "[PREFIX_RST]/media/[REFLINK]",
       "description": "Output directory in Sphinx tree.",
-      "optional": true,
       "id": "output_directory",
       "name": "Sphinx output directory"
     }

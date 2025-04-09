@@ -60,7 +60,6 @@
       "description": "Do not initialize based on header geometry.",
       "value-key": "[NO_INIT_XFM]",
       "type": "Flag",
-      "optional": true,
       "id": "no_init_xfm",
       "name": "No Init XFM"
     },
@@ -114,7 +113,6 @@
       "description": "Disable new schedule in FLIRT.",
       "value-key": "[NO_NEW_SCHEDULE]",
       "type": "Flag",
-      "optional": true,
       "id": "no_new_schedule",
       "name": "No New Schedule"
     },
@@ -123,7 +121,6 @@
       "description": "Do not allow swap dimension of positive determinant input volumes.",
       "value-key": "[NO_ALLOW_SWAP]",
       "type": "Flag",
-      "optional": true,
       "id": "no_allow_swap",
       "name": "No Allow Swap"
     },
@@ -132,7 +129,6 @@
       "description": "Do not perform translation-only registration prior to full.",
       "value-key": "[NO_TRANS]",
       "type": "Flag",
-      "optional": true,
       "id": "no_trans",
       "name": "No Translation"
     },
@@ -141,7 +137,6 @@
       "description": "Perform brain extraction on movable volume.",
       "value-key": "[BET_MOV]",
       "type": "Flag",
-      "optional": true,
       "id": "bet_mov",
       "name": "BET Mov"
     },
@@ -159,7 +154,6 @@
       "description": "Run betfunc instead of bet.",
       "value-key": "[BET_FUNC]",
       "type": "Flag",
-      "optional": true,
       "id": "bet_func",
       "name": "BET Function"
     },
@@ -168,7 +162,6 @@
       "description": "Perform brain extraction on reference volume.",
       "value-key": "[BET_REF]",
       "type": "Flag",
-      "optional": true,
       "id": "bet_ref",
       "name": "BET Ref"
     },
@@ -186,7 +179,6 @@
       "description": "Use the middle frame of the volume.",
       "value-key": "[MID_FRAME]",
       "type": "Flag",
-      "optional": true,
       "id": "mid_frame",
       "name": "Middle Frame"
     },
@@ -240,7 +232,6 @@
       "description": "Do not delete temporary files.",
       "value-key": "[NO_CLEANUP]",
       "type": "Flag",
-      "optional": true,
       "id": "no_cleanup",
       "name": "No Cleanup"
     },
@@ -249,7 +240,6 @@
       "description": "Do not produce a log file.",
       "value-key": "[NO_LOG]",
       "type": "Flag",
-      "optional": true,
       "id": "no_log",
       "name": "No Log"
     },
@@ -258,7 +248,6 @@
       "description": "Print version and exit.",
       "value-key": "[VERSION]",
       "type": "Flag",
-      "optional": true,
       "id": "version",
       "name": "Version"
     },
@@ -267,7 +256,6 @@
       "description": "Print help and exit.",
       "value-key": "[HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "help",
       "name": "Help"
     },
@@ -285,35 +273,30 @@
     {
       "path-template": "[REG_FILE]",
       "description": "Output registration file.",
-      "optional": false,
       "id": "output_reg_file",
       "name": "Output Registration File"
     },
     {
       "path-template": "[OUTPUT_VOLUME]",
       "description": "Resliced output volume.",
-      "optional": true,
       "id": "output_resliced_volume",
       "name": "Output Resliced Volume"
     },
     {
       "path-template": "[FSL_MATRIX]",
       "description": "FSL format output registration matrix.",
-      "optional": true,
       "id": "output_fsl_matrix",
       "name": "Output FSL Matrix"
     },
     {
       "path-template": "[LTA_FORMAT]",
       "description": "Registration output in LTA format.",
-      "optional": true,
       "id": "lta_output",
       "name": "LTA Output"
     },
     {
       "path-template": "[TEMPLATE_OUTPUT]",
       "description": "Output template.",
-      "optional": true,
       "id": "output_template",
       "name": "Output Template"
     }

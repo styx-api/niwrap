@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "mri_robust_template",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "https://surfer.nmr.mgh.harvard.edu",
   "description": "Constructs an unbiased robust template for longitudinal volumes using an iterative method.",
   "command-line": "mri_robust_template [MOV_FILES] [TEMPLATE_FILE] [SAT_VALUE] [SATIT_FLAG] [LTA_FILES] [MAPMOV_FILES] [MAPMOVHDR_FILES] [WEIGHTS_FILES] [ONEMINUSW_FLAG] [AVERAGE_TYPE] [INITTP] [FIXTP_FLAG] [ISCALE_FLAG] [ISCALEONLY_FLAG] [ISCALEIN_FILES] [ISCALEOUT_FILES] [TRANSONLY_FLAG] [AFFINE_FLAG] [IXFORMS_FILES] [MASKS_FILES] [VOX2VOX_FLAG] [LEASTSQUARES_FLAG] [NOIT_FLAG] [MAXIT] [HIGHIT] [EPSIT] [PAIRMAXIT] [PAIREPSIT] [SUBSAMPLE] [NOMULTI_FLAG] [FLOATTYPE_FLAG] [FINALNEAREST_FLAG] [DOUBLEPREC_FLAG] [CRAS_FLAG] [RES_THRESH] [FROBNORM_THRESH] [DEBUG_FLAG]",
   "container-image": {
@@ -44,7 +43,6 @@
       "description": "Auto-detect good sensitivity (recommended for head or full brain scans).",
       "value-key": "[SATIT_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "satit_flag",
       "name": "Auto-detect sensitivity"
     },
@@ -93,7 +91,6 @@
       "description": "Weights (outlier) map will be inverted (0=outlier), as in earlier versions.",
       "value-key": "[ONEMINUSW_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "oneminusw_flag",
       "name": "Invert outlier weights"
     },
@@ -122,7 +119,6 @@
       "description": "Map everything to init TP# (init TP is not resampled).",
       "value-key": "[FIXTP_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "fixtp_flag",
       "name": "Fix initial TP"
     },
@@ -131,7 +127,6 @@
       "description": "Allow also intensity scaling (default off).",
       "value-key": "[ISCALE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "iscale_flag",
       "name": "Intensity scaling"
     },
@@ -140,7 +135,6 @@
       "description": "Only perform iscale (no transformation, default off).",
       "value-key": "[ISCALEONLY_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "iscaleonly_flag",
       "name": "Intensity scaling only"
     },
@@ -169,7 +163,6 @@
       "description": "Find 3 parameter translation only.",
       "value-key": "[TRANSONLY_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "transonly_flag",
       "name": "Translation only"
     },
@@ -178,7 +171,6 @@
       "description": "Find 12 parameter affine transform.",
       "value-key": "[AFFINE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "affine_flag",
       "name": "Affine transform"
     },
@@ -207,7 +199,6 @@
       "description": "Output VOX2VOX lta file (default is RAS2RAS).",
       "value-key": "[VOX2VOX_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "vox2vox_flag",
       "name": "VOX2VOX output"
     },
@@ -216,7 +207,6 @@
       "description": "Use least squares instead of robust M-estimator (for testing only).",
       "value-key": "[LEASTSQUARES_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "leastsquares_flag",
       "name": "Least squares"
     },
@@ -225,7 +215,6 @@
       "description": "Do not iterate, just create first template.",
       "value-key": "[NOIT_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "noit_flag",
       "name": "No iteration"
     },
@@ -292,7 +281,6 @@
       "description": "Do not use multi-resolution (only highest resolution).",
       "value-key": "[NOMULTI_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "nomulti_flag",
       "name": "Disable multi-resolution"
     },
@@ -301,7 +289,6 @@
       "description": "Convert images to float internally (default: keep input type).",
       "value-key": "[FLOATTYPE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "floattype_flag",
       "name": "Convert to float"
     },
@@ -310,7 +297,6 @@
       "description": "Use nearest neighbor in final interpolation when creating average.",
       "value-key": "[FINALNEAREST_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "finalnearest_flag",
       "name": "Nearest neighbor interpolation"
     },
@@ -319,7 +305,6 @@
       "description": "Use double precision instead of float internally (large memory usage).",
       "value-key": "[DOUBLEPREC_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "doubleprec_flag",
       "name": "Double precision"
     },
@@ -328,7 +313,6 @@
       "description": "Center template at average CRAS, instead of average barycenter.",
       "value-key": "[CRAS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "cras_flag",
       "name": "Center at CRAS"
     },
@@ -355,7 +339,6 @@
       "description": "Show debug output (default no debug output).",
       "value-key": "[DEBUG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug_flag",
       "name": "Debug mode"
     }
@@ -364,28 +347,24 @@
     {
       "path-template": "[TEMPLATE_FILE]",
       "description": "Output template volume (final mean/median image).",
-      "optional": false,
       "id": "output_template",
       "name": "Output template"
     },
     {
       "path-template": "[TMP_NAME].lta",
       "description": "Output transform file.",
-      "optional": true,
       "id": "output_lta_transform",
       "name": "Output transform"
     },
     {
       "path-template": "[TMP_NAME]_to_template.mgz",
       "description": "Output mapped and resampled image.",
-      "optional": true,
       "id": "output_mapped_image",
       "name": "Mapped image"
     },
     {
       "path-template": "[TMP_NAME]_weights.mgz",
       "description": "Output weights map (outliers).",
-      "optional": true,
       "id": "output_weights_map",
       "name": "Weights map"
     }

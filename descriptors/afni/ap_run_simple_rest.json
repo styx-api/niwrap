@@ -42,7 +42,6 @@
       "description": "Run the afni_proc.py command",
       "value-key": "[RUN_AP]",
       "type": "Flag",
-      "optional": true,
       "id": "run_ap",
       "name": "Run afni_proc.py Command"
     },
@@ -51,7 +50,6 @@
       "description": "Run the proc script from afni_proc.py command",
       "value-key": "[RUN_PROC]",
       "type": "Flag",
-      "optional": true,
       "id": "run_proc",
       "name": "Run Proc Script"
     },
@@ -96,7 +94,6 @@
       "description": "Same as verbosity level 3",
       "value-key": "[ECHO]",
       "type": "Flag",
-      "optional": true,
       "id": "echo",
       "name": "Echo Flag"
     }
@@ -106,28 +103,24 @@
     {
       "path-template": "run_ap_[SUBJID]",
       "description": "afni_proc.py command script",
-      "optional": true,
       "id": "run_ap_script",
       "name": "afni_proc.py Command Script"
     },
     {
       "path-template": "proc.[SUBJID]",
       "description": "proc script (if AP is run)",
-      "optional": true,
       "id": "proc_script",
       "name": "Proc Script"
     },
     {
       "path-template": "[SUBJID].results",
       "description": "proc results directory (if run)",
-      "optional": true,
       "id": "proc_results_dir",
       "name": "Proc Results Directory"
     },
     {
       "path-template": "out.*",
       "description": "Text output files from AP and proc scripts",
-      "optional": true,
       "id": "text_output_files",
       "name": "Text Output Files"
     }

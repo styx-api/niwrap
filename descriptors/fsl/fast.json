@@ -63,8 +63,7 @@
       "type": "Flag",
       "value-key": "[SEGMENTS]",
       "description": "outputs a separate binary image for each tissue type",
-      "command-line-flag": "-g",
-      "optional": true
+      "command-line-flag": "-g"
     },
     {
       "name": "Init transform",
@@ -91,8 +90,7 @@
       "type": "Flag",
       "value-key": "[OUTPUT_BIASFIELD]",
       "description": "Output estimated bias field.",
-      "command-line-flag": "-b",
-      "optional": true
+      "command-line-flag": "-b"
     },
     {
       "name": "Output biascorrected",
@@ -100,8 +98,7 @@
       "type": "Flag",
       "value-key": "[OUTPUT_BIASCORRECTED]",
       "description": "Output restored image (bias-corrected image).",
-      "command-line-flag": "-B",
-      "optional": true
+      "command-line-flag": "-B"
     },
     {
       "name": "No bias",
@@ -109,8 +106,7 @@
       "type": "Flag",
       "value-key": "[NO_BIAS]",
       "description": "Do not remove bias field.",
-      "command-line-flag": "-N",
-      "optional": true
+      "command-line-flag": "-N"
     },
     {
       "name": "Channels",
@@ -139,7 +135,6 @@
       "value-key": "[USE_PRIORS]",
       "description": "Use priors throughout.",
       "command-line-flag": "-P",
-      "optional": true,
       "requires-inputs": ["init_transform"]
     },
     {
@@ -148,8 +143,7 @@
       "type": "Flag",
       "value-key": "[NO_PVE]",
       "description": "Turn off pve (partial volume estimation).",
-      "command-line-flag": "--nopve",
-      "optional": true
+      "command-line-flag": "--nopve"
     },
     {
       "name": "Segment iters",
@@ -199,8 +193,7 @@
       "type": "Flag",
       "value-key": "[VERBOSE]",
       "description": "Switch on diagnostic messages.",
-      "command-line-flag": "-v",
-      "optional": true
+      "command-line-flag": "-v"
     },
     {
       "name": "Manual seg",
@@ -226,14 +219,12 @@
       "name": "Mixeltype",
       "id": "mixeltype",
       "path-template": "[OUT_BASENAME]_mixeltype.nii.gz",
-      "optional": true,
       "description": "Path/name of mixeltype volume file _mixeltype."
     },
     {
       "name": "Bias field",
       "id": "bias_field",
       "path-template": "[OUT_BASENAME]_bias.nii.gz",
-      "optional": true,
       "description": "No description provided.",
       "list": true
     },
@@ -241,14 +232,12 @@
       "name": "Partial volume map",
       "id": "partial_volume_map",
       "path-template": "[OUT_BASENAME]_pveseg.nii.gz",
-      "optional": true,
       "description": "Path/name of partial volume file _pveseg."
     },
     {
       "name": "Restored image",
       "id": "restored_image",
       "path-template": "[OUT_BASENAME]_restore.nii.gz",
-      "optional": true,
       "description": "No description provided.",
       "list": true
     },
@@ -256,7 +245,6 @@
       "name": "Tissue class map",
       "id": "tissue_class_map",
       "path-template": "[OUT_BASENAME]_seg.nii.gz",
-      "optional": true,
       "description": "Path/name of binary segmented volume file one val for each class  _seg."
     }
   ],

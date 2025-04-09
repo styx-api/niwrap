@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "3dZcutup",
   "author": "AFNI Developers",
-  "descriptor-url": "https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dZcutup.html",
   "description": "Cut slices off a dataset in its z-direction and write a new dataset",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dZcutup [KEEP_SLICES] [PREFIX] [DATASET]",
@@ -43,14 +42,12 @@
     {
       "path-template": "[PREFIX]+orig.HEAD",
       "description": "The output dataset HEAD file",
-      "optional": false,
       "id": "output_head",
       "name": "Output HEAD File"
     },
     {
       "path-template": "[PREFIX]+orig.BRIK",
       "description": "The output dataset BRIK file",
-      "optional": false,
       "id": "output_brik",
       "name": "Output BRIK File"
     }

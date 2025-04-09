@@ -151,7 +151,6 @@
       "command-line-flag": "-presmooth-fwhm",
       "description": "smoothing kernel sizes are FWHM, not sigma",
       "type": "Flag",
-      "optional": true,
       "value-key": "[OPT_PRESMOOTH_FWHM]"
     },
     {
@@ -160,7 +159,6 @@
       "command-line-flag": "-undo-fisher-z",
       "description": "apply the inverse fisher small z transform to the input",
       "type": "Flag",
-      "optional": true,
       "value-key": "[OPT_UNDO_FISHER_Z]"
     },
     {
@@ -169,7 +167,6 @@
       "command-line-flag": "-fisher-z",
       "description": "apply the fisher small z transform to the correlations before taking the gradient",
       "type": "Flag",
-      "optional": true,
       "value-key": "[OPT_FISHER_Z]"
     },
     {
@@ -198,7 +195,6 @@
       "command-line-flag": "-covariance",
       "description": "compute covariance instead of correlation",
       "type": "Flag",
-      "optional": true,
       "value-key": "[OPT_COVARIANCE]"
     },
     {
@@ -260,8 +256,7 @@
       "id": "cifti_out",
       "name": "cifti_out",
       "path-template": "[CIFTI_OUT]",
-      "description": "the output cifti",
-      "optional": false
+      "description": "the output cifti"
     }
   ],
   "url": "https://github.com/Washington-University/workbench"

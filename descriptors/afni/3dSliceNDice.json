@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "3dSliceNDice",
   "author": "AFNI Developers",
-  "descriptor-url": "https://afni.nimh.nih.gov/3dSliceNDice",
   "description": "Calculates the Dice coefficient between two volumes on a slice-by-slice basis.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dSliceNDice [INFILE_A] [INFILE_B] [OUTPUT_PREFIX] [OUT_DOMAIN] [NO_CMD_ECHO]",
@@ -53,7 +52,6 @@
       "description": "Turn OFF recording the command line call in the output *.1D files. Default is to do the recording.",
       "value-key": "[NO_CMD_ECHO]",
       "type": "Flag",
-      "optional": true,
       "id": "no_cmd_echo",
       "name": "No command echo flag"
     }
@@ -63,21 +61,18 @@
     {
       "path-template": "[OUTPUT_PREFIX]_0_RL.1D",
       "description": "Output file containing Dice coefficients along the right-left axis.",
-      "optional": true,
       "id": "output_rl",
       "name": "Output RL file"
     },
     {
       "path-template": "[OUTPUT_PREFIX]_1_AP.1D",
       "description": "Output file containing Dice coefficients along the anterior-posterior axis.",
-      "optional": true,
       "id": "output_ap",
       "name": "Output AP file"
     },
     {
       "path-template": "[OUTPUT_PREFIX]_2_IS.1D",
       "description": "Output file containing Dice coefficients along the inferior-superior axis.",
-      "optional": true,
       "id": "output_is",
       "name": "Output IS file"
     }

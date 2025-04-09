@@ -34,8 +34,7 @@
       "command-line-flag": "--percent",
       "description": "Compute percent difference with respect to mean of tables",
       "value-key": "[PERCENT_DIFF]",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "percent_diff_t1",
@@ -43,8 +42,7 @@
       "command-line-flag": "--percent1",
       "description": "Compute percent difference with respect to table 1",
       "value-key": "[PERCENT_DIFF_T1]",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "percent_diff_t2",
@@ -52,8 +50,7 @@
       "command-line-flag": "--percent2",
       "description": "Compute percent difference with respect to table 2",
       "value-key": "[PERCENT_DIFF_T2]",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "multiply",
@@ -79,8 +76,7 @@
       "command-line-flag": "--common",
       "description": "Compute difference on common segments (may reorder)",
       "value-key": "[COMMON]",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "remove_exvivo",
@@ -88,8 +84,7 @@
       "command-line-flag": "--rm-exvivo",
       "description": "Remove the string '_exvivo' from the column header",
       "value-key": "[REMOVE_EXVIVO]",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "diff_subjects",
@@ -97,8 +92,7 @@
       "command-line-flag": "--diff-subjs",
       "description": "Compare subjects with different names",
       "value-key": "[DIFF_SUBJECTS]",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "noreplace53",
@@ -106,8 +100,7 @@
       "command-line-flag": "--noreplace53",
       "description": "Do not replace 5.3 structure names with later names",
       "value-key": "[NOREPLACE53]",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     }
   ],
   "output-files": [
@@ -115,8 +108,7 @@
       "id": "output_diff_table",
       "name": "Output Difference Table",
       "description": "Generated table of differences",
-      "path-template": "[OUTPUT]",
-      "optional": true
+      "path-template": "[OUTPUT]"
     }
   ],
   "author": "FreeSurfer Developers",

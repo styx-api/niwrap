@@ -105,7 +105,6 @@
       "command-line-flag": "-presmooth-fwhm",
       "description": "smoothing kernel distances are FWHM, not sigma",
       "type": "Flag",
-      "optional": true,
       "value-key": "[OPT_PRESMOOTH_FWHM]"
     },
     {
@@ -148,7 +147,6 @@
       "command-line-flag": "-merged-volume",
       "description": "treat volume components as if they were a single component",
       "type": "Flag",
-      "optional": true,
       "value-key": "[OPT_MERGED_VOLUME]"
     },
     {
@@ -157,7 +155,6 @@
       "command-line-flag": "-sum-maps",
       "description": "output the sum of the extrema maps instead of each map separately",
       "type": "Flag",
-      "optional": true,
       "value-key": "[OPT_SUM_MAPS]"
     },
     {
@@ -166,7 +163,6 @@
       "command-line-flag": "-consolidate-mode",
       "description": "use consolidation of local minima instead of a large neighborhood",
       "type": "Flag",
-      "optional": true,
       "value-key": "[OPT_CONSOLIDATE_MODE]"
     },
     {
@@ -175,7 +171,6 @@
       "command-line-flag": "-only-maxima",
       "description": "only find the maxima",
       "type": "Flag",
-      "optional": true,
       "value-key": "[OPT_ONLY_MAXIMA]"
     },
     {
@@ -184,7 +179,6 @@
       "command-line-flag": "-only-minima",
       "description": "only find the minima",
       "type": "Flag",
-      "optional": true,
       "value-key": "[OPT_ONLY_MINIMA]"
     }
   ],
@@ -193,8 +187,7 @@
       "id": "cifti_out",
       "name": "cifti_out",
       "path-template": "[CIFTI_OUT]",
-      "description": "the output cifti",
-      "optional": false
+      "description": "the output cifti"
     }
   ],
   "url": "https://github.com/Washington-University/workbench"

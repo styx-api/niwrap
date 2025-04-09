@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "3dfim+",
   "author": "AFNI Developers",
-  "descriptor-url": "https://github.com/afni/afni",
   "description": "Program to calculate the cross-correlation of an ideal reference waveform with the measured FMRI time series for each voxel.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dfim+ [INFILE] [INPUT1DFILE] [MASKFILE] [FIRST_IMAGE] [LAST_IMAGE] [BASELINE_POLYNOMIAL] [THRESHOLD] [CDISP_VALUE] [ORT_FILE] [IDEAL_FILE] [OUTPUT_PARAMS] [OUTPUT_BUCKET]",
@@ -131,28 +130,24 @@
     {
       "path-template": "[OUTPUT_BUCKET]+tlrc.HEAD",
       "description": "Output bucket dataset containing fit parameters, in TLRC space.",
-      "optional": true,
       "id": "outfile_tlrc_head",
       "name": "Output bucket TLRC HEAD file"
     },
     {
       "path-template": "[OUTPUT_BUCKET]+tlrc.BRIK",
       "description": "Output bucket dataset containing fit parameters, in TLRC space.",
-      "optional": true,
       "id": "outfile_tlrc_brk",
       "name": "Output bucket TLRC BRIK file"
     },
     {
       "path-template": "[OUTPUT_BUCKET]+orig.HEAD",
       "description": "Output bucket dataset containing fit parameters, in original space.",
-      "optional": true,
       "id": "outfile_orig_head",
       "name": "Output bucket original HEAD file"
     },
     {
       "path-template": "[OUTPUT_BUCKET]+orig.BRIK",
       "description": "Output bucket dataset containing fit parameters, in original space.",
-      "optional": true,
       "id": "outfile_orig_brk",
       "name": "Output bucket original BRIK file"
     }

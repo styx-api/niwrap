@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "1dSEM",
   "author": "AFNI Developers",
-  "descriptor-url": "https://afni.nimh.nih.gov/sscc/gangc/PathAna.html",
   "description": "Computes path coefficients for connection matrix in Structural Equation Modeling (SEM).",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "1dSEM [THETA] [CORRELATION_MATRIX] [RESIDUAL_VARIANCE] [DEGREES_OF_FREEDOM] [MAX_ITERATIONS] [NUMBER_RANDOM_TRIALS] [LIMITS] [CALCULATE_COST] [VERBOSE] [TREE_GROWTH] [MODEL_SEARCH] [MAX_PATHS] [STOP_COST] [FOREST_GROWTH] [GROW_ALL] [LEAFPICKER]",
@@ -84,7 +83,6 @@
       "description": "No modeling at all, just calculate the cost function for the coefficients as given in the theta file.",
       "value-key": "[CALCULATE_COST]",
       "type": "Flag",
-      "optional": true,
       "id": "calculate_cost",
       "name": "Calculate Cost Flag"
     },
@@ -103,7 +101,6 @@
       "description": "Search for best model by growing a model for one additional coefficient from the previous model for n-1 coefficients.",
       "value-key": "[TREE_GROWTH]",
       "type": "Flag",
-      "optional": true,
       "id": "tree_growth",
       "name": "Tree Growth Flag"
     },
@@ -112,7 +109,6 @@
       "description": "Search for best model by growing a model for one additional coefficient from the previous model for n-1 coefficients.",
       "value-key": "[MODEL_SEARCH]",
       "type": "Flag",
-      "optional": true,
       "id": "model_search",
       "name": "Model Search Flag"
     },
@@ -140,7 +136,6 @@
       "description": "Search over all possible models by comparing models at incrementally increasing number of path coefficients.",
       "value-key": "[FOREST_GROWTH]",
       "type": "Flag",
-      "optional": true,
       "id": "forest_growth",
       "name": "Forest Growth Flag"
     },
@@ -149,7 +144,6 @@
       "description": "Search over all possible models by comparing models at incrementally increasing number of path coefficients.",
       "value-key": "[GROW_ALL]",
       "type": "Flag",
-      "optional": true,
       "id": "grow_all",
       "name": "Grow All Flag"
     },
@@ -158,7 +152,6 @@
       "description": "Expands the search optimization to look at multiple paths to avoid local minimum. This method is the default technique for tree growth and standard coefficient searches.",
       "value-key": "[LEAFPICKER]",
       "type": "Flag",
-      "optional": true,
       "id": "leafpicker",
       "name": "Leafpicker Flag"
     }
@@ -168,7 +161,6 @@
     {
       "path-template": "output.txt",
       "description": "Output printed to the terminal. This file may be redirected.",
-      "optional": true,
       "id": "output_file",
       "name": "Output File"
     }

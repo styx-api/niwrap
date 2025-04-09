@@ -166,7 +166,6 @@
       "command-line-flag": "-nearest",
       "description": "use nearest good value instead of a weighted average",
       "type": "Flag",
-      "optional": true,
       "value-key": "[OPT_NEAREST]"
     },
     {
@@ -175,7 +174,6 @@
       "command-line-flag": "-merged-volume",
       "description": "treat volume components as if they were a single component",
       "type": "Flag",
-      "optional": true,
       "value-key": "[OPT_MERGED_VOLUME]"
     },
     {
@@ -184,7 +182,6 @@
       "command-line-flag": "-legacy-mode",
       "description": "use the math from v1.3.2 and earlier for weighted dilation",
       "type": "Flag",
-      "optional": true,
       "value-key": "[OPT_LEGACY_MODE]"
     }
   ],
@@ -193,8 +190,7 @@
       "id": "cifti_out",
       "name": "cifti_out",
       "path-template": "[CIFTI_OUT]",
-      "description": "the output cifti file",
-      "optional": false
+      "description": "the output cifti file"
     }
   ],
   "url": "https://github.com/Washington-University/workbench"

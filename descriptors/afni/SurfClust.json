@@ -89,7 +89,6 @@
       "description": "Output a clustered version of input dataset",
       "value-key": "[OUT_CLUSTERDSET]",
       "type": "Flag",
-      "optional": true,
       "id": "out_clusterdset",
       "name": "Output clustered dataset"
     },
@@ -98,7 +97,6 @@
       "description": "Output an ROI dataset with the rank of its cluster",
       "value-key": "[OUT_ROIDSET]",
       "type": "Flag",
-      "optional": true,
       "id": "out_roidset",
       "name": "Output ROI dataset"
     },
@@ -107,7 +105,6 @@
       "description": "Output a value for all nodes of input surface",
       "value-key": "[OUT_FULLLIST]",
       "type": "Flag",
-      "optional": true,
       "id": "out_fulllist",
       "name": "Output full list"
     },
@@ -116,7 +113,6 @@
       "description": "No sorting of ROI clusters",
       "value-key": "[SORT_NONE]",
       "type": "Flag",
-      "optional": true,
       "id": "sort_none",
       "name": "Sort none"
     },
@@ -125,7 +121,6 @@
       "description": "Sorting based on number of nodes in cluster",
       "value-key": "[SORT_N_NODES]",
       "type": "Flag",
-      "optional": true,
       "id": "sort_n_nodes",
       "name": "Sort by number of nodes"
     },
@@ -134,7 +129,6 @@
       "description": "Sorting based on area of clusters (default)",
       "value-key": "[SORT_AREA]",
       "type": "Flag",
-      "optional": true,
       "id": "sort_area",
       "name": "Sort by area"
     },
@@ -194,7 +188,6 @@
       "description": "Force the output dataset to have node indices in column 0 of output.",
       "value-key": "[PREPEND_NODE_INDEX]",
       "type": "Flag",
-      "optional": true,
       "id": "prepend_node_index",
       "name": "Prepend node index"
     },
@@ -212,7 +205,6 @@
       "description": "Do not find the central nodes",
       "value-key": "[NO_CENT]",
       "type": "Flag",
-      "optional": true,
       "id": "no_cent",
       "name": "Do not find central nodes"
     },
@@ -221,7 +213,6 @@
       "description": "Do find the central nodes (default)",
       "value-key": "[CENT]",
       "type": "Flag",
-      "optional": true,
       "id": "cent",
       "name": "Find central nodes"
     },
@@ -230,7 +221,6 @@
       "description": "Ignore any Rotate, Volreg, Tagalign, or WarpDrive transformations present in the Surface Volume.",
       "value-key": "[NOVOLREG]",
       "type": "Flag",
-      "optional": true,
       "id": "novolreg",
       "name": "Ignore volume registrations"
     },
@@ -239,7 +229,6 @@
       "description": "Same as -novolreg",
       "value-key": "[NOXFORM]",
       "type": "Flag",
-      "optional": true,
       "id": "noxform",
       "name": "Ignore transformations"
     },
@@ -257,7 +246,6 @@
       "description": "Turns on In/Out debug and Memory tracing.",
       "value-key": "[TRACE]",
       "type": "Flag",
-      "optional": true,
       "id": "trace",
       "name": "Trace"
     },
@@ -266,7 +254,6 @@
       "description": "Turns on extreme tracing.",
       "value-key": "[TRACE_EXTREME]",
       "type": "Flag",
-      "optional": true,
       "id": "trace_extreme",
       "name": "Extreme trace"
     },
@@ -275,7 +262,6 @@
       "description": "Turn off memory tracing.",
       "value-key": "[NO_MEMORY_TRACE]",
       "type": "Flag",
-      "optional": true,
       "id": "no_memory_trace",
       "name": "Turn off memory tracing"
     },
@@ -284,7 +270,6 @@
       "description": "Turn on memory tracing (default).",
       "value-key": "[YES_MEMORY_TRACE]",
       "type": "Flag",
-      "optional": true,
       "id": "yes_memory_trace",
       "name": "Turn on memory tracing"
     },
@@ -293,7 +278,6 @@
       "description": "Mini help, same as -help in many cases.",
       "value-key": "[MINI_HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "mini_help",
       "name": "Mini help"
     },
@@ -302,7 +286,6 @@
       "description": "The entire help output.",
       "value-key": "[HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "help",
       "name": "Help"
     },
@@ -311,7 +294,6 @@
       "description": "Extreme help, same as -help in majority of cases.",
       "value-key": "[EXTREME_HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "extreme_help",
       "name": "Extreme help"
     },
@@ -320,7 +302,6 @@
       "description": "Open help in text editor. AFNI will try to find a GUI editor on your machine. You can control which it should use by setting environment variable AFNI_GUI_EDITOR.",
       "value-key": "[VIEW_HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "view_help",
       "name": "Open help in editor"
     },
@@ -329,7 +310,6 @@
       "description": "Open help in web browser. AFNI will try to find a browser. You can control which it should use by setting environment variable AFNI_GUI_EDITOR.",
       "value-key": "[WEB_HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "web_help",
       "name": "Open help in web browser"
     },
@@ -347,7 +327,6 @@
       "description": "Help string unedited.",
       "value-key": "[RAW_HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "raw_help",
       "name": "Raw help string"
     },
@@ -356,7 +335,6 @@
       "description": "Help string in sphinx format, but do not try to autoformat.",
       "value-key": "[SPX_HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "spx_help",
       "name": "Sphinx help"
     },
@@ -365,7 +343,6 @@
       "description": "Help string in sphinx format with autoformatting of options.",
       "value-key": "[ASPX_HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "aspx_help",
       "name": "Autoformat sphinx help"
     }
@@ -374,21 +351,18 @@
     {
       "path-template": "[PREFIX]_ClstTable_rXX_aXX.1D",
       "description": "Cluster table output",
-      "optional": true,
       "id": "cluster_table",
       "name": "Cluster table"
     },
     {
       "path-template": "[PREFIX]_Clustered_rXX_aXX.dset",
       "description": "Clustered version of input dataset",
-      "optional": true,
       "id": "clustered_dataset",
       "name": "Clustered dataset"
     },
     {
       "path-template": "[PREFIX]_ClstMsk_rXX_aXX.dset",
       "description": "ROI dataset with rank of clusters",
-      "optional": true,
       "id": "roi_dataset",
       "name": "ROI dataset"
     }

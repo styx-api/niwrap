@@ -60,7 +60,6 @@
       "description": "Save absolute magnitude and phase.",
       "value-key": "[ABS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "abs_flag",
       "name": "Absolute Magnitude and Phase Flag"
     },
@@ -69,7 +68,6 @@
       "description": "Do the homodyne reconstruction.",
       "value-key": "[HOMODYNE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "homodyne_flag",
       "name": "Homodyne Reconstruction Flag"
     },
@@ -78,7 +76,6 @@
       "description": "Switch on diagnostic messages.",
       "value-key": "[VERBOSE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose_flag",
       "name": "Verbose Flag"
     },
@@ -87,7 +84,6 @@
       "description": "Do apodization.",
       "value-key": "[APODIZE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "apodize_flag",
       "name": "Apodization Flag"
     },
@@ -116,7 +112,6 @@
       "description": "Save window as ASCII matrix (DEBUG!)",
       "value-key": "[SAVE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "save_flag",
       "name": "Save Window as ASCII Matrix Flag"
     },
@@ -125,7 +120,6 @@
       "description": "Display help message",
       "value-key": "[HELP_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "help_flag",
       "name": "Help Flag"
     }
@@ -168,14 +162,12 @@
     {
       "path-template": "[OUTPUT_IMAGE]",
       "description": "The resultant image file from the input signal and pulse sequence.",
-      "optional": true,
       "id": "outfile",
       "name": "Output Image File"
     },
     {
       "path-template": "[OUTPUT_KSPACE]",
       "description": "The resultant k-space file.",
-      "optional": true,
       "id": "kspace_outfile",
       "name": "Output K-space File"
     }

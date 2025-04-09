@@ -15,7 +15,6 @@
       "description": "Concatenate images in time (4th dimension)",
       "value-key": "[MERGE_TIME]",
       "type": "Flag",
-      "optional": false,
       "id": "merge_time",
       "name": "Merge in Time"
     },
@@ -24,7 +23,6 @@
       "description": "Concatenate images in the x direction",
       "value-key": "[MERGE_X]",
       "type": "Flag",
-      "optional": false,
       "id": "merge_x",
       "name": "Merge in X Direction"
     },
@@ -33,7 +31,6 @@
       "description": "Concatenate images in the y direction",
       "value-key": "[MERGE_Y]",
       "type": "Flag",
-      "optional": false,
       "id": "merge_y",
       "name": "Merge in Y Direction"
     },
@@ -42,7 +39,6 @@
       "description": "Concatenate images in the z direction",
       "value-key": "[MERGE_Z]",
       "type": "Flag",
-      "optional": false,
       "id": "merge_z",
       "name": "Merge in Z Direction"
     },
@@ -51,7 +47,6 @@
       "description": "Auto-choose: single slices -> volume, volumes -> 4D (time series)",
       "value-key": "[AUTO_CHOOSE]",
       "type": "Flag",
-      "optional": false,
       "id": "auto_choose",
       "name": "Auto-choose Merge"
     },
@@ -60,7 +55,6 @@
       "description": "Concatenate images in time and set the output image tr to the provided value",
       "value-key": "[MERGE_SET_TR]",
       "type": "Flag",
-      "optional": false,
       "id": "merge_set_tr",
       "name": "Merge in Time with TR"
     },
@@ -120,7 +114,6 @@
     {
       "path-template": "[OUTPUT_FILE]",
       "description": "Output concatenated image file",
-      "optional": false,
       "id": "out_file",
       "name": "Output File"
     }

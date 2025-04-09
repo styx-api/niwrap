@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "mris_compute_lgi",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "https://surfer.nmr.mgh.harvard.edu",
   "description": "Computes local measurements of gyrification at thousands of points over the entire cortical surface.",
   "command-line": "mris_compute_lgi [INPUT_SURFACE] [CLOSE_SPHERE_SIZE] [SMOOTH_ITERS] [STEP_SIZE] [ECHO] [DONTRUN]",
   "schema-version": "0.5",
@@ -48,7 +47,6 @@
       "description": "Enable command echo, for debug",
       "value-key": "[ECHO]",
       "type": "Flag",
-      "optional": true,
       "id": "echo",
       "name": "Echo flag"
     },
@@ -57,7 +55,6 @@
       "description": "Just show commands (don't run them)",
       "value-key": "[DONTRUN]",
       "type": "Flag",
-      "optional": true,
       "id": "dontrun",
       "name": "Don't run flag"
     }
@@ -66,7 +63,6 @@
     {
       "path-template": "[INPUT_SURFACE]_lgi",
       "description": "Surface map file containing local gyrification measures",
-      "optional": false,
       "id": "output_surface_map",
       "name": "Output surface map file"
     }

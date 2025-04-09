@@ -15,7 +15,6 @@
       "value-key": "[LISTMETHODS]",
       "type": "Flag",
       "command-line-flag": "--listmethods",
-      "optional": true,
       "id": "listmethods",
       "name": "List methods"
     },
@@ -24,7 +23,6 @@
       "value-key": "[LISTMODELS]",
       "type": "Flag",
       "command-line-flag": "--listmodels",
-      "optional": true,
       "id": "listmodels",
       "name": "List models"
     },
@@ -33,7 +31,6 @@
       "value-key": "[LISTPARAMS]",
       "type": "Flag",
       "command-line-flag": "--listparams",
-      "optional": true,
       "id": "listparams",
       "name": "List parameters"
     },
@@ -42,7 +39,6 @@
       "value-key": "[DESCPARAMS]",
       "type": "Flag",
       "command-line-flag": "--descparams",
-      "optional": true,
       "id": "descparams",
       "name": "Describe parameters"
     },
@@ -51,7 +47,6 @@
       "value-key": "[LISTOUTPUTS]",
       "type": "Flag",
       "command-line-flag": "--listoutputs",
-      "optional": true,
       "id": "listoutputs",
       "name": "List additional outputs"
     },
@@ -84,7 +79,6 @@
       "value-key": "[SIMPLE_OUTPUT]",
       "type": "Flag",
       "command-line-flag": "--simple-output",
-      "optional": true,
       "id": "simple_output",
       "name": "Simple output"
     },
@@ -101,7 +95,6 @@
       "value-key": "[OVERWRITE]",
       "type": "Flag",
       "command-line-flag": "--overwrite",
-      "optional": true,
       "id": "overwrite",
       "name": "Overwrite flag"
     },
@@ -110,7 +103,6 @@
       "value-key": "[LINK_TO_LATEST]",
       "type": "Flag",
       "command-line-flag": "--link-to-latest",
-      "optional": true,
       "id": "link_to_latest",
       "name": "Link to latest flag"
     },
@@ -167,7 +159,6 @@
       "value-key": "[DUMP_PARAM_NAMES]",
       "type": "Flag",
       "command-line-flag": "--dump-param-names",
-      "optional": true,
       "id": "dump_param_names",
       "name": "Dump parameter names flag"
     },
@@ -176,7 +167,6 @@
       "value-key": "[SAVE_MODEL_FIT]",
       "type": "Flag",
       "command-line-flag": "--save-model-fit",
-      "optional": true,
       "id": "save_model_fit",
       "name": "Save model fit flag"
     },
@@ -185,7 +175,6 @@
       "value-key": "[SAVE_RESIDUALS]",
       "type": "Flag",
       "command-line-flag": "--save-residuals",
-      "optional": true,
       "id": "save_residuals",
       "name": "Save residuals flag"
     },
@@ -194,7 +183,6 @@
       "value-key": "[SAVE_MODEL_EXTRAS]",
       "type": "Flag",
       "command-line-flag": "--save-model-extras",
-      "optional": true,
       "id": "save_model_extras",
       "name": "Save model extras flag"
     },
@@ -203,7 +191,6 @@
       "value-key": "[SAVE_MVN]",
       "type": "Flag",
       "command-line-flag": "--save-mvn",
-      "optional": true,
       "id": "save_mvn",
       "name": "Save MVN distributions flag"
     },
@@ -212,7 +199,6 @@
       "value-key": "[SAVE_MEAN]",
       "type": "Flag",
       "command-line-flag": "--save-mean",
-      "optional": true,
       "id": "save_mean",
       "name": "Save parameter means flag"
     },
@@ -221,7 +207,6 @@
       "value-key": "[SAVE_STD]",
       "type": "Flag",
       "command-line-flag": "--save-std",
-      "optional": true,
       "id": "save_std",
       "name": "Save parameter standard deviations flag"
     },
@@ -230,7 +215,6 @@
       "value-key": "[SAVE_VAR]",
       "type": "Flag",
       "command-line-flag": "--save-var",
-      "optional": true,
       "id": "save_var",
       "name": "Save parameter variances flag"
     },
@@ -239,7 +223,6 @@
       "value-key": "[SAVE_ZSTAT]",
       "type": "Flag",
       "command-line-flag": "--save-zstat",
-      "optional": true,
       "id": "save_zstat",
       "name": "Save Zstats flag"
     },
@@ -248,7 +231,6 @@
       "value-key": "[SAVE_NOISE_MEAN]",
       "type": "Flag",
       "command-line-flag": "--save-noise-mean",
-      "optional": true,
       "id": "save_noise_mean",
       "name": "Save noise means flag"
     },
@@ -257,7 +239,6 @@
       "value-key": "[SAVE_NOISE_STD]",
       "type": "Flag",
       "command-line-flag": "--save-noise-std",
-      "optional": true,
       "id": "save_noise_std",
       "name": "Save noise standard deviations flag"
     },
@@ -266,7 +247,6 @@
       "value-key": "[SAVE_FREE_ENERGY]",
       "type": "Flag",
       "command-line-flag": "--save-free-energy",
-      "optional": true,
       "id": "save_free_energy",
       "name": "Save free energy flag"
     },
@@ -283,7 +263,6 @@
       "value-key": "[DEBUG]",
       "type": "Flag",
       "command-line-flag": "--debug",
-      "optional": true,
       "id": "debug",
       "name": "Debug flag"
     }
@@ -343,84 +322,72 @@
     {
       "path-template": "[OUTPUT]/logfile.txt",
       "description": "Log file of Fabber output",
-      "optional": false,
       "id": "logfile",
       "name": "Log file"
     },
     {
       "path-template": "[OUTPUT]/model_fit.nii.gz",
       "description": "Model fit output",
-      "optional": true,
       "id": "modelfit",
       "name": "Model fit output"
     },
     {
       "path-template": "[OUTPUT]/residuals.nii.gz",
       "description": "Residuals output",
-      "optional": true,
       "id": "residuals",
       "name": "Residuals output"
     },
     {
       "path-template": "[OUTPUT]/extras.nii.gz",
       "description": "Model specific timeseries data",
-      "optional": true,
       "id": "model_extras",
       "name": "Model extras output"
     },
     {
       "path-template": "[OUTPUT]/mvn.nii.gz",
       "description": "MVN distributions",
-      "optional": true,
       "id": "mvn",
       "name": "MVN distributions output"
     },
     {
       "path-template": "[OUTPUT]/means.nii.gz",
       "description": "Parameter means",
-      "optional": true,
       "id": "means",
       "name": "Parameter means output"
     },
     {
       "path-template": "[OUTPUT]/stds.nii.gz",
       "description": "Parameter standard deviations",
-      "optional": true,
       "id": "stds",
       "name": "Parameter standard deviations output"
     },
     {
       "path-template": "[OUTPUT]/variances.nii.gz",
       "description": "Parameter variances",
-      "optional": true,
       "id": "variances",
       "name": "Parameter variances output"
     },
     {
       "path-template": "[OUTPUT]/zstats.nii.gz",
       "description": "Parameter Zstats",
-      "optional": true,
       "id": "zstats",
       "name": "Parameter Zstats output"
     },
     {
       "path-template": "[OUTPUT]/noise_means.nii.gz",
       "description": "Noise means",
-      "optional": true,
       "id": "noise_means",
       "name": "Noise means output"
     },
     {
       "path-template": "[OUTPUT]/noise_stds.nii.gz",
       "description": "Noise standard deviations",
-      "optional": true,
       "id": "noise_stds",
       "name": "Noise standard deviations output"
     },
     {
       "path-template": "[OUTPUT]/free_energy.nii.gz",
       "description": "Free energy",
-      "optional": true,
       "id": "free_energy",
       "name": "Free energy output"
     }

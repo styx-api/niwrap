@@ -50,7 +50,6 @@
       "description": "Use pre-existing expert options file.",
       "value-key": "[XOPTS_USE]",
       "type": "Flag",
-      "optional": true,
       "id": "xopts_use",
       "name": "Use Expert Options Flag"
     },
@@ -59,7 +58,6 @@
       "description": "Delete pre-existing expert options file.",
       "value-key": "[XOPTS_CLEAN]",
       "type": "Flag",
-      "optional": true,
       "id": "xopts_clean",
       "name": "Clean Expert Options Flag"
     },
@@ -68,7 +66,6 @@
       "description": "Overwrite pre-existing expert options file.",
       "value-key": "[XOPTS_OVERWRITE]",
       "type": "Flag",
-      "optional": true,
       "id": "xopts_overwrite",
       "name": "Overwrite Expert Options Flag"
     },
@@ -95,7 +92,6 @@
       "description": "Decrease watershed threshold (leaves less skull, but can strip more brain).",
       "value-key": "[WSLESS]",
       "type": "Flag",
-      "optional": true,
       "id": "wsless",
       "name": "WSLess Flag"
     },
@@ -104,7 +100,6 @@
       "description": "Increase watershed threshold (leaves more skull, but can strip less brain).",
       "value-key": "[WSMORE]",
       "type": "Flag",
-      "optional": true,
       "id": "wsmore",
       "name": "WSMore Flag"
     },
@@ -113,7 +108,6 @@
       "description": "Use atlas when skull stripping.",
       "value-key": "[WSATLAS]",
       "type": "Flag",
-      "optional": true,
       "id": "wsatlas",
       "name": "WSAtlas Flag"
     },
@@ -122,7 +116,6 @@
       "description": "Do not use atlas when skull stripping.",
       "value-key": "[NO_WSATLAS]",
       "type": "Flag",
-      "optional": true,
       "id": "no_wsatlas",
       "name": "No WSAtlas Flag"
     },
@@ -131,7 +124,6 @@
       "description": "Do not use GCA atlas when skull stripping.",
       "value-key": "[NO_WSGCAATLAS]",
       "type": "Flag",
-      "optional": true,
       "id": "no_wsgcaatlas",
       "name": "No WSGCAAtlas Flag"
     },
@@ -212,7 +204,6 @@
       "description": "Conform volumes to the min voxel size.",
       "value-key": "[CM_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "cm_flag",
       "name": "Conform Volumes Flag"
     },
@@ -221,7 +212,6 @@
       "description": "Do not use genetic algorithm when fixing topology.",
       "value-key": "[NO_FIX_WITH_GA]",
       "type": "Flag",
-      "optional": true,
       "id": "no_fix_with_ga",
       "name": "No Fix with GA Flag"
     },
@@ -230,7 +220,6 @@
       "description": "Topology fixer runs until ?h.defect_labels files are created, then stops.",
       "value-key": "[FIX_DIAG_ONLY]",
       "type": "Flag",
-      "optional": true,
       "id": "fix_diag_only",
       "name": "Fix Diag Only Flag"
     },
@@ -257,7 +246,6 @@
       "description": "Pass '-thicken 0' to mri_segment.",
       "value-key": "[NOTHICKEN]",
       "type": "Flag",
-      "optional": true,
       "id": "nothicken",
       "name": "No Thicken Flag"
     },
@@ -266,7 +254,6 @@
       "description": "Turn off -align-after with mri_ca_register.",
       "value-key": "[NO_CA_ALIGN_AFTER]",
       "type": "Flag",
-      "optional": true,
       "id": "no_ca_align_after",
       "name": "No CA Align After Flag"
     },
@@ -275,7 +262,6 @@
       "description": "Turn off -align with mri_ca_label.",
       "value-key": "[NO_CA_ALIGN]",
       "type": "Flag",
-      "optional": true,
       "id": "no_ca_align",
       "name": "No CA Align Flag"
     },
@@ -284,7 +270,6 @@
       "description": "Deface subject, written to orig_defaced.mgz.",
       "value-key": "[DEFACE]",
       "type": "Flag",
-      "optional": true,
       "id": "deface",
       "name": "Deface Flag"
     },
@@ -293,7 +278,6 @@
       "description": "Assume scan parameters are MGH MP-RAGE protocol.",
       "value-key": "[MPRAGE]",
       "type": "Flag",
-      "optional": true,
       "id": "mprage",
       "name": "MPRAGE Protocol Flag"
     },
@@ -302,7 +286,6 @@
       "description": "Assume scan parameters are Wash.U. MP-RAGE protocol.",
       "value-key": "[WASHU_MPRAGE]",
       "type": "Flag",
-      "optional": true,
       "id": "washu_mprage",
       "name": "WashU MPRAGE Flag"
     },
@@ -311,7 +294,6 @@
       "description": "For tal reg, use special young adult 3T atlas.",
       "value-key": "[SCHWARTZYA3T_ATLAS]",
       "type": "Flag",
-      "optional": true,
       "id": "schwartzya3t_atlas",
       "name": "Schwartzya 3T Atlas Flag"
     },
@@ -338,14 +320,12 @@
     {
       "path-template": "[SUBJID]/scripts/recon-all.log",
       "description": "Log file from recon-all process.",
-      "optional": true,
       "id": "log_file",
       "name": "Recon-all Log File"
     },
     {
       "path-template": "[SUBJID]/scripts/recon-all-status.log",
       "description": "Status log file from recon-all process.",
-      "optional": true,
       "id": "status_log_file",
       "name": "Recon-all Status Log File"
     }

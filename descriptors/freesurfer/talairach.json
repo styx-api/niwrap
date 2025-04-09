@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "talairach",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "https://github.com/aces/cbrain-plugins-neuro/blob/master/cbrain_task_descriptors/minc_talairach.json",
   "description": "Front-end for MINC's mritotal to compute the Talairach transform mapping the input volume to the MNI305.",
   "command-line": "talairach [INPUT_VOLUME] [OUTPUT_TRANSFORM] [LOG_FLAG] [DEBUG_FLAG]",
   "container-image": {
@@ -34,7 +33,6 @@
       "description": "Specify log file. Default is outdir/talarach.log.",
       "value-key": "[LOG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "log_flag",
       "name": "Log Flag"
     },
@@ -43,7 +41,6 @@
       "description": "Turn on debugging.",
       "value-key": "[DEBUG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug_flag",
       "name": "Debug Flag"
     }
@@ -52,7 +49,6 @@
     {
       "path-template": "[OUTPUT_TRANSFORM]",
       "description": "Output transformation file.",
-      "optional": false,
       "id": "xfm_output",
       "name": "Output Transform File"
     }

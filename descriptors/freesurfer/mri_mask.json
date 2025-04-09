@@ -100,7 +100,6 @@
       "description": "Take absolute value before applying threshold",
       "value-key": "[ABS]",
       "type": "Flag",
-      "optional": true,
       "id": "abs",
       "name": "Absolute Flag"
     },
@@ -109,7 +108,6 @@
       "description": "Invert mask",
       "value-key": "[INVERT]",
       "type": "Flag",
-      "optional": true,
       "id": "invert",
       "name": "Invert Mask Flag"
     },
@@ -118,7 +116,6 @@
       "description": "Turn off inversion of mask",
       "value-key": "[NO_INVERT]",
       "type": "Flag",
-      "optional": true,
       "id": "no_invert",
       "name": "No Invert Mask Flag"
     },
@@ -127,7 +124,6 @@
       "description": "Set mask in right hemisphere labels to 1 (assumes input mask is an aseg)",
       "value-key": "[RH_LABELS]",
       "type": "Flag",
-      "optional": true,
       "id": "rh_labels",
       "name": "Right Hemisphere Label Flag"
     },
@@ -136,7 +132,6 @@
       "description": "Set mask in left hemisphere labels to 1 (assumes input mask is an aseg)",
       "value-key": "[LH_LABELS]",
       "type": "Flag",
-      "optional": true,
       "id": "lh_labels",
       "name": "Left Hemisphere Label Flag"
     },
@@ -154,7 +149,6 @@
       "description": "Remove cerebellum from aseg mask (assumes input mask is an aseg)",
       "value-key": "[NO_CEREBELLUM]",
       "type": "Flag",
-      "optional": true,
       "id": "no_cerebellum",
       "name": "No Cerebellum Flag"
     },
@@ -181,7 +175,6 @@
       "description": "Transfer voxel-deletion edits (voxels=1) from mask to output volume",
       "value-key": "[KEEP_MASK_DELETION_EDITS]",
       "type": "Flag",
-      "optional": true,
       "id": "keep_mask_deletion_edits",
       "name": "Keep Mask Deletion Edits Flag"
     },
@@ -190,7 +183,6 @@
       "description": "Assume mask is a SAMSEG segmentation and mask all non-brain labels",
       "value-key": "[SAMSEG]",
       "type": "Flag",
-      "optional": true,
       "id": "samseg",
       "name": "SAMSEG Segmentation Flag"
     }
@@ -199,7 +191,6 @@
     {
       "path-template": "[OUTPUT_VOLUME]",
       "description": "Output volume file",
-      "optional": false,
       "id": "output_file",
       "name": "Output File"
     }

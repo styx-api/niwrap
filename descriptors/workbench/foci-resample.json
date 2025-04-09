@@ -128,7 +128,6 @@
       "command-line-flag": "-discard-distance-from-surface",
       "description": "ignore the distance the foci are above or below the current surface",
       "type": "Flag",
-      "optional": true,
       "value-key": "[OPT_DISCARD_DISTANCE_FROM_SURFACE]"
     },
     {
@@ -137,7 +136,6 @@
       "command-line-flag": "-restore-xyz",
       "description": "put the original xyz coordinates into the foci, rather than the coordinates obtained from unprojection",
       "type": "Flag",
-      "optional": true,
       "value-key": "[OPT_RESTORE_XYZ]"
     }
   ],
@@ -146,8 +144,7 @@
       "id": "foci_out",
       "name": "foci_out",
       "path-template": "[FOCI_OUT]",
-      "description": "the output foci file",
-      "optional": false
+      "description": "the output foci file"
     }
   ],
   "url": "https://github.com/Washington-University/workbench"

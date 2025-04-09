@@ -2,7 +2,6 @@
   "name": "calc_grad_perc_dev",
   "tool-version": "6.0.4",
   "author": "FMRIB Analysis Group, University of Oxford",
-  "descriptor-url": "http://example.com/descriptor-url",
   "description": "Compute the gradient percent deviation based on a full warp image from gradient_unwarp.py",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "calc_grad_perc_dev [FULLWARP_IMAGE] [OUT_BASENAME] [VERBOSE_FLAG] [HELP_FLAG]",
@@ -34,7 +33,6 @@
       "description": "Switch on diagnostic messages",
       "value-key": "[VERBOSE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose_flag",
       "name": "Verbose Flag"
     },
@@ -43,7 +41,6 @@
       "description": "Display the help message",
       "value-key": "[HELP_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "help_flag",
       "name": "Help Flag"
     }

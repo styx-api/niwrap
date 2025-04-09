@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "optseq2",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "http://surfer.nmr.mgh.harvard.edu/optseq",
   "description": "Optseq2 is a tool for automatically scheduling events for rapid-presentation event-related (RPER) fMRI experiments.",
   "command-line": "optseq2 [NTP] [TR] [TPRESCAN] [PSDWIN] [EVENT] [REPVAR] [POLYFIT] [TNULLMIN] [TNULLMAX] [NSEARCH] [TSEARCH] [FIRST_ORDER_CB] [AR1] [PENALIZE] [EVC] [CMTX] [COST] [SUMDELAYS] [SEED] [NKEEP] [OUTSTEM] [MTXSTEM] [CMTXFILE] [SUMMARYFILE] [LOGFILE] [PCTUPDATE] [SVITERFILE] [INSTEM] [INPUT_SCHEDULE] [NOSEARCH] [HELP] [VERSION]",
   "schema-version": "0.5",
@@ -177,7 +176,6 @@
       "description": "Sum delays when forming contrast matrix.",
       "value-key": "[SUMDELAYS]",
       "type": "Flag",
-      "optional": true,
       "id": "sumdelays",
       "name": "Sum Delays"
     },
@@ -286,7 +284,6 @@
       "description": "Do not perform search for optimal schedules.",
       "value-key": "[NOSEARCH]",
       "type": "Flag",
-      "optional": true,
       "id": "nosearch",
       "name": "No Search Flag"
     },
@@ -295,7 +292,6 @@
       "description": "Print help page.",
       "value-key": "[HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "help",
       "name": "Help Flag"
     },
@@ -304,7 +300,6 @@
       "description": "Print version string.",
       "value-key": "[VERSION]",
       "type": "Flag",
-      "optional": true,
       "id": "version",
       "name": "Version Flag"
     }
@@ -313,42 +308,36 @@
     {
       "path-template": "[OUTSTEM]-RRR.par",
       "description": "Output schedules",
-      "optional": true,
       "id": "output_schedules",
       "name": "Output Schedules"
     },
     {
       "path-template": "[MTXSTEM]_RRR.mat",
       "description": "Output FIR design matrices",
-      "optional": true,
       "id": "output_design_matrices",
       "name": "Output Design Matrices"
     },
     {
       "path-template": "[CMTXFILE]",
       "description": "Output contrast matrix",
-      "optional": true,
       "id": "output_contrast_matrix",
       "name": "Output Contrast Matrix"
     },
     {
       "path-template": "[SUMMARYFILE]",
       "description": "Output search summary",
-      "optional": true,
       "id": "output_summary",
       "name": "Output Summary"
     },
     {
       "path-template": "[LOGFILE]",
       "description": "Output log file",
-      "optional": true,
       "id": "output_log",
       "name": "Output Log"
     },
     {
       "path-template": "[SVITERFILE]",
       "description": "Output per-iteration information",
-      "optional": true,
       "id": "output_sviter",
       "name": "Output Iteration Information"
     }

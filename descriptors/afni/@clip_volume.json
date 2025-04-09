@@ -100,7 +100,6 @@
       "description": "Combine with next clipping planes using 'and'.",
       "value-key": "[AND_LOGIC]",
       "type": "Flag",
-      "optional": true,
       "id": "and_logic",
       "name": "And Logic"
     },
@@ -109,7 +108,6 @@
       "description": "Combine with next clipping planes using 'or'.",
       "value-key": "[OR_LOGIC]",
       "type": "Flag",
-      "optional": true,
       "id": "or_logic",
       "name": "Or Logic"
     },
@@ -118,7 +116,6 @@
       "description": "Show command details (verbose output).",
       "value-key": "[VERBOSITY]",
       "type": "Flag",
-      "optional": true,
       "id": "verbosity",
       "name": "Verbosity Flag"
     },
@@ -127,7 +124,6 @@
       "description": "Crop the output volume with 3dAutobox -noclust.",
       "value-key": "[CROP_ALLZERO]",
       "type": "Flag",
-      "optional": true,
       "id": "crop_allzero",
       "name": "Crop Allzero"
     },
@@ -136,7 +132,6 @@
       "description": "Crop the output volume with 3dAutobox.",
       "value-key": "[CROP_GREEDY]",
       "type": "Flag",
-      "optional": true,
       "id": "crop_greedy",
       "name": "Crop Greedy"
     },
@@ -145,7 +140,6 @@
       "description": "Same as -crop_greedy, kept for backward compatibility.",
       "value-key": "[CROP]",
       "type": "Flag",
-      "optional": true,
       "id": "crop",
       "name": "Crop"
     },
@@ -183,14 +177,12 @@
     {
       "path-template": "[OUTPUT_PREFIX]_clp.nii.gz",
       "description": "Output clipped or cropped volume",
-      "optional": false,
       "id": "output_clipped_volume",
       "name": "Output Clipped Volume"
     },
     {
       "path-template": "[OUTPUT_PREFIX]_follow_clp.nii.gz",
       "description": "Output for follower datasets after clipping/cropping",
-      "optional": true,
       "id": "output_followers",
       "name": "Output Followers"
     }

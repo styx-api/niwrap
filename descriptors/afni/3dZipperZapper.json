@@ -59,7 +59,6 @@
       "description": "Output the map of slice parameters.",
       "value-key": "[DO_OUT_SLICE_PARAM]",
       "type": "Flag",
-      "optional": true,
       "id": "do_out_slice_param",
       "name": "Output slice parameters flag"
     },
@@ -68,7 +67,6 @@
       "description": "Do not output the mask of 'bad' slices.",
       "value-key": "[NO_OUT_BAD_MASK]",
       "type": "Flag",
-      "optional": true,
       "id": "no_out_bad_mask",
       "name": "No output bad mask flag"
     },
@@ -77,7 +75,6 @@
       "description": "Do not output the 1D files of the slice parameter values.",
       "value-key": "[NO_OUT_TEXT_VALS]",
       "type": "Flag",
-      "optional": true,
       "id": "no_out_text_vals",
       "name": "No output text values flag"
     },
@@ -86,7 +83,6 @@
       "description": "Turn off the 'streak' criterion for identifying bad slices.",
       "value-key": "[DONT_USE_STREAK]",
       "type": "Flag",
-      "optional": true,
       "id": "dont_use_streak",
       "name": "Don't use streak flag"
     },
@@ -95,7 +91,6 @@
       "description": "Turn off the 'drop' criterion for identifying bad slices.",
       "value-key": "[DONT_USE_DROP]",
       "type": "Flag",
-      "optional": true,
       "id": "dont_use_drop",
       "name": "Don't use drop flag"
     },
@@ -104,7 +99,6 @@
       "description": "Turn off the 'corr' criterion for identifying bad slices.",
       "value-key": "[DONT_USE_CORR]",
       "type": "Flag",
-      "optional": true,
       "id": "dont_use_corr",
       "name": "Don't use correlation flag"
     },
@@ -159,35 +153,30 @@
     {
       "path-template": "[OUTPUT_PREFIX]_badmask.nii.gz",
       "description": "Mask of potentially bad slices across the input dataset.",
-      "optional": true,
       "id": "bad_slice_mask",
       "name": "Bad Slice Mask"
     },
     {
       "path-template": "[OUTPUT_PREFIX]_badvols.1D",
       "description": "1D file containing a list of the bad volumes.",
-      "optional": true,
       "id": "bad_volumes_list",
       "name": "Bad Volumes List"
     },
     {
       "path-template": "[OUTPUT_PREFIX]_param.1D",
       "description": "1D file of the per-volume parameters used to detect badness.",
-      "optional": true,
       "id": "per_volume_params",
       "name": "Per Volume Parameters"
     },
     {
       "path-template": "[OUTPUT_PREFIX]_sli.1D",
       "description": "1D file of the slices within which calculations were made.",
-      "optional": true,
       "id": "calculated_slices",
       "name": "Calculated Slices"
     },
     {
       "path-template": "[OUTPUT_PREFIX]_goodvols.txt",
       "description": "Text file with the selector string of *good* volumes.",
-      "optional": true,
       "id": "good_volumes_selector",
       "name": "Good Volumes Selector"
     }

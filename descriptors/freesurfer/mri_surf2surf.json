@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "mri_surf2surf",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "https://surfer.nmr.mgh.harvard.edu/",
   "description": "Resample one surface onto another using FreeSurfer",
   "command-line": "mri_surf2surf [SRC_SUBJECT] [SVAL_PATH] [SVAL_XYZ] [PROJFRAC] [PROJABS] [SVAL_TAL_XYZ] [SVAL_AREA] [SVAL_ANNOT] [SVAL_NXYZ] [PATCH] [SFMT] [REG] [REG_INV] [SRCICOORDER] [TRG_SUBJECT] [TRGICOORDER] [TVAL_PATH] [TVAL_XYZ] [TFMT] [TRG_DIST] [S] [HEMI] [SRC_HEMI] [TRG_HEMI] [DUAL_HEMI] [JAC] [SURFREG] [SRC_SURFREG] [TRG_SURFREG] [MAPMETHOD] [FRAME] [FWHM_SRC] [FWHM_TRG] [NSMOOTH_IN] [NSMOOTH_OUT] [CORTEX] [NO_CORTEX] [LABEL_SRC] [LABEL_TRG] [MUL] [DIV] [RESHAPE] [RESHAPE_FACTOR] [RESHAPE3D] [SPLIT] [SYNTH] [ONES] [NORMVAR] [SEED] [PRUNE] [NO_PRUNE] [PROJ_SURF] [PROJ_NORM] [REG_DIFF] [RMS] [RMS_MASK]",
   "container-image": {
@@ -239,7 +238,6 @@
       "description": "Assume source ?h.?h.surfreg file name.",
       "value-key": "[DUAL_HEMI]",
       "type": "Flag",
-      "optional": true,
       "id": "dual_hemi",
       "name": "Dual Hemisphere Flag"
     },
@@ -248,7 +246,6 @@
       "description": "Turn on jacobian correction, needed when applying to area or volume.",
       "value-key": "[JAC]",
       "type": "Flag",
-      "optional": true,
       "id": "jac",
       "name": "Jacobian Correction Flag"
     },
@@ -341,7 +338,6 @@
       "description": "Use ?h.cortex.label as a smoothing mask.",
       "value-key": "[CORTEX]",
       "type": "Flag",
-      "optional": true,
       "id": "cortex",
       "name": "Cortex Flag"
     },
@@ -350,7 +346,6 @@
       "description": "Do NOT use ?h.cortex.label as a smoothing mask (default).",
       "value-key": "[NO_CORTEX]",
       "type": "Flag",
-      "optional": true,
       "id": "no_cortex",
       "name": "No Cortex Flag"
     },
@@ -395,7 +390,6 @@
       "description": "Reshape output to multiple 'slices'.",
       "value-key": "[RESHAPE]",
       "type": "Flag",
-      "optional": true,
       "id": "reshape",
       "name": "Reshape Flag"
     },
@@ -414,7 +408,6 @@
       "description": "Reshape fsaverage (ico7) into 42 x 47 x 83.",
       "value-key": "[RESHAPE3D]",
       "type": "Flag",
-      "optional": true,
       "id": "reshape3d",
       "name": "Reshape 3D Flag"
     },
@@ -423,7 +416,6 @@
       "description": "Output each frame separately.",
       "value-key": "[SPLIT]",
       "type": "Flag",
-      "optional": true,
       "id": "split",
       "name": "Split Output Flag"
     },
@@ -432,7 +424,6 @@
       "description": "Replace input with white Gaussian noise.",
       "value-key": "[SYNTH]",
       "type": "Flag",
-      "optional": true,
       "id": "synth",
       "name": "Synthesize Input Flag"
     },
@@ -441,7 +432,6 @@
       "description": "Replace input with 1s.",
       "value-key": "[ONES]",
       "type": "Flag",
-      "optional": true,
       "id": "ones",
       "name": "Replace with Ones Flag"
     },
@@ -450,7 +440,6 @@
       "description": "Rescale so that stddev=1 (good with --synth).",
       "value-key": "[NORMVAR]",
       "type": "Flag",
-      "optional": true,
       "id": "normvar",
       "name": "Normalize Variance Flag"
     },
@@ -469,7 +458,6 @@
       "description": "Remove any voxel that is zero in any time point (for smoothing).",
       "value-key": "[PRUNE]",
       "type": "Flag",
-      "optional": true,
       "id": "prune",
       "name": "Prune Zero Voxels Flag"
     },
@@ -478,7 +466,6 @@
       "description": "Do not prune (default).",
       "value-key": "[NO_PRUNE]",
       "type": "Flag",
-      "optional": true,
       "id": "no_prune",
       "name": "No Pruning Flag"
     },
@@ -534,14 +521,12 @@
     {
       "path-template": "[TVAL_PATH]",
       "description": "File in which to store output values.",
-      "optional": false,
       "id": "output_values",
       "name": "Output Values File"
     },
     {
       "path-template": "[TRG_DIST]",
       "description": "File containing distances from source to target vertices.",
-      "optional": true,
       "id": "trg_distances",
       "name": "Target Distances File"
     }

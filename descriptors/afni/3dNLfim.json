@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "3dNLfim",
   "author": "AFNI Developers",
-  "descriptor-url": "N/A",
   "description": "Nonlinear regression for each voxel of the input AFNI 3d+time data set",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dNLfim [INPUT_FILE] [SIGNAL_MODEL] [NOISE_MODEL] [MASK] [IGNORE] [INTR] [TR] [TIME_FILE] [SCONSTR] [NCONSTR] [NABS] [NRAND] [NBEST] [RMSMIN] [FDISP] [PROGRESS] [VOXEL_COUNT] [SIMPLEX] [POWELL] [BOTH] [FREG] [FRSQR] [FSMAX] [FTMAX] [FPSMAX] [FAREA] [FPAREA] [FSCOEF] [FNCOEF] [TSCOEF] [TNCOEF] [BUCKET] [BRICK] [NOFDR] [SFIT] [SNFIT] [JOBS]",
@@ -109,7 +108,6 @@
       "description": "Use absolute constraints for noise parameters; c <= gn[k] <= d",
       "value-key": "[NABS]",
       "type": "Flag",
-      "optional": true,
       "id": "nabs",
       "name": "Absolute constraints flag"
     },
@@ -166,7 +164,6 @@
       "description": "Display the current voxel index",
       "value-key": "[VOXEL_COUNT]",
       "type": "Flag",
-      "optional": true,
       "id": "voxel_count",
       "name": "Voxel count flag"
     },
@@ -175,7 +172,6 @@
       "description": "Use Nelder-Mead simplex method for least-square minimization (default)",
       "value-key": "[SIMPLEX]",
       "type": "Flag",
-      "optional": true,
       "id": "simplex",
       "name": "Nelder-Mead simplex method"
     },
@@ -184,7 +180,6 @@
       "description": "Use Powell's NEWUOA method instead of Nelder-Mead simplex method",
       "value-key": "[POWELL]",
       "type": "Flag",
-      "optional": true,
       "id": "powell",
       "name": "Powell's NEWUOA method"
     },
@@ -193,7 +188,6 @@
       "description": "Use both Powell's and Nelder-Mead method",
       "value-key": "[BOTH]",
       "type": "Flag",
-      "optional": true,
       "id": "both",
       "name": "Use both minimization methods"
     },
@@ -319,7 +313,6 @@
       "description": "Don't write the FDR (q vs. threshold) curves into the output dataset.",
       "value-key": "[NOFDR]",
       "type": "Flag",
-      "optional": true,
       "id": "nofdr",
       "name": "No FDR flag"
     },
@@ -357,98 +350,84 @@
     {
       "path-template": "[FREG].fift",
       "description": "F-test for significance of the regression",
-      "optional": true,
       "id": "freg_outfile",
       "name": "F-test output file"
     },
     {
       "path-template": "[FRSQR].fift",
       "description": "R^2 calculation for regression",
-      "optional": true,
       "id": "frsqr_outfile",
       "name": "R^2 output file"
     },
     {
       "path-template": "[FSMAX].fift",
       "description": "Signed maximum signal estimate",
-      "optional": true,
       "id": "fsmax_outfile",
       "name": "Signed maximum signal output file"
     },
     {
       "path-template": "[FTMAX].fift",
       "description": "Time of signed maximum estimate",
-      "optional": true,
       "id": "ftmax_outfile",
       "name": "Time of signed maximum output file"
     },
     {
       "path-template": "[FPSMAX].fift",
       "description": "Maximum percentage change estimate",
-      "optional": true,
       "id": "fpsmax_outfile",
       "name": "Maximum percentage change output file"
     },
     {
       "path-template": "[FAREA].fift",
       "description": "Area between signal and baseline",
-      "optional": true,
       "id": "farea_outfile",
       "name": "Area between signal and baseline output file"
     },
     {
       "path-template": "[FPAREA].fift",
       "description": "Percentage area of signal estimate",
-      "optional": true,
       "id": "fparea_outfile",
       "name": "Percentage area output file"
     },
     {
       "path-template": "[FSCOEF].fift",
       "description": "Signal parameter estimate",
-      "optional": true,
       "id": "fscoef_outfile",
       "name": "Signal parameter estimate output file"
     },
     {
       "path-template": "[FNCOEF].fift",
       "description": "Noise parameter estimate",
-      "optional": true,
       "id": "fncoef_outfile",
       "name": "Noise parameter estimate output file"
     },
     {
       "path-template": "[TSCOEF].fitt",
       "description": "T-test for significance of signal parameter",
-      "optional": true,
       "id": "tscoef_outfile",
       "name": "Signal parameter T-test output file"
     },
     {
       "path-template": "[TNCOEF].fitt",
       "description": "T-test for significance of noise parameter",
-      "optional": true,
       "id": "tncoef_outfile",
       "name": "Noise parameter T-test output file"
     },
     {
       "path-template": "[BUCKET].bucket",
       "description": "AFNI 'bucket' dataset",
-      "optional": true,
       "id": "bucket_outfile",
       "name": "AFNI bucket"
     },
     {
       "path-template": "[SFIT].sfit",
       "description": "Output 3d+time signal model fit",
-      "optional": true,
       "id": "sfit_outfile",
       "name": "Signal fit output file"
     },
     {
       "path-template": "[SNFIT].snfit",
       "description": "Output 3d+time signal+noise fit",
-      "optional": true,
       "id": "snfit_outfile",
       "name": "Signal+noise fit output file"
     }

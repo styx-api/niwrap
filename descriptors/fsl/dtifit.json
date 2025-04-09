@@ -2,7 +2,6 @@
   "tool-version": "6.0.4",
   "name": "dtifit",
   "author": "FMRIB Analysis Group, University of Oxford",
-  "descriptor-url": "N/A",
   "description": "DTIFIT - Fit a diffusion tensor model at each voxel",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "dtifit [DATA_FILE] [OUTPUT_BASENAME] [MASK_FILE] [BVEC_FILE] [BVAL_FILE] [VERBOSE_FLAG] [SSE_FLAG] [WLS_FLAG] [KURT_FLAG] [KURTDIR_FLAG] [LITTLEBIT_FLAG] [SAVE_TENSOR_FLAG] [ZMIN] [ZMAX] [YMIN] [YMAX] [XMIN] [XMAX] [GRADNONLIN_FILE] [CONFOUND_REGRESSORS]",
@@ -61,7 +60,6 @@
       "description": "Switch on diagnostic messages",
       "value-key": "[VERBOSE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose_flag",
       "name": "Verbose flag"
     },
@@ -70,7 +68,6 @@
       "description": "Output sum of squared errors",
       "value-key": "[SSE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "sse_flag",
       "name": "SSE flag"
     },
@@ -79,7 +76,6 @@
       "description": "Fit the tensor with weighted least squares",
       "value-key": "[WLS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "wls_flag",
       "name": "WLS flag"
     },
@@ -88,7 +84,6 @@
       "description": "Output mean kurtosis map (for multi-shell data)",
       "value-key": "[KURT_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "kurt_flag",
       "name": "Kurt flag"
     },
@@ -97,7 +92,6 @@
       "description": "Output maps of kurtosis along each eigenvector: K1, K2, and K3 (for multi-shell data)",
       "value-key": "[KURTDIR_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "kurtdir_flag",
       "name": "Kurt direction flag"
     },
@@ -106,7 +100,6 @@
       "description": "Only process small area of brain",
       "value-key": "[LITTLEBIT_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "littlebit_flag",
       "name": "Little bit flag"
     },
@@ -115,7 +108,6 @@
       "description": "Save the elements of the tensor",
       "value-key": "[SAVE_TENSOR_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "save_tensor_flag",
       "name": "Save tensor flag"
     },
@@ -233,42 +225,36 @@
     {
       "path-template": "[OUTPUT_BASENAME]_FA.nii.gz",
       "description": "Fractional anisotropy output",
-      "optional": true,
       "id": "fa_output",
       "name": "FA output"
     },
     {
       "path-template": "[OUTPUT_BASENAME]_MD.nii.gz",
       "description": "Mean diffusivity output",
-      "optional": true,
       "id": "md_output",
       "name": "MD output"
     },
     {
       "path-template": "[OUTPUT_BASENAME]_MO.nii.gz",
       "description": "Mode of the anisotropy output",
-      "optional": true,
       "id": "mo_output",
       "name": "MO output"
     },
     {
       "path-template": "[OUTPUT_BASENAME]_L1.nii.gz",
       "description": "1st eigenvalue output",
-      "optional": true,
       "id": "l1_output",
       "name": "L1 output"
     },
     {
       "path-template": "[OUTPUT_BASENAME]_L2.nii.gz",
       "description": "2nd eigenvalue output",
-      "optional": true,
       "id": "l2_output",
       "name": "L2 output"
     },
     {
       "path-template": "[OUTPUT_BASENAME]_L3.nii.gz",
       "description": "3rd eigenvalue output",
-      "optional": true,
       "id": "l3_output",
       "name": "L3 output"
     }

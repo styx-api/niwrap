@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "3dExtrema",
   "author": "AFNI Developers",
-  "descriptor-url": "https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dExtrema.html",
   "description": "Find local extrema (minima or maxima) in 3D datasets.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dExtrema [INPUT_DATASET] [OUTPUT_PREFIX] [OUTPUT_SESSION] [QUIET] [MASK_FILE] [MASK_THRESHOLD] [DATA_THRESHOLD] [N_BEST] [SEPARATION_DISTANCE] [MINIMA] [MAXIMA] [STRICT] [PARTIAL] [INTERIOR] [CLOSURE] [SLICE] [VOLUME] [REMOVE] [AVERAGE] [WEIGHT]",
@@ -42,7 +41,6 @@
       "description": "Suppress screen output.",
       "value-key": "[QUIET]",
       "type": "Flag",
-      "optional": true,
       "id": "quiet",
       "name": "Quiet Flag"
     },
@@ -96,7 +94,6 @@
       "description": "Find local minima.",
       "value-key": "[MINIMA]",
       "type": "Flag",
-      "optional": true,
       "id": "minima",
       "name": "Minima Flag"
     },
@@ -105,7 +102,6 @@
       "description": "Find local maxima (default).",
       "value-key": "[MAXIMA]",
       "type": "Flag",
-      "optional": true,
       "id": "maxima",
       "name": "Maxima Flag"
     },
@@ -114,7 +110,6 @@
       "description": "Use strict inequality for extrema (default).",
       "value-key": "[STRICT]",
       "type": "Flag",
-      "optional": true,
       "id": "strict",
       "name": "Strict Flag"
     },
@@ -123,7 +118,6 @@
       "description": "Use partial inequality for extrema.",
       "value-key": "[PARTIAL]",
       "type": "Flag",
-      "optional": true,
       "id": "partial",
       "name": "Partial Flag"
     },
@@ -132,7 +126,6 @@
       "description": "Extrema must be interior points (default).",
       "value-key": "[INTERIOR]",
       "type": "Flag",
-      "optional": true,
       "id": "interior",
       "name": "Interior Flag"
     },
@@ -141,7 +134,6 @@
       "description": "Extrema may be boundary points.",
       "value-key": "[CLOSURE]",
       "type": "Flag",
-      "optional": true,
       "id": "closure",
       "name": "Closure Flag"
     },
@@ -150,7 +142,6 @@
       "description": "Consider each slice separately (default).",
       "value-key": "[SLICE]",
       "type": "Flag",
-      "optional": true,
       "id": "slice",
       "name": "Slice Flag"
     },
@@ -159,7 +150,6 @@
       "description": "Consider the volume as a whole.",
       "value-key": "[VOLUME]",
       "type": "Flag",
-      "optional": true,
       "id": "volume",
       "name": "Volume Flag"
     },
@@ -168,7 +158,6 @@
       "description": "Remove all but strongest of neighboring extrema (default).",
       "value-key": "[REMOVE]",
       "type": "Flag",
-      "optional": true,
       "id": "remove",
       "name": "Remove Flag"
     },
@@ -177,7 +166,6 @@
       "description": "Replace neighboring extrema by average.",
       "value-key": "[AVERAGE]",
       "type": "Flag",
-      "optional": true,
       "id": "average",
       "name": "Average Flag"
     },
@@ -186,7 +174,6 @@
       "description": "Replace neighboring extrema by weighted average.",
       "value-key": "[WEIGHT]",
       "type": "Flag",
-      "optional": true,
       "id": "weight",
       "name": "Weighted Average Flag"
     }
@@ -196,14 +183,12 @@
     {
       "path-template": "[OUTPUT_PREFIX].HEAD",
       "description": "Output HEAD file",
-      "optional": true,
       "id": "output_head_file",
       "name": "Output HEAD file"
     },
     {
       "path-template": "[OUTPUT_PREFIX].BRIK",
       "description": "Output BRIK file",
-      "optional": true,
       "id": "output_brik_file",
       "name": "Output BRIK file"
     }

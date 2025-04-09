@@ -34,7 +34,6 @@
       "value-key": "[FSCALE]",
       "command-line-flag": "-fscale",
       "type": "Flag",
-      "optional": true,
       "id": "fscale",
       "name": "Force Scaling"
     },
@@ -43,7 +42,6 @@
       "value-key": "[NSCALE]",
       "command-line-flag": "-nscale",
       "type": "Flag",
-      "optional": true,
       "id": "nscale",
       "name": "No Scaling"
     },
@@ -52,7 +50,6 @@
       "value-key": "[VERB]",
       "command-line-flag": "-verb",
       "type": "Flag",
-      "optional": true,
       "id": "verb",
       "name": "Verbose"
     },
@@ -61,7 +58,6 @@
       "value-key": "[FRUGAL]",
       "command-line-flag": "-frugal",
       "type": "Flag",
-      "optional": true,
       "id": "frugal",
       "name": "Frugal Memory Usage"
     },
@@ -80,14 +76,12 @@
     {
       "path-template": "[PREFIX]+orig.HEAD",
       "description": "AFNI HEAD file of the output dataset",
-      "optional": true,
       "id": "out_head",
       "name": "Output HEAD File"
     },
     {
       "path-template": "[PREFIX]+orig.BRIK",
       "description": "AFNI BRIK file of the output dataset",
-      "optional": true,
       "id": "out_brik",
       "name": "Output BRIK File"
     }

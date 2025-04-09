@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "@fat_tract_colorize",
   "author": "AFNI Developers",
-  "descriptor-url": "https://example.com/afni_fat_tract_colorize.json",
   "description": "Visualize tractographic output from 3dTrackID, particularly in probabilistic mode.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "@fat_tract_colorize [IN_FA] [IN_V1] [IN_TRACTS] [PREFIX] [IN_ULAY] [NO_VIEW] [ONLY_VIEW]",
@@ -61,7 +60,6 @@
       "description": "Turn off auto-running of AFNI_SUMA commands to view the output immediately.",
       "value-key": "[NO_VIEW]",
       "type": "Flag",
-      "optional": true,
       "id": "no_view",
       "name": "No view flag"
     },
@@ -70,7 +68,6 @@
       "description": "Only view the data with AFNI+SUMA, assuming the command has been run before.",
       "value-key": "[ONLY_VIEW]",
       "type": "Flag",
-      "optional": true,
       "id": "only_view",
       "name": "Only view flag"
     }
@@ -80,28 +77,24 @@
     {
       "path-template": "[PREFIX]_RGB_HUE.nii.gz",
       "description": "HSL coloration volume file with four bricks from the V1 and FA volumes: Hue, Saturation, Luminosity, and Brightness",
-      "optional": true,
       "id": "output_hue_volume",
       "name": "Output HUE volume"
     },
     {
       "path-template": "[PREFIX]_RGB_iso.ply",
       "description": "Slightly smoothed isosurface file made by IsoSurface",
-      "optional": true,
       "id": "output_iso_surface",
       "name": "Output isosurface"
     },
     {
       "path-template": "[PREFIX]_RGB_iso.spec",
       "description": "Spec file made by quickspec",
-      "optional": true,
       "id": "output_iso_spec",
       "name": "Output isosurface spec file"
     },
     {
       "path-template": "[PREFIX]_RGB.niml.dset",
       "description": "Projection of appropriate coloration onto the surface",
-      "optional": true,
       "id": "output_proj_surface",
       "name": "Output projected surface"
     }

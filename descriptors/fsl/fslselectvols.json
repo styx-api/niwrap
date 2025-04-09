@@ -2,7 +2,6 @@
   "tool-version": "6.0.4",
   "name": "fslselectvols",
   "author": "FMRIB Analysis Group, University of Oxford",
-  "descriptor-url": "https://github.com/aces/cbrain-plugins-neuro/blob/master/cbrain_task_descriptors/fsl_selectvols.json",
   "description": "Select volumes from a 4D time series and output a subset 4D volume",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "fslselectvols [INPUT_FILE] [OUTPUT_FILE] [VOLS_LIST] [OUTPUT_MEAN_FLAG] [OUTPUT_VARIANCE_FLAG] [HELP_FLAG]",
@@ -43,7 +42,6 @@
       "description": "Output mean instead of concatenation",
       "value-key": "[OUTPUT_MEAN_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "output_mean_flag",
       "name": "Output Mean Flag"
     },
@@ -52,7 +50,6 @@
       "description": "Output variance instead of concatenation",
       "value-key": "[OUTPUT_VARIANCE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "output_variance_flag",
       "name": "Output Variance Flag"
     },
@@ -61,7 +58,6 @@
       "description": "Display help text",
       "value-key": "[HELP_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "help_flag",
       "name": "Help Flag"
     }
@@ -71,7 +67,6 @@
     {
       "path-template": "[OUTPUT_FILE]",
       "description": "Output 4D image with selected volumes",
-      "optional": false,
       "id": "output_4d_image",
       "name": "Output 4D Image"
     }

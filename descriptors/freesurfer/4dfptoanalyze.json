@@ -26,7 +26,6 @@
       "description": "Output 8 bit unsigned char",
       "value-key": "[OUTPUT_8BIT]",
       "type": "Flag",
-      "optional": true,
       "id": "output_8bit",
       "name": "Output 8bit flag"
     },
@@ -35,7 +34,6 @@
       "description": "Include origin and scale in hdr",
       "value-key": "[SPM99]",
       "type": "Flag",
-      "optional": true,
       "id": "spm99",
       "name": "SPM99 flag"
     },
@@ -53,14 +51,12 @@
     {
       "path-template": "[INPUT_FILE]_analyze.hdr",
       "description": "Header file of Analyze format output",
-      "optional": false,
       "id": "analyze_hdr",
       "name": "Analyze header file"
     },
     {
       "path-template": "[INPUT_FILE]_analyze.img",
       "description": "Image file of Analyze format output",
-      "optional": false,
       "id": "analyze_img",
       "name": "Analyze image file"
     }

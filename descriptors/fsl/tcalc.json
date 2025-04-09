@@ -132,7 +132,6 @@
       "description": "Save original non-resample output image",
       "value-key": "[SAVE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "save_flag",
       "command-line-flag": "--save",
       "name": "Save Flag"
@@ -141,7 +140,6 @@
       "description": "Switch on diagnostic messages",
       "value-key": "[VERBOSE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose_flag",
       "command-line-flag": "--verbose",
       "name": "Verbose Flag"
@@ -183,14 +181,12 @@
     {
       "path-template": "[OUTPUT_IMAGE]",
       "description": "The output image generated after resampling",
-      "optional": false,
       "id": "output_image_file",
       "name": "Output Image File"
     },
     {
       "path-template": "[OUTPUT_IMAGE]_original",
       "description": "The original non-resampled output image, if save flag is used",
-      "optional": true,
       "id": "original_output_image_file",
       "name": "Original Output Image File"
     }

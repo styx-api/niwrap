@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "mri_long_normalize",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "none",
   "description": "Tool to normalize the white-matter of MRI volumes, optionally based on control points.",
   "command-line": "mri_long_normalize [INPUT_VOL] [BASE_TP_FILE] [OUTPUT_VOL] [NORMALIZATION_ITERS] [DISABLE_1D] [SMOOTH_BIAS] [ASEG] [DEBUG_GVX] [DEBUG_GX] [READING] [PRINT_USAGE]",
   "schema-version": "0.5",
@@ -46,7 +45,6 @@
       "description": "Disable 1D normalization.",
       "value-key": "[DISABLE_1D]",
       "type": "Flag",
-      "optional": true,
       "id": "disable_1d",
       "name": "Disable 1D Normalization Flag"
     },
@@ -109,7 +107,6 @@
       "description": "Print usage information.",
       "value-key": "[PRINT_USAGE]",
       "type": "Flag",
-      "optional": true,
       "id": "print_usage",
       "name": "Print Usage Flag"
     }
@@ -118,7 +115,6 @@
     {
       "path-template": "[OUTPUT_VOL]",
       "description": "Output MRI volume file.",
-      "optional": true,
       "id": "output_file",
       "name": "Output MRI Volume"
     }

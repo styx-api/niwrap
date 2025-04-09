@@ -28,7 +28,6 @@
       "name": "Version",
       "type": "Flag",
       "description": "Print version and exit.",
-      "optional": true,
       "command-line-flag": "--version",
       "value-key": "[VERSION]"
     },
@@ -37,7 +36,6 @@
       "name": "Help",
       "type": "Flag",
       "description": "Print help and exit.",
-      "optional": true,
       "command-line-flag": "--help",
       "value-key": "[HELP]"
     }
@@ -46,7 +44,6 @@
     {
       "path-template": "[OUTPUT_BASE]-SSS-IIIII.dcm",
       "description": "Renamed output DICOM file with series and image numbers.",
-      "optional": true,
       "id": "renamed_dicom",
       "name": "Renamed DICOM File"
     }

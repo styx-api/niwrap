@@ -2,7 +2,6 @@
   "tool-version": "6.0.4",
   "name": "prelude",
   "author": "FMRIB Analysis Group, University of Oxford",
-  "descriptor-url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/PRELUDE",
   "description": "Phase Region Expanding Labeller for Unwrapping Discrete Estimates",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "prelude [OUTPUT_UNWRAP] [OUTPUT_UNWRAP_ALIAS] [COMPLEX_PHASE] [COMPLEX_PHASE_ALIAS] [ABSOLUTE_VOLUME] [ABSOLUTE_VOLUME_ALIAS] [PHASE_VOLUME] [PHASE_VOLUME_ALIAS] [NUM_PHASE_SPLIT] [LABEL_SLICES] [SLICE_PROCESSING] [SLICE_PROCESSING_ALIAS] [FORCE_3D] [FORCE_3D_ALIAS] [THRESHOLD] [THRESHOLD_ALIAS] [MASK_VOLUME] [MASK_VOLUME_ALIAS] [START_IMAGE] [END_IMAGE] [SAVE_MASK] [SAVE_RAW_PHASE] [SAVE_RAW_PHASE_ALIAS] [SAVE_LABELS] [SAVE_LABELS_ALIAS] [REMOVE_RAMPS] [VERBOSE] [VERBOSE_ALIAS] [HELP] [HELP_ALIAS]",
@@ -97,7 +96,6 @@
       "description": "Does label processing in 2D (slice at a time)",
       "value-key": "[LABEL_SLICES]",
       "type": "Flag",
-      "optional": true,
       "id": "label_slices",
       "name": "Label slices flag"
     },
@@ -106,7 +104,6 @@
       "description": "Does all processing in 2D (slice at a time)",
       "value-key": "[SLICE_PROCESSING]",
       "type": "Flag",
-      "optional": true,
       "id": "slice_processing",
       "name": "2D slice processing flag"
     },
@@ -115,7 +112,6 @@
       "description": "Does all processing in 2D (slice at a time)",
       "value-key": "[SLICE_PROCESSING_ALIAS]",
       "type": "Flag",
-      "optional": true,
       "id": "slice_processing_alias",
       "name": "2D slice processing flag (alias)"
     },
@@ -124,7 +120,6 @@
       "description": "Forces all processing to be full 3D",
       "value-key": "[FORCE_3D]",
       "type": "Flag",
-      "optional": true,
       "id": "force_3d",
       "name": "Force 3D processing flag"
     },
@@ -133,7 +128,6 @@
       "description": "Forces all processing to be full 3D",
       "value-key": "[FORCE_3D_ALIAS]",
       "type": "Flag",
-      "optional": true,
       "id": "force_3d_alias",
       "name": "Force 3D processing flag (alias)"
     },
@@ -241,7 +235,6 @@
       "description": "Remove phase ramps during unwrapping",
       "value-key": "[REMOVE_RAMPS]",
       "type": "Flag",
-      "optional": true,
       "id": "remove_ramps",
       "name": "Remove phase ramps flag"
     },
@@ -250,7 +243,6 @@
       "description": "Switch on diagnostic messages",
       "value-key": "[VERBOSE]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose",
       "name": "Verbose flag"
     },
@@ -259,7 +251,6 @@
       "description": "Switch on diagnostic messages",
       "value-key": "[VERBOSE_ALIAS]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose_alias",
       "name": "Verbose flag (alias)"
     },
@@ -268,7 +259,6 @@
       "description": "Display help message",
       "value-key": "[HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "help",
       "name": "Help flag"
     },
@@ -277,7 +267,6 @@
       "description": "Display help message",
       "value-key": "[HELP_ALIAS]",
       "type": "Flag",
-      "optional": true,
       "id": "help_alias",
       "name": "Help flag (alias)"
     }
@@ -330,28 +319,24 @@
     {
       "path-template": "[OUTPUT_UNWRAP].nii.gz",
       "description": "Unwrapped phase output file",
-      "optional": false,
       "id": "unwrapped_phase_output",
       "name": "Unwrapped phase output file"
     },
     {
       "path-template": "[SAVE_MASK].nii.gz",
       "description": "Saved mask volume file",
-      "optional": true,
       "id": "saved_mask_volume",
       "name": "Saved mask volume"
     },
     {
       "path-template": "[SAVE_RAW_PHASE].nii.gz",
       "description": "Saved raw phase output file",
-      "optional": true,
       "id": "saved_raw_phase_output",
       "name": "Saved raw phase output"
     },
     {
       "path-template": "[SAVE_LABELS].nii.gz",
       "description": "Saved area labels output file",
-      "optional": true,
       "id": "saved_area_labels_output",
       "name": "Saved area labels output"
     }

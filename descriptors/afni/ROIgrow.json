@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "ROIgrow",
   "author": "AFNI Developers",
-  "descriptor-url": "https://github.com/afni/afni/tree/master/src/ROIgrow",
   "description": "A program to expand an ROI on the surface.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "ROIgrow [INPUT_SURFACE] [ROI_LABELS] [LIM_DISTANCE] [OUTPUT_PREFIX] [FULL_LIST] [GROW_FROM_EDGE] [INSPHERE_DIAMETER] [INBOX_EDGES]",
@@ -51,7 +50,6 @@
       "description": "Output a row for each node on the surface. Nodes not in the grown ROI, receive a 0 for a label. This option is ONLY for use with -roi_labels.",
       "value-key": "[FULL_LIST]",
       "type": "Flag",
-      "optional": true,
       "command-line-flag": "-full_list",
       "id": "full_list",
       "name": "Full List Flag"
@@ -60,7 +58,6 @@
       "description": "Grow ROIs from their edges rather than the brute force default. This might make the program faster on large ROIs and large surfaces.",
       "value-key": "[GROW_FROM_EDGE]",
       "type": "Flag",
-      "optional": true,
       "command-line-flag": "-grow_from_edge",
       "id": "grow_from_edge",
       "name": "Grow From Edge Flag"
@@ -92,7 +89,6 @@
     {
       "path-template": "[OUTPUT_PREFIX].1D",
       "description": "1D output dataset.",
-      "optional": true,
       "id": "output_file",
       "name": "Output Dataset"
     }

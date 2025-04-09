@@ -38,7 +38,6 @@
       "description": "Do not save the _WARP file",
       "value-key": "[NO_WARP]",
       "type": "Flag",
-      "optional": true,
       "id": "no_warp",
       "name": "No Warp"
     },
@@ -47,7 +46,6 @@
       "description": "Compute and save the _WARPINV file",
       "value-key": "[INVERSE_WARP]",
       "type": "Flag",
-      "optional": true,
       "id": "inverse_warp",
       "name": "Inverse Warp"
     },
@@ -56,7 +54,6 @@
       "description": "Do not save the warped source dataset",
       "value-key": "[NO_DATASET]",
       "type": "Flag",
-      "optional": true,
       "id": "no_dataset",
       "name": "No Dataset"
     },
@@ -65,7 +62,6 @@
       "description": "Output the nonlinear warp when -allineate is used",
       "value-key": "[A_WARP]",
       "type": "Flag",
-      "optional": true,
       "id": "a_warp",
       "name": "Affine Warp"
     },
@@ -74,7 +70,6 @@
       "description": "Clipped Pearson correlation (default method)",
       "value-key": "[PCL]",
       "type": "Flag",
-      "optional": true,
       "id": "pcl",
       "name": "Clipped Pearson Correlation"
     },
@@ -83,7 +78,6 @@
       "description": "Use strict Pearson correlation for matching",
       "value-key": "[PEAR]",
       "type": "Flag",
-      "optional": true,
       "id": "pear",
       "name": "Pearson Correlation"
     },
@@ -92,7 +86,6 @@
       "description": "Use Hellinger metric for matching",
       "value-key": "[HEL]",
       "type": "Flag",
-      "optional": true,
       "id": "hel",
       "name": "Hellinger Metric"
     },
@@ -101,7 +94,6 @@
       "description": "Use Mutual Information for matching",
       "value-key": "[MI]",
       "type": "Flag",
-      "optional": true,
       "id": "mi",
       "name": "Mutual Information"
     },
@@ -110,7 +102,6 @@
       "description": "Use Normalized Mutual Information for matching",
       "value-key": "[NMI]",
       "type": "Flag",
-      "optional": true,
       "id": "nmi",
       "name": "Normalized Mutual Information"
     },
@@ -119,7 +110,6 @@
       "description": "Use Local Pearson correlation (signed) for matching",
       "value-key": "[LPC]",
       "type": "Flag",
-      "optional": true,
       "id": "lpc",
       "name": "Local Pearson Correlation (Signed)"
     },
@@ -128,7 +118,6 @@
       "description": "Use Local Pearson correlation (absolute value) for matching",
       "value-key": "[LPA]",
       "type": "Flag",
-      "optional": true,
       "id": "lpa",
       "name": "Local Pearson Correlation (Absolute Value)"
     },
@@ -137,7 +126,6 @@
       "description": "Replace negative values in either input volume with 0",
       "value-key": "[NONEG]",
       "type": "Flag",
-      "optional": true,
       "id": "noneg",
       "name": "Replace Negative Values"
     },
@@ -146,7 +134,6 @@
       "description": "Don't use a penalty on the cost functional",
       "value-key": "[NOPENALTY]",
       "type": "Flag",
-      "optional": true,
       "id": "nopenalty",
       "name": "No Penalty"
     },
@@ -173,7 +160,6 @@
       "description": "Print out very verbose progress messages",
       "value-key": "[VERBOSE]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose",
       "name": "Verbose"
     },
@@ -182,7 +168,6 @@
       "description": "Cut out most progress messages",
       "value-key": "[QUIET]",
       "type": "Flag",
-      "optional": true,
       "id": "quiet",
       "name": "Quiet"
     }
@@ -191,21 +176,18 @@
     {
       "path-template": "{PREFIX}+tlrc",
       "description": "Warped dataset",
-      "optional": false,
       "id": "warped_dataset",
       "name": "Warped Dataset"
     },
     {
       "path-template": "{PREFIX}_WARP+tlrc",
       "description": "Warp dataset",
-      "optional": true,
       "id": "warp_dataset",
       "name": "Warp Dataset"
     },
     {
       "path-template": "{PREFIX}_WARPINV+tlrc",
       "description": "Inverse warp dataset",
-      "optional": true,
       "id": "inverse_warp_dataset",
       "name": "Inverse Warp Dataset"
     }

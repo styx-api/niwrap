@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "MakeColorMap",
   "author": "AFNI Developers",
-  "descriptor-url": "none",
   "description": "Utility for creating and modifying colormaps with various formats and fiducial points",
   "command-line": "MakeColorMap [FIDUCIALS_NCOL] [FIDUCIALS] [NUM_COLORS] [STD_MAPNAME] [PALETTE_FILE] [CMAP_NAME] [FSCOLUT_LABELS] [FSCOLUT_FILE] [AFNI_HEX] [AFNI_HEX_COMPLETE] [SUMA_COLORMAP] [USER_COLUT_FILE] [SDSET] [SDSET_PREFIX] [FLIPUPDOWN] [SKIP_LAST] [SHOW_FSCOLUT] [HELP_FLAG] [HELP_FULL_FLAG] [FLIP_MAP_UPDSIDE_DOWN]",
   "container-image": {
@@ -144,7 +143,6 @@
       "description": "Flip the map upside down.",
       "value-key": "[FLIPUPDOWN]",
       "type": "Flag",
-      "optional": true,
       "id": "flipupdown",
       "name": "Flip Upside-down Flag"
     },
@@ -153,7 +151,6 @@
       "description": "If used, the last color in the Fiducial list is omitted.",
       "value-key": "[SKIP_LAST]",
       "type": "Flag",
-      "optional": true,
       "id": "skip_last",
       "name": "Skip Last Color Flag"
     },
@@ -162,7 +159,6 @@
       "description": "Show all of the FreeSurfer LUT.",
       "value-key": "[SHOW_FSCOLUT]",
       "type": "Flag",
-      "optional": true,
       "id": "show_fscolut",
       "name": "Show FSColut Flag"
     },
@@ -171,7 +167,6 @@
       "description": "Displays the help message.",
       "value-key": "[HELP_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "help_flag",
       "name": "Help Flag"
     },
@@ -180,7 +175,6 @@
       "description": "Displays the help message.",
       "value-key": "[HELP_FULL_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "help_full_flag",
       "name": "Full Help Flag"
     },
@@ -189,7 +183,6 @@
       "description": "Flip the map upside down.",
       "value-key": "[FLIP_MAP_UPDSIDE_DOWN]",
       "type": "Flag",
-      "optional": true,
       "id": "flip_map_updside_down",
       "name": "Flip Map Upside Down Flag"
     }
@@ -199,14 +192,12 @@
     {
       "path-template": "[AFNI_HEX]_01",
       "description": "Prefix for individual color values in AFNI Hex format.",
-      "optional": true,
       "id": "afni_hex_output_prefix",
       "name": "AFNI Hex Output Prefix"
     },
     {
       "path-template": "TestPalette.pal",
       "description": "Example palette file output.",
-      "optional": true,
       "id": "palette_file_output",
       "name": "Example Palette File"
     }

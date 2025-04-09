@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "mris_hausdorff_dist",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "N/A",
   "description": "This program computes the Hausdorff distance between two labels on a surface.",
   "command-line": "mris_hausdorff_dist [SURFACE] [LABEL1] [LABEL2] [ANNOT_NAME]",
   "container-image": {
@@ -49,7 +48,6 @@
     {
       "path-template": "hausdorff_output.txt",
       "description": "Output file containing the Hausdorff distance computation results",
-      "optional": true,
       "id": "output_file",
       "name": "Hausdorff Distance Output File"
     }

@@ -58,7 +58,6 @@
       "description": "Specify input dataset (e.g. -input func+orig'[7]')",
       "value-key": "[INPUT_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "input_flag",
       "name": "Input Flag"
     },
@@ -67,7 +66,6 @@
       "description": "Set all output values to 1",
       "value-key": "[SPHERES_1_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "spheres_1_flag",
       "name": "Spheres 1 Flag"
     },
@@ -76,7 +74,6 @@
       "description": "Output values will range from 1 to N",
       "value-key": "[SPHERES_1TON_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "spheres_1toN_flag",
       "name": "Spheres 1 to N Flag"
     },
@@ -85,7 +82,6 @@
       "description": "Output values will range from N to 1",
       "value-key": "[SPHERES_NTO1_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "spheres_Nto1_flag",
       "name": "Spheres N to 1 Flag"
     },
@@ -94,7 +90,6 @@
       "description": "Search for negative extrema (minima)",
       "value-key": "[NEG_EXT_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "neg_ext_flag",
       "name": "Negative Extrema Flag"
     },
@@ -103,7 +98,6 @@
       "description": "Extrema may not have equal neighbors",
       "value-key": "[TRUE_MAX_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "true_max_flag",
       "name": "True Max Flag"
     },
@@ -112,7 +106,6 @@
       "description": "Display output in the dataset orientation",
       "value-key": "[DSET_COORDS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "dset_coords_flag",
       "name": "Dataset Coordinates Flag"
     },
@@ -121,7 +114,6 @@
       "description": "Do not display the extrema points as text",
       "value-key": "[NO_TEXT_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "no_text_flag",
       "name": "No Text Flag"
     },
@@ -130,7 +122,6 @@
       "description": "Only output coordinates (no text or values)",
       "value-key": "[COORDS_ONLY_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "coords_only_flag",
       "name": "Coordinates Only Flag"
     },
@@ -139,7 +130,6 @@
       "description": "Use 'Sort-n-Remove' style (default)",
       "value-key": "[N_STYLE_SORT_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "n_style_sort_flag",
       "name": "Sorting Style Flag"
     },
@@ -148,7 +138,6 @@
       "description": "Use 'Weighted-Average' style",
       "value-key": "[N_STYLE_WEIGHT_AVE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "n_style_weight_ave_flag",
       "name": "Weighted-Average Style Flag"
     },
@@ -166,7 +155,6 @@
       "description": "Display help information",
       "value-key": "[HELP_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "help_flag",
       "name": "Help Flag"
     },
@@ -175,7 +163,6 @@
       "description": "Display module history",
       "value-key": "[HIST_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "hist_flag",
       "name": "History Flag"
     },
@@ -184,7 +171,6 @@
       "description": "Display version number",
       "value-key": "[VER_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "ver_flag",
       "name": "Version Flag"
     }
@@ -194,7 +180,6 @@
     {
       "path-template": "[OUTPUT_PREFIX]_mask+orig.[HEAD | BRIK]",
       "description": "Output mask dataset with extrema locations",
-      "optional": true,
       "id": "output_mask",
       "name": "Output Mask Dataset"
     }

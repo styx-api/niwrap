@@ -92,7 +92,6 @@
       "description": "Do not include aseg in processing (useful for testing).",
       "value-key": "[NO_ASEG]",
       "type": "Flag",
-      "optional": true,
       "id": "no_aseg",
       "name": "No Aseg Flag"
     },
@@ -119,7 +118,6 @@
       "description": "Do not attempt to fill voxels surrounding segmentation with extracerebral CSF segmentation.",
       "value-key": "[NO_FILL_CSF]",
       "type": "Flag",
-      "optional": true,
       "id": "no_fill_csf",
       "name": "No Fill CSF Flag"
     },
@@ -164,7 +162,6 @@
       "description": "Use MGZ format.",
       "value-key": "[MGZ_FORMAT]",
       "type": "Flag",
-      "optional": true,
       "id": "mgz_format",
       "name": "MGZ Format Flag"
     },
@@ -173,7 +170,6 @@
       "description": "Use MGH format.",
       "value-key": "[MGH_FORMAT]",
       "type": "Flag",
-      "optional": true,
       "id": "mgh_format",
       "name": "MGH Format Flag"
     },
@@ -182,7 +178,6 @@
       "description": "Use NII format.",
       "value-key": "[NII_FORMAT]",
       "type": "Flag",
-      "optional": true,
       "id": "nii_format",
       "name": "NII Format Flag"
     },
@@ -191,7 +186,6 @@
       "description": "Use NII.GZ format.",
       "value-key": "[NII_GZ_FORMAT]",
       "type": "Flag",
-      "optional": true,
       "id": "nii_gz_format",
       "name": "NII.GZ Format Flag"
     },
@@ -200,7 +194,6 @@
       "description": "Use default+head instead of default tissue type info for segmentation.",
       "value-key": "[TTYPE_HEAD]",
       "type": "Flag",
-      "optional": true,
       "id": "ttype_head",
       "name": "Default Head Tissue Type Flag"
     },
@@ -218,7 +211,6 @@
       "description": "Turn on debugging mode.",
       "value-key": "[DEBUG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug",
       "name": "Debug Flag"
     },
@@ -227,7 +219,6 @@
       "description": "Do not run anything, just check options and exit.",
       "value-key": "[CHECKOPTS]",
       "type": "Flag",
-      "optional": true,
       "id": "checkopts",
       "name": "Check Options Flag"
     }
@@ -236,28 +227,24 @@
     {
       "path-template": "[OUTPUT_STEM].cortex.mgz",
       "description": "Output cortex volume file.",
-      "optional": true,
       "id": "output_cortex",
       "name": "Output Cortex File"
     },
     {
       "path-template": "[OUTPUT_STEM].subcort_gm.mgz",
       "description": "Output subcortical gray matter volume file.",
-      "optional": true,
       "id": "output_subcort_gm",
       "name": "Output Subcortical Gray Matter File"
     },
     {
       "path-template": "[OUTPUT_STEM].wm.mgz",
       "description": "Output white matter volume file.",
-      "optional": true,
       "id": "output_wm",
       "name": "Output White Matter File"
     },
     {
       "path-template": "[OUTPUT_STEM].csf.mgz",
       "description": "Output cerebrospinal fluid volume file.",
-      "optional": true,
       "id": "output_csf",
       "name": "Output CSF File"
     }

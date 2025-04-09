@@ -39,7 +39,6 @@
       "command-line-flag": "-mode_4D",
       "description": "For each viewing plane, one slice is selected across all volumes in a 4D dataset",
       "type": "Flag",
-      "optional": true,
       "id": "mode_4D",
       "name": "4D mode",
       "value-key": "[MODE_4D]"
@@ -138,7 +137,6 @@
       "command-line-flag": "-no_clean",
       "description": "Do not remove the temporary directory of copied/intermediate files",
       "type": "Flag",
-      "optional": true,
       "id": "no_clean",
       "name": "No clean",
       "value-key": "[NO_CLEAN]"
@@ -147,7 +145,6 @@
       "command-line-flag": "-do_clean",
       "description": "Remove the temporary directory of copied/intermediate files",
       "type": "Flag",
-      "optional": true,
       "id": "do_clean",
       "name": "Do clean",
       "value-key": "[DO_CLEAN]"
@@ -156,7 +153,6 @@
       "command-line-flag": "-help",
       "description": "Display help information",
       "type": "Flag",
-      "optional": true,
       "id": "help",
       "name": "Help",
       "value-key": "[HELP]"
@@ -165,7 +161,6 @@
       "command-line-flag": "-ver",
       "description": "Display version number",
       "type": "Flag",
-      "optional": true,
       "id": "version",
       "name": "Version",
       "value-key": "[VERSION]"
@@ -176,21 +171,18 @@
     {
       "path-template": "[PREFIX].png",
       "description": "Generated montage image",
-      "optional": false,
       "id": "output_image",
       "name": "Montage Image"
     },
     {
       "path-template": "[PREFIX]_clust_rep.txt",
       "description": "Clusterization report",
-      "optional": true,
       "id": "cluster_report",
       "name": "Cluster Report"
     },
     {
       "path-template": "[PREFIX]_clust_whereami.txt",
       "description": "Whereami report for clusterized data",
-      "optional": true,
       "id": "whereami_report",
       "name": "Whereami Report"
     }

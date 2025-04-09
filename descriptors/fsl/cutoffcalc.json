@@ -2,7 +2,6 @@
   "tool-version": "6.0.4",
   "name": "cutoffcalc",
   "author": "FMRIB Analysis Group, University of Oxford",
-  "descriptor-url": "https://github.com/aces/cbrain-plugins-neuro/blob/master/descriptors/fsl_cutoffcalc.json",
   "description": "Calculates the minimal period for the highpass filter that still preserves a specified amount of variance in all the design matrix regressors.",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "cutoffcalc [INPUT_DESIGN] [THRESHOLD] [TR] [LOWER_LIMIT] [EXAMPLE_SIGMA] [VERBOSE_FLAG] [DEBUG_FLAG]",
@@ -69,7 +68,6 @@
       "description": "Switch on diagnostic messages",
       "value-key": "[VERBOSE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose_flag",
       "name": "Verbose flag"
     },
@@ -78,7 +76,6 @@
       "description": "Switch on debugging messages",
       "value-key": "[DEBUG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug_flag",
       "name": "Debug flag"
     }
@@ -103,7 +100,6 @@
     {
       "path-template": "example_filt.mtx",
       "description": "Filtered output file if example sigma is provided",
-      "optional": true,
       "id": "example_output",
       "name": "Example filtered output file"
     }

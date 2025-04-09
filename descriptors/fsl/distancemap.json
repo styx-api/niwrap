@@ -2,7 +2,6 @@
   "tool-version": "6.0.4",
   "name": "distancemap",
   "author": "FMRIB Analysis Group, University of Oxford",
-  "descriptor-url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FSL",
   "description": "A tool to calculate distance maps using FSL",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "distancemap [INPUT_IMAGE] [OUTPUT_IMAGE] [MASK_IMAGE] [SECOND_IMAGE] [LOCAL_MAXIMA_IMAGE] [SEGMENTED_IMAGE] [INVERT_FLAG] [INTERPOLATE_VALUES] [VERBOSE_FLAG] [HELP_FLAG]",
@@ -70,7 +69,6 @@
       "description": "Invert input image",
       "value-key": "[INVERT_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "invert_flag",
       "name": "Invert flag"
     },
@@ -88,7 +86,6 @@
       "description": "Switch on diagnostic messages",
       "value-key": "[VERBOSE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose_flag",
       "name": "Verbose flag"
     },
@@ -97,7 +94,6 @@
       "description": "Display help message",
       "value-key": "[HELP_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "help_flag",
       "name": "Help flag"
     }
@@ -130,21 +126,18 @@
     {
       "path-template": "[OUTPUT_IMAGE]",
       "description": "Output distance map image",
-      "optional": false,
       "id": "output_distancemap",
       "name": "Output Distance Map"
     },
     {
       "path-template": "[LOCAL_MAXIMA_IMAGE]",
       "description": "Output local maxima image",
-      "optional": true,
       "id": "output_local_maxima",
       "name": "Output Local Maxima Image"
     },
     {
       "path-template": "[SEGMENTED_IMAGE]",
       "description": "Output segmented distance map image",
-      "optional": true,
       "id": "output_segmented_image",
       "name": "Output Segmented Image"
     }

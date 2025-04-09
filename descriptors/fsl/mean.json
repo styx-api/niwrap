@@ -2,7 +2,6 @@
   "tool-version": "6.0.4",
   "name": "mean",
   "author": "FMRIB Analysis Group, University of Oxford",
-  "descriptor-url": "https://example.com/fsl_mean_descriptor.json",
   "description": "Diagnostic tool for analyzing and computing mean values for FSL data.",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "mean [DATAFILE] [MASKFILE] [VERBOSE_FLAG] [DEBUG_LEVEL] [TIMING_FLAG] [LOG_DIR] [FORCEDIR_FLAG] [INFERENCE_TECH] [NUM_JUMPS] [NUM_BURNIN] [NUM_SAMPLE_EVERY] [NUM_UPDATE_PROPOSALEVERY] [ACCEPTANCE_RATE] [SEED] [ERROR_PRECISION] [NOAMP_FLAG] [PRIOR_MEAN] [PRIOR_STD] [HELP_FLAG]",
@@ -34,7 +33,6 @@
       "description": "Switch on diagnostic messages",
       "value-key": "[VERBOSE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose_flag",
       "name": "Verbose Flag"
     },
@@ -52,7 +50,6 @@
       "description": "Turn timing on",
       "value-key": "[TIMING_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "timing_flag",
       "name": "Timing flag"
     },
@@ -70,7 +67,6 @@
       "description": "Use the actual directory name given - i.e. don't add + to make a new directory",
       "value-key": "[FORCEDIR_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "forcedir_flag",
       "name": "Force directory flag"
     },
@@ -151,7 +147,6 @@
       "description": "Turn off Analytical Marginalisation of error Precision",
       "value-key": "[NOAMP_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "noamp_flag",
       "name": "No AMP flag"
     },
@@ -178,7 +173,6 @@
       "description": "Display help message",
       "value-key": "[HELP_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "help_flag",
       "name": "Help flag"
     }
@@ -220,7 +214,6 @@
     {
       "path-template": "logdir/mean_output.txt",
       "description": "Output log of mean computation",
-      "optional": true,
       "id": "output_log",
       "name": "Output Log"
     }

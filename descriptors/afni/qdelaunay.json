@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "qdelaunay",
   "author": "AFNI Developers",
-  "descriptor-url": "http://www.qhull.org",
   "description": "Compute the Delaunay triangulation using Qhull.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "qdelaunay [INPUT_FILE] [FURTHEST_SITE] [TRIANGULATED_OUTPUT] [JOGGLED_INPUT] [JOGGLE_RANGE] [SEARCH_SIMPLEX] [POINT_INFINITY] [DELAUNAY_VISIBLE] [DELAUNAY_REGIONS] [TRACE_LEVEL] [CHECK] [STATISTICS] [VERIFY] [OUTPUT_STDOUT] [FACETS_SUMMARY] [INPUT_FILE_OPTION] [OUTPUT_FILE_OPTION] [TRACE_POINT] [TRACE_MERGE] [TRACE_MERGE_WIDTH] [STOP_POINT] [STOP_CONE_POINT] [CENTRUM_RADIUS] [MAX_ANGLE_COSINE] [PERTURB_FACTOR] [MIN_FACET_WIDTH] [FACET_DUMP] [GEOMVIEW] [VERTICES_INCIDENT] [MATHEMATICA] [OFF_FORMAT] [POINT_COORDINATES] [SUMMARY]",
@@ -20,7 +19,6 @@
       "description": "Compute furthest-site Delaunay triangulation",
       "value-key": "[FURTHEST_SITE]",
       "type": "Flag",
-      "optional": true,
       "id": "furthest_site",
       "name": "Furthest-site Delaunay flag"
     },
@@ -29,7 +27,6 @@
       "description": "Triangulated output",
       "value-key": "[TRIANGULATED_OUTPUT]",
       "type": "Flag",
-      "optional": true,
       "id": "triangulated_output",
       "name": "Triangulated output flag"
     },
@@ -38,7 +35,6 @@
       "description": "Joggled input instead of merged facets",
       "value-key": "[JOGGLED_INPUT]",
       "type": "Flag",
-      "optional": true,
       "id": "joggled_input",
       "name": "Joggled input flag"
     },
@@ -57,7 +53,6 @@
       "description": "Search all points for the initial simplex",
       "value-key": "[SEARCH_SIMPLEX]",
       "type": "Flag",
-      "optional": true,
       "id": "search_simplex",
       "name": "Search simplex flag"
     },
@@ -66,7 +61,6 @@
       "description": "Add point-at-infinity to Delaunay triangulation",
       "value-key": "[POINT_INFINITY]",
       "type": "Flag",
-      "optional": true,
       "id": "point_infinity",
       "name": "Point-at-infinity flag"
     },
@@ -102,7 +96,6 @@
       "description": "Check frequently during execution",
       "value-key": "[CHECK]",
       "type": "Flag",
-      "optional": true,
       "id": "check",
       "name": "Check frequently flag"
     },
@@ -111,7 +104,6 @@
       "description": "Print statistics",
       "value-key": "[STATISTICS]",
       "type": "Flag",
-      "optional": true,
       "id": "statistics",
       "name": "Print statistics flag"
     },
@@ -120,7 +112,6 @@
       "description": "Verify result: structure, convexity, and in-circle test",
       "value-key": "[VERIFY]",
       "type": "Flag",
-      "optional": true,
       "id": "verify",
       "name": "Verify result flag"
     },
@@ -129,7 +120,6 @@
       "description": "Send all output to stdout",
       "value-key": "[OUTPUT_STDOUT]",
       "type": "Flag",
-      "optional": true,
       "id": "output_stdout",
       "name": "Output to stdout flag"
     },
@@ -246,7 +236,6 @@
       "description": "Facet dump",
       "value-key": "[FACET_DUMP]",
       "type": "Flag",
-      "optional": true,
       "id": "facet_dump",
       "name": "Facet dump flag"
     },
@@ -255,7 +244,6 @@
       "description": "Geomview output",
       "value-key": "[GEOMVIEW]",
       "type": "Flag",
-      "optional": true,
       "id": "geomview",
       "name": "Geomview flag"
     },
@@ -264,7 +252,6 @@
       "description": "Vertices incident to each Delaunay region",
       "value-key": "[VERTICES_INCIDENT]",
       "type": "Flag",
-      "optional": true,
       "id": "vertices_incident",
       "name": "Vertices incident flag"
     },
@@ -273,7 +260,6 @@
       "description": "Mathematica output (2-d only, lifted to a paraboloid)",
       "value-key": "[MATHEMATICA]",
       "type": "Flag",
-      "optional": true,
       "id": "mathematica",
       "name": "Mathematica flag"
     },
@@ -282,7 +268,6 @@
       "description": "OFF format (dim, points, and facets as a paraboloid)",
       "value-key": "[OFF_FORMAT]",
       "type": "Flag",
-      "optional": true,
       "id": "off_format",
       "name": "OFF format flag"
     },
@@ -291,7 +276,6 @@
       "description": "Point coordinates (lifted to a paraboloid)",
       "value-key": "[POINT_COORDINATES]",
       "type": "Flag",
-      "optional": true,
       "id": "point_coordinates",
       "name": "Point coordinates flag"
     },
@@ -300,7 +284,6 @@
       "description": "Summary (stderr)",
       "value-key": "[SUMMARY]",
       "type": "Flag",
-      "optional": true,
       "id": "summary",
       "name": "Summary flag"
     }

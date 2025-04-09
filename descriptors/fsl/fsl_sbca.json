@@ -51,7 +51,6 @@
       "description": "Perform time series regression rather than classification to targets",
       "value-key": "[REG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "reg_flag",
       "name": "Time Series Regression Flag"
     },
@@ -79,7 +78,6 @@
       "description": "Binarise spatial maps prior to calculation of time courses",
       "value-key": "[BINARISE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "binarise_flag",
       "name": "Binarise Spatial Maps Flag"
     },
@@ -88,7 +86,6 @@
       "description": "Use mean instead of Eigenvariates for calculation of time courses",
       "value-key": "[MEAN_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "mean_flag",
       "name": "Use Mean for Time Courses Flag"
     },
@@ -97,7 +94,6 @@
       "description": "Use maximum absolute value instead of maximum value of the cross-correlations",
       "value-key": "[ABS_CC_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "abs_cc_flag",
       "name": "Absolute Cross-Correlation Flag"
     },
@@ -115,7 +111,6 @@
       "description": "Output seed mask image as <basename>_seeds",
       "value-key": "[OUT_SEEDS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "out_seeds_flag",
       "name": "Output Seed Mask Image Flag"
     },
@@ -124,7 +119,6 @@
       "description": "Output seed mask image as <basename>_seedmask",
       "value-key": "[OUT_SEEDMASK_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "out_seedmask_flag",
       "name": "Output Seed Mask Image Flag"
     },
@@ -133,7 +127,6 @@
       "description": "Output target time courses as <basename>_ttc<X>.txt",
       "value-key": "[OUT_TTCS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "out_ttcs_flag",
       "name": "Output Target Time Courses Flag"
     },
@@ -142,7 +135,6 @@
       "description": "Output confound time courses as <basename>_confounds.txt",
       "value-key": "[OUT_CONF_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "out_conf_flag",
       "name": "Output Confound Time Courses Flag"
     },
@@ -151,7 +143,6 @@
       "description": "Switch on diagnostic messages",
       "value-key": "[VERBOSE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose_flag",
       "name": "Verbose Flag"
     },
@@ -160,7 +151,6 @@
       "description": "Display help text",
       "value-key": "[HELP_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "help_flag",
       "name": "Help Flag"
     }
@@ -198,28 +188,24 @@
     {
       "path-template": "[OUT]_seeds",
       "description": "Output seed mask image",
-      "optional": true,
       "id": "output_seed_mask_image",
       "name": "Output Seed Mask Image"
     },
     {
       "path-template": "[OUT]_seedmask",
       "description": "Output seed mask image",
-      "optional": true,
       "id": "output_seed_mask_image_base",
       "name": "Output Seed Mask Image Base"
     },
     {
       "path-template": "[OUT]_ttc<X>.txt",
       "description": "Output target time courses",
-      "optional": true,
       "id": "output_target_time_courses",
       "name": "Output Target Time Courses"
     },
     {
       "path-template": "[OUT]_confounds.txt",
       "description": "Output confound time courses",
-      "optional": true,
       "id": "output_confound_time_courses",
       "name": "Output Confound Time Courses"
     }

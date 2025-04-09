@@ -81,7 +81,6 @@
       "id": "auto",
       "name": "Auto Detection",
       "type": "Flag",
-      "optional": true,
       "value-key": "[AUTO]",
       "description": "Automatically detect class statistics (default)"
     },
@@ -90,7 +89,6 @@
       "id": "noauto",
       "name": "No Auto Detection",
       "type": "Flag",
-      "optional": true,
       "value-key": "[NOAUTO]",
       "description": "Don't automatically detect class statistics"
     },
@@ -99,7 +97,6 @@
       "id": "log",
       "name": "Log",
       "type": "Flag",
-      "optional": true,
       "value-key": "[LOG]",
       "description": "Log to ./segment.dat"
     },
@@ -108,7 +105,6 @@
       "id": "keep",
       "name": "Keep WM Edits",
       "type": "Flag",
-      "optional": true,
       "value-key": "[KEEP]",
       "description": "Keep wm edits, maintains all values of 1 and 255"
     },
@@ -166,7 +162,6 @@
       "id": "thicken",
       "name": "Thickening Step",
       "type": "Flag",
-      "optional": true,
       "value-key": "[THICKEN]",
       "description": "Toggle thickening step (default=ON)"
     },
@@ -175,7 +170,6 @@
       "id": "fillbg",
       "name": "Fill Basal Ganglia",
       "type": "Flag",
-      "optional": true,
       "value-key": "[FILLBG]",
       "description": "Toggle filling of the basal ganglia (default=OFF)"
     },
@@ -184,7 +178,6 @@
       "id": "fillv",
       "name": "Fill Ventricles",
       "type": "Flag",
-      "optional": true,
       "value-key": "[FILLV]",
       "description": "Toggle filling of the ventricles (default=OFF)"
     },
@@ -223,7 +216,6 @@
       "id": "verbose",
       "name": "Verbose",
       "type": "Flag",
-      "optional": true,
       "value-key": "[VERBOSE]",
       "description": "Verbose"
     },
@@ -317,7 +309,6 @@
       "id": "diag_write",
       "name": "Diagnostic Write",
       "type": "Flag",
-      "optional": true,
       "value-key": "[DIAG_WRITE]",
       "description": "Set diagnostic write"
     },
@@ -326,7 +317,6 @@
       "id": "diag_verbose",
       "name": "Diagnostic Verbose",
       "type": "Flag",
-      "optional": true,
       "value-key": "[DIAG_VERBOSE]",
       "description": "Set diagnostic verbose"
     }
@@ -335,14 +325,12 @@
     {
       "path-template": "[OUT_VOL]",
       "description": "Segmented white matter output volume",
-      "optional": false,
       "id": "output_volume",
       "name": "Output Volume"
     },
     {
       "path-template": "./segment.dat",
       "description": "Log file from segmentation process",
-      "optional": true,
       "id": "log_file",
       "name": "Log File"
     }

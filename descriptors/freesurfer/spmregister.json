@@ -47,7 +47,6 @@
       "description": "Use the middle frame of the mov volume as the template.",
       "value-key": "[MID_FRAME]",
       "type": "Flag",
-      "optional": true,
       "id": "mid_frame",
       "name": "Middle frame flag"
     },
@@ -74,7 +73,6 @@
       "description": "Force input geometry to be RAS.",
       "value-key": "[FORCE_RAS]",
       "type": "Flag",
-      "optional": true,
       "id": "force_ras",
       "name": "Force RAS flag"
     },
@@ -101,7 +99,6 @@
       "description": "Do not delete temporary files.",
       "value-key": "[NOCLEANUP]",
       "type": "Flag",
-      "optional": true,
       "id": "nocleanup",
       "name": "No cleanup flag"
     },
@@ -110,7 +107,6 @@
       "description": "Print version and exit.",
       "value-key": "[VERSION]",
       "type": "Flag",
-      "optional": true,
       "id": "version",
       "name": "Version flag"
     },
@@ -119,7 +115,6 @@
       "description": "Print help and exit.",
       "value-key": "[HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "help",
       "name": "Help flag"
     }
@@ -128,14 +123,12 @@
     {
       "path-template": "register.dat",
       "description": "Output registration file.",
-      "optional": false,
       "id": "registration_file",
       "name": "Registration file"
     },
     {
       "path-template": "[OUTVOL]",
       "description": "Resampled mov volume.",
-      "optional": true,
       "id": "resampled_mov",
       "name": "Resampled movable volume"
     }

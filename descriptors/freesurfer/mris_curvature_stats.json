@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "mris_curvature_stats",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "https://github.com/freesurfer/freesurfer/blob/dev/mri_tarball/mris_curvature_stats.c",
   "description": "Tool for calculating statistics on surface curvature values.",
   "command-line": "mris_curvature_stats [SUBJECT_NAME] [HEMISPHERE] [CURVATURE_FILES] [NUMBER_OF_AVERAGES] [PRINCIPAL_CURVATURES] [DISCRETE_METHOD] [CONTINUOUS_METHOD] [SIGNED_PRINCIPALS] [VERTEX_AREA_WEIGH] [VERTEX_AREA_NORMALIZE] [VERTEX_AREA_WEIGH_FRAC] [VERTEX_AREA_NORMALIZE_FRAC] [POST_SCALE] [WRITE_CURVATURE_FILES] [SHAPE_INDEX] [OUTPUT_FILE_STEM] [HISTOGRAM_BINS] [PERCENTAGE_HISTOGRAM_BINS] [BIN_SIZE] [BIN_START_CURVATURE] [BIN_END_CURVATURE] [LABEL_FILE] [REGIONAL_PERCENTAGES] [HIGH_PASS_FILTER] [LOW_PASS_FILTER] [HIGH_PASS_FILTER_GAUSSIAN] [LOW_PASS_FILTER_GAUSSIAN] [FILTER_LABEL] [MIN_MAX_INFO] [NORMALIZE_CURVATURE] [SUMMARY_CONDITION] [MIN_CURVATURE_SCALE] [MAX_CURVATURE_SCALE] [SCALE_FACTOR] [VERSION] [SET_ZERO_VERTEX] [MAX_ULPS]",
   "container-image": {
@@ -49,7 +48,6 @@
       "command-line-flag": "-G",
       "description": "Calculate principal curvatures and derived maps.",
       "type": "Flag",
-      "optional": true,
       "id": "principal_curvatures",
       "name": "Principal Curvatures Flag",
       "value-key": "[PRINCIPAL_CURVATURES]"
@@ -58,7 +56,6 @@
       "command-line-flag": "--discrete",
       "description": "Use discrete calculation method for principal curvatures.",
       "type": "Flag",
-      "optional": true,
       "id": "discrete_method",
       "name": "Discrete Method Flag",
       "value-key": "[DISCRETE_METHOD]"
@@ -67,7 +64,6 @@
       "command-line-flag": "--continuous",
       "description": "Use continuous calculation method for principal curvatures.",
       "type": "Flag",
-      "optional": true,
       "id": "continuous_method",
       "name": "Continuous Method Flag",
       "value-key": "[CONTINUOUS_METHOD]"
@@ -76,7 +72,6 @@
       "command-line-flag": "--signedPrincipals",
       "description": "Assign signed max and min to principal curvature K1 and K2.",
       "type": "Flag",
-      "optional": true,
       "id": "signed_principals",
       "name": "Signed Principals Flag",
       "value-key": "[SIGNED_PRINCIPALS]"
@@ -85,7 +80,6 @@
       "command-line-flag": "--vertexAreaWeigh",
       "description": "Multiply curvature value by the area of its vertex.",
       "type": "Flag",
-      "optional": true,
       "id": "vertex_area_weigh",
       "name": "Vertex Area Weigh Flag",
       "value-key": "[VERTEX_AREA_WEIGH]"
@@ -94,7 +88,6 @@
       "command-line-flag": "--vertexAreaNormalize",
       "description": "Divide curvature value by the area of its vertex.",
       "type": "Flag",
-      "optional": true,
       "id": "vertex_area_normalize",
       "name": "Vertex Area Normalize Flag",
       "value-key": "[VERTEX_AREA_NORMALIZE]"
@@ -103,7 +96,6 @@
       "command-line-flag": "--vertexAreaWeighFrac",
       "description": "Weigh curvature by the fractional vertex area.",
       "type": "Flag",
-      "optional": true,
       "id": "vertex_area_weigh_frac",
       "name": "Vertex Area Weigh Fractional Flag",
       "value-key": "[VERTEX_AREA_WEIGH_FRAC]"
@@ -112,7 +104,6 @@
       "command-line-flag": "--vertexAreaNormalizeFrac",
       "description": "Normalize curvature by the fractional vertex area.",
       "type": "Flag",
-      "optional": true,
       "id": "vertex_area_normalize_frac",
       "name": "Vertex Area Normalize Fractional Flag",
       "value-key": "[VERTEX_AREA_NORMALIZE_FRAC]"
@@ -130,7 +121,6 @@
       "command-line-flag": "--writeCurvatureFiles",
       "description": "Write the calculated curvature values to files in FreeSurfer format.",
       "type": "Flag",
-      "optional": true,
       "id": "write_curvature_files",
       "name": "Write Curvature Files Flag",
       "value-key": "[WRITE_CURVATURE_FILES]"
@@ -139,7 +129,6 @@
       "command-line-flag": "--shapeIndex",
       "description": "Calculate shape index despite potential atan issues.",
       "type": "Flag",
-      "optional": true,
       "id": "shape_index",
       "name": "Shape Index Flag",
       "value-key": "[SHAPE_INDEX]"
@@ -211,7 +200,6 @@
       "command-line-flag": "--regionalPercentages",
       "description": "Report integral percentages relative to the region.",
       "type": "Flag",
-      "optional": true,
       "id": "regional_percentages",
       "name": "Regional Percentages Flag",
       "value-key": "[REGIONAL_PERCENTAGES]"
@@ -265,7 +253,6 @@
       "command-line-flag": "-m",
       "description": "Output min/max information for the processed curvature.",
       "type": "Flag",
-      "optional": true,
       "id": "min_max_info",
       "name": "Min/Max Info Flag",
       "value-key": "[MIN_MAX_INFO]"
@@ -274,7 +261,6 @@
       "command-line-flag": "-n",
       "description": "Normalize the curvature before computation.",
       "type": "Flag",
-      "optional": true,
       "id": "normalize_curvature",
       "name": "Normalize Curvature Flag",
       "value-key": "[NORMALIZE_CURVATURE]"
@@ -319,7 +305,6 @@
       "command-line-flag": "-version",
       "description": "Print out version number.",
       "type": "Flag",
-      "optional": true,
       "id": "version",
       "name": "Version Flag",
       "value-key": "[VERSION]"

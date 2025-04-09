@@ -83,7 +83,6 @@
       "description": "Do not delete the intermediate files (for testing).",
       "value-key": "[KEEP_TEMP_FILES]",
       "type": "Flag",
-      "optional": true,
       "id": "keep_temp_files",
       "name": "Keep Temporary Files"
     },
@@ -101,63 +100,54 @@
     {
       "path-template": "erosion_depth.nii.gz",
       "description": "Depth dataset.",
-      "optional": true,
       "id": "erosion_depth",
       "name": "Erosion Depth Dataset"
     },
     {
       "path-template": "erosion_thick.nii.gz",
       "description": "Volumetric thickness dataset.",
-      "optional": true,
       "id": "erosion_thick",
       "name": "Volumetric Thickness Dataset"
     },
     {
       "path-template": "erosion_thick_smooth.nii.gz",
       "description": "Smoothed volumetric thickness dataset.",
-      "optional": true,
       "id": "erosion_thick_smooth",
       "name": "Smoothed Volumetric Thickness Dataset"
     },
     {
       "path-template": "erosion_thick.niml.dset",
       "description": "Unsmoothed thickness mapped to surface nodes.",
-      "optional": true,
       "id": "erosion_thick_niml",
       "name": "Unsmoothed Thickness Surface Nodes"
     },
     {
       "path-template": "erosion_thick_smooth_nn_mm.niml.dset",
       "description": "Smoothed thickness mapped to surface nodes.",
-      "optional": true,
       "id": "erosion_thick_smooth_niml",
       "name": "Smoothed Thickness Surface Nodes"
     },
     {
       "path-template": "maskset.nii.gz",
       "description": "Mask dataset.",
-      "optional": true,
       "id": "maskset_output",
       "name": "Mask Dataset"
     },
     {
       "path-template": "maskset_rs.nii.gz",
       "description": "Resampled mask dataset.",
-      "optional": true,
       "id": "resampled_maskset",
       "name": "Resampled Mask Dataset"
     },
     {
       "path-template": "anat.gii",
       "description": "Surface representation of mask volume.",
-      "optional": true,
       "id": "anat_gii",
       "name": "Anatomical Surface Representation"
     },
     {
       "path-template": "quick.spec",
       "description": "Simple specification file for surface to use with suma commands.",
-      "optional": true,
       "id": "quick_spec",
       "name": "Quick Specification File"
     }

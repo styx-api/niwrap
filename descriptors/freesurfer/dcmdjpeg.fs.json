@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "dcmdjpeg.fs",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "https://github.com/aces/cbrain-plugins-neuro/blob/master/cbrain_task_descriptors/dcmdjpeg.json",
   "description": "A tool to decode JPEG-compressed DICOM files.",
   "command-line": "dcmdjpeg.fs [INPUT_FILE] [OUTPUT_FILE] [HELP] [VERSION] [ARGUMENTS] [QUIET] [VERBOSE] [DEBUG] [LOG_LEVEL] [LOG_CONFIG] [READ_FILE] [READ_FILE_ONLY] [READ_DATASET] [CONV_PHOTOMETRIC] [CONV_LOSSY] [CONV_GUESS] [CONV_GUESS_LOSSY] [CONV_ALWAYS] [CONV_NEVER] [PLANAR_AUTO] [COLOR_BY_PIXEL] [COLOR_BY_PLANE] [UID_DEFAULT] [UID_ALWAYS] [WORKAROUND_PRED6] [WORKAROUND_INCPL] [WRITE_FILE] [WRITE_DATASET] [WRITE_XFER_LITTLE] [WRITE_XFER_BIG] [WRITE_XFER_IMPLICIT] [ENABLE_NEW_VR] [DISABLE_NEW_VR] [GROUP_LENGTH_RECALC] [GROUP_LENGTH_CREATE] [GROUP_LENGTH_REMOVE] [LENGTH_EXPLICIT] [LENGTH_UNDEFINED] [PADDING_RETAIN] [PADDING_OFF] [PADDING_CREATE]",
   "container-image": {
@@ -32,7 +31,6 @@
       "description": "Print this help text and exit",
       "value-key": "[HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "help",
       "name": "Help Flag"
     },
@@ -41,7 +39,6 @@
       "description": "Print version information and exit",
       "value-key": "[VERSION]",
       "type": "Flag",
-      "optional": true,
       "id": "version",
       "name": "Version Flag"
     },
@@ -50,7 +47,6 @@
       "description": "Print expanded command line arguments",
       "value-key": "[ARGUMENTS]",
       "type": "Flag",
-      "optional": true,
       "id": "arguments",
       "name": "Arguments Flag"
     },
@@ -59,7 +55,6 @@
       "description": "Quiet mode, print no warnings and errors",
       "value-key": "[QUIET]",
       "type": "Flag",
-      "optional": true,
       "id": "quiet",
       "name": "Quiet Flag"
     },
@@ -68,7 +63,6 @@
       "description": "Verbose mode, print processing details",
       "value-key": "[VERBOSE]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose",
       "name": "Verbose Flag"
     },
@@ -77,7 +71,6 @@
       "description": "Debug mode, print debug information",
       "value-key": "[DEBUG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug",
       "name": "Debug Flag"
     },
@@ -104,7 +97,6 @@
       "description": "Read file format or data set (default)",
       "value-key": "[READ_FILE]",
       "type": "Flag",
-      "optional": true,
       "id": "read_file",
       "name": "Read File Flag"
     },
@@ -113,7 +105,6 @@
       "description": "Read file format only",
       "value-key": "[READ_FILE_ONLY]",
       "type": "Flag",
-      "optional": true,
       "id": "read_file_only",
       "name": "Read File Only Flag"
     },
@@ -122,7 +113,6 @@
       "description": "Read data set without file meta information",
       "value-key": "[READ_DATASET]",
       "type": "Flag",
-      "optional": true,
       "id": "read_dataset",
       "name": "Read Dataset Flag"
     },
@@ -131,7 +121,6 @@
       "description": "Convert if YCbCr photometric interpretation (default)",
       "value-key": "[CONV_PHOTOMETRIC]",
       "type": "Flag",
-      "optional": true,
       "id": "conv_photometric",
       "name": "Conv Photometric Flag"
     },
@@ -140,7 +129,6 @@
       "description": "Convert YCbCr to RGB if lossy JPEG",
       "value-key": "[CONV_LOSSY]",
       "type": "Flag",
-      "optional": true,
       "id": "conv_lossy",
       "name": "Conv Lossy Flag"
     },
@@ -149,7 +137,6 @@
       "description": "Convert to RGB if YCbCr is guessed by library",
       "value-key": "[CONV_GUESS]",
       "type": "Flag",
-      "optional": true,
       "id": "conv_guess",
       "name": "Conv Guess Flag"
     },
@@ -158,7 +145,6 @@
       "description": "Convert to RGB if lossy JPEG and YCbCr is guessed",
       "value-key": "[CONV_GUESS_LOSSY]",
       "type": "Flag",
-      "optional": true,
       "id": "conv_guess_lossy",
       "name": "Conv Guess Lossy Flag"
     },
@@ -167,7 +153,6 @@
       "description": "Always convert YCbCr to RGB",
       "value-key": "[CONV_ALWAYS]",
       "type": "Flag",
-      "optional": true,
       "id": "conv_always",
       "name": "Conv Always Flag"
     },
@@ -176,7 +161,6 @@
       "description": "Never convert color space",
       "value-key": "[CONV_NEVER]",
       "type": "Flag",
-      "optional": true,
       "id": "conv_never",
       "name": "Conv Never Flag"
     },
@@ -185,7 +169,6 @@
       "description": "Automatically determine planar configuration from SOP class and color space (default)",
       "value-key": "[PLANAR_AUTO]",
       "type": "Flag",
-      "optional": true,
       "id": "planar_auto",
       "name": "Planar Auto Flag"
     },
@@ -194,7 +177,6 @@
       "description": "Always store color-by-pixel",
       "value-key": "[COLOR_BY_PIXEL]",
       "type": "Flag",
-      "optional": true,
       "id": "color_by_pixel",
       "name": "Color by Pixel Flag"
     },
@@ -203,7 +185,6 @@
       "description": "Always store color-by-plane",
       "value-key": "[COLOR_BY_PLANE]",
       "type": "Flag",
-      "optional": true,
       "id": "color_by_plane",
       "name": "Color by Plane Flag"
     },
@@ -212,7 +193,6 @@
       "description": "Keep same SOP Instance UID (default)",
       "value-key": "[UID_DEFAULT]",
       "type": "Flag",
-      "optional": true,
       "id": "uid_default",
       "name": "UID Default Flag"
     },
@@ -221,7 +201,6 @@
       "description": "Always assign new UID",
       "value-key": "[UID_ALWAYS]",
       "type": "Flag",
-      "optional": true,
       "id": "uid_always",
       "name": "UID Always Flag"
     },
@@ -230,7 +209,6 @@
       "description": "Enable workaround for JPEG lossless images with overflow in predictor 6",
       "value-key": "[WORKAROUND_PRED6]",
       "type": "Flag",
-      "optional": true,
       "id": "workaround_pred6",
       "name": "Workaround Pred6 Flag"
     },
@@ -239,7 +217,6 @@
       "description": "Enable workaround for incomplete JPEG data",
       "value-key": "[WORKAROUND_INCPL]",
       "type": "Flag",
-      "optional": true,
       "id": "workaround_incpl",
       "name": "Workaround Incomplete JPEG Data Flag"
     },
@@ -248,7 +225,6 @@
       "description": "Write file format (default)",
       "value-key": "[WRITE_FILE]",
       "type": "Flag",
-      "optional": true,
       "id": "write_file",
       "name": "Write File Flag"
     },
@@ -257,7 +233,6 @@
       "description": "Write data set without file meta information",
       "value-key": "[WRITE_DATASET]",
       "type": "Flag",
-      "optional": true,
       "id": "write_dataset",
       "name": "Write Dataset Flag"
     },
@@ -266,7 +241,6 @@
       "description": "Write with explicit VR little endian (default)",
       "value-key": "[WRITE_XFER_LITTLE]",
       "type": "Flag",
-      "optional": true,
       "id": "write_xfer_little",
       "name": "Write Xfer Little Flag"
     },
@@ -275,7 +249,6 @@
       "description": "Write with explicit VR big endian TS",
       "value-key": "[WRITE_XFER_BIG]",
       "type": "Flag",
-      "optional": true,
       "id": "write_xfer_big",
       "name": "Write Xfer Big Flag"
     },
@@ -284,7 +257,6 @@
       "description": "Write with implicit VR little endian TS",
       "value-key": "[WRITE_XFER_IMPLICIT]",
       "type": "Flag",
-      "optional": true,
       "id": "write_xfer_implicit",
       "name": "Write Xfer Implicit Flag"
     },
@@ -293,7 +265,6 @@
       "description": "Enable support for new VRs (UN/UT) (default)",
       "value-key": "[ENABLE_NEW_VR]",
       "type": "Flag",
-      "optional": true,
       "id": "enable_new_vr",
       "name": "Enable New VR Flag"
     },
@@ -302,7 +273,6 @@
       "description": "Disable support for new VRs, convert to OB",
       "value-key": "[DISABLE_NEW_VR]",
       "type": "Flag",
-      "optional": true,
       "id": "disable_new_vr",
       "name": "Disable New VR Flag"
     },
@@ -311,7 +281,6 @@
       "description": "Recalculate group lengths if present (default)",
       "value-key": "[GROUP_LENGTH_RECALC]",
       "type": "Flag",
-      "optional": true,
       "id": "group_length_recalc",
       "name": "Group Length Recalc Flag"
     },
@@ -320,7 +289,6 @@
       "description": "Always write with group length elements",
       "value-key": "[GROUP_LENGTH_CREATE]",
       "type": "Flag",
-      "optional": true,
       "id": "group_length_create",
       "name": "Group Length Create Flag"
     },
@@ -329,7 +297,6 @@
       "description": "Always write without group length elements",
       "value-key": "[GROUP_LENGTH_REMOVE]",
       "type": "Flag",
-      "optional": true,
       "id": "group_length_remove",
       "name": "Group Length Remove Flag"
     },
@@ -338,7 +305,6 @@
       "description": "Write with explicit lengths (default)",
       "value-key": "[LENGTH_EXPLICIT]",
       "type": "Flag",
-      "optional": true,
       "id": "length_explicit",
       "name": "Length Explicit Flag"
     },
@@ -347,7 +313,6 @@
       "description": "Write with undefined lengths",
       "value-key": "[LENGTH_UNDEFINED]",
       "type": "Flag",
-      "optional": true,
       "id": "length_undefined",
       "name": "Length Undefined Flag"
     },
@@ -356,7 +321,6 @@
       "description": "Do not change padding (default if not --write-dataset)",
       "value-key": "[PADDING_RETAIN]",
       "type": "Flag",
-      "optional": true,
       "id": "padding_retain",
       "name": "Padding Retain Flag"
     },
@@ -365,7 +329,6 @@
       "description": "No padding (implicit if --write-dataset)",
       "value-key": "[PADDING_OFF]",
       "type": "Flag",
-      "optional": true,
       "id": "padding_off",
       "name": "Padding Off Flag"
     },
@@ -386,7 +349,6 @@
     {
       "path-template": "[OUTPUT_FILE]",
       "description": "DICOM output file",
-      "optional": false,
       "id": "output_file",
       "name": "Output File"
     }

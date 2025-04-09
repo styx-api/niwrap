@@ -65,7 +65,6 @@
       "description": "Use jacobian correction",
       "value-key": "[JACOBIAN]",
       "type": "Flag",
-      "optional": true,
       "id": "jacobian",
       "name": "Jacobian Correction Flag"
     },
@@ -74,7 +73,6 @@
       "description": "Do not do reverse mapping",
       "value-key": "[NO_REVERSE]",
       "type": "Flag",
-      "optional": true,
       "id": "no_reverse",
       "name": "No Reverse Mapping Flag"
     },
@@ -83,7 +81,6 @@
       "description": "Replace input with white Gaussian noise",
       "value-key": "[RAND_NOISE]",
       "type": "Flag",
-      "optional": true,
       "id": "rand_noise",
       "name": "Random Noise Flag"
     },
@@ -92,7 +89,6 @@
       "description": "Replace input with ones",
       "value-key": "[REPLACE_ONES]",
       "type": "Flag",
-      "optional": true,
       "id": "replace_ones",
       "name": "Replace with Ones Flag"
     },
@@ -101,7 +97,6 @@
       "description": "Place the center of the output surface at (0,0,0)",
       "value-key": "[CENTER_OUTPUT]",
       "type": "Flag",
-      "optional": true,
       "id": "center_output",
       "name": "Center Output Flag"
     },
@@ -110,7 +105,6 @@
       "description": "Save output in curvature file format",
       "value-key": "[CURV_FORMAT]",
       "type": "Flag",
-      "optional": true,
       "id": "curv_format",
       "name": "Curvature Format Flag"
     },
@@ -200,7 +194,6 @@
       "description": "Turn on debugging",
       "value-key": "[DEBUG_MODE]",
       "type": "Flag",
-      "optional": true,
       "id": "debug_mode",
       "name": "Debug Mode Flag"
     },
@@ -209,7 +202,6 @@
       "description": "Check options without executing anything",
       "value-key": "[CHECK_OPTIONS]",
       "type": "Flag",
-      "optional": true,
       "id": "check_options",
       "name": "Check Options Flag"
     }
@@ -218,7 +210,6 @@
     {
       "path-template": "[TRG_OUTPUT]",
       "description": "The output file resulting from registration",
-      "optional": false,
       "id": "output_result",
       "name": "Registered Output File"
     }

@@ -50,7 +50,6 @@
       "description": "Make the ROI list as the union of elements across the group.",
       "value-key": "[UNIONIZE_ROIS]",
       "type": "Flag",
-      "optional": true,
       "id": "unionize_rois",
       "name": "Unionize ROIs"
     },
@@ -59,7 +58,6 @@
       "description": "Turn off the automatic warnings as the data table is created.",
       "value-key": "[NA_WARN_OFF]",
       "type": "Flag",
-      "optional": true,
       "id": "na_warn_off",
       "name": "NA Warnings Off"
     },
@@ -68,7 +66,6 @@
       "description": "Turn off the writing/usage of user-defined labels in the *.grid/*.netcc files.",
       "value-key": "[EXTERN_LABELS_NO]",
       "type": "Flag",
-      "optional": true,
       "id": "extern_labels_no",
       "name": "Disable External Labels"
     }
@@ -78,14 +75,12 @@
     {
       "path-template": "[PREFIX]_MVMtbl.txt",
       "description": "Output tabular text file for 3dMVM.",
-      "optional": false,
       "id": "mvmtbl",
       "name": "Output MVM Table"
     },
     {
       "path-template": "[PREFIX]_MVMprep.log",
       "description": "Log file detailing subject matching and ROI list.",
-      "optional": true,
       "id": "mvmprep_log",
       "name": "Output MVM Prep Log"
     }

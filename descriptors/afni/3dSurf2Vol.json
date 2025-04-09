@@ -158,7 +158,6 @@
       "description": "Stop when a zero gap has been hit",
       "value-key": "[STOP_GAP]",
       "type": "Flag",
-      "optional": true,
       "id": "stop_gap",
       "name": "Stop gap flag",
       "command-line-flag": "-stop_gap"
@@ -224,7 +223,6 @@
       "description": "No scale factor in output dataset",
       "value-key": "[NOSCALE]",
       "type": "Flag",
-      "optional": true,
       "id": "noscale",
       "name": "No Scale Flag",
       "command-line-flag": "-noscale"
@@ -233,7 +231,6 @@
       "description": "Assume grid parent orientation for surface xyz",
       "value-key": "[SXYZ_ORIENT_AS_GPAR]",
       "type": "Flag",
-      "optional": true,
       "id": "sxyz_orient_as_gpar",
       "name": "Surface XYZ orientation flag",
       "command-line-flag": "-sxyz_orient_as_gpar"
@@ -244,7 +241,6 @@
     {
       "path-template": "[PREFIX]+*[gz]",
       "description": "Output dataset",
-      "optional": false,
       "id": "output_file",
       "name": "Output dataset"
     }

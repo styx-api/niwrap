@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "@GetAfniOrient",
   "author": "AFNI Developers",
-  "descriptor-url": "https://afni.nimh.nih.gov/",
   "description": "Returns the orient code of AFNI datasets",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "@GetAfniOrient [EXPLORATORY] [INFILE]",
@@ -24,7 +23,6 @@
       "description": "Exploratory flag for additional functionalities",
       "value-key": "[EXPLORATORY]",
       "type": "Flag",
-      "optional": true,
       "id": "exploratory",
       "name": "Exploratory flag"
     }
@@ -34,7 +32,6 @@
     {
       "path-template": "[INFILE]_orient_code.txt",
       "description": "File containing the orientation code",
-      "optional": true,
       "id": "output_orient_code",
       "name": "Orientation Code File"
     }

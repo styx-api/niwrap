@@ -14,7 +14,6 @@
       "description": "Install AFNI related R packages.",
       "value-key": "[AFNI]",
       "type": "Flag",
-      "optional": true,
       "id": "afni",
       "name": "AFNI Packages"
     },
@@ -23,7 +22,6 @@
       "description": "Install AFNI related shiny app packages.",
       "value-key": "[SHINY]",
       "type": "Flag",
-      "optional": true,
       "id": "shiny",
       "name": "Shiny App Packages"
     },
@@ -32,7 +30,6 @@
       "description": "Install R packages for bayes_view.",
       "value-key": "[BAYES_VIEW]",
       "type": "Flag",
-      "optional": true,
       "id": "bayes_view",
       "name": "bayes_view Packages"
     },
@@ -41,7 +38,6 @@
       "description": "Install OmicCircos for FATCAT_matplot.",
       "value-key": "[CIRCOS]",
       "type": "Flag",
-      "optional": true,
       "id": "circos",
       "name": "CIRCOS Packages"
     },
@@ -68,7 +64,6 @@
       "description": "Show help message.",
       "value-key": "[HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "help",
       "name": "Help Flag"
     }
@@ -78,7 +73,6 @@
     {
       "path-template": "R_packages_installed.txt",
       "description": "A log file listing all installed R packages.",
-      "optional": true,
       "id": "install_log",
       "name": "Installation Log"
     }

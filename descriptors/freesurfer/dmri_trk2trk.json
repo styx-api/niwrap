@@ -119,7 +119,6 @@
       "description": "Apply inverse of registration (default: no)",
       "value-key": "[INV_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "inv_flag",
       "name": "Inverse registration flag"
     },
@@ -128,7 +127,6 @@
       "description": "Fill gaps b/w mapped points by linear interpolation",
       "value-key": "[FILL_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "fill_flag",
       "name": "Fill gaps flag"
     },
@@ -205,7 +203,6 @@
       "description": "Only save the mean of the streamlines (Default: save all)",
       "value-key": "[MEAN_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "mean_flag",
       "name": "Save mean streamline flag"
     },
@@ -214,7 +211,6 @@
       "description": "Only save the streamline nearest to the mean (Default: save all)",
       "value-key": "[NEARMEAN_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "nearmean_flag",
       "name": "Save nearest to mean streamline flag"
     },
@@ -241,7 +237,6 @@
       "description": "Smooth streamlines (default: no)",
       "value-key": "[SMOOTH_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "smooth_flag",
       "name": "Smooth streamlines flag"
     },
@@ -250,7 +245,6 @@
       "description": "Turn on debugging",
       "value-key": "[DEBUG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug_flag",
       "name": "Debug flag"
     },
@@ -259,7 +253,6 @@
       "description": "Don't run anything, just check options and exit",
       "value-key": "[CHECK_OPTS]",
       "type": "Flag",
-      "optional": true,
       "id": "check_opts",
       "name": "Check options flag"
     }
@@ -268,21 +261,18 @@
     {
       "path-template": "[OUT_TRK]",
       "description": "Transformed output .trk file",
-      "optional": false,
       "id": "out_trk_file",
       "name": "Output TRK file"
     },
     {
       "path-template": "[OUT_ASC]",
       "description": "Transformed output ASCII text file",
-      "optional": true,
       "id": "out_asc_file",
       "name": "Output ASCII file"
     },
     {
       "path-template": "[OUT_VOL]",
       "description": "Transformed output volume",
-      "optional": true,
       "id": "out_vol_file",
       "name": "Output volume file"
     }

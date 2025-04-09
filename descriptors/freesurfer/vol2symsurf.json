@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "vol2symsurf",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "https://github.com/freesurfer/freesurfer/blob/dev/matlab/fileformats.md",
   "description": "A tool that samples a volume onto the surface of the left-right symmetric subject (fsaverage_sym).",
   "command-line": "vol2symsurf [REGISTRATION_FILE] [INPUT_VOLUME] [FWHM] [OUTPUT_STEM] [REGHEADER] [PROJECTION_FRACTION] [NO_DIFF] [LATERALITY_INDEX]",
   "container-image": {
@@ -72,7 +71,6 @@
       "description": "Do not compute left-right hemisphere difference",
       "value-key": "[NO_DIFF]",
       "type": "Flag",
-      "optional": true,
       "id": "no_diff",
       "name": "No LH-RH Difference Flag"
     },
@@ -81,7 +79,6 @@
       "description": "Compute laterality index instead of simple difference",
       "value-key": "[LATERALITY_INDEX]",
       "type": "Flag",
-      "optional": true,
       "id": "laterality_index",
       "name": "Laterality Index Flag"
     }
@@ -90,28 +87,24 @@
     {
       "path-template": "[OUTPUT_STEM].lh.nii",
       "description": "Output for left hemisphere",
-      "optional": true,
       "id": "output_lh",
       "name": "Output Left Hemisphere File"
     },
     {
       "path-template": "[OUTPUT_STEM].rh.nii",
       "description": "Output for right hemisphere",
-      "optional": true,
       "id": "output_rh",
       "name": "Output Right Hemisphere File"
     },
     {
       "path-template": "[OUTPUT_STEM].lh-rh.nii",
       "description": "Output for left-right hemisphere difference",
-      "optional": true,
       "id": "output_lh_rh_difference",
       "name": "Output LH-RH Difference File"
     },
     {
       "path-template": "[OUTPUT_STEM].li.lh-rh.nii",
       "description": "Output for laterality index",
-      "optional": true,
       "id": "output_li_difference",
       "name": "Output Laterality Index File"
     }

@@ -19,7 +19,6 @@
       "description": "Output will be on self instead of fsaverage.",
       "value-key": "[SELF]",
       "type": "Flag",
-      "optional": true,
       "id": "self",
       "name": "Self Output Flag"
     },
@@ -28,7 +27,6 @@
       "description": "Force overwriting of existing results.",
       "value-key": "[OVERWRITE]",
       "type": "Flag",
-      "optional": true,
       "id": "overwrite",
       "name": "Overwrite Flag"
     },
@@ -46,7 +44,6 @@
       "description": "Clean up temporary files.",
       "value-key": "[CLEANUP]",
       "type": "Flag",
-      "optional": true,
       "id": "cleanup",
       "name": "Cleanup Flag"
     },
@@ -55,7 +52,6 @@
       "description": "Do not clean up temporary files.",
       "value-key": "[NO_CLEANUP]",
       "type": "Flag",
-      "optional": true,
       "id": "no_cleanup",
       "name": "No Cleanup Flag"
     },
@@ -64,7 +60,6 @@
       "description": "Enable debug mode.",
       "value-key": "[DEBUG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug",
       "name": "Debug Flag"
     },
@@ -73,7 +68,6 @@
       "description": "Perform operation only on the left hemisphere.",
       "value-key": "[LEFT_HEMISPHERE]",
       "type": "Flag",
-      "optional": true,
       "id": "left_hemisphere",
       "name": "Left Hemisphere Flag"
     },
@@ -82,7 +76,6 @@
       "description": "Perform operation only on the right hemisphere.",
       "value-key": "[RIGHT_HEMISPHERE]",
       "type": "Flag",
-      "optional": true,
       "id": "right_hemisphere",
       "name": "Right Hemisphere Flag"
     },
@@ -91,7 +84,6 @@
       "description": "Do not compute surfaces, only statistics.",
       "value-key": "[NO_SURFS]",
       "type": "Flag",
-      "optional": true,
       "id": "no_surfs",
       "name": "No Surfaces Flag"
     }
@@ -100,42 +92,36 @@
     {
       "path-template": "[SUBJECT]/surf/lh.bmerase.fsa.mgh",
       "description": "Binary mask of erased surface locations for the left hemisphere in fsaverage space.",
-      "optional": true,
       "id": "lh_bmerase",
       "name": "Left Hemisphere Erase Mask"
     },
     {
       "path-template": "[SUBJECT]/surf/rh.bmerase.fsa.mgh",
       "description": "Binary mask of erased surface locations for the right hemisphere in fsaverage space.",
-      "optional": true,
       "id": "rh_bmerase",
       "name": "Right Hemisphere Erase Mask"
     },
     {
       "path-template": "[SUBJECT]/surf/lh.bmclone.fsa.mgh",
       "description": "Binary mask of cloned surface locations for the left hemisphere in fsaverage space.",
-      "optional": true,
       "id": "lh_bmclone",
       "name": "Left Hemisphere Clone Mask"
     },
     {
       "path-template": "[SUBJECT]/surf/rh.bmclone.fsa.mgh",
       "description": "Binary mask of cloned surface locations for the right hemisphere in fsaverage space.",
-      "optional": true,
       "id": "rh_bmclone",
       "name": "Right Hemisphere Clone Mask"
     },
     {
       "path-template": "[SUBJECT]/stats/bmclone.dat",
       "description": "Statistics about the number of voxels cloned.",
-      "optional": true,
       "id": "bmclone_stats",
       "name": "Clone Stats File"
     },
     {
       "path-template": "[SUBJECT]/stats/bmerase.dat",
       "description": "Statistics about the number of voxels erased.",
-      "optional": true,
       "id": "bmerase_stats",
       "name": "Erase Stats File"
     }

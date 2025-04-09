@@ -47,8 +47,7 @@
       "type": "Flag",
       "value-key": "[NO_CENTER]",
       "command-line-flag": "-no_center",
-      "description": "Disable centering on the x variables. Maybe useful if you centered manually.",
-      "optional": true
+      "description": "Disable centering on the x variables. Maybe useful if you centered manually."
     },
     {
       "id": "iterations",
@@ -83,8 +82,7 @@
       "type": "Flag",
       "value-key": "[PLOT]",
       "command-line-flag": "-plot",
-      "description": "Output box, fit, and posterior prediction plots.",
-      "optional": true
+      "description": "Output box, fit, and posterior prediction plots."
     },
     {
       "id": "more_plots",
@@ -102,8 +100,7 @@
       "type": "Flag",
       "value-key": "[RDATA]",
       "command-line-flag": "-RData",
-      "description": "Save the R session workspace and data.",
-      "optional": true
+      "description": "Save the R session workspace and data."
     },
     {
       "id": "seed",
@@ -120,8 +117,7 @@
       "type": "Flag",
       "value-key": "[OVERWRITE]",
       "command-line-flag": "-overwrite",
-      "description": "Overwrites the output files.",
-      "optional": true
+      "description": "Overwrites the output files."
     },
     {
       "id": "help",
@@ -129,8 +125,7 @@
       "type": "Flag",
       "value-key": "[HELP]",
       "command-line-flag": "-help",
-      "description": "Show help message and exit.",
-      "optional": true
+      "description": "Show help message and exit."
     }
   ],
   "output-files": [
@@ -138,29 +133,25 @@
       "id": "summary",
       "name": "Summary",
       "path-template": "[PREFIX]_summary.txt",
-      "description": "Summary of the brmsfit object from R.",
-      "optional": true
+      "description": "Summary of the brmsfit object from R."
     },
     {
       "id": "rhats",
       "name": "Rhats",
       "path-template": "[PREFIX]_rhats.csv",
-      "description": "Rhats for each effect and x variable combination.",
-      "optional": true
+      "description": "Rhats for each effect and x variable combination."
     },
     {
       "id": "intercept_table",
       "name": "Intercept Table",
       "path-template": "[PREFIX]_Intercept_table.csv",
-      "description": "Table with the MedianEst, StdDev, 2.50%, 5%, 50%, 95%, and 97.50% of each ROI for the Intercept term.",
-      "optional": true
+      "description": "Table with the MedianEst, StdDev, 2.50%, 5%, 50%, 95%, and 97.50% of each ROI for the Intercept term."
     },
     {
       "id": "x_var_table",
       "name": "X Variable Table",
       "path-template": "[PREFIX]_table.csv",
-      "description": "The same table as the Intercept but for the specified x variable.",
-      "optional": true
+      "description": "The same table as the Intercept but for the specified x variable."
     }
   ],
   "schema-version": "0.5",

@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "3dReHo",
   "author": "AFNI Developers",
-  "descriptor-url": "https://github.com/afni/afni/blob/master/src/3dReHo.c",
   "description": "3dReHo calculates Kendall's W per voxel using neighborhood voxels from 4D time series data set.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dReHo [PREFIX] [INSET] [NNEIGH] [CHI_SQ] [MASK] [NEIGH_RAD] [NEIGH_X] [NEIGH_Y] [NEIGH_Z] [BOX_RAD] [BOX_X] [BOX_Y] [BOX_Z] [IN_ROIS]",
@@ -34,7 +33,6 @@
       "description": "Switch to output Friedman chi-square value per voxel as a subbrick.",
       "value-key": "[CHI_SQ]",
       "type": "Flag",
-      "optional": true,
       "id": "chi_sq",
       "name": "Friedman Chi-Square Output Flag"
     },
@@ -143,28 +141,24 @@
     {
       "path-template": "[PREFIX]+orig.BRIK",
       "description": "Output file containing ReHo/Kendall's W value per voxel.",
-      "optional": false,
       "id": "reho_output",
       "name": "ReHo Output File"
     },
     {
       "path-template": "[PREFIX]_ROI_reho.vals",
       "description": "List of ROI ReHo values.",
-      "optional": true,
       "id": "roi_reho_vals",
       "name": "ROI ReHo Values File"
     },
     {
       "path-template": "[PREFIX]+orig.BRIK[1]",
       "description": "Optional output subbrick containing Friedman chi-square value per voxel.",
-      "optional": true,
       "id": "chi_square",
       "name": "Chi-Square Output File"
     },
     {
       "path-template": "[PREFIX]_ROI_reho.chi",
       "description": "ROI Chi-square values file.",
-      "optional": true,
       "id": "roi_chi_vals",
       "name": "ROI Chi-Square Values File"
     }

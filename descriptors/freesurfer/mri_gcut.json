@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "mri_gcut",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "https://freesurfer.net/fswiki/mri_gcut",
   "description": "Skull stripping algorithm based on graph cuts.",
   "command-line": "mri_gcut [WMMASK_110] [MULT_FILE] [THRESHOLD_VALUE] [INFILE] [OUTFILE]",
   "schema-version": "0.5",
@@ -28,7 +27,6 @@
       "description": "Use voxels with intensity 110 as white matter mask (when applied on T1.mgz, FreeSurfer only)",
       "value-key": "[WMMASK_110]",
       "type": "Flag",
-      "optional": true,
       "id": "wmmask_110",
       "name": "White matter mask flag"
     },
@@ -58,7 +56,6 @@
     {
       "path-template": "[OUTFILE]",
       "description": "The output file containing the skull-stripped brain volume.",
-      "optional": false,
       "id": "output_mask_file",
       "name": "Output mask file"
     }

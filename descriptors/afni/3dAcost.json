@@ -41,7 +41,6 @@
       "description": "Prints all alignment cost metrics",
       "value-key": "[ALL_COST]",
       "type": "Flag",
-      "optional": true,
       "id": "all_cost",
       "name": "Print all alignment cost metrics"
     }
@@ -51,14 +50,12 @@
     {
       "path-template": "[OUTFILE]+orig.HEAD",
       "description": "Output aligned dataset (HEAD file)",
-      "optional": false,
       "id": "output_head",
       "name": "Output HEAD file"
     },
     {
       "path-template": "[OUTFILE]+orig.BRIK",
       "description": "Output aligned dataset (BRIK file)",
-      "optional": false,
       "id": "output_brik",
       "name": "Output BRIK file"
     }

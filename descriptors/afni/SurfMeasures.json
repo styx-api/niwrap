@@ -116,7 +116,6 @@
       "description": "Display all final info",
       "value-key": "[INFO_ALL]",
       "type": "Flag",
-      "optional": true,
       "id": "info_all",
       "name": "Info All",
       "command-line-flag": "-info_all"
@@ -125,7 +124,6 @@
       "description": "Display total area of each triangulated surface",
       "value-key": "[INFO_AREA]",
       "type": "Flag",
-      "optional": true,
       "id": "info_area",
       "name": "Info Area",
       "command-line-flag": "-info_area"
@@ -134,7 +132,6 @@
       "description": "Display info about the normals",
       "value-key": "[INFO_NORMS]",
       "type": "Flag",
-      "optional": true,
       "id": "info_norms",
       "name": "Info Norms",
       "command-line-flag": "-info_norms"
@@ -143,7 +140,6 @@
       "description": "Display minimum and maximum thickness between surfaces",
       "value-key": "[INFO_THICK]",
       "type": "Flag",
-      "optional": true,
       "id": "info_thick",
       "name": "Info Thickness",
       "command-line-flag": "-info_thick"
@@ -152,7 +148,6 @@
       "description": "Display total computed volume between surfaces",
       "value-key": "[INFO_VOL]",
       "type": "Flag",
-      "optional": true,
       "id": "info_vol",
       "name": "Info Volume",
       "command-line-flag": "-info_vol"
@@ -161,7 +156,6 @@
       "description": "Display total computed volume estimated via Gauss' theorem",
       "value-key": "[INFO_VOLG]",
       "type": "Flag",
-      "optional": true,
       "id": "info_volg",
       "name": "Info Volume Gauss",
       "command-line-flag": "-info_volg"
@@ -170,7 +164,6 @@
       "description": "Show program version and compile date",
       "value-key": "[VER]",
       "type": "Flag",
-      "optional": true,
       "id": "ver",
       "name": "Version Information",
       "command-line-flag": "-ver"
@@ -181,14 +174,12 @@
     {
       "path-template": "[OUT_1D].1D",
       "description": "Output in 1D format",
-      "optional": true,
       "id": "output_1D",
       "name": "Output 1D File"
     },
     {
       "path-template": "[OUT_DSET]",
       "description": "Output in specified dataset format",
-      "optional": false,
       "id": "output_dset",
       "name": "Output Dataset File"
     }

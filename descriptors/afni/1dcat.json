@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "1dcat",
   "author": "AFNI Developers",
-  "descriptor-url": "https://afni.nimh.nih.gov/pub/dist/doc/program_help/1dcat.html",
   "description": "Concatenates columns of multiple 1D or TSV/CSV files",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "1dcat [INPUT_FILES] [TSV_OUTPUT] [CSV_OUTPUT] [NONCONST_OUTPUT] [NONFIXED_OUTPUT] [NUMBER_FORMAT] [STACK_OUTPUT] [COLUMN_ROW_SELECTION] [OK_EMPTY]",
@@ -25,7 +24,6 @@
       "description": "Output in TSV format with tabs as separators and a header line",
       "value-key": "[TSV_OUTPUT]",
       "type": "Flag",
-      "optional": true,
       "id": "tsv_output",
       "name": "TSV format output"
     },
@@ -34,7 +32,6 @@
       "description": "Output in CSV format with commas as separators and a header line",
       "value-key": "[CSV_OUTPUT]",
       "type": "Flag",
-      "optional": true,
       "id": "csv_output",
       "name": "CSV format output"
     },
@@ -43,7 +40,6 @@
       "description": "Omit columns that are identically constant from the output",
       "value-key": "[NONCONST_OUTPUT]",
       "type": "Flag",
-      "optional": true,
       "id": "nonconst_output",
       "name": "Non-constant columns output"
     },
@@ -52,7 +48,6 @@
       "description": "Keep only columns marked as 'free' in the 3dAllineate header",
       "value-key": "[NONFIXED_OUTPUT]",
       "type": "Flag",
-      "optional": true,
       "id": "nonfixed_output",
       "name": "Non-fixed columns output"
     },
@@ -70,7 +65,6 @@
       "description": "Stack the columns of the resulting matrix in the output",
       "value-key": "[STACK_OUTPUT]",
       "type": "Flag",
-      "optional": true,
       "id": "stack_output",
       "name": "Stack columns output"
     },
@@ -88,7 +82,6 @@
       "description": "Exit quietly when encountering an empty file on disk",
       "value-key": "[OK_EMPTY]",
       "type": "Flag",
-      "optional": true,
       "id": "ok_empty",
       "name": "OK empty files"
     }
@@ -98,7 +91,6 @@
     {
       "path-template": "stdout",
       "description": "Concatenated output in specified format",
-      "optional": false,
       "id": "concatenated_output",
       "name": "Concatenated Output"
     }

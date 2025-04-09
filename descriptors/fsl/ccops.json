@@ -2,7 +2,6 @@
   "tool-version": "6.0.4",
   "name": "ccops",
   "author": "FMRIB Analysis Group, University of Oxford",
-  "descriptor-url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/",
   "description": "ccops - Clustering of Connectomes Using Probabilistic Tractography",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "ccops [BASENAME] [INFILE] [TRACT_DIR] [EXCLUSION_MASK] [REORDER_SEEDSPACE] [REORDER_TRACTSPACE] [TRACT_REORD] [CONNEXITY_CONSTRAINT] [BINARISE_VAL] [MATRIX_POWER] [BRAIN_MASK] [SCHEME] [NCLUSTERS] [HELP]",
@@ -52,7 +51,6 @@
       "value-key": "[REORDER_SEEDSPACE]",
       "command-line-flag": "--r1",
       "type": "Flag",
-      "optional": true,
       "id": "reorder_seedspace",
       "name": "Reorder Seedspace"
     },
@@ -61,7 +59,6 @@
       "value-key": "[REORDER_TRACTSPACE]",
       "command-line-flag": "--r2",
       "type": "Flag",
-      "optional": true,
       "id": "reorder_tractspace",
       "name": "Reorder Tractspace"
     },
@@ -70,7 +67,6 @@
       "value-key": "[TRACT_REORD]",
       "command-line-flag": "--tractreord",
       "type": "Flag",
-      "optional": true,
       "id": "tract_reord",
       "name": "Tract Reordering"
     },
@@ -140,7 +136,6 @@
       "value-key": "[HELP]",
       "command-line-flag": "--help",
       "type": "Flag",
-      "optional": true,
       "id": "help",
       "name": "Help"
     }
@@ -150,7 +145,6 @@
     {
       "path-template": "[BASENAME]_output.nii.gz",
       "description": "Output clustered ROI mask",
-      "optional": true,
       "id": "outfile",
       "name": "Output Mask File"
     }

@@ -37,8 +37,7 @@
       "value-key": "[MATRIX]",
       "type": "Flag",
       "command-line-flag": "--matrix",
-      "description": "Output only the transform matrix to a text file, one row per line with space-delimited values. Only works for specific transform types.",
-      "optional": true
+      "description": "Output only the transform matrix to a text file, one row per line with space-delimited values. Only works for specific transform types."
     },
     {
       "id": "homogeneous_matrix",
@@ -46,8 +45,7 @@
       "value-key": "[HOMOGENEOUS_MATRIX]",
       "type": "Flag",
       "command-line-flag": "--homogeneousMatrix",
-      "description": "Output an N+1 square homogeneous matrix from the transform matrix and offset. Only works for specific transform types.",
-      "optional": true
+      "description": "Output an N+1 square homogeneous matrix from the transform matrix and offset. Only works for specific transform types."
     },
     {
       "id": "RAS",
@@ -55,8 +53,7 @@
       "value-key": "[RAS]",
       "type": "Flag",
       "command-line-flag": "--RAS",
-      "description": "Convert the output into the RAS coordinate system if combined with 'matrix' or 'homogeneousMatrix'.",
-      "optional": true
+      "description": "Convert the output into the RAS coordinate system if combined with 'matrix' or 'homogeneousMatrix'."
     },
     {
       "id": "convert_to_affine_type",
@@ -64,13 +61,9 @@
       "value-key": "[CONVERT_TO_AFFINE_TYPE]",
       "type": "Flag",
       "command-line-flag": "--convertToAffineType",
-      "description": "Convert the input transform type to AffineTransform and output again as a binary transform file.",
-      "optional": true
+      "description": "Convert the input transform type to AffineTransform and output again as a binary transform file."
     }
   ],
   "url": "https://github.com/ANTsX/ANTs",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  }
+  "container-image": { "type": "docker", "image": "antsx/ants:v2.5.3" }
 }

@@ -54,7 +54,6 @@
       "description": "Flag to make a mask using 3dSkullStrip+3dmask_tool from the structural file.",
       "value-key": "[MASK_FROM_STRUC]",
       "type": "Flag",
-      "optional": true,
       "id": "mask_from_struc",
       "name": "Mask from structural file"
     },
@@ -90,7 +89,6 @@
       "description": "Flip the DW gradients in the x-direction.",
       "value-key": "[FLIP_X]",
       "type": "Flag",
-      "optional": true,
       "id": "flip_x",
       "name": "Flip x"
     },
@@ -99,7 +97,6 @@
       "description": "Flip the DW gradients in the y-direction.",
       "value-key": "[FLIP_Y]",
       "type": "Flag",
-      "optional": true,
       "id": "flip_y",
       "name": "Flip y"
     },
@@ -108,7 +105,6 @@
       "description": "Flip the DW gradients in the z-direction.",
       "value-key": "[FLIP_Z]",
       "type": "Flag",
-      "optional": true,
       "id": "flip_z",
       "name": "Flip z"
     },
@@ -117,7 +113,6 @@
       "description": "Do not flip the DW gradients.",
       "value-key": "[NO_FLIP]",
       "type": "Flag",
-      "optional": true,
       "id": "no_flip",
       "name": "No flip"
     },
@@ -126,7 +121,6 @@
       "description": "Turn off scaling of physical length units by 1000 for tensor fitting.",
       "value-key": "[NO_SCALE_OUT_1000]",
       "type": "Flag",
-      "optional": true,
       "id": "no_scale_out_1000",
       "name": "No scale out 1000"
     },
@@ -135,7 +129,6 @@
       "description": "Turn off reweighting and refitting of tensors during estimation.",
       "value-key": "[NO_REWEIGHT]",
       "type": "Flag",
-      "optional": true,
       "id": "no_reweight",
       "name": "No reweight"
     },
@@ -144,7 +137,6 @@
       "description": "Turn off displaying overall weight factors for each gradient.",
       "value-key": "[NO_CUMULATIVE_WTS]",
       "type": "Flag",
-      "optional": true,
       "id": "no_cumulative_wts",
       "name": "No cumulative weights"
     },
@@ -198,7 +190,6 @@
       "description": "Turn off generating QC image files.",
       "value-key": "[NO_QC_VIEW]",
       "type": "Flag",
-      "optional": true,
       "id": "no_qc_view",
       "name": "No QC View"
     },
@@ -207,7 +198,6 @@
       "description": "Don't save the command line call of this program and the location where it was run.",
       "value-key": "[NO_CMD_OUT]",
       "type": "Flag",
-      "optional": true,
       "id": "no_cmd_out",
       "name": "No Command Output"
     },
@@ -225,7 +215,6 @@
       "description": "Do not remove the working directory.",
       "value-key": "[NO_CLEAN]",
       "type": "Flag",
-      "optional": true,
       "id": "no_clean",
       "name": "No Clean"
     },
@@ -234,7 +223,6 @@
       "description": "Don't perform uncertainty calculation.",
       "value-key": "[UNCERT_OFF]",
       "type": "Flag",
-      "optional": true,
       "id": "uncert_off",
       "name": "Uncertainty Off"
     },
@@ -270,7 +258,6 @@
     {
       "path-template": "[PREFIX]*",
       "description": "Output files generated with the specified prefix.",
-      "optional": false,
       "id": "output_files",
       "name": "Output Files"
     }

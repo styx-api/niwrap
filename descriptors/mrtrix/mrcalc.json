@@ -4,10 +4,7 @@
   "author": "MRTrix3 Developers",
   "tool-version": "3.0.4",
   "schema-version": "0.5",
-  "container-image": {
-    "image": "mrtrix3/mrtrix3:3.0.4",
-    "type": "docker"
-  },
+  "container-image": { "image": "mrtrix3/mrtrix3:3.0.4", "type": "docker" },
   "command-line": "mrcalc [BASIC_OPERATIONS_ABS] [BASIC_OPERATIONS_NEG] [BASIC_OPERATIONS_ADD] [BASIC_OPERATIONS_SUBTRACT] [BASIC_OPERATIONS_MULTIPLY] [BASIC_OPERATIONS_DIVIDE] [BASIC_OPERATIONS_MIN] [BASIC_OPERATIONS_MAX] [COMPARISON_OPERATORS_LT] [COMPARISON_OPERATORS_GT] [COMPARISON_OPERATORS_LE] [COMPARISON_OPERATORS_GE] [COMPARISON_OPERATORS_EQ] [COMPARISON_OPERATORS_NEQ] [CONDITIONAL_OPERATORS_IF] [CONDITIONAL_OPERATORS_REPLACE] [POWER_FUNCTIONS_SQRT] [POWER_FUNCTIONS_POW] [NEAREST_INTEGER_OPERATIONS_ROUND] [NEAREST_INTEGER_OPERATIONS_CEIL] [NEAREST_INTEGER_OPERATIONS_FLOOR] [LOGICAL_OPERATORS_NOT] [LOGICAL_OPERATORS_AND] [LOGICAL_OPERATORS_OR] [LOGICAL_OPERATORS_XOR] [CLASSIFICATION_FUNCTIONS_ISNAN] [CLASSIFICATION_FUNCTIONS_ISINF] [CLASSIFICATION_FUNCTIONS_FINITE] [COMPLEX_NUMBERS_COMPLEX] [COMPLEX_NUMBERS_POLAR] [COMPLEX_NUMBERS_REAL] [COMPLEX_NUMBERS_IMAG] [COMPLEX_NUMBERS_PHASE] [COMPLEX_NUMBERS_CONJ] [COMPLEX_NUMBERS_PROJ] [EXPONENTIAL_FUNCTIONS_EXP] [EXPONENTIAL_FUNCTIONS_LOG] [EXPONENTIAL_FUNCTIONS_LOG10] [TRIGONOMETRIC_FUNCTIONS_COS] [TRIGONOMETRIC_FUNCTIONS_SIN] [TRIGONOMETRIC_FUNCTIONS_TAN] [TRIGONOMETRIC_FUNCTIONS_ACOS] [TRIGONOMETRIC_FUNCTIONS_ASIN] [TRIGONOMETRIC_FUNCTIONS_ATAN] [HYPERBOLIC_FUNCTIONS_COSH] [HYPERBOLIC_FUNCTIONS_SINH] [HYPERBOLIC_FUNCTIONS_TANH] [HYPERBOLIC_FUNCTIONS_ACOSH] [HYPERBOLIC_FUNCTIONS_ASINH] [HYPERBOLIC_FUNCTIONS_ATANH] [DATA_TYPE_OPTIONS_DATATYPE] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION] [OPERAND]",
   "inputs": [
     {
@@ -863,8 +860,7 @@
       "command-line-flag": "-info",
       "value-key": "[__STANDARD_OPTIONS_INFO]",
       "description": "display information messages.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "quiet",
@@ -872,8 +868,7 @@
       "command-line-flag": "-quiet",
       "value-key": "[__STANDARD_OPTIONS_QUIET]",
       "description": "do not display information messages or progress status; alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "debug",
@@ -881,8 +876,7 @@
       "command-line-flag": "-debug",
       "value-key": "[__STANDARD_OPTIONS_DEBUG]",
       "description": "display debugging messages.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "force",
@@ -890,8 +884,7 @@
       "command-line-flag": "-force",
       "value-key": "[__STANDARD_OPTIONS_FORCE]",
       "description": "force overwrite of output files (caution: using the same file as input and output might cause unexpected behaviour).",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "nthreads",
@@ -942,8 +935,7 @@
       "command-line-flag": "-help",
       "value-key": "[__STANDARD_OPTIONS_HELP]",
       "description": "display this information page and exit.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "version",
@@ -951,8 +943,7 @@
       "command-line-flag": "-version",
       "value-key": "[__STANDARD_OPTIONS_VERSION]",
       "description": "display version information and exit.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     }
   ],
   "output-files": [],

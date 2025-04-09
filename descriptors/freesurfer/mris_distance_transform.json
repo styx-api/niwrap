@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "mris_distance_transform",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "https://github.com/your-org/your-repo/blob/master/descriptors/mris_distance_transform.json",
   "description": "Computes the distance transform of a label on the surface.",
   "command-line": "mris_distance_transform [SURFACE] [LABEL] [MODE] [OUTPUT_FILE] [ANTERIOR] [POSTERIOR] [DIVIDE] [OLABEL]",
   "schema-version": "0.5",
@@ -72,7 +71,6 @@
       "description": "Output label subdivisions.",
       "value-key": "[OLABEL]",
       "type": "Flag",
-      "optional": true,
       "id": "olabel",
       "name": "Output Label Flag"
     }
@@ -81,7 +79,6 @@
     {
       "path-template": "[OUTPUT_FILE]",
       "description": "Resulting file after applying the distance transform.",
-      "optional": false,
       "id": "result_file",
       "name": "Result File"
     }

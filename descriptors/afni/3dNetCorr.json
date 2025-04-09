@@ -48,7 +48,6 @@
       "description": "Output Fisher Z-transform matrix along with correlation matrix.",
       "value-key": "[FISH_Z]",
       "type": "Flag",
-      "optional": true,
       "id": "fish_z",
       "name": "Fisher Z-transform flag"
     },
@@ -57,7 +56,6 @@
       "description": "Output the partial correlation matrix.",
       "value-key": "[PART_CORR]",
       "type": "Flag",
-      "optional": true,
       "id": "part_corr",
       "name": "Partial correlation flag"
     },
@@ -66,7 +64,6 @@
       "description": "Output the mean time series of the ROIs.",
       "value-key": "[TS_OUT]",
       "type": "Flag",
-      "optional": true,
       "id": "ts_out",
       "name": "Time series output flag"
     },
@@ -75,7 +72,6 @@
       "description": "Insert the integer ROI label at the start of each line of the *.netts file created.",
       "value-key": "[TS_LABEL]",
       "type": "Flag",
-      "optional": true,
       "id": "ts_label",
       "name": "Time series label flag"
     },
@@ -84,7 +80,6 @@
       "description": "Create a directory for each network that contains the average time series for each ROI in individual files.",
       "value-key": "[TS_INDIV]",
       "type": "Flag",
-      "optional": true,
       "id": "ts_indiv",
       "name": "Individual time series flag"
     },
@@ -93,7 +88,6 @@
       "description": "Perform whole brain correlation for each ROI's average time series and output as Pearson 'r' values.",
       "value-key": "[TS_WB_CORR]",
       "type": "Flag",
-      "optional": true,
       "id": "ts_wb_corr",
       "name": "Whole brain correlation flag"
     },
@@ -102,7 +96,6 @@
       "description": "Perform whole brain correlation for each ROI's average time series and output as Fisher transformed Z-scores.",
       "value-key": "[TS_WB_Z]",
       "type": "Flag",
-      "optional": true,
       "id": "ts_wb_Z",
       "name": "Whole brain Fisher Z-score flag"
     },
@@ -129,7 +122,6 @@
       "description": "Apply string labels to the WB correlation/Z-score output files.",
       "value-key": "[TS_WB_STRLABEL]",
       "type": "Flag",
-      "optional": true,
       "id": "ts_wb_strlabel",
       "name": "Whole brain string label flag"
     },
@@ -138,7 +130,6 @@
       "description": "Output any correlation map files as NIFTI files.",
       "value-key": "[NIFTI]",
       "type": "Flag",
-      "optional": true,
       "id": "nifti",
       "name": "NIFTI output flag"
     },
@@ -147,7 +138,6 @@
       "description": "Output mask of non-null time series.",
       "value-key": "[OUTPUT_MASK_NONNULL]",
       "type": "Flag",
-      "optional": true,
       "id": "output_mask_nonnull",
       "name": "Output non-null mask flag"
     },
@@ -156,7 +146,6 @@
       "description": "Push through the calculation even if any ROI contains more than 10 percent of voxels with null time series.",
       "value-key": "[PUSH_THRU_MANY_ZEROS]",
       "type": "Flag",
-      "optional": true,
       "id": "push_thru_many_zeros",
       "name": "Push through many zeros flag"
     },
@@ -165,7 +154,6 @@
       "description": "Allow ROIs to have all-zero time series.",
       "value-key": "[ALLOW_ROI_ZEROS]",
       "type": "Flag",
-      "optional": true,
       "id": "allow_roi_zeros",
       "name": "Allow zero-filled ROI flag"
     },
@@ -174,7 +162,6 @@
       "description": "Disable internal automasking of where time series are not uniformly zero.",
       "value-key": "[AUTOMASK_OFF]",
       "type": "Flag",
-      "optional": true,
       "id": "automask_off",
       "name": "Automask off flag"
     },
@@ -183,7 +170,6 @@
       "description": "Ignore any label table labels in the '-in_rois' file.",
       "value-key": "[IGNORE_LT]",
       "type": "Flag",
-      "optional": true,
       "id": "ignore_LT",
       "name": "Ignore label table flag"
     }
@@ -193,49 +179,42 @@
     {
       "path-template": "[PREFIX]_000.netcc",
       "description": "Output correlation matrix file for network 000",
-      "optional": true,
       "id": "output_netcc",
       "name": "Output netcc file"
     },
     {
       "path-template": "[PREFIX]_000.netts",
       "description": "Output mean time series per ROI for network 000",
-      "optional": true,
       "id": "output_netts",
       "name": "Output netts file"
     },
     {
       "path-template": "[PREFIX]_000.niml.dset",
       "description": "NIML/SUMA-esque file for visualizing connectivity info in a 3D brain for network 000",
-      "optional": true,
       "id": "output_niml",
       "name": "Output NIML file"
     },
     {
       "path-template": "[PREFIX].roidat",
       "description": "Columns contain information for each ROI in the used mask.",
-      "optional": true,
       "id": "output_roidat",
       "name": "Output roidat file"
     },
     {
       "path-template": "[PREFIX]_mask_nnull",
       "description": "Mask of non-null time series",
-      "optional": true,
       "id": "output_mask_nnull",
       "name": "Output mask non-null file"
     },
     {
       "path-template": "[PREFIX]_000_INDIV",
       "description": "Directory containing individual time series files for network 000",
-      "optional": true,
       "id": "output_indiv",
       "name": "Output individual time series directory"
     },
     {
       "path-template": "PREFIX_mask_nnull",
       "description": "Binary mask of the non-null time series",
-      "optional": true,
       "id": "output_binary_mask_nnull",
       "name": "Output binary mask file"
     }

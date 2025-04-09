@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "3dvolreg.afni",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "https://afni.nimh.nih.gov/afni/tools/3dvolreg.html",
   "description": "AFNI program for volume registration",
   "command-line": "3dvolreg.afni [INPUT_FILE] [OUTPUT_FILE] [OPTIONS]",
   "container-image": {
@@ -40,7 +39,6 @@
     {
       "path-template": "[OUTPUT_FILE].nii",
       "description": "Output of the registered dataset",
-      "optional": false,
       "id": "registered_output",
       "name": "Registered output file"
     }

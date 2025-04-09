@@ -55,7 +55,6 @@
       "description": "Displays help message and exits",
       "value-key": "[HELP_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "help_flag",
       "name": "Help Flag"
     },
@@ -64,7 +63,6 @@
       "description": "Switch on diagnostic messages",
       "value-key": "[VERBOSE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose_flag",
       "name": "Verbose Flag"
     },
@@ -73,7 +71,6 @@
       "description": "Extraction with T1 only",
       "value-key": "[T1ONLY_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "t1only_flag",
       "name": "T1-only Extraction Flag"
     },
@@ -82,7 +79,6 @@
       "description": "Generates all surface outlines",
       "value-key": "[OUTLINE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "outline_flag",
       "name": "Outline Flag"
     },
@@ -91,7 +87,6 @@
       "description": "Generates binary masks from the meshes",
       "value-key": "[MASK_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "mask_flag",
       "name": "Mask Generation Flag"
     },
@@ -100,7 +95,6 @@
       "description": "Generates skull binary mask",
       "value-key": "[SKULL_MASK_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "skull_mask_flag",
       "name": "Skull Mask Flag"
     },
@@ -136,21 +130,18 @@
     {
       "path-template": "[OUTPUT_PREFIX]_mask.nii.gz",
       "description": "Generated binary mask",
-      "optional": true,
       "id": "output_mask",
       "name": "Output Mask"
     },
     {
       "path-template": "[OUTPUT_PREFIX]_outline.nii.gz",
       "description": "Generated surface outline",
-      "optional": true,
       "id": "output_outline",
       "name": "Output Outline"
     },
     {
       "path-template": "[OUTPUT_PREFIX]_skull.nii.gz",
       "description": "Generated skull mask",
-      "optional": true,
       "id": "output_skull",
       "name": "Output Skull Mask"
     }

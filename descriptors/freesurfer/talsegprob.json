@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "talsegprob",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "UNKNOWN",
   "description": "Tool to create a binary probability volume from aseg.mgz based on segmentation numbers, resliced to talirach/MNI305/fsaverage space.",
   "command-line": "talsegprob [SUBJECTS_LIST] [FSGD_FILE] [SEGMENTATION_NUMBER] [SECOND_SEGMENTATION_NUMBER] [HIPPO_FLAG] [LEFT_HIPPO_FLAG] [RIGHT_HIPPO_FLAG] [SEGMENTATION_FILE] [PROBABILITY_OUTPUT] [VOTE_OUTPUT] [CONCAT_OUTPUT] [XFORM_FILE] [SUBJECTS_DIR] [TMPDIR] [NOCLEANUP_FLAG] [VERSION_FLAG] [ECHO_FLAG]",
   "schema-version": "0.5",
@@ -49,7 +48,6 @@
       "description": "Use segmentation numbers 17 and 53.",
       "value-key": "[HIPPO_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "hippo_flag",
       "name": "Hippocampus Flag"
     },
@@ -58,7 +56,6 @@
       "description": "Use segmentation number 17.",
       "value-key": "[LEFT_HIPPO_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "left_hippo_flag",
       "name": "Left Hippocampus Flag"
     },
@@ -67,7 +64,6 @@
       "description": "Use segmentation number 53.",
       "value-key": "[RIGHT_HIPPO_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "right_hippo_flag",
       "name": "Right Hippocampus Flag"
     },
@@ -139,7 +135,6 @@
       "description": "Do not delete temporary directory.",
       "value-key": "[NOCLEANUP_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "nocleanup_flag",
       "name": "No Cleanup Flag"
     },
@@ -148,7 +143,6 @@
       "description": "Display script version information.",
       "value-key": "[VERSION_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "version_flag",
       "name": "Version Flag"
     },
@@ -157,7 +151,6 @@
       "description": "Enable command echo, for debug.",
       "value-key": "[ECHO_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "echo_flag",
       "name": "Echo Flag"
     }
@@ -166,21 +159,18 @@
     {
       "path-template": "[PROBABILITY_OUTPUT]",
       "description": "Probability output file.",
-      "optional": true,
       "id": "probability_output_file",
       "name": "Probability Output File"
     },
     {
       "path-template": "[VOTE_OUTPUT]",
       "description": "Vote output file.",
-      "optional": true,
       "id": "vote_output_file",
       "name": "Vote Output File"
     },
     {
       "path-template": "[CONCAT_OUTPUT]",
       "description": "Concatenated output file.",
-      "optional": true,
       "id": "concat_output_file",
       "name": "Concatenated Output File"
     }

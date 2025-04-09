@@ -2,7 +2,6 @@
   "tool-version": "6.0.4",
   "name": "siena",
   "author": "FMRIB Analysis Group, University of Oxford",
-  "descriptor-url": "https://example.com/siena_descriptor.json",
   "description": "Structural Image Evaluation, using Normalization, of Atrophy tool for evaluating brain atrophy between two timepoints",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "siena [INPUT1] [INPUT2] [OUTPUT_DIR] [DEBUG_FLAG] [BET_OPTIONS] [TWO_CLASS_SEG_FLAG] [T2_WEIGHTED_FLAG] [STANDARD_SPACE_MASK_FLAG] [UPPER_IGNORE] [LOWER_IGNORE] [SIENADIFF_OPTIONS] [VENTRICLE_ANALYSIS_FLAG] [VENTRICLE_MASK]",
@@ -41,7 +40,6 @@
       "description": "Debug (don't delete intermediate files)",
       "value-key": "[DEBUG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug_flag",
       "name": "Debug flag"
     },
@@ -59,7 +57,6 @@
       "description": "Two-class segmentation (don't segment grey and white matter separately)",
       "value-key": "[TWO_CLASS_SEG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "two_class_seg_flag",
       "name": "Two-class segmentation flag"
     },
@@ -68,7 +65,6 @@
       "description": "T2-weighted input image (default T1-weighted)",
       "value-key": "[T2_WEIGHTED_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "t2_weighted_flag",
       "name": "T2-weighted input flag"
     },
@@ -77,7 +73,6 @@
       "description": "Use standard-space masking as well as BET",
       "value-key": "[STANDARD_SPACE_MASK_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "standard_space_mask_flag",
       "name": "Standard-space masking flag"
     },
@@ -113,7 +108,6 @@
       "description": "Run ventricle analysis (VIENA)",
       "value-key": "[VENTRICLE_ANALYSIS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "ventricle_analysis_flag",
       "name": "Ventricle analysis flag"
     },
@@ -152,14 +146,12 @@
     {
       "path-template": "[OUTPUT_DIR]/report.html",
       "description": "Siena analysis report",
-      "optional": false,
       "id": "output_report",
       "name": "Output report"
     },
     {
       "path-template": "[OUTPUT_DIR]/report_vent.html",
       "description": "Siena ventricle analysis report",
-      "optional": true,
       "id": "ventricle_analysis_report",
       "name": "Ventricle analysis report"
     }

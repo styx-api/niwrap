@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "3dMaskToASCII",
   "author": "AFNI Developers",
-  "descriptor-url": "https://github.com/afni/afni",
   "description": "Converts a byte-valued 0/1 dataset into an ASCII string, or vice versa.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dMaskToASCII [TOBIN_FLAG] [DATASET] [OUTPUTFILE]",
@@ -24,7 +23,6 @@
       "description": "Read ASCII mask, expand it to byte-valued dataset, and write to stdout.",
       "value-key": "[TOBIN_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "tobin_flag",
       "name": "To binary flag"
     },
@@ -44,7 +42,6 @@
     {
       "path-template": "[OUTPUTFILE]",
       "description": "Output file where ASCII string mask or binary mask will be written.",
-      "optional": false,
       "id": "outputfile",
       "name": "Output file"
     }

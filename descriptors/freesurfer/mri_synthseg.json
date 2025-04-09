@@ -31,7 +31,6 @@
       "description": "Perform cortex parcellation.",
       "value-key": "[CORTEX_PARCELLATION]",
       "type": "Flag",
-      "optional": true,
       "id": "cortex_parcellation",
       "name": "Cortex parcellation flag"
     },
@@ -40,7 +39,6 @@
       "description": "Use robust predictions (slower).",
       "value-key": "[ROBUST_PREDICTION]",
       "type": "Flag",
-      "optional": true,
       "id": "robust_prediction",
       "name": "Robust prediction flag"
     },
@@ -49,7 +47,6 @@
       "description": "Bypass some processing for faster prediction.",
       "value-key": "[FAST_PREDICTION]",
       "type": "Flag",
-      "optional": true,
       "id": "fast_prediction",
       "name": "Fast prediction flag"
     },
@@ -58,7 +55,6 @@
       "description": "Clip CT scans in Hounsfield scale to [0, 80].",
       "value-key": "[CLIP_CT]",
       "type": "Flag",
-      "optional": true,
       "id": "clip_ct",
       "name": "Clip CT scans flag"
     },
@@ -116,7 +112,6 @@
       "description": "Enforce running with CPU rather than GPU.",
       "value-key": "[CPU]",
       "type": "Flag",
-      "optional": true,
       "id": "cpu",
       "name": "CPU execution flag"
     },
@@ -125,7 +120,6 @@
       "description": "Use SynthSeg 1.0 (updated 25/06/22).",
       "value-key": "[VERSION_1]",
       "type": "Flag",
-      "optional": true,
       "id": "version_1",
       "name": "Version 1 flag"
     },
@@ -142,35 +136,30 @@
     {
       "path-template": "[OUTPUT_SEGMENTATION]",
       "description": "Segmentation output(s)",
-      "optional": false,
       "id": "output_segmentation_file",
       "name": "Output segmentation file"
     },
     {
       "path-template": "[OUTPUT_VOLUME]",
       "description": "CSV file with volumes for all structures and subjects",
-      "optional": true,
       "id": "output_volume_csv",
       "name": "Output volume CSV"
     },
     {
       "path-template": "[OUTPUT_QC]",
       "description": "CSV file with QC scores for all subjects",
-      "optional": true,
       "id": "output_qc_csv",
       "name": "Output QC CSV"
     },
     {
       "path-template": "[OUTPUT_POSTERIORS]",
       "description": "Posteriors output(s)",
-      "optional": true,
       "id": "output_posteriors_file",
       "name": "Output posteriors file"
     },
     {
       "path-template": "[RESAMPLED_IMAGES]",
       "description": "Resampled image(s)",
-      "optional": true,
       "id": "resampled_images_file",
       "name": "Resampled images file"
     }

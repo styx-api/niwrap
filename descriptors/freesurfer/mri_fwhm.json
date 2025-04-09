@@ -29,7 +29,6 @@
       "description": "Save input after smoothing and detrending.",
       "value-key": "[SAVE_DETRENDED]",
       "type": "Flag",
-      "optional": true,
       "id": "save_detrended",
       "name": "Save Detrended Flag"
     },
@@ -38,7 +37,6 @@
       "description": "Do not mask output volume.",
       "value-key": "[SAVE_UNMASKED]",
       "type": "Flag",
-      "optional": true,
       "id": "save_unmasked",
       "name": "Save Unmasked Flag"
     },
@@ -47,7 +45,6 @@
       "description": "Smooth and save, do not compute fwhm.",
       "value-key": "[SMOOTH_ONLY]",
       "type": "Flag",
-      "optional": true,
       "id": "smooth_only",
       "name": "Smooth Only Flag"
     },
@@ -92,7 +89,6 @@
       "description": "Invert mask.",
       "value-key": "[MASK_INV]",
       "type": "Flag",
-      "optional": true,
       "id": "mask_inv",
       "name": "Mask Inversion Flag"
     },
@@ -128,7 +124,6 @@
       "description": "Compute square of input before smoothing.",
       "value-key": "[SQUARE_INPUT]",
       "type": "Flag",
-      "optional": true,
       "id": "square_input",
       "name": "Square Input Flag"
     },
@@ -245,7 +240,6 @@
       "description": "Synthesize input with white Gaussian noise.",
       "value-key": "[SYNTH]",
       "type": "Flag",
-      "optional": true,
       "id": "synth",
       "name": "Synthesize Input Flag"
     },
@@ -272,7 +266,6 @@
       "description": "Input is SPM-analyze.",
       "value-key": "[ISPM]",
       "type": "Flag",
-      "optional": true,
       "id": "ispm",
       "name": "SPM Analyze Input Flag"
     },
@@ -299,7 +292,6 @@
       "description": "Turn on debugging.",
       "value-key": "[DEBUG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug",
       "name": "Debug Flag"
     },
@@ -308,7 +300,6 @@
       "description": "Check options and exit without running.",
       "value-key": "[CHECKOPTS]",
       "type": "Flag",
-      "optional": true,
       "id": "checkopts",
       "name": "Check Options Flag"
     },
@@ -317,7 +308,6 @@
       "description": "Print version and exit.",
       "value-key": "[VERSION]",
       "type": "Flag",
-      "optional": true,
       "id": "version",
       "name": "Version Flag"
     }
@@ -326,49 +316,42 @@
     {
       "path-template": "[OUTPUTVOL]",
       "description": "Output volume after smoothing.",
-      "optional": false,
       "id": "output_volume_file",
       "name": "Output Volume File"
     },
     {
       "path-template": "[OUT_MASK]",
       "description": "Final mask volume.",
-      "optional": true,
       "id": "final_mask_output_file",
       "name": "Final Mask Output File"
     },
     {
       "path-template": "[SUMMARY_FILE]",
       "description": "Summary log file.",
-      "optional": true,
       "id": "summary_log_file",
       "name": "Summary Log File"
     },
     {
       "path-template": "[DAT_FILE]",
       "description": "Final FWHM estimate file.",
-      "optional": true,
       "id": "final_fwhm_estimate_file",
       "name": "Final FWHM Estimate File"
     },
     {
       "path-template": "[FWHM_DAT_FILE]",
       "description": "File containing the FWHM of each dimension.",
-      "optional": true,
       "id": "fwhm_of_each_dimension_file",
       "name": "FWHM of Each Dimension File"
     },
     {
       "path-template": "[FWHM_VOL_MEAN_FILE]",
       "description": "Mean FWHM from volume file.",
-      "optional": true,
       "id": "mean_fwhm_volume_file",
       "name": "Mean FWHM Volume File"
     },
     {
       "path-template": "[FWHM_VOL]",
       "description": "FWHM volume file.",
-      "optional": true,
       "id": "fwhm_volume_file",
       "name": "FWHM Volume File"
     }

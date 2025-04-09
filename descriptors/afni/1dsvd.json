@@ -19,7 +19,6 @@
       "description": "Make 1st vector be all 1's",
       "value-key": "[ONE]",
       "type": "Flag",
-      "optional": true,
       "id": "one",
       "name": "One flag"
     },
@@ -28,7 +27,6 @@
       "description": "Remove mean from each vector (cannot be used with -one)",
       "value-key": "[VMEAN]",
       "type": "Flag",
-      "optional": true,
       "id": "vmean",
       "name": "Vmean flag"
     },
@@ -37,7 +35,6 @@
       "description": "Make L2-norm of each vector = 1 before SVD",
       "value-key": "[VNORM]",
       "type": "Flag",
-      "optional": true,
       "id": "vnorm",
       "name": "Vnorm flag"
     },
@@ -46,7 +43,6 @@
       "description": "Only print condition number (ratio of extremes)",
       "value-key": "[COND]",
       "type": "Flag",
-      "optional": true,
       "id": "cond",
       "name": "Cond flag"
     },
@@ -55,7 +51,6 @@
       "description": "Only print singular values",
       "value-key": "[SING]",
       "type": "Flag",
-      "optional": true,
       "id": "sing",
       "name": "Sing flag"
     },
@@ -64,7 +59,6 @@
       "description": "Sort singular values in descending order (default)",
       "value-key": "[SORT]",
       "type": "Flag",
-      "optional": true,
       "id": "sort",
       "name": "Sort flag"
     },
@@ -73,7 +67,6 @@
       "description": "Don't sort singular values",
       "value-key": "[NOSORT]",
       "type": "Flag",
-      "optional": true,
       "id": "nosort",
       "name": "Nosort flag"
     },
@@ -82,7 +75,6 @@
       "description": "Sort singular values in ascending order",
       "value-key": "[ASORT]",
       "type": "Flag",
-      "optional": true,
       "id": "asort",
       "name": "Asort flag"
     },
@@ -91,7 +83,6 @@
       "description": "Only output left eigenvectors in .1D format",
       "value-key": "[LEFT_EIGENVECTORS]",
       "type": "Flag",
-      "optional": true,
       "id": "left_eigenvectors",
       "name": "Left eigenvectors flag"
     },
@@ -110,7 +101,6 @@
     {
       "path-template": "stdout",
       "description": "Output of the SVD computation",
-      "optional": true,
       "id": "stdout",
       "name": "Standard Output"
     }

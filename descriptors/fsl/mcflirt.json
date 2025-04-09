@@ -77,8 +77,7 @@
       "type": "Flag",
       "value-key": "[MEAN_VOL]",
       "command-line-flag": "-meanvol",
-      "description": "Register to mean volume.",
-      "optional": true
+      "description": "Register to mean volume."
     },
     {
       "id": "out_file",
@@ -124,8 +123,7 @@
       "type": "Flag",
       "value-key": "[SAVE_MATS]",
       "command-line-flag": "-mats",
-      "description": "Save transformation matrices.",
-      "optional": true
+      "description": "Save transformation matrices."
     },
     {
       "id": "save_plots",
@@ -133,8 +131,7 @@
       "type": "Flag",
       "value-key": "[SAVE_PLOTS]",
       "command-line-flag": "-plots",
-      "description": "Save transformation parameters.",
-      "optional": true
+      "description": "Save transformation parameters."
     },
     {
       "id": "save_rmsabs",
@@ -142,8 +139,7 @@
       "type": "Flag",
       "value-key": "[SAVE_RMSABS]",
       "command-line-flag": "-rmsabs",
-      "description": "Save rms displacement parameters.",
-      "optional": true
+      "description": "Save rms displacement parameters."
     },
     {
       "id": "save_rmsrel",
@@ -151,8 +147,7 @@
       "type": "Flag",
       "value-key": "[SAVE_RMSREL]",
       "command-line-flag": "-rmsrel",
-      "description": "Save relative rms displacement parameters.",
-      "optional": true
+      "description": "Save relative rms displacement parameters."
     },
     {
       "id": "scaling",
@@ -188,8 +183,7 @@
       "type": "Flag",
       "value-key": "[STATS_IMGS]",
       "command-line-flag": "-stats",
-      "description": "Produce variance and std. dev. images.",
-      "optional": true
+      "description": "Produce variance and std. dev. images."
     },
     {
       "id": "use_contour",
@@ -197,8 +191,7 @@
       "type": "Flag",
       "value-key": "[USE_CONTOUR]",
       "command-line-flag": "-edge",
-      "description": "Run search on contour images.",
-      "optional": true
+      "description": "Run search on contour images."
     },
     {
       "id": "use_gradient",
@@ -206,8 +199,7 @@
       "type": "Flag",
       "value-key": "[USE_GRADIENT]",
       "command-line-flag": "-gdt",
-      "description": "Run search on gradient images.",
-      "optional": true
+      "description": "Run search on gradient images."
     }
   ],
   "output-files": [
@@ -215,7 +207,6 @@
       "name": "Mat file",
       "id": "mat_file",
       "path-template": "MAT_*",
-      "optional": true,
       "description": "A list of items which are an existing file name. Transformation matrices.",
       "list": true
     },
@@ -223,28 +214,24 @@
       "name": "Mean img",
       "id": "mean_img",
       "path-template": "[OUT_FILE]_mean_reg.ext",
-      "optional": true,
       "description": "Mean timeseries image (if mean_vol=true)."
     },
     {
       "name": "Out file",
       "id": "out_file",
       "path-template": "[OUT_FILE]",
-      "optional": true,
       "description": "Motion-corrected timeseries."
     },
     {
       "name": "Par file",
       "id": "par_file",
       "path-template": "[OUT_FILE].par",
-      "optional": true,
       "description": "Text-file with motion parameters."
     },
     {
       "name": "Rmsabs files",
       "id": "rmsabs_files",
       "path-template": "[OUT_FILE]_abs.rms",
-      "optional": true,
       "description": "A list of items which are an existing file name. Absolute displacement parameters.",
       "list": true
     },
@@ -252,7 +239,6 @@
       "name": "Rmsrel files",
       "id": "rmsrel_files",
       "path-template": "[OUT_FILE]_rel.rms",
-      "optional": true,
       "description": "A list of items which are an existing file name. Relative displacement parameters.",
       "list": true
     },
@@ -260,14 +246,12 @@
       "name": "Std img",
       "id": "std_img",
       "path-template": "[OUT_FILE]_sigma.ext",
-      "optional": true,
       "description": "Standard deviation image."
     },
     {
       "name": "Variance img",
       "id": "variance_img",
       "path-template": "[OUT_FILE]_variance.ext",
-      "optional": true,
       "description": "Variance image."
     }
   ],

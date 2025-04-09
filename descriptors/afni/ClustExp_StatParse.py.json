@@ -111,8 +111,7 @@
       "description": "Do not create shiny app.",
       "type": "Flag",
       "value-key": "[NOSHINY]",
-      "command-line-flag": "-NoShiny",
-      "optional": true
+      "command-line-flag": "-NoShiny"
     },
     {
       "id": "overwrite",
@@ -120,8 +119,7 @@
       "description": "Remove previous folder with same PREFIX.",
       "type": "Flag",
       "value-key": "[OVERWRITE]",
-      "command-line-flag": "-overwrite",
-      "optional": true
+      "command-line-flag": "-overwrite"
     }
   ],
   "output-files": [
@@ -129,57 +127,49 @@
       "id": "table_mean",
       "name": "Table with all data extracted from all subjects",
       "description": "Table with all data extracted from all subjects.",
-      "path-template": "[PREFIX]_p_uncor_[PVAL]_mean.csv",
-      "optional": true
+      "path-template": "[PREFIX]_p_uncor_[PVAL]_mean.csv"
     },
     {
       "id": "group_table",
       "name": "Table with information parsed from the statistics data set history.",
       "description": "Table with information parsed from the statistics data set history.",
-      "path-template": "[PREFIX]_GroupTable.csv",
-      "optional": true
+      "path-template": "[PREFIX]_GroupTable.csv"
     },
     {
       "id": "3dclust_output",
       "name": "Output directly from 3dclust",
       "description": "Output directly from 3dclust.",
-      "path-template": "[PREFIX]_p_uncor_[PVAL]_3dclust.1D",
-      "optional": true
+      "path-template": "[PREFIX]_p_uncor_[PVAL]_3dclust.1D"
     },
     {
       "id": "clusters_output",
       "name": "Cleaned up version of the whereami output",
       "description": "Cleaned up version of the whereami output.",
-      "path-template": "[PREFIX]_p_uncor_[PVAL]_clusters.csv",
-      "optional": true
+      "path-template": "[PREFIX]_p_uncor_[PVAL]_clusters.csv"
     },
     {
       "id": "statinfo_output",
       "name": "Summary info for the shiny app",
       "description": "Summary info for the shiny app.",
-      "path-template": "[PREFIX]_StatInfo.csv",
-      "optional": true
+      "path-template": "[PREFIX]_StatInfo.csv"
     },
     {
       "id": "thresholded_dataset",
       "name": "A new data set from input statistics, thresholded at uncorrected p value.",
       "description": "A new data set from input statistics, thresholded at uncorrected p value.",
-      "path-template": "[PREFIX]_p_uncor_[PVAL].nii.gz",
-      "optional": true
+      "path-template": "[PREFIX]_p_uncor_[PVAL].nii.gz"
     },
     {
       "id": "thresholded_mask_dataset",
       "name": "Integer labeled mask of the thresholded image with cluster sizes at least as big as the -MinVox.",
       "description": "Integer labeled mask of the thresholded image with cluster sizes at least as big as the -MinVox.",
-      "path-template": "[PREFIX]_p_uncor_[PVAL]_mask.nii.gz",
-      "optional": true
+      "path-template": "[PREFIX]_p_uncor_[PVAL]_mask.nii.gz"
     },
     {
       "id": "master_copy",
       "name": "A NIfTI copy of the master file provided that may have been resampled",
       "description": "A NIfTI copy of the master file provided that may have been resampled.",
-      "path-template": "[PREFIX]_master.nii.gz",
-      "optional": true
+      "path-template": "[PREFIX]_master.nii.gz"
     }
   ],
   "container-image": {

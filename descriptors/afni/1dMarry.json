@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "1dMarry",
   "author": "AFNI Developers",
-  "descriptor-url": "https://github.com/afni/afni/blob/master/src/1dMarry.c",
   "description": "Joins together 2 (or more) ragged-right .1D files, for use with 3dDeconvolve -stim_times_AM2, or breaks up 1 married file into 2 (or more) single-valued files.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "1dMarry [SEP] [DIVORCE] [FILES]",
@@ -34,7 +33,6 @@
       "description": "Divorce mode: splits married file into separate files.",
       "value-key": "[DIVORCE]",
       "type": "Flag",
-      "optional": true,
       "id": "divorce",
       "name": "Divorce flag"
     }
@@ -44,21 +42,18 @@
     {
       "path-template": "stdout",
       "description": "Output file when marrying files. This file should be captured using a redirection such as '>'.",
-      "optional": false,
       "id": "outfile",
       "name": "Output file"
     },
     {
       "path-template": "[FILE2]_A.1D",
       "description": "First output file when divorcing.",
-      "optional": true,
       "id": "divorcee_A",
       "name": "Divorced file A"
     },
     {
       "path-template": "[FILE2]_B.1D",
       "description": "Second output file when divorcing.",
-      "optional": true,
       "id": "divorcee_B",
       "name": "Divorced file B"
     }

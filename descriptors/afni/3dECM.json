@@ -11,8 +11,7 @@
       "type": "Flag",
       "value-key": "[AUTOCLIP]",
       "command-line-flag": "-autoclip",
-      "description": "Clip off low-intensity regions in the dataset.",
-      "optional": true
+      "description": "Clip off low-intensity regions in the dataset."
     },
     {
       "id": "automask",
@@ -20,8 +19,7 @@
       "type": "Flag",
       "value-key": "[AUTOMASK]",
       "command-line-flag": "-automask",
-      "description": "Mask the dataset to target brain-only voxels.",
-      "optional": true
+      "description": "Mask the dataset to target brain-only voxels."
     },
     {
       "id": "eps",
@@ -38,8 +36,7 @@
       "type": "Flag",
       "value-key": "[FECM]",
       "command-line-flag": "-fecm",
-      "description": "Fast centrality method; substantial speed increase but cannot accommodate thresholding; automatically selected if -thresh or -sparsity are not set.",
-      "optional": true
+      "description": "Fast centrality method; substantial speed increase but cannot accommodate thresholding; automatically selected if -thresh or -sparsity are not set."
     },
     {
       "id": "full",
@@ -47,8 +44,7 @@
       "type": "Flag",
       "value-key": "[FULL]",
       "command-line-flag": "-full",
-      "description": "Full power method; enables thresholding; automatically selected if -thresh or -sparsity are set.",
-      "optional": true
+      "description": "Full power method; enables thresholding; automatically selected if -thresh or -sparsity are set."
     },
     {
       "id": "in_file",
@@ -164,7 +160,6 @@
     {
       "name": "Out file",
       "id": "out_file",
-      "optional": true,
       "description": "Output image file name.",
       "path-template": "[IN_FILE]_afni",
       "value-key": "[OUT_FILE]",
@@ -174,7 +169,6 @@
       "name": "Out file",
       "id": "out_file",
       "path-template": "out_file",
-      "optional": true,
       "description": "Output file."
     }
   ],

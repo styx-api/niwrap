@@ -11,8 +11,7 @@
       "type": "Flag",
       "value-key": "[PEARSON]",
       "command-line-flag": "-pearson",
-      "description": "Correlation is the normal pearson correlation coefficient.",
-      "optional": true
+      "description": "Correlation is the normal pearson correlation coefficient."
     },
     {
       "id": "spearman",
@@ -20,8 +19,7 @@
       "type": "Flag",
       "value-key": "[SPEARMAN]",
       "command-line-flag": "-spearman",
-      "description": "Correlation is the Spearman (rank) correlation coefficient.",
-      "optional": true
+      "description": "Correlation is the Spearman (rank) correlation coefficient."
     },
     {
       "id": "quadrant",
@@ -29,8 +27,7 @@
       "type": "Flag",
       "value-key": "[QUADRANT]",
       "command-line-flag": "-quadrant",
-      "description": "Correlation is the quadrant coefficient.",
-      "optional": true
+      "description": "Correlation is the quadrant coefficient."
     },
     {
       "id": "ktaub",
@@ -38,8 +35,7 @@
       "type": "Flag",
       "value-key": "[KTAUB]",
       "command-line-flag": "-ktaub",
-      "description": "Correlation is Kendall's tau_b coefficient. For continuous or finely discretized data, tau_b and rank correlation are nearly equivalent.",
-      "optional": true
+      "description": "Correlation is Kendall's tau_b coefficient. For continuous or finely discretized data, tau_b and rank correlation are nearly equivalent."
     },
     {
       "id": "covariance",
@@ -47,8 +43,7 @@
       "type": "Flag",
       "value-key": "[COVARIANCE]",
       "command-line-flag": "-covariance",
-      "description": "Covariance instead of correlation. That would be Pearson correlation without scaling by the product of the standard deviations.",
-      "optional": true
+      "description": "Covariance instead of correlation. That would be Pearson correlation without scaling by the product of the standard deviations."
     },
     {
       "id": "partial",
@@ -65,8 +60,7 @@
       "type": "Flag",
       "value-key": "[YCOEF]",
       "command-line-flag": "-ycoef",
-      "description": "Least squares coefficient that best fits y(t) to x(t), after detrending. That is, if yd(t) is the detrended y(t) and xd(t) is the detrended x(t), then the ycoef value is from the OLSQ fit to xd(t) = ycoef & y(t) + error.",
-      "optional": true
+      "description": "Least squares coefficient that best fits y(t) to x(t), after detrending. That is, if yd(t) is the detrended y(t) and xd(t) is the detrended x(t), then the ycoef value is from the OLSQ fit to xd(t) = ycoef & y(t) + error."
     },
     {
       "id": "fisher",
@@ -75,7 +69,6 @@
       "value-key": "[FISHER]",
       "command-line-flag": "-Fisher",
       "description": "Apply the Fisher (inverse hyperbolic tangent) transformation to correlation results. Does not make sense with ktaub, covariance, or ycoef.",
-      "optional": true,
       "disables-inputs": ["ktaub", "covariance", "ycoef"]
     },
     {
@@ -106,7 +99,6 @@
       "value-key": "[AUTOCLIP]",
       "command-line-flag": "-autoclip",
       "description": "Clip off low-intensity regions in the two datasets, so that the correlation is only computed between high-intensity (presumably brain) voxels. The intensity level is determined the same way that 3dClipLevel works.",
-      "optional": true,
       "disables-inputs": ["automask"]
     },
     {
@@ -116,7 +108,6 @@
       "value-key": "[AUTOMASK]",
       "command-line-flag": "-automask",
       "description": "Clip off low-intensity regions in the two datasets, so that the correlation is only computed between high-intensity (presumably brain) voxels. The intensity level is determined the same way that 3dClipLevel works.",
-      "optional": true,
       "disables-inputs": ["autoclip"]
     },
     {
@@ -126,7 +117,6 @@
       "value-key": "[ZCENSOR]",
       "command-line-flag": "-zcensor",
       "description": "Omit (censor out) any time points where the xset volume is all zero OR where the yset volume is all zero (in mask). Please note that using -zcensor with any detrending is unlikely to be useful.",
-      "optional": true,
       "disables-inputs": ["ort", "polort"]
     },
     {
@@ -159,7 +149,6 @@
     {
       "name": "Out file",
       "id": "out_file",
-      "optional": true,
       "description": "Output image file name.",
       "path-template": "[PREFIX]"
     }

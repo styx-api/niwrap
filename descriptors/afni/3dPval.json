@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "3dPval",
   "author": "AFNI Developers",
-  "descriptor-url": "https://github.com/aces/cbrain-plugins-neuro/blob/master/cbrain_task_descriptors/afni_3dPval.json",
   "description": "Convert a dataset's statistical sub-bricks to p-values or other statistical representations.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dPval [INPUT_DATASET] [ZSCORE] [LOG2] [LOG10] [QVAL] [PREFIX]",
@@ -24,7 +23,6 @@
       "description": "Convert statistic to a z-score instead, an N(0,1) deviate that represents the same p-value.",
       "value-key": "[ZSCORE]",
       "type": "Flag",
-      "optional": true,
       "id": "zscore",
       "name": "Z-score flag"
     },
@@ -33,7 +31,6 @@
       "description": "Convert statistic to -log2(p).",
       "value-key": "[LOG2]",
       "type": "Flag",
-      "optional": true,
       "id": "log2",
       "name": "Log2 flag"
     },
@@ -42,7 +39,6 @@
       "description": "Convert statistic to -log10(p).",
       "value-key": "[LOG10]",
       "type": "Flag",
-      "optional": true,
       "id": "log10",
       "name": "Log10 flag"
     },
@@ -51,7 +47,6 @@
       "description": "Convert statistic to a q-value (FDR) instead. This option only works with datasets that have FDR curves inserted in their headers.",
       "value-key": "[QVAL]",
       "type": "Flag",
-      "optional": true,
       "id": "qval",
       "name": "Q-value flag"
     },
@@ -70,7 +65,6 @@
     {
       "path-template": "[PREFIX].nii.gz",
       "description": "Output dataset with converted statistical values. Default output filename is 'Pval.nii.gz'.",
-      "optional": false,
       "id": "output_file",
       "name": "Output file"
     }

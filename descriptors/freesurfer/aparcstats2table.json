@@ -100,7 +100,6 @@
       "description": "Skip subjects if input is not found.",
       "value-key": "[SKIP_MISSING]",
       "type": "Flag",
-      "optional": true,
       "id": "skip_missing",
       "name": "Skip Missing Subjects"
     },
@@ -109,7 +108,6 @@
       "description": "Write only ROI names without pre/appended hemi/measure.",
       "value-key": "[PARCID_ONLY]",
       "type": "Flag",
-      "optional": true,
       "id": "parcid_only",
       "name": "Parcellation ID Only"
     },
@@ -118,7 +116,6 @@
       "description": "Output only common parcellations across all subjects.",
       "value-key": "[COMMON_PARCS]",
       "type": "Flag",
-      "optional": true,
       "id": "common_parcs",
       "name": "Common Parcellations"
     },
@@ -136,7 +133,6 @@
       "description": "Print ROI information for each subject.",
       "value-key": "[REPORT_ROIS]",
       "type": "Flag",
-      "optional": true,
       "id": "report_rois",
       "name": "Report ROIs"
     },
@@ -145,7 +141,6 @@
       "description": "Transpose the table (subjects in columns).",
       "value-key": "[TRANSPOSE]",
       "type": "Flag",
-      "optional": true,
       "id": "transpose",
       "name": "Transpose Table"
     },
@@ -154,7 +149,6 @@
       "description": "Increase verbosity.",
       "value-key": "[DEBUG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug",
       "name": "Debug Mode"
     },
@@ -163,7 +157,6 @@
       "description": "Report volume as percent estimated total intracranial volume.",
       "value-key": "[ETIV]",
       "type": "Flag",
-      "optional": true,
       "id": "etiv",
       "name": "Estimated Total Intracranial Volume"
     },
@@ -182,7 +175,6 @@
     {
       "path-template": "[TABLEFILE]",
       "description": "Output table file with processed data.",
-      "optional": false,
       "id": "output_table",
       "name": "Output Table"
     }

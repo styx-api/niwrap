@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "mris_label2annot",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "N/A",
   "description": "Converts a set of surface labels to an annotation file.",
   "command-line": "mris_label2annot [SUBJECT] [HEMI] [CTABFILE] [ANNOTNAME] [INDEX_OFFSET] [LABEL_FILES] [ANNOT_PATH] [LABELDIR] [LDIR_DEFAULT] [NO_UNKNOWN] [THRESH] [MAXSTATWINNER] [SURF] [SUBJECTS_DIR]",
   "schema-version": "0.5",
@@ -85,7 +84,6 @@
       "description": "Use subject/labels as label directory",
       "value-key": "[LDIR_DEFAULT]",
       "type": "Flag",
-      "optional": true,
       "id": "ldir_default",
       "name": "Use Default Label Directory"
     },
@@ -94,7 +92,6 @@
       "description": "Do not map unhit labels to index 0",
       "value-key": "[NO_UNKNOWN]",
       "type": "Flag",
-      "optional": true,
       "id": "no_unknown",
       "name": "No Unknown Labels"
     },
@@ -112,7 +109,6 @@
       "description": "Keep label with highest 'stat' value",
       "value-key": "[MAXSTATWINNER]",
       "type": "Flag",
-      "optional": true,
       "id": "maxstatwinner",
       "name": "Maximum Stat Winner"
     },
@@ -139,7 +135,6 @@
     {
       "path-template": "[HEMI].[ANNOTNAME].annot",
       "description": "Generated annotation file",
-      "optional": false,
       "id": "annot_file",
       "name": "Annotation File"
     }

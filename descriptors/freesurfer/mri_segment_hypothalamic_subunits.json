@@ -28,7 +28,6 @@
       "description": "(FS mode, optional) Save posteriors; default is False.",
       "value-key": "[WRITE_POSTERIORS]",
       "type": "Flag",
-      "optional": true,
       "id": "write_posteriors",
       "name": "Write Posteriors Flag"
     },
@@ -101,7 +100,6 @@
       "description": "(both modes, optional) Enforce running with CPU rather than GPU.",
       "value-key": "[CPU]",
       "type": "Flag",
-      "optional": true,
       "id": "cpu",
       "name": "CPU Flag"
     }
@@ -110,28 +108,24 @@
     {
       "path-template": "[OUTPUT]",
       "description": "Segmentation output(s) in T1 mode.",
-      "optional": false,
       "id": "segmentation_output_files",
       "name": "Segmentation Output Files"
     },
     {
       "path-template": "[POSTERIORS]",
       "description": "Posteriors output(s).",
-      "optional": true,
       "id": "posteriors_output",
       "name": "Posteriors Output"
     },
     {
       "path-template": "[RESAMPLE]",
       "description": "Resampled image(s) output.",
-      "optional": true,
       "id": "resampled_output",
       "name": "Resampled Output"
     },
     {
       "path-template": "[VOLUME_OUTPUT]",
       "description": "CSV file with volumes for all structures and subjects.",
-      "optional": true,
       "id": "volume_output_csv",
       "name": "Volume Output CSV"
     }

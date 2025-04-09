@@ -48,7 +48,6 @@
       "command-line-flag": "-normalize-a",
       "description": "normalize vectors of first input",
       "type": "Flag",
-      "optional": true,
       "value-key": "[OPT_NORMALIZE_A]"
     },
     {
@@ -57,7 +56,6 @@
       "command-line-flag": "-normalize-b",
       "description": "normalize vectors of second input",
       "type": "Flag",
-      "optional": true,
       "value-key": "[OPT_NORMALIZE_B]"
     },
     {
@@ -66,7 +64,6 @@
       "command-line-flag": "-normalize-output",
       "description": "normalize output vectors (not valid for dot product)",
       "type": "Flag",
-      "optional": true,
       "value-key": "[OPT_NORMALIZE_OUTPUT]"
     },
     {
@@ -75,7 +72,6 @@
       "command-line-flag": "-magnitude",
       "description": "output the magnitude of the result (not valid for dot product)",
       "type": "Flag",
-      "optional": true,
       "value-key": "[OPT_MAGNITUDE]"
     }
   ],
@@ -84,8 +80,7 @@
       "id": "metric_out",
       "name": "metric_out",
       "path-template": "[METRIC_OUT]",
-      "description": "the output file",
-      "optional": false
+      "description": "the output file"
     }
   ],
   "url": "https://github.com/Washington-University/workbench"

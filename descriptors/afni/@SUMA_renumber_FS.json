@@ -19,77 +19,66 @@
     {
       "path-template": "*_REN_all.nii.gz",
       "description": "Whole parcellation/segmentation file with renumbered ROIs.",
-      "optional": true,
       "id": "ren_all",
       "name": "Renumbered parcellation"
     },
     {
       "path-template": "*_REN_gm.nii.gz",
       "description": "Gray matter tissue segmentation map.",
-      "optional": true,
       "id": "ren_gm",
       "name": "Gray matter segmentation"
     },
     {
       "path-template": "*_REN_wmat.nii.gz",
       "description": "White matter tissue segmentation map.",
-      "optional": true,
       "id": "ren_wmat",
       "name": "White matter segmentation"
     },
     {
       "path-template": "*_REN_csf.nii.gz",
       "description": "Cerebrospinal fluid tissue segmentation map.",
-      "optional": true,
       "id": "ren_csf",
       "name": "Cerebrospinal fluid segmentation"
     },
     {
       "path-template": "*_REN_vent.nii.gz",
       "description": "Ventricles and choroid plexus tissue segmentation map.",
-      "optional": true,
       "id": "ren_vent",
       "name": "Ventricles and choroid plexus segmentation"
     },
     {
       "path-template": "*_REN_othr.nii.gz",
       "description": "Other tissue segmentation map (optic chiasm, non-WM-hypointens, etc.).",
-      "optional": true,
       "id": "ren_othr",
       "name": "Other tissue segmentation"
     },
     {
       "path-template": "*_REN_unkn.nii.gz",
       "description": "Unknown tissue segmentation map (FS-defined 'unknown', with voxel value >0).",
-      "optional": true,
       "id": "ren_unkn",
       "name": "Unknown tissue segmentation"
     },
     {
       "path-template": "*_REN_gmrois.nii.gz",
       "description": "Gray matter ROIs without '*-Cerebral-Cortex' dots.",
-      "optional": true,
       "id": "ren_gmrois",
       "name": "Gray matter ROIs segmentation"
     },
     {
       "path-template": "fs_ap_wm.nii.gz",
       "description": "White matter mask (excluding the dotted part from FS).",
-      "optional": true,
       "id": "fs_ap_wm",
       "name": "White matter mask"
     },
     {
       "path-template": "fs_ap_latvent.nii.gz",
       "description": "Lateral ventricles mask ('*-Lateral-Ventricle').",
-      "optional": true,
       "id": "fs_ap_latvent",
       "name": "Lateral ventricles mask"
     },
     {
       "path-template": "*_REN_all.niml.lt",
       "description": "Labeltable of the new ROI values.",
-      "optional": true,
       "id": "ren_lbl_table",
       "name": "Labeltable"
     }

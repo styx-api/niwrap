@@ -33,7 +33,6 @@
       "description": "Use DCMTK for decompression (either dcmdrle.fs or dcmdjpeg.fs)",
       "value-key": "[DCMTK]",
       "type": "Flag",
-      "optional": true,
       "id": "dcmtk",
       "name": "DCMTK Flag"
     },
@@ -42,7 +41,6 @@
       "description": "DICOM is JPEG compressed (ignored without --dcmtk)",
       "value-key": "[JPEG]",
       "type": "Flag",
-      "optional": true,
       "id": "jpeg",
       "name": "JPEG Compressed Flag"
     },
@@ -51,7 +49,6 @@
       "description": "DICOM is RLE compressed (ignored without --dcmtk)",
       "value-key": "[RLE]",
       "type": "Flag",
-      "optional": true,
       "id": "rle",
       "name": "RLE Compressed Flag"
     },
@@ -60,7 +57,6 @@
       "description": "Use GDCM for decompression (default)",
       "value-key": "[GDCM]",
       "type": "Flag",
-      "optional": true,
       "id": "gdcm",
       "name": "GDCM Flag"
     }
@@ -69,7 +65,6 @@
     {
       "path-template": "[OUTDCMFILE]",
       "description": "The decompressed DICOM file",
-      "optional": false,
       "id": "out_file",
       "name": "Output decompressed file"
     }

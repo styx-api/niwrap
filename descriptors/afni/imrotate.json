@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "imrotate",
   "author": "AFNI Developers",
-  "descriptor-url": "https://example.com/descriptors/imrotate.json",
   "description": "Shifts and rotates an image",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "imrotate [LINEAR_INTERPOLATION] [FOURIER_INTERPOLATION] [DX] [DY] [PHI] [INPUT_IMAGE] [OUTPUT_IMAGE]",
@@ -56,7 +55,6 @@
       "description": "Use bilinear interpolation (default is bicubic)",
       "value-key": "[LINEAR_INTERPOLATION]",
       "type": "Flag",
-      "optional": true,
       "id": "linear_interpolation",
       "name": "Linear Interpolation"
     },
@@ -65,7 +63,6 @@
       "description": "Use Fourier interpolation",
       "value-key": "[FOURIER_INTERPOLATION]",
       "type": "Flag",
-      "optional": true,
       "id": "fourier_interpolation",
       "name": "Fourier Interpolation"
     }
@@ -75,7 +72,6 @@
     {
       "path-template": "[OUTPUT_IMAGE]",
       "description": "Path to the output image file",
-      "optional": false,
       "id": "output_image_file",
       "name": "Output Image"
     }

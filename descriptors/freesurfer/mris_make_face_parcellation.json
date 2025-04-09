@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "mris_make_face_parcellation",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "https://github.com/freesurfer/freesurfer",
   "description": "Generates a parcellation based on which icosahedral face each vertex maps to.",
   "command-line": "mris_make_face_parcellation [INPUT_SURFACE] [ICO_FILE] [OUTPUT_ANNOT] [COLORTABLE]",
   "container-image": {
@@ -49,7 +48,6 @@
     {
       "path-template": "[OUTPUT_ANNOT]",
       "description": "Generated annotation file based on the icosahedral face mapping.",
-      "optional": false,
       "id": "annot_file",
       "name": "Annotation File"
     }

@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "3dLocalACF",
   "author": "AFNI Developers",
-  "descriptor-url": "https://github.com/afni/afni",
   "description": "Estimate the spatial AutoCorrelation Function (ACF) locally in a neighborhood around each voxel",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dLocalACF [PREFIX] [INPUT_FILE] [NEIGHBORHOOD] [MASK_FILE] [AUTO_MASK]",
@@ -51,7 +50,6 @@
       "description": "Automatically generate brain mask from input dataset",
       "value-key": "[AUTO_MASK]",
       "type": "Flag",
-      "optional": true,
       "id": "auto_mask",
       "name": "Auto Mask Flag"
     }
@@ -61,7 +59,6 @@
     {
       "path-template": "[PREFIX].nii.gz",
       "description": "Output dataset with ACF estimates",
-      "optional": true,
       "id": "output_file",
       "name": "Output Dataset"
     }

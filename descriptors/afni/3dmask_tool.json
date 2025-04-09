@@ -11,8 +11,7 @@
       "type": "Flag",
       "value-key": "[COUNT]",
       "command-line-flag": "-count",
-      "description": "Instead of created a binary 0/1 mask dataset, create one with counts of voxel overlap, i.e., each voxel will contain the number of masks that it is set in.",
-      "optional": true
+      "description": "Instead of created a binary 0/1 mask dataset, create one with counts of voxel overlap, i.e., each voxel will contain the number of masks that it is set in."
     },
     {
       "id": "datum",
@@ -58,8 +57,7 @@
       "type": "Flag",
       "value-key": "[FILL_HOLES]",
       "command-line-flag": "-fill_holes",
-      "description": "This option can be used to fill holes in the resulting mask, i.e. after all other processing has been done.",
-      "optional": true
+      "description": "This option can be used to fill holes in the resulting mask, i.e. after all other processing has been done."
     },
     {
       "id": "frac",
@@ -86,8 +84,7 @@
       "type": "Flag",
       "value-key": "[INTER]",
       "command-line-flag": "-inter",
-      "description": "Intersection, this means -frac 1.0.",
-      "optional": true
+      "description": "Intersection, this means -frac 1.0."
     },
     {
       "id": "num_threads",
@@ -113,8 +110,7 @@
       "type": "Flag",
       "value-key": "[UNION]",
       "command-line-flag": "-union",
-      "description": "Union, this means -frac 0.",
-      "optional": true
+      "description": "Union, this means -frac 0."
     },
     {
       "id": "verbose",
@@ -131,7 +127,6 @@
     {
       "name": "Out file",
       "id": "out_file",
-      "optional": true,
       "description": "Output image file name.",
       "path-template": "[IN_FILE]_mask",
       "value-key": "[OUT_FILE]",
@@ -141,7 +136,6 @@
       "name": "Out file",
       "id": "out_file",
       "path-template": "out_file",
-      "optional": true,
       "description": "Mask file."
     }
   ],

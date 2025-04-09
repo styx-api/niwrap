@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "3dTORTOISEtoHere",
   "author": "AFNI Developers",
-  "descriptor-url": "https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dTORTOISEtoHere.html",
   "description": "Convert standard TORTOISE DTs (diagonal-first format) to standard AFNI (lower triangular, row-wise) format.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dTORTOISEtoHere [DT_TORT] [PREFIX] [SCALE_FACTOR] [FLIP_X] [FLIP_Y] [FLIP_Z]",
@@ -43,7 +42,6 @@
       "command-line-flag": "-flip_x",
       "value-key": "[FLIP_X]",
       "type": "Flag",
-      "optional": true,
       "id": "flip_x",
       "name": "Flip X"
     },
@@ -52,7 +50,6 @@
       "command-line-flag": "-flip_y",
       "value-key": "[FLIP_Y]",
       "type": "Flag",
-      "optional": true,
       "id": "flip_y",
       "name": "Flip Y"
     },
@@ -61,7 +58,6 @@
       "command-line-flag": "-flip_z",
       "value-key": "[FLIP_Z]",
       "type": "Flag",
-      "optional": true,
       "id": "flip_z",
       "name": "Flip Z"
     }
@@ -71,7 +67,6 @@
     {
       "path-template": "[PREFIX].nii.gz",
       "description": "Output AFNI-style DT file with the following ordering of the 6 bricks: Dxx, Dxy, Dyy, Dxz, Dyz, Dzz.",
-      "optional": false,
       "id": "output_dt_file",
       "name": "Output DT file"
     }

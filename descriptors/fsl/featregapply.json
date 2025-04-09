@@ -23,7 +23,6 @@
       "description": "Force featregapply to run even if it has already been run on this FEAT directory",
       "value-key": "[FORCE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "force_flag",
       "name": "Force Flag"
     },
@@ -32,7 +31,6 @@
       "description": "Cleanup, i.e. remove all featregapply output",
       "value-key": "[CLEANUP_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "cleanup_flag",
       "name": "Cleanup Flag"
     },
@@ -68,7 +66,6 @@
       "description": "Exclude filtered func when processing melodic directories (for FEAT directories filtered func is never processed)",
       "value-key": "[EXCLUDE_FILTERED_FUNC_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "exclude_filtered_func_flag",
       "name": "Exclude Filtered Func Flag"
     }
@@ -86,7 +83,6 @@
     {
       "path-template": "[FEAT_DIRECTORY]/reg_standard",
       "description": "Directory where the output files will be stored",
-      "optional": true,
       "id": "output_directory",
       "name": "Output Directory"
     }

@@ -27,8 +27,7 @@
       "type": "Flag",
       "value-key": "[LABEL_SLICES]",
       "command-line-flag": "-L",
-      "description": "Label slices with slice number.",
-      "optional": true
+      "description": "Label slices with slice number."
     },
     {
       "id": "colour_map",
@@ -75,8 +74,7 @@
       "type": "Flag",
       "value-key": "[DITHER_EDGES]",
       "command-line-flag": "-t",
-      "description": "Produce semi-transparent (dithered) edges.",
-      "optional": true
+      "description": "Produce semi-transparent (dithered) edges."
     },
     {
       "id": "nearest_neighbour",
@@ -84,8 +82,7 @@
       "type": "Flag",
       "value-key": "[NEAREST_NEIGHBOUR]",
       "command-line-flag": "-n",
-      "description": "Use nearest neighbor interpolation for output.",
-      "optional": true
+      "description": "Use nearest neighbor interpolation for output."
     },
     {
       "id": "show_orientation",
@@ -93,8 +90,7 @@
       "type": "Flag",
       "value-key": "[SHOW_ORIENTATION]",
       "command-line-flag": "-u",
-      "description": "Do not put left-right labels in output",
-      "optional": true
+      "description": "Do not put left-right labels in output"
     },
     {
       "id": "red_dot_marker",
@@ -102,8 +98,7 @@
       "type": "Flag",
       "value-key": "[RED_DOT_MARKER]",
       "command-line-flag": "-c",
-      "description": "Add a red dot marker to topright of image.",
-      "optional": true
+      "description": "Add a red dot marker to topright of image."
     },
     {
       "id": "output_single_image",
@@ -120,8 +115,7 @@
       "type": "Flag",
       "value-key": "[OUTPUT_SAGITTAL_SLICE]",
       "command-line-flag": "-x",
-      "description": "Output sagittal slice (if slice >0, it is a fraction of image dimension, if <0, it is absolute slice number).",
-      "optional": true
+      "description": "Output sagittal slice (if slice >0, it is a fraction of image dimension, if <0, it is absolute slice number)."
     },
     {
       "id": "output_sagittal_slice_fname",
@@ -137,8 +131,7 @@
       "type": "Flag",
       "value-key": "[OUTPUT_AXIAL_SLICE]",
       "command-line-flag": "-y",
-      "description": "Output axial slice (if slice >0, it is a fraction of image dimension, if <0, it is absolute slice number).",
-      "optional": true
+      "description": "Output axial slice (if slice >0, it is a fraction of image dimension, if <0, it is absolute slice number)."
     },
     {
       "id": "output_axial_slice_fname",
@@ -154,8 +147,7 @@
       "type": "Flag",
       "value-key": "[OUTPUT_CORONAL_SLICE]",
       "command-line-flag": "-z",
-      "description": "Output coronal slice (if slice >0, it is a fraction of image dimension, if <0, it is absolute slice number).",
-      "optional": true
+      "description": "Output coronal slice (if slice >0, it is a fraction of image dimension, if <0, it is absolute slice number)."
     },
     {
       "id": "output_coronal_slice_fname",
@@ -171,8 +163,7 @@
       "type": "Flag",
       "value-key": "[OUTPUT_ALL_AXIAL_SLICES]",
       "command-line-flag": "-A",
-      "description": "Maximum width of image of all axial slices.",
-      "optional": true
+      "description": "Maximum width of image of all axial slices."
     },
     {
       "id": "output_all_axial_slices_fname",
@@ -188,8 +179,7 @@
       "type": "Flag",
       "value-key": "[OUTPUT_SAMPLE_AXIAL_SLICES]",
       "command-line-flag": "-S",
-      "description": "Ouput every <sample>'th axial slice.",
-      "optional": true
+      "description": "Ouput every <sample>'th axial slice."
     },
     {
       "id": "output_sample_axial_slices_width",
@@ -213,35 +203,30 @@
       "name": "Sagittal slice out file",
       "id": "sagittal_slice_outfile",
       "path-template": "[OUTPUT_SAGITTAL_SLICE_FNAME]",
-      "optional": true,
       "description": "Output sagittal slice."
     },
     {
       "name": "Axial slice out file",
       "id": "axial_slice_outfile",
       "path-template": "[OUTPUT_AXIAL_SLICE_FNAME]",
-      "optional": true,
       "description": "Output axial slice."
     },
     {
       "name": "Coronal slice out file",
       "id": "coronal_slice_outfile",
       "path-template": "[OUTPUT_CORONAL_SLICE_FNAME]",
-      "optional": true,
       "description": "Output coronal slice."
     },
     {
       "name": "Single image out file",
       "id": "single_image_outfile",
       "path-template": "[OUTPUT_SINGLE_IMAGE]",
-      "optional": true,
       "description": "Output mid-sagittal, -coronal, and -axial slices into one image."
     },
     {
       "name": "All axial slices image file",
       "id": "all_axial_slices_outfile",
       "path-template": "[OUTPUT_SAMPLE_AXIAL_SLICES_FNAME]",
-      "optional": true,
       "description": "File name of every <sample'th> axial slice output image."
     }
   ],

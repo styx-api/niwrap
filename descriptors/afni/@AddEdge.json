@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "@AddEdge",
   "author": "AFNI Developers",
-  "descriptor-url": "URL not provided",
   "description": "A script to create composite edge-enhanced datasets and drive the AFNI interface to display the results",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "@AddEdge [INPUT_FILES] [EXAMINE_LIST] [AX_MONT] [AX_GEOM] [SAG_GEOM] [LAYOUT_FILE] [NO_LAYOUT] [EDGE_PERCENTILE] [SINGLE_EDGE] [OPACITY] [KEEP_TEMP] [NO_DEOBLIQUE] [AUTO_RECORD] [AUTO] [NO_AUTO]",
@@ -66,7 +65,6 @@
       "description": "Do not use layout. Use AFNI as it is open.",
       "value-key": "[NO_LAYOUT]",
       "type": "Flag",
-      "optional": true,
       "id": "no_layout",
       "name": "No layout flag"
     },
@@ -85,7 +83,6 @@
       "description": "Show only a single edge in composite image",
       "value-key": "[SINGLE_EDGE]",
       "type": "Flag",
-      "optional": true,
       "id": "single_edge",
       "name": "Single edge flag"
     },
@@ -104,7 +101,6 @@
       "description": "Do not remove temporary files",
       "value-key": "[KEEP_TEMP]",
       "type": "Flag",
-      "optional": true,
       "id": "keep_temp",
       "name": "Keep temporary files flag"
     },
@@ -113,7 +109,6 @@
       "description": "Do not deoblique any data to show overlap",
       "value-key": "[NO_DEOBLIQUE]",
       "type": "Flag",
-      "optional": true,
       "id": "no_deoblique",
       "name": "No deoblique flag"
     },
@@ -122,7 +117,6 @@
       "description": "Save JPEG files of current slices without prompting",
       "value-key": "[AUTO_RECORD]",
       "type": "Flag",
-      "optional": true,
       "id": "auto_record",
       "name": "Auto record flag"
     },
@@ -131,7 +125,6 @@
       "description": "Closes old AFNI sessions and relaunches a new one ready to listen to @AddEdge in review mode.",
       "value-key": "[AUTO]",
       "type": "Flag",
-      "optional": true,
       "id": "auto",
       "name": "Auto flag"
     },
@@ -140,7 +133,6 @@
       "description": "Opposite of -auto",
       "value-key": "[NO_AUTO]",
       "type": "Flag",
-      "optional": true,
       "id": "no_auto",
       "name": "No auto flag"
     }
@@ -150,28 +142,24 @@
     {
       "path-template": "dset_nn_ec",
       "description": "Edge composite image of dataset with its own edges",
-      "optional": true,
       "id": "dset_nn_ec",
       "name": "Edge composite dataset"
     },
     {
       "path-template": "base_dset_dset_nn_ec",
       "description": "Edge composite image of base dataset together with the edges of the input dset_nn dataset",
-      "optional": true,
       "id": "base_dset_dset_nn_ec",
       "name": "Base and input edge composite dataset"
     },
     {
       "path-template": "base_dset_e3",
       "description": "Edge-only datasets - used in single edge display option",
-      "optional": true,
       "id": "base_dset_e3",
       "name": "Base dataset with only edges"
     },
     {
       "path-template": "dset_nn_e3",
       "description": "Edge-only input datasets - used in single edge display option",
-      "optional": true,
       "id": "dset_nn_e3",
       "name": "Input dataset with only edges"
     }

@@ -59,7 +59,6 @@
       "description": "Prevents removal of working directory.",
       "value-key": "[NO_CLEAN]",
       "type": "Flag",
-      "optional": true,
       "id": "no_clean",
       "name": "No Clean Flag"
     },
@@ -68,7 +67,6 @@
       "description": "Turns off the nicety of putting (0, 0, 0) at brain's center of mass (-> 'reorigin' calc) and reorienting data (-> 'reorient' calc).",
       "value-key": "[REORIG_REORIENT_OFF]",
       "type": "Flag",
-      "optional": true,
       "id": "reorig_reorient_off",
       "name": "Reorient/Reorigin Off Flag"
     },
@@ -86,7 +84,6 @@
       "description": "Don't save the command line call and the location where it was run.",
       "value-key": "[NO_CMD_OUT]",
       "type": "Flag",
-      "optional": true,
       "id": "no_cmd_out",
       "name": "No Command Output Flag"
     },
@@ -95,7 +92,6 @@
       "description": "Turn off generating QC image files.",
       "value-key": "[NO_QC_VIEW]",
       "type": "Flag",
-      "optional": true,
       "id": "no_qc_view",
       "name": "No QC View Flag"
     }
@@ -105,7 +101,6 @@
     {
       "path-template": "[PREFIX].nii.gz",
       "description": "Converted anatomical volume output.",
-      "optional": false,
       "id": "output_volume",
       "name": "Output Volume File"
     }

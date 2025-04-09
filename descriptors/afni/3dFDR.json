@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "3dFDR",
   "author": "AFNI Developers",
-  "descriptor-url": "https://github.com/afni/afni",
   "description": "A tool for applying False Discovery Rate (FDR) thresholding to voxelwise statistics in 3D functional datasets.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dFDR [INPUT_FILE] [INPUT1D_FILE] [MASK_FILE] [MASK_THRESHOLD] [CONSTANT_TYPE] [QUIET] [LIST] [PREFIX] [MODE_OPTION] [PMASK] [NOPMASK] [FORCE] [FLOAT] [QVAL]",
@@ -61,7 +60,6 @@
       "description": "Suppress screen output.",
       "value-key": "[QUIET]",
       "type": "Flag",
-      "optional": true,
       "id": "quiet",
       "name": "Quiet flag",
       "command-line-flag": "-quiet"
@@ -70,7 +68,6 @@
       "description": "Write sorted list of voxel q-values to screen.",
       "value-key": "[LIST]",
       "type": "Flag",
-      "optional": true,
       "id": "list",
       "name": "List flag",
       "command-line-flag": "-list"
@@ -98,7 +95,6 @@
       "description": "Ignore p=1 voxels (default in new mode).",
       "value-key": "[PMASK]",
       "type": "Flag",
-      "optional": true,
       "id": "pmask",
       "name": "P-mask flag",
       "command-line-flag": "-pmask"
@@ -107,7 +103,6 @@
       "description": "Count p=1 voxels (default in old mode).",
       "value-key": "[NOPMASK]",
       "type": "Flag",
-      "optional": true,
       "id": "nopmask",
       "name": "No P-mask flag",
       "command-line-flag": "-nopmask"
@@ -116,7 +111,6 @@
       "description": "Force conversion of all sub-bricks, treating them as p-values.",
       "value-key": "[FORCE]",
       "type": "Flag",
-      "optional": true,
       "id": "force",
       "name": "Force flag",
       "command-line-flag": "-force"
@@ -125,7 +119,6 @@
       "description": "Force the output of z-scores in floating point format.",
       "value-key": "[FLOAT]",
       "type": "Flag",
-      "optional": true,
       "id": "float",
       "name": "Float flag",
       "command-line-flag": "-float"
@@ -134,7 +127,6 @@
       "description": "Force the output of q-values rather than z-scores.",
       "value-key": "[QVAL]",
       "type": "Flag",
-      "optional": true,
       "id": "qval",
       "name": "Q-value flag",
       "command-line-flag": "-qval"
@@ -145,21 +137,18 @@
     {
       "path-template": "[PREFIX]+orig.BRIK",
       "description": "Output dataset in BRIK format",
-      "optional": false,
       "id": "output_brik",
       "name": "Output BRIK file"
     },
     {
       "path-template": "[PREFIX]+orig.HEAD",
       "description": "Output dataset in HEAD format",
-      "optional": false,
       "id": "output_head",
       "name": "Output HEAD file"
     },
     {
       "path-template": "[PREFIX].1D",
       "description": "Output list of voxel q-values",
-      "optional": true,
       "id": "output_1d",
       "name": "Output 1D file"
     }

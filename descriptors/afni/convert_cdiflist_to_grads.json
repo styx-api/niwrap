@@ -37,7 +37,6 @@
       "description": "Display current version.",
       "value-key": "[VER]",
       "type": "Flag",
-      "optional": true,
       "id": "ver",
       "name": "Version flag"
     },
@@ -46,7 +45,6 @@
       "description": "Display release/editing date of current version.",
       "value-key": "[DATE]",
       "type": "Flag",
-      "optional": true,
       "id": "date",
       "name": "Date flag"
     },
@@ -55,7 +53,6 @@
       "description": "Display help in terminal.",
       "value-key": "[HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "help",
       "name": "Help flag"
     },
@@ -64,7 +61,6 @@
       "description": "Display help in terminal.",
       "value-key": "[HVIEW]",
       "type": "Flag",
-      "optional": true,
       "id": "hview",
       "name": "Help in text editor flag"
     }
@@ -74,21 +70,18 @@
     {
       "path-template": "[PREFIX]_rvec.dat",
       "description": "Row-format of gradients (unit magnitude).",
-      "optional": false,
       "id": "output_rvec",
       "name": "Row gradient file"
     },
     {
       "path-template": "[PREFIX]_bval.dat",
       "description": "Row-format of bvals.",
-      "optional": false,
       "id": "output_bval",
       "name": "Row bvalue file"
     },
     {
       "path-template": "[PREFIX]_cvec.dat",
       "description": "Col-format of gradients (scaled by b-values).",
-      "optional": false,
       "id": "output_cvec",
       "name": "Column gradient file"
     }

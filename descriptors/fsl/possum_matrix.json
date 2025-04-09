@@ -2,7 +2,6 @@
   "tool-version": "6.0.4",
   "name": "possum_matrix",
   "author": "FMRIB Analysis Group, University of Oxford",
-  "descriptor-url": "https://example.com/path/to/possum_matrix_descriptor.json",
   "description": "Event matrix generator for POSSUM simulation in FSL",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "possum_matrix [PULSE_SEQUENCE] [MOTION_MATRIX] [OUTPUT_MATRIX] [VERBOSE_FLAG] [HELP_FLAG] [OLD_VERSION_FLAG] [SEGMENT_SIZE]",
@@ -43,7 +42,6 @@
       "description": "Switch on diagnostic messages",
       "value-key": "[VERBOSE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose_flag",
       "name": "Verbose flag"
     },
@@ -52,7 +50,6 @@
       "description": "Display this help message",
       "value-key": "[HELP_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "help_flag",
       "name": "Help flag"
     },
@@ -61,7 +58,6 @@
       "description": "Allows for the old version of the sorter to run",
       "value-key": "[OLD_VERSION_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "old_version_flag",
       "name": "Old version flag"
     },
@@ -99,7 +95,6 @@
     {
       "path-template": "[OUTPUT_MATRIX]",
       "description": "Main event matrix output file",
-      "optional": false,
       "id": "output_main_matrix",
       "name": "Output Main Matrix File"
     }

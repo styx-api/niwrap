@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "mri_warp_convert",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "https://freesurfer.net/fswiki/mri_warp_convert",
   "description": "This program converts non-linear deformation field warp file formats.",
   "command-line": "mri_warp_convert [INM3Z] [INFSL] [INLPS] [INITK] [INRAS] [INVOX] [OUTM3Z] [OUTFSL] [OUTLPS] [OUTITK] [OUTRAS] [OUTVOX] [INSRCGEOM] [DOWNSAMPLE]",
   "schema-version": "0.5",
@@ -129,7 +128,6 @@
       "description": "Downsample output M3Z to spacing of 2.",
       "value-key": "[DOWNSAMPLE]",
       "type": "Flag",
-      "optional": true,
       "id": "downsample",
       "name": "Downsample flag"
     }
@@ -138,7 +136,6 @@
     {
       "path-template": "[OUTVOX]",
       "description": "Converted output warp file",
-      "optional": false,
       "id": "outwarp",
       "name": "Output warp file"
     }

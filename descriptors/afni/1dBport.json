@@ -26,7 +26,6 @@
       "description": "Invert the selection after computing which frequency indexes correspond to the input band(s).",
       "value-key": "[INVERT]",
       "type": "Flag",
-      "optional": true,
       "id": "invert",
       "name": "Invert selection flag"
     },
@@ -35,7 +34,6 @@
       "description": "Do NOT generate the 0 frequency (constant) component when fbot = 0.",
       "value-key": "[NOZERO]",
       "type": "Flag",
-      "optional": true,
       "id": "nozero",
       "name": "No zero frequency flag"
     },
@@ -44,7 +42,6 @@
       "description": "Same as -nozero. Do NOT generate the 0 frequency (constant) component when fbot = 0.",
       "value-key": "[NOCONST]",
       "type": "Flag",
-      "optional": true,
       "id": "noconst",
       "name": "No constant flag"
     },
@@ -53,7 +50,6 @@
       "description": "Add regressors for linear and quadratic trends.",
       "value-key": "[QUAD]",
       "type": "Flag",
-      "optional": true,
       "id": "quad",
       "name": "Quadratic trend flag"
     },
@@ -111,7 +107,6 @@
     {
       "path-template": "stdout",
       "description": "Standard output file written by the tool",
-      "optional": false,
       "id": "stdout",
       "name": "Output file"
     }

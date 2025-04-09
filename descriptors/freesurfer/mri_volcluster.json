@@ -95,8 +95,7 @@
       "type": "Flag",
       "value-key": "[NO_ADJUST_FLAG]",
       "description": "Do not adjust threshold for one-tailed tests.",
-      "command-line-flag": "--no-adjust",
-      "optional": true
+      "command-line-flag": "--no-adjust"
     },
     {
       "id": "match_value",
@@ -131,8 +130,7 @@
       "type": "Flag",
       "value-key": "[MNI152REG_FLAG]",
       "description": "Input is in MNI152 space.",
-      "command-line-flag": "--mni152reg",
-      "optional": true
+      "command-line-flag": "--mni152reg"
     },
     {
       "id": "regheader_subject",
@@ -149,8 +147,7 @@
       "type": "Flag",
       "value-key": "[FSAVERAGE_FLAG]",
       "description": "Assume input is in fsaverage space.",
-      "command-line-flag": "--fsaverage",
-      "optional": true
+      "command-line-flag": "--fsaverage"
     },
     {
       "id": "frame_number",
@@ -213,8 +210,7 @@
       "type": "Flag",
       "value-key": "[CSDPDF_ONLY_FLAG]",
       "description": "Write CSD PDF file and exit.",
-      "command-line-flag": "--csdpdf-only",
-      "optional": true
+      "command-line-flag": "--csdpdf-only"
     },
     {
       "id": "fwhm_value",
@@ -267,8 +263,7 @@
       "type": "Flag",
       "value-key": "[ALLOW_DIAG_FLAG]",
       "description": "Allow diagonal adjacency for contiguity.",
-      "command-line-flag": "--allowdiag",
-      "optional": true
+      "command-line-flag": "--allowdiag"
     },
     {
       "id": "bonferroni_number",
@@ -294,8 +289,7 @@
       "type": "Flag",
       "value-key": "[SIG2P_MAX_FLAG]",
       "description": "Convert maximum significance to p-value.",
-      "command-line-flag": "--sig2p-max",
-      "optional": true
+      "command-line-flag": "--sig2p-max"
     },
     {
       "id": "gte_flag",
@@ -303,8 +297,7 @@
       "type": "Flag",
       "value-key": "[GTE_FLAG]",
       "description": "Use >= when computing p-value from CSD.",
-      "command-line-flag": "--gte",
-      "optional": true
+      "command-line-flag": "--gte"
     },
     {
       "id": "mask_volid",
@@ -357,8 +350,7 @@
       "type": "Flag",
       "value-key": "[MASK_INVERT_FLAG]",
       "description": "Invert mask after thresholding.",
-      "command-line-flag": "--maskinvert",
-      "optional": true
+      "command-line-flag": "--maskinvert"
     },
     {
       "id": "out_mask_volid",
@@ -438,36 +430,31 @@
       "type": "Flag",
       "value-key": "[HELP_FLAG]",
       "description": "Display help message and exit.",
-      "command-line-flag": "--help",
-      "optional": true
+      "command-line-flag": "--help"
     }
   ],
   "output-files": [
     {
       "path-template": "[OUTPUT_VOLID]",
       "description": "Output volume after clustering.",
-      "optional": true,
       "id": "output_volume",
       "name": "Output Volume"
     },
     {
       "path-template": "[OUTPUT_CLUSTER_NUM_VOLID]",
       "description": "Output cluster number volume.",
-      "optional": true,
       "id": "output_cluster_number_volume",
       "name": "Output Cluster Number Volume"
     },
     {
       "path-template": "[OUT_MASK_VOLID]",
       "description": "Final binary mask output.",
-      "optional": true,
       "id": "output_binary_mask",
       "name": "Output Binary Mask"
     },
     {
       "path-template": "[LABEL_FILE]",
       "description": "Saved cluster as label file.",
-      "optional": true,
       "id": "output_label_file",
       "name": "Output Label File"
     }

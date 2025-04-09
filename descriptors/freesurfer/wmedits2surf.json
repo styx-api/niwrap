@@ -20,7 +20,6 @@
       "description": "Output will be on self instead of fsaverage.",
       "value-key": "[SELF]",
       "type": "Flag",
-      "optional": true,
       "id": "self",
       "name": "Output on self"
     },
@@ -29,7 +28,6 @@
       "description": "Force overwriting of existing results.",
       "value-key": "[OVERWRITE]",
       "type": "Flag",
-      "optional": true,
       "id": "overwrite",
       "name": "Overwrite"
     },
@@ -47,7 +45,6 @@
       "description": "Cleanup temporary files after execution.",
       "value-key": "[CLEANUP]",
       "type": "Flag",
-      "optional": true,
       "id": "cleanup",
       "name": "Cleanup"
     },
@@ -56,7 +53,6 @@
       "description": "Do not cleanup temporary files after execution.",
       "value-key": "[NO_CLEANUP]",
       "type": "Flag",
-      "optional": true,
       "id": "no_cleanup",
       "name": "No Cleanup"
     },
@@ -65,7 +61,6 @@
       "description": "Debug mode.",
       "value-key": "[DEBUG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug",
       "name": "Debug"
     },
@@ -74,7 +69,6 @@
       "description": "Only do left hemisphere.",
       "value-key": "[LH]",
       "type": "Flag",
-      "optional": true,
       "id": "lh",
       "name": "Left Hemisphere"
     },
@@ -83,7 +77,6 @@
       "description": "Only do right hemisphere.",
       "value-key": "[RH]",
       "type": "Flag",
-      "optional": true,
       "id": "rh",
       "name": "Right Hemisphere"
     },
@@ -92,7 +85,6 @@
       "description": "Do not compute surfaces, only count stats.",
       "value-key": "[NO_SURFS]",
       "type": "Flag",
-      "optional": true,
       "id": "no_surfs",
       "name": "No Surfaces"
     }
@@ -101,42 +93,36 @@
     {
       "path-template": "subject/surf/lh.wmerase.fsa.mgh",
       "description": "Left hemisphere white matter erase surface file.",
-      "optional": true,
       "id": "lh_wmerase",
       "name": "LH WM Erase Surface"
     },
     {
       "path-template": "subject/surf/rh.wmerase.fsa.mgh",
       "description": "Right hemisphere white matter erase surface file.",
-      "optional": true,
       "id": "rh_wmerase",
       "name": "RH WM Erase Surface"
     },
     {
       "path-template": "subject/surf/lh.wmfill.fsa.mgh",
       "description": "Left hemisphere white matter fill surface file.",
-      "optional": true,
       "id": "lh_wmfill",
       "name": "LH WM Fill Surface"
     },
     {
       "path-template": "subject/surf/rh.wmfill.fsa.mgh",
       "description": "Right hemisphere white matter fill surface file.",
-      "optional": true,
       "id": "rh_wmfill",
       "name": "RH WM Fill Surface"
     },
     {
       "path-template": "subject/stats/wm.erase.dat",
       "description": "Statistics on the number of voxels erased.",
-      "optional": true,
       "id": "wm_erase_stats",
       "name": "WM Erase Stats"
     },
     {
       "path-template": "subject/stats/wm.fill.dat",
       "description": "Statistics on the number of voxels filled.",
-      "optional": true,
       "id": "wm_fill_stats",
       "name": "WM Fill Stats"
     }

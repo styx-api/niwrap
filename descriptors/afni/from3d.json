@@ -30,7 +30,6 @@
       "description": "Print out verbose information during the run",
       "value-key": "[VERBOSE]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose",
       "name": "Verbose flag"
     },
@@ -39,7 +38,6 @@
       "description": "Adjust size of 2D data file to be NxN, by padding with zeros, where N is a power of 2.",
       "value-key": "[NSIZE]",
       "type": "Flag",
-      "optional": true,
       "id": "nsize",
       "name": "N-size flag"
     },
@@ -48,7 +46,6 @@
       "description": "Write images in 'raw' format (just the data bytes). There will be no header information saying what the image dimensions are.",
       "value-key": "[RAW]",
       "type": "Flag",
-      "optional": true,
       "id": "raw",
       "name": "Raw format flag"
     },
@@ -57,7 +54,6 @@
       "description": "Write images as floats, no matter what they are in the dataset itself.",
       "value-key": "[FLOAT]",
       "type": "Flag",
-      "optional": true,
       "id": "float",
       "name": "Float format flag"
     },
@@ -102,7 +98,6 @@
     {
       "path-template": "[PREFIX]*.img",
       "description": "Extracted 2D images from the 3D dataset",
-      "optional": false,
       "id": "extracted_images",
       "name": "Extracted 2D Images"
     }

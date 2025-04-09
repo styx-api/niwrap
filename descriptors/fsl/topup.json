@@ -134,7 +134,6 @@
       "description": "If set (=1), lambda is weighted by current ssq, default 1",
       "value-key": "[SSQLAMBDA]",
       "type": "Flag",
-      "optional": true,
       "id": "ssqlambda",
       "name": "Weighted lambda flag"
     },
@@ -154,7 +153,6 @@
       "description": "Estimate movements if set, default 1 (true)",
       "value-key": "[ESTMOV]",
       "type": "Flag",
-      "optional": true,
       "id": "estmov",
       "name": "Estimate movements"
     },
@@ -209,7 +207,6 @@
       "description": "If set (=1), the images are individually scaled to a common mean, default 0 (false)",
       "value-key": "[SCALE]",
       "type": "Flag",
-      "optional": true,
       "id": "scale",
       "name": "Scale images"
     },
@@ -218,7 +215,6 @@
       "description": "If set (=1), the calculations are done in a different grid, default 1 (true)",
       "value-key": "[REGRID]",
       "type": "Flag",
-      "optional": true,
       "id": "regrid",
       "name": "Regrid calculations"
     },
@@ -237,7 +233,6 @@
       "description": "Print diagnostic information while running",
       "value-key": "[VERBOSE]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose",
       "name": "Verbose flag"
     }
@@ -247,35 +242,30 @@
     {
       "path-template": "[OUT]_fieldcoef.nii.gz",
       "description": "Spline coefficient field estimates (Hz)",
-      "optional": true,
       "id": "fieldcoef",
       "name": "Field coefficient estimates"
     },
     {
       "path-template": "[OUT]_movpar.txt",
       "description": "Movement parameters",
-      "optional": true,
       "id": "movpar",
       "name": "Movement parameters file"
     },
     {
       "path-template": "[FOUT]",
       "description": "Image file with field (Hz)",
-      "optional": true,
       "id": "fout",
       "name": "Field image"
     },
     {
       "path-template": "[IOUT]",
       "description": "4D image file with unwarped images",
-      "optional": true,
       "id": "iout",
       "name": "Unwarped images"
     },
     {
       "path-template": "[LOGOUT]",
       "description": "Log file",
-      "optional": true,
       "id": "logout",
       "name": "Log file"
     }

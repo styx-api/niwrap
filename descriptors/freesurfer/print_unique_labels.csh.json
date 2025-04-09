@@ -27,7 +27,6 @@
       "id": "list_only",
       "name": "List Only",
       "type": "Flag",
-      "optional": true,
       "value-key": "[LIST_ONLY]",
       "description": "Only list the labels",
       "command-line-flag": "--list"
@@ -36,7 +35,6 @@
       "id": "version",
       "name": "Print Version",
       "type": "Flag",
-      "optional": true,
       "value-key": "[VERSION]",
       "description": "Print version and exit",
       "command-line-flag": "--version"
@@ -45,7 +43,6 @@
       "id": "help",
       "name": "Print Help",
       "type": "Flag",
-      "optional": true,
       "value-key": "[HELP]",
       "description": "Print help and exit",
       "command-line-flag": "--help"
@@ -56,8 +53,7 @@
       "id": "results_file",
       "name": "Results File",
       "path-template": "[OUTPUT_FILE]",
-      "description": "Output file with the list of unique labels",
-      "optional": true
+      "description": "Output file with the list of unique labels"
     }
   ],
   "author": "FreeSurfer Developers",

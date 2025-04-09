@@ -20,7 +20,6 @@
       "description": "Within each partition, voxels are ordered by a simple similarity measure.",
       "value-key": "[PVORDER]",
       "type": "Flag",
-      "optional": true,
       "id": "pvorder",
       "name": "Partition voxel order by similarity"
     },
@@ -29,7 +28,6 @@
       "description": "Within each partition, voxels are ordered by how many 'peel' operations are needed to reach a given voxel.",
       "value-key": "[PEELORDER]",
       "type": "Flag",
-      "optional": true,
       "id": "peelorder",
       "name": "Partition voxel order by peel operations"
     },
@@ -38,7 +36,6 @@
       "description": "Within each partition, voxels are ordered by the 3D index in which they appear in the dataset.",
       "value-key": "[IJKORDER]",
       "type": "Flag",
-      "optional": true,
       "id": "ijkorder",
       "name": "Partition voxel order by 3D index"
     },
@@ -47,7 +44,6 @@
       "description": "Create grayplots for all ordering methods.",
       "value-key": "[ALLORDER]",
       "type": "Flag",
-      "optional": true,
       "id": "allorder",
       "name": "Generate grayplots for all ordering methods"
     }
@@ -56,7 +52,6 @@
     {
       "path-template": "Grayplot.errts.*.png",
       "description": "Output grayplot image",
-      "optional": true,
       "id": "grayplot_img",
       "name": "Grayplot Image"
     }

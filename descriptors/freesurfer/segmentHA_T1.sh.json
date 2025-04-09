@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "segmentHA_T1.sh",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "https://github.com/freesurfer/freesurfer",
   "description": "Tool for hippocampal/amygdalar subfield segmentation.",
   "command-line": "segmentHA_T1.sh [INPUT_IMAGE] [OUTPUT_DIRECTORY] [BRAIN_MASK] [VERBOSE] [DEBUG]",
   "container-image": {
@@ -41,7 +40,6 @@
       "description": "Increase the verbosity of the output.",
       "value-key": "[VERBOSE]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose",
       "name": "Verbose Flag"
     },
@@ -50,7 +48,6 @@
       "description": "Enable debugging mode.",
       "value-key": "[DEBUG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug",
       "name": "Debug Flag"
     }
@@ -59,14 +56,12 @@
     {
       "path-template": "[OUTPUT_DIRECTORY]/hippocampus_aseg.mgz",
       "description": "Segmented hippocampal subfields.",
-      "optional": true,
       "id": "hippocampus_aseg",
       "name": "Hippocampus Segmentation"
     },
     {
       "path-template": "[OUTPUT_DIRECTORY]/amygdala_aseg.mgz",
       "description": "Segmented amygdalar subfields.",
-      "optional": true,
       "id": "amygdala_aseg",
       "name": "Amygdala Segmentation"
     }

@@ -46,7 +46,6 @@
       "description": "Divide rank by the number of voxels in the dataset and multiply by 100.0",
       "value-key": "[PERCENTIZE]",
       "type": "Flag",
-      "optional": true,
       "id": "percentize",
       "name": "Percentize"
     },
@@ -55,7 +54,6 @@
       "description": "Divide rank by the number of voxels in the mask and multiply by 100.0",
       "value-key": "[PERCENTIZE_MASK]",
       "type": "Flag",
-      "optional": true,
       "id": "percentize_mask",
       "name": "Percentize with mask"
     }
@@ -64,7 +62,6 @@
     {
       "path-template": "[PREFIX]+tlrc.HEAD",
       "description": "Output float-format dataset containing ranked voxel values",
-      "optional": false,
       "id": "output_dataset",
       "name": "Output dataset"
     }

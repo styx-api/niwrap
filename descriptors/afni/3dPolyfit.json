@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "3dPolyfit",
   "author": "AFNI Developers",
-  "descriptor-url": "https://github.com/afni/afni",
   "description": "Fits a polynomial in space to the input dataset and outputs that fitted dataset. You can also add your own basis datasets to the fitting mix.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dPolyfit [INPUT_DATASET] [POLY_ORDER] [BLUR] [MEDIAN_RADIUS] [OUTPUT_PREFIX] [RESID_PREFIX] [COEFF_OUTPUT] [AUTOMASK] [MASK_DATASET] [MEAN_SCALE] [CLIP_BOX] [FIT_METHOD] [BASE_DATASET] [VERBOSE]",
@@ -81,7 +80,6 @@
       "description": "Create a mask (a la 3dAutomask)",
       "value-key": "[AUTOMASK]",
       "type": "Flag",
-      "optional": true,
       "id": "automask",
       "name": "Automask flag"
     },
@@ -99,7 +97,6 @@
       "description": "Scale the mean value of the fit (inside the mask) to 1; probably this option is not useful for anything",
       "value-key": "[MEAN_SCALE]",
       "type": "Flag",
-      "optional": true,
       "id": "mean_scale",
       "name": "Mean scale flag"
     },
@@ -108,7 +105,6 @@
       "description": "Clip fit values outside the rectilinear box containing the mask to the edge of that box, to avoid weird artifacts",
       "value-key": "[CLIP_BOX]",
       "type": "Flag",
-      "optional": true,
       "id": "clip_box",
       "name": "Clip box flag"
     },
@@ -138,7 +134,6 @@
       "description": "Print fun and useful progress reports",
       "value-key": "[VERBOSE]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose",
       "name": "Verbose flag"
     }
@@ -148,21 +143,18 @@
     {
       "path-template": "[OUTPUT_PREFIX].nii.gz",
       "description": "Fitted output dataset",
-      "optional": true,
       "id": "output_file",
       "name": "Output file"
     },
     {
       "path-template": "[RESID_PREFIX].nii.gz",
       "description": "Residual dataset",
-      "optional": true,
       "id": "resid_file",
       "name": "Residual file"
     },
     {
       "path-template": "[COEFF_OUTPUT].1D",
       "description": "Coefficient output file",
-      "optional": true,
       "id": "coeff_file",
       "name": "Coefficient file"
     }

@@ -37,7 +37,6 @@
       "description": "Do not perform jacobian correction when unwarping",
       "value-key": "[NOJAC]",
       "type": "Flag",
-      "optional": true,
       "id": "nojac",
       "name": "Nojac flag"
     },
@@ -46,7 +45,6 @@
       "description": "Resample to Coronal FOV",
       "value-key": "[CORFOV]",
       "type": "Flag",
-      "optional": true,
       "id": "corfov",
       "name": "Corfov flag"
     },
@@ -55,7 +53,6 @@
       "description": "Output in COR format instead of MGH",
       "value-key": "[COR]",
       "type": "Flag",
-      "optional": true,
       "id": "cor",
       "name": "Cor format flag"
     },
@@ -92,14 +89,12 @@
     {
       "path-template": "[OUTFILE]",
       "description": "Output file in MGH format",
-      "optional": true,
       "id": "mgh_output",
       "name": "MGH Output file"
     },
     {
       "path-template": "[OUTFILE]/",
       "description": "Output directory in COR format",
-      "optional": true,
       "id": "cor_output",
       "name": "COR Output directory"
     }

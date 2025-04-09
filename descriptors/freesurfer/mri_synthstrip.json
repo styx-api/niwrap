@@ -38,7 +38,6 @@
       "description": "Use the GPU.",
       "value-key": "[GPU]",
       "type": "Flag",
-      "optional": true,
       "id": "gpu",
       "name": "Use GPU"
     },
@@ -57,7 +56,6 @@
       "description": "Exclude CSF from brain border.",
       "value-key": "[EXCLUDE_CSF]",
       "type": "Flag",
-      "optional": true,
       "id": "exclude_csf",
       "name": "Exclude CSF"
     },
@@ -75,14 +73,12 @@
     {
       "path-template": "[OUTPUT_IMAGE]",
       "description": "Stripped brain image output.",
-      "optional": true,
       "id": "output_image_file",
       "name": "Output image file"
     },
     {
       "path-template": "[MASK]",
       "description": "Binary brain mask output.",
-      "optional": true,
       "id": "output_mask_file",
       "name": "Output mask file"
     }

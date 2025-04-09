@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "mri_easywarp",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "N/A",
   "description": "EasyReg: deep learning registration simple and easy",
   "command-line": "mri_easywarp [INPUT_IMAGE] [OUTPUT_IMAGE] [DEFORMATION_FIELD] [NEAREST_NEIGHBOR] [NUM_THREADS]",
   "container-image": {
@@ -43,7 +42,6 @@
       "description": "Use nearest neighbor (rather than linear) interpolation",
       "value-key": "[NEAREST_NEIGHBOR]",
       "type": "Flag",
-      "optional": true,
       "id": "nearest_neighbor",
       "name": "Nearest neighbor flag"
     },
@@ -61,7 +59,6 @@
     {
       "path-template": "[OUTPUT_IMAGE].nii.gz",
       "description": "Output deformed image",
-      "optional": false,
       "id": "output_deformed_image",
       "name": "Output deformed image"
     }

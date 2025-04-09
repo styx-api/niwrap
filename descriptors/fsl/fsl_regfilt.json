@@ -60,7 +60,6 @@
       "description": "Filter out components based on high vs. low frequency content",
       "value-key": "[FREQ_FILTER_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "freq_filter_flag",
       "name": "Frequency filter flag"
     },
@@ -69,7 +68,6 @@
       "description": "Switch off IC Z-stats filtering as part of frequency filtering",
       "value-key": "[FREQ_IC_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "freq_ic_flag",
       "name": "Frequency IC Z-stats filtering flag"
     },
@@ -107,7 +105,6 @@
       "description": "Perform variance-normalisation on data",
       "value-key": "[VN_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "vn_flag",
       "name": "Variance-normalisation flag"
     },
@@ -116,7 +113,6 @@
       "description": "Switch on diagnostic messages",
       "value-key": "[VERBOSE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose_flag",
       "name": "Verbose flag"
     },
@@ -125,7 +121,6 @@
       "description": "Switch on aggressive filtering (full instead of partial regression)",
       "value-key": "[AGGRESSIVE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "aggressive_flag",
       "name": "Aggressive filtering flag"
     },
@@ -134,7 +129,6 @@
       "description": "Display help text",
       "value-key": "[HELP_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "help_flag",
       "name": "Help flag"
     },
@@ -200,28 +194,24 @@
     {
       "path-template": "[OUTFILE].nii.gz",
       "description": "Filtered data output",
-      "optional": false,
       "id": "filtered_data",
       "name": "Filtered data output file"
     },
     {
       "path-template": "[OUT_DATA].nii.gz",
       "description": "Pre-processed data output",
-      "optional": true,
       "id": "preprocessed_data",
       "name": "Pre-processed data output file"
     },
     {
       "path-template": "[OUT_MIX].nii.gz",
       "description": "New mixing matrix output",
-      "optional": true,
       "id": "mixing_matrix",
       "name": "New mixing matrix output file"
     },
     {
       "path-template": "[OUT_VNSCALES].nii.gz",
       "description": "Variance normalisation scaling factors output",
-      "optional": true,
       "id": "vnscales",
       "name": "Variance normalisation scales output file"
     }

@@ -2,7 +2,6 @@
   "tool-version": "6.0.4",
   "name": "bedpostx",
   "author": "FMRIB Analysis Group, University of Oxford",
-  "descriptor-url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FDT/UserGuide#BEDPOSTX",
   "description": "Bayesian Estimation of Diffusion Parameters Obtained using Sampling Techniques (BEDPOST) for modeling multiple fibers per voxel.",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "bedpostx [SUBJECT_DIR] [NUM_FIBRES] [ARD_WEIGHT] [BURNIN] [NUM_JUMPS] [SAMPLE_EVERY] [MODEL_TYPE] [GRAD_NONLINEAR]",
@@ -84,7 +83,6 @@
       "description": "Consider gradient nonlinearities, expects grad_dev in the subject directory.",
       "value-key": "[GRAD_NONLINEAR]",
       "type": "Flag",
-      "optional": true,
       "id": "grad_nonlinear",
       "name": "Gradient Nonlinearities"
     }
@@ -110,14 +108,12 @@
     {
       "path-template": "[SUBJECT_DIR]_bedpostx/xfms/*",
       "description": "Output transformations.",
-      "optional": true,
       "id": "xfms_output",
       "name": "Transformations Output"
     },
     {
       "path-template": "[SUBJECT_DIR]_bedpostx/diff_slices/*",
       "description": "Output diffusion slices.",
-      "optional": true,
       "id": "diff_slices_output",
       "name": "Diffusion Slices Output"
     }

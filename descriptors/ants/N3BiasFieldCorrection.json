@@ -6,10 +6,7 @@
   "url": "https://github.com/ANTsX/ANTs",
   "schema-version": "0.5",
   "tool-version": "2.5.3",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  },
+  "container-image": { "type": "docker", "image": "antsx/ants:v2.5.3" },
   "inputs": [
     {
       "id": "image_dimensionality",
@@ -128,8 +125,7 @@
       "id": "bias_field",
       "name": "Bias Field",
       "description": "The estimated bias field, if specified in the output.",
-      "path-template": "[BIS_FIELD]",
-      "optional": true
+      "path-template": "[BIS_FIELD]"
     }
   ]
 }

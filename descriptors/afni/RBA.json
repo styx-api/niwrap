@@ -212,7 +212,6 @@
       "description": "This option will enable R to save the parameters in a file for debugging.",
       "value-key": "[DEBUG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug",
       "name": "Debug Flag",
       "command-line-flag": "-dbgArgs"
@@ -230,7 +229,6 @@
       "description": "This option indicates that there are missing data in the input.",
       "value-key": "[MD]",
       "type": "Flag",
-      "optional": true,
       "id": "md",
       "name": "Missing Data Flag",
       "command-line-flag": "-MD"
@@ -239,7 +237,6 @@
       "description": "Perform Fisher transformation on the response variable if it is a correlation coefficient.",
       "value-key": "[R2Z]",
       "type": "Flag",
-      "optional": true,
       "id": "r2z",
       "name": "Fisher Transformation Flag",
       "command-line-flag": "-r2z"
@@ -250,14 +247,12 @@
     {
       "path-template": "[PREFIX].txt",
       "description": "Main output text file with inference information for effects of interest.",
-      "optional": false,
       "id": "output_txt",
       "name": "Output Text File"
     },
     {
       "path-template": "[PREFIX].RData",
       "description": "Saved R data in binary format for post hoc processing.",
-      "optional": true,
       "id": "output_rdata",
       "name": "Output RData File"
     }

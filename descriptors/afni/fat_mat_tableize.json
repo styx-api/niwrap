@@ -58,8 +58,7 @@
       "type": "Flag",
       "description": "Display current version.",
       "command-line-flag": "-ver",
-      "value-key": "[VERSION]",
-      "optional": true
+      "value-key": "[VERSION]"
     },
     {
       "id": "date",
@@ -67,8 +66,7 @@
       "type": "Flag",
       "description": "Display release/editing date of current version.",
       "command-line-flag": "-date",
-      "value-key": "[DATE]",
-      "optional": true
+      "value-key": "[DATE]"
     },
     {
       "id": "help",
@@ -76,8 +74,7 @@
       "type": "Flag",
       "description": "Display help in terminal.",
       "command-line-flag": "-help",
-      "value-key": "[HELP]",
-      "optional": true
+      "value-key": "[HELP]"
     },
     {
       "id": "help_short",
@@ -85,8 +82,7 @@
       "type": "Flag",
       "description": "Display help in terminal (short flag).",
       "command-line-flag": "-h",
-      "value-key": "[HELP_SHORT]",
-      "optional": true
+      "value-key": "[HELP_SHORT]"
     },
     {
       "id": "help_view",
@@ -94,8 +90,7 @@
       "type": "Flag",
       "description": "Display help in a separate text editor.",
       "command-line-flag": "-hview",
-      "value-key": "[HELP_VIEW]",
-      "optional": true
+      "value-key": "[HELP_VIEW]"
     }
   ],
   "output-files": [
@@ -103,14 +98,12 @@
       "path-template": "[OUTPUT_PREFIX]_tbl.txt",
       "description": "Table file usable in AFNI group analysis programs.",
       "name": "Table File",
-      "optional": false,
       "id": "output_table"
     },
     {
       "path-template": "[OUTPUT_PREFIX]_prep.log",
       "description": "Log file reporting inputs, matching, and aspects of creating the table file.",
       "name": "Log File",
-      "optional": false,
       "id": "output_log"
     }
   ],

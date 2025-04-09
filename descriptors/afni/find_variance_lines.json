@@ -126,7 +126,6 @@
       "description": "Run script with shell 'echo' set (default=no)",
       "value-key": "[ECHO]",
       "type": "Flag",
-      "optional": true,
       "id": "echo",
       "name": "Shell Echo"
     },
@@ -135,7 +134,6 @@
       "description": "Show this help",
       "value-key": "[HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "help",
       "name": "Help"
     },
@@ -144,7 +142,6 @@
       "description": "Show the version history",
       "value-key": "[HIST]",
       "type": "Flag",
-      "optional": true,
       "id": "hist",
       "name": "History"
     },
@@ -153,7 +150,6 @@
       "description": "Show the current version",
       "value-key": "[VER]",
       "type": "Flag",
-      "optional": true,
       "id": "ver",
       "name": "Version"
     }
@@ -163,28 +159,24 @@
     {
       "path-template": "[OUTPUT_DIR]/variance_map_run*.nii.gz",
       "description": "Variance maps per run",
-      "optional": false,
       "id": "variance_maps",
       "name": "Variance Maps"
     },
     {
       "path-template": "[OUTPUT_DIR]/scaled_variance_map_run*.nii.gz",
       "description": "Scaled variance maps per run",
-      "optional": false,
       "id": "scaled_variance_maps",
       "name": "Scaled Variance Maps"
     },
     {
       "path-template": "[OUTPUT_DIR]/cluster_report_run*.txt",
       "description": "Cluster reports",
-      "optional": false,
       "id": "cluster_reports",
       "name": "Cluster Reports"
     },
     {
       "path-template": "[OUTPUT_DIR]/*.jpg",
       "description": "JPEG images showing locations of high variance",
-      "optional": true,
       "id": "jpeg_images",
       "name": "JPEG Images"
     }

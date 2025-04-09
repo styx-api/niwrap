@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "dmri_forrest",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "Not provided",
   "description": "dmri_forrest is a tool for processing diffusion MRI data using a random forest-based method.",
   "command-line": "dmri_forrest [TEST_DIR] [TRAIN_FILE] [MASK_FILE] [TRACT_FILES] [SEG_FILE] [DIFF_FILE] [DEBUG] [CHECKOPTS] [HELP]",
   "container-image": {
@@ -70,7 +69,6 @@
       "description": "Turn on debugging mode",
       "value-key": "[DEBUG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug",
       "name": "Debug flag",
       "command-line-flag": "--debug"
@@ -79,7 +77,6 @@
       "description": "Only check options and exit",
       "value-key": "[CHECKOPTS]",
       "type": "Flag",
-      "optional": true,
       "id": "checkopts",
       "name": "Check options flag",
       "command-line-flag": "--checkopts"
@@ -88,7 +85,6 @@
       "description": "Display help information",
       "value-key": "[HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "help",
       "name": "Help flag",
       "command-line-flag": "--help"

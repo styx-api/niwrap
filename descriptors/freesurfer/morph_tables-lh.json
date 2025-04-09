@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "morph_tables-lh",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "https://surfer.nmr.mgh.harvard.edu/",
   "description": "Morphological analysis tool for left hemisphere in Freesurfer",
   "command-line": "morph_tables-lh [INPUT_FILE] [SOME_FLAG]",
   "container-image": {
@@ -25,7 +24,6 @@
       "description": "Example flag (replace with actual options from tool if known)",
       "value-key": "[SOME_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "some_flag",
       "name": "Example Flag"
     }
@@ -34,7 +32,6 @@
     {
       "path-template": "[INPUT_FILE]_output.txt",
       "description": "Output results from morphological analysis (example, adjust as needed)",
-      "optional": false,
       "id": "output_file",
       "name": "Output file"
     }

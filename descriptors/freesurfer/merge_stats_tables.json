@@ -73,7 +73,6 @@
       "id": "common_segs",
       "name": "Common Segments",
       "type": "Flag",
-      "optional": true,
       "description": "Output only the common segmentations of all the statsfiles given",
       "command-line-flag": "--common-segs",
       "value-key": "[COMMON_SEGS]"
@@ -82,7 +81,6 @@
       "id": "all_segs",
       "name": "All Segments",
       "type": "Flag",
-      "optional": true,
       "description": "Output all the segmentations of the statsfiles given",
       "command-line-flag": "--all-segs",
       "value-key": "[ALL_SEGS]"
@@ -118,7 +116,6 @@
       "id": "transpose",
       "name": "Transpose Table",
       "type": "Flag",
-      "optional": true,
       "description": "Transpose the table (default is subjects in rows and segmentations in cols)",
       "command-line-flag": "--transpose",
       "value-key": "[TRANSPOSE]"
@@ -127,7 +124,6 @@
       "id": "skip",
       "name": "Skip Missing Files",
       "type": "Flag",
-      "optional": true,
       "description": "If a subject does not have a stats file, skip it instead of exiting.",
       "command-line-flag": "--skip",
       "value-key": "[SKIP]"
@@ -136,7 +132,6 @@
       "id": "debug",
       "name": "Debug Flag",
       "type": "Flag",
-      "optional": true,
       "description": "Increase verbosity for debugging purposes.",
       "command-line-flag": "-v",
       "value-key": "[DEBUG]"
@@ -146,7 +141,6 @@
     {
       "path-template": "[OUTPUTFILE]",
       "description": "The merged stats table",
-      "optional": false,
       "id": "merged_stats_table",
       "name": "Merged Stats Table"
     }

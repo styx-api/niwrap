@@ -4,10 +4,7 @@
   "description": "Provide information about an ITK transform file.",
   "tool-version": "2.5.3",
   "schema-version": "0.5",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  },
+  "container-image": { "type": "docker", "image": "antsx/ants:v2.5.3" },
   "inputs": [
     {
       "id": "transform_file",
@@ -24,8 +21,7 @@
       "id": "output_info",
       "name": "Transform Information",
       "description": "Information of the provided transform file.",
-      "path-template": "transform_info.txt",
-      "optional": true
+      "path-template": "transform_info.txt"
     }
   ],
   "author": "ANTs Developers",

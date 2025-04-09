@@ -40,7 +40,6 @@
       "command-line-flag": "-discard-others",
       "description": "set any values not mentioned in the label list to the ??? label",
       "type": "Flag",
-      "optional": true,
       "value-key": "[OPT_DISCARD_OTHERS]"
     },
     {
@@ -59,7 +58,6 @@
       "command-line-flag": "-drop-unused-labels",
       "description": "remove any unused label values from the label table",
       "type": "Flag",
-      "optional": true,
       "value-key": "[OPT_DROP_UNUSED_LABELS]"
     }
   ],
@@ -68,8 +66,7 @@
       "id": "output",
       "name": "output",
       "path-template": "[OUTPUT]",
-      "description": "the output cifti label file",
-      "optional": false
+      "description": "the output cifti label file"
     }
   ],
   "url": "https://github.com/Washington-University/workbench"

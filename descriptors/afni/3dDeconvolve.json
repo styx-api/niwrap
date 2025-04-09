@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "3dDeconvolve",
   "author": "AFNI Developers",
-  "descriptor-url": "https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dDeconvolve.html",
   "description": "Program to calculate the deconvolution of a measurement 3D+time dataset with a specified input stimulus time series.",
   "command-line": "3dDeconvolve [INPUT_DATASET] [MASK_DATASET] [NUM_STIMTS] [STIM_FILE] [STIM_LABEL] [STIM_BASE] [STIM_TIMES] [IRESP] [FITTS] [FOUT] [TOUT] [BUCKET] [CBUCKET] [X1D] [JOBS]",
   "container-image": {
@@ -59,7 +58,6 @@
     {
       "description": "Kth input stimulus is part of the baseline model.",
       "type": "Flag",
-      "optional": true,
       "id": "stim_base",
       "name": "Stimulus Baseline",
       "command-line-flag": "-stim_base",
@@ -95,7 +93,6 @@
     {
       "description": "Flag to output the F-statistics for each stimulus.",
       "type": "Flag",
-      "optional": true,
       "id": "fout",
       "name": "Output F-Statistics",
       "command-line-flag": "-fout",
@@ -104,7 +101,6 @@
     {
       "description": "Flag to output the t-statistics.",
       "type": "Flag",
-      "optional": true,
       "id": "tout",
       "name": "Output T-Statistics",
       "command-line-flag": "-tout",
@@ -153,35 +149,30 @@
     {
       "path-template": "[BUCKET].HEAD",
       "description": "Main output bucket dataset in AFNI format.",
-      "optional": true,
       "id": "bucket_output",
       "name": "Output Bucket Dataset"
     },
     {
       "path-template": "[CBUCKET].HEAD",
       "description": "Regression coefficients stored in a dataset.",
-      "optional": true,
       "id": "cbucket_output",
       "name": "Coefficient Dataset"
     },
     {
       "path-template": "[IRESP].HEAD",
       "description": "Estimated Impulse Response dataset.",
-      "optional": true,
       "id": "iresp_output",
       "name": "Impulse Response Dataset"
     },
     {
       "path-template": "[FITTS].HEAD",
       "description": "Fitted Time Series dataset in AFNI format.",
-      "optional": true,
       "id": "fitts_output",
       "name": "Fitted Time Series Dataset"
     },
     {
       "path-template": "[X1D].1D",
       "description": "X-matrix output file in .1D format.",
-      "optional": true,
       "id": "x1d_file",
       "name": "X-matrix Output File"
     }

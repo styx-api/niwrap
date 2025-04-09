@@ -2,7 +2,6 @@
   "tool-version": "6.0.4",
   "name": "swe",
   "author": "FMRIB Analysis Group, University of Oxford",
-  "descriptor-url": "https://example.com/descriptors/fsl_swe.json",
   "description": "SwE (summary statistics and voxelwise statistical analyses tool for FSL)",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "swe [INPUT_FILE] [OUTPUT_ROOT] [DESIGN_MAT] [DESIGN_CON] [DESIGN_SUB] [MASK] [FCON] [MODIFIED] [WILD_BOOTSTRAP] [LOGP] [NBOOT] [CORRP] [FONLY] [TFCE] [TFCE_2D] [CLUSTER_T] [CLUSTER_T_MASS] [CLUSTER_F] [CLUSTER_F_MASS] [QUIET] [RAW] [EQUIV] [DOF] [UNCORR_P] [NULL_DIST] [NO_RC_MASK] [SEED] [TFCE_H] [TFCE_D] [TFCE_E] [TFCE_C] [VOXELWISE_EV] [VOXELWISE_EVS] [GLM_OUTPUT]",
@@ -79,7 +78,6 @@
       "description": "Use the modified 'Homogeneous' SwE instead of the classic 'Heterogeneous' SwE",
       "value-key": "[MODIFIED]",
       "type": "Flag",
-      "optional": true,
       "id": "modified",
       "name": "Modified SwE"
     },
@@ -88,7 +86,6 @@
       "description": "Inference using a non-parametric Wild Bootstrap procedure",
       "value-key": "[WILD_BOOTSTRAP]",
       "type": "Flag",
-      "optional": true,
       "id": "wild_bootstrap",
       "name": "Wild Bootstrap"
     },
@@ -97,7 +94,6 @@
       "description": "Return -log_10(p) images instead of 1-p images",
       "value-key": "[LOGP]",
       "type": "Flag",
-      "optional": true,
       "id": "logp",
       "name": "-log_10(p)"
     },
@@ -116,7 +112,6 @@
       "description": "Output voxelwise corrected p-value images",
       "value-key": "[CORRP]",
       "type": "Flag",
-      "optional": true,
       "id": "corrp",
       "name": "Corrected p-values"
     },
@@ -125,7 +120,6 @@
       "description": "Calculate f-statistics only",
       "value-key": "[FONLY]",
       "type": "Flag",
-      "optional": true,
       "id": "fonly",
       "name": "F-statistics only"
     },
@@ -134,7 +128,6 @@
       "description": "Threshold-Free Cluster Enhancement",
       "value-key": "[TFCE]",
       "type": "Flag",
-      "optional": true,
       "id": "tfce",
       "name": "TFCE"
     },
@@ -143,7 +136,6 @@
       "description": "Threshold-Free Cluster Enhancement with 2D optimisation, e.g. for TBSS data (H=2, E=1, C=26)",
       "value-key": "[TFCE_2D]",
       "type": "Flag",
-      "optional": true,
       "id": "tfce_2d",
       "name": "TFCE 2D"
     },
@@ -188,7 +180,6 @@
       "description": "Switch off diagnostic messages",
       "value-key": "[QUIET]",
       "type": "Flag",
-      "optional": true,
       "id": "quiet",
       "name": "Quiet"
     },
@@ -197,7 +188,6 @@
       "description": "Output raw voxelwise statistic images",
       "value-key": "[RAW]",
       "type": "Flag",
-      "optional": true,
       "id": "raw",
       "name": "Raw voxelwise stats"
     },
@@ -206,7 +196,6 @@
       "description": "Output equivalent z or chi-squared statistic images",
       "value-key": "[EQUIV]",
       "type": "Flag",
-      "optional": true,
       "id": "equiv",
       "name": "Equivalent statistics"
     },
@@ -215,7 +204,6 @@
       "description": "Output effective number of degrees of freedom images",
       "value-key": "[DOF]",
       "type": "Flag",
-      "optional": true,
       "id": "dof",
       "name": "Degrees of freedom"
     },
@@ -224,7 +212,6 @@
       "description": "Output uncorrected p-value images",
       "value-key": "[UNCORR_P]",
       "type": "Flag",
-      "optional": true,
       "id": "uncorr_p",
       "name": "Uncorrected p-values"
     },
@@ -233,7 +220,6 @@
       "description": "Output null distribution text files",
       "value-key": "[NULL_DIST]",
       "type": "Flag",
-      "optional": true,
       "id": "null_dist",
       "name": "Null distribution"
     },
@@ -242,7 +228,6 @@
       "description": "Don't remove constant voxels from mask",
       "value-key": "[NO_RC_MASK]",
       "type": "Flag",
-      "optional": true,
       "id": "no_rc_mask",
       "name": "No RC mask"
     },
@@ -319,7 +304,6 @@
       "description": "Output GLM information (pe, cope, & varcope)",
       "value-key": "[GLM_OUTPUT]",
       "type": "Flag",
-      "optional": true,
       "id": "glm_output",
       "name": "GLM output"
     }
@@ -379,56 +363,48 @@
     {
       "path-template": "[OUTPUT_ROOT]_logp.nii.gz",
       "description": "Output -log_10(p) images",
-      "optional": true,
       "id": "logp_img",
       "name": "-log_10(p) images"
     },
     {
       "path-template": "[OUTPUT_ROOT]_corrp.nii.gz",
       "description": "Output voxel-corrected p-value images",
-      "optional": true,
       "id": "corrp_img",
       "name": "Corrected p-value images"
     },
     {
       "path-template": "[OUTPUT_ROOT]_raw.nii.gz",
       "description": "Output raw voxelwise statistic images",
-      "optional": true,
       "id": "raw_img",
       "name": "Raw voxelwise stats"
     },
     {
       "path-template": "[OUTPUT_ROOT]_equiv.nii.gz",
       "description": "Output equivalent z or chi-squared statistic images",
-      "optional": true,
       "id": "equiv_img",
       "name": "Equivalent statistics"
     },
     {
       "path-template": "[OUTPUT_ROOT]_dof.nii.gz",
       "description": "Output effective number of degrees of freedom images",
-      "optional": true,
       "id": "dof_img",
       "name": "Degrees of freedom"
     },
     {
       "path-template": "[OUTPUT_ROOT]_uncorrp.nii.gz",
       "description": "Output uncorrected p-value images",
-      "optional": true,
       "id": "uncorrp_img",
       "name": "Uncorrected p-values"
     },
     {
       "path-template": "[OUTPUT_ROOT]_null_dist.txt",
       "description": "Output null distribution text files",
-      "optional": true,
       "id": "null_dist_file",
       "name": "Null distribution"
     },
     {
       "path-template": "[OUTPUT_ROOT]_glm.nii.gz",
       "description": "Output GLM information (pe, cope, & varcope)",
-      "optional": true,
       "id": "glm_output_file",
       "name": "GLM output"
     }

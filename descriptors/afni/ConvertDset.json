@@ -77,7 +77,6 @@
       "type": "Flag",
       "command-line-flag": "-add_node_index",
       "description": "Add a node index element if one does not exist in the input dataset",
-      "optional": true,
       "value-key": "[ADD_NODE_INDEX]"
     },
     {
@@ -104,7 +103,6 @@
       "type": "Flag",
       "command-line-flag": "-prepend_node_index_1D",
       "description": "Add a node index column to the data",
-      "optional": true,
       "value-key": "[PREPEND_NODE_INDEX]"
     },
     {
@@ -131,7 +129,6 @@
       "type": "Flag",
       "command-line-flag": "-graphize",
       "description": "Turn the dataset into a SUMA graph dataset",
-      "optional": true,
       "value-key": "[GRAPHIZE]"
     },
     {
@@ -167,7 +164,6 @@
       "type": "Flag",
       "command-line-flag": "-graph_XYZ_LPI",
       "description": "Coordinates in NodeList.1D are in LPI instead of RAI",
-      "optional": true,
       "value-key": "[GRAPH_XYZ_LPI]"
     },
     {
@@ -185,7 +181,6 @@
       "type": "Flag",
       "command-line-flag": "-onegraph",
       "description": "Expect input dataset to be one square matrix defining the graph (default)",
-      "optional": true,
       "value-key": "[ONEGRAPH]"
     },
     {
@@ -194,7 +189,6 @@
       "type": "Flag",
       "command-line-flag": "-multigraph",
       "description": "Expect each column in input dataset to define an entire graph",
-      "optional": true,
       "value-key": "[MULTIGRAPH]"
     },
     {
@@ -213,7 +207,6 @@
       "type": "Flag",
       "command-line-flag": "-no_history",
       "description": "Do not include a history element in the output",
-      "optional": true,
       "value-key": "[NO_HISTORY]"
     }
   ],
@@ -221,7 +214,6 @@
     {
       "path-template": "[OUTPUT_PREFIX]",
       "description": "Converted dataset output",
-      "optional": true,
       "id": "converted_dataset",
       "name": "Converted Dataset"
     }

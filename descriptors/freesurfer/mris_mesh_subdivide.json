@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "mris_mesh_subdivide",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "https://example.com/boutiques/mris_mesh_subdivide.json",
   "description": "This program will subdivide a triangular mesh surface.",
   "command-line": "mris_mesh_subdivide [INPUT_SURFACE] [OUTPUT_SURFACE] [SUBDIVISION_METHOD] [ITERATIONS]",
   "schema-version": "0.5",
@@ -49,7 +48,6 @@
     {
       "path-template": "[OUTPUT_SURFACE]",
       "description": "The subdivided mesh surface output file",
-      "optional": false,
       "id": "subdivided_surface",
       "name": "Subdivided Surface File"
     }

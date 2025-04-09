@@ -23,7 +23,6 @@
   "schema-version": "0.5",
   "tool-version": "6.0.4",
   "author": "FMRIB Analysis Group, University of Oxford",
-  "descriptor-url": "http://example.com/checkFEAT_descriptor.json",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "container-image": {
     "type": "docker",
@@ -33,14 +32,12 @@
     {
       "path-template": "output_report.html",
       "description": "Output HTML report",
-      "optional": false,
       "id": "output_report",
       "name": "Output Report"
     },
     {
       "path-template": "output_report_log.html",
       "description": "Output HTML report log",
-      "optional": false,
       "id": "output_report_log",
       "name": "Output Report Log"
     }

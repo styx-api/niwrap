@@ -33,7 +33,6 @@
       "description": "Do not remove temporary working subdirectory (default: remove it)",
       "value-key": "[NO_CLEAN]",
       "type": "Flag",
-      "optional": true,
       "id": "no_clean",
       "name": "No Clean"
     },
@@ -42,7 +41,6 @@
       "description": "Show help",
       "value-key": "[HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "help",
       "name": "Help Flag"
     },
@@ -51,7 +49,6 @@
       "description": "Show help in text editor",
       "value-key": "[HVIEW]",
       "type": "Flag",
-      "optional": true,
       "id": "hview",
       "name": "Help View"
     },
@@ -60,7 +57,6 @@
       "description": "Show version",
       "value-key": "[VERSION]",
       "type": "Flag",
-      "optional": true,
       "id": "version",
       "name": "Version Flag"
     }
@@ -70,49 +66,42 @@
     {
       "path-template": "SUMA/fs_parc_wb_mask.nii.gz",
       "description": "Whole brain mask based on the FS parcellation created by this script.",
-      "optional": true,
       "id": "fs_parc_wb_mask",
       "name": "FS Parcellation Whole Brain Mask"
     },
     {
       "path-template": "SUMA/qc_00*.jpg",
       "description": "QC image with overlay of brainmask.nii* volume in red and parcellated subset in black.",
-      "optional": true,
       "id": "qc_image_00",
       "name": "QC Image 00"
     },
     {
       "path-template": "SUMA/qc_01*.jpg",
       "description": "QC image with overlay of fs_parc_wb_mask.nii.gz.",
-      "optional": true,
       "id": "qc_image_01",
       "name": "QC Image 01"
     },
     {
       "path-template": "SUMA/qc_02*.jpg",
       "description": "QC image with overlay of tissue segmentations.",
-      "optional": true,
       "id": "qc_image_02",
       "name": "QC Image 02"
     },
     {
       "path-template": "SUMA/qc_03*.jpg",
       "description": "QC image with overlay of GM.",
-      "optional": true,
       "id": "qc_image_03",
       "name": "QC Image 03"
     },
     {
       "path-template": "SUMA/qc_04*.jpg",
       "description": "QC image with overlay of WM.",
-      "optional": true,
       "id": "qc_image_04",
       "name": "QC Image 04"
     },
     {
       "path-template": "SUMA/qc_05*.jpg",
       "description": "QC image with overlay of \"2000\" atlas parcellation.",
-      "optional": true,
       "id": "qc_image_05",
       "name": "QC Image 05"
     }

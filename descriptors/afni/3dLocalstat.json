@@ -50,7 +50,6 @@
       "description": "Compute the mask as in program 3dAutomask (mutually exclusive with -mask)",
       "value-key": "[AUTOMASK]",
       "type": "Flag",
-      "optional": true,
       "id": "automask",
       "name": "Automask"
     },
@@ -59,7 +58,6 @@
       "description": "Compute local statistics from all voxels in the neighborhood that are in the mask, even if the central voxel is not in the mask",
       "value-key": "[USE_NONMASK]",
       "type": "Flag",
-      "optional": true,
       "id": "use_nonmask",
       "name": "Use nonmask"
     },
@@ -137,7 +135,6 @@
       "description": "Stop the highly informative progress reports",
       "value-key": "[QUIET]",
       "type": "Flag",
-      "optional": true,
       "id": "quiet",
       "name": "Quiet mode"
     },
@@ -146,7 +143,6 @@
       "description": "A little more verbose output",
       "value-key": "[VERBOSE]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose",
       "name": "Verbose mode"
     },
@@ -155,7 +151,6 @@
       "description": "Do not crash if neighborhood is too small for certain estimates",
       "value-key": "[PROCEED_SMALL_N]",
       "type": "Flag",
-      "optional": true,
       "id": "proceed_small_N",
       "name": "Proceed with small neighborhood"
     },
@@ -202,7 +197,6 @@
       "path-template": "[PREFIX].nii.gz",
       "description": "Output dataset",
       "name": "Output dataset",
-      "optional": false,
       "id": "outfile"
     }
   ],

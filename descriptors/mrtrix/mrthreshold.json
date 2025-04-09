@@ -4,10 +4,7 @@
   "author": "MRTrix3 Developers",
   "tool-version": "3.0.4",
   "schema-version": "0.5",
-  "container-image": {
-    "image": "mrtrix3/mrtrix3:3.0.4",
-    "type": "docker"
-  },
+  "container-image": { "image": "mrtrix3/mrtrix3:3.0.4", "type": "docker" },
   "command-line": "mrthreshold [THRESHOLD_DETERMINATION_MECHANISMS_ABS] [THRESHOLD_DETERMINATION_MECHANISMS_PERCENTILE] [THRESHOLD_DETERMINATION_MECHANISMS_TOP] [THRESHOLD_DETERMINATION_MECHANISMS_BOTTOM] [THRESHOLD_DETERMINATION_MODIFIERS_ALLVOLUMES] [THRESHOLD_DETERMINATION_MODIFIERS_IGNOREZERO] [THRESHOLD_DETERMINATION_MODIFIERS_MASK] [THRESHOLD_APPLICATION_MODIFIERS_COMPARISON] [THRESHOLD_APPLICATION_MODIFIERS_INVERT] [THRESHOLD_APPLICATION_MODIFIERS_OUT_MASKED] [THRESHOLD_APPLICATION_MODIFIERS_NAN] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION] [INPUT] [OUTPUT]",
   "inputs": [
     {
@@ -72,8 +69,7 @@
       "command-line-flag": "-allvolumes",
       "value-key": "[THRESHOLD_DETERMINATION_MODIFIERS_ALLVOLUMES]",
       "description": "compute a single threshold for all image volumes, rather than an individual threshold per volume",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "ignorezero",
@@ -81,8 +77,7 @@
       "command-line-flag": "-ignorezero",
       "value-key": "[THRESHOLD_DETERMINATION_MODIFIERS_IGNOREZERO]",
       "description": "ignore zero-valued input values during threshold determination",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "mask",
@@ -108,8 +103,7 @@
       "command-line-flag": "-invert",
       "value-key": "[THRESHOLD_APPLICATION_MODIFIERS_INVERT]",
       "description": "invert the output binary mask (equivalent to flipping the operator; provided for backwards compatibility)",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "out_masked",
@@ -117,8 +111,7 @@
       "command-line-flag": "-out_masked",
       "value-key": "[THRESHOLD_APPLICATION_MODIFIERS_OUT_MASKED]",
       "description": "mask the output image based on the provided input mask image",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "nan",
@@ -126,8 +119,7 @@
       "command-line-flag": "-nan",
       "value-key": "[THRESHOLD_APPLICATION_MODIFIERS_NAN]",
       "description": "set voxels that fail the threshold to NaN rather than zero (output image will be floating-point rather than binary)",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "info",
@@ -135,8 +127,7 @@
       "command-line-flag": "-info",
       "value-key": "[__STANDARD_OPTIONS_INFO]",
       "description": "display information messages.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "quiet",
@@ -144,8 +135,7 @@
       "command-line-flag": "-quiet",
       "value-key": "[__STANDARD_OPTIONS_QUIET]",
       "description": "do not display information messages or progress status; alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "debug",
@@ -153,8 +143,7 @@
       "command-line-flag": "-debug",
       "value-key": "[__STANDARD_OPTIONS_DEBUG]",
       "description": "display debugging messages.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "force",
@@ -162,8 +151,7 @@
       "command-line-flag": "-force",
       "value-key": "[__STANDARD_OPTIONS_FORCE]",
       "description": "force overwrite of output files (caution: using the same file as input and output might cause unexpected behaviour).",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "nthreads",
@@ -214,8 +202,7 @@
       "command-line-flag": "-help",
       "value-key": "[__STANDARD_OPTIONS_HELP]",
       "description": "display this information page and exit.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "version",
@@ -223,8 +210,7 @@
       "command-line-flag": "-version",
       "value-key": "[__STANDARD_OPTIONS_VERSION]",
       "description": "display version information and exit.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     }
   ],
   "output-files": [

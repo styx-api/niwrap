@@ -60,7 +60,6 @@
       "command-line-flag": "-out_pow_spec",
       "value-key": "[OUT_POW_SPEC]",
       "type": "Flag",
-      "optional": true,
       "id": "out_pow_spec",
       "name": "Output power spectrum flag"
     },
@@ -79,7 +78,6 @@
       "command-line-flag": "-nifti",
       "value-key": "[NIFTI]",
       "type": "Flag",
-      "optional": true,
       "id": "nifti",
       "name": "NIFTI flag"
     }
@@ -89,28 +87,24 @@
     {
       "path-template": "[PREFIX]_time.1D",
       "description": "1D file of the sampled time points (in units of seconds) of the analyzed data set",
-      "optional": false,
       "id": "time_points",
       "name": "Sampled time points file"
     },
     {
       "path-template": "[PREFIX]_freq.1D",
       "description": "1D file of the frequency sample points (in units of 1/seconds) of the output periodogram/spectrum data set",
-      "optional": false,
       "id": "frequency_points",
       "name": "Frequency sample points file"
     },
     {
       "path-template": "[PREFIX]_amp+orig",
       "description": "Volumetric data set containing a LS-derived amplitude spectrum",
-      "optional": true,
       "id": "amplitude_spectrum",
       "name": "Amplitude spectrum file"
     },
     {
       "path-template": "[PREFIX]_pow+orig",
       "description": "Volumetric data set containing a LS-derived power spectrum",
-      "optional": true,
       "id": "power_spectrum",
       "name": "Power spectrum file"
     }

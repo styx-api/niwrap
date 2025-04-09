@@ -50,7 +50,6 @@
       "description": "Quiet mode: 0 for no differences, 1 for differences, -1 for error.",
       "value-key": "[QUIET_MODE]",
       "type": "Flag",
-      "optional": true,
       "command-line-flag": "-q",
       "id": "quiet_mode",
       "name": "Quiet Mode"
@@ -59,7 +58,6 @@
       "description": "Display a table of differences, mainly for 4D data.",
       "value-key": "[TABULAR_MODE]",
       "type": "Flag",
-      "optional": true,
       "command-line-flag": "-tabular",
       "id": "tabular_mode",
       "name": "Tabular Mode"
@@ -68,7 +66,6 @@
       "description": "Display one-liner with summary of differences.",
       "value-key": "[BRUTALIST_MODE]",
       "type": "Flag",
-      "optional": true,
       "command-line-flag": "-brutalist",
       "id": "brutalist_mode",
       "name": "Brutalist Mode"
@@ -77,7 +74,6 @@
       "description": "Print a detailed report with more information.",
       "value-key": "[LONG_REPORT_MODE]",
       "type": "Flag",
-      "optional": true,
       "command-line-flag": "-long_report",
       "id": "long_report_mode",
       "name": "Long Report Mode"
@@ -88,7 +84,6 @@
     {
       "path-template": "[DATASET_A]_vs_[DATASET_B].log",
       "description": "Log file containing the element-wise differences.",
-      "optional": true,
       "id": "output_log",
       "name": "Output log file"
     }

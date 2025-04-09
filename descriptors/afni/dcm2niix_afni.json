@@ -179,7 +179,6 @@
       "description": "Up-to-date check",
       "value-key": "[UP_TO_DATE]",
       "type": "Flag",
-      "optional": true,
       "id": "up_to_date",
       "name": "Up-to-Date Check"
     },
@@ -243,7 +242,6 @@
       "description": "Disregard values in 0018, 1060 and 0020, 9153",
       "value-key": "[IGNORE_TRIGGER_TIMES]",
       "type": "Flag",
-      "optional": true,
       "id": "ignore_trigger_times",
       "name": "Ignore Trigger Times"
     },
@@ -252,7 +250,6 @@
       "description": "Omit filename post-fixes (can cause overwrites)",
       "value-key": "[TERSE]",
       "type": "Flag",
-      "optional": true,
       "id": "terse",
       "name": "Terse"
     },
@@ -261,7 +258,6 @@
       "description": "Report version",
       "value-key": "[VERSION]",
       "type": "Flag",
-      "optional": true,
       "id": "version",
       "name": "Version"
     },
@@ -270,7 +266,6 @@
       "description": "Slicer format features",
       "value-key": "[XML]",
       "type": "Flag",
-      "optional": true,
       "id": "xml",
       "name": "XML"
     }
@@ -280,7 +275,6 @@
     {
       "path-template": "<OUTPUT_DIRECTORY>/*.nii",
       "description": "The main output NIfTI files",
-      "optional": false,
       "id": "nifti_files",
       "name": "NIfTI Files"
     }

@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "mris_make_surfaces",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "https://github.com/freesurfer/freesurfer",
   "description": "Positions the tessellation of the cortical surface at the white matter surface, then the gray matter surface, generating surface files along with a curvature file and a surface file for cortical thickness.",
   "command-line": "mris_make_surfaces [SUBJECT_NAME] [HEMISPHERE] [WHITE] [PIAL] [WHITEONLY] [NOWHITE] [ORIG_WHITE] [ORIG_PIAL] [Q] [MAX_GRAY_SCALE] [C] [CORTEX] [W] [FIRST_WM_PEAK] [A_AVGS] [PA_AVGS] [WA_AVGS] [T1_VOL] [W_VOL] [LONG] [DURA_THRESH] [SDIR] [ERASE_CEREBELLUM] [WM_WEIGHT] [NSIGMA_ABOVE] [NSIGMA_BELOW] [T2_MIN_INSIDE] [T2_MAX_INSIDE] [T2_OUTSIDE_MIN] [T2_OUTSIDE_MAX] [MIN_PEAK_PCT] [BORDER_VALS_HIRES] [NO_UNITIZE] [INTENSITY] [CURV] [TSPRING] [NSPRING] [REPULSE] [SAVE_TARGET] [SAVE_RES] [V_VERTEXNO] [DIAG_VERTEX] [RIP] [SIGMA_WHITE] [SIGMA_PIAL] [OUTPUT] [MIN_BORDER_WHITE] [MAX_BORDER_WHITE] [MIN_GRAY_WHITE_BORDER] [MAX_GRAY] [MAX_GRAY_CSF_BORDER] [MIN_GRAY_CSF_BORDER] [MAX_CSF]",
   "container-image": {
@@ -50,7 +49,6 @@
       "description": "Only generate white matter surface.",
       "value-key": "[WHITEONLY]",
       "type": "Flag",
-      "optional": true,
       "id": "whiteonly",
       "name": "White-only Flag"
     },
@@ -59,7 +57,6 @@
       "description": "Only generate pial surface.",
       "value-key": "[NOWHITE]",
       "type": "Flag",
-      "optional": true,
       "id": "nowhite",
       "name": "No-White Flag"
     },
@@ -86,7 +83,6 @@
       "description": "Omit self-intersection and only generate gray/white surface.",
       "value-key": "[Q]",
       "type": "Flag",
-      "optional": true,
       "id": "q",
       "name": "Q Flag"
     },
@@ -104,7 +100,6 @@
       "description": "Do not create curvature and area files from white matter surface.",
       "value-key": "[C]",
       "type": "Flag",
-      "optional": true,
       "id": "c",
       "name": "C Flag"
     },
@@ -131,7 +126,6 @@
       "description": "Settle WM surface at first peak in intensity profile instead of highest.",
       "value-key": "[FIRST_WM_PEAK]",
       "type": "Flag",
-      "optional": true,
       "id": "first_wm_peak",
       "name": "First WM Peak Flag"
     },
@@ -185,7 +179,6 @@
       "description": "Run longitudinal analysis.",
       "value-key": "[LONG]",
       "type": "Flag",
-      "optional": true,
       "id": "long",
       "name": "Longitudinal Flag"
     },
@@ -212,7 +205,6 @@
       "description": "Erase cerebellar labeled voxels if aseg is loaded.",
       "value-key": "[ERASE_CEREBELLUM]",
       "type": "Flag",
-      "optional": true,
       "id": "erase_cerebellum",
       "name": "Erase Cerebellum Flag"
     },
@@ -293,7 +285,6 @@
       "description": "Turn on hires options in MRIScomputeBorderValues_new(). May not be helpful.",
       "value-key": "[BORDER_VALS_HIRES]",
       "type": "Flag",
-      "optional": true,
       "id": "border_vals_hires",
       "name": "Border Vals Hires"
     },
@@ -302,7 +293,6 @@
       "description": "Turn off face normal unitization.",
       "value-key": "[NO_UNITIZE]",
       "type": "Flag",
-      "optional": true,
       "id": "no_unitize",
       "name": "No Unitize"
     },
@@ -356,7 +346,6 @@
       "description": "Save target surface for debugging.",
       "value-key": "[SAVE_TARGET]",
       "type": "Flag",
-      "optional": true,
       "id": "save_target",
       "name": "Save Target"
     },
@@ -365,7 +354,6 @@
       "description": "Save residual for debugging.",
       "value-key": "[SAVE_RES]",
       "type": "Flag",
-      "optional": true,
       "id": "save_res",
       "name": "Save Residual"
     },

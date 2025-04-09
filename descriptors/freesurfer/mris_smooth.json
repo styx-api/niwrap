@@ -45,7 +45,6 @@
       "description": "Disable writing of curvature and area estimates.",
       "value-key": "[NO_WRITE]",
       "type": "Flag",
-      "optional": true,
       "id": "no_write",
       "name": "No Write Flag"
     },
@@ -86,7 +85,6 @@
       "description": "Normalize area after smoothing.",
       "value-key": "[NORMALIZE_AREA]",
       "type": "Flag",
-      "optional": true,
       "id": "normalize_area",
       "name": "Normalize Area Flag"
     },
@@ -113,21 +111,18 @@
     {
       "path-template": "[OUTPUT_SURFACE]",
       "description": "Output smoothed surface file.",
-      "optional": false,
       "id": "output_surface_file",
       "name": "Output Surface File"
     },
     {
       "path-template": "${OUTPUT_SURFACE}_curvature",
       "description": "Output curvature file (if written).",
-      "optional": true,
       "id": "curvature_file",
       "name": "Curvature File"
     },
     {
       "path-template": "${OUTPUT_SURFACE}_area",
       "description": "Output area file (if written).",
-      "optional": true,
       "id": "area_file",
       "name": "Area File"
     }

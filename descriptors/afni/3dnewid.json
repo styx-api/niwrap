@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "3dnewid",
   "author": "AFNI Developers",
-  "descriptor-url": "https://github.com/afni/afni",
   "description": "Assigns a new ID code to a dataset, ensuring internal ID codes remain unique.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dnewid [DATASETS] [FUN] [FUN11] [INT] [HASH] [MD5]",
@@ -34,7 +33,6 @@
       "description": "Generate an 11 character ID code for use in scripting",
       "value-key": "[FUN11]",
       "type": "Flag",
-      "optional": true,
       "id": "fun11",
       "name": "11 character ID code flag"
     },
@@ -43,7 +41,6 @@
       "description": "Generate a random positive integer between 1 million and 1 billion.",
       "value-key": "[INT]",
       "type": "Flag",
-      "optional": true,
       "id": "int",
       "name": "Random positive integer flag"
     },

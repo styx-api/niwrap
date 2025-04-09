@@ -159,7 +159,6 @@
       "command-line-flag": "-presmooth-fwhm",
       "description": "smoothing kernel sizes are FWHM, not sigma",
       "type": "Flag",
-      "optional": true,
       "value-key": "[OPT_PRESMOOTH_FWHM]"
     },
     {
@@ -168,7 +167,6 @@
       "command-line-flag": "-average-output",
       "description": "output the average of the gradient magnitude maps instead of each gradient map separately",
       "type": "Flag",
-      "optional": true,
       "value-key": "[OPT_AVERAGE_OUTPUT]"
     },
     {
@@ -186,15 +184,13 @@
       "id": "cifti_out",
       "name": "cifti_out",
       "path-template": "[CIFTI_OUT]",
-      "description": "the output cifti",
-      "optional": false
+      "description": "the output cifti"
     },
     {
       "id": "opt_vectors_vectors_out",
       "name": "opt_vectors_vectors_out",
       "path-template": "[OPT_VECTORS_VECTORS_OUT]",
-      "description": "output gradient vectors: the vectors, as a dscalar file",
-      "optional": false
+      "description": "output gradient vectors: the vectors, as a dscalar file"
     }
   ],
   "url": "https://github.com/Washington-University/workbench"

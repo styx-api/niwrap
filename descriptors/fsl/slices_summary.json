@@ -45,7 +45,6 @@
       "description": "Generate single-slice summary images instead of 3-slice",
       "value-key": "[SINGLE_SLICE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "single_slice_flag",
       "name": "Single Slice Flag"
     },
@@ -54,7 +53,6 @@
       "description": "Make background darker and colour brighter, for greater colour visibility",
       "value-key": "[DARKER_BACKGROUND_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "darker_background_flag",
       "name": "Darker Background Flag"
     },
@@ -63,7 +61,6 @@
       "description": "Use dumber rule for choosing optimal slice",
       "value-key": "[DUMB_RULE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "dumb_rule_flag",
       "name": "Dumb Rule Flag"
     },
@@ -119,14 +116,12 @@
     {
       "path-template": "[PICTURES_SUM_SECOND]",
       "description": "Directory containing summary images",
-      "optional": false,
       "id": "summary_images_directory",
       "name": "Summary Images Directory"
     },
     {
       "path-template": "[OUTPUT_PNG]",
       "description": "Combined summary PNG image",
-      "optional": false,
       "id": "combined_summary_image",
       "name": "Combined Summary Image"
     }

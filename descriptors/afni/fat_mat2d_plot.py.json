@@ -127,7 +127,6 @@
       "description": "Disable the colorbar in the image.",
       "value-key": "[NO_COLORBAR]",
       "type": "Flag",
-      "optional": true,
       "id": "no_colorbar",
       "name": "Disable Colorbar"
     },
@@ -152,7 +151,6 @@
       "description": "In addition to saving an image file, open the image and keep displaying it until a key is pressed in the terminal.",
       "value-key": "[HOLD_IMAGE]",
       "type": "Flag",
-      "optional": true,
       "id": "hold_image",
       "name": "Hold Image"
     },
@@ -161,7 +159,6 @@
       "description": "Use matplotlib's tight layout functionality in arranging the plot.",
       "value-key": "[TIGHT_LAYOUT]",
       "type": "Flag",
-      "optional": true,
       "id": "tight_layout",
       "name": "Tight Layout"
     },
@@ -170,7 +167,6 @@
       "description": "Don't display labels along the x-axis.",
       "value-key": "[XTICKS_OFF]",
       "type": "Flag",
-      "optional": true,
       "id": "xticks_off",
       "name": "Disable X Ticks"
     },
@@ -179,7 +175,6 @@
       "description": "Don't display labels along the y-axis.",
       "value-key": "[YTICKS_OFF]",
       "type": "Flag",
-      "optional": true,
       "id": "yticks_off",
       "name": "Disable Y Ticks"
     },
@@ -188,7 +183,6 @@
       "description": "Display the version number of the program.",
       "value-key": "[VERSION]",
       "type": "Flag",
-      "optional": true,
       "id": "version",
       "name": "Version"
     },
@@ -197,7 +191,6 @@
       "description": "Display the release/editing date of the current version.",
       "value-key": "[DATE]",
       "type": "Flag",
-      "optional": true,
       "id": "date",
       "name": "Date"
     },
@@ -206,7 +199,6 @@
       "description": "Display help in the terminal.",
       "value-key": "[HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "help",
       "name": "Help"
     },
@@ -215,7 +207,6 @@
       "description": "Display help in a separate text editor.",
       "value-key": "[HELP_VIEW]",
       "type": "Flag",
-      "optional": true,
       "id": "help_view",
       "name": "Help View"
     }
@@ -225,7 +216,6 @@
     {
       "path-template": "[PREFIX]_[MATRIX_NAME].[FILE_TYPE]",
       "description": "Individual image files of matrices; these can contain colorbars, as well.",
-      "optional": false,
       "id": "output_files",
       "name": "Output Image Files"
     }

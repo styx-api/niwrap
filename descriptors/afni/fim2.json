@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "fim2",
   "author": "AFNI Developers",
-  "descriptor-url": "https://example.com/fim2_descriptor.json",
   "description": "Functional Imaging Mapping Tool",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "fim2 [IMAGE_FILES] [PCNT] [PCTHRESH] [IM1] [NUM] [NON] [COEF] [ORT] [IDEAL] [POLREF] [FIMFILE] [CORR] [CORFILE] [CNRFILE] [SIGFILE] [FITFILE] [SUBORT] [FLIM] [CLEAN] [CLIP] [Q] [DFSPACE] [REGBASE]",
@@ -65,7 +64,6 @@
       "description": "Turn off default normalization of the output activation image",
       "value-key": "[NON]",
       "type": "Flag",
-      "optional": true,
       "id": "non",
       "name": "Disable Normalization"
     },
@@ -123,7 +121,6 @@
       "description": "Indicates to write correlation output to image file 'fimfile.CORR'",
       "value-key": "[CORR]",
       "type": "Flag",
-      "optional": true,
       "id": "corr",
       "name": "Correlation Output Flag"
     },
@@ -177,7 +174,6 @@
       "description": "Write outputs in mrilib 'float' format",
       "value-key": "[FLIM]",
       "type": "Flag",
-      "optional": true,
       "id": "flim",
       "name": "Floating-Point Output Flag"
     },
@@ -186,7 +182,6 @@
       "description": "Output images won't have the +/- 10000 values forced into their corners for scaling purposes",
       "value-key": "[CLEAN]",
       "type": "Flag",
-      "optional": true,
       "id": "clean",
       "name": "Clean Output Flag"
     },
@@ -195,7 +190,6 @@
       "description": "Set to zero regions of low intensity in output correlations, etc.",
       "value-key": "[CLIP]",
       "type": "Flag",
-      "optional": true,
       "id": "clip",
       "name": "Clip Low Intensity Output Flag"
     },
@@ -204,7 +198,6 @@
       "description": "Quiet operation mode",
       "value-key": "[Q]",
       "type": "Flag",
-      "optional": true,
       "id": "q",
       "name": "Quiet Flag"
     },
@@ -213,7 +206,6 @@
       "description": "Use the 'dfspace' filter to register the images spatially before filtering.",
       "value-key": "[DFSPACE]",
       "type": "Flag",
-      "optional": true,
       "id": "dfspace",
       "name": "DF Space Filter Flag"
     },
@@ -232,42 +224,36 @@
     {
       "path-template": "[FIMFILE]",
       "description": "Activation magnitudes output file",
-      "optional": true,
       "id": "activation_magnitudes",
       "name": "Activation Magnitudes File"
     },
     {
       "path-template": "[CORFILE]",
       "description": "Correlation image output file",
-      "optional": true,
       "id": "correlation_image",
       "name": "Correlation Image File"
     },
     {
       "path-template": "[CNRFILE]",
       "description": "Contrast-to-noise image output file",
-      "optional": true,
       "id": "contrast_to_noise_image",
       "name": "Contrast-to-Noise Image File"
     },
     {
       "path-template": "[SIGFILE]",
       "description": "Standard deviation image output file",
-      "optional": true,
       "id": "std_deviation_image",
       "name": "Standard Deviation Image File"
     },
     {
       "path-template": "[FITFILE]",
       "description": "Least squares fit coefficients image files",
-      "optional": true,
       "id": "ls_fit_coefficients",
       "name": "LS Fit Coefficients Files"
     },
     {
       "path-template": "[SUBORT]",
       "description": "Subtracted ortho reference time series images",
-      "optional": true,
       "id": "subtracted_references",
       "name": "Subtracted References Time Series Files"
     }

@@ -23,7 +23,6 @@
       "description": "Quality index is 1 minus the Spearman (rank) correlation coefficient of each sub-brick with the median sub-brick (default method).",
       "value-key": "[SPEARMAN]",
       "type": "Flag",
-      "optional": true,
       "id": "spearman",
       "name": "Spearman correlation flag"
     },
@@ -32,7 +31,6 @@
       "description": "Quality index is 1 minus the quadrant correlation coefficient as the quality index.",
       "value-key": "[QUADRANT]",
       "type": "Flag",
-      "optional": true,
       "id": "quadrant",
       "name": "Quadrant correlation flag"
     },
@@ -41,7 +39,6 @@
       "description": "Clip off low-intensity regions in the median sub-brick, only compute correlation between high-intensity voxels.",
       "value-key": "[AUTOCLIP]",
       "type": "Flag",
-      "optional": true,
       "id": "autoclip",
       "name": "Autoclip flag"
     },
@@ -50,7 +47,6 @@
       "description": "Automatically mask and compute correlation only across high-intensity (presumably brain) voxels.",
       "value-key": "[AUTOMASK]",
       "type": "Flag",
-      "optional": true,
       "id": "automask",
       "name": "Automask flag"
     },
@@ -77,7 +73,6 @@
       "description": "Print the median-3.5*MAD and median+3.5*MAD values with each quality index for plotting.",
       "value-key": "[RANGE]",
       "type": "Flag",
-      "optional": true,
       "id": "range",
       "name": "Range flag"
     }
@@ -87,7 +82,6 @@
     {
       "path-template": "stdout",
       "description": "The 1D time series with the quality index for each sub-brick",
-      "optional": false,
       "id": "time_series",
       "name": "Quality Index Time Series"
     }

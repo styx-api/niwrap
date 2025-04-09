@@ -221,8 +221,7 @@
       "type": "Flag",
       "value-key": "[NO_APPROX_JL]",
       "command-line-flag": "-noAppJL",
-      "description": "Do not approximate the JL value only at the control point position",
-      "optional": true
+      "description": "Do not approximate the JL value only at the control point position"
     },
     {
       "id": "no_conj",
@@ -230,8 +229,7 @@
       "type": "Flag",
       "value-key": "[NO_CONJ]",
       "command-line-flag": "-noConj",
-      "description": "Do not use the conjugate gradient optimization but a simple gradient ascent",
-      "optional": true
+      "description": "Do not use the conjugate gradient optimization but a simple gradient ascent"
     },
     {
       "id": "ssd",
@@ -239,8 +237,7 @@
       "type": "Flag",
       "value-key": "[SSD]",
       "command-line-flag": "-ssd",
-      "description": "Use the SSD as the similarity measure instead of NMI",
-      "optional": true
+      "description": "Use the SSD as the similarity measure instead of NMI"
     },
     {
       "id": "kld",
@@ -248,8 +245,7 @@
       "type": "Flag",
       "value-key": "[KLD]",
       "command-line-flag": "-kld",
-      "description": "Use the KL divergence as the similarity measure instead of NMI",
-      "optional": true
+      "description": "Use the KL divergence as the similarity measure instead of NMI"
     },
     {
       "id": "amc",
@@ -257,8 +253,7 @@
       "type": "Flag",
       "value-key": "[AMC]",
       "command-line-flag": "-amc",
-      "description": "Use the additive NMI for multichannel data",
-      "optional": true
+      "description": "Use the additive NMI for multichannel data"
     },
     {
       "id": "max_iterations",
@@ -293,8 +288,7 @@
       "type": "Flag",
       "value-key": "[NO_PYRAMID]",
       "command-line-flag": "-nopy",
-      "description": "Do not use a pyramidal approach",
-      "optional": true
+      "description": "Do not use a pyramidal approach"
     },
     {
       "id": "symmetric",
@@ -302,8 +296,7 @@
       "type": "Flag",
       "value-key": "[SYMMETRIC]",
       "command-line-flag": "-sym",
-      "description": "Use symmetric approach",
-      "optional": true
+      "description": "Use symmetric approach"
     },
     {
       "id": "floating_mask",
@@ -329,8 +322,7 @@
       "type": "Flag",
       "value-key": "[VELOCITY_FIELD]",
       "command-line-flag": "-vel",
-      "description": "Use velocity field integration to generate the deformation",
-      "optional": true
+      "description": "Use velocity field integration to generate the deformation"
     },
     {
       "id": "composition_steps",
@@ -365,8 +357,7 @@
       "type": "Flag",
       "value-key": "[VERBOSE_OFF]",
       "command-line-flag": "-voff",
-      "description": "Turn verbose off",
-      "optional": true
+      "description": "Turn verbose off"
     }
   ],
   "output-files": [
@@ -374,15 +365,13 @@
       "id": "output_cpp_file",
       "name": "Output Control Point Grid",
       "path-template": "[OUTPUT_CPP]",
-      "description": "File containing the output control point grid",
-      "optional": true
+      "description": "File containing the output control point grid"
     },
     {
       "id": "output_resampled_image_file",
       "name": "Output Resampled Image",
       "path-template": "[OUTPUT_RESAMPLED_IMAGE]",
-      "description": "File containing the resampled image",
-      "optional": true
+      "description": "File containing the resampled image"
     }
   ],
   "container-image": {

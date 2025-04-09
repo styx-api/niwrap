@@ -38,7 +38,6 @@
       "description": "Create screenshots of individual brains.",
       "value-key": "[SCREENSHOTS]",
       "type": "Flag",
-      "optional": true,
       "id": "screenshots",
       "name": "Screenshots",
       "command-line-flag": "--screenshots"
@@ -47,7 +46,6 @@
       "description": "Check fornix segmentation.",
       "value-key": "[FORNIX]",
       "type": "Flag",
-      "optional": true,
       "id": "fornix",
       "name": "Fornix Check",
       "command-line-flag": "--fornix"
@@ -56,7 +54,6 @@
       "description": "Run outlier detection.",
       "value-key": "[OUTLIER]",
       "type": "Flag",
-      "optional": true,
       "id": "outlier",
       "name": "Outlier Detection",
       "command-line-flag": "--outlier"
@@ -75,14 +72,12 @@
     {
       "path-template": "[OUTPUT_DIR]/summary.csv",
       "description": "Summary CSV file containing quality metrics.",
-      "optional": false,
       "id": "summary_csv",
       "name": "Summary CSV File"
     },
     {
       "path-template": "[OUTPUT_DIR]/screenshots/",
       "description": "Directory containing screenshots of individual brains if screenshots option is selected.",
-      "optional": true,
       "id": "screenshots_output",
       "name": "Screenshots Output"
     }

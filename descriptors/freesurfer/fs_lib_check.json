@@ -11,7 +11,6 @@
       "description": "Force use of 'ldconfig' to check for instances of required system libraries. This is useful on rpm systems if system libraries were installed from source code, and are thus not known to the system rpm database.",
       "value-key": "[USE_LDCONFIG]",
       "type": "Flag",
-      "optional": true,
       "id": "use_ldconfig",
       "name": "Force use ldconfig"
     },
@@ -20,7 +19,6 @@
       "description": "Force use of 'rpm -qa' to check for installed library packages. If -r and -l are both specified concurrently, then behavior is unspecified.",
       "value-key": "[USE_RPM]",
       "type": "Flag",
-      "optional": true,
       "id": "use_rpm",
       "name": "Force use rpm"
     },
@@ -29,7 +27,6 @@
       "description": "Show this synopsis and exit.",
       "value-key": "[SHOW_HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "show_help",
       "name": "Show help"
     },
@@ -38,7 +35,6 @@
       "description": "Show a version number and exit.",
       "value-key": "[SHOW_VERSION]",
       "type": "Flag",
-      "optional": true,
       "id": "show_version",
       "name": "Show version"
     }

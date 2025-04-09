@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "@Reorder",
   "author": "AFNI Developers",
-  "descriptor-url": "http://example.com/reorder_descriptor.json",
   "description": "Reorder sub-bricks of a dataset based on event mapping. Works similarly to the Reorder plugin.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "@Reorder [INPUT_DATASET] [MAPFILE] [PREFIX] [OFFSET] [SAVE_WORK] [TEST] [HELP]",
@@ -46,7 +45,6 @@
       "description": "Do not delete work directory (reorder.work.dir) at the end",
       "value-key": "[SAVE_WORK]",
       "type": "Flag",
-      "optional": true,
       "id": "save_work",
       "name": "Save Work Directory"
     },
@@ -55,7 +53,6 @@
       "description": "Just report sub-bricks, do not create datasets",
       "value-key": "[TEST]",
       "type": "Flag",
-      "optional": true,
       "id": "test",
       "name": "Test Only"
     },
@@ -64,7 +61,6 @@
       "description": "Show help message",
       "value-key": "[HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "help",
       "name": "Help"
     }
@@ -73,7 +69,6 @@
     {
       "path-template": "[PREFIX]+tlrc",
       "description": "Reordered output dataset",
-      "optional": false,
       "id": "output_dataset",
       "name": "Output Dataset"
     }

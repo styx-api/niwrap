@@ -32,7 +32,6 @@
       "description": "Print progress messages (increases verbosity if repeated)",
       "value-key": "[VERBOSE]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose",
       "name": "Verbose"
     },
@@ -41,7 +40,6 @@
       "description": "Force the output dataset to be 32-bit floats",
       "value-key": "[FORCE_FLOAT]",
       "type": "Flag",
-      "optional": true,
       "id": "force_float",
       "name": "Force Float"
     },
@@ -50,7 +48,6 @@
       "description": "Do not write an AFNI extension field into the output file",
       "value-key": "[PURE]",
       "type": "Flag",
-      "optional": true,
       "id": "pure",
       "name": "Pure"
     },
@@ -59,7 +56,6 @@
       "description": "Remove text notes from AFNI extension field that might contain identifying information",
       "value-key": "[DENOTE]",
       "type": "Flag",
-      "optional": true,
       "id": "denote",
       "name": "Denote"
     },
@@ -68,7 +64,6 @@
       "description": "Retain the input dataset's AFNI ID code",
       "value-key": "[OLDID]",
       "type": "Flag",
-      "optional": true,
       "id": "oldid",
       "name": "Old ID"
     },
@@ -77,7 +72,6 @@
       "description": "Assign a new AFNI ID code to the dataset (default action)",
       "value-key": "[NEWID]",
       "type": "Flag",
-      "optional": true,
       "id": "newid",
       "name": "New ID"
     }
@@ -87,7 +81,6 @@
     {
       "path-template": "[PREFIX].nii",
       "description": "Output NIfTI file.",
-      "optional": false,
       "id": "output_nifti",
       "name": "Output NIfTI File"
     }

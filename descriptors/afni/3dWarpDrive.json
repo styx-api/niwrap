@@ -40,7 +40,6 @@
       "description": "3 parameters (shifts)",
       "value-key": "[SHIFT_ONLY]",
       "type": "Flag",
-      "optional": true,
       "id": "shift_only",
       "name": "Shift Only"
     },
@@ -49,7 +48,6 @@
       "description": "6 parameters (shifts + angles)",
       "value-key": "[SHIFT_ROTATE]",
       "type": "Flag",
-      "optional": true,
       "id": "shift_rotate",
       "name": "Shift and Rotate"
     },
@@ -58,7 +56,6 @@
       "description": "9 parameters (shifts + angles + scale factors)",
       "value-key": "[SHIFT_ROTATE_SCALE]",
       "type": "Flag",
-      "optional": true,
       "id": "shift_rotate_scale",
       "name": "Shift, Rotate, and Scale"
     },
@@ -67,7 +64,6 @@
       "description": "12 parameters (3 shifts + 3x3 matrix)",
       "value-key": "[AFFINE_GENERAL]",
       "type": "Flag",
-      "optional": true,
       "id": "affine_general",
       "name": "Affine General"
     },
@@ -76,7 +72,6 @@
       "description": "39 parameters (3 + 3x3 + 3x3x3). Not implemented and will never be.",
       "value-key": "[BILINEAR_GENERAL]",
       "type": "Flag",
-      "optional": true,
       "id": "bilinear_general",
       "name": "Bilinear General"
     },
@@ -85,7 +80,6 @@
       "description": "Linear interpolation method",
       "value-key": "[LINEAR]",
       "type": "Flag",
-      "optional": true,
       "id": "linear",
       "name": "Linear interpolation"
     },
@@ -94,7 +88,6 @@
       "description": "Cubic interpolation method",
       "value-key": "[CUBIC]",
       "type": "Flag",
-      "optional": true,
       "id": "cubic",
       "name": "Cubic interpolation"
     },
@@ -103,7 +96,6 @@
       "description": "Nearest neighbor interpolation method [default]",
       "value-key": "[NN]",
       "type": "Flag",
-      "optional": true,
       "id": "NN",
       "name": "Nearest Neighbor interpolation"
     },
@@ -112,7 +104,6 @@
       "description": "Quintic interpolation method",
       "value-key": "[QUINTIC]",
       "type": "Flag",
-      "optional": true,
       "id": "quintic",
       "name": "Quintic interpolation"
     },
@@ -130,7 +121,6 @@
       "description": "Print out lots of information along the way.",
       "value-key": "[VERBOSITY_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "verbosity_flag",
       "name": "Verbose Flag"
     },
@@ -185,7 +175,6 @@
       "description": "Do the parameter estimation in two passes, coarse-but-fast first, then fine-but-slow second.",
       "value-key": "[TWOPASS]",
       "type": "Flag",
-      "optional": true,
       "id": "twopass",
       "name": "Two-Pass Estimation"
     },
@@ -222,7 +211,6 @@
       "description": "Write output dataset in float format, even if input dataset is short or byte.",
       "value-key": "[FLOAT_FORMAT]",
       "type": "Flag",
-      "optional": true,
       "id": "float_format",
       "name": "Float Format Output"
     },
@@ -231,7 +219,6 @@
       "description": "Initialize shift+rotation parameters by a brute force coarse search.",
       "value-key": "[COARSEROT_INIT]",
       "type": "Flag",
-      "optional": true,
       "id": "coarserot_init",
       "name": "Coarse Rotation Initialization"
     },
@@ -249,7 +236,6 @@
       "description": "Set the order of the matrix multiplication for the affine transformations (S=triangular shear, D=diagonal scaling matrix, U=rotation matrix).",
       "value-key": "[SDU_ORDER]",
       "type": "Flag",
-      "optional": true,
       "id": "sdu_order",
       "name": "Matrix Order SDU"
     },
@@ -258,7 +244,6 @@
       "description": "Set the order of the matrix multiplication for the affine transformations (S=triangular shear, U=rotation matrix, D=diagonal scaling matrix).",
       "value-key": "[SUD_ORDER]",
       "type": "Flag",
-      "optional": true,
       "id": "sud_order",
       "name": "Matrix Order SUD"
     },
@@ -267,7 +252,6 @@
       "description": "Set the order of the matrix multiplication for the affine transformations (D=diagonal scaling matrix, S=triangular shear, U=rotation matrix).",
       "value-key": "[DSU_ORDER]",
       "type": "Flag",
-      "optional": true,
       "id": "dsu_order",
       "name": "Matrix Order DSU"
     },
@@ -276,7 +260,6 @@
       "description": "Set the order of the matrix multiplication for the affine transformations (D=diagonal scaling matrix, U=rotation matrix, S=triangular shear).",
       "value-key": "[DUS_ORDER]",
       "type": "Flag",
-      "optional": true,
       "id": "dus_order",
       "name": "Matrix Order DUS"
     },
@@ -285,7 +268,6 @@
       "description": "Set the order of the matrix multiplication for the affine transformations (U=rotation matrix, S=triangular shear, D=diagonal scaling matrix).",
       "value-key": "[USD_ORDER]",
       "type": "Flag",
-      "optional": true,
       "id": "usd_order",
       "name": "Matrix Order USD"
     },
@@ -294,7 +276,6 @@
       "description": "Set the order of the matrix multiplication for the affine transformations (U=rotation matrix, D=diagonal scaling matrix, S=triangular shear).",
       "value-key": "[UDS_ORDER]",
       "type": "Flag",
-      "optional": true,
       "id": "uds_order",
       "name": "Matrix Order UDS"
     },
@@ -303,7 +284,6 @@
       "description": "Set the S matrix to be upper triangular.",
       "value-key": "[SUPPER_S_MATRIX]",
       "type": "Flag",
-      "optional": true,
       "id": "supper_s_matrix",
       "name": "Upper Triangular S Matrix"
     },
@@ -312,7 +292,6 @@
       "description": "Set the S matrix to be lower triangular.",
       "value-key": "[SLOWER_S_MATRIX]",
       "type": "Flag",
-      "optional": true,
       "id": "slower_s_matrix",
       "name": "Lower Triangular S Matrix"
     },
@@ -321,7 +300,6 @@
       "description": "Apply the shift parameters after the matrix transformation.",
       "value-key": "[ASHIFT]",
       "type": "Flag",
-      "optional": true,
       "id": "ashift",
       "name": "Shift After Transformation"
     },
@@ -330,7 +308,6 @@
       "description": "Apply the shift parameters before the matrix transformation.",
       "value-key": "[BSHIFT]",
       "type": "Flag",
-      "optional": true,
       "id": "bshift",
       "name": "Shift Before Transformation"
     }
@@ -339,28 +316,24 @@
     {
       "path-template": "[PREFIX]+orig",
       "description": "Warped dataset output",
-      "optional": true,
       "id": "output_dataset",
       "name": "Output Dataset"
     },
     {
       "path-template": "[SUMMARY_FILE]",
       "description": "Summary of calculations",
-      "optional": true,
       "id": "output_summary",
       "name": "Summary File"
     },
     {
       "path-template": "[ONED_FILE]",
       "description": "File with warping parameters",
-      "optional": true,
       "id": "oned_output_file",
       "name": "Warping Parameters File"
     },
     {
       "path-template": "[ONED_MATRIX_SAVE]",
       "description": "File with transformation matrices",
-      "optional": true,
       "id": "matrix_output_file",
       "name": "Transformation Matrices File"
     }

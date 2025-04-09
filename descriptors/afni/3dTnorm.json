@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "3dTnorm",
   "author": "AFNI Developers",
-  "descriptor-url": "https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dTnorm.html",
   "description": "Normalizes each voxel time series by multiplicative scaling",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dTnorm [PREFIX] [NORM2] [NORMR] [NORM1] [NORMX] [POLORT] [L1FIT] [INPUT_DATASET]",
@@ -33,7 +32,6 @@
       "description": "L2 normalize (sum of squares = 1)",
       "value-key": "[NORM2]",
       "type": "Flag",
-      "optional": true,
       "id": "norm2",
       "name": "L2 normalization flag"
     },
@@ -42,7 +40,6 @@
       "description": "Normalize so sum of squares = number of time points",
       "value-key": "[NORMR]",
       "type": "Flag",
-      "optional": true,
       "id": "normR",
       "name": "Sum of squares normalization flag"
     },
@@ -51,7 +48,6 @@
       "description": "L1 normalize (sum of absolute values = 1)",
       "value-key": "[NORM1]",
       "type": "Flag",
-      "optional": true,
       "id": "norm1",
       "name": "L1 normalization flag"
     },
@@ -60,7 +56,6 @@
       "description": "Scale so max absolute value = 1 (L_infinity norm)",
       "value-key": "[NORMX]",
       "type": "Flag",
-      "optional": true,
       "id": "normx",
       "name": "Max absolute value normalization flag"
     },
@@ -78,7 +73,6 @@
       "description": "Detrend with L1 regression (L2 is default)",
       "value-key": "[L1FIT]",
       "type": "Flag",
-      "optional": true,
       "id": "L1fit",
       "name": "L1 regression detrending flag"
     }
@@ -88,7 +82,6 @@
     {
       "path-template": "[PREFIX].nii",
       "description": "Normalized output dataset",
-      "optional": true,
       "id": "output_dataset",
       "name": "Output dataset"
     }

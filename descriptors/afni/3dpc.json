@@ -23,7 +23,6 @@
       "description": "Remove the mean from each input brick (across space)",
       "value-key": "[DMEAN]",
       "type": "Flag",
-      "optional": true,
       "id": "dmean",
       "name": "Demean across space flag"
     },
@@ -32,7 +31,6 @@
       "description": "Remove the mean from each input voxel (across bricks)",
       "value-key": "[VMEAN]",
       "type": "Flag",
-      "optional": true,
       "id": "vmean",
       "name": "Demean across bricks flag"
     },
@@ -41,7 +39,6 @@
       "description": "L2 normalize each input voxel time series",
       "value-key": "[VNORM]",
       "type": "Flag",
-      "optional": true,
       "id": "vnorm",
       "name": "Voxel normalization flag"
     },
@@ -50,7 +47,6 @@
       "description": "L2 normalize each input brick (after mean subtraction)",
       "value-key": "[NORMALIZE]",
       "type": "Flag",
-      "optional": true,
       "id": "normalize",
       "name": "Brick normalization flag"
     },
@@ -59,7 +55,6 @@
       "description": "Scale the covariance matrix by the number of samples",
       "value-key": "[NSCALE]",
       "type": "Flag",
-      "optional": true,
       "id": "nscale",
       "name": "Scale covariance matrix flag"
     },
@@ -108,7 +103,6 @@
       "description": "Print progress reports during the computations",
       "value-key": "[VERBOSE]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose",
       "name": "Verbose flag"
     },
@@ -117,7 +111,6 @@
       "description": "Don't print progress reports",
       "value-key": "[QUIET]",
       "type": "Flag",
-      "optional": true,
       "id": "quiet",
       "name": "Quiet flag"
     },
@@ -126,7 +119,6 @@
       "description": "Only compute eigenvalues, write them to 'pname'_eig.1D, then stop",
       "value-key": "[EIGONLY]",
       "type": "Flag",
-      "optional": true,
       "id": "eigonly",
       "name": "Eigenvalues only flag"
     },
@@ -135,7 +127,6 @@
       "description": "Save eigen-bricks as floats (default = shorts)",
       "value-key": "[FLOAT]",
       "type": "Flag",
-      "optional": true,
       "id": "float",
       "name": "Store eigen-bricks as floats"
     },
@@ -154,35 +145,30 @@
     {
       "path-template": "[PREFIX]+orig.BRIK",
       "description": "Output dataset file",
-      "optional": true,
       "id": "output_dataset",
       "name": "Output BRIK file"
     },
     {
       "path-template": "[PREFIX]+orig.HEAD",
       "description": "Output dataset header file",
-      "optional": true,
       "id": "output_header",
       "name": "Output HEAD file"
     },
     {
       "path-template": "[PREFIX]_eig.1D",
       "description": "File with computed eigenvalues",
-      "optional": true,
       "id": "output_eig",
       "name": "Eigenvalues file"
     },
     {
       "path-template": "[PREFIX]_vec.1D",
       "description": "File with all eigen-timeseries",
-      "optional": true,
       "id": "output_vec",
       "name": "Eigen-timeseries file"
     },
     {
       "path-template": "[PREFIX][NN].1D",
       "description": "File with individual eigenvalue timeseries",
-      "optional": true,
       "id": "output_individual_vec",
       "name": "Individual eigen-timeseries file"
     }

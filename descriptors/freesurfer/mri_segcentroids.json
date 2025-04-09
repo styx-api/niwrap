@@ -27,7 +27,6 @@
       "name": "Pointset Flag",
       "type": "Flag",
       "value-key": "[POINTSET_FLAG]",
-      "optional": true,
       "command-line-flag": "--p",
       "description": "Save centroids as a Freeview pointset (json)."
     },
@@ -63,7 +62,6 @@
       "name": "Default LUT Flag",
       "type": "Flag",
       "value-key": "[DEFAULT_LUT_FLAG]",
-      "optional": true,
       "command-line-flag": "--ctab-default",
       "description": "Use default FreeSurferColorLUT.txt for lookup table."
     }
@@ -73,8 +71,7 @@
       "id": "output_centroids",
       "name": "Output Centroids File",
       "path-template": "[OUTPUT_FILE]",
-      "description": "Output text file containing the centroids.",
-      "optional": false
+      "description": "Output text file containing the centroids."
     }
   ],
   "author": "FreeSurfer Developers",

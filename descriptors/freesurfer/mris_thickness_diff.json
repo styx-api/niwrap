@@ -60,7 +60,6 @@
       "value-key": "[REGISTER]",
       "command-line-flag": "-register",
       "type": "Flag",
-      "optional": true,
       "id": "register",
       "name": "Register surfaces"
     },
@@ -78,7 +77,6 @@
       "value-key": "[INVERT]",
       "command-line-flag": "-invert",
       "type": "Flag",
-      "optional": true,
       "id": "invert",
       "name": "Invert transform"
     },
@@ -105,7 +103,6 @@
       "value-key": "[ABS]",
       "command-line-flag": "-abs",
       "type": "Flag",
-      "optional": true,
       "id": "abs",
       "name": "Absolute difference"
     },
@@ -132,14 +129,12 @@
     {
       "path-template": "[OUT_FILE]",
       "description": "Output file with the difference mapped onto the surface",
-      "optional": false,
       "id": "output_difference",
       "name": "Output difference file"
     },
     {
       "path-template": "[OUT_RESAMPLED]",
       "description": "Resampled output thickness file",
-      "optional": true,
       "id": "output_resampled",
       "name": "Output resampled thickness"
     }

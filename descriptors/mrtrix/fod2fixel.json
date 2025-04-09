@@ -4,10 +4,7 @@
   "author": "MRTrix3 Developers",
   "tool-version": "3.0.4",
   "schema-version": "0.5",
-  "container-image": {
-    "image": "mrtrix3/mrtrix3:3.0.4",
-    "type": "docker"
-  },
+  "container-image": { "image": "mrtrix3/mrtrix3:3.0.4", "type": "docker" },
   "command-line": "fod2fixel [METRIC_VALUES_FOR_FIXEL_BASED_SPARSE_OUTPUT_IMAGES_AFD] [METRIC_VALUES_FOR_FIXEL_BASED_SPARSE_OUTPUT_IMAGES_PEAK_AMP] [METRIC_VALUES_FOR_FIXEL_BASED_SPARSE_OUTPUT_IMAGES_DISP] [FOD_FMLS_SEGMENTER_OPTIONS_FMLS_INTEGRAL] [FOD_FMLS_SEGMENTER_OPTIONS_FMLS_PEAK_VALUE] [FOD_FMLS_SEGMENTER_OPTIONS_FMLS_NO_THRESHOLDS] [FOD_FMLS_SEGMENTER_OPTIONS_FMLS_LOBE_MERGE_RATIO] [OTHER_OPTIONS_FOR_FOD2FIXEL_MASK] [OTHER_OPTIONS_FOR_FOD2FIXEL_MAXNUM] [OTHER_OPTIONS_FOR_FOD2FIXEL_NII] [OTHER_OPTIONS_FOR_FOD2FIXEL_DIRPEAK] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION] [FOD] [FIXEL_DIRECTORY]",
   "inputs": [
     {
@@ -79,8 +76,7 @@
       "command-line-flag": "-fmls_no_thresholds",
       "value-key": "[FOD_FMLS_SEGMENTER_OPTIONS_FMLS_NO_THRESHOLDS]",
       "description": "disable all FOD lobe thresholding; every lobe where the FOD is positive will be retained.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "fmls_lobe_merge_ratio",
@@ -117,8 +113,7 @@
       "command-line-flag": "-nii",
       "value-key": "[OTHER_OPTIONS_FOR_FOD2FIXEL_NII]",
       "description": "output the directions and index file in nii format (instead of the default mif)",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "dirpeak",
@@ -126,8 +121,7 @@
       "command-line-flag": "-dirpeak",
       "value-key": "[OTHER_OPTIONS_FOR_FOD2FIXEL_DIRPEAK]",
       "description": "define the fixel direction as that of the lobe's maximal peak as opposed to its weighted mean direction (the default)",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "info",
@@ -135,8 +129,7 @@
       "command-line-flag": "-info",
       "value-key": "[__STANDARD_OPTIONS_INFO]",
       "description": "display information messages.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "quiet",
@@ -144,8 +137,7 @@
       "command-line-flag": "-quiet",
       "value-key": "[__STANDARD_OPTIONS_QUIET]",
       "description": "do not display information messages or progress status; alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "debug",
@@ -153,8 +145,7 @@
       "command-line-flag": "-debug",
       "value-key": "[__STANDARD_OPTIONS_DEBUG]",
       "description": "display debugging messages.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "force",
@@ -162,8 +153,7 @@
       "command-line-flag": "-force",
       "value-key": "[__STANDARD_OPTIONS_FORCE]",
       "description": "force overwrite of output files (caution: using the same file as input and output might cause unexpected behaviour).",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "nthreads",
@@ -214,8 +204,7 @@
       "command-line-flag": "-help",
       "value-key": "[__STANDARD_OPTIONS_HELP]",
       "description": "display this information page and exit.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "version",
@@ -223,8 +212,7 @@
       "command-line-flag": "-version",
       "value-key": "[__STANDARD_OPTIONS_VERSION]",
       "description": "display version information and exit.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     }
   ],
   "output-files": [

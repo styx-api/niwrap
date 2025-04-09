@@ -61,7 +61,6 @@
       "description": "Produce an output dataset where voxels are 1 inside the surface and 0 outside.",
       "value-key": "[MASK_ONLY]",
       "type": "Flag",
-      "optional": true,
       "id": "mask_only",
       "name": "Mask Only"
     },
@@ -70,7 +69,6 @@
       "description": "Flip triangle winding of surface mesh.",
       "value-key": "[FLIP_ORIENTATION]",
       "type": "Flag",
-      "optional": true,
       "id": "flip_orientation",
       "name": "Flip Orientation"
     },
@@ -79,7 +77,6 @@
       "description": "Do not compute the distances, just the mask from the first step.",
       "value-key": "[NO_DISTANCE]",
       "type": "Flag",
-      "optional": true,
       "id": "no_distance",
       "name": "No Distance"
     }
@@ -89,14 +86,12 @@
     {
       "path-template": "[PREFIX].m+orig.BRIK",
       "description": "Main output mask dataset.",
-      "optional": false,
       "id": "output_mask",
       "name": "Output Mask"
     },
     {
       "path-template": "[PREFIX].d+orig.BRIK",
       "description": "Dataset reflecting voxel shortest distances to the surface.",
-      "optional": true,
       "id": "distance_dataset",
       "name": "Distance Dataset"
     }

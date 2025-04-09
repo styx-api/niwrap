@@ -66,7 +66,6 @@
       "description": "Use this option to have the program recognize the naming convention of 3dTrackID output and to ignore the OR-logic ROIs, including only the AND-logic (AKA pairwise) connections",
       "value-key": "[TRACKID_NO_OR]",
       "type": "Flag",
-      "optional": true,
       "id": "trackid_no_or",
       "name": "TrackID No OR Logic"
     },
@@ -75,7 +74,6 @@
       "description": "Flag to output the multibrick file of concatenated ROI masks; note that the [0]th brick will be all zeros (it is just a placeholder). So, if there are N ROI maps concatenated, there will be N+1 bricks in the output dataset, which has the name PPP_tcat.nii.gz.",
       "value-key": "[OUTPUT_TCAT]",
       "type": "Flag",
-      "optional": true,
       "id": "output_tcat",
       "name": "Output Tcat"
     },
@@ -84,7 +82,6 @@
       "description": "Flag to output the single brick file from the 3dTstat operation on the tcat dataset. If there were N ROI maps concatenated, then the largest value should be N. The output file's name will be PPP_tstat.nii.gz.",
       "value-key": "[OUTPUT_TSTAT]",
       "type": "Flag",
-      "optional": true,
       "id": "output_tstat",
       "name": "Output Tstat"
     },
@@ -102,7 +99,6 @@
       "description": "Optional switch to NOT remove the working directory (default is to remove the working directory)",
       "value-key": "[NO_CLEAN]",
       "type": "Flag",
-      "optional": true,
       "id": "no_clean",
       "name": "No Clean"
     }
@@ -112,21 +108,18 @@
     {
       "path-template": "[PREFIX]_cmd.txt",
       "description": "Command text file output",
-      "optional": true,
       "id": "cmd_txt",
       "name": "Output Command Text File"
     },
     {
       "path-template": "[PREFIX]_tcat.nii.gz",
       "description": "Concatenated ROI masks multibrick file from the -output_tcat flag",
-      "optional": true,
       "id": "tcat_file",
       "name": "Output Tcat File"
     },
     {
       "path-template": "[PREFIX]_tstat.nii.gz",
       "description": "Single brick file from 3dTstat operation on the tcat dataset, produced by the -output_tstat flag",
-      "optional": true,
       "id": "tstat_file",
       "name": "Output Tstat File"
     }

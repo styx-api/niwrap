@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "afni",
   "author": "AFNI Developers",
-  "descriptor-url": "https://afni.nimh.nih.gov/pub/dist/doc/program_help/index.html",
   "description": "Tool for reading in sessions of 3D datasets and visualizing them",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "afni [SESSION_DIRECTORIES] [BYSUB] [ALL_DSETS] [PURGE] [POSFUNC] [RECURSIVE] [NO1D] [NOCSV] [NOTSV] [UNIQUE] [ORIENT] [NOPLUGINS] [SEEHIDDEN] [ALLOW_ALL_PLUGINS] [YESPLUGOUTS] [DEBUG_PLUGOUTS] [NOPLUGOUTS] [SKIP_AFNIRC] [LAYOUT] [NIML] [NP] [NPQ] [NPB] [COM] [COMSEP]",
@@ -34,7 +33,6 @@
       "description": "Read in all datasets from all listed folders together",
       "value-key": "[ALL_DSETS]",
       "type": "Flag",
-      "optional": true,
       "id": "all_dsets",
       "name": "All datasets"
     },
@@ -43,7 +41,6 @@
       "description": "Conserve memory by purging unused datasets",
       "value-key": "[PURGE]",
       "type": "Flag",
-      "optional": true,
       "id": "purge",
       "name": "Purge Unused Datasets"
     },
@@ -52,7 +49,6 @@
       "description": "Start up the color 'pbar' to use only positive function values",
       "value-key": "[POSFUNC]",
       "type": "Flag",
-      "optional": true,
       "id": "posfunc",
       "name": "Positive Function Values"
     },
@@ -61,7 +57,6 @@
       "description": "Recursively search each session_directory for more session subdirectories",
       "value-key": "[RECURSIVE]",
       "type": "Flag",
-      "optional": true,
       "id": "recursive",
       "name": "Recursive Search"
     },
@@ -70,7 +65,6 @@
       "description": "Tells AFNI not to read *.1D timeseries files",
       "value-key": "[NO1D]",
       "type": "Flag",
-      "optional": true,
       "id": "no1D",
       "name": "No 1D timeseries"
     },
@@ -79,7 +73,6 @@
       "description": "Tells AFNI not to read *.csv files",
       "value-key": "[NOCSV]",
       "type": "Flag",
-      "optional": true,
       "id": "nocsv",
       "name": "No CSV files"
     },
@@ -88,7 +81,6 @@
       "description": "Tells AFNI not to read *.tsv files",
       "value-key": "[NOTSV]",
       "type": "Flag",
-      "optional": true,
       "id": "notsv",
       "name": "No TSV files"
     },
@@ -97,7 +89,6 @@
       "description": "Create a unique set of colors for each AFNI controller window",
       "value-key": "[UNIQUE]",
       "type": "Flag",
-      "optional": true,
       "id": "unique",
       "name": "Unique Colors"
     },
@@ -115,7 +106,6 @@
       "description": "Do not load plugins",
       "value-key": "[NOPLUGINS]",
       "type": "Flag",
-      "optional": true,
       "id": "noplugins",
       "name": "No Plugins"
     },
@@ -124,7 +114,6 @@
       "description": "Show hidden plugins",
       "value-key": "[SEEHIDDEN]",
       "type": "Flag",
-      "optional": true,
       "id": "seehidden",
       "name": "Show Hidden Plugins"
     },
@@ -133,7 +122,6 @@
       "description": "Do not hide plugins",
       "value-key": "[ALLOW_ALL_PLUGINS]",
       "type": "Flag",
-      "optional": true,
       "id": "allow_all_plugins",
       "name": "Allow All Plugins"
     },
@@ -142,7 +130,6 @@
       "description": "Listen for plugouts",
       "value-key": "[YESPLUGOUTS]",
       "type": "Flag",
-      "optional": true,
       "id": "yesplugouts",
       "name": "Enable Plugouts"
     },
@@ -151,7 +138,6 @@
       "description": "Plugout code prints lots of messages (for debugging)",
       "value-key": "[DEBUG_PLUGOUTS]",
       "type": "Flag",
-      "optional": true,
       "id": "debug_plugouts",
       "name": "Debug Plugouts"
     },
@@ -160,7 +146,6 @@
       "description": "Do not listen for plugouts",
       "value-key": "[NOPLUGOUTS]",
       "type": "Flag",
-      "optional": true,
       "id": "noplugouts",
       "name": "Disable Plugouts"
     },
@@ -169,7 +154,6 @@
       "description": "Do not read .afnirc file",
       "value-key": "[SKIP_AFNIRC]",
       "type": "Flag",
-      "optional": true,
       "id": "skip_afnirc",
       "name": "Skip .afnirc"
     },
@@ -187,7 +171,6 @@
       "description": "Turn on listening for NIML-formatted data from SUMA",
       "value-key": "[NIML]",
       "type": "Flag",
-      "optional": true,
       "id": "niml",
       "name": "NIML Data"
     },
@@ -245,7 +228,6 @@
     {
       "path-template": "output_session.nii.gz",
       "description": "Output file for the session data",
-      "optional": true,
       "id": "session_output",
       "name": "Session Output File"
     }

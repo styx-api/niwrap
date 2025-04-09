@@ -47,7 +47,6 @@
       "description": "Assume a two-sided, unsigned test (keeps sign of input).",
       "value-key": "[TWO_SIDED]",
       "type": "Flag",
-      "optional": true,
       "id": "two_sided",
       "name": "Two-sided Flag"
     },
@@ -56,7 +55,6 @@
       "description": "Assume a one-sided, signed test.",
       "value-key": "[ONE_SIDED]",
       "type": "Flag",
-      "optional": true,
       "id": "one_sided",
       "name": "One-sided Flag"
     },
@@ -65,7 +63,6 @@
       "description": "Two-sided/signed p-value (p = 2*(1-p)).",
       "value-key": "[SIGNED]",
       "type": "Flag",
-      "optional": true,
       "id": "signed",
       "name": "Signed Flag"
     },
@@ -92,7 +89,6 @@
       "description": "Use NIfTI output format.",
       "value-key": "[NII_FORMAT]",
       "type": "Flag",
-      "optional": true,
       "id": "nii_format",
       "name": "NIfTI Format Flag"
     },
@@ -101,7 +97,6 @@
       "description": "Use compressed NIfTI output format.",
       "value-key": "[NIIGZ_FORMAT]",
       "type": "Flag",
-      "optional": true,
       "id": "niigz_format",
       "name": "NIfTI GZ Format Flag"
     },
@@ -110,7 +105,6 @@
       "description": "Use MGH output format.",
       "value-key": "[MGH_FORMAT]",
       "type": "Flag",
-      "optional": true,
       "id": "mgh_format",
       "name": "MGH Format Flag"
     },
@@ -119,7 +113,6 @@
       "description": "Use MGZ output format.",
       "value-key": "[MGZ_FORMAT]",
       "type": "Flag",
-      "optional": true,
       "id": "mgz_format",
       "name": "MGZ Format Flag"
     },
@@ -128,7 +121,6 @@
       "description": "Use Analyze output format.",
       "value-key": "[IMG_FORMAT]",
       "type": "Flag",
-      "optional": true,
       "id": "img_format",
       "name": "IMG Format Flag"
     },
@@ -137,7 +129,6 @@
       "description": "Turn on debugging.",
       "value-key": "[DEBUG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug",
       "name": "Debug Flag"
     },
@@ -146,7 +137,6 @@
       "description": "Don't run anything, just check options and exit.",
       "value-key": "[CHECK_OPTS]",
       "type": "Flag",
-      "optional": true,
       "id": "check_opts",
       "name": "Check Options Flag"
     }
@@ -155,14 +145,12 @@
     {
       "path-template": "[P_VOLUME]",
       "description": "Output P volume file.",
-      "optional": false,
       "id": "output_p_volume",
       "name": "Output P Volume"
     },
     {
       "path-template": "[SIG_VOLUME]",
       "description": "Output significance volume file.",
-      "optional": false,
       "id": "output_sig_volume",
       "name": "Output Significance Volume"
     }

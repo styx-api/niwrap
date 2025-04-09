@@ -2,7 +2,6 @@
   "tool-version": "6.0.4",
   "name": "fslcreatehd",
   "author": "FMRIB Analysis Group, University of Oxford",
-  "descriptor-url": "https://github.com/aces/cbrain-plugins-neuro/blob/master/cbrain_task_descriptors/fslcreatehd.json",
   "description": "Tool to create a new NIfTI header.",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "fslcreatehd [XSIZE] [YSIZE] [ZSIZE] [TSIZE] [XVOXSIZE] [YVOXSIZE] [ZVOXSIZE] [TR] [XORIGIN] [YORIGIN] [ZORIGIN] [DATATYPE] [HEADERNAME] [NIFTI_XML_FILE]",
@@ -158,7 +157,6 @@
     {
       "path-template": "[HEADERNAME].nii.gz",
       "description": "Generated NIfTI header file",
-      "optional": false,
       "id": "out_headerfile",
       "name": "Output header file"
     }

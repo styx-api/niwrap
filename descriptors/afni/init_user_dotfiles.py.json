@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "init_user_dotfiles.py",
   "author": "AFNI Developers",
-  "descriptor-url": "https://example.com/init_user_dotfiles_descriptor.json",
   "description": "Initialize or evaluate user dot files (.cshrc, .bashrc, ...) for system settings.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "init_user_dotfiles.py [HELP] [HELP_DOTFILES_ALL] [HELP_DOTFILES_MOD] [HELP_SHELLS] [HIST] [SHOW_VALID_OPTS] [VER] [DOT_FILES_LIST] [DIR_BIN] [DIR_DOT] [DO_UPDATES] [DRY_RUN] [FORCE] [MAKE_BACKUP] [SHELL_LIST] [TEST] [VERBOSITY_LEVEL]",
@@ -16,7 +15,6 @@
       "description": "Show this help",
       "value-key": "[HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "help",
       "name": "Help Flag"
     },
@@ -25,7 +23,6 @@
       "description": "Display dot files known by the program",
       "value-key": "[HELP_DOTFILES_ALL]",
       "type": "Flag",
-      "optional": true,
       "id": "help_dotfiles_all",
       "name": "Help dot files all flag"
     },
@@ -34,7 +31,6 @@
       "description": "Display modifiable dot files",
       "value-key": "[HELP_DOTFILES_MOD]",
       "type": "Flag",
-      "optional": true,
       "id": "help_dotfiles_mod",
       "name": "Help dot files mod flag"
     },
@@ -43,7 +39,6 @@
       "description": "Display shells known by the program",
       "value-key": "[HELP_SHELLS]",
       "type": "Flag",
-      "optional": true,
       "id": "help_shells",
       "name": "Help shells flag"
     },
@@ -52,7 +47,6 @@
       "description": "Show module history",
       "value-key": "[HIST]",
       "type": "Flag",
-      "optional": true,
       "id": "hist",
       "name": "History Flag"
     },
@@ -61,7 +55,6 @@
       "description": "List valid options",
       "value-key": "[SHOW_VALID_OPTS]",
       "type": "Flag",
-      "optional": true,
       "id": "show_valid_opts",
       "name": "Show valid options flag"
     },
@@ -70,7 +63,6 @@
       "description": "Show current version",
       "value-key": "[VER]",
       "type": "Flag",
-      "optional": true,
       "id": "ver",
       "name": "Version Flag"
     },
@@ -117,7 +109,6 @@
       "description": "Do not modify files, but see what would happen",
       "value-key": "[DRY_RUN]",
       "type": "Flag",
-      "optional": true,
       "id": "dry_run",
       "name": "Dry Run Flag"
     },
@@ -126,7 +117,6 @@
       "description": "Force edits, whether they seem needed or not",
       "value-key": "[FORCE]",
       "type": "Flag",
-      "optional": true,
       "id": "force",
       "name": "Force Flag"
     },
@@ -154,7 +144,6 @@
       "description": "Just test the files for potential changes",
       "value-key": "[TEST]",
       "type": "Flag",
-      "optional": true,
       "id": "test",
       "name": "Test Flag"
     },

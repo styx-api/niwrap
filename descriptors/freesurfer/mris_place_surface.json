@@ -89,7 +89,6 @@
       "description": "Set voxels in the input volume that start off as 255 to 110 (white surf only).",
       "value-key": "[RESTORE_255]",
       "command-line-flag": "--restore-255",
-      "optional": true,
       "type": "Flag",
       "id": "restore_255",
       "name": "Restore 255 Flag"
@@ -125,7 +124,6 @@
       "description": "Smooth after ripping",
       "value-key": "[SMOOTH_AFTER_RIP]",
       "command-line-flag": "--smooth-after-rip",
-      "optional": true,
       "type": "Flag",
       "id": "smooth_after_rip",
       "name": "Smooth After Rip Flag"
@@ -152,7 +150,6 @@
       "description": "Do not move vertices that are in the midline as indicated by the seg",
       "value-key": "[RIP_MIDLINE]",
       "command-line-flag": "--rip-midline",
-      "optional": true,
       "type": "Flag",
       "id": "rip_midline",
       "name": "Rip Midline Flag"
@@ -161,7 +158,6 @@
       "description": "Do not move vertices near basal ganglia (as defined by seg)",
       "value-key": "[RIP_BG]",
       "command-line-flag": "--rip-bg",
-      "optional": true,
       "type": "Flag",
       "id": "rip_bg",
       "name": "Rip Basal Ganglia Flag"
@@ -170,7 +166,6 @@
       "description": "Do not require surface have an annotation when ripping BG",
       "value-key": "[RIP_BG_NO_ANNOT]",
       "command-line-flag": "--rip-bg-no-annot",
-      "optional": true,
       "type": "Flag",
       "id": "rip_bg_no_annot",
       "name": "Rip BG No Annotation Flag"
@@ -179,7 +174,6 @@
       "description": "Do NOT move vertices in/near freeze voxels (247 as defined in seg)",
       "value-key": "[NO_RIP_FREEZE]",
       "command-line-flag": "--no-rip-freeze",
-      "optional": true,
       "type": "Flag",
       "id": "no_rip_freeze",
       "name": "No Rip Freeze Flag"
@@ -188,7 +182,6 @@
       "description": "Do not move vertices in/near white-matter signal abnormalities (77,78,79 as defined in seg)",
       "value-key": "[RIP_WMSA]",
       "command-line-flag": "--rip-wmsa",
-      "optional": true,
       "type": "Flag",
       "id": "rip_wmsa",
       "name": "Rip WMSA Flag"
@@ -197,7 +190,6 @@
       "description": "Do not move vertices in/near lesions (25 and 57 as defined in seg)",
       "value-key": "[RIP_LESION]",
       "command-line-flag": "--rip-lesion",
-      "optional": true,
       "type": "Flag",
       "id": "rip_lesion",
       "name": "Rip Lesion Flag"
@@ -206,7 +198,6 @@
       "description": "Turn off all ripping",
       "value-key": "[NO_RIP]",
       "command-line-flag": "--no-rip",
-      "optional": true,
       "type": "Flag",
       "id": "no_rip",
       "name": "No Rip Flag"
@@ -281,7 +272,6 @@
       "description": "Use Siless' MultimodalRefinement. Sets tspring=nspring=0.3",
       "value-key": "[MM_REFINE]",
       "command-line-flag": "--mm-refine",
-      "optional": true,
       "type": "Flag",
       "id": "mm_refine",
       "name": "Multimodal Refinement Flag"
@@ -299,7 +289,6 @@
       "description": "Do not process the input intensity volume (eg, to remove parts of eye socket).",
       "value-key": "[NO_INTENSITY_PROC]",
       "command-line-flag": "--no-intensity-proc",
-      "optional": true,
       "type": "Flag",
       "id": "no_intensity_proc",
       "name": "No Intensity Processing Flag"
@@ -344,7 +333,6 @@
       "description": "Stop mask to stop search along normal for max gradient",
       "value-key": "[STOP_MASK]",
       "command-line-flag": "--stop",
-      "optional": true,
       "type": "Flag",
       "id": "stop_mask",
       "name": "Stop Mask Flag"
@@ -371,7 +359,6 @@
       "description": "Use find-first-peak option with 1st derivative in ComputeBorderValues",
       "value-key": "[FIRST_PEAK_D1]",
       "command-line-flag": "--first-peak-d1",
-      "optional": true,
       "type": "Flag",
       "id": "first_peak_d1",
       "name": "First Peak D1 Flag"
@@ -380,7 +367,6 @@
       "description": "Use find-first-peak option with 2nd derivative in ComputeBorderValues",
       "value-key": "[FIRST_PEAK_D2]",
       "command-line-flag": "--first-peak-d2",
-      "optional": true,
       "type": "Flag",
       "id": "first_peak_d2",
       "name": "First Peak D2 Flag"

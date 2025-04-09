@@ -2,7 +2,6 @@
   "tool-version": "6.0.4",
   "name": "featquery",
   "author": "FMRIB Analysis Group, University of Oxford",
-  "descriptor-url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FEAT/UserGuide",
   "description": "Tool to extract statistics and/or time series from FEAT directories",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "featquery [N_FEATDIRS] [FEATDIRS] [N_STATS] [STATS] [OUTPUT_ROOTNAME] [ATLAS_FLAG] [PERCENT_CONVERT_FLAG] [THRESH_FLAG] [INTERP_THRESH] [TIMESERIES_FLAG] [WEIGHT_FLAG] [BROWSER_FLAG] [MASK_FILE] [COORDS]",
@@ -65,7 +64,6 @@
       "description": "Convert PE / COPE values into percentages",
       "value-key": "[PERCENT_CONVERT_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "percent_convert_flag",
       "name": "Percent convert flag"
     },
@@ -74,7 +72,6 @@
       "description": "Threshold stats images",
       "value-key": "[THRESH_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "thresh_flag",
       "name": "Threshold flag"
     },
@@ -93,7 +90,6 @@
       "description": "Create time-series plots",
       "value-key": "[TIMESERIES_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "timeseries_flag",
       "name": "Time-series flag"
     },
@@ -102,7 +98,6 @@
       "description": "Do not binarise mask (allow weighting)",
       "value-key": "[WEIGHT_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "weight_flag",
       "name": "Weight flag"
     },
@@ -111,7 +106,6 @@
       "description": "Popup results in browser when finished",
       "value-key": "[BROWSER_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "browser_flag",
       "name": "Browser flag"
     },
@@ -156,7 +150,6 @@
     {
       "path-template": "[OUTPUT_ROOTNAME]_queryreport.txt",
       "description": "Generated query report file",
-      "optional": false,
       "id": "query_report",
       "name": "Query report file"
     }

@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "@measure_in2out",
   "author": "AFNI Developers",
-  "descriptor-url": "unknown",
   "description": "Compute thickness of mask using in2out method.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "@measure_in2out [MASKSET] [SURFSET] [OUTDIR] [RESAMPLE] [INCREMENT] [SURFSMOOTH] [MAXTHICK] [DEPTHSEARCH] [MASKINOUTVALS] [KEEP_TEMP_FILES] [SURFSMOOTH_METHOD] [FS_CORT_DIR]",
@@ -99,7 +98,6 @@
       "description": "Do not delete the intermediate files (for testing).",
       "value-key": "[KEEP_TEMP_FILES]",
       "type": "Flag",
-      "optional": true,
       "id": "keep_temp_files",
       "name": "Keep temporary files"
     },
@@ -127,56 +125,48 @@
     {
       "path-template": "inout_dist.nii.gz",
       "description": "Volumetric thickness/distance from in to out",
-      "optional": false,
       "id": "inout_dist",
       "name": "Thickness distance file"
     },
     {
       "path-template": "in_and_out.nii.gz",
       "description": "Volumetric distance to inside and outside in 2 volumes",
-      "optional": false,
       "id": "in_and_out",
       "name": "Inside and outside distance file"
     },
     {
       "path-template": "inout_thick.niml.dset",
       "description": "Unsmoothed thickness mapped to surface nodes",
-      "optional": false,
       "id": "inout_thick",
       "name": "Unsmoothed surface thickness file"
     },
     {
       "path-template": "inout_thick_smooth.niml.dset",
       "description": "Smoothed thickness mapped to surface nodes",
-      "optional": false,
       "id": "inout_thick_smooth",
       "name": "Smoothed surface thickness file"
     },
     {
       "path-template": "maskset.nii.gz",
       "description": "Mask file",
-      "optional": false,
       "id": "maskset_output",
       "name": "Mask file output"
     },
     {
       "path-template": "maskset_rs.nii.gz",
       "description": "Resampled mask file",
-      "optional": false,
       "id": "maskset_rs",
       "name": "Resampled mask file output"
     },
     {
       "path-template": "anat.gii",
       "description": "Surface representation of mask volume",
-      "optional": false,
       "id": "anat_gii",
       "name": "Anatomy file"
     },
     {
       "path-template": "quick.spec",
       "description": "Simple specification file for surface to use with suma commands",
-      "optional": false,
       "id": "quick_spec",
       "name": "Quick specification file"
     }

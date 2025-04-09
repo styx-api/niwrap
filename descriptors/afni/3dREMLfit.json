@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "3dREMLfit",
   "author": "AFNI Developers",
-  "descriptor-url": "https://github.com/aces/3dREMLfit.json",
   "description": "Generalized least squares time series fit, with REML estimation of the temporal auto-correlation structure",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dREMLfit [INPUT_FILE] [REGRESSION_MATRIX] [BASELINE_FILES] [SORT_NODS] [TEMP_STORAGE] [MASK] [OUTPUT_PREFIX] [NO_FDR_CURVE] [GO_FOR_IT] [MAX_A_PARAM] [MAX_B_PARAM] [GRID_PARAM] [NEGATIVE_CORR] [QUIET] [VERBOSE]",
@@ -44,7 +43,6 @@
       "description": "If '-dsort' is used, the output datasets reflect the impact of the voxel-wise regressor(s). If you want to compare those results to the case where you did NOT give the '-dsort' option, then also use '-dsort_nods'.",
       "value-key": "[SORT_NODS]",
       "type": "Flag",
-      "optional": true,
       "id": "sort_nods",
       "name": "Sort NoDS flag"
     },
@@ -53,7 +51,6 @@
       "description": "Write intermediate output to disk, to economize on RAM.",
       "value-key": "[TEMP_STORAGE]",
       "type": "Flag",
-      "optional": true,
       "id": "temp_storage",
       "name": "Temporary storage flag"
     },
@@ -80,7 +77,6 @@
       "description": "Do not add FDR curve data to bucket datasets.",
       "value-key": "[NO_FDR_CURVE]",
       "type": "Flag",
-      "optional": true,
       "id": "no_fdr_curve",
       "name": "No FDR curve"
     },
@@ -116,7 +112,6 @@
       "description": "Allows negative correlations to be used.",
       "value-key": "[NEGATIVE_CORR]",
       "type": "Flag",
-      "optional": true,
       "id": "negative_corr",
       "name": "Negative correlation"
     },
@@ -125,7 +120,6 @@
       "description": "Force the program to continue past a failed collinearity check.",
       "value-key": "[GO_FOR_IT]",
       "type": "Flag",
-      "optional": true,
       "id": "go_for_it",
       "name": "Go For It"
     },
@@ -134,7 +128,6 @@
       "description": "Turn off most progress messages",
       "value-key": "[QUIET]",
       "type": "Flag",
-      "optional": true,
       "id": "quiet",
       "name": "Quiet flag"
     },
@@ -143,7 +136,6 @@
       "description": "Turn on more progress messages",
       "value-key": "[VERBOSE]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose",
       "name": "Verbose flag"
     }
@@ -153,42 +145,36 @@
     {
       "path-template": "[OUTPUT_PREFIX].nii.gz",
       "description": "Main default output of 3dREMLfit",
-      "optional": true,
       "id": "outfile",
       "name": "Output file"
     },
     {
       "path-template": "[OUTPUT_PREFIX]_Rvar.nii.gz",
       "description": "REML variance parameters",
-      "optional": true,
       "id": "rvar_file",
       "name": "Output Rvar file"
     },
     {
       "path-template": "[OUTPUT_PREFIX]_Rbeta.nii.gz",
       "description": "REML beta weights",
-      "optional": true,
       "id": "rbeta_file",
       "name": "Output Rbeta file"
     },
     {
       "path-template": "[OUTPUT_PREFIX]_Rbuck.nii.gz",
       "description": "REML estimates and statistics",
-      "optional": true,
       "id": "rbuck_file",
       "name": "Output Rbucket file"
     },
     {
       "path-template": "[OUTPUT_PREFIX]_Rfitts.nii.gz",
       "description": "REML fitted model",
-      "optional": true,
       "id": "rfitts_file",
       "name": "Output fit file"
     },
     {
       "path-template": "[OUTPUT_PREFIX]_Rerrts.nii.gz",
       "description": "REML residuals",
-      "optional": true,
       "id": "rerrts_file",
       "name": "Output error file"
     }

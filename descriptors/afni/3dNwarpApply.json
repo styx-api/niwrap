@@ -24,7 +24,6 @@
       "command-line-flag": "-iwarp",
       "value-key": "[IWARP]",
       "type": "Flag",
-      "optional": true,
       "id": "iwarp",
       "name": "Invert Warp Flag"
     },
@@ -105,7 +104,6 @@
       "command-line-flag": "-short",
       "value-key": "[SHORT]",
       "type": "Flag",
-      "optional": true,
       "id": "short",
       "name": "Short Output Flag"
     },
@@ -123,7 +121,6 @@
       "command-line-flag": "-quiet",
       "value-key": "[QUIET]",
       "type": "Flag",
-      "optional": true,
       "id": "quiet",
       "name": "Quiet Flag"
     },
@@ -132,7 +129,6 @@
       "command-line-flag": "-verb",
       "value-key": "[VERB]",
       "type": "Flag",
-      "optional": true,
       "id": "verb",
       "name": "Verbose Flag"
     }
@@ -142,14 +138,12 @@
     {
       "path-template": "[PREFIX]_[SOURCE]_warped.nii.gz",
       "description": "Warped output dataset",
-      "optional": true,
       "id": "warped_output",
       "name": "Warped Output"
     },
     {
       "path-template": "[WPREFIX]_warp_????.nii.gz",
       "description": "Warp dataset generated during application",
-      "optional": true,
       "id": "generated_warp",
       "name": "Generated Warp"
     }

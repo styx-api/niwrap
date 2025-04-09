@@ -213,7 +213,6 @@
       "command-line-flag": "-no_surfaces",
       "value-key": "[NO_SURFACES]",
       "type": "Flag",
-      "optional": true,
       "id": "no_surfaces",
       "name": "No Surfaces Flag"
     },
@@ -231,7 +230,6 @@
       "command-line-flag": "-supersize",
       "value-key": "[SUPERSIZE]",
       "type": "Flag",
-      "optional": true,
       "id": "supersize",
       "name": "Supersize Flag"
     },
@@ -258,7 +256,6 @@
       "command-line-flag": "-mode_smooth_replacement_off",
       "value-key": "[MODE_SMOOTH_REPLACEMENT_OFF]",
       "type": "Flag",
-      "optional": true,
       "id": "mode_smooth_replacement_off",
       "name": "Mode Smooth Replacement Off Flag"
     },
@@ -294,7 +291,6 @@
       "command-line-flag": "-keep_temp",
       "value-key": "[KEEP_TEMP]",
       "type": "Flag",
-      "optional": true,
       "id": "keep_temp",
       "name": "Keep Temporary Files Flag"
     },
@@ -303,7 +299,6 @@
       "command-line-flag": "-ver",
       "value-key": "[VERSION]",
       "type": "Flag",
-      "optional": true,
       "id": "version",
       "name": "Version Flag"
     },
@@ -312,7 +307,6 @@
       "command-line-flag": "-ok_to_exist",
       "value-key": "[OK_TO_EXIST]",
       "type": "Flag",
-      "optional": true,
       "id": "ok_to_exist",
       "name": "OK to Exist Flag"
     },
@@ -321,7 +315,6 @@
       "command-line-flag": "-echo",
       "value-key": "[ECHO]",
       "type": "Flag",
-      "optional": true,
       "id": "echo",
       "name": "Echo Flag"
     }
@@ -331,42 +324,36 @@
     {
       "path-template": "aw_results/[INPUT_FILE]_warp2std.nii.gz",
       "description": "input dataset nonlinearly warped to template",
-      "optional": true,
       "id": "warp2std",
       "name": "Warp to Standard"
     },
     {
       "path-template": "aw_results/init_qc_00.input+base*.jpg",
       "description": "initial QC image montage showing overlap of source and base dataset",
-      "optional": true,
       "id": "qc_image_initial",
       "name": "QC Initial Image Overlap"
     },
     {
       "path-template": "aw_results/init_qc_01.input_sh+base*.jpg",
       "description": "initial QC image montage after shifting centers of source and base dataset",
-      "optional": true,
       "id": "qc_image_initial_sh",
       "name": "QC Initial Image Shift"
     },
     {
       "path-template": "aw_results/DSET_FOLL.nii.gz",
       "description": "copy(s) of -dset_followers mapped to template space",
-      "optional": true,
       "id": "dset_followers_out",
       "name": "Dataset Followers Output"
     },
     {
       "path-template": "aw_results/ROIDSET_FOLL.nii.gz",
       "description": "copy(s) of -roidset_followers mapped to template space",
-      "optional": true,
       "id": "roidset_followers_out",
       "name": "ROIDSET Followers Output"
     },
     {
       "path-template": "aw_results/animal_outs.txt",
       "description": "guide to data in output directory",
-      "optional": true,
       "id": "animal_outs_guide",
       "name": "Animal Outputs Guide"
     }

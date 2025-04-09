@@ -37,7 +37,6 @@
       "description": "Be verbose during run",
       "value-key": "[VERBOSE]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose",
       "name": "Verbose flag"
     },
@@ -55,7 +54,6 @@
       "description": "Create a mask (a la 3dAutomask)",
       "value-key": "[AUTOMASK]",
       "type": "Flag",
-      "optional": true,
       "id": "automask",
       "name": "Automask flag"
     }
@@ -64,14 +62,12 @@
     {
       "path-template": "[PREFIX]+tlrc.BRIK",
       "description": "Output dataset is stored in float format.",
-      "optional": true,
       "id": "output_brik",
       "name": "Output BRIK file"
     },
     {
       "path-template": "[PREFIX]+tlrc.HEAD",
       "description": "Output dataset header file.",
-      "optional": true,
       "id": "output_head",
       "name": "Output HEAD file"
     }

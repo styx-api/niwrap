@@ -42,7 +42,6 @@
       "description": "Use the CVS atlas in MNI152 space as a target for registration.",
       "value-key": "[MNI_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "mni_flag",
       "name": "MNI flag"
     },
@@ -78,7 +77,6 @@
       "description": "Only do step 1 (spherical registration).",
       "value-key": "[STEP1_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "step1_flag",
       "name": "Step 1 flag"
     },
@@ -87,7 +85,6 @@
       "description": "Only do step 2 (elastic registration).",
       "value-key": "[STEP2_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "step2_flag",
       "name": "Step 2 flag"
     },
@@ -96,7 +93,6 @@
       "description": "Only do step 3 (volumetric registration).",
       "value-key": "[STEP3_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "step3_flag",
       "name": "Step 3 flag"
     },
@@ -105,7 +101,6 @@
       "description": "Do not use aseg volumes in the volumetric registration pipeline.",
       "value-key": "[NOASEG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "noaseg_flag",
       "name": "No aseg flag"
     },
@@ -114,7 +109,6 @@
       "description": "Do not use intensity volumes in the volumetric registration pipeline.",
       "value-key": "[NOINTENSITY_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "nointensity_flag",
       "name": "No intensity flag"
     },
@@ -123,7 +117,6 @@
       "description": "Run CVS registration only on one hemisphere.",
       "value-key": "[HEMI_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "hemi_flag",
       "name": "Hemisphere flag"
     },
@@ -132,7 +125,6 @@
       "description": "Use with --hemi when hemi is registered to full brain target.",
       "value-key": "[MASKTARGETHEMI_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "masktargethemi_flag",
       "name": "Mask target hemisphere flag"
     },
@@ -141,7 +133,6 @@
       "description": "Use with --hemi when full brain is registered to single hemi target.",
       "value-key": "[MASKMOVINGHEMI_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "maskmovinghemi_flag",
       "name": "Mask moving hemisphere flag"
     },
@@ -150,7 +141,6 @@
       "description": "Do not delete temporary files.",
       "value-key": "[NOCLEANUP_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "nocleanup_flag",
       "name": "No cleanup flag"
     },
@@ -159,7 +149,6 @@
       "description": "Do not delete elastic registration outcomes.",
       "value-key": "[KEEPELREG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "keepelreg_flag",
       "name": "Keep elastic registration flag"
     },
@@ -168,7 +157,6 @@
       "description": "Do not delete m3z morph files computed during CVS.",
       "value-key": "[KEEPALLM3Z_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "keepallm3z_flag",
       "name": "Keep all m3z flag"
     },
@@ -177,7 +165,6 @@
       "description": "Overwrite / recompute all CVS-related morphs.",
       "value-key": "[CLEANALL_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "cleanall_flag",
       "name": "Clean all flag"
     },
@@ -186,7 +173,6 @@
       "description": "Overwrite/recompute CVS-related surface registration morphs.",
       "value-key": "[CLEANSURFREG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "cleansurfreg_flag",
       "name": "Clean surface registration flag"
     },
@@ -195,7 +181,6 @@
       "description": "Overwrite / recompute CVS-related elastic registration morph.",
       "value-key": "[CLEANELREG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "cleanelreg_flag",
       "name": "Clean elastic registration flag"
     },
@@ -204,7 +189,6 @@
       "description": "Overwrite / recompute CVS-related volumetric morphs.",
       "value-key": "[CLEANVOLREG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "cleanvolreg_flag",
       "name": "Clean volumetric registration flag"
     },
@@ -213,7 +197,6 @@
       "description": "Use m3d instead of m3z for registration morphs.",
       "value-key": "[M3D_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "m3d_flag",
       "name": "Use m3d flag"
     },
@@ -232,7 +215,6 @@
       "description": "Do not produce a log file.",
       "value-key": "[NOLOG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "nolog_flag",
       "name": "No log flag"
     },
@@ -241,7 +223,6 @@
       "description": "Print version and exit.",
       "value-key": "[VERSION_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "version_flag",
       "name": "Version flag"
     },
@@ -250,7 +231,6 @@
       "description": "Print help and exit.",
       "value-key": "[HELP_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "help_flag",
       "name": "Help flag"
     }
@@ -259,35 +239,30 @@
     {
       "path-template": "[OUTDIR]/final_CVSmorph_toTEMPLATE.m3z",
       "description": "The final morph that combines correspondences recovered in all registration steps.",
-      "optional": true,
       "id": "final_cvs_morph",
       "name": "Final CVS morph"
     },
     {
       "path-template": "[OUTDIR]/final_CVSmorphed_toTEMPLATE_norm.mgz",
       "description": "The CVS morphed norm.mgz file; final result of CVS with all registration steps contributions.",
-      "optional": true,
       "id": "final_cvs_morphed_norm",
       "name": "Final CVS morphed norm"
     },
     {
       "path-template": "[OUTDIR]/final_CVSmorphed_toTEMPLATE_aseg.mgz",
       "description": "The CVS morphed aseg.mgz file with all registration steps contributions.",
-      "optional": true,
       "id": "final_cvs_morphed_aseg",
       "name": "Final CVS morphed aseg"
     },
     {
       "path-template": "[OUTDIR]/step1_CVSmorphed_toTEMPLATE_aseg.mgz",
       "description": "Morphed aseg.mgz file result of CVS up to step (3)(i) and contains elatic morph and aseg-based nonlinear registration.",
-      "optional": true,
       "id": "step1_morphed_aseg",
       "name": "Step 1 morphed aseg"
     },
     {
       "path-template": "[OUTDIR]/step1_CVSmorphed_toTEMPLATE_norm.mgz",
       "description": "Morphed norm.mgz file result of CVS up to step (3)(i) and contains elatic morph and aseg-based nonlinear registration.",
-      "optional": true,
       "id": "step1_morphed_norm",
       "name": "Step 1 morphed norm"
     }

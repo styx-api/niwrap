@@ -66,7 +66,6 @@
       "description": "Only map the copes and varcopes to the common surface space",
       "value-key": "[COPE_ONLY]",
       "type": "Flag",
-      "optional": true,
       "id": "cope_only",
       "name": "Cope only flag"
     },
@@ -75,7 +74,6 @@
       "description": "Turn on debugging",
       "value-key": "[DEBUG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug_flag",
       "name": "Debug flag"
     },
@@ -84,7 +82,6 @@
       "description": "Do not create a log file",
       "value-key": "[NOLOG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "nolog_flag",
       "name": "No log flag"
     },
@@ -102,28 +99,24 @@
     {
       "path-template": "[OUT_DIR]/reg_surf-lh-Subject/stats",
       "description": "Output statistics on the left hemisphere for the subject",
-      "optional": true,
       "id": "lh_output",
       "name": "Left hemisphere output"
     },
     {
       "path-template": "[OUT_DIR]/reg_surf-rh-Subject/stats",
       "description": "Output statistics on the right hemisphere for the subject",
-      "optional": true,
       "id": "rh_output",
       "name": "Right hemisphere output"
     },
     {
       "path-template": "[OUT_DIR]/reg_surf-lh-targid/stats",
       "description": "Output statistics on the left hemisphere for the target subject",
-      "optional": true,
       "id": "lh_target_output",
       "name": "Left hemisphere target output"
     },
     {
       "path-template": "[OUT_DIR]/reg_surf-rh-targid/stats",
       "description": "Output statistics on the right hemisphere for the target subject",
-      "optional": true,
       "id": "rh_target_output",
       "name": "Right hemisphere target output"
     }

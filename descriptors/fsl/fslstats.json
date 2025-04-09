@@ -2,7 +2,6 @@
   "tool-version": "6.0.4",
   "name": "fslstats",
   "author": "FMRIB Analysis Group, University of Oxford",
-  "descriptor-url": "https://example.com/fslstats-descriptor.json",
   "description": "FSL tool for calculating statistics on image data",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "fslstats [INPUT_FILE] [INDEX_MASK] [LOWER_THRESHOLD] [UPPER_THRESHOLD] [ROBUST_INTENSITY_FLAG] [MINMAX_INTENSITY_FLAG] [VOXELS_VOLUME_FLAG] [NONZERO_VOXELS_VOLUME_FLAG] [MEAN_FLAG] [NONZERO_MEAN_FLAG] [STD_DEV_FLAG] [NONZERO_STD_DEV_FLAG] [SMALLEST_ROI_FLAG] [MAX_COORDS_FLAG] [MIN_COORDS_FLAG] [COG_MM_FLAG] [COG_VOXEL_FLAG] [PERCENTILE] [NONZERO_PERCENTILE] [ABSOLUTE_VALUES_FLAG] [NAN_AS_ZERO_FLAG] [MASK_IMAGE] [DIFFERENCE_IMAGE] [HIST_BINS] [HIST_BINS_MIN_MAX] [TIMESERIES_FLAG] [MEAN_ENTROPY_FLAG] [NONZERO_MEAN_ENTROPY_FLAG]",
@@ -51,7 +50,6 @@
       "description": "Output robust min and max intensity",
       "value-key": "[ROBUST_INTENSITY_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "robust_intensity_flag",
       "name": "Robust intensity flag"
     },
@@ -60,7 +58,6 @@
       "description": "Output min and max intensity",
       "value-key": "[MINMAX_INTENSITY_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "minmax_intensity_flag",
       "name": "Min-max intensity flag"
     },
@@ -69,7 +66,6 @@
       "description": "Output voxels and volume",
       "value-key": "[VOXELS_VOLUME_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "voxels_volume_flag",
       "name": "Voxels and volume flag"
     },
@@ -78,7 +74,6 @@
       "description": "Output voxels and volume (for nonzero voxels)",
       "value-key": "[NONZERO_VOXELS_VOLUME_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "nonzero_voxels_volume_flag",
       "name": "Nonzero voxels and volume flag"
     },
@@ -87,7 +82,6 @@
       "description": "Output mean",
       "value-key": "[MEAN_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "mean_flag",
       "name": "Mean flag"
     },
@@ -96,7 +90,6 @@
       "description": "Output mean (for nonzero voxels)",
       "value-key": "[NONZERO_MEAN_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "nonzero_mean_flag",
       "name": "Nonzero mean flag"
     },
@@ -105,7 +98,6 @@
       "description": "Output standard deviation",
       "value-key": "[STD_DEV_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "std_dev_flag",
       "name": "Standard deviation flag"
     },
@@ -114,7 +106,6 @@
       "description": "Output standard deviation (for nonzero voxels)",
       "value-key": "[NONZERO_STD_DEV_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "nonzero_std_dev_flag",
       "name": "Nonzero standard deviation flag"
     },
@@ -123,7 +114,6 @@
       "description": "Output smallest ROI containing nonzero voxels",
       "value-key": "[SMALLEST_ROI_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "smallest_roi_flag",
       "name": "Smallest ROI flag"
     },
@@ -132,7 +122,6 @@
       "description": "Output coordinates of maximum voxel",
       "value-key": "[MAX_COORDS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "max_coords_flag",
       "name": "Max coordinates flag"
     },
@@ -141,7 +130,6 @@
       "description": "Output coordinates of minimum voxel",
       "value-key": "[MIN_COORDS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "min_coords_flag",
       "name": "Min coordinates flag"
     },
@@ -150,7 +138,6 @@
       "description": "Output center-of-gravity (cog) in mm coordinates",
       "value-key": "[COG_MM_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "cog_mm_flag",
       "name": "Center of gravity in mm flag"
     },
@@ -159,7 +146,6 @@
       "description": "Output center-of-gravity (cog) in voxel coordinates",
       "value-key": "[COG_VOXEL_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "cog_voxel_flag",
       "name": "Center of gravity in voxel flag"
     },
@@ -186,7 +172,6 @@
       "description": "Use absolute values of all image intensities",
       "value-key": "[ABSOLUTE_VALUES_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "absolute_values_flag",
       "name": "Absolute values flag"
     },
@@ -195,7 +180,6 @@
       "description": "Treat NaN or Inf as zero for subsequent stats",
       "value-key": "[NAN_AS_ZERO_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "nan_as_zero_flag",
       "name": "NaN as zero flag"
     },
@@ -240,7 +224,6 @@
       "description": "Separate output line for each 3D volume of a 4D timeseries",
       "value-key": "[TIMESERIES_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "timeseries_flag",
       "name": "Timeseries flag"
     },
@@ -249,7 +232,6 @@
       "description": "Output mean entropy; mean(-i*ln(i))",
       "value-key": "[MEAN_ENTROPY_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "mean_entropy_flag",
       "name": "Mean entropy flag"
     },
@@ -258,7 +240,6 @@
       "description": "Output mean entropy (of nonzero voxels)",
       "value-key": "[NONZERO_MEAN_ENTROPY_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "nonzero_mean_entropy_flag",
       "name": "Nonzero mean entropy flag"
     }
@@ -308,7 +289,6 @@
     {
       "path-template": "[INPUT_FILE]_stats.txt",
       "description": "Statistics output file",
-      "optional": true,
       "id": "output_stats",
       "name": "Output statistics"
     }

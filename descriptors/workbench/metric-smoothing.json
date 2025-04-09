@@ -49,7 +49,6 @@
       "command-line-flag": "-fwhm",
       "description": "kernel size is FWHM, not sigma",
       "type": "Flag",
-      "optional": true,
       "value-key": "[OPT_FWHM]"
     },
     {
@@ -91,7 +90,6 @@
       "command-line-flag": "-fix-zeros",
       "description": "treat zero values as not being data",
       "type": "Flag",
-      "optional": true,
       "value-key": "[OPT_FIX_ZEROS]"
     },
     {
@@ -127,8 +125,7 @@
       "id": "metric_out",
       "name": "metric_out",
       "path-template": "[METRIC_OUT]",
-      "description": "the output metric",
-      "optional": false
+      "description": "the output metric"
     }
   ],
   "url": "https://github.com/Washington-University/workbench"

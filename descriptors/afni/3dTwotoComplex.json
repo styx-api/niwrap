@@ -39,7 +39,6 @@
       "description": "Specify that the 2 inputs are real and imaginary parts [this is the default]",
       "value-key": "[RI]",
       "type": "Flag",
-      "optional": true,
       "id": "ri",
       "name": "Real and Imaginary parts flag"
     },
@@ -48,7 +47,6 @@
       "description": "Specify that the 2 inputs are magnitude and phase [phase is in radians]",
       "value-key": "[MP]",
       "type": "Flag",
-      "optional": true,
       "id": "mp",
       "name": "Magnitude and Phase flag"
     },
@@ -67,14 +65,12 @@
     {
       "path-template": "[PREFIX]+orig.BRIK",
       "description": "Output complex-valued dataset with prefix",
-      "optional": true,
       "id": "out_brick",
       "name": "Output BRIK file"
     },
     {
       "path-template": "[PREFIX]+orig.HEAD",
       "description": "Header for the complex-valued dataset",
-      "optional": true,
       "id": "out_head",
       "name": "Output HEAD file"
     }

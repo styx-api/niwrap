@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "3dMVM",
   "author": "AFNI Developers",
-  "descriptor-url": "#",
   "description": "AFNI Group Analysis Program with Multi-Variate Modeling Approach",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dMVM [DBGARGS] [PREFIX] [JOBS] [MASK] [BSVARS] [WSVARS] [QVARS] [QVARCENTERS] [NUM_GLT] [GLTLABEL] [GLTCODE] [NUM_GLF] [GLFLABEL] [GLFCODE] [DATATABLE]",
@@ -154,14 +153,12 @@
     {
       "path-template": "[PREFIX]+tlrc.HEAD",
       "description": "Output HEAD file in AFNI format",
-      "optional": false,
       "id": "outfile_head",
       "name": "Output HEAD file"
     },
     {
       "path-template": "[PREFIX]+tlrc.BRIK",
       "description": "Output BRIK file in AFNI format",
-      "optional": false,
       "id": "outfile_brik",
       "name": "Output BRIK file"
     }

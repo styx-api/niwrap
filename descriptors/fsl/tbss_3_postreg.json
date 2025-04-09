@@ -2,7 +2,6 @@
   "tool-version": "6.0.4",
   "name": "tbss_3_postreg",
   "author": "FMRIB Analysis Group, University of Oxford",
-  "descriptor-url": "https://github.com/aces/cbrain-plugins-neuro/blob/master/cbrain_task_descriptors/fsl_tbss_3_postreg.json",
   "description": "TBSS post-registration processing",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "tbss_3_postreg [DERIVE_MEAN_FROM_STUDY] [USE_FMRIB58]",
@@ -16,7 +15,6 @@
       "description": "Derive mean_FA and mean_FA_skeleton from mean of all subjects in study (recommended)",
       "value-key": "[DERIVE_MEAN_FROM_STUDY]",
       "type": "Flag",
-      "optional": true,
       "id": "derive_mean_from_study",
       "name": "Derive mean from study flag"
     },
@@ -25,7 +23,6 @@
       "description": "Use FMRIB58_FA and its skeleton instead of study-derived mean and skeleton",
       "value-key": "[USE_FMRIB58]",
       "type": "Flag",
-      "optional": true,
       "id": "use_fmrib58",
       "name": "Use FMRIB58 flag"
     }

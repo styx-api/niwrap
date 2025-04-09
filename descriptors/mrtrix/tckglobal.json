@@ -4,10 +4,7 @@
   "author": "MRTrix3 Developers",
   "tool-version": "3.0.4",
   "schema-version": "0.5",
-  "container-image": {
-    "image": "mrtrix3/mrtrix3:3.0.4",
-    "type": "docker"
-  },
+  "container-image": { "image": "mrtrix3/mrtrix3:3.0.4", "type": "docker" },
   "command-line": "tckglobal [INPUT_OPTIONS_GRAD] [INPUT_OPTIONS_MASK] [INPUT_OPTIONS_RISO] [PARAMETERS_LMAX] [PARAMETERS_LENGTH] [PARAMETERS_WEIGHT] [PARAMETERS_PPOT] [PARAMETERS_CPOT] [PARAMETERS_T0] [PARAMETERS_T1] [PARAMETERS_NITER] [OUTPUT_OPTIONS_FOD] [OUTPUT_OPTIONS_NOAPO] [OUTPUT_OPTIONS_FISO] [OUTPUT_OPTIONS_EEXT] [OUTPUT_OPTIONS_ETREND] [ADVANCED_PARAMETERS__IF_YOU_REALLY_KNOW_WHAT_YOU_RE_DOING_BALANCE] [ADVANCED_PARAMETERS__IF_YOU_REALLY_KNOW_WHAT_YOU_RE_DOING_DENSITY] [ADVANCED_PARAMETERS__IF_YOU_REALLY_KNOW_WHAT_YOU_RE_DOING_PROB] [ADVANCED_PARAMETERS__IF_YOU_REALLY_KNOW_WHAT_YOU_RE_DOING_BETA] [ADVANCED_PARAMETERS__IF_YOU_REALLY_KNOW_WHAT_YOU_RE_DOING_LAMBDA] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION] [SOURCE] [RESPONSE] [TRACKS]",
   "inputs": [
     {
@@ -172,8 +169,7 @@
       "command-line-flag": "-noapo",
       "value-key": "[OUTPUT_OPTIONS_NOAPO]",
       "description": "disable spherical convolution of fODF with apodized PSF, to output a sum of delta functions rather than a sum of aPSFs.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "fiso",
@@ -259,8 +255,7 @@
       "command-line-flag": "-info",
       "value-key": "[__STANDARD_OPTIONS_INFO]",
       "description": "display information messages.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "quiet",
@@ -268,8 +263,7 @@
       "command-line-flag": "-quiet",
       "value-key": "[__STANDARD_OPTIONS_QUIET]",
       "description": "do not display information messages or progress status; alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "debug",
@@ -277,8 +271,7 @@
       "command-line-flag": "-debug",
       "value-key": "[__STANDARD_OPTIONS_DEBUG]",
       "description": "display debugging messages.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "force",
@@ -286,8 +279,7 @@
       "command-line-flag": "-force",
       "value-key": "[__STANDARD_OPTIONS_FORCE]",
       "description": "force overwrite of output files (caution: using the same file as input and output might cause unexpected behaviour).",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "nthreads",
@@ -338,8 +330,7 @@
       "command-line-flag": "-help",
       "value-key": "[__STANDARD_OPTIONS_HELP]",
       "description": "display this information page and exit.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "version",
@@ -347,8 +338,7 @@
       "command-line-flag": "-version",
       "value-key": "[__STANDARD_OPTIONS_VERSION]",
       "description": "display version information and exit.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     }
   ],
   "output-files": [

@@ -41,7 +41,6 @@
       "description": "Output individual matrix files of properties.",
       "value-key": "[OUT_IND_MATR]",
       "type": "Flag",
-      "optional": true,
       "id": "out_ind_matr",
       "name": "Output Individual Matrix"
     },
@@ -50,7 +49,6 @@
       "description": "Output as a 1D dset, more easily readable by other programs.",
       "value-key": "[OUT_IND_1DDSET]",
       "type": "Flag",
-      "optional": true,
       "id": "out_ind_1ddset",
       "name": "Output Individual 1D Dset"
     },
@@ -59,7 +57,6 @@
       "description": "Switch to hold the Python-produced image on the output screen until a key has been hit.",
       "value-key": "[HOLD_IMAGE]",
       "type": "Flag",
-      "optional": true,
       "id": "hold_image",
       "name": "Hold Image"
     },
@@ -68,7 +65,6 @@
       "description": "Switch to turn off the usage of user-defined labels in the *.grid/*.netcc files.",
       "value-key": "[EXTERN_LABS_NO]",
       "type": "Flag",
-      "optional": true,
       "id": "extern_labs_no",
       "name": "External Labels No"
     },
@@ -113,7 +109,6 @@
       "description": "Use matplotlib's tight_layout() option to ensure no overlap of features in the image.",
       "value-key": "[TIGHT_LAYOUT_ON]",
       "type": "Flag",
-      "optional": true,
       "id": "tight_layout_on",
       "name": "Tight Layout On"
     },
@@ -122,7 +117,6 @@
       "description": "Switch if you don't want matrix figure output.",
       "value-key": "[FIG_OFF]",
       "type": "Flag",
-      "optional": true,
       "id": "fig_off",
       "name": "Figure Off"
     },
@@ -167,7 +161,6 @@
       "description": "Switch to not include a colorbar at the right side of the plot.",
       "value-key": "[CBAR_OFF]",
       "type": "Flag",
-      "optional": true,
       "id": "cbar_off",
       "name": "Colorbar Off"
     },
@@ -212,7 +205,6 @@
       "description": "Switch to turn off labels along the x- (horizontal) axis but leave those along the y- (vertical) axis.",
       "value-key": "[XTICK_LAB_OFF]",
       "type": "Flag",
-      "optional": true,
       "id": "xtick_lab_off",
       "name": "X-axis Label Off"
     }
@@ -222,21 +214,18 @@
     {
       "path-template": "individual_images/*",
       "description": "Individual images of matrix plots.",
-      "optional": true,
       "id": "individual_images",
       "name": "Individual Images"
     },
     {
       "path-template": "matrix_grids/*",
       "description": "Output matrix grid files.",
-      "optional": true,
       "id": "matrix_grids",
       "name": "Matrix Grid Files"
     },
     {
       "path-template": "1D_dsets/*",
       "description": "Output 1D dataset files.",
-      "optional": true,
       "id": "1D_dsets",
       "name": "1D Dataset Files"
     }

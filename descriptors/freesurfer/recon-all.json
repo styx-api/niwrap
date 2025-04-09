@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "recon-all",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "https://github.com/freesurfer/freesurfer",
   "description": "Performs all, or any part of, the FreeSurfer cortical reconstruction process",
   "command-line": "recon-all [SUBJID] [ALL_FLAG] [AUTORECON_ALL_FLAG] [AUTORECON1_FLAG] [AUTORECON2_FLAG] [AUTORECON2_CP_FLAG] [AUTORECON2_WM_FLAG] [AUTORECON2_INFLATE1_FLAG] [AUTORECON2_PERHEMI_FLAG] [AUTORECON3_FLAG] [HEMI] [PONS_CRS] [CC_CRS] [LH_CRS] [RH_CRS] [NOFILL] [WATERSHED] [EXTERNAL_BRAIN_MASK] [WSLESS] [WSMORE] [WSATLAS] [NO_WSATLAS] [NO_WSGCAATLAS] [WSTHRESH] [WSSEED] [NORM_3D_ITERS] [NORM_MAX_GRAD] [NORM1_B] [NORM2_B] [NORM1_N] [NORM2_N] [CM] [NO_FIX_WITH_GA] [FIX_DIAG_ONLY] [SEG_WLO] [SEG_GHI] [NOTHICKEN] [NO_CA_ALIGN_AFTER] [NO_CA_ALIGN] [DEFACE] [EXPERT_FILE] [XOPTS_USE] [XOPTS_CLEAN] [XOPTS_OVERWRITE] [TERMSCRIPT_FILE] [MPRAGE] [WASHU_MPRAGE] [SCHWARTZYA3T_ATLAS] [THREADS] [WAITFOR_FILE] [NOTIFY_FILE] [LOG_FILE] [STATUS_FILE] [NOAPPEND] [NO_ISRUNNING] [HIPPOCAMPAL_SUBFIELDS_T1] [HIPPOCAMPAL_SUBFIELDS_T2] [HIPPOCAMPAL_SUBFIELDS_T1T2] [BRAINSTEM_STRUCTURES] [SUBJECTS_DIR] [MAIL_USER] [UMASK] [GROUP_ID] [ONLY_VERSIONS] [DEBUG] [ALLOW_COREDUMP] [DONTRUN] [VERSION] [HELP]",
   "container-image": {
@@ -25,7 +24,6 @@
       "description": "Performs all stages of cortical reconstruction",
       "value-key": "[ALL_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "all_flag",
       "name": "All flag"
     },
@@ -34,7 +32,6 @@
       "description": "Same as -all",
       "value-key": "[AUTORECON_ALL_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "autorecon_all_flag",
       "name": "Autorecon all flag"
     },
@@ -43,7 +40,6 @@
       "description": "Process stages 1-5",
       "value-key": "[AUTORECON1_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "autorecon1_flag",
       "name": "Autorecon 1 flag"
     },
@@ -52,7 +48,6 @@
       "description": "Process stages 6-23",
       "value-key": "[AUTORECON2_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "autorecon2_flag",
       "name": "Autorecon 2 flag"
     },
@@ -61,7 +56,6 @@
       "description": "Process stages 12-23",
       "value-key": "[AUTORECON2_CP_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "autorecon2_cp_flag",
       "name": "Autorecon 2 CP flag"
     },
@@ -70,7 +64,6 @@
       "description": "Process stages 15-23",
       "value-key": "[AUTORECON2_WM_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "autorecon2_wm_flag",
       "name": "Autorecon 2 WM flag"
     },
@@ -79,7 +72,6 @@
       "description": "Process stages 6-18",
       "value-key": "[AUTORECON2_INFLATE1_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "autorecon2_inflate1_flag",
       "name": "Autorecon 2 Inflate 1 flag"
     },
@@ -88,7 +80,6 @@
       "description": "Tessellation, Smooth1, Inflate1, Qsphere, Fix, Smooth2, Inflate2, Finalsurf, Ribbon",
       "value-key": "[AUTORECON2_PERHEMI_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "autorecon2_perhemi_flag",
       "name": "Autorecon 2 per hemisphere flag"
     },
@@ -97,7 +88,6 @@
       "description": "Process stages 24-34",
       "value-key": "[AUTORECON3_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "autorecon3_flag",
       "name": "Autorecon 3 flag"
     },
@@ -163,7 +153,6 @@
       "description": "Do not use automatic subcortical seg to fill",
       "value-key": "[NOFILL]",
       "type": "Flag",
-      "optional": true,
       "id": "nofill",
       "name": "No Fill Flag"
     },
@@ -190,7 +179,6 @@
       "description": "Decrease watershed threshold",
       "value-key": "[WSLESS]",
       "type": "Flag",
-      "optional": true,
       "id": "wsless",
       "name": "WS Less Flag"
     },
@@ -199,7 +187,6 @@
       "description": "Increase watershed threshold",
       "value-key": "[WSMORE]",
       "type": "Flag",
-      "optional": true,
       "id": "wsmore",
       "name": "WS More Flag"
     },
@@ -208,7 +195,6 @@
       "description": "Use atlas when skull stripping",
       "value-key": "[WSATLAS]",
       "type": "Flag",
-      "optional": true,
       "id": "wsatlas",
       "name": "WS Atlas Flag"
     },
@@ -217,7 +203,6 @@
       "description": "Do not use atlas when skull stripping",
       "value-key": "[NO_WSATLAS]",
       "type": "Flag",
-      "optional": true,
       "id": "no_wsatlas",
       "name": "No WS Atlas Flag"
     },
@@ -226,7 +211,6 @@
       "description": "Do not use GCA atlas when skull stripping",
       "value-key": "[NO_WSGCAATLAS]",
       "type": "Flag",
-      "optional": true,
       "id": "no_wsgcaatlas",
       "name": "No WS GCA Atlas Flag"
     },
@@ -310,7 +294,6 @@
       "description": "Conform volumes to the min voxel size",
       "value-key": "[CM]",
       "type": "Flag",
-      "optional": true,
       "id": "cm",
       "name": "Conform volumes flag"
     },
@@ -319,7 +302,6 @@
       "description": "Do not use genetic algorithm when fixing topology",
       "value-key": "[NO_FIX_WITH_GA]",
       "type": "Flag",
-      "optional": true,
       "id": "no_fix_with_ga",
       "name": "No Fix with GA flag"
     },
@@ -328,7 +310,6 @@
       "description": "Topology fixer runs until ?h.defect_labels files are created",
       "value-key": "[FIX_DIAG_ONLY]",
       "type": "Flag",
-      "optional": true,
       "id": "fix_diag_only",
       "name": "Fix Diag Only flag"
     },
@@ -355,7 +336,6 @@
       "description": "Pass '-thicken 0' to mri_segment",
       "value-key": "[NOTHICKEN]",
       "type": "Flag",
-      "optional": true,
       "id": "nothicken",
       "name": "No Thicken flag"
     },
@@ -364,7 +344,6 @@
       "description": "Turn off '-align-after' with mri_ca_register",
       "value-key": "[NO_CA_ALIGN_AFTER]",
       "type": "Flag",
-      "optional": true,
       "id": "no_ca_align_after",
       "name": "No CA Align After flag"
     },
@@ -373,7 +352,6 @@
       "description": "Turn off '-align' with mri_ca_label",
       "value-key": "[NO_CA_ALIGN]",
       "type": "Flag",
-      "optional": true,
       "id": "no_ca_align",
       "name": "No CA Align flag"
     },
@@ -382,7 +360,6 @@
       "description": "Deface subject, written to orig_defaced.mgz",
       "value-key": "[DEFACE]",
       "type": "Flag",
-      "optional": true,
       "id": "deface",
       "name": "Deface flag"
     },
@@ -400,7 +377,6 @@
       "description": "Use pre-existing expert options file",
       "value-key": "[XOPTS_USE]",
       "type": "Flag",
-      "optional": true,
       "id": "xopts_use",
       "name": "XOPTS Use flag"
     },
@@ -409,7 +385,6 @@
       "description": "Delete pre-existing expert options file",
       "value-key": "[XOPTS_CLEAN]",
       "type": "Flag",
-      "optional": true,
       "id": "xopts_clean",
       "name": "XOPTS Clean flag"
     },
@@ -418,7 +393,6 @@
       "description": "Overwrite pre-existing expert options file",
       "value-key": "[XOPTS_OVERWRITE]",
       "type": "Flag",
-      "optional": true,
       "id": "xopts_overwrite",
       "name": "XOPTS Overwrite flag"
     },
@@ -436,7 +410,6 @@
       "description": "Assume scan parameters are MGH MP-RAGE protocol",
       "value-key": "[MPRAGE]",
       "type": "Flag",
-      "optional": true,
       "id": "mprage",
       "name": "MPRAGE flag"
     },
@@ -445,7 +418,6 @@
       "description": "Assume scan parameters are Wash.U. MP-RAGE protocol",
       "value-key": "[WASHU_MPRAGE]",
       "type": "Flag",
-      "optional": true,
       "id": "washu_mprage",
       "name": "WashU MPRAGE flag"
     },
@@ -454,7 +426,6 @@
       "description": "Use special young adult 3T atlas for tal reg",
       "value-key": "[SCHWARTZYA3T_ATLAS]",
       "type": "Flag",
-      "optional": true,
       "id": "schwartzya3t_atlas",
       "name": "Schwartzya 3T Atlas flag"
     },
@@ -508,7 +479,6 @@
       "description": "Start new log and status files instead of appending",
       "value-key": "[NOAPPEND]",
       "type": "Flag",
-      "optional": true,
       "id": "noappend",
       "name": "No Append flag"
     },
@@ -517,7 +487,6 @@
       "description": "Do not check whether this subject is currently being processed",
       "value-key": "[NO_ISRUNNING]",
       "type": "Flag",
-      "optional": true,
       "id": "no_isrunning",
       "name": "No Is Running flag"
     },
@@ -526,7 +495,6 @@
       "description": "Segmentation of hippocampal subfields using input T1 scan",
       "value-key": "[HIPPOCAMPAL_SUBFIELDS_T1]",
       "type": "Flag",
-      "optional": true,
       "id": "hippocampal_subfields_t1",
       "name": "Hippocampal Subfields T1 flag"
     },
@@ -553,7 +521,6 @@
       "description": "Segmentation of brainstem structures",
       "value-key": "[BRAINSTEM_STRUCTURES]",
       "type": "Flag",
-      "optional": true,
       "id": "brainstem_structures",
       "name": "Brainstem Structures flag"
     },
@@ -598,7 +565,6 @@
       "description": "Print version of each binary and exit",
       "value-key": "[ONLY_VERSIONS]",
       "type": "Flag",
-      "optional": true,
       "id": "only_versions",
       "name": "Only Versions flag"
     },
@@ -607,7 +573,6 @@
       "description": "Print out lots of info",
       "value-key": "[DEBUG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug",
       "name": "Debug flag"
     },
@@ -616,7 +581,6 @@
       "description": "Set coredump limit to unlimited",
       "value-key": "[ALLOW_COREDUMP]",
       "type": "Flag",
-      "optional": true,
       "id": "allow_coredump",
       "name": "Allow Core Dump flag"
     },
@@ -625,7 +589,6 @@
       "description": "Do everything but execute each command",
       "value-key": "[DONTRUN]",
       "type": "Flag",
-      "optional": true,
       "id": "dontrun",
       "name": "Don\u2019t Run flag"
     },
@@ -634,7 +597,6 @@
       "description": "Print version of this script and exit",
       "value-key": "[VERSION]",
       "type": "Flag",
-      "optional": true,
       "id": "version",
       "name": "Version flag"
     },
@@ -643,7 +605,6 @@
       "description": "Display help message and exit",
       "value-key": "[HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "help",
       "name": "Help flag"
     }
@@ -652,14 +613,12 @@
     {
       "path-template": "[SUBJID]/scripts/recon-all.log",
       "description": "Log file of the recon-all process",
-      "optional": true,
       "id": "logfile",
       "name": "Recon-all Log File"
     },
     {
       "path-template": "[SUBJID]/scripts/recon-all-status.log",
       "description": "Status file of the recon-all process",
-      "optional": true,
       "id": "statusfile",
       "name": "Recon-all Status File"
     }

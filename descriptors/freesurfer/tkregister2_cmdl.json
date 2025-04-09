@@ -33,7 +33,6 @@
       "description": "Target is relative to subjectid/mri.",
       "value-key": "[FSTARG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "fstarg_flag",
       "name": "FSTARG flag"
     },
@@ -51,7 +50,6 @@
       "description": "Only check, no --reg needed.",
       "value-key": "[CHECK_REG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "check_reg_flag",
       "name": "Check registration flag"
     },
@@ -60,7 +58,6 @@
       "description": "Compute registration from headers.",
       "value-key": "[REGHEADER_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "regheader_flag",
       "name": "Regheader flag"
     },
@@ -69,7 +66,6 @@
       "description": "Same as --regheader but aligns volume centers.",
       "value-key": "[REGHEADER_CENTER_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "regheader_center_flag",
       "name": "Regheader center flag"
     },
@@ -78,7 +74,6 @@
       "description": "Use FSLDIR/data/standard/avg152T1.nii.gz.",
       "value-key": "[FSL_TARG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "fsl_targ_flag",
       "name": "FSL target flag"
     },
@@ -87,7 +82,6 @@
       "description": "Use FSLDIR/data/standard/avg152T1_LR-marked.nii.gz.",
       "value-key": "[FSL_TARG_LR_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "fsl_targ_lr_flag",
       "name": "FSL target LR flag"
     },
@@ -114,7 +108,6 @@
       "description": "Do not zero target cras (done with --fstal).",
       "value-key": "[NO_ZERO_CRAS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "no_zero_cras_flag",
       "name": "No zero CRAS flag"
     },
@@ -132,7 +125,6 @@
       "description": "Turn off intensity normalization.",
       "value-key": "[NO_INORM_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "no_inorm_flag",
       "name": "No intensity normalization flag"
     },
@@ -150,7 +142,6 @@
       "description": "Apply movable brightness to the target.",
       "value-key": "[FMOV_TARG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "fmov_targ_flag",
       "name": "Apply movable brightness to target flag"
     },
@@ -225,7 +216,6 @@
       "description": "Only load/display left hemisphere.",
       "value-key": "[LH_ONLY_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "lh_only_flag",
       "name": "Left hemisphere only flag"
     },
@@ -234,7 +224,6 @@
       "description": "Only load/display right hemisphere.",
       "value-key": "[RH_ONLY_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "rh_only_flag",
       "name": "Right hemisphere only flag"
     },
@@ -243,7 +232,6 @@
       "description": "Set movable to be tal and reg to be taliarach.xfm.",
       "value-key": "[FSTAL_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "fstal_flag",
       "name": "FSTAL flag"
     },
@@ -351,7 +339,6 @@
       "description": "Invert transform in ltaoutfile.",
       "value-key": "[LTAOUT_INV_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "ltaout_inv_flag",
       "name": "LTA output invert flag"
     },
@@ -378,7 +365,6 @@
       "description": "Use identity as registration matrix.",
       "value-key": "[IDENTITY_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "identity_flag",
       "name": "Identity registration matrix flag"
     },
@@ -405,7 +391,6 @@
       "description": "Don't fix old tkregister matrices.",
       "value-key": "[NOFIX_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "nofix_flag",
       "name": "No fix flag"
     },
@@ -432,7 +417,6 @@
       "description": "Tag movable volume near the col/row origin.",
       "value-key": "[TAG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "tag_flag",
       "name": "Tag flag"
     },
@@ -471,7 +455,6 @@
       "description": "Double window size.",
       "value-key": "[DOUBLE_WINDOW_SIZE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "double_window_size_flag",
       "name": "Double window size flag"
     },
@@ -498,7 +481,6 @@
       "description": "Load aseg and hit 'd' to toggle.",
       "value-key": "[ASEG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "aseg_flag",
       "name": "Load aseg flag"
     },
@@ -507,7 +489,6 @@
       "description": "Load aparc+aseg and hit 'c' to toggle.",
       "value-key": "[APARC_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "aparc_flag",
       "name": "Load aparc+aseg flag"
     },
@@ -516,7 +497,6 @@
       "description": "Load wmparc and hit 'c' to toggle.",
       "value-key": "[WMPARC_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "wmparc_flag",
       "name": "Load wmparc flag"
     },
@@ -558,7 +538,6 @@
       "description": "Conform target (assumes reg computed to conform target, eg, GCA).",
       "value-key": "[CONF_TARG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "conf_targ_flag",
       "name": "Conform target flag"
     }

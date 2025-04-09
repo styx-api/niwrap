@@ -2,7 +2,6 @@
   "tool-version": "6.0.4",
   "name": "fsl_mvlm",
   "author": "FMRIB Analysis Group, University of Oxford",
-  "descriptor-url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/",
   "description": "Multivariate Linear Model regression on time courses and/or 3D/4D images using SVD (PCA), PLS, normalised PLS, CVA, SVD-CVA or MLM",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "fsl_mvlm [INPUT_FILE] [BASENAME_OUTPUT_FILES] [ALGORITHM] [DESIGN_MATRIX] [MASK_IMAGE] [DESIGN_NORMALIZATION] [VARIANCE_NORMALISATION] [DEMEAN] [NMF_DIM] [NMF_ITERATIONS] [VERBOSE] [OUT_DATA] [OUT_VNSCALES]",
@@ -61,7 +60,6 @@
       "description": "Switch on normalisation of the design matrix columns to unit standard deviation",
       "value-key": "[DESIGN_NORMALIZATION]",
       "type": "Flag",
-      "optional": true,
       "id": "design_normalization",
       "name": "Design normalization flag"
     },
@@ -70,7 +68,6 @@
       "description": "Perform MELODIC variance-normalisation on data",
       "value-key": "[VARIANCE_NORMALISATION]",
       "type": "Flag",
-      "optional": true,
       "id": "variance_normalisation",
       "name": "Variance normalisation flag"
     },
@@ -79,7 +76,6 @@
       "description": "Switch on de-meaning of design and data",
       "value-key": "[DEMEAN]",
       "type": "Flag",
-      "optional": true,
       "id": "demean",
       "name": "Demean flag"
     },
@@ -106,7 +102,6 @@
       "description": "Switch on verbose output",
       "value-key": "[VERBOSE]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose",
       "name": "Verbose flag"
     },
@@ -160,21 +155,18 @@
     {
       "path-template": "[BASENAME_OUTPUT_FILES]_out.nii.gz",
       "description": "Processed output file",
-      "optional": true,
       "id": "outfile",
       "name": "Output file"
     },
     {
       "path-template": "[OUT_DATA].nii.gz",
       "description": "Pre-processed data output file",
-      "optional": true,
       "id": "outdata",
       "name": "Pre-processed data file"
     },
     {
       "path-template": "[OUT_VNSCALES].txt",
       "description": "Variance normalisation scales file",
-      "optional": true,
       "id": "vnscales",
       "name": "Variance normalisation scales file"
     }

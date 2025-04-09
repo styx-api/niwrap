@@ -35,7 +35,6 @@
       "description": "Input file is a patch file, not a full surface",
       "value-key": "[PATCH]",
       "type": "Flag",
-      "optional": true,
       "id": "patch",
       "name": "Patch flag"
     },
@@ -81,7 +80,6 @@
       "description": "Rescale vertex xyz so total area is same as group average",
       "value-key": "[RESCALE]",
       "type": "Flag",
-      "optional": true,
       "id": "rescale",
       "name": "Rescale flag"
     },
@@ -99,7 +97,6 @@
       "description": "Output ascii file where vertex data is the surface normal vector",
       "value-key": "[NORMALS]",
       "type": "Flag",
-      "optional": true,
       "id": "normals",
       "name": "Normals flag"
     },
@@ -108,7 +105,6 @@
       "description": "Write out neighbors of a vertex in each row",
       "value-key": "[NEIGHBORS]",
       "type": "Flag",
-      "optional": true,
       "id": "neighbors",
       "name": "Neighbors flag"
     },
@@ -117,7 +113,6 @@
       "description": "Print only surface xyz to ascii file",
       "value-key": "[XYZ]",
       "type": "Flag",
-      "optional": true,
       "id": "xyz",
       "name": "XYZ flag"
     },
@@ -171,7 +166,6 @@
       "description": "Combine surface files, two input surface files required",
       "value-key": "[COMBINE_SURFS]",
       "type": "Flag",
-      "optional": true,
       "id": "combine_surfs",
       "name": "Combine surfaces flag"
     },
@@ -180,7 +174,6 @@
       "description": "Generate combined gifti file with surface and multiple curvature data",
       "value-key": "[MERGE_GIFTI]",
       "type": "Flag",
-      "optional": true,
       "id": "merge_gifti",
       "name": "Merge gifti flag"
     },
@@ -189,7 +182,6 @@
       "description": "Separate surface and data array from combined gifti file",
       "value-key": "[SPLIT_GIFTI]",
       "type": "Flag",
-      "optional": true,
       "id": "split_gifti",
       "name": "Split gifti flag"
     },
@@ -207,7 +199,6 @@
       "description": "Delete command lines in surface",
       "value-key": "[DELETE_CMDS]",
       "type": "Flag",
-      "optional": true,
       "id": "delete_cmds",
       "name": "Delete cmds flag"
     },
@@ -216,7 +207,6 @@
       "description": "Put center of surface at (0,0,0)",
       "value-key": "[CENTER]",
       "type": "Flag",
-      "optional": true,
       "id": "center",
       "name": "Center flag"
     },
@@ -234,7 +224,6 @@
       "description": "Set the valid flag in vg to 0",
       "value-key": "[REMOVE_VOL_GEOM]",
       "type": "Flag",
-      "optional": true,
       "id": "remove_vol_geom",
       "name": "Remove volume geometry flag"
     },
@@ -252,7 +241,6 @@
       "description": "Convert coordinates from native FS (tkr) coords to scanner coords",
       "value-key": "[TO_SCANNER]",
       "type": "Flag",
-      "optional": true,
       "id": "to_scanner",
       "name": "To scanner flag"
     },
@@ -261,7 +249,6 @@
       "description": "Convert coordinates from scanner coords to native FS (tkr) coords",
       "value-key": "[TO_TKR]",
       "type": "Flag",
-      "optional": true,
       "id": "to_tkr",
       "name": "To TKR flag"
     },
@@ -270,7 +257,6 @@
       "description": "Same as --to-scanner",
       "value-key": "[USEREALRAS]",
       "type": "Flag",
-      "optional": true,
       "id": "userealras",
       "name": "Use real RAS flag"
     },
@@ -279,7 +265,6 @@
       "description": "Same as --to-tkr",
       "value-key": "[USESURFRAS]",
       "type": "Flag",
-      "optional": true,
       "id": "usesurfras",
       "name": "Use surf RAS flag"
     },
@@ -333,7 +318,6 @@
       "description": "Shift center to scanner coordinate center",
       "value-key": "[CRAS_ADD]",
       "type": "Flag",
-      "optional": true,
       "id": "cras_add",
       "name": "CRAS Add flag"
     },
@@ -342,7 +326,6 @@
       "description": "Shift center from scanner coordinate center",
       "value-key": "[CRAS_SUBTRACT]",
       "type": "Flag",
-      "optional": true,
       "id": "cras_subtract",
       "name": "CRAS Subtract flag"
     }
@@ -351,7 +334,6 @@
     {
       "path-template": "[OUTPUT_FILE]",
       "description": "Output converted surface file",
-      "optional": false,
       "id": "converted_surface",
       "name": "Converted surface output file"
     }

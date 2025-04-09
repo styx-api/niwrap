@@ -52,7 +52,6 @@
       "description": "Clip off 'small' voxels (as in 3dClipLevel). Cannot use with -mask.",
       "value-key": "[AUTOCLIP]",
       "type": "Flag",
-      "optional": true,
       "id": "autoclip",
       "name": "Autoclip flag"
     },
@@ -61,7 +60,6 @@
       "description": "Automatically mask the dataset. Cannot use with -mask.",
       "value-key": "[AUTOMASK]",
       "type": "Flag",
-      "optional": true,
       "id": "automask",
       "name": "Automask flag"
     },
@@ -70,7 +68,6 @@
       "description": "Output the fraction of (masked) voxels which are outliers at each time point, instead of the count.",
       "value-key": "[FRACTION]",
       "type": "Flag",
-      "optional": true,
       "id": "fraction",
       "name": "Fraction flag"
     },
@@ -79,7 +76,6 @@
       "description": "Print out median+3.5*MAD of outlier count with each time point.",
       "value-key": "[RANGE]",
       "type": "Flag",
-      "optional": true,
       "id": "range",
       "name": "Range flag"
     },
@@ -97,7 +93,6 @@
       "description": "Use Legendre polynomials for detrending (also allows -polort > 3).",
       "value-key": "[LEGENDRE]",
       "type": "Flag",
-      "optional": true,
       "id": "legendre",
       "name": "Legendre flag"
     }
@@ -107,14 +102,12 @@
     {
       "path-template": "[OUTPUT_PREFIX].HEAD",
       "description": "Output dataset in AFNI format (HEAD file).",
-      "optional": true,
       "id": "output_afni_head",
       "name": "Output AFNI HEAD file"
     },
     {
       "path-template": "[OUTPUT_PREFIX].BRIK",
       "description": "Output dataset in AFNI format (BRIK file).",
-      "optional": true,
       "id": "output_afni_brik",
       "name": "Output AFNI BRIK file"
     }

@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "fsl_sub_mgh",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FslSub",
   "description": "Wrapper for job control system such as SGE, modified for compatibility with the PBS queueing system.",
   "command-line": "fsl_sub_mgh [ESTIMATED_TIME] [QUEUE_NAME] [ARCHITECTURE] [JOB_PRIORITY] [EMAIL_ADDRESS] [HOLD_JOB] [TASK_FILE] [JOB_NAME] [LOG_DIR] [MAIL_OPTIONS] [FLAGS_IN_SCRIPTS] [VERBOSE] [SHELL_PATH]",
   "schema-version": "0.5",
@@ -107,7 +106,6 @@
       "description": "Use flags embedded in scripts to set SGE queuing options.",
       "value-key": "[FLAGS_IN_SCRIPTS]",
       "type": "Flag",
-      "optional": true,
       "id": "flags_in_scripts",
       "name": "Flags in scripts flag"
     },
@@ -116,7 +114,6 @@
       "description": "Verbose mode.",
       "value-key": "[VERBOSE]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose",
       "name": "Verbose flag"
     },

@@ -62,7 +62,6 @@
       "type": "Flag",
       "command-line-flag": "-a",
       "value-key": "[AFFINE]",
-      "optional": true,
       "description": "Perform affine registration and save to output (-o)"
     },
     {
@@ -216,7 +215,6 @@
       "name": "Metric Computation Mode",
       "type": "Flag",
       "command-line-flag": "-metric",
-      "optional": true,
       "description": "Compute metric between images",
       "value-key": "[METRIC_MODE]"
     },
@@ -225,7 +223,6 @@
       "name": "Deformable Optimization Mode",
       "type": "Flag",
       "command-line-flag": "-defopt",
-      "optional": true,
       "description": "Deformable optimization mode (experimental)",
       "value-key": "[DEFOPT]"
     },
@@ -328,7 +325,6 @@
       "name": "Dilate WNCC Masks",
       "type": "Flag",
       "command-line-flag": "-wncc-mask-dilate",
-      "optional": true,
       "description": "Specifies that fixed and moving masks should be dilated by the radius of the WNCC metric during registration",
       "value-key": "[WNCC_MASK_DILATE]"
     },
@@ -373,7 +369,6 @@
       "name": "Zero Last Dimension",
       "type": "Flag",
       "command-line-flag": "-z",
-      "optional": true,
       "description": "Sets sigmas and NCC radius to zero in the last dimension for 2D/3D registration",
       "value-key": "[ZERO_LAST_DIMENSION]"
     },
@@ -447,7 +442,6 @@
       "type": "Flag",
       "command-line-flag": "-sv",
       "value-key": "[SVF_MODE]",
-      "optional": true,
       "description": "Perform registration using the stationary velocity model"
     },
     {
@@ -455,7 +449,6 @@
       "name": "Stationary Velocity Field Mode (SVLB)",
       "type": "Flag",
       "command-line-flag": "-svlb",
-      "optional": true,
       "description": "Use more accurate but expensive update of v in stationary velocity field mode",
       "value-key": "[SVLB]"
     },
@@ -464,7 +457,6 @@
       "name": "Incompressibility Mode",
       "type": "Flag",
       "command-line-flag": "-sv-incompr",
-      "optional": true,
       "description": "Incompressibility mode, implements Mansi et al. 2011 iLogDemons",
       "value-key": "[SV_INCOMPR]"
     },
@@ -529,7 +521,6 @@
       "type": "Flag",
       "value-key": "[IA_IDENTITY]",
       "command-line-flag": "-ia-identity",
-      "optional": true,
       "description": "Initialize affine matrix based on NIFTI headers"
     },
     {
@@ -537,7 +528,6 @@
       "name": "Voxel Grid Affine Initialization",
       "type": "Flag",
       "command-line-flag": "-ia-voxel-grid",
-      "optional": true,
       "description": "Initialize affine matrix so that voxels with corresponding indices align",
       "value-key": "[IA_VOXEL_GRID]"
     },
@@ -546,7 +536,6 @@
       "name": "Image Centers Affine Initialization",
       "type": "Flag",
       "command-line-flag": "-ia-image-centers",
-      "optional": true,
       "description": "Initialize affine matrix based on matching image centers",
       "value-key": "[IA_IMAGE_CENTERS]"
     },
@@ -642,7 +631,6 @@
       "name": "Assume Identity Covariance",
       "type": "Flag",
       "command-line-flag": "-cov-id",
-      "optional": true,
       "description": "Assume identity covariance (match centers and do flips only, no rotation)",
       "value-key": "[COV_ID]"
     },
@@ -843,7 +831,6 @@
       "name": "Debug Derivatives",
       "type": "Flag",
       "command-line-flag": "-debug-deriv",
-      "optional": true,
       "description": "Enable periodic checks of derivatives (debug)",
       "value-key": "[DEBUG_DERIV]"
     },
@@ -861,7 +848,6 @@
       "name": "Debug Affine Objective",
       "type": "Flag",
       "command-line-flag": "-debug-aff-obj",
-      "optional": true,
       "description": "Plot affine objective in neighborhood of -ia matrix",
       "value-key": "[DEBUG_AFF_OBJ]"
     },
@@ -870,7 +856,6 @@
       "name": "Dump Pyramid",
       "type": "Flag",
       "command-line-flag": "-dump-pyramid",
-      "optional": true,
       "description": "Dump the image pyramid at the start of the registration",
       "value-key": "[DUMP_PYRAMID]"
     },
@@ -879,7 +864,6 @@
       "name": "Dump Moving",
       "type": "Flag",
       "command-line-flag": "-dump-moving",
-      "optional": true,
       "description": "Dump moving image at each iter",
       "value-key": "[DUMP_MOVING]"
     },
@@ -906,7 +890,6 @@
       "name": "Use Powell's Method",
       "type": "Flag",
       "command-line-flag": "-powell",
-      "optional": true,
       "description": "Use Powell's method instead of LGBFS",
       "value-key": "[POWELL]"
     },
@@ -915,7 +898,6 @@
       "name": "Use Single Precision",
       "type": "Flag",
       "command-line-flag": "-float",
-      "optional": true,
       "description": "Use single precision floating point (off by default)",
       "value-key": "[FLOAT]"
     },
@@ -924,7 +906,6 @@
       "name": "Version",
       "type": "Flag",
       "command-line-flag": "-version",
-      "optional": true,
       "description": "Print version info",
       "value-key": "[VERSION]"
     },
@@ -945,7 +926,6 @@
       "id": "output_file",
       "name": "Output File",
       "path-template": "[OUTPUT]",
-      "optional": true,
       "description": "Output file from affine or deformable registration"
     }
   ],

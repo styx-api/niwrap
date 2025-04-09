@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "whirlgif",
   "author": "AFNI Developers",
-  "descriptor-url": "http://web.mit.edu/javalib/working/animated-gifs/whirlgif/whirlgif.newdoc",
   "description": "A quick program that reads a series of GIF files and produces a single GIF file composed of those images.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "whirlgif [VERBOSE] [LOOP] [TRANSPARENCY_INDEX] [INTER_FRAME_DELAY] [OUTFILE] [INFILE] [GIF_FILES]",
@@ -16,7 +15,6 @@
       "description": "Verbose mode",
       "value-key": "[VERBOSE]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose",
       "name": "Verbose Flag"
     },
@@ -80,7 +78,6 @@
     {
       "path-template": "[OUTFILE]",
       "description": "The output GIF file",
-      "optional": true,
       "id": "output_gif",
       "name": "Output GIF File"
     }

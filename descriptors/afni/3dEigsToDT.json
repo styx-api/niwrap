@@ -51,7 +51,6 @@
       "description": "Change sign of the first element of eigenvectors.",
       "value-key": "[FLIP_X]",
       "type": "Flag",
-      "optional": true,
       "id": "flip_x",
       "name": "Flip X"
     },
@@ -60,7 +59,6 @@
       "description": "Change sign of the second element of eigenvectors.",
       "value-key": "[FLIP_Y]",
       "type": "Flag",
-      "optional": true,
       "id": "flip_y",
       "name": "Flip Y"
     },
@@ -69,7 +67,6 @@
       "description": "Change sign of the third element of eigenvectors.",
       "value-key": "[FLIP_Z]",
       "type": "Flag",
-      "optional": true,
       "id": "flip_z",
       "name": "Flip Z"
     },
@@ -88,14 +85,12 @@
     {
       "path-template": "[PREFIX]_DT+orig.BRIK",
       "description": "Output diffusion tensor (DT) file in AFNI format (BRIK)",
-      "optional": false,
       "id": "dt_brik_output",
       "name": "Output DT BRIK File"
     },
     {
       "path-template": "[PREFIX]_DT+orig.HEAD",
       "description": "Output diffusion tensor (DT) file in AFNI format (HEAD)",
-      "optional": false,
       "id": "dt_head_output",
       "name": "Output DT HEAD File"
     }

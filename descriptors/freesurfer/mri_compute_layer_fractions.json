@@ -56,8 +56,7 @@
       "name": "Synthesis flag",
       "type": "Flag",
       "value-key": "[SYNTH_FLAG]",
-      "description": "Flag to combine with the ASEG for a single segmentation volume",
-      "optional": true
+      "description": "Flag to combine with the ASEG for a single segmentation volume"
     },
     {
       "id": "target_volume",
@@ -73,8 +72,7 @@
       "name": "Hemi flag",
       "type": "Flag",
       "value-key": "[HEMI_FLAG]",
-      "description": "Specify hemisphere processing",
-      "optional": true
+      "description": "Specify hemisphere processing"
     },
     {
       "command-line-flag": "-FS_names",
@@ -82,8 +80,7 @@
       "name": "FS names flag",
       "type": "Flag",
       "value-key": "[FS_NAMES_FLAG]",
-      "description": "Flag to use FreeSurfer names",
-      "optional": true
+      "description": "Flag to use FreeSurfer names"
     },
     {
       "command-line-flag": "-s",
@@ -135,15 +132,13 @@
       "path-template": "[OUTPUT_STEM]_layer_fractions.mgz",
       "id": "layer_fractions_output",
       "name": "Layer fractions output",
-      "description": "Output file for layer fractions computation",
-      "optional": false
+      "description": "Output file for layer fractions computation"
     },
     {
       "path-template": "[OUTPUT_STEM]_synth.mgz",
       "id": "synth_output",
       "name": "Synthesized output",
-      "description": "Synthesized output volume combining layers and aseg",
-      "optional": true
+      "description": "Synthesized output volume combining layers and aseg"
     }
   ],
   "author": "FreeSurfer Developers",

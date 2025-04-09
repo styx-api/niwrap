@@ -2,7 +2,6 @@
   "tool-version": "6.0.4",
   "name": "bet",
   "author": "FMRIB Analysis Group, University of Oxford",
-  "descriptor-url": "https://github.com/aces/cbrain-plugins-neuro/blob/master/cbrain_task_descriptors/fsl_bet.json",
   "description": "Automated brain extraction tool for FSL",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "bet [INFILE] [MASKFILE] [FRACTIONAL_INTENSITY] [VG_FRACTIONAL_INTENSITY] [CENTER_OF_GRAVITY] [OVERLAY] [BINARY_MASK] [APPROX_SKULL] [NO_SEG_OUTPUT] [VTK_MESH] [HEAD_RADIUS] [THRESHOLDING] [ROBUST_ITERS] [RESIDUAL_OPTIC_CLEANUP] [REDUCE_BIAS] [SLICE_PADDING] [WHOLE_SET_MASK] [ADDITIONAL_SURFACES] [ADDITIONAL_SURFACES_T2] [VERBOSE] [DEBUG]",
@@ -69,7 +68,6 @@
       "description": "Generate brain surface outline overlaid onto original image",
       "value-key": "[OVERLAY]",
       "type": "Flag",
-      "optional": true,
       "id": "overlay",
       "name": "Overlay flag"
     },
@@ -78,7 +76,6 @@
       "description": "Generate binary brain mask",
       "value-key": "[BINARY_MASK]",
       "type": "Flag",
-      "optional": true,
       "id": "binary_mask",
       "name": "Binary mask flag"
     },
@@ -87,7 +84,6 @@
       "description": "Generate rough skull image (not as clean as betsurf)",
       "value-key": "[APPROX_SKULL]",
       "type": "Flag",
-      "optional": true,
       "id": "approx_skull",
       "name": "Approximate skull flag"
     },
@@ -96,7 +92,6 @@
       "description": "Don't generate segmented brain image output",
       "value-key": "[NO_SEG_OUTPUT]",
       "type": "Flag",
-      "optional": true,
       "id": "no_seg_output",
       "name": "No segmented brain image flag"
     },
@@ -105,7 +100,6 @@
       "description": "Generate brain surface as mesh in .vtk format",
       "value-key": "[VTK_MESH]",
       "type": "Flag",
-      "optional": true,
       "id": "vtk_mesh",
       "name": "VTK format brain surface mesh flag"
     },
@@ -123,7 +117,6 @@
       "description": "Apply thresholding to segmented brain image and mask",
       "value-key": "[THRESHOLDING]",
       "type": "Flag",
-      "optional": true,
       "id": "thresholding",
       "name": "Threshold segmented image flag"
     },
@@ -132,7 +125,6 @@
       "description": "More robust brain center estimation, by iterating BET with a changing center-of-gravity.",
       "value-key": "[ROBUST_ITERS]",
       "type": "Flag",
-      "optional": true,
       "id": "robust_iters",
       "name": "Robust iterations flag"
     },
@@ -141,7 +133,6 @@
       "description": "This attempts to cleanup residual eye and optic nerve voxels which bet2 can sometimes leave behind. This can be useful when running SIENA or SIENAX, for example. Various stages involving standard-space masking, morphpological operations and thresholdings are combined to produce a result which can often give better results than just running bet2.",
       "value-key": "[RESIDUAL_OPTIC_CLEANUP]",
       "type": "Flag",
-      "optional": true,
       "id": "residual_optic_cleanup",
       "name": "Residual optic cleanup flag"
     },
@@ -150,7 +141,6 @@
       "description": "This attempts to reduce image bias, and residual neck voxels. This can be useful when running SIENA or SIENAX, for example. Various stages involving FAST segmentation-based bias field removal and standard-space masking are combined to produce a result which can often give better results than just running bet2.",
       "value-key": "[REDUCE_BIAS]",
       "type": "Flag",
-      "optional": true,
       "id": "reduce_bias",
       "name": "Bias reduction flag"
     },
@@ -159,7 +149,6 @@
       "description": "This can improve the brain extraction if only a few slices are present in the data (i.e., a small field of view in the Z direction). This is achieved by padding the end slices in both directions, copying the end slices several times, running bet2 and then removing the added slices.",
       "value-key": "[SLICE_PADDING]",
       "type": "Flag",
-      "optional": true,
       "id": "slice_padding",
       "name": "Slice padding flag"
     },
@@ -168,7 +157,6 @@
       "description": "This option uses bet2 to determine a brain mask on the basis of the first volume in a 4D data set, and applies this to the whole data set. This is principally intended for use on FMRI data, for example to remove eyeballs. Because it is normally important (in this application) that masking be liberal (ie that there be little risk of cutting out valid brain voxels) the -f threshold is reduced to 0.3, and also the brain mask is \"dilated\" slightly before being used.",
       "value-key": "[WHOLE_SET_MASK]",
       "type": "Flag",
-      "optional": true,
       "id": "whole_set_mask",
       "name": "Mask-whole-set flag"
     },
@@ -177,7 +165,6 @@
       "description": "This runs both bet2 and betsurf programs in order to get the additional skull and scalp surfaces created by betsurf. This involves registering to standard space in order to allow betsurf to find the standard space masks it needs.",
       "value-key": "[ADDITIONAL_SURFACES]",
       "type": "Flag",
-      "optional": true,
       "id": "additional_surfaces",
       "name": "Additional surfaces flag"
     },
@@ -195,7 +182,6 @@
       "description": "Switch on diagnostic messages",
       "value-key": "[VERBOSE]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose",
       "name": "Verbose Flag"
     },
@@ -204,7 +190,6 @@
       "description": "Don't delete temporary intermediate images",
       "value-key": "[DEBUG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug",
       "name": "Debug Flag"
     }
@@ -254,105 +239,90 @@
     {
       "path-template": "[MASKFILE].nii.gz",
       "description": "Main default mask output of BET",
-      "optional": true,
       "id": "outfile",
       "name": "Output mask file"
     },
     {
       "path-template": "[MASKFILE]_mask.nii.gz",
       "description": "Binary mask file (from -m option)",
-      "optional": true,
       "id": "binary_mask",
       "name": "Output binary mask file"
     },
     {
       "path-template": "[MASKFILE]_overlay.nii.gz",
       "description": "Overlaid brain surface onto original image",
-      "optional": true,
       "id": "overlay_file",
       "name": "Surface overlay file"
     },
     {
       "path-template": "[MASKFILE]_skull.nii.gz",
       "description": "Approximate skull image file",
-      "optional": true,
       "id": "approx_skull_img",
       "name": "Approximate skull file"
     },
     {
       "path-template": "[MASKFILE]_mesh.vtk",
       "description": "Mesh in VTK format",
-      "optional": true,
       "id": "output_vtk_mesh",
       "name": "VTK mesh"
     },
     {
       "path-template": "[MASKFILE]_skull_mask.nii.gz",
       "description": "Output mask for skull image",
-      "optional": true,
       "id": "skull_mask",
       "name": "Skull mask image"
     },
     {
       "path-template": "[MASKFILE]_inskull_mask.nii.gz",
       "description": "The in-skull mask file from betsurf (from -A or -A2)",
-      "optional": true,
       "id": "out_inskull_mask",
       "name": "Output in-skull mask file"
     },
     {
       "path-template": "[MASKFILE]_inskull_mesh.nii.gz",
       "description": "The in-skull mesh file from betsurf (from -A or -A2)",
-      "optional": true,
       "id": "out_inskull_mesh",
       "name": "Output in-skull mesh file"
     },
     {
       "path-template": "[MASKFILE]_inskull_mesh.off",
       "description": "The in-skull mesh .off file from betsurf (from -A or -A2)",
-      "optional": true,
       "id": "out_inskull_off",
       "name": "Output in-skull mesh off file"
     },
     {
       "path-template": "[MASKFILE]_outskin_mask.nii.gz",
       "description": "The out-skin mask file from betsurf (from -A or -A2)",
-      "optional": true,
       "id": "out_outskin_mask",
       "name": "Output out-skin mask file"
     },
     {
       "path-template": "[MASKFILE]_outskin_mesh.nii.gz",
       "description": "The out-skin mesh file from betsurf (from -A or -A2)",
-      "optional": true,
       "id": "out_outskin_mesh",
       "name": "Output out-skin mesh file"
     },
     {
       "path-template": "[MASKFILE]_outskin_mesh.off",
       "description": "The out-skin mesh .off file from betsurf (from -A or -A2)",
-      "optional": true,
       "id": "out_outskin_off",
       "name": "Output out-skin mesh off file"
     },
     {
       "path-template": "[MASKFILE]_outskull_mask.nii.gz",
       "description": "The out-skull mask file from betsurf (from -A or -A2)",
-      "optional": true,
       "id": "out_outskull_mask",
       "name": "Output out-skull mask file"
     },
     {
       "path-template": "[MASKFILE]_outskull_mesh.nii.gz",
       "description": "The out-skull mesh file from betsurf (from -A or -A2)",
-      "optional": true,
       "id": "out_outskull_mesh",
       "name": "Output out-skull mesh file"
     },
     {
       "path-template": "[MASKFILE]_outskull_mesh.off",
       "description": "The out-skull mesh .off file from betsurf (from -A or -A2)",
-      "optional": true,
       "id": "out_outskull_off",
       "name": "Output out-skull mesh off file"
     }

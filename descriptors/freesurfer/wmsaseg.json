@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "wmsaseg",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "https://surfer.nmr.mgh.harvard.edu/",
   "description": "White Matter Hyperintensity Segmentation Tool",
   "command-line": "wmsaseg [SUBJECT] [SOURCE_ORIG] [SOURCE_LONG] [OUTPUT_SUBDIR] [GCA_FILE] [NO_REG] [NO_CANORM] [INIT_SPM] [REG_ONLY] [HALO1] [HALO2]",
   "container-image": {
@@ -34,7 +33,6 @@
       "description": "Use T2 and PD images from longitudinal subject",
       "value-key": "[SOURCE_LONG]",
       "type": "Flag",
-      "optional": true,
       "id": "source_long",
       "name": "Source long"
     },
@@ -61,7 +59,6 @@
       "description": "Do not register mode to anatomical image",
       "value-key": "[NO_REG]",
       "type": "Flag",
-      "optional": true,
       "id": "no_reg",
       "name": "No registration"
     },
@@ -70,7 +67,6 @@
       "description": "Do not run mri_ca_normalize",
       "value-key": "[NO_CANORM]",
       "type": "Flag",
-      "optional": true,
       "id": "no_canorm",
       "name": "No CA normalization"
     },
@@ -79,7 +75,6 @@
       "description": "Initialize SPM (default is FSL)",
       "value-key": "[INIT_SPM]",
       "type": "Flag",
-      "optional": true,
       "id": "init_spm",
       "name": "Initialize SPM"
     },
@@ -88,7 +83,6 @@
       "description": "Only perform registration",
       "value-key": "[REG_ONLY]",
       "type": "Flag",
-      "optional": true,
       "id": "reg_only",
       "name": "Register only"
     },
@@ -97,7 +91,6 @@
       "description": "Halo 1 option",
       "value-key": "[HALO1]",
       "type": "Flag",
-      "optional": true,
       "id": "halo1",
       "name": "Halo 1"
     },
@@ -106,7 +99,6 @@
       "description": "Halo 2 option",
       "value-key": "[HALO2]",
       "type": "Flag",
-      "optional": true,
       "id": "halo2",
       "name": "Halo 2"
     }
@@ -115,14 +107,12 @@
     {
       "path-template": "[OUTPUT_SUBDIR]/T1.canorm.mgz",
       "description": "CA normalized T1 output",
-      "optional": true,
       "id": "t1_canorm",
       "name": "T1 CA Norm"
     },
     {
       "path-template": "[OUTPUT_SUBDIR]/wmsa.lta",
       "description": "Linear transform to average space",
-      "optional": true,
       "id": "wmsa_lta",
       "name": "WMSA LTA file"
     }

@@ -67,7 +67,6 @@
       "description": "Generate brain surface outline overlaid onto original image",
       "value-key": "[OUTLINE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "outline_flag",
       "name": "Outline flag"
     },
@@ -76,7 +75,6 @@
       "description": "Generate binary brain mask",
       "value-key": "[MASK_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "mask_flag",
       "name": "Mask flag"
     },
@@ -85,7 +83,6 @@
       "description": "Generate approximate skull image",
       "value-key": "[SKULL_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "skull_flag",
       "name": "Skull flag"
     },
@@ -94,7 +91,6 @@
       "description": "Don't generate segmented brain image output",
       "value-key": "[NO_OUTPUT_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "no_output_flag",
       "name": "No output flag"
     },
@@ -103,7 +99,6 @@
       "description": "Generate brain surface as mesh in vtk format",
       "value-key": "[MESH_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "mesh_flag",
       "name": "Mesh flag"
     },
@@ -130,7 +125,6 @@
       "description": "Apply thresholding to segmented brain image and mask",
       "value-key": "[THRESHOLD_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "threshold_flag",
       "name": "Threshold flag"
     },
@@ -139,7 +133,6 @@
       "description": "Switch on diagnostic messages",
       "value-key": "[VERBOSE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose_flag",
       "name": "Verbose flag"
     },
@@ -148,7 +141,6 @@
       "description": "Display help message and exit",
       "value-key": "[HELP_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "help_flag",
       "name": "Help flag"
     }
@@ -180,28 +172,24 @@
     {
       "path-template": "[OUTPUT_FILEROOT]_mask.nii.gz",
       "description": "Binary brain mask output (if mask flag is set)",
-      "optional": true,
       "id": "output_mask",
       "name": "Binary mask file"
     },
     {
       "path-template": "[OUTPUT_FILEROOT]_skull.nii.gz",
       "description": "Approximate skull image output (if skull flag is set)",
-      "optional": true,
       "id": "output_skull",
       "name": "Approximate skull file"
     },
     {
       "path-template": "[OUTPUT_FILEROOT]_mesh.vtk",
       "description": "Brain surface mesh output in VTK format (if mesh flag is set)",
-      "optional": true,
       "id": "output_mesh",
       "name": "VTK format mesh file"
     },
     {
       "path-template": "[OUTPUT_FILEROOT]_overlay.nii.gz",
       "description": "Brain surface outline overlaid onto original image (if outline flag is set)",
-      "optional": true,
       "id": "output_overlay",
       "name": "Brain surface outline file"
     }

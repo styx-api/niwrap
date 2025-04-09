@@ -85,7 +85,6 @@
       "value-key": "[FLIP_X]",
       "command-line-flag": "-flip_x",
       "type": "Flag",
-      "optional": true,
       "id": "flip_x",
       "name": "Flip X"
     },
@@ -94,7 +93,6 @@
       "value-key": "[FLIP_Y]",
       "command-line-flag": "-flip_y",
       "type": "Flag",
-      "optional": true,
       "id": "flip_y",
       "name": "Flip Y"
     },
@@ -103,7 +101,6 @@
       "value-key": "[FLIP_Z]",
       "command-line-flag": "-flip_z",
       "type": "Flag",
-      "optional": true,
       "id": "flip_z",
       "name": "Flip Z"
     },
@@ -112,7 +109,6 @@
       "value-key": "[NO_FLIP]",
       "command-line-flag": "-no_flip",
       "type": "Flag",
-      "optional": true,
       "id": "no_flip",
       "name": "No Flip"
     },
@@ -129,7 +125,6 @@
       "value-key": "[REORIENT_OFF]",
       "command-line-flag": "-reorig_reorient_off",
       "type": "Flag",
-      "optional": true,
       "id": "reorient_off",
       "name": "Reorient Off"
     },
@@ -138,7 +133,6 @@
       "value-key": "[NO_CLEAN]",
       "command-line-flag": "-no_clean",
       "type": "Flag",
-      "optional": true,
       "id": "no_clean",
       "name": "No Clean"
     },
@@ -147,7 +141,6 @@
       "value-key": "[NO_CMD_OUT]",
       "command-line-flag": "-no_cmd_out",
       "type": "Flag",
-      "optional": true,
       "id": "no_cmd_out",
       "name": "No Cmd Out"
     },
@@ -156,7 +149,6 @@
       "value-key": "[NO_QC_VIEW]",
       "command-line-flag": "-no_qc_view",
       "type": "Flag",
-      "optional": true,
       "id": "no_qc_view",
       "name": "No QC View"
     },
@@ -175,42 +167,36 @@
     {
       "path-template": "[OUTPUT_PREFIX].nii.gz",
       "description": "A NIFTI file with N volumes.",
-      "optional": false,
       "id": "output_nifti",
       "name": "Output NIFTI"
     },
     {
       "path-template": "[OUTPUT_PREFIX].rvec",
       "description": "A row-wise (3xN) bvec file of the (unit-magnitude) gradient orientations.",
-      "optional": false,
       "id": "output_rvec",
       "name": "Output rvec"
     },
     {
       "path-template": "[OUTPUT_PREFIX].bval",
       "description": "A row-wise (1xN) bval file of the gradient magnitudes.",
-      "optional": false,
       "id": "output_bval",
       "name": "Output bval"
     },
     {
       "path-template": "[OUTPUT_PREFIX]_matA.dat",
       "description": "A column-wise (Nx6) AFNI-style matrix file of the (scaled) b-matrix values.",
-      "optional": true,
       "id": "output_matA",
       "name": "Output matA"
     },
     {
       "path-template": "[OUTPUT_PREFIX]_matT.dat",
       "description": "A column-wise (Nx6) TORTOISE-style matrix file of the (scaled) b-matrix values.",
-      "optional": true,
       "id": "output_matT",
       "name": "Output matT"
     },
     {
       "path-template": "[OUTPUT_PREFIX]_cvec.dat",
       "description": "A column-wise (Nx3) bvec file of the (b-magn scaled) gradient orientations.",
-      "optional": true,
       "id": "output_cvec",
       "name": "Output cvec"
     }

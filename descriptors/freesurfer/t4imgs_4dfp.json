@@ -26,7 +26,6 @@
       "description": "Normalize by sqrt(n) rather than n (for z images).",
       "value-key": "[SQRT_NORMALIZE]",
       "type": "Flag",
-      "optional": true,
       "id": "sqrt_normalize",
       "name": "Sqrt Normalize Flag"
     },
@@ -35,7 +34,6 @@
       "description": "Interpolate by 3D cubic spline (default is 3D linear).",
       "value-key": "[CUBIC_SPLINE]",
       "type": "Flag",
-      "optional": true,
       "id": "cubic_spline",
       "name": "Cubic Spline Interpolation Flag"
     },
@@ -44,7 +42,6 @@
       "description": "Output NaN (default 0.0) for undefined values.",
       "value-key": "[OUTPUT_NAN]",
       "type": "Flag",
-      "optional": true,
       "id": "output_nan",
       "name": "Output NaN Flag"
     },
@@ -53,7 +50,6 @@
       "description": "Internally convert to_711-2A_t4->to_711-2B_t4.",
       "value-key": "[CONVERT_T4]",
       "type": "Flag",
-      "optional": true,
       "id": "convert_t4",
       "name": "Convert T4 Flag"
     },
@@ -62,7 +58,6 @@
       "description": "Use nearest neighbor interpolation.",
       "value-key": "[NEAREST_NEIGHBOR]",
       "type": "Flag",
-      "optional": true,
       "id": "nearest_neighbor",
       "name": "Nearest Neighbor Interpolation Flag"
     },
@@ -71,7 +66,6 @@
       "description": "Output in 111 space instead of default 333.0 space.",
       "value-key": "[OUTPUT_111_SPACE]",
       "type": "Flag",
-      "optional": true,
       "id": "output_111_space",
       "name": "Output 111 Space Flag"
     },
@@ -80,7 +74,6 @@
       "description": "Output in 222 space instead of default 333.0 space.",
       "value-key": "[OUTPUT_222_SPACE]",
       "type": "Flag",
-      "optional": true,
       "id": "output_222_space",
       "name": "Output 222 Space Flag"
     },
@@ -107,7 +100,6 @@
       "description": "Output in big endian format.",
       "value-key": "[BIG_ENDIAN]",
       "type": "Flag",
-      "optional": true,
       "id": "big_endian",
       "name": "Big Endian Flag"
     },
@@ -116,7 +108,6 @@
       "description": "Output in little endian format.",
       "value-key": "[LITTLE_ENDIAN]",
       "type": "Flag",
-      "optional": true,
       "id": "little_endian",
       "name": "Little Endian Flag"
     }
@@ -125,7 +116,6 @@
     {
       "path-template": "[OUTPUT_IMAGE].4dfp.img",
       "description": "Transformed 4dfp image as output.",
-      "optional": false,
       "id": "transformed_image",
       "name": "Transformed Image File"
     }

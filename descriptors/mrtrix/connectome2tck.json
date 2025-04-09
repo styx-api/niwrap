@@ -4,10 +4,7 @@
   "author": "MRTrix3 Developers",
   "tool-version": "3.0.4",
   "schema-version": "0.5",
-  "container-image": {
-    "image": "mrtrix3/mrtrix3:3.0.4",
-    "type": "docker"
-  },
+  "container-image": { "image": "mrtrix3/mrtrix3:3.0.4", "type": "docker" },
   "command-line": "connectome2tck [OPTIONS_FOR_DETERMINING_THE_CONTENT___FORMAT_OF_OUTPUT_FILES_NODES] [OPTIONS_FOR_DETERMINING_THE_CONTENT___FORMAT_OF_OUTPUT_FILES_EXCLUSIVE] [OPTIONS_FOR_DETERMINING_THE_CONTENT___FORMAT_OF_OUTPUT_FILES_FILES] [OPTIONS_FOR_DETERMINING_THE_CONTENT___FORMAT_OF_OUTPUT_FILES_EXEMPLARS] [OPTIONS_FOR_DETERMINING_THE_CONTENT___FORMAT_OF_OUTPUT_FILES_KEEP_UNASSIGNED] [OPTIONS_FOR_DETERMINING_THE_CONTENT___FORMAT_OF_OUTPUT_FILES_KEEP_SELF] [OPTIONS_FOR_IMPORTING___EXPORTING_STREAMLINE_WEIGHTS_TCK_WEIGHTS_IN] [OPTIONS_FOR_IMPORTING___EXPORTING_STREAMLINE_WEIGHTS_PREFIX_TCK_WEIGHTS_OUT] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION] [TRACKS_IN] [ASSIGNMENTS_IN] [PREFIX_OUT]",
   "inputs": [
     {
@@ -52,8 +49,7 @@
       "command-line-flag": "-exclusive",
       "value-key": "[OPTIONS_FOR_DETERMINING_THE_CONTENT___FORMAT_OF_OUTPUT_FILES_EXCLUSIVE]",
       "description": "only select tracks that exclusively connect nodes from within the list of nodes of interest",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "files",
@@ -79,8 +75,7 @@
       "command-line-flag": "-keep_unassigned",
       "value-key": "[OPTIONS_FOR_DETERMINING_THE_CONTENT___FORMAT_OF_OUTPUT_FILES_KEEP_UNASSIGNED]",
       "description": "by default, the program discards those streamlines that are not successfully assigned to a node. Set this option to generate corresponding outputs containing these streamlines (labelled as node index 0)",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "keep_self",
@@ -88,8 +83,7 @@
       "command-line-flag": "-keep_self",
       "value-key": "[OPTIONS_FOR_DETERMINING_THE_CONTENT___FORMAT_OF_OUTPUT_FILES_KEEP_SELF]",
       "description": "by default, the program will not output streamlines that connect to the same node at both ends. Set this option to instead keep these self-connections.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "tck_weights_in",
@@ -115,8 +109,7 @@
       "command-line-flag": "-info",
       "value-key": "[__STANDARD_OPTIONS_INFO]",
       "description": "display information messages.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "quiet",
@@ -124,8 +117,7 @@
       "command-line-flag": "-quiet",
       "value-key": "[__STANDARD_OPTIONS_QUIET]",
       "description": "do not display information messages or progress status; alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "debug",
@@ -133,8 +125,7 @@
       "command-line-flag": "-debug",
       "value-key": "[__STANDARD_OPTIONS_DEBUG]",
       "description": "display debugging messages.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "force",
@@ -142,8 +133,7 @@
       "command-line-flag": "-force",
       "value-key": "[__STANDARD_OPTIONS_FORCE]",
       "description": "force overwrite of output files (caution: using the same file as input and output might cause unexpected behaviour).",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "nthreads",
@@ -194,8 +184,7 @@
       "command-line-flag": "-help",
       "value-key": "[__STANDARD_OPTIONS_HELP]",
       "description": "display this information page and exit.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "version",
@@ -203,8 +192,7 @@
       "command-line-flag": "-version",
       "value-key": "[__STANDARD_OPTIONS_VERSION]",
       "description": "display version information and exit.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     }
   ],
   "output-files": [],

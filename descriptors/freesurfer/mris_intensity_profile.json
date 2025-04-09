@@ -78,8 +78,7 @@
       "name": "Normalize Flag",
       "type": "Flag",
       "value-key": "[NORMALIZE_FLAG]",
-      "description": "Normalized sampling with respect to thickness.",
-      "optional": true
+      "description": "Normalized sampling with respect to thickness."
     },
     {
       "command-line-flag": "-mean",
@@ -123,22 +122,19 @@
       "name": "Invert Flag",
       "type": "Flag",
       "value-key": "[INVERT_FLAG]",
-      "description": "Apply the registration transformation inversely.",
-      "optional": true
+      "description": "Apply the registration transformation inversely."
     }
   ],
   "output-files": [
     {
       "path-template": "[OUTPUT_FILE]",
       "description": "Curvature file with the intensity profile measurement.",
-      "optional": false,
       "id": "output_curvature_file",
       "name": "Output Curvature File"
     },
     {
       "path-template": "[MEAN]",
       "description": "File with the mean profile-integral.",
-      "optional": true,
       "id": "output_mean_profile_integral",
       "name": "Output Mean Profile Integral File"
     }

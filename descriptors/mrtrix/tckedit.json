@@ -4,10 +4,7 @@
   "author": "MRTrix3 Developers",
   "tool-version": "3.0.4",
   "schema-version": "0.5",
-  "container-image": {
-    "image": "mrtrix3/mrtrix3:3.0.4",
-    "type": "docker"
-  },
+  "container-image": { "image": "mrtrix3/mrtrix3:3.0.4", "type": "docker" },
   "command-line": "tckedit [REGION_OF_INTEREST_PROCESSING_OPTIONS_INCLUDE] [REGION_OF_INTEREST_PROCESSING_OPTIONS_INCLUDE_ORDERED] [REGION_OF_INTEREST_PROCESSING_OPTIONS_EXCLUDE] [REGION_OF_INTEREST_PROCESSING_OPTIONS_MASK] [STREAMLINE_LENGTH_THRESHOLD_OPTIONS_MAXLENGTH] [STREAMLINE_LENGTH_THRESHOLD_OPTIONS_MINLENGTH] [STREAMLINE_COUNT_TRUNCATION_OPTIONS_NUMBER] [STREAMLINE_COUNT_TRUNCATION_OPTIONS_SKIP] [THRESHOLDS_PERTAINING_TO_PER_STREAMLINE_WEIGHTING_MAXWEIGHT] [THRESHOLDS_PERTAINING_TO_PER_STREAMLINE_WEIGHTING_MINWEIGHT] [OTHER_OPTIONS_SPECIFIC_TO_TCKEDIT_INVERSE] [OTHER_OPTIONS_SPECIFIC_TO_TCKEDIT_ENDS_ONLY] [OPTIONS_FOR_HANDLING_STREAMLINE_WEIGHTS_TCK_WEIGHTS_IN] [OPTIONS_FOR_HANDLING_STREAMLINE_WEIGHTS_TCK_WEIGHTS_OUT] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION] [TRACKS_IN] [TRACKS_OUT]",
   "inputs": [
     {
@@ -280,8 +277,7 @@
       "command-line-flag": "-inverse",
       "value-key": "[OTHER_OPTIONS_SPECIFIC_TO_TCKEDIT_INVERSE]",
       "description": "output the inverse selection of streamlines based on the criteria provided; i.e. only those streamlines that fail at least one selection criterion, and/or vertices that are outside masks if provided, will be written to file",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "ends_only",
@@ -289,8 +285,7 @@
       "command-line-flag": "-ends_only",
       "value-key": "[OTHER_OPTIONS_SPECIFIC_TO_TCKEDIT_ENDS_ONLY]",
       "description": "only test the ends of each streamline against the provided include/exclude ROIs",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "tck_weights_in",
@@ -316,8 +311,7 @@
       "command-line-flag": "-info",
       "value-key": "[__STANDARD_OPTIONS_INFO]",
       "description": "display information messages.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "quiet",
@@ -325,8 +319,7 @@
       "command-line-flag": "-quiet",
       "value-key": "[__STANDARD_OPTIONS_QUIET]",
       "description": "do not display information messages or progress status; alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "debug",
@@ -334,8 +327,7 @@
       "command-line-flag": "-debug",
       "value-key": "[__STANDARD_OPTIONS_DEBUG]",
       "description": "display debugging messages.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "force",
@@ -343,8 +335,7 @@
       "command-line-flag": "-force",
       "value-key": "[__STANDARD_OPTIONS_FORCE]",
       "description": "force overwrite of output files (caution: using the same file as input and output might cause unexpected behaviour).",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "nthreads",
@@ -395,8 +386,7 @@
       "command-line-flag": "-help",
       "value-key": "[__STANDARD_OPTIONS_HELP]",
       "description": "display this information page and exit.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     },
     {
       "id": "version",
@@ -404,8 +394,7 @@
       "command-line-flag": "-version",
       "value-key": "[__STANDARD_OPTIONS_VERSION]",
       "description": "display version information and exit.",
-      "type": "Flag",
-      "optional": true
+      "type": "Flag"
     }
   ],
   "output-files": [

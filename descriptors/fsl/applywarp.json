@@ -10,8 +10,7 @@
       "type": "Flag",
       "value-key": "[ABSWARP]",
       "command-line-flag": "--abs",
-      "description": "Treat warp field as absolute: x' = w(x).",
-      "optional": true
+      "description": "Treat warp field as absolute: x' = w(x)."
     },
     {
       "id": "datatype",
@@ -120,8 +119,7 @@
       "type": "Flag",
       "value-key": "[RELWARP]",
       "command-line-flag": "--rel",
-      "description": "Treat warp field as relative: x' = x + w(x).",
-      "optional": true
+      "description": "Treat warp field as relative: x' = x + w(x)."
     },
     {
       "id": "superlevel",
@@ -151,8 +149,7 @@
       "type": "Flag",
       "value-key": "[SUPERSAMPLE]",
       "command-line-flag": "--super",
-      "description": "Intermediary supersampling of output, default is off.",
-      "optional": true
+      "description": "Intermediary supersampling of output, default is off."
     }
   ],
   "output-files": [
@@ -160,7 +157,6 @@
       "name": "Out file",
       "id": "out_file_outfile",
       "path-template": "[OUT_FILE]",
-      "optional": true,
       "description": "Warped output file."
     }
   ],

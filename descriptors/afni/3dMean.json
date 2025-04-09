@@ -24,7 +24,6 @@
       "description": "Print out some information along the way",
       "value-key": "[VERBOSE]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose",
       "name": "Verbose Flag"
     },
@@ -51,7 +50,6 @@
       "description": "Force scaling of the output to the maximum integer range",
       "value-key": "[FSCALE]",
       "type": "Flag",
-      "optional": true,
       "id": "fscale",
       "name": "Force Scale Flag"
     },
@@ -60,7 +58,6 @@
       "description": "Force scaling of the output to the maximum integer range, with uniform scaling factor for each sub-brick",
       "value-key": "[GSCALE]",
       "type": "Flag",
-      "optional": true,
       "id": "gscale",
       "name": "Global Scale Flag"
     },
@@ -69,7 +66,6 @@
       "description": "Don't do any scaling on output to byte or short datasets. Only use if you want the output dataset to be integer-valued.",
       "value-key": "[NSCALE]",
       "type": "Flag",
-      "optional": true,
       "id": "nscale",
       "name": "No Scale Flag"
     },
@@ -78,7 +74,6 @@
       "description": "Use only non-zero values for calculation of mean, min, max, sum, squares",
       "value-key": "[NON_ZERO]",
       "type": "Flag",
-      "optional": true,
       "id": "non_zero",
       "name": "Non-zero Values Flag"
     },
@@ -87,7 +82,6 @@
       "description": "Calculate the standard deviation, sqrt(variance), instead of the mean (cannot be used with -sqr, -sum or -non_zero)",
       "value-key": "[STDEV]",
       "type": "Flag",
-      "optional": true,
       "id": "stdev",
       "name": "Standard Deviation Flag"
     },
@@ -96,7 +90,6 @@
       "description": "Average the squares, instead of the values",
       "value-key": "[SQR]",
       "type": "Flag",
-      "optional": true,
       "id": "sqr",
       "name": "Average Squares Flag"
     },
@@ -105,7 +98,6 @@
       "description": "Just take the sum (don't divide by number of datasets)",
       "value-key": "[SUM]",
       "type": "Flag",
-      "optional": true,
       "id": "sum",
       "name": "Sum Flag"
     },
@@ -114,7 +106,6 @@
       "description": "Compute only the count of non-zero voxels",
       "value-key": "[COUNT]",
       "type": "Flag",
-      "optional": true,
       "id": "count",
       "name": "Count Flag"
     },
@@ -123,7 +114,6 @@
       "description": "Find the maximum at each voxel",
       "value-key": "[MAX]",
       "type": "Flag",
-      "optional": true,
       "id": "max",
       "name": "Max Flag"
     },
@@ -132,7 +122,6 @@
       "description": "Find the minimum at each voxel",
       "value-key": "[MIN]",
       "type": "Flag",
-      "optional": true,
       "id": "min",
       "name": "Min Flag"
     },
@@ -141,7 +130,6 @@
       "description": "Find maximum absolute value at each voxel",
       "value-key": "[ABSMAX]",
       "type": "Flag",
-      "optional": true,
       "id": "absmax",
       "name": "Absolute Max Flag"
     },
@@ -150,7 +138,6 @@
       "description": "Find extremes with maximum absolute value but preserve sign",
       "value-key": "[SIGNED_ABSMAX]",
       "type": "Flag",
-      "optional": true,
       "id": "signed_absmax",
       "name": "Signed Absolute Max Flag"
     },
@@ -159,7 +146,6 @@
       "description": "Create a simple intersection mask",
       "value-key": "[MASK_INTER]",
       "type": "Flag",
-      "optional": true,
       "id": "mask_inter",
       "name": "Intersection Mask Flag"
     },
@@ -168,7 +154,6 @@
       "description": "Create a simple union mask",
       "value-key": "[MASK_UNION]",
       "type": "Flag",
-      "optional": true,
       "id": "mask_union",
       "name": "Union Mask Flag"
     },
@@ -187,7 +172,6 @@
     {
       "path-template": "[PREFIX]<+optional_extension>",
       "description": "Output dataset",
-      "optional": true,
       "id": "output_file",
       "name": "Output File"
     }

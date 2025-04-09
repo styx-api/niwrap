@@ -59,7 +59,6 @@
       "description": "Optional switch to NOT remove working directory '__WORKING_imit2w_from_t1w' (default: remove working dir)",
       "value-key": "[NO_CLEAN]",
       "type": "Flag",
-      "optional": true,
       "id": "no_clean",
       "name": "No Clean"
     },
@@ -68,7 +67,6 @@
       "description": "Turn off the automatic creation of QC montages (default: on)",
       "value-key": "[NO_QC_VIEW]",
       "type": "Flag",
-      "optional": true,
       "id": "no_qc_view",
       "name": "No QC View"
     },
@@ -87,28 +85,24 @@
     {
       "path-template": "[PREFIX].nii.gz",
       "description": "Volume with T2w-like tissue contrast from T1w",
-      "optional": true,
       "id": "t2w_contrast_volume",
       "name": "T2w Contrast Volume"
     },
     {
       "path-template": "[PREFIX]_orig.nii.gz",
       "description": "Cleaned/processed version of the input T1w volume with scaled skull and noise outside the brain",
-      "optional": true,
       "id": "cleaned_t1w_volume",
       "name": "Cleaned T1w Volume"
     },
     {
       "path-template": "[PREFIX]_orig_ss.nii.gz",
       "description": "Skull-stripped version of the T1w volume",
-      "optional": true,
       "id": "skull_stripped_t1w",
       "name": "Skull-stripped T1w Volume"
     },
     {
       "path-template": "[PREFIX]_qc*.nii.gz",
       "description": "QC images of the skull-stripped T1w volume and the final imitation-T2w volume",
-      "optional": true,
       "id": "qc_images",
       "name": "QC Images"
     }

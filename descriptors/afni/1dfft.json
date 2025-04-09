@@ -56,7 +56,6 @@
       "description": "Save Re and Im parts of transform in 2 columns.",
       "value-key": "[TOCX]",
       "type": "Flag",
-      "optional": true,
       "id": "tocx",
       "name": "Save Re and Im parts flag"
     },
@@ -65,7 +64,6 @@
       "description": "Convert 2 column complex input into 1 column real output. Note: This will not work if the original data FFT length was an odd number.",
       "value-key": "[FROMCX]",
       "type": "Flag",
-      "optional": true,
       "id": "fromcx",
       "name": "Convert complex to real flag"
     },
@@ -74,7 +72,6 @@
       "description": "When -fromcx is used, the inverse FFT will do the Hilbert transform instead.",
       "value-key": "[HILBERT]",
       "type": "Flag",
-      "optional": true,
       "id": "hilbert",
       "name": "Hilbert transform flag"
     },
@@ -83,7 +80,6 @@
       "description": "Skip the detrending of the input.",
       "value-key": "[NODETREND]",
       "type": "Flag",
-      "optional": true,
       "id": "nodetrend",
       "name": "No detrend flag"
     }
@@ -93,7 +89,6 @@
     {
       "path-template": "[OUTFILE]",
       "description": "Output file with the absolute value of the FFT of the input columns.",
-      "optional": true,
       "id": "out_fft",
       "name": "Output FFT file"
     }

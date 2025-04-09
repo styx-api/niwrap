@@ -50,7 +50,6 @@
       "description": "Same as '-signed +'.",
       "value-key": "[POSITIVE_SIGN_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "positive_sign_flag",
       "name": "Positive Sign Flag"
     },
@@ -59,7 +58,6 @@
       "description": "Same as '-signed -'.",
       "value-key": "[NEGATIVE_SIGN_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "negative_sign_flag",
       "name": "Negative Sign Flag"
     },
@@ -77,7 +75,6 @@
       "description": "Instead of outputting a thresholded version of the input dataset, just output a 0/1 mask dataset of voxels that survive the process.",
       "value-key": "[MASK_ONLY_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "mask_only_flag",
       "name": "Mask Only Flag"
     },
@@ -95,7 +92,6 @@
       "description": "Prevents the output of a dataset if it would be all zero.",
       "value-key": "[NO_ZERO_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "no_zero_flag",
       "name": "No Zero Flag"
     },
@@ -104,7 +100,6 @@
       "description": "Turn off progress report messages.",
       "value-key": "[QUIET_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "quiet_flag",
       "name": "Quiet Flag"
     }
@@ -114,21 +109,18 @@
     {
       "path-template": "[PREFIX].nii.gz",
       "description": "Thresholded version of the input dataset.",
-      "optional": true,
       "id": "output_file",
       "name": "Output File"
     },
     {
       "path-template": "[PREFIX]_mask.nii.gz",
       "description": "0/1 mask dataset of voxels that survive the process.",
-      "optional": true,
       "id": "mask_output",
       "name": "Mask Output File"
     },
     {
       "path-template": "[ALL_MASK].nii.gz",
       "description": "Multi-volume dataset where each volume is the binary mask of voxels that pass ONE of the tests.",
-      "optional": true,
       "id": "all_mask_output",
       "name": "All Mask Output File"
     }

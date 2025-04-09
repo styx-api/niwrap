@@ -27,7 +27,6 @@
       "description": "Omit self-intersection check and only generate gray/white surface.",
       "value-key": "[OMIT_SELF_INTERSECTION]",
       "type": "Flag",
-      "optional": true,
       "id": "omit_self_intersection",
       "name": "Omit Self Intersection Flag"
     },
@@ -36,7 +35,6 @@
       "description": "Create curvature and area files from white matter surface.",
       "value-key": "[CREATE_CURVATURE_AREA]",
       "type": "Flag",
-      "optional": true,
       "id": "create_curvature_area",
       "name": "Create Curvature and Area Flag"
     },
@@ -55,7 +53,6 @@
       "description": "Only generate the white matter surface.",
       "value-key": "[WHITE_ONLY]",
       "type": "Flag",
-      "optional": true,
       "id": "white_only",
       "name": "White Matter Only Flag"
     },
@@ -76,28 +73,24 @@
     {
       "path-template": "<subject_name>_<hemisphere>_white",
       "description": "Generated white matter surface file",
-      "optional": true,
       "id": "white_surface",
       "name": "White Matter Surface"
     },
     {
       "path-template": "<subject_name>_<hemisphere>_gray",
       "description": "Generated gray matter surface file",
-      "optional": true,
       "id": "gray_surface",
       "name": "Gray Matter Surface"
     },
     {
       "path-template": "<subject_name>_<hemisphere>_curvature",
       "description": "Curvature file for cortical thickness",
-      "optional": true,
       "id": "curvature_file",
       "name": "Curvature File"
     },
     {
       "path-template": "<subject_name>_<hemisphere>_layerIV",
       "description": "Surface file approximating layer IV of the cortical sheet",
-      "optional": true,
       "id": "layerIV_surface",
       "name": "Layer IV Surface"
     }

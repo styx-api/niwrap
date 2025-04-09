@@ -57,7 +57,6 @@
       "command-line-flag": "-fix-zeros",
       "description": "treat zero values as not being data",
       "type": "Flag",
-      "optional": true,
       "value-key": "[OPT_FIX_ZEROS]"
     },
     {
@@ -66,7 +65,6 @@
       "command-line-flag": "-fwhm",
       "description": "smoothing kernel size is FWHM, not sigma",
       "type": "Flag",
-      "optional": true,
       "value-key": "[OPT_FWHM]"
     },
     {
@@ -84,8 +82,7 @@
       "id": "volume_out",
       "name": "volume_out",
       "path-template": "[VOLUME_OUT]",
-      "description": "output volume",
-      "optional": false
+      "description": "output volume"
     }
   ],
   "url": "https://github.com/Washington-University/workbench"

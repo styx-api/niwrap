@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "3dANOVA3",
   "author": "AFNI Developers",
-  "descriptor-url": "https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dANOVA3.html",
   "description": "Performs three-factor ANOVA on 3D data sets.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dANOVA3 [TYPE] [ALEVELS] [BLEVELS] [CLEVELS] [DSETS] [VOXEL_NUM] [DISKSPACE] [MASK] [OUTFILE_FA] [OUTFILE_FB] [OUTFILE_FC] [OUTFILE_FAB] [OUTFILE_FAC] [OUTFILE_FBC] [OUTFILE_FABC] [OUTFILE_AMEAN] [OUTFILE_BMEAN] [OUTFILE_CMEAN] [OUTFILE_XMEAN] [OUTFILE_ADIFF] [OUTFILE_BDIFF] [OUTFILE_CDIFF] [OUTFILE_XDIFF] [OUTFILE_ACONTR] [OUTFILE_BCONTR] [OUTFILE_CCONTR] [OUTFILE_ABCONTR] [OUTFILE_ABDIFF] [OUTFILE_ABMEAN] [OUTFILE_BUCKET] [ANOVA_OPTIONS]",
@@ -78,7 +77,6 @@
       "value-key": "[DISKSPACE]",
       "command-line-flag": "-diskspace",
       "type": "Flag",
-      "optional": true,
       "id": "diskspace",
       "name": "Disk Space"
     },
@@ -347,63 +345,54 @@
     {
       "description": "Output file for the main ANOVA result.",
       "path-template": "[OUTFILE_FA]",
-      "optional": true,
       "id": "outfile_fa",
       "name": "Output File A"
     },
     {
       "description": "Output file for the main B ANOVA result.",
       "path-template": "[OUTFILE_FB]",
-      "optional": true,
       "id": "outfile_fb",
       "name": "Output File B"
     },
     {
       "description": "Output file for the main C ANOVA result.",
       "path-template": "[OUTFILE_FC]",
-      "optional": true,
       "id": "outfile_fc",
       "name": "Output File C"
     },
     {
       "description": "Output file for the interaction between A and B.",
       "path-template": "[OUTFILE_FAB]",
-      "optional": true,
       "id": "outfile_fab",
       "name": "Output File AB"
     },
     {
       "description": "Output file for the interaction between A and C.",
       "path-template": "[OUTFILE_FAC]",
-      "optional": true,
       "id": "outfile_fac",
       "name": "Output File AC"
     },
     {
       "description": "Output file for the interaction between B and C.",
       "path-template": "[OUTFILE_FBC]",
-      "optional": true,
       "id": "outfile_fbc",
       "name": "Output File BC"
     },
     {
       "description": "Output file for the interaction between A, B, and C.",
       "path-template": "[OUTFILE_FABC]",
-      "optional": true,
       "id": "outfile_fabc",
       "name": "Output File ABC"
     },
     {
       "description": "Output file for the A mean results.",
       "path-template": "[OUTFILE_AMEAN]",
-      "optional": true,
       "id": "outfile_amean",
       "name": "Output File A Mean"
     },
     {
       "description": "Output file for the B mean results.",
       "path-template": "[OUTFILE_BMEAN]",
-      "optional": true,
       "id": "outfile_bmean",
       "name": "Output File B Mean"
     }

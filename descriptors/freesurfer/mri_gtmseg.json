@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "mri_gtmseg",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "https://surfer.nmr.mgh.harvard.edu/",
   "description": "Creates a segmentation that can be used with the geometric transfer matrix (GTM).",
   "command-line": "mri_gtmseg [OUTPUT_VOLUME] [SOURCE_SUBJECT] [INTERNAL_USF] [APAS_FILE] [CONTEXT_ANNOTATION] [SUBSEG_WM] [WM_ANNOTATION] [DMAX] [KEEP_HYPO] [KEEP_CC] [CTAB] [LHMINMAX] [RHMINMAX] [OUTPUT_USF] [THREADS] [THREADS_MAX] [THREADS_MAX_1] [DEBUG] [CHECK_OPTS]",
   "container-image": {
@@ -64,7 +63,6 @@
       "description": "Turn on segmenting of WM into smaller parts (off by default)",
       "value-key": "[SUBSEG_WM]",
       "type": "Flag",
-      "optional": true,
       "id": "subseg_wm",
       "name": "Subsegment White Matter Flag"
     },
@@ -94,7 +92,6 @@
       "description": "Do not convert white matter hypointensities to a white matter label",
       "value-key": "[KEEP_HYPO]",
       "type": "Flag",
-      "optional": true,
       "id": "keep_hypo",
       "name": "Keep Hypointensities Flag"
     },
@@ -103,7 +100,6 @@
       "description": "Do not convert corpus callosum to a white matter label",
       "value-key": "[KEEP_CC]",
       "type": "Flag",
-      "optional": true,
       "id": "keep_cc",
       "name": "Keep Corpus Callosum Flag"
     },
@@ -163,7 +159,6 @@
       "description": "Use the maximum allowable number of threads for this computer",
       "value-key": "[THREADS_MAX]",
       "type": "Flag",
-      "optional": true,
       "id": "threads_max",
       "name": "Max Threads Flag"
     },
@@ -172,7 +167,6 @@
       "description": "Use one less than the maximum allowable number of threads for this computer",
       "value-key": "[THREADS_MAX_1]",
       "type": "Flag",
-      "optional": true,
       "id": "threads_max_1",
       "name": "Max Threads Minus One Flag"
     },
@@ -181,7 +175,6 @@
       "description": "Turn on debugging",
       "value-key": "[DEBUG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug",
       "name": "Debug Flag"
     },
@@ -190,7 +183,6 @@
       "description": "Don't run anything, just check options and exit",
       "value-key": "[CHECK_OPTS]",
       "type": "Flag",
-      "optional": true,
       "id": "check_opts",
       "name": "Check Options Flag"
     }

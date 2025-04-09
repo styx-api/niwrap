@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "3dISC",
   "author": "AFNI Developers",
-  "descriptor-url": "https://example.com/3dISC_descriptor.json",
   "description": "Program for Voxelwise Inter-Subject Correlation (ISC) Analysis using linear mixed-effects modeling.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dISC [OUTFILE_PREFIX] [NUM_JOBS] [MASK_FILE] [MODEL_STRUCTURE] [QVAR_CENTERS] [QUANTITATIVE_VARS] [FISHER_TRANSFORM] [IO_FUNCTIONS] [DATA_TABLE]",
@@ -70,7 +69,6 @@
       "value-key": "[FISHER_TRANSFORM]",
       "command-line-flag": "-r2z",
       "type": "Flag",
-      "optional": true,
       "id": "fisher_transform",
       "name": "Fisher transformation flag"
     },
@@ -99,14 +97,12 @@
     {
       "path-template": "[OUTFILE_PREFIX]_ISC.nii",
       "description": "Main output ISC file",
-      "optional": false,
       "id": "isc_output",
       "name": "ISC Output File"
     },
     {
       "path-template": "[OUTFILE_PREFIX]_tstat.nii",
       "description": "T-statistic of ISC",
-      "optional": true,
       "id": "tstat_output",
       "name": "T-statistic Output File"
     }

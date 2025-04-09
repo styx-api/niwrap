@@ -11,8 +11,7 @@
       "type": "Flag",
       "value-key": "[AUTOCLIP]",
       "command-line-flag": "-autoclip",
-      "description": "Clip off low-intensity regions in the dataset.",
-      "optional": true
+      "description": "Clip off low-intensity regions in the dataset."
     },
     {
       "id": "automask",
@@ -20,8 +19,7 @@
       "type": "Flag",
       "value-key": "[AUTOMASK]",
       "command-line-flag": "-automask",
-      "description": "Mask the dataset to target brain-only voxels.",
-      "optional": true
+      "description": "Mask the dataset to target brain-only voxels."
     },
     {
       "id": "in_file",
@@ -82,7 +80,6 @@
     {
       "name": "Out file",
       "id": "out_file",
-      "optional": true,
       "description": "Output image file name.",
       "path-template": "[IN_FILE]",
       "value-key": "[OUT_FILE]",
@@ -92,7 +89,6 @@
       "name": "Oned file",
       "id": "oned_file_outfile",
       "path-template": "[ONED_FILE]",
-      "optional": true,
       "description": "The text output of the similarity matrix computed after thresholding with one-dimensional and ijk voxel indices, correlations, image extents, and affine matrix."
     }
   ],

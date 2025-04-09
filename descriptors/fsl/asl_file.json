@@ -72,7 +72,6 @@
       "description": "Data contains adjacent pairs of measurements (e.g. Tag, Control) DEPRECATED use --iaf instead",
       "value-key": "[PAIRS]",
       "type": "Flag",
-      "optional": true,
       "id": "pairs",
       "name": "Pairs"
     },
@@ -81,7 +80,6 @@
       "description": "Split the pairs within the data, e.g. to separate tag and control images in output",
       "value-key": "[SPAIRS]",
       "type": "Flag",
-      "optional": true,
       "id": "spairs",
       "name": "Split pairs"
     },
@@ -90,7 +88,6 @@
       "description": "Take the difference between the pairs, i.e., Tag-control difference",
       "value-key": "[DIFF]",
       "type": "Flag",
-      "optional": true,
       "id": "diff",
       "name": "Difference"
     },
@@ -99,7 +96,6 @@
       "description": "Do surround subtraction on the pairs",
       "value-key": "[SURRDIFF]",
       "type": "Flag",
-      "optional": true,
       "id": "surrdiff",
       "name": "Surround subtraction"
     },
@@ -108,7 +104,6 @@
       "description": "Option to extrapolate the edge of the brain to fix the artefact on the edge of the brain",
       "value-key": "[EXTRAPOLATE]",
       "type": "Flag",
-      "optional": true,
       "id": "extrapolate",
       "name": "Extrapolate"
     },
@@ -176,7 +171,6 @@
       "description": "Output ASL data having taken mean at each TI to file",
       "value-key": "[MEAN]",
       "type": "Flag",
-      "optional": true,
       "id": "mean",
       "name": "Mean output"
     },
@@ -194,7 +188,6 @@
       "description": "Output epochs of ASL data (takes mean at each TI within the epoch)",
       "value-key": "[EPOCH]",
       "type": "Flag",
-      "optional": true,
       "id": "epoch",
       "name": "Epoch output"
     },
@@ -231,7 +224,6 @@
       "description": "Deconvolution of data with arterial input functions",
       "value-key": "[DECONV]",
       "type": "Flag",
-      "optional": true,
       "id": "deconv",
       "name": "Deconvolution"
     },
@@ -249,7 +241,6 @@
       "description": "Display the help message",
       "value-key": "[HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "help",
       "name": "Help"
     },
@@ -258,7 +249,6 @@
       "description": "Display version identification",
       "value-key": "[VERSION]",
       "type": "Flag",
-      "optional": true,
       "id": "version",
       "name": "Version"
     }
@@ -307,14 +297,12 @@
     {
       "path-template": "[OUTFILE].nii.gz",
       "description": "Primary output data file",
-      "optional": false,
       "id": "output_data",
       "name": "Output data file"
     },
     {
       "path-template": "[OUTFILE]_mean.nii.gz",
       "description": "Mean output data file",
-      "optional": true,
       "id": "output_mean",
       "name": "Mean output file"
     }

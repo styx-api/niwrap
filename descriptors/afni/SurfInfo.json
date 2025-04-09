@@ -37,7 +37,6 @@
       "description": "Output the number of nodes.",
       "value-key": "[N_NODE]",
       "type": "Flag",
-      "optional": true,
       "id": "n_node",
       "name": "Number of nodes flag"
     },
@@ -46,7 +45,6 @@
       "description": "Output the number of face sets.",
       "value-key": "[N_FACESET]",
       "type": "Flag",
-      "optional": true,
       "id": "n_faceset",
       "name": "Number of face sets flag"
     },
@@ -55,7 +53,6 @@
       "description": "Output the number of triangles.",
       "value-key": "[N_TRI]",
       "type": "Flag",
-      "optional": true,
       "id": "n_tri",
       "name": "Number of triangles flag"
     },
@@ -64,7 +61,6 @@
       "description": "Output the center of mass.",
       "value-key": "[COM]",
       "type": "Flag",
-      "optional": true,
       "id": "com",
       "name": "Center of mass flag"
     },
@@ -73,7 +69,6 @@
       "description": "Do not include the name of the parameter in output.",
       "value-key": "[QUIET]",
       "type": "Flag",
-      "optional": true,
       "id": "quiet",
       "name": "Quiet flag"
     },
@@ -127,7 +122,6 @@
       "description": "Ignore any Rotate, Volreg, Tagalign, or WarpDrive transformations present in the Surface Volume.",
       "value-key": "[NOVOLREG]",
       "type": "Flag",
-      "optional": true,
       "id": "novolreg",
       "name": "No volume registration"
     },
@@ -136,7 +130,6 @@
       "description": "Same as -novolreg.",
       "value-key": "[NOXFORM]",
       "type": "Flag",
-      "optional": true,
       "id": "noxform",
       "name": "No transform"
     },
@@ -154,7 +147,6 @@
       "description": "Turns on In/Out debug and Memory tracing.",
       "value-key": "[TRACE]",
       "type": "Flag",
-      "optional": true,
       "id": "trace",
       "name": "Trace flag"
     },
@@ -163,7 +155,6 @@
       "description": "Turns on extreme tracing.",
       "value-key": "[EXTREME_TRACE]",
       "type": "Flag",
-      "optional": true,
       "id": "extreme_trace",
       "name": "Extreme trace flag"
     },
@@ -172,7 +163,6 @@
       "description": "Turn off memory tracing.",
       "value-key": "[NOMALL]",
       "type": "Flag",
-      "optional": true,
       "id": "nomall",
       "name": "No memory trace flag"
     },
@@ -181,7 +171,6 @@
       "description": "Turn on memory tracing (default).",
       "value-key": "[YESMALL]",
       "type": "Flag",
-      "optional": true,
       "id": "yesmall",
       "name": "Memory trace flag"
     }
@@ -191,7 +180,6 @@
     {
       "path-template": "[SURFACE]_metrics.txt",
       "description": "Output file containing calculated surface metrics.",
-      "optional": true,
       "id": "metrics_output",
       "name": "Metrics output file"
     }

@@ -42,7 +42,6 @@
       "description": "Instead of multiplying by the color of pixel (i,j), use its intensity (average color).",
       "value-key": "[SCALE_INTENSITY]",
       "type": "Flag",
-      "optional": true,
       "id": "scale_intensity",
       "name": "Scale intensity flag"
     },
@@ -60,7 +59,6 @@
       "description": "Force output to be in RGB, even if input is bytes. This option is turned on automatically in certain cases.",
       "value-key": "[RGB_OUT]",
       "type": "Flag",
-      "optional": true,
       "id": "rgb_out",
       "name": "RGB output flag"
     },
@@ -131,7 +129,6 @@
       "description": "This option is the same as using both of -autocrop_atol 20 and -autocrop_ctol 20",
       "value-key": "[AUTOCROP]",
       "type": "Flag",
-      "optional": true,
       "id": "autocrop",
       "name": "Autocrop flag"
     },
@@ -140,7 +137,6 @@
       "description": "If number of images is not enough to fill matrix solid black images are used.",
       "value-key": "[ZERO_WRAP]",
       "type": "Flag",
-      "optional": true,
       "id": "zero_wrap",
       "name": "Zero wrap flag"
     },
@@ -149,7 +145,6 @@
       "description": "If number of images is not enough to fill matrix solid white images are used.",
       "value-key": "[WHITE_WRAP]",
       "type": "Flag",
-      "optional": true,
       "id": "white_wrap",
       "name": "White wrap flag"
     },
@@ -169,7 +164,6 @@
       "description": "If number of images is not enough to fill matrix, images on command line are reused (default).",
       "value-key": "[IMAGE_WRAP]",
       "type": "Flag",
-      "optional": true,
       "id": "image_wrap",
       "name": "Image wrap flag"
     },
@@ -178,7 +172,6 @@
       "description": "When reusing images to fill matrix, randomize the order in refill section only.",
       "value-key": "[RAND_WRAP]",
       "type": "Flag",
-      "optional": true,
       "id": "rand_wrap",
       "name": "Random wrap flag"
     },
@@ -225,7 +218,6 @@
       "description": "Set NX and NY to be the same as the SCALE_IMG's dimensions. (needs -scale_image)",
       "value-key": "[MATRIX_FROM_SCALE]",
       "type": "Flag",
-      "optional": true,
       "id": "matrix_from_scale",
       "name": "Matrix from scale flag"
     },
@@ -255,7 +247,6 @@
     {
       "path-template": "[PREFIX]output_image.[EXT]",
       "description": "Output image file",
-      "optional": false,
       "id": "output_image_file",
       "name": "Output image file"
     }

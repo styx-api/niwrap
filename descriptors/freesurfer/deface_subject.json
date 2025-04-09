@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "deface_subject",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "N/A",
   "description": "Tool for defacing MRI images to anonymize patient data.",
   "command-line": "deface_subject [SUBJECTS_DIR] [SUBJECT_ID] [VOLUME_INPUT] [VOLUME_OUTPUT]",
   "container-image": {
@@ -52,7 +51,6 @@
     {
       "path-template": "[VOLUME_OUTPUT]",
       "description": "Defaced output volume.",
-      "optional": false,
       "id": "output_volume",
       "name": "Defaced Output Volume"
     }

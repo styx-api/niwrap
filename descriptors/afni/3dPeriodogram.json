@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "3dPeriodogram",
   "author": "AFNI Developers",
-  "descriptor-url": "https://github.com/afni/afni",
   "description": "Computes the periodogram of each voxel time series. The periodogram is a crude estimate of the power spectrum.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dPeriodogram [PREFIX] [TAPER] [NFFT] [DATASET]",
@@ -54,14 +53,12 @@
     {
       "path-template": "[PREFIX].HEAD",
       "description": "Output dataset header file",
-      "optional": false,
       "id": "output_header",
       "name": "Output header file"
     },
     {
       "path-template": "[PREFIX].BRIK",
       "description": "Output dataset brick file",
-      "optional": false,
       "id": "output_brick",
       "name": "Output brick file"
     }

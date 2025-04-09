@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "3dhistog",
   "author": "AFNI Developers",
-  "descriptor-url": "https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dhistog.html",
   "description": "Compute histogram of a 3D dataset",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dhistog [DATASET] [NBIN] [DIND] [OMIT] [MASK] [ROI_MASK] [DOALL] [NOEMPTY] [NOTITLE] [LOG10] [PDF] [MIN] [MAX] [IGFAC] [INT] [FLOAT] [UNQ] [PREFIX]",
@@ -67,7 +66,6 @@
       "description": "Include all sub-bricks in the calculation",
       "value-key": "[DOALL]",
       "type": "Flag",
-      "optional": true,
       "id": "doall",
       "name": "Do All"
     },
@@ -76,7 +74,6 @@
       "description": "Only output bins that are not empty",
       "value-key": "[NOEMPTY]",
       "type": "Flag",
-      "optional": true,
       "id": "noempty",
       "name": "No Empty Bins"
     },
@@ -85,7 +82,6 @@
       "description": "Leave the title line off the output",
       "value-key": "[NOTITLE]",
       "type": "Flag",
-      "optional": true,
       "id": "notitle",
       "name": "No Title"
     },
@@ -94,7 +90,6 @@
       "description": "Output log10() of the counts",
       "value-key": "[LOG10]",
       "type": "Flag",
-      "optional": true,
       "id": "log10",
       "name": "Log10 Output"
     },
@@ -103,7 +98,6 @@
       "description": "Output the counts divided by the number of samples",
       "value-key": "[PDF]",
       "type": "Flag",
-      "optional": true,
       "id": "pdf",
       "name": "PDF Output"
     },
@@ -130,7 +124,6 @@
       "description": "Ignore sub-brick scale factors and histogram-ize the 'raw' data",
       "value-key": "[IGFAC]",
       "type": "Flag",
-      "optional": true,
       "id": "igfac",
       "name": "Ignore Scale Factors"
     },
@@ -139,7 +132,6 @@
       "description": "Treat data and output as integers",
       "value-key": "[INT]",
       "type": "Flag",
-      "optional": true,
       "id": "int",
       "name": "Integer Data"
     },
@@ -148,7 +140,6 @@
       "description": "Treat data and output as floats",
       "value-key": "[FLOAT]",
       "type": "Flag",
-      "optional": true,
       "id": "float",
       "name": "Float Data"
     },
@@ -175,7 +166,6 @@
     {
       "path-template": "HOUT.1D",
       "description": "Histogram output when -prefix option is used",
-      "optional": true,
       "id": "histogram_output",
       "name": "Histogram Output"
     }

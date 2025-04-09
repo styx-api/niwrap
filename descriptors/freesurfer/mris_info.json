@@ -36,7 +36,6 @@
       "command-line-flag": "--t",
       "value-key": "[TALAIRACH_XFM_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "talairach_xfm_flag",
       "name": "Talairach XFM flag",
       "description": "Apply talairach xfm before reporting info"
@@ -45,7 +44,6 @@
       "command-line-flag": "--r",
       "value-key": "[RESCALE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "rescale_flag",
       "name": "Rescale flag",
       "description": "Rescale group surface to match average metrics"
@@ -99,7 +97,6 @@
       "command-line-flag": "--area-stats",
       "value-key": "[AREA_STATS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "area_stats_flag",
       "name": "Area stats flag",
       "description": "Compute stats on triangle area (n, mean, std, min, max)"
@@ -144,7 +141,6 @@
       "command-line-flag": "--quality",
       "value-key": "[QUALITY_STATS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "quality_stats_flag",
       "name": "Quality stats flag",
       "description": "Print out surface quality stats"
@@ -153,7 +149,6 @@
       "command-line-flag": "--intersections",
       "value-key": "[INTERSECTIONS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "intersections_flag",
       "name": "Intersections flag",
       "description": "Print the number of vertices that belong to a face that intersects another face"
@@ -189,7 +184,6 @@
       "command-line-flag": "--nogifti-disp-image",
       "value-key": "[NOGIFTI_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "nogifti_flag",
       "name": "No GIFTI display flag",
       "description": "No dump of GIFTI struct, read .gii as surface instead"
@@ -198,7 +192,6 @@
       "command-line-flag": "--version",
       "value-key": "[VERSION_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "version_flag",
       "name": "Version flag",
       "description": "Print version and exits"
@@ -207,7 +200,6 @@
       "command-line-flag": "--help",
       "value-key": "[HELP_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "help_flag",
       "name": "Help flag",
       "description": "No clue what this does"
@@ -216,14 +208,12 @@
   "output-files": [
     {
       "path-template": "[OUTFILE]",
-      "optional": true,
       "description": "Output file containing saved data",
       "id": "output_file",
       "name": "Output file"
     },
     {
       "path-template": "[EDGE_FILE]",
-      "optional": true,
       "description": "File containing edge info",
       "id": "output_edge_file",
       "name": "Output edge file"

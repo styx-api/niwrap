@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "mksubjdirs",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "https://example.com/mksubjdirs_descriptor.json",
   "description": "A command-line tool to create subject directories.",
   "command-line": "mksubjdirs [SUBJ_NAME] [MODE] [PARENTS] [VERBOSE] [SELINUX_CONTEXT] [HELP] [VERSION]",
   "container-image": {
@@ -33,7 +32,6 @@
       "description": "No error if existing, make parent directories as needed",
       "value-key": "[PARENTS]",
       "type": "Flag",
-      "optional": true,
       "id": "parents",
       "name": "Parents Flag"
     },
@@ -42,7 +40,6 @@
       "description": "Print a message for each created directory",
       "value-key": "[VERBOSE]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose",
       "name": "Verbose Flag"
     },
@@ -51,7 +48,6 @@
       "description": "Set SELinux security context of each created directory to the default type",
       "value-key": "[SELINUX_CONTEXT]",
       "type": "Flag",
-      "optional": true,
       "id": "selinux_context",
       "name": "SELinux Context Flag"
     },
@@ -60,7 +56,6 @@
       "description": "Display help and exit",
       "value-key": "[HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "help",
       "name": "Help Flag"
     },
@@ -69,7 +64,6 @@
       "description": "Output version information and exit",
       "value-key": "[VERSION]",
       "type": "Flag",
-      "optional": true,
       "id": "version",
       "name": "Version Flag"
     }

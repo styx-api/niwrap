@@ -42,7 +42,6 @@
       "description": "Compute the average instead of the sum",
       "value-key": "[MEAN_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "mean_flag",
       "name": "Mean flag"
     },
@@ -51,7 +50,6 @@
       "description": "Do not reproduce comments from the header of the first input file to the output.",
       "value-key": "[NOCOMMENT_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "nocomment_flag",
       "name": "No comment flag"
     },
@@ -60,7 +58,6 @@
       "description": "If encountering an empty 1D file, print 0 and exit quietly instead of exiting with an error message.",
       "value-key": "[OKEMPTY_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "okempty_flag",
       "name": "OK empty flag"
     }
@@ -70,7 +67,6 @@
     {
       "path-template": "output.txt",
       "description": "Sum or average of columns in the input files",
-      "optional": false,
       "id": "output_file",
       "name": "Output file"
     }

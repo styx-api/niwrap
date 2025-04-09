@@ -2,7 +2,6 @@
   "tool-version": "6.0.4",
   "name": "slicetimer",
   "author": "FMRIB Analysis Group, University of Oxford",
-  "descriptor-url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Slicetimer",
   "description": "FMRIB's Interpolation for Slice Timing",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "slicetimer [INFILE] [OUTFILE] [VERBOSE_FLAG] [DOWN_FLAG] [TR_VALUE] [DIRECTION] [ODD_FLAG] [TCUSTOM_FILE] [TGLOBAL_VALUE] [OCUSTOM_FILE]",
@@ -33,7 +32,6 @@
       "description": "Switch on diagnostic messages",
       "value-key": "[VERBOSE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose_flag",
       "name": "Verbose Flag",
       "command-line-flag": "-v"
@@ -42,7 +40,6 @@
       "description": "Reverse slice indexing (default is: slices were acquired bottom-up)",
       "value-key": "[DOWN_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "down_flag",
       "name": "Reverse slice indexing",
       "command-line-flag": "--down"
@@ -69,7 +66,6 @@
       "description": "Use interleaved acquisition",
       "value-key": "[ODD_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "odd_flag",
       "name": "Interleaved acquisition",
       "command-line-flag": "--odd"
@@ -125,7 +121,6 @@
     {
       "path-template": "[OUTFILE]",
       "description": "Output timeseries",
-      "optional": true,
       "id": "output_timeseries",
       "name": "Corrected timeseries output"
     }

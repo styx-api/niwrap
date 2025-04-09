@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "3dcopy",
   "author": "AFNI Developers",
-  "descriptor-url": "https://github.com/afni/afni",
   "description": "3dcopy copies datasets with or without altering prefixes and converting formats.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dcopy [VERBOSE] [DENOTE] [OLD_PREFIX][VIEW] [NEW_PREFIX]",
@@ -41,7 +40,6 @@
       "description": "Print progress reports.",
       "value-key": "[VERBOSE]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose",
       "name": "Verbose Flag"
     },
@@ -50,7 +48,6 @@
       "description": "Remove any Notes from the file.",
       "value-key": "[DENOTE]",
       "type": "Flag",
-      "optional": true,
       "id": "denote",
       "name": "Denote Flag"
     }

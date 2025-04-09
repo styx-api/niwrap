@@ -38,8 +38,7 @@
       "type": "Flag",
       "value-key": "[DEMEAN]",
       "command-line-flag": "-D",
-      "description": "Demean data temporally before model fitting.",
-      "optional": true
+      "description": "Demean data temporally before model fitting."
     },
     {
       "id": "design_mat",
@@ -74,8 +73,7 @@
       "type": "Flag",
       "value-key": "[F_ONLY]",
       "command-line-flag": "--fonly",
-      "description": "Calculate f-statistics only.",
-      "optional": true
+      "description": "Calculate f-statistics only."
     },
     {
       "id": "fcon",
@@ -120,8 +118,7 @@
       "type": "Flag",
       "value-key": "[ONE_SAMPLE_GROUP_MEAN]",
       "command-line-flag": "-1",
-      "description": "Perform 1-sample group-mean test instead of generic permutation test.",
-      "optional": true
+      "description": "Perform 1-sample group-mean test instead of generic permutation test."
     },
     {
       "id": "output_type",
@@ -138,8 +135,7 @@
       "type": "Flag",
       "value-key": "[P_VEC_N_DIST_FILES]",
       "command-line-flag": "-P",
-      "description": "Output permutation vector and null distribution text files.",
-      "optional": true
+      "description": "Output permutation vector and null distribution text files."
     },
     {
       "id": "raw_stats_imgs",
@@ -147,8 +143,7 @@
       "type": "Flag",
       "value-key": "[RAW_STATS_IMGS]",
       "command-line-flag": "-R",
-      "description": "Output raw ( unpermuted ) statistic images.",
-      "optional": true
+      "description": "Output raw ( unpermuted ) statistic images."
     },
     {
       "id": "seed",
@@ -167,8 +162,7 @@
       "type": "Flag",
       "value-key": "[SHOW_INFO_PARALLEL_MODE]",
       "command-line-flag": "-Q",
-      "description": "Print out information required for parallel mode and exit.",
-      "optional": true
+      "description": "Print out information required for parallel mode and exit."
     },
     {
       "id": "show_total_perms",
@@ -176,8 +170,7 @@
       "type": "Flag",
       "value-key": "[SHOW_TOTAL_PERMS]",
       "command-line-flag": "-q",
-      "description": "Print out how many unique permutations would be generated and exit.",
-      "optional": true
+      "description": "Print out how many unique permutations would be generated and exit."
     },
     {
       "id": "tcon",
@@ -194,8 +187,7 @@
       "type": "Flag",
       "value-key": "[TFCE]",
       "command-line-flag": "-T",
-      "description": "Carry out threshold-free cluster enhancement.",
-      "optional": true
+      "description": "Carry out threshold-free cluster enhancement."
     },
     {
       "id": "tfce2D",
@@ -203,8 +195,7 @@
       "type": "Flag",
       "value-key": "[TFCE2D]",
       "command-line-flag": "--T2",
-      "description": "Carry out threshold-free cluster enhancement with 2d optimisation.",
-      "optional": true
+      "description": "Carry out threshold-free cluster enhancement with 2d optimisation."
     },
     {
       "id": "tfce_C",
@@ -252,8 +243,7 @@
       "type": "Flag",
       "value-key": "[VOX_P_VALUES]",
       "command-line-flag": "-x",
-      "description": "Output voxelwise (corrected and uncorrected) p-value images.",
-      "optional": true
+      "description": "Output voxelwise (corrected and uncorrected) p-value images."
     },
     {
       "id": "x_block_labels",
@@ -270,7 +260,6 @@
       "name": "F corrected p files",
       "id": "f_corrected_p_files",
       "path-template": "f_corrected_p_files",
-      "optional": true,
       "description": "F contrast fwe (family-wise error) corrected p values files.",
       "list": true
     },
@@ -278,7 +267,6 @@
       "name": "F p files",
       "id": "f_p_files",
       "path-template": "f_p_files",
-      "optional": true,
       "description": "F contrast uncorrected p values files.",
       "list": true
     },
@@ -286,7 +274,6 @@
       "name": "Fstat files",
       "id": "fstat_files",
       "path-template": "fstat_files",
-      "optional": true,
       "description": "F contrast raw statistic.",
       "list": true
     },
@@ -294,7 +281,6 @@
       "name": "T corrected p files",
       "id": "t_corrected_p_files",
       "path-template": "t_corrected_p_files",
-      "optional": true,
       "description": "T contrast fwe (family-wise error) corrected p values files.",
       "list": true
     },
@@ -302,7 +288,6 @@
       "name": "T p files",
       "id": "t_p_files",
       "path-template": "t_p_files",
-      "optional": true,
       "description": "F contrast uncorrected p values files.",
       "list": true
     },
@@ -310,7 +295,6 @@
       "name": "Tstat files",
       "id": "tstat_files",
       "path-template": "tstat_files",
-      "optional": true,
       "description": "T contrast raw statistic.",
       "list": true
     }

@@ -59,7 +59,6 @@
       "description": "Preserve the nonzero values of input voxels in the output dataset rather than creating a fractional mask.",
       "value-key": "[PRESERVE]",
       "type": "Flag",
-      "optional": true,
       "id": "preserve",
       "name": "Preserve Nonzero Values Flag"
     },
@@ -68,7 +67,6 @@
       "description": "Vote for which input value to preserve when using the preserve flag.",
       "value-key": "[VOTE]",
       "type": "Flag",
-      "optional": true,
       "id": "vote",
       "name": "Vote for Preservation Flag"
     }
@@ -78,7 +76,6 @@
     {
       "path-template": "[PREFIX]",
       "description": "Output dataset with the specified prefix.",
-      "optional": false,
       "id": "output",
       "name": "Output Dataset"
     }

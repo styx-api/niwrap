@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "cat_matvec",
   "author": "AFNI Developers",
-  "descriptor-url": "example.com",
   "description": "Catenates 3D rotation+shift matrix+vector transformations.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "cat_matvec [MATRIX_FORMAT] [ONELINE_FORMAT] [FOUR_BY_FOUR_FORMAT] [MATVEC_SPEC]",
@@ -12,7 +11,6 @@
       "description": "Indicates that the resulting matrix will be written in the 'MATRIX(...)' format (FORM 3).",
       "value-key": "[MATRIX_FORMAT]",
       "type": "Flag",
-      "optional": true,
       "id": "matrix_format",
       "name": "Matrix format"
     },
@@ -21,7 +19,6 @@
       "description": "Option indicates that the resulting matrix will simply be written as 12 numbers on one line.",
       "value-key": "[ONELINE_FORMAT]",
       "type": "Flag",
-      "optional": true,
       "id": "oneline_format",
       "name": "One line format"
     },
@@ -30,7 +27,6 @@
       "description": "Output matrix in augmented form (last row is 0 0 0 1). This option does not work with -MATRIX or -ONELINE.",
       "value-key": "[FOUR_BY_FOUR_FORMAT]",
       "type": "Flag",
-      "optional": true,
       "id": "four_by_four_format",
       "name": "4x4 format"
     },

@@ -2,7 +2,6 @@
   "tool-version": "6.0.4",
   "name": "fsl_motion_outliers",
   "author": "FMRIB Analysis Group, University of Oxford",
-  "descriptor-url": "https://example.com/fsl_motion_outliers_descriptor.json",
   "description": "FSL tool used to calculate motion outliers in 4D image data",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "fsl_motion_outliers [INPUT_4D_IMAGE] [OUTPUT_CONFOUND_FILE] [MASK_IMAGE] [SAVE_METRIC_FILE] [SAVE_METRIC_PLOT] [TEMP_PATH] [REFRMS_FLAG] [DVARS_FLAG] [REFMSE_FLAG] [FD_FLAG] [FDRMS_FLAG] [ABS_THRESH] [NO_MOCO_FLAG] [DUMMY_SCANS] [VERBOSE_FLAG]",
@@ -70,7 +69,6 @@
       "description": "Use RMS intensity difference to reference volume as metric",
       "value-key": "[REFRMS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "refrms_flag",
       "name": "Reference RMS flag"
     },
@@ -79,7 +77,6 @@
       "description": "Use DVARS as metric",
       "value-key": "[DVARS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "dvars_flag",
       "name": "DVARS flag"
     },
@@ -88,7 +85,6 @@
       "description": "Mean Square Error version of --refrms (used in original version of fsl_motion_outliers)",
       "value-key": "[REFMSE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "refmse_flag",
       "name": "Reference MSE flag"
     },
@@ -97,7 +93,6 @@
       "description": "Use FD (framewise displacement) as metric",
       "value-key": "[FD_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "fd_flag",
       "name": "Framewise displacement flag"
     },
@@ -106,7 +101,6 @@
       "description": "Use FD with RMS matrix calculation as metric",
       "value-key": "[FDRMS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "fdrms_flag",
       "name": "FD RMS flag"
     },
@@ -124,7 +118,6 @@
       "description": "Do not run motion correction (assumed already done)",
       "value-key": "[NO_MOCO_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "no_moco_flag",
       "name": "No motion correction flag"
     },
@@ -142,7 +135,6 @@
       "description": "Verbose mode",
       "value-key": "[VERBOSE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose_flag",
       "name": "Verbose flag"
     }
@@ -179,21 +171,18 @@
     {
       "path-template": "[OUTPUT_CONFOUND_FILE]",
       "description": "Main output confound file",
-      "optional": false,
       "id": "output_confound_file",
       "name": "Output confound file"
     },
     {
       "path-template": "[SAVE_METRIC_FILE]",
       "description": "Metric values saved as text file",
-      "optional": true,
       "id": "metric_text_file",
       "name": "Metric text file"
     },
     {
       "path-template": "[SAVE_METRIC_PLOT]",
       "description": "Metric values saved as graphical plot (png format)",
-      "optional": true,
       "id": "metric_plot_file",
       "name": "Metric plot file"
     }

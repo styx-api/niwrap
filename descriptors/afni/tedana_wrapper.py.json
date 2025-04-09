@@ -60,7 +60,6 @@
       "description": "Save intermediate datasets. Default is to save only the 3dZcat stacked dataset (and tedana stuff).",
       "value-key": "[SAVE_ALL]",
       "type": "Flag",
-      "optional": true,
       "id": "save_all",
       "name": "Save All Flag",
       "command-line-flag": "-save_all"
@@ -69,7 +68,6 @@
       "description": "Do not run tedana.py, stop at 3dZcat.",
       "value-key": "[PREP_ONLY]",
       "type": "Flag",
-      "optional": true,
       "id": "prep_only",
       "name": "Preparation Only Flag",
       "command-line-flag": "-prep_only"
@@ -87,7 +85,6 @@
       "description": "Run 'tedana.py' rather than 'python tedana.py'.",
       "value-key": "[TEDANA_IS_EXEC]",
       "type": "Flag",
-      "optional": true,
       "id": "tedana_is_exec",
       "name": "Tedana Is Exec Flag",
       "command-line-flag": "-tedana_is_exec"
@@ -114,7 +111,6 @@
       "description": "Show help message and exit.",
       "value-key": "[HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "help",
       "name": "Help Flag",
       "command-line-flag": "-h"
@@ -123,7 +119,6 @@
       "description": "Show detailed help and exit.",
       "value-key": "[DETAILED_HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "detailed_help",
       "name": "Detailed Help Flag",
       "command-line-flag": "-help"
@@ -134,14 +129,12 @@
     {
       "path-template": "[RESULTS_DIR]/[PREFIX]_ted_output",
       "description": "Output directory for tedana results.",
-      "optional": true,
       "id": "tedana_output",
       "name": "Tedana Output Directory"
     },
     {
       "path-template": "[RESULTS_DIR]/[PREFIX]_tedana_report.txt",
       "description": "Tedana report file.",
-      "optional": true,
       "id": "tedana_report",
       "name": "Tedana Report File"
     }

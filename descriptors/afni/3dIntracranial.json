@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "3dIntracranial",
   "author": "AFNI Developers",
-  "descriptor-url": "https://github.com/afni/plugins",
   "description": "Performs automatic segmentation of intracranial region.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dIntracranial [INFILE] [PREFIX] [MIN_VAL] [MAX_VAL] [MIN_CONN] [MAX_CONN] [NO_SMOOTH] [MASK] [QUIET]",
@@ -70,7 +69,6 @@
       "description": "Suppress spatial smoothing of segmentation mask",
       "value-key": "[NO_SMOOTH]",
       "type": "Flag",
-      "optional": true,
       "id": "no_smooth",
       "name": "No smoothing flag"
     },
@@ -79,7 +77,6 @@
       "description": "Generate functional image mask (complement). Default is to generate anatomical image",
       "value-key": "[MASK]",
       "type": "Flag",
-      "optional": true,
       "id": "mask",
       "name": "Generate functional image mask"
     },
@@ -88,7 +85,6 @@
       "description": "Suppress output to screen",
       "value-key": "[QUIET]",
       "type": "Flag",
-      "optional": true,
       "id": "quiet",
       "name": "Quiet flag"
     }
@@ -98,7 +94,6 @@
     {
       "path-template": "[PREFIX]+orig",
       "description": "Output file containing segmented image",
-      "optional": false,
       "id": "segmented_image",
       "name": "Segmented image file"
     }

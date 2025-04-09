@@ -53,7 +53,6 @@
       "description": "Use mm instead of voxel coordinates (for -c option)",
       "value-key": "[USEMM_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "usemm_flag",
       "name": "Use mm flag",
       "command-line-flag": "--usemm"
@@ -62,7 +61,6 @@
       "description": "Show all voxel time series (within mask) instead of averaging",
       "value-key": "[SHOWALL_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "showall_flag",
       "name": "Showall flag",
       "command-line-flag": "--showall"
@@ -71,7 +69,6 @@
       "description": "Calculate Eigenvariate(s) instead of mean (output will have 0 mean)",
       "value-key": "[EIGENV_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "eigenv_flag",
       "name": "Eigenvariate(s) flag",
       "command-line-flag": "--eig"
@@ -89,7 +86,6 @@
       "description": "Do not binarise the mask for calculation of Eigenvariates",
       "value-key": "[NO_BIN_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "no_bin_flag",
       "name": "No binarisation flag",
       "command-line-flag": "--no_bin"
@@ -107,7 +103,6 @@
       "description": "Output results in transpose format (one row per voxel/mean)",
       "value-key": "[TRANSPOSE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "transpose_flag",
       "name": "Transpose flag",
       "command-line-flag": "--transpose"
@@ -116,7 +111,6 @@
       "description": "Switch on diagnostic messages",
       "value-key": "[VERBOSE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose_flag",
       "name": "Verbose flag",
       "command-line-flag": "-v"
@@ -125,7 +119,6 @@
       "description": "Display the help message",
       "value-key": "[HELP_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "help_flag",
       "name": "Help flag",
       "command-line-flag": "-h"
@@ -134,7 +127,6 @@
       "description": "Output weighted mean, using mask values as weights, and exit.",
       "value-key": "[WEIGHTED_MEAN_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "weighted_mean_flag",
       "name": "Weighted mean flag",
       "command-line-flag": "-w"
@@ -173,7 +165,6 @@
     {
       "path-template": "[OUTPUT]",
       "description": "Output text matrix from fslmeants",
-      "optional": true,
       "id": "output_text_matrix",
       "name": "Output Text Matrix"
     }

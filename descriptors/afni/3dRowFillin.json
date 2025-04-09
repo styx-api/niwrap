@@ -41,7 +41,6 @@
       "description": "Turn input dataset to binary (0 and 1) before filling in. Output will also be binary.",
       "value-key": "[BINARY]",
       "type": "Flag",
-      "optional": true,
       "id": "binary",
       "name": "Binary Flag"
     },
@@ -60,14 +59,12 @@
     {
       "path-template": "[PREFIX]+orig.BRIK",
       "description": "Output dataset in BRIK format",
-      "optional": false,
       "id": "output_brik",
       "name": "Output Dataset BRIK"
     },
     {
       "path-template": "[PREFIX]+orig.HEAD",
       "description": "Output dataset in HEAD format",
-      "optional": false,
       "id": "output_head",
       "name": "Output Dataset HEAD"
     }

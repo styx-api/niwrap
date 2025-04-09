@@ -36,7 +36,6 @@
       "description": "Flag to fill holes in the surface.",
       "value-key": "[FILL_HOLES]",
       "type": "Flag",
-      "optional": true,
       "id": "fill_holes",
       "name": "Fill Holes Flag"
     },
@@ -45,7 +44,6 @@
       "description": "Flag to process curvature data.",
       "value-key": "[CURVATURE]",
       "type": "Flag",
-      "optional": true,
       "id": "curvature",
       "name": "Curvature Flag"
     },
@@ -54,7 +52,6 @@
       "description": "Flag to process thickness data.",
       "value-key": "[THICKNESS]",
       "type": "Flag",
-      "optional": true,
       "id": "thickness",
       "name": "Thickness Flag"
     },
@@ -90,7 +87,6 @@
       "description": "Flag to output VTK file format.",
       "value-key": "[VTK_OUTPUT]",
       "type": "Flag",
-      "optional": true,
       "id": "vtk_output",
       "name": "VTK Output Flag"
     }
@@ -99,28 +95,24 @@
     {
       "path-template": "[OUTPUT_SURFACE]",
       "description": "Processed output surface file.",
-      "optional": false,
       "id": "processed_output_surface",
       "name": "Processed Output Surface"
     },
     {
       "path-template": "[ANNOTATION_OUTPUT]",
       "description": "Output file containing annotation data.",
-      "optional": false,
       "id": "annotation_output_file",
       "name": "Annotation Output File"
     },
     {
       "path-template": "[OVERLAY_OUTPUT]",
       "description": "Output file containing overlay data.",
-      "optional": false,
       "id": "overlay_output_file",
       "name": "Overlay Output File"
     },
     {
       "path-template": "[CSV_OUTPUT]",
       "description": "Output CSV file.",
-      "optional": false,
       "id": "csv_output_file",
       "name": "CSV Output File"
     }

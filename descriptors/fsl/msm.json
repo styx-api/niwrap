@@ -2,7 +2,6 @@
   "tool-version": "6.0.4",
   "name": "msm",
   "author": "FMRIB Analysis Group, University of Oxford",
-  "descriptor-url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/MSM",
   "description": "MSM (Multimodal Surface Matching) is a tool for aligning brain surface scans based on their cortical folding patterns or functional/structural data",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "msm [INMESH] [OUT] [REFMESH] [INDATA] [REFDATA] [TRANS] [IN_REGISTER] [INWEIGHT] [REFWEIGHT] [FORMAT] [CONF] [LEVELS] [SMOOTHOUT] [HELP] [VERBOSE] [PRINTOPTIONS]",
@@ -133,7 +132,6 @@
       "description": "Display help message",
       "value-key": "[HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "help",
       "name": "Help flag"
     },
@@ -142,7 +140,6 @@
       "description": "Switch on diagnostic messages",
       "value-key": "[VERBOSE]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose",
       "name": "Verbose flag"
     },
@@ -151,7 +148,6 @@
       "description": "Print configuration file options",
       "value-key": "[PRINTOPTIONS]",
       "type": "Flag",
-      "optional": true,
       "id": "printoptions",
       "name": "Print options flag"
     }
@@ -190,7 +186,6 @@
     {
       "path-template": "[OUT]_output.ext",
       "description": "Output file from MSM",
-      "optional": true,
       "id": "output_file",
       "name": "MSM output file"
     }

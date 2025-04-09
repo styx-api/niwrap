@@ -51,7 +51,6 @@
       "description": "Final T1w volume is on the T2W volume's grid",
       "value-key": "[OUT_T2W_GRID]",
       "type": "Flag",
-      "optional": true,
       "id": "out_t2w_grid",
       "name": "Output T2W grid flag"
     },
@@ -69,7 +68,6 @@
       "description": "Apply skullstripping to the T1w volume during an intermediate step",
       "value-key": "[DO_SS_TMP_T1W]",
       "type": "Flag",
-      "optional": true,
       "id": "do_ss_tmp_t1w",
       "name": "Apply skullstripping"
     },
@@ -105,7 +103,6 @@
       "description": "Do not save the command line call and the location where it was run",
       "value-key": "[NO_CMD_OUT]",
       "type": "Flag",
-      "optional": true,
       "id": "no_cmd_out",
       "name": "No command output flag"
     },
@@ -114,7 +111,6 @@
       "description": "Do not delete the temporary working directory",
       "value-key": "[NO_CLEAN]",
       "type": "Flag",
-      "optional": true,
       "id": "no_clean",
       "name": "No clean flag"
     }
@@ -124,21 +120,18 @@
     {
       "path-template": "[OUTPUT_PREFIX]_t1w_aligned.nii.gz",
       "description": "Aligned T1w volume",
-      "optional": false,
       "id": "aligned_t1w",
       "name": "Aligned T1W file"
     },
     {
       "path-template": "[OUTPUT_PREFIX]_QC_T1w_over_T2w.png",
       "description": "QC snapshot of the T1w volume overlaying the T2w volume",
-      "optional": true,
       "id": "qc_snapshot_t1w_on_t2w",
       "name": "QC snapshot T1W on T2W"
     },
     {
       "path-template": "[OUTPUT_PREFIX]_QC_T1w_edges_over_T2w.png",
       "description": "QC snapshot of the T1w edges overlaying the T2w volume",
-      "optional": true,
       "id": "qc_snapshot_t1w_edges_on_t2w",
       "name": "QC snapshot T1W edges on T2W"
     }

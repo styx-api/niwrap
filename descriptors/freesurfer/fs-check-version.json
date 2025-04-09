@@ -38,7 +38,6 @@
       "description": "Set REQUIRE_FS_MATCH for testing",
       "value-key": "[REQUIRE_MATCH]",
       "type": "Flag",
-      "optional": true,
       "id": "require_match",
       "name": "Require Match Flag"
     },
@@ -47,7 +46,6 @@
       "description": "Unset REQUIRE_FS_MATCH for testing",
       "value-key": "[NO_REQUIRE_MATCH]",
       "type": "Flag",
-      "optional": true,
       "id": "no_require_match",
       "name": "No Require Match Flag"
     },
@@ -56,7 +54,6 @@
       "description": "Go through permutations for testing",
       "value-key": "[TEST]",
       "type": "Flag",
-      "optional": true,
       "id": "test",
       "name": "Test Flag"
     },
@@ -65,7 +62,6 @@
       "description": "Go through permutations for debugging",
       "value-key": "[TEST_DEBUG]",
       "type": "Flag",
-      "optional": true,
       "id": "test_debug",
       "name": "Test Debug Flag"
     }
@@ -74,7 +70,6 @@
     {
       "path-template": "[OUTFILE]",
       "description": "Output text file with a 1 if the version matches, otherwise 0",
-      "optional": false,
       "id": "output_file",
       "name": "Output Version Match File"
     }

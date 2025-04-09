@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "dmri_coloredFA",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "https://github.com/freesurfer/freesurfer",
   "description": "Tool for generating colored FA maps from diffusion MRI data.",
   "command-line": "dmri_coloredFA [INPUT_VOLUME] [OUTPUT_VOLUME]",
   "container-image": {
@@ -33,7 +32,6 @@
     {
       "path-template": "[OUTPUT_VOLUME].nii.gz",
       "description": "The output colored FA image.",
-      "optional": false,
       "id": "output_colored_fa",
       "name": "Output Colored FA"
     }

@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "apsearch",
   "author": "AFNI Developers",
-  "descriptor-url": "https://example.com/apsearch_descriptor.json",
   "description": "A tool for searching applications.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "apsearch [SEARCH_TERM] [FILE_OUTPUT] [VERBOSE]",
@@ -32,7 +31,6 @@
       "description": "Print detailed information during search",
       "value-key": "[VERBOSE]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose",
       "name": "Verbose Flag"
     }
@@ -42,7 +40,6 @@
     {
       "path-template": "[FILE_OUTPUT]",
       "description": "File containing search results",
-      "optional": true,
       "id": "output_file",
       "name": "Output File"
     }

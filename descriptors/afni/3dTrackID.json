@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "3dTrackID",
   "author": "AFNI Developers",
-  "descriptor-url": "https://afni.nimh.nih.gov/pub/dist/src/other/3dTrackID/3dTrackID.help",
   "description": "FACTID-based tractography code for AFNI, part of FATCAT",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dTrackID [MODE] [NETROIS] [PREFIX] [DTI_IN] [DTI_LIST] [DTI_EXTRA] [DTI_SEARCH_NO] [HARDI_GFA] [HARDI_DIRS] [HARDI_PARS] [MASK] [THRU_MASK] [TARG_SURF_STOP] [TARG_SURF_TWIXT] [LOGIC] [MINI_NUM] [UNCERT] [UNC_MIN_FA] [UNC_MIN_V] [ALGOPT] [ALG_THRESH_FA] [ALG_THRESH_ANG] [ALG_THRESH_LEN] [ALG_NSEED_X] [ALG_NSEED_Y] [ALG_NSEED_Z] [ALG_THRESH_FRAC] [ALG_NSEED_VOX] [ALG_NMONTE] [EXTRA_TR_PAR] [UNCUT_AT_ROIS] [DUMP_ROIS] [DUMP_NO_LABTAB] [DUMP_LAB_CONSEC] [POSTERIORI] [REC_ORIG] [DO_TRK_OUT] [TRK_OPP_ORIENT] [NIFTI] [NO_INDIPAIR_OUT] [WRITE_ROIS] [WRITE_OPTS] [PAIR_OUT_POWER] [VERB]",
@@ -64,7 +63,6 @@
       "description": "Turn off automatic search for additional scalar files to include in output",
       "command-line-flag": "-dti_search_NO",
       "type": "Flag",
-      "optional": true,
       "id": "dti_search_no",
       "name": "DTI search no flag",
       "value-key": "[DTI_SEARCH_NO]"
@@ -113,7 +111,6 @@
       "description": "Make tracts stop at outer surfaces of the target ROIs",
       "command-line-flag": "-targ_surf_stop",
       "type": "Flag",
-      "optional": true,
       "id": "targ_surf_stop",
       "name": "Stop at target surfaces flag",
       "value-key": "[TARG_SURF_STOP]"
@@ -122,7 +119,6 @@
       "description": "Make tracts stop just before entering target surfaces",
       "command-line-flag": "-targ_surf_twixt",
       "type": "Flag",
-      "optional": true,
       "id": "targ_surf_twixt",
       "name": "Stop between target surfaces flag",
       "value-key": "[TARG_SURF_TWIXT]"
@@ -252,7 +248,6 @@
       "description": "Run three extra track parameter scalings for each connection",
       "command-line-flag": "-extra_tr_par",
       "type": "Flag",
-      "optional": true,
       "id": "extra_tr_par",
       "name": "Extra parameter scaling flag",
       "value-key": "[EXTRA_TR_PAR]"
@@ -261,7 +256,6 @@
       "description": "Keep entire track even if overshoots a target",
       "command-line-flag": "-uncut_at_rois",
       "type": "Flag",
-      "optional": true,
       "id": "uncut_at_rois",
       "name": "Keep uncut at targets flag",
       "value-key": "[UNCUT_AT_ROIS]"
@@ -279,7 +273,6 @@
       "description": "Turn off label table use in ROI dump output",
       "command-line-flag": "-dump_no_labtab",
       "type": "Flag",
-      "optional": true,
       "id": "dump_no_labtab",
       "name": "No label table flag",
       "value-key": "[DUMP_NO_LABTAB]"
@@ -288,7 +281,6 @@
       "description": "DON'T apply numerical labels of original ROIs in dump output",
       "command-line-flag": "-dump_lab_consec",
       "type": "Flag",
-      "optional": true,
       "id": "dump_lab_consec",
       "name": "Consecutive labels flag",
       "value-key": "[DUMP_LAB_CONSEC]"
@@ -297,7 +289,6 @@
       "description": "Output individual files with number of tracks per voxel per pair",
       "command-line-flag": "-posteriori",
       "type": "Flag",
-      "optional": true,
       "id": "posteriori",
       "name": "Posteriori flag",
       "value-key": "[POSTERIORI]"
@@ -306,7 +297,6 @@
       "description": "Record dataset origin in header of *.trk file",
       "command-line-flag": "-rec_orig",
       "type": "Flag",
-      "optional": true,
       "id": "rec_orig",
       "name": "Record origin flag",
       "value-key": "[REC_ORIG]"
@@ -315,7 +305,6 @@
       "description": "Output *.trk files for viewing in TrackVis",
       "command-line-flag": "-do_trk_out",
       "type": "Flag",
-      "optional": true,
       "id": "do_trk_out",
       "name": "Output TrackVis flag",
       "value-key": "[DO_TRK_OUT]"
@@ -324,7 +313,6 @@
       "description": "Oppositize voxel_order for TRK files",
       "command-line-flag": "-trk_opp_orient",
       "type": "Flag",
-      "optional": true,
       "id": "trk_opp_orient",
       "name": "Oppositize voxel order flag",
       "value-key": "[TRK_OPP_ORIENT]"
@@ -333,7 +321,6 @@
       "description": "Output files in *.nii.gz format",
       "command-line-flag": "-nifti",
       "type": "Flag",
-      "optional": true,
       "id": "nifti",
       "name": "Nifti output flag",
       "value-key": "[NIFTI]"
@@ -342,7 +329,6 @@
       "description": "Do not output INDIMAP and PAIRMAP volumes",
       "command-line-flag": "-no_indipair_out",
       "type": "Flag",
-      "optional": true,
       "id": "no_indipair_out",
       "name": "No INDIMAP/PAIRMAP flag",
       "value-key": "[NO_INDIPAIR_OUT]"
@@ -351,7 +337,6 @@
       "description": "Write out ROI labels",
       "command-line-flag": "-write_rois",
       "type": "Flag",
-      "optional": true,
       "id": "write_rois",
       "name": "Write ROIs flag",
       "value-key": "[WRITE_ROIS]"
@@ -360,7 +345,6 @@
       "description": "Write out all option values",
       "command-line-flag": "-write_opts",
       "type": "Flag",
-      "optional": true,
       "id": "write_opts",
       "name": "Write options flag",
       "value-key": "[WRITE_OPTS]"
@@ -369,7 +353,6 @@
       "description": "Switch to use powers of two labelling for PAIRMAP",
       "command-line-flag": "-pair_out_power",
       "type": "Flag",
-      "optional": true,
       "id": "pair_out_power",
       "name": "PAIRMAP powers flag",
       "value-key": "[PAIR_OUT_POWER]"
@@ -388,63 +371,54 @@
     {
       "path-template": "[PREFIX]_INDIMAP.nii.gz",
       "description": "Output of INDIMAP",
-      "optional": true,
       "id": "indimap",
       "name": "INDIMAP"
     },
     {
       "path-template": "[PREFIX]_PAIRMAP.nii.gz",
       "description": "Output of PAIRMAP",
-      "optional": true,
       "id": "pairmap",
       "name": "PAIRMAP"
     },
     {
       "path-template": "[PREFIX].grid",
       "description": "Text file output of statistics of WM-ROIs",
-      "optional": true,
       "id": "grid",
       "name": "Statistics grid file"
     },
     {
       "path-template": "[PREFIX].niml.tract",
       "description": "Track-like output for viewing in SUMA",
-      "optional": true,
       "id": "niml_tract",
       "name": "Track output for SUMA"
     },
     {
       "path-template": "[PREFIX].niml.dset",
       "description": "Dataset output for use with *.niml.tract",
-      "optional": true,
       "id": "niml_dset",
       "name": "NIML dataset"
     },
     {
       "path-template": "[PREFIX].trk",
       "description": "TrackVis-like output for viewing in TrackVis",
-      "optional": true,
       "id": "trk",
       "name": "TrackVis output"
     },
     {
       "path-template": "[PREFIX]_PAIRS.niml.lt",
       "description": "Output of PAIRMAP labeltable",
-      "optional": true,
       "id": "pairmap_labeltable",
       "name": "PAIRMAP labeltable"
     },
     {
       "path-template": "[PREFIX]_roi.labs",
       "description": "Output file of all ROI labels",
-      "optional": true,
       "id": "roi_labels",
       "name": "ROI labels output"
     },
     {
       "path-template": "[PREFIX].niml.opts",
       "description": "Output of all option values",
-      "optional": true,
       "id": "option_values",
       "name": "Option values output"
     }

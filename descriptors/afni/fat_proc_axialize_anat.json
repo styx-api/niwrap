@@ -39,7 +39,6 @@
       "description": "Switch for T2-weighted image processing",
       "value-key": "[MODE_T2W]",
       "type": "Flag",
-      "optional": true,
       "id": "mode_t2w",
       "name": "Mode T2w flag"
     },
@@ -48,7 +47,6 @@
       "description": "Switch for T1-weighted image processing",
       "value-key": "[MODE_T1W]",
       "type": "Flag",
-      "optional": true,
       "id": "mode_t1w",
       "name": "Mode T1w flag"
     },
@@ -66,7 +64,6 @@
       "description": "Match the final output volume space FOV and spatial resolution to the reference file",
       "value-key": "[OUT_MATCH_REF]",
       "type": "Flag",
-      "optional": true,
       "id": "out_match_ref",
       "name": "Output match reference space flag"
     },
@@ -75,7 +72,6 @@
       "description": "Apply a ceiling based on the 98%ile value within an automasked volume",
       "value-key": "[DO_CEIL_OUT]",
       "type": "Flag",
-      "optional": true,
       "id": "do_ceil_out",
       "name": "Ceiling output flag"
     },
@@ -120,7 +116,6 @@
       "description": "Make a mask by simply skullstripping input data set",
       "value-key": "[FOCUS_BY_SS]",
       "type": "Flag",
-      "optional": true,
       "id": "focus_by_ss",
       "name": "Focus by skullstrip flag"
     },
@@ -138,7 +133,6 @@
       "description": "Pre-align the centers of mass of the volumes",
       "value-key": "[PRE_ALIGN_CENTER_MASS]",
       "type": "Flag",
-      "optional": true,
       "id": "pre_align_center_mass",
       "name": "Pre-align center of mass flag"
     },
@@ -147,7 +141,6 @@
       "description": "Pre-recenter input center of mass to (0, 0, 0)",
       "value-key": "[PRE_CENTER_MASS]",
       "type": "Flag",
-      "optional": true,
       "id": "pre_center_mass",
       "name": "Pre-center mass flag"
     },
@@ -156,7 +149,6 @@
       "description": "Apply post-alignment left-right symmetrization",
       "value-key": "[POST_LR_SYMM]",
       "type": "Flag",
-      "optional": true,
       "id": "post_lr_symm",
       "name": "Post-alignment left-right symmetrization flag"
     },
@@ -165,7 +157,6 @@
       "description": "Turn off pre-alignment left-right symmetrization",
       "value-key": "[NO_PRE_LR_SYMM]",
       "type": "Flag",
-      "optional": true,
       "id": "no_pre_lr_symm",
       "name": "No pre-alignment left-right symmetrization flag"
     },
@@ -174,7 +165,6 @@
       "description": "Do not remove working directory '__WORKING_axialize_anat'",
       "value-key": "[NO_CLEAN]",
       "type": "Flag",
-      "optional": true,
       "id": "no_clean",
       "name": "No clean flag"
     },
@@ -195,7 +185,6 @@
       "description": "Turn off default QC image saving/viewing",
       "value-key": "[NO_QC_VIEW]",
       "type": "Flag",
-      "optional": true,
       "id": "no_qc_view",
       "name": "No QC view flag"
     },
@@ -214,14 +203,12 @@
     {
       "path-template": "[PREFIX].nii.gz",
       "description": "An anatomical data set that is regularly situated within its FOV volume",
-      "optional": true,
       "id": "output_file",
       "name": "Output file"
     },
     {
       "path-template": "[WORKDIR]",
       "description": "The working directory with intermediate files",
-      "optional": true,
       "id": "working_directory",
       "name": "Working directory"
     }

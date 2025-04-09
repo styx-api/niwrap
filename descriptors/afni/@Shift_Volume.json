@@ -26,7 +26,6 @@
       "description": "Move dataset from MNI Anatomical space to MNI space (equivalent to -rai_shift 0 -4 -5)",
       "value-key": "[MNI_ANAT_TO_MNI]",
       "type": "Flag",
-      "optional": true,
       "id": "mni_anat_to_mni",
       "name": "MNI Anatomical to MNI Space"
     },
@@ -35,7 +34,6 @@
       "description": "Move dataset from MNI space to MNI Anatomical space (equivalent to -rai_shift 0 4 5)",
       "value-key": "[MNI_TO_MNI_ANAT]",
       "type": "Flag",
-      "optional": true,
       "id": "mni_to_mni_anat",
       "name": "MNI to MNI Anatomical Space"
     },
@@ -53,7 +51,6 @@
       "description": "Do not create new data, shift the existing ones (use with caution).",
       "value-key": "[NO_CP]",
       "type": "Flag",
-      "optional": true,
       "id": "no_cp",
       "name": "No Copy Flag"
     },
@@ -72,7 +69,6 @@
     {
       "path-template": "[PREFIX].nii.gz",
       "description": "Shifted output dataset.",
-      "optional": false,
       "id": "output_file",
       "name": "Output File"
     }

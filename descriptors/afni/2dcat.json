@@ -39,7 +39,6 @@
       "description": "Use the intensity (average color) of the pixel instead of its color.",
       "value-key": "[SCALE_INTENSITY]",
       "type": "Flag",
-      "optional": true,
       "id": "scale_intensity",
       "name": "Scale Intensity"
     },
@@ -57,7 +56,6 @@
       "description": "Force output to be in RGB, even if input is bytes.",
       "value-key": "[RGB_OUT]",
       "type": "Flag",
-      "optional": true,
       "id": "rgb_out",
       "name": "RGB Out"
     },
@@ -131,7 +129,6 @@
       "description": "Automatically crop lines with default tolerances using both autocrop_atol and autocrop_ctol set to 20.",
       "value-key": "[AUTOCROP]",
       "type": "Flag",
-      "optional": true,
       "id": "autocrop",
       "name": "Auto Crop"
     },
@@ -140,7 +137,6 @@
       "description": "Use solid black images if not enough images are provided to fill the matrix.",
       "value-key": "[ZERO_WRAP]",
       "type": "Flag",
-      "optional": true,
       "id": "zero_wrap",
       "name": "Zero Wrap"
     },
@@ -149,7 +145,6 @@
       "description": "Use solid white images if not enough images are provided to fill the matrix.",
       "value-key": "[WHITE_WRAP]",
       "type": "Flag",
-      "optional": true,
       "id": "white_wrap",
       "name": "White Wrap"
     },
@@ -169,7 +164,6 @@
       "description": "Reuse images to fill the matrix. This is the default behavior.",
       "value-key": "[IMAGE_WRAP]",
       "type": "Flag",
-      "optional": true,
       "id": "image_wrap",
       "name": "Image Wrap"
     },
@@ -178,7 +172,6 @@
       "description": "Randomize the order of images when reusing to fill the matrix.",
       "value-key": "[RAND_WRAP]",
       "type": "Flag",
-      "optional": true,
       "id": "rand_wrap",
       "name": "Random Wrap"
     },
@@ -226,7 +219,6 @@
       "description": "Set matrix dimensions NX and NY to be the same as the SCALE_IMG's dimensions. Requires the -scale_image option.",
       "value-key": "[MATRIX_FROM_SCALE]",
       "type": "Flag",
-      "optional": true,
       "id": "matrix_from_scale",
       "name": "Matrix from Scale"
     },
@@ -256,14 +248,12 @@
     {
       "path-template": "[PREFIX].ppm",
       "description": "The main output image matrix file.",
-      "optional": false,
       "id": "output_image",
       "name": "Output Image"
     },
     {
       "path-template": "[PREFIX].1D",
       "description": "A 1D file containing the average of RGB values, if the prefix ends with .1D.",
-      "optional": true,
       "id": "output_1D",
       "name": "Output 1D File"
     }

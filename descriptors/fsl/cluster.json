@@ -42,7 +42,6 @@
       "value-key": "[FIND_MIN]",
       "command-line-flag": "--min",
       "description": "Find minima instead of maxima.",
-      "optional": true,
       "default-value": false
     },
     {
@@ -52,7 +51,6 @@
       "value-key": "[FRACTIONAL]",
       "command-line-flag": "--fractional",
       "description": "Interprets the threshold as a fraction of the robust range.",
-      "optional": true,
       "default-value": false
     },
     {
@@ -72,7 +70,6 @@
       "value-key": "[MINCLUSTERSIZE]",
       "command-line-flag": "--minclustersize",
       "description": "Prints out minimum significant cluster size.",
-      "optional": true,
       "default-value": false
     },
     {
@@ -82,7 +79,6 @@
       "value-key": "[NO_TABLE]",
       "command-line-flag": "--no_table",
       "description": "Suppresses printing of the table info.",
-      "optional": true,
       "default-value": false
     },
     {
@@ -103,8 +99,7 @@
       "value-key": "[OUT_INDEX_FILE]",
       "command-line-flag": "--oindex",
       "command-line-flag-separator": "=",
-      "description": "A boolean or file. Output of cluster index (in size order).",
-      "optional": true
+      "description": "A boolean or file. Output of cluster index (in size order)."
     },
     {
       "id": "out_index_file_2",
@@ -123,8 +118,7 @@
       "value-key": "[OUT_LOCALMAX_TXT_FILE]",
       "command-line-flag": "--olmax",
       "command-line-flag-separator": "=",
-      "description": "A boolean or file. Local maxima text file.",
-      "optional": true
+      "description": "A boolean or file. Local maxima text file."
     },
     {
       "id": "out_localmax_txt_file_2",
@@ -143,8 +137,7 @@
       "value-key": "[OUT_LOCALMAX_VOL_FILE]",
       "command-line-flag": "--olmaxim",
       "command-line-flag-separator": "=",
-      "description": "A boolean or file. Output of local maxima volume.",
-      "optional": true
+      "description": "A boolean or file. Output of local maxima volume."
     },
     {
       "id": "out_localmax_vol_file_2",
@@ -163,8 +156,7 @@
       "value-key": "[OUT_MAX_FILE]",
       "command-line-flag": "--omax",
       "command-line-flag-separator": "=",
-      "description": "A boolean or file. Filename for output of max image.",
-      "optional": true
+      "description": "A boolean or file. Filename for output of max image."
     },
     {
       "id": "out_max_file_2",
@@ -183,8 +175,7 @@
       "value-key": "[OUT_MEAN_FILE]",
       "command-line-flag": "--omean",
       "command-line-flag-separator": "=",
-      "description": "A boolean or file. Filename for output of mean image.",
-      "optional": true
+      "description": "A boolean or file. Filename for output of mean image."
     },
     {
       "id": "out_mean_file_2",
@@ -203,8 +194,7 @@
       "value-key": "[OUT_PVAL_FILE]",
       "command-line-flag": "--opvals",
       "command-line-flag-separator": "=",
-      "description": "A boolean or file. Filename for image output of log pvals.",
-      "optional": true
+      "description": "A boolean or file. Filename for image output of log pvals."
     },
     {
       "id": "out_pval_file_2",
@@ -223,8 +213,7 @@
       "value-key": "[OUT_SIZE_FILE]",
       "command-line-flag": "--osize",
       "command-line-flag-separator": "=",
-      "description": "A boolean or file. Filename for output of size image.",
-      "optional": true
+      "description": "A boolean or file. Filename for output of size image."
     },
     {
       "id": "out_size_file_2",
@@ -243,8 +232,7 @@
       "value-key": "[OUT_THRESHOLD_FILE]",
       "command-line-flag": "--othresh",
       "command-line-flag-separator": "=",
-      "description": "A boolean or file. Thresholded image.",
-      "optional": true
+      "description": "A boolean or file. Thresholded image."
     },
     {
       "id": "out_threshold_file_2",
@@ -313,7 +301,6 @@
       "value-key": "[USE_MM]",
       "command-line-flag": "--mm",
       "description": "Use mm, not voxel, coordinates.",
-      "optional": true,
       "default-value": false
     },
     {
@@ -353,56 +340,48 @@
       "name": "Index file",
       "id": "index_file",
       "path-template": "index_file",
-      "optional": true,
       "description": "Output of cluster index (in size order)."
     },
     {
       "name": "Localmax txt file",
       "id": "localmax_txt_file",
       "path-template": "localmax_txt_file",
-      "optional": true,
       "description": "Local maxima text file."
     },
     {
       "name": "Localmax vol file",
       "id": "localmax_vol_file",
       "path-template": "localmax_vol_file",
-      "optional": true,
       "description": "Output of local maxima volume."
     },
     {
       "name": "Max file",
       "id": "max_file",
       "path-template": "max_file",
-      "optional": true,
       "description": "Filename for output of max image."
     },
     {
       "name": "Mean file",
       "id": "mean_file",
       "path-template": "mean_file",
-      "optional": true,
       "description": "Filename for output of mean image."
     },
     {
       "name": "Pval file",
       "id": "pval_file",
       "path-template": "pval_file",
-      "optional": true,
       "description": "Filename for image output of log pvals."
     },
     {
       "name": "Size file",
       "id": "size_file",
       "path-template": "size_file",
-      "optional": true,
       "description": "Filename for output of size image."
     },
     {
       "name": "Threshold file",
       "id": "threshold_file",
       "path-template": "threshold_file",
-      "optional": true,
       "description": "Thresholded image."
     }
   ],

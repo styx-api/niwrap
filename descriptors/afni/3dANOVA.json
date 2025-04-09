@@ -44,7 +44,6 @@
       "description": "Print out the required disk space for program execution",
       "value-key": "[DISKSPACE]",
       "type": "Flag",
-      "optional": true,
       "id": "diskspace",
       "name": "Disk space flag",
       "command-line-flag": "-diskspace"
@@ -108,7 +107,6 @@
       "description": "Perform ANOVA using the previous functionality",
       "value-key": "[OLD_METHOD]",
       "type": "Flag",
-      "optional": true,
       "id": "old_method",
       "name": "Old method flag",
       "command-line-flag": "-old_method"
@@ -117,7 +115,6 @@
       "description": "Confirm understanding of t-stats and sphericity assumptions with old method",
       "value-key": "[OK]",
       "type": "Flag",
-      "optional": true,
       "id": "ok",
       "name": "OK flag",
       "command-line-flag": "-OK"
@@ -126,7 +123,6 @@
       "description": "Assume sphericity (zero-sum contrasts only)",
       "value-key": "[ASSUME_SPH]",
       "type": "Flag",
-      "optional": true,
       "id": "assume_sph",
       "name": "Assume sphericity flag",
       "command-line-flag": "-assume_sph"
@@ -146,70 +142,60 @@
     {
       "path-template": "[FTR].HEAD",
       "description": "Output F-statistic dataset file",
-      "optional": true,
       "id": "ftr_output",
       "name": "F-statistic output file"
     },
     {
       "path-template": "[FTR].BRIK",
       "description": "Output F-statistic BRIK file",
-      "optional": true,
       "id": "ftr_brick_output",
       "name": "F-statistic BRIK output file"
     },
     {
       "path-template": "[MEAN]_mean.HEAD",
       "description": "Output mean dataset file",
-      "optional": true,
       "id": "mean_output",
       "name": "Mean output file"
     },
     {
       "path-template": "[MEAN]_mean.BRIK",
       "description": "Output mean BRIK file",
-      "optional": true,
       "id": "mean_brick_output",
       "name": "Mean BRIK output file"
     },
     {
       "path-template": "[DIFF]_diff.HEAD",
       "description": "Output difference dataset file",
-      "optional": true,
       "id": "diff_output",
       "name": "Difference output file"
     },
     {
       "path-template": "[DIFF]_diff.BRIK",
       "description": "Output difference BRIK file",
-      "optional": true,
       "id": "diff_brick_output",
       "name": "Difference BRIK output file"
     },
     {
       "path-template": "[CONTR]_contr.HEAD",
       "description": "Output contrast dataset file",
-      "optional": true,
       "id": "contr_output",
       "name": "Contrast output file"
     },
     {
       "path-template": "[CONTR]_contr.BRIK",
       "description": "Output contrast BRIK file",
-      "optional": true,
       "id": "contr_brick_output",
       "name": "Contrast BRIK output file"
     },
     {
       "path-template": "[BUCKET].HEAD",
       "description": "Output bucket dataset file",
-      "optional": true,
       "id": "bucket_output",
       "name": "Bucket output file"
     },
     {
       "path-template": "[BUCKET].BRIK",
       "description": "Output bucket BRIK file",
-      "optional": true,
       "id": "bucket_brick_output",
       "name": "Bucket BRIK output file"
     }

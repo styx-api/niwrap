@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "mris_anatomical_stats",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "PLACEHOLDER_FOR_DESCRIPTOR_URL",
   "description": "This program computes a number of anatomical properties.",
   "command-line": "mris_anatomical_stats [SUBJECTNAME] [HEMISPHERE] [SURFACENAME] [THICKNESS_RANGE] [LABEL_FILE] [THICKNESS_FILE] [ANNOTATION_FILE] [TABULAR_OUTPUT] [TABLEFILE] [LOGFILE] [NSMOOTH] [COLOR_TABLE] [NOGLOBAL] [TH3_COMPUTATION]",
   "container-image": {
@@ -79,7 +78,6 @@
       "description": "Tabular output",
       "value-key": "[TABULAR_OUTPUT]",
       "type": "Flag",
-      "optional": true,
       "id": "tabular_output",
       "name": "Tabular Output Flag"
     },
@@ -124,7 +122,6 @@
       "description": "Do not compute global brain stats",
       "value-key": "[NOGLOBAL]",
       "type": "Flag",
-      "optional": true,
       "id": "noglobal",
       "name": "No Global Stats Flag"
     },
@@ -133,7 +130,6 @@
       "description": "Compute vertex-wise volume by dividing each obliquely truncated trilateral pyramid into three tetrahedra",
       "value-key": "[TH3_COMPUTATION]",
       "type": "Flag",
-      "optional": true,
       "id": "th3_computation",
       "name": "TH3 Computation Flag"
     }
@@ -142,21 +138,18 @@
     {
       "path-template": "[LOGFILE].txt",
       "description": "Output log file of the statistics",
-      "optional": true,
       "id": "output_log_file",
       "name": "Output Log File"
     },
     {
       "path-template": "[TABLEFILE].txt",
       "description": "Tabular output stored in a table file",
-      "optional": true,
       "id": "output_table_file",
       "name": "Output Table File"
     },
     {
       "path-template": "[COLOR_TABLE].txt",
       "description": "Output annotation color table file",
-      "optional": true,
       "id": "output_ctab_file",
       "name": "Output Color Table File"
     }

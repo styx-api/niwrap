@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "mri_nu_correct.mni",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "N/A",
   "description": "Wrapper for nu_correct, used for correcting intensity non-uniformity (bias fields).",
   "command-line": "mri_nu_correct.mni [INPUT_VOLUME] [OUTPUT_VOLUME] [ITERATIONS] [PROTO_ITERATIONS] [MASK_VOLUME] [STOP_THRESHOLD] [UCHAR_TRANSFORM] [ANTS_N3] [ANTS_N4] [NO_UCHAR] [ANTS_N4_REPLACE_ZEROS] [CM_FLAG] [DEBUG_FLAG]",
   "container-image": {
@@ -79,7 +78,6 @@
       "description": "Do not use mri_make_uchar (default).",
       "value-key": "[NO_UCHAR]",
       "type": "Flag",
-      "optional": true,
       "id": "no_uchar",
       "name": "No UChar Flag"
     },
@@ -88,7 +86,6 @@
       "description": "Run N3 using ANTS N3BiasFieldCorrection.",
       "value-key": "[ANTS_N3]",
       "type": "Flag",
-      "optional": true,
       "id": "ants_n3",
       "name": "ANTS N3 Flag"
     },
@@ -97,7 +94,6 @@
       "description": "Run N4 using ANTS N4BiasFieldCorrection.",
       "value-key": "[ANTS_N4]",
       "type": "Flag",
-      "optional": true,
       "id": "ants_n4",
       "name": "ANTS N4 Flag"
     },
@@ -106,7 +102,6 @@
       "description": "Replace 0s with small random numbers then remove after nu correction.",
       "value-key": "[ANTS_N4_REPLACE_ZEROS]",
       "type": "Flag",
-      "optional": true,
       "id": "ants_n4_replace_zeros",
       "name": "ANTS N4 Replace Zeros Flag"
     },
@@ -115,7 +110,6 @@
       "description": "For use with data that is higher than 1mm resolution.",
       "value-key": "[CM_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "cm_flag",
       "name": "CM Flag"
     },
@@ -124,7 +118,6 @@
       "description": "Turn on debugging.",
       "value-key": "[DEBUG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug_flag",
       "name": "Debug Flag"
     }
@@ -133,7 +126,6 @@
     {
       "path-template": "[OUTPUT_VOLUME]",
       "description": "Corrected output volume.",
-      "optional": false,
       "id": "corrected_output",
       "name": "Corrected Output Volume"
     }

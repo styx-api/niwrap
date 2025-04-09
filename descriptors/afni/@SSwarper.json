@@ -60,7 +60,6 @@
       "command-line-flag": "-nolite",
       "value-key": "[NO_LITE]",
       "type": "Flag",
-      "optional": true,
       "id": "no_lite",
       "name": "No lite"
     },
@@ -69,7 +68,6 @@
       "command-line-flag": "-skipwarp",
       "value-key": "[SKIP_WARP]",
       "type": "Flag",
-      "optional": true,
       "id": "skip_warp",
       "name": "Skip warp"
     },
@@ -78,7 +76,6 @@
       "command-line-flag": "-unifize_off",
       "value-key": "[UNIFIZE_OFF]",
       "type": "Flag",
-      "optional": true,
       "id": "unifize_off",
       "name": "Unifize off"
     },
@@ -87,7 +84,6 @@
       "command-line-flag": "-init_skullstr_off",
       "value-key": "[INIT_SKULLSTR_OFF]",
       "type": "Flag",
-      "optional": true,
       "id": "init_skullstr_off",
       "name": "Init skullstrip off"
     },
@@ -96,7 +92,6 @@
       "command-line-flag": "-extra_qc_off",
       "value-key": "[EXTRA_QC_OFF]",
       "type": "Flag",
-      "optional": true,
       "id": "extra_qc_off",
       "name": "Extra QC off"
     },
@@ -105,7 +100,6 @@
       "command-line-flag": "-jump_to_extra_qc",
       "value-key": "[JUMP_TO_EXTRA_QC]",
       "type": "Flag",
-      "optional": true,
       "id": "jump_to_extra_qc",
       "name": "Jump to extra QC"
     },
@@ -132,7 +126,6 @@
       "command-line-flag": "-deoblique",
       "value-key": "[DEOBLIQUE]",
       "type": "Flag",
-      "optional": true,
       "id": "deoblique",
       "name": "Deoblique"
     },
@@ -141,7 +134,6 @@
       "command-line-flag": "-deoblique_refitly",
       "value-key": "[DEOBLIQUE_REFITLY]",
       "type": "Flag",
-      "optional": true,
       "id": "deoblique_refitly",
       "name": "Deoblique refitly"
     },
@@ -170,7 +162,6 @@
       "command-line-flag": "-aniso_off",
       "value-key": "[ANISO_OFF]",
       "type": "Flag",
-      "optional": true,
       "id": "aniso_off",
       "name": "Aniso off"
     },
@@ -179,7 +170,6 @@
       "command-line-flag": "-ceil_off",
       "value-key": "[CEIL_OFF]",
       "type": "Flag",
-      "optional": true,
       "id": "ceil_off",
       "name": "Ceil off"
     },
@@ -188,7 +178,6 @@
       "command-line-flag": "-tmp_name_nice",
       "value-key": "[TMP_NAME_NICE]",
       "type": "Flag",
-      "optional": true,
       "id": "tmp_name_nice",
       "name": "Temporary file naming"
     },
@@ -197,7 +186,6 @@
       "command-line-flag": "-echo",
       "value-key": "[ECHO]",
       "type": "Flag",
-      "optional": true,
       "id": "echo",
       "name": "Echo flag"
     },
@@ -206,7 +194,6 @@
       "command-line-flag": "-verb",
       "value-key": "[VERBOSE]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose",
       "name": "Verbose flag"
     },
@@ -215,7 +202,6 @@
       "command-line-flag": "-noclean",
       "value-key": "[NOCLEAN]",
       "type": "Flag",
-      "optional": true,
       "id": "noclean",
       "name": "No clean flag"
     }
@@ -225,98 +211,84 @@
     {
       "path-template": "anatDO.[SUBJECT_ID].nii",
       "description": "Deobliqued version of original dataset",
-      "optional": true,
       "id": "anatDO",
       "name": "Deobliqued Dataset"
     },
     {
       "path-template": "anatU.[SUBJECT_ID].nii",
       "description": "Intensity uniform-ized original dataset",
-      "optional": true,
       "id": "anatU",
       "name": "Uniformized Dataset"
     },
     {
       "path-template": "anatUA.[SUBJECT_ID].nii",
       "description": "Anisotropically smoothed version of the uniformized dataset",
-      "optional": true,
       "id": "anatUA",
       "name": "Anisotropically Smoothed Dataset"
     },
     {
       "path-template": "anatUAC.[SUBJECT_ID].nii",
       "description": "Ceiling-capped version of the anisotropically smoothed dataset",
-      "optional": true,
       "id": "anatUAC",
       "name": "Ceiling-capped Dataset"
     },
     {
       "path-template": "anatS.[SUBJECT_ID].nii",
       "description": "First pass skull-stripped original dataset",
-      "optional": true,
       "id": "anatS",
       "name": "First Pass Skull-stripped Dataset"
     },
     {
       "path-template": "anatSS.[SUBJECT_ID].nii",
       "description": "Second pass skull-stripped original dataset",
-      "optional": true,
       "id": "anatSS",
       "name": "Second Pass Skull-stripped Dataset"
     },
     {
       "path-template": "anatQQ.[SUBJECT_ID].nii",
       "description": "Skull-stripped dataset nonlinearly warped to the base template space",
-      "optional": true,
       "id": "anatQQ",
       "name": "Nonlinearly Warped Dataset"
     },
     {
       "path-template": "anatQQ.[SUBJECT_ID].aff12.1D",
       "description": "Affine matrix to transform original dataset to base template space",
-      "optional": true,
       "id": "anatQQ_affine",
       "name": "Affine Transformation Matrix"
     },
     {
       "path-template": "anatQQ.[SUBJECT_ID]_WARP.nii",
       "description": "Incremental warp from affine transformation to nonlinearly aligned dataset",
-      "optional": true,
       "id": "anatQQ_warp",
       "name": "Incremental Warp"
     },
     {
       "path-template": "AM[SUBJECT_ID].jpg",
       "description": "3x3 snapshot image of the nonlinearly warped dataset with edges from the base template overlaid",
-      "optional": true,
       "id": "AM_snapshot",
       "name": "AM Snapshot"
     },
     {
       "path-template": "MA[SUBJECT_ID].jpg",
       "description": "Similar to AM_snapshot, but with roles of the template and anatomical dataset reversed",
-      "optional": true,
       "id": "MA_snapshot",
       "name": "MA Snapshot"
     },
     {
       "path-template": "QC_anatQQ.[SUBJECT_ID].jpg",
       "description": "3 rows of 8 slices snapshot image for checking alignment",
-      "optional": true,
       "id": "QC_anatQQ",
       "name": "QC anatQQ Snapshot"
     },
     {
       "path-template": "QC_anatSS.[SUBJECT_ID].jpg",
       "description": "Snapshot image to check skullstripping in original space",
-      "optional": true,
       "id": "QC_anatSS",
       "name": "QC anatSS Snapshot"
     },
     {
       "path-template": "init_qc_00_overlap_uinp_obase.jpg",
       "description": "Montage to check initial overlap of source and base datasets",
-      "optional": true,
       "id": "init_overlap_qc",
       "name": "Initial Overlap QC"
     }

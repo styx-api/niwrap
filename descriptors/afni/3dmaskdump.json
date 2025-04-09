@@ -46,7 +46,6 @@
       "description": "Write out the dataset index values.",
       "value-key": "[OUTPUT_INDEX]",
       "type": "Flag",
-      "optional": true,
       "id": "output_index",
       "name": "Output index values"
     },
@@ -55,7 +54,6 @@
       "description": "Do not write out the i,j,k values.",
       "value-key": "[OUTPUT_NOIJK]",
       "type": "Flag",
-      "optional": true,
       "id": "output_noijk",
       "name": "Exclude i,j,k values"
     },
@@ -64,7 +62,6 @@
       "description": "Write the x,y,z coordinates from the first input dataset at the start of each output line.",
       "value-key": "[OUTPUT_XYZ]",
       "type": "Flag",
-      "optional": true,
       "id": "output_xyz",
       "name": "Output x,y,z coordinates"
     },
@@ -154,7 +151,6 @@
       "description": "Skip output of any voxel where all the data values are zero.",
       "value-key": "[NOZERO_OUTPUT]",
       "type": "Flag",
-      "optional": true,
       "id": "nozero_output",
       "name": "Exclude zero values"
     },
@@ -190,7 +186,6 @@
       "description": "Do not print progress messages to stderr.",
       "value-key": "[QUIET_MODE]",
       "type": "Flag",
-      "optional": true,
       "id": "quiet_mode",
       "name": "Quiet mode"
     }
@@ -199,7 +194,6 @@
     {
       "path-template": "[OUTPUT_FILENAME]",
       "description": "Output ASCII file with voxel values",
-      "optional": false,
       "id": "output_file",
       "name": "Output file"
     }

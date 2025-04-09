@@ -59,7 +59,6 @@
       "description": "Fill ribbon.",
       "value-key": "[FILL_RIBBON]",
       "type": "Flag",
-      "optional": true,
       "id": "fill_ribbon",
       "name": "Fill Ribbon Flag"
     },
@@ -113,7 +112,6 @@
       "description": "Do not delete temporary files.",
       "value-key": "[NOCLEANUP]",
       "type": "Flag",
-      "optional": true,
       "id": "nocleanup",
       "name": "No Cleanup Flag"
     },
@@ -122,7 +120,6 @@
       "description": "Turn on debugging.",
       "value-key": "[DEBUG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug",
       "name": "Debug Flag"
     }
@@ -131,21 +128,18 @@
     {
       "path-template": "[OUTPUT_VOLUME].mgh",
       "description": "Output volume file after surface-based smoothing.",
-      "optional": false,
       "id": "outvol_file",
       "name": "Output Volume File"
     },
     {
       "path-template": "[SURF_OUT].lh.mgh",
       "description": "Left hemisphere smoothed surface output.",
-      "optional": true,
       "id": "lh_surface_output",
       "name": "Left Hemisphere Surface Output"
     },
     {
       "path-template": "[SURF_OUT].rh.mgh",
       "description": "Right hemisphere smoothed surface output.",
-      "optional": true,
       "id": "rh_surface_output",
       "name": "Right Hemisphere Surface Output"
     }

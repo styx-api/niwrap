@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "segment_subject_sc",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "https://freesurfer.net/fswiki/segment_subject_sc",
   "description": "Front-end for MINC's mritotal. Computes the Talairach transform for mapping the input volume to the MNI305 space.",
   "command-line": "segment_subject_sc [INVOL] [OUTXFM] [LOG] [DEBUG]",
   "container-image": {
@@ -44,7 +43,6 @@
       "description": "Turn on debugging",
       "value-key": "[DEBUG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug",
       "name": "Debug Flag"
     }
@@ -53,7 +51,6 @@
     {
       "path-template": "[OUTXFM]",
       "description": "Output transform file (xfm)",
-      "optional": false,
       "id": "output_xfm_file",
       "name": "Output XFM File"
     }

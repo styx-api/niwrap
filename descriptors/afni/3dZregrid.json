@@ -2,7 +2,6 @@
   "tool-version": "24.2.06",
   "name": "3dZregrid",
   "author": "AFNI Developers",
-  "descriptor-url": "https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dZregrid.html",
   "description": "Alters the input dataset's slice thickness and/or number.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dZregrid [Z_THICKNESS] [SLICE_COUNT] [Z_SIZE] [PREFIX] [INFILE] [VERBOSE]",
@@ -60,7 +59,6 @@
       "description": "Write progress reports to stderr",
       "value-key": "[VERBOSE]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose",
       "name": "Verbose Flag"
     }
@@ -70,14 +68,12 @@
     {
       "path-template": "[PREFIX]+orig.HEAD",
       "description": "Output dataset with new grid",
-      "optional": false,
       "id": "outfile_head",
       "name": "Output dataset HEAD file"
     },
     {
       "path-template": "[PREFIX]+orig.BRIK",
       "description": "Output dataset with new grid",
-      "optional": false,
       "id": "outfile_brik",
       "name": "Output dataset BRIK file"
     }

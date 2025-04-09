@@ -32,7 +32,6 @@
       "description": "Create isosurface for each unique value in the input volume.",
       "value-key": "[ISOROIS]",
       "type": "Flag",
-      "optional": true,
       "id": "isorois",
       "name": "Isosurface for unique values",
       "command-line-flag": "-isorois"
@@ -97,7 +96,6 @@
       "description": "Crop input volume before extraction.",
       "value-key": "[AUTOCROP]",
       "type": "Flag",
-      "optional": true,
       "id": "autocrop",
       "name": "Autocrop",
       "command-line-flag": "-autocrop"
@@ -124,7 +122,6 @@
       "description": "Ignore any Rotate, Volreg, Tagalign, or WarpDrive transformations.",
       "value-key": "[NOVOLREG]",
       "type": "Flag",
-      "optional": true,
       "id": "novolreg",
       "name": "No Volreg Transform",
       "command-line-flag": "-novolreg"
@@ -133,7 +130,6 @@
       "description": "Same as -novolreg.",
       "value-key": "[NOXFORM]",
       "type": "Flag",
-      "optional": true,
       "id": "noxform",
       "name": "No Transform",
       "command-line-flag": "-noxform"
@@ -143,21 +139,18 @@
     {
       "path-template": "[MASK]_surf.ply",
       "description": "Output isosurface in PLY format.",
-      "optional": true,
       "id": "output_surface_ply",
       "name": "Output Surface PLY"
     },
     {
       "path-template": "[MASK]_surf.gii",
       "description": "Output isosurface in GIFTI format.",
-      "optional": true,
       "id": "output_surface_gii",
       "name": "Output Surface GIFTI"
     },
     {
       "path-template": "[MASK]_surf.stl",
       "description": "Output isosurface in STL format.",
-      "optional": true,
       "id": "output_surface_stl",
       "name": "Output Surface STL"
     }

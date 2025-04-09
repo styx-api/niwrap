@@ -32,7 +32,6 @@
       "description": "Replace Feat-generated example_func2standard.",
       "value-key": "[OVERWRITE_EXF2STD]",
       "type": "Flag",
-      "optional": true,
       "id": "overwrite_exf2std",
       "name": "Overwrite example_func2standard flag",
       "command-line-flag": "--overwrite-exf2std"
@@ -41,7 +40,6 @@
       "description": "Interactively view/edit registration.",
       "value-key": "[MANUAL]",
       "type": "Flag",
-      "optional": true,
       "id": "manual",
       "name": "Manual registration flag",
       "command-line-flag": "--manual"
@@ -98,7 +96,6 @@
       "description": "Run betfunc on example_func (not with FSL 4.0).",
       "value-key": "[BET]",
       "type": "Flag",
-      "optional": true,
       "id": "bet",
       "name": "Bet function flag",
       "command-line-flag": "--bet"
@@ -116,7 +113,6 @@
       "description": "Do not use boundary-based registration.",
       "value-key": "[NO_BBR]",
       "type": "Flag",
-      "optional": true,
       "id": "no_bbr",
       "name": "No BBR flag",
       "command-line-flag": "--no-bbr"
@@ -125,7 +121,6 @@
       "description": "Use SPM instead of FLIRT, 6 dof only.",
       "value-key": "[SPM]",
       "type": "Flag",
-      "optional": true,
       "id": "spm",
       "name": "SPM flag",
       "command-line-flag": "--spm"
@@ -134,7 +129,6 @@
       "description": "Do not inorm when running tkregister2.",
       "value-key": "[NO_INORM]",
       "type": "Flag",
-      "optional": true,
       "id": "no_inorm",
       "name": "No inorm flag",
       "command-line-flag": "--no-inorm"
@@ -152,7 +146,6 @@
       "description": "Turn on debugging.",
       "value-key": "[DEBUG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug",
       "name": "Debug flag",
       "command-line-flag": "--debug"
@@ -162,56 +155,48 @@
     {
       "path-template": "featdir/reg/freesurfer/anat2std.register.dat",
       "description": "Init FS reg from anat to FSL-standard",
-      "optional": true,
       "id": "anat2std_register",
       "name": "Anat to standard registration"
     },
     {
       "path-template": "featdir/reg/freesurfer/std2anat.fsl.mat",
       "description": "Init FSL reg from FSL-standard to anat",
-      "optional": true,
       "id": "std2anat_fsl_mat",
       "name": "Standard to anat matrix"
     },
     {
       "path-template": "featdir/reg/freesurfer/exf2anat.init.fsl.mat",
       "description": "Init FSL reg from example_func to anat",
-      "optional": true,
       "id": "exf2anat_init_fsl_mat",
       "name": "Example func to anat init matrix"
     },
     {
       "path-template": "featdir/reg/freesurfer/exf2anat.fsl.mat",
       "description": "Final FSL reg from example_func to anat",
-      "optional": true,
       "id": "exf2anat_fsl_mat",
       "name": "Example func to anat final matrix"
     },
     {
       "path-template": "featdir/reg/freesurfer/anat2exf.register.dat",
       "description": "Final FS reg from example_func to anat",
-      "optional": true,
       "id": "anat2exf_register",
       "name": "Anat to example_func registration"
     },
     {
       "path-template": "featdir/reg/freesurfer/register.dat",
       "description": "Same as anat2exf.register.dat",
-      "optional": true,
       "id": "register_dat",
       "name": "Register data file"
     },
     {
       "path-template": "featdir/reg/freesurfer/example_func2standard.mat",
       "description": "Replacement for feat-generated",
-      "optional": true,
       "id": "example_func2standard_mat",
       "name": "Example func to standard matrix"
     },
     {
       "path-template": "reg/freesurfer/reg-feat2anat.log",
       "description": "Log file for registration",
-      "optional": true,
       "id": "log_file",
       "name": "Log file"
     }

@@ -110,7 +110,6 @@
       "command-line-flag": "-scale_out_1000",
       "value-key": "[SCALE_OUT_1000]",
       "type": "Flag",
-      "optional": true,
       "id": "scale_out_1000",
       "name": "Scale Output to 1000 Flag"
     },
@@ -128,7 +127,6 @@
       "command-line-flag": "-do_clean",
       "value-key": "[DO_CLEAN]",
       "type": "Flag",
-      "optional": true,
       "id": "do_clean",
       "name": "Clean temporary directory"
     }
@@ -138,14 +136,12 @@
     {
       "path-template": "[PREFIX].txt",
       "description": "Text file that stores recommended flip option",
-      "optional": false,
       "id": "output_file",
       "name": "Output File"
     },
     {
       "path-template": "_tmp_TESTFLIP",
       "description": "Temporary working directory to store intermediate files",
-      "optional": true,
       "id": "temp_directory",
       "name": "Temporary Working Directory"
     }

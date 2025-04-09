@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "mris_thickness",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "https://github.com/freesurfer/freesurfer",
   "description": "Measures the thickness of the cortical surface.",
   "command-line": "mris_thickness [SUBJECT_NAME] [HEMI] [THICKNESS_FILE] [MAX_THRESHOLD] [FILL_HOLES] [THICKNESS_FROM_SEG] [VECTOR]",
   "container-image": {
@@ -73,7 +72,6 @@
       "description": "Compute the thickness using a variationally derived vector field.",
       "value-key": "[VECTOR]",
       "type": "Flag",
-      "optional": true,
       "id": "vector",
       "name": "Vector Flag"
     }
@@ -82,7 +80,6 @@
     {
       "path-template": "[THICKNESS_FILE]",
       "description": "Output curvature file containing thickness measurements.",
-      "optional": false,
       "id": "output_thickness_file",
       "name": "Output Thickness File"
     }

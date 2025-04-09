@@ -35,7 +35,6 @@
       "description": "Use 9 degrees of freedom; default is 6.",
       "value-key": "[DOF_9]",
       "type": "Flag",
-      "optional": true,
       "id": "dof_9",
       "name": "9 DOF Flag",
       "command-line-flag": "--9"
@@ -44,7 +43,6 @@
       "description": "Use 12 degrees of freedom; default is 6.",
       "value-key": "[DOF_12]",
       "type": "Flag",
-      "optional": true,
       "id": "dof_12",
       "name": "12 DOF Flag",
       "command-line-flag": "--12"
@@ -62,7 +60,6 @@
       "description": "Register to the middle frame of the mov volume as the template. Cannot be used with --frame.",
       "value-key": "[MID_FRAME]",
       "type": "Flag",
-      "optional": true,
       "id": "mid_frame",
       "name": "Mid Frame Flag",
       "command-line-flag": "--mid-frame"
@@ -98,7 +95,6 @@
       "description": "Do not delete temporary files.",
       "value-key": "[NO_CLEANUP]",
       "type": "Flag",
-      "optional": true,
       "id": "no_cleanup",
       "name": "No Cleanup Flag",
       "command-line-flag": "--nocleanup"
@@ -107,7 +103,6 @@
       "description": "Print the version and exit.",
       "value-key": "[VERSION]",
       "type": "Flag",
-      "optional": true,
       "id": "version",
       "name": "Version Flag",
       "command-line-flag": "--version"
@@ -116,7 +111,6 @@
       "description": "Print help information and exit.",
       "value-key": "[HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "help",
       "name": "Help Flag",
       "command-line-flag": "--help"
@@ -126,14 +120,12 @@
     {
       "path-template": "register.dat",
       "description": "Output registration file in FreeSurfer format.",
-      "optional": false,
       "id": "output_reg_file",
       "name": "Output Registration File"
     },
     {
       "path-template": "[OUTPUT_VOLUME]",
       "description": "The resampled movable volume if --o is specified.",
-      "optional": true,
       "id": "resampled_volume",
       "name": "Resampled Volume"
     }

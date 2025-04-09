@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "bbmask",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "https://github.com/user/repo/blob/master/path/to/bbmask.json",
   "description": "Tool to create a volume with a smaller field of view by creating a bounding box that encompasses a mask.",
   "command-line": "bbmask [MASK] [SRC_VOLUMES] [NPAD] [REGISTRATION] [REGHEADER] [SUB2SRC]",
   "schema-version": "0.5",
@@ -74,35 +73,30 @@
     {
       "path-template": "[MASK_OUTPUT]",
       "description": "Output mask volume",
-      "optional": false,
       "id": "mask_output_file",
       "name": "Mask Output File"
     },
     {
       "path-template": "[SRC_OUTPUT]",
       "description": "Output reduced volume(s)",
-      "optional": true,
       "id": "src_output_file",
       "name": "Source Output Files"
     },
     {
       "path-template": "[REG_OUTPUT]",
       "description": "Output registration file",
-      "optional": true,
       "id": "registration_output_file",
       "name": "Registration Output File"
     },
     {
       "path-template": "[REG_HEADER_OUTPUT]",
       "description": "Output registration file from regheader",
-      "optional": true,
       "id": "regheader_output_file",
       "name": "Regheader Output File"
     },
     {
       "path-template": "[SUB2SRC_OUTPUT]",
       "description": "Output file for sub2src registration",
-      "optional": true,
       "id": "sub2src_output_file",
       "name": "Sub2src Output File"
     }

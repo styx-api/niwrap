@@ -95,7 +95,6 @@
       "description": "Do not delete the intermediate files (for testing)",
       "value-key": "[KEEP_TEMP_FILES]",
       "type": "Flag",
-      "optional": true,
       "id": "keep_temp_files",
       "name": "Keep temp files flag"
     },
@@ -104,7 +103,6 @@
       "description": "Calculate only with spheres and skip boxes",
       "value-key": "[BALLS_ONLY]",
       "type": "Flag",
-      "optional": true,
       "id": "balls_only",
       "name": "Balls only flag"
     },
@@ -123,63 +121,54 @@
     {
       "path-template": "[OUTDIR]/maxfill.nii.gz",
       "description": "Thickness/depth dataset",
-      "optional": false,
       "id": "maxfill",
       "name": "Output maximum fill thickness file"
     },
     {
       "path-template": "[OUTDIR]/bb_thick.nii.gz",
       "description": "Volumetric thickness dataset",
-      "optional": false,
       "id": "bb_thick",
       "name": "Output volumetric thickness file"
     },
     {
       "path-template": "[OUTDIR]/bb_thick_smooth.nii.gz",
       "description": "Smoothed volumetric thickness dataset",
-      "optional": false,
       "id": "bb_thick_smooth",
       "name": "Output smoothed volumetric thickness file"
     },
     {
       "path-template": "[OUTDIR]/bb_thick.niml.dset",
       "description": "Unsmoothed thickness mapped to surface nodes",
-      "optional": false,
       "id": "bb_thick_niml",
       "name": "Output unsmoothed thickness file"
     },
     {
       "path-template": "[OUTDIR]/bb_thick_smooth.niml.dset",
       "description": "Smoothed thickness mapped to surface nodes",
-      "optional": false,
       "id": "bb_thick_smooth_niml",
       "name": "Output smoothed thickness file"
     },
     {
       "path-template": "[OUTDIR]/maskset.nii.gz",
       "description": "Mask dataset",
-      "optional": false,
       "id": "maskset_output",
       "name": "Output mask dataset file"
     },
     {
       "path-template": "[OUTDIR]/maskset_rs.nii.gz",
       "description": "Resampled mask dataset",
-      "optional": true,
       "id": "maskset_resampled",
       "name": "Output resampled mask dataset file"
     },
     {
       "path-template": "[OUTDIR]/anat.gii",
       "description": "Surface representation of mask volume",
-      "optional": false,
       "id": "anat_surface",
       "name": "Output anatomical surface"
     },
     {
       "path-template": "[OUTDIR]/quick.spec",
       "description": "Simple specification file for surface to use with suma commands",
-      "optional": false,
       "id": "quick_spec",
       "name": "Output surface specification file"
     }

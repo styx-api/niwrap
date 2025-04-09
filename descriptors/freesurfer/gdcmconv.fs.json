@@ -31,8 +31,7 @@
       "type": "Flag",
       "command-line-flag": "-X",
       "value-key": "[EXPLICIT_FLAG]",
-      "description": "Change Transfer Syntax to explicit.",
-      "optional": true
+      "description": "Change Transfer Syntax to explicit."
     },
     {
       "id": "implicit_flag",
@@ -40,8 +39,7 @@
       "type": "Flag",
       "command-line-flag": "-M",
       "value-key": "[IMPLICIT_FLAG]",
-      "description": "Change Transfer Syntax to implicit.",
-      "optional": true
+      "description": "Change Transfer Syntax to implicit."
     },
     {
       "id": "use_dict_flag",
@@ -49,8 +47,7 @@
       "type": "Flag",
       "command-line-flag": "-U",
       "value-key": "[USE_DICT_FLAG]",
-      "description": "Use dict for VR (only public by default).",
-      "optional": true
+      "description": "Use dict for VR (only public by default)."
     },
     {
       "id": "with_private_dict_flag",
@@ -58,8 +55,7 @@
       "type": "Flag",
       "command-line-flag": "--with-private-dict",
       "value-key": "[WITH_PRIVATE_DICT_FLAG]",
-      "description": "Use private dict for VR (advanced user only).",
-      "optional": true
+      "description": "Use private dict for VR (advanced user only)."
     },
     {
       "id": "check_meta_flag",
@@ -67,8 +63,7 @@
       "type": "Flag",
       "command-line-flag": "-C",
       "value-key": "[CHECK_META_FLAG]",
-      "description": "Check File Meta Information (advanced user only).",
-      "optional": true
+      "description": "Check File Meta Information (advanced user only)."
     },
     {
       "id": "root_uid",
@@ -85,8 +80,7 @@
       "type": "Flag",
       "command-line-flag": "--remove-gl",
       "value-key": "[REMOVE_GL_FLAG]",
-      "description": "Remove group length (deprecated in DICOM 2008).",
-      "optional": true
+      "description": "Remove group length (deprecated in DICOM 2008)."
     },
     {
       "id": "remove_private_tags_flag",
@@ -94,8 +88,7 @@
       "type": "Flag",
       "command-line-flag": "--remove-private-tags",
       "value-key": "[REMOVE_PRIVATE_TAGS_FLAG]",
-      "description": "Remove private tags.",
-      "optional": true
+      "description": "Remove private tags."
     },
     {
       "id": "remove_retired_flag",
@@ -103,8 +96,7 @@
       "type": "Flag",
       "command-line-flag": "--remove-retired",
       "value-key": "[REMOVE_RETIRED_FLAG]",
-      "description": "Remove retired tags.",
-      "optional": true
+      "description": "Remove retired tags."
     },
     {
       "id": "apply_lut_flag",
@@ -112,8 +104,7 @@
       "type": "Flag",
       "command-line-flag": "-l",
       "value-key": "[APPLY_LUT_FLAG]",
-      "description": "Apply LUT (non-standard, advanced user only).",
-      "optional": true
+      "description": "Apply LUT (non-standard, advanced user only)."
     },
     {
       "id": "photometric_interpretation",
@@ -130,8 +121,7 @@
       "type": "Flag",
       "command-line-flag": "-w",
       "value-key": "[RAW_FLAG]",
-      "description": "Decompress image.",
-      "optional": true
+      "description": "Decompress image."
     },
     {
       "id": "deflated_flag",
@@ -139,8 +129,7 @@
       "type": "Flag",
       "command-line-flag": "-d",
       "value-key": "[DEFLATED_FLAG]",
-      "description": "Compress using deflated (gzip).",
-      "optional": true
+      "description": "Compress using deflated (gzip)."
     },
     {
       "id": "jpeg_flag",
@@ -148,8 +137,7 @@
       "type": "Flag",
       "command-line-flag": "-J",
       "value-key": "[JPEG_FLAG]",
-      "description": "Compress image in jpeg.",
-      "optional": true
+      "description": "Compress image in jpeg."
     },
     {
       "id": "j2k_flag",
@@ -157,8 +145,7 @@
       "type": "Flag",
       "command-line-flag": "-K",
       "value-key": "[J2K_FLAG]",
-      "description": "Compress image in j2k.",
-      "optional": true
+      "description": "Compress image in j2k."
     },
     {
       "id": "jpegls_flag",
@@ -166,8 +153,7 @@
       "type": "Flag",
       "command-line-flag": "-L",
       "value-key": "[JPEGLS_FLAG]",
-      "description": "Compress image in jpeg-ls.",
-      "optional": true
+      "description": "Compress image in jpeg-ls."
     },
     {
       "id": "rle_flag",
@@ -175,8 +161,7 @@
       "type": "Flag",
       "command-line-flag": "-R",
       "value-key": "[RLE_FLAG]",
-      "description": "Compress image in rle (lossless only).",
-      "optional": true
+      "description": "Compress image in rle (lossless only)."
     },
     {
       "id": "force_flag",
@@ -184,8 +169,7 @@
       "type": "Flag",
       "command-line-flag": "-F",
       "value-key": "[FORCE_FLAG]",
-      "description": "Force decompression/merging before recompression/splitting.",
-      "optional": true
+      "description": "Force decompression/merging before recompression/splitting."
     },
     {
       "id": "generate_icon_flag",
@@ -193,8 +177,7 @@
       "type": "Flag",
       "command-line-flag": "--generate-icon",
       "value-key": "[GENERATE_ICON_FLAG]",
-      "description": "Generate icon.",
-      "optional": true
+      "description": "Generate icon."
     },
     {
       "id": "icon_minmax",
@@ -214,8 +197,7 @@
       "type": "Flag",
       "command-line-flag": "--icon-auto-minmax",
       "value-key": "[ICON_AUTO_MINMAX_FLAG]",
-      "description": "Automatically compute best Min/Max values for icon.",
-      "optional": true
+      "description": "Automatically compute best Min/Max values for icon."
     },
     {
       "id": "compress_icon_flag",
@@ -223,8 +205,7 @@
       "type": "Flag",
       "command-line-flag": "--compress-icon",
       "value-key": "[COMPRESS_ICON_FLAG]",
-      "description": "Decide whether icon follows main Transfer Syntax or remains uncompressed.",
-      "optional": true
+      "description": "Decide whether icon follows main Transfer Syntax or remains uncompressed."
     },
     {
       "id": "planar_configuration",
@@ -241,8 +222,7 @@
       "type": "Flag",
       "command-line-flag": "-Y",
       "value-key": "[LOSSY_FLAG]",
-      "description": "Use the lossy (if possible) compressor.",
-      "optional": true
+      "description": "Use the lossy (if possible) compressor."
     },
     {
       "id": "split",
@@ -259,8 +239,7 @@
       "type": "Flag",
       "command-line-flag": "-V",
       "value-key": "[VERBOSE_FLAG]",
-      "description": "More verbose (warning+error).",
-      "optional": true
+      "description": "More verbose (warning+error)."
     },
     {
       "id": "warning_flag",
@@ -268,8 +247,7 @@
       "type": "Flag",
       "command-line-flag": "-W",
       "value-key": "[WARNING_FLAG]",
-      "description": "Print warning info.",
-      "optional": true
+      "description": "Print warning info."
     },
     {
       "id": "debug_flag",
@@ -277,8 +255,7 @@
       "type": "Flag",
       "command-line-flag": "-D",
       "value-key": "[DEBUG_FLAG]",
-      "description": "Print debug info.",
-      "optional": true
+      "description": "Print debug info."
     },
     {
       "id": "error_flag",
@@ -286,8 +263,7 @@
       "type": "Flag",
       "command-line-flag": "-E",
       "value-key": "[ERROR_FLAG]",
-      "description": "Print error info.",
-      "optional": true
+      "description": "Print error info."
     },
     {
       "id": "quiet_flag",
@@ -295,8 +271,7 @@
       "type": "Flag",
       "command-line-flag": "--quiet",
       "value-key": "[QUIET_FLAG]",
-      "description": "Do not print to stdout.",
-      "optional": true
+      "description": "Do not print to stdout."
     },
     {
       "id": "jpeg_quality",
@@ -365,8 +340,7 @@
       "type": "Flag",
       "command-line-flag": "--irreversible",
       "value-key": "[IRREVERSIBLE_FLAG]",
-      "description": "Set irreversible.",
-      "optional": true
+      "description": "Set irreversible."
     },
     {
       "id": "ignore_errors_flag",
@@ -374,8 +348,7 @@
       "type": "Flag",
       "command-line-flag": "-I",
       "value-key": "[IGNORE_ERRORS_FLAG]",
-      "description": "Convert even if file is corrupted (advanced users only, see disclaimers).",
-      "optional": true
+      "description": "Convert even if file is corrupted (advanced users only, see disclaimers)."
     }
   ],
   "author": "FreeSurfer Developers",

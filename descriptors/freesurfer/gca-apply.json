@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "gca-apply",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "https://example.com/gca-apply.json",
   "description": "Applies a GCA, performing the steps of mri_em_register, mri_ca_normalize, mri_ca_register, and mri_ca_label. This script replicates the stages in recon-all without overwriting files.",
   "command-line": "gca-apply [GCAFILE] [SUBJECT] [NTHREADS] [BASE] [NO_SEGSTATS] [SUBJECTS_DIR] [DICE_SEG] [DICE_FILE] [LTA] [NORM] [INPUT_MGZ] [BRAINMASK] [OUTPUT_DIR] [NO_V6LABOPTS] [M3Z_FILE] [GCA_RB_2016] [FORCE_UPDATE] [GCAREG_ITERS]",
   "container-image": {
@@ -51,7 +50,6 @@
       "description": "Do not compute segstats",
       "value-key": "[NO_SEGSTATS]",
       "type": "Flag",
-      "optional": true,
       "id": "no_segstats",
       "name": "No segstats flag"
     },
@@ -131,7 +129,6 @@
       "description": "Do not include v6 command line options",
       "value-key": "[NO_V6LABOPTS]",
       "type": "Flag",
-      "optional": true,
       "id": "no_v6labopts",
       "name": "No v6labopts flag"
     },
@@ -149,7 +146,6 @@
       "description": "Use RB_all_2016-05-10.vc700.gca",
       "value-key": "[GCA_RB_2016]",
       "type": "Flag",
-      "optional": true,
       "id": "gca_rb_2016",
       "name": "GCA RB 2016 Flag"
     },
@@ -158,7 +154,6 @@
       "description": "Force recreation of a file even if it is younger than its parents",
       "value-key": "[FORCE_UPDATE]",
       "type": "Flag",
-      "optional": true,
       "id": "force_update",
       "name": "Force Update Flag"
     },
@@ -176,35 +171,30 @@
     {
       "path-template": "[BASE].lta",
       "description": "Output LTA file",
-      "optional": true,
       "id": "output_lta",
       "name": "Output LTA File"
     },
     {
       "path-template": "[BASE].m3z",
       "description": "Output M3Z file",
-      "optional": true,
       "id": "output_m3z",
       "name": "Output M3Z File"
     },
     {
       "path-template": "norm.[BASE].mgz",
       "description": "Normalized GCA base MGZ file",
-      "optional": true,
       "id": "normalized_gca",
       "name": "Normalized GCA MGZ File"
     },
     {
       "path-template": "[BASE].aseg.mgz",
       "description": "Segmented GCA base MGZ file",
-      "optional": true,
       "id": "segmented_gca",
       "name": "Segmented GCA MGZ File"
     },
     {
       "path-template": "[BASE].stats",
       "description": "Statistical output file",
-      "optional": true,
       "id": "stats_output",
       "name": "Statistical Output File"
     }

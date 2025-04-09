@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "mri_synthesize",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "unknown",
   "description": "This program synthesizes a FLASH acquisition based on previously computed T1/PD maps.",
   "command-line": "mri_synthesize [TR] [ALPHA] [TE] [T1_VOLUME] [PD_VOLUME] [OUTPUT_VOLUME] [FIXED_WEIGHT]",
   "schema-version": "0.5",
@@ -60,7 +59,6 @@
       "description": "Use a fixed weighting to generate an output volume with optimal gray/white contrast.",
       "value-key": "[FIXED_WEIGHT]",
       "type": "Flag",
-      "optional": true,
       "id": "fixed_weight",
       "name": "Fixed Weight Flag"
     }
@@ -69,7 +67,6 @@
     {
       "path-template": "[OUTPUT_VOLUME]",
       "description": "The synthesized FLASH acquisition output volume.",
-      "optional": false,
       "id": "synthesized_output",
       "name": "Synthesized Output Volume"
     }

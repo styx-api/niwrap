@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "fscalc",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "https://surfer.nmr.mgh.harvard.edu",
   "description": "A frontend tool to perform mathematical operations on volumes/surfaces of data using mris_calc.",
   "command-line": "fscalc [INPUT1] [OPERATION] [INPUT2] [OUTPUT_FILE] [OUTPUT_DATA_TYPE] [DEBUG] [TMPDIR] [NOCLEANUP] [LOG_FILE]",
   "container-image": {
@@ -58,7 +57,6 @@
       "description": "Enable debug mode.",
       "value-key": "[DEBUG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug",
       "name": "Debug flag"
     },
@@ -76,7 +74,6 @@
       "description": "Prevent cleanup of temporary files.",
       "value-key": "[NOCLEANUP]",
       "type": "Flag",
-      "optional": true,
       "id": "nocleanup",
       "name": "No cleanup flag"
     },
@@ -94,7 +91,6 @@
     {
       "path-template": "[OUTPUT_FILE]",
       "description": "Resulting output volume from the operations specified.",
-      "optional": false,
       "id": "result_vol",
       "name": "Resulting volume"
     }

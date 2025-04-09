@@ -52,7 +52,6 @@
       "name": "Use scales estimator",
       "value-key": "[USE_SCALES_ESTIMATOR]",
       "type": "Flag",
-      "optional": true,
       "command-line-flag": "--useScalesEstimator",
       "description": "Use the scale estimator to control optimization."
     },
@@ -106,7 +105,6 @@
       "name": "Average image",
       "value-key": "[AVERAGE_IMAGE]",
       "type": "Flag",
-      "optional": true,
       "command-line-flag": "--average-image",
       "description": "Average the input time series image."
     },
@@ -115,7 +113,6 @@
       "name": "Write displacement",
       "value-key": "[WRITE_DISPLACEMENT]",
       "type": "Flag",
-      "optional": true,
       "command-line-flag": "--write-displacement",
       "description": "Write the low-dimensional 3D transforms to a 4D displacement field."
     },
@@ -177,27 +174,21 @@
       "id": "output_transform_prefix",
       "name": "Output transform prefix",
       "description": "The output is the transformation matrix.",
-      "path-template": "[OUTPUT_TRANSFORM_PREFIX]Affine.mat",
-      "optional": true
+      "path-template": "[OUTPUT_TRANSFORM_PREFIX]Affine.mat"
     },
     {
       "id": "warped_image",
       "name": "Warped Image",
       "description": "The output is the warped moving image.",
-      "path-template": "[OUTPUT_TRANSFORM_PREFIX]Warped.nii.gz",
-      "optional": true
+      "path-template": "[OUTPUT_TRANSFORM_PREFIX]Warped.nii.gz"
     },
     {
       "id": "average_image_output",
       "name": "Average Image Output",
       "description": "The output is the averaged image of the input time series.",
-      "path-template": "[OUTPUT_TRANSFORM_PREFIX]Average.nii.gz",
-      "optional": true
+      "path-template": "[OUTPUT_TRANSFORM_PREFIX]Average.nii.gz"
     }
   ],
   "url": "https://github.com/ANTsX/ANTs",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  }
+  "container-image": { "type": "docker", "image": "antsx/ants:v2.5.3" }
 }

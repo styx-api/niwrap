@@ -105,7 +105,6 @@
       "description": "Calculate and save all 3 field components (i.e. x,y,z)",
       "value-key": "[XYZ_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "xyz_flag",
       "name": "XYZ field components flag"
     },
@@ -123,7 +122,6 @@
       "description": "Use direct (image space) convolution, not FFT",
       "value-key": "[DIRECT_CONV]",
       "type": "Flag",
-      "optional": true,
       "id": "direct_conv",
       "name": "Direct convolution flag"
     },
@@ -132,7 +130,6 @@
       "description": "Switch on diagnostic messages",
       "value-key": "[VERBOSE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose_flag",
       "name": "Verbose flag"
     },
@@ -141,7 +138,6 @@
       "description": "Display help message",
       "value-key": "[HELP_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "help_flag",
       "name": "Help flag"
     }
@@ -151,28 +147,24 @@
     {
       "path-template": "[OUTPUT_FILE]",
       "description": "B0 output volume",
-      "optional": false,
       "id": "b0_output",
       "name": "B0 Output file"
     },
     {
       "path-template": "[OUTPUT_FILE]_x",
       "description": "B0 x-component output volume (if --xyz is specified)",
-      "optional": true,
       "id": "b0_output_x",
       "name": "B0 Output X component"
     },
     {
       "path-template": "[OUTPUT_FILE]_y",
       "description": "B0 y-component output volume (if --xyz is specified)",
-      "optional": true,
       "id": "b0_output_y",
       "name": "B0 Output Y component"
     },
     {
       "path-template": "[OUTPUT_FILE]_z",
       "description": "B0 z-component output volume (if --xyz is specified)",
-      "optional": true,
       "id": "b0_output_z",
       "name": "B0 Output Z component"
     }

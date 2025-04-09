@@ -54,7 +54,6 @@
       "value-key": "[FV]",
       "type": "Flag",
       "command-line-flag": "--fv",
-      "optional": true,
       "id": "fv",
       "name": "FreeView Flag"
     },
@@ -81,7 +80,6 @@
       "value-key": "[MULTICHANNEL]",
       "type": "Flag",
       "command-line-flag": "--multichannel",
-      "optional": true,
       "id": "multichannel",
       "name": "Multichannel Flag"
     },
@@ -117,21 +115,18 @@
     {
       "path-template": "[OUTVOL]",
       "description": "Processed output MRI volume",
-      "optional": false,
       "id": "output_file",
       "name": "Output File"
     },
     {
       "path-template": "[PRED]",
       "description": "Prediction volume if specified",
-      "optional": true,
       "id": "prediction_output",
       "name": "Prediction Volume File"
     },
     {
       "path-template": "[NORM]",
       "description": "Normalized volume if specified",
-      "optional": true,
       "id": "normalized_output",
       "name": "Normalized Volume File"
     }

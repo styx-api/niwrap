@@ -10,7 +10,6 @@
       "description": "Don't write labels on each file's summary line",
       "value-key": "[NO_LABEL]",
       "type": "Flag",
-      "optional": true,
       "id": "no_label",
       "name": "No Label Flag"
     },
@@ -19,7 +18,6 @@
       "description": "Don't print statistics for each file",
       "value-key": "[QUIET]",
       "type": "Flag",
-      "optional": true,
       "id": "quiet",
       "name": "Quiet Flag"
     },
@@ -47,14 +45,12 @@
     {
       "path-template": "[PIXSTAT_PREFIX].mean",
       "description": "Mean of pixel-wise statistics for the collection of 2D images",
-      "optional": true,
       "id": "mean_output",
       "name": "Mean Output File"
     },
     {
       "path-template": "[PIXSTAT_PREFIX].sdev",
       "description": "Standard deviation of pixel-wise statistics for the collection of 2D images",
-      "optional": true,
       "id": "sdev_output",
       "name": "Standard Deviation Output File"
     }

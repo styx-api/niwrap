@@ -47,8 +47,7 @@
       "type": "Flag",
       "description": "Opt to turn off even checking to plot an SVG version of the figure.",
       "command-line-flag": "-no_svg",
-      "value-key": "[NO_SVG]",
-      "optional": true
+      "value-key": "[NO_SVG]"
     }
   ],
   "output-files": [
@@ -56,29 +55,25 @@
       "id": "align_params",
       "name": "Alignment Parameters File",
       "description": "Text file containing 6 columns of data for the rigid-body alignment parameters estimated by DIFFPREP.",
-      "path-template": "[OUTPUT_PREFIX]_align.1D",
-      "optional": false
+      "path-template": "[OUTPUT_PREFIX]_align.1D"
     },
     {
       "id": "enorm_file",
       "name": "Enorm File",
       "description": "Text file with 1 column of data, the Euclidean norm of the differences of the rigid body alignment parameters.",
-      "path-template": "[OUTPUT_PREFIX]_enorm.1D",
-      "optional": false
+      "path-template": "[OUTPUT_PREFIX]_enorm.1D"
     },
     {
       "id": "plot_jpg",
       "name": "Plot Image (JPG)",
       "description": "A plot of enorm and the alignment parameters in JPG format.",
-      "path-template": "[OUTPUT_PREFIX].jpg",
-      "optional": true
+      "path-template": "[OUTPUT_PREFIX].jpg"
     },
     {
       "id": "plot_svg",
       "name": "Plot Image (SVG)",
       "description": "A plot of enorm and the alignment parameters in SVG format.",
-      "path-template": "[OUTPUT_PREFIX].svg",
-      "optional": true
+      "path-template": "[OUTPUT_PREFIX].svg"
     }
   ],
   "schema-version": "0.5",

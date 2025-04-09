@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "mris_jacobian",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "#",
   "description": "This program computes the Jacobian of a surface mapping.",
   "command-line": "mris_jacobian [ORIGINAL_SURFACE] [MAPPED_SURFACE] [JACOBIAN_FILE] [LOG] [NOSCALE] [INVERT]",
   "container-image": {
@@ -40,7 +39,6 @@
       "description": "Compute and write out log of Jacobian.",
       "value-key": "[LOG]",
       "type": "Flag",
-      "optional": true,
       "id": "log",
       "name": "Log Flag"
     },
@@ -49,7 +47,6 @@
       "description": "Don't scale Jacobian by total surface areas.",
       "value-key": "[NOSCALE]",
       "type": "Flag",
-      "optional": true,
       "id": "noscale",
       "name": "No Scale Flag"
     },
@@ -58,7 +55,6 @@
       "description": "Compute -1/Jacobian for Jacobian < 1.",
       "value-key": "[INVERT]",
       "type": "Flag",
-      "optional": true,
       "id": "invert",
       "name": "Invert Flag"
     }
@@ -67,7 +63,6 @@
     {
       "path-template": "[JACOBIAN_FILE]",
       "description": "Output file containing the Jacobian of the surface mapping.",
-      "optional": false,
       "id": "output_jacobian_file",
       "name": "Output Jacobian File"
     }

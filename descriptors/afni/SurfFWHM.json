@@ -49,7 +49,6 @@
       "description": "Strip text from output to simplify parsing.",
       "value-key": "[CLEAN]",
       "type": "Flag",
-      "optional": true,
       "id": "clean",
       "name": "Clean output"
     },
@@ -112,7 +111,6 @@
       "description": "Flag to set the mode to ok_warn.",
       "value-key": "[OK_WARN]",
       "type": "Flag",
-      "optional": true,
       "id": "ok_warn",
       "name": "OK Warn"
     },
@@ -121,7 +119,6 @@
       "description": "Show command line examples and quit.",
       "value-key": "[EXAMPLES]",
       "type": "Flag",
-      "optional": true,
       "id": "examples",
       "name": "Examples"
     },
@@ -130,7 +127,6 @@
       "description": "Use the contours from planar intersections to estimate gradients. For testing and development purposes only.",
       "value-key": "[SLICE]",
       "type": "Flag",
-      "optional": true,
       "id": "slice",
       "name": "Slice"
     }
@@ -139,28 +135,24 @@
     {
       "path-template": "[PREFIX].1D.dset",
       "description": "Detrended dataset.",
-      "optional": true,
       "id": "detrended_output",
       "name": "Detrended output"
     },
     {
       "path-template": "[PREFIX].nii.gz",
       "description": "Main output dataset.",
-      "optional": true,
       "id": "main_output",
       "name": "Main output"
     },
     {
       "path-template": "[PREFIX]_histog.1D",
       "description": "Histogram showing the distribution of local FWHM.",
-      "optional": true,
       "id": "histogram_output",
       "name": "Histogram output"
     },
     {
       "path-template": "[PREFIX]_mask.nii.gz",
       "description": "Mask output dataset.",
-      "optional": true,
       "id": "mask_output",
       "name": "Mask output"
     }

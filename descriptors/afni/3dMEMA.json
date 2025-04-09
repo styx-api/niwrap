@@ -89,7 +89,6 @@
       "description": "Use AFNI's C io functions.",
       "value-key": "[CIO]",
       "type": "Flag",
-      "optional": true,
       "id": "cio",
       "name": "C IO functions flag",
       "command-line-flag": "-cio"
@@ -98,7 +97,6 @@
       "description": "Perform Hartung-Knapp adjustment for the output t-statistic.",
       "value-key": "[HKTEST]",
       "type": "Flag",
-      "optional": true,
       "id": "HKtest",
       "name": "H-K test flag",
       "command-line-flag": "-HKtest"
@@ -135,7 +133,6 @@
       "description": "Model outliers with a Laplace distribution.",
       "value-key": "[MODEL_OUTLIERS]",
       "type": "Flag",
-      "optional": true,
       "id": "model_outliers",
       "name": "Model outliers flag",
       "command-line-flag": "-model_outliers"
@@ -153,7 +150,6 @@
       "description": "Specify not to use Hartung-Knapp adjustment.",
       "value-key": "[NO_HKTEST]",
       "type": "Flag",
-      "optional": true,
       "id": "no_HKtest",
       "name": "No H-K test flag",
       "command-line-flag": "-no_HKtest"
@@ -162,7 +158,6 @@
       "description": "Specify not to model outliers.",
       "value-key": "[NO_MODEL_OUTLIERS]",
       "type": "Flag",
-      "optional": true,
       "id": "no_model_outliers",
       "name": "No model outliers flag",
       "command-line-flag": "-no_model_outliers"
@@ -171,7 +166,6 @@
       "description": "Do not output residuals and their Z values.",
       "value-key": "[NO_RESIDUAL_Z]",
       "type": "Flag",
-      "optional": true,
       "id": "no_residual_Z",
       "name": "No residual Z flag",
       "command-line-flag": "-no_residual_Z"
@@ -180,7 +174,6 @@
       "description": "Output residuals and their Z values.",
       "value-key": "[RESIDUAL_Z]",
       "type": "Flag",
-      "optional": true,
       "id": "residual_Z",
       "name": "Residual Z flag",
       "command-line-flag": "-residual_Z"
@@ -189,7 +182,6 @@
       "description": "Use R's io functions.",
       "value-key": "[RIO]",
       "type": "Flag",
-      "optional": true,
       "id": "Rio",
       "name": "R IO functions flag",
       "command-line-flag": "-Rio"
@@ -198,7 +190,6 @@
       "description": "Assume same cross-subjects variability between groups.",
       "value-key": "[EQUAL_VARIANCE]",
       "type": "Flag",
-      "optional": true,
       "id": "equal_variance",
       "name": "Equal variance flag",
       "command-line-flag": "-equal_variance"
@@ -207,7 +198,6 @@
       "description": "Model cross-subject variability difference between groups.",
       "value-key": "[UNEQUAL_VARIANCE]",
       "type": "Flag",
-      "optional": true,
       "id": "unequal_variance",
       "name": "Unequal variance flag",
       "command-line-flag": "-unequal_variance"
@@ -225,7 +215,6 @@
       "description": "Output missing data debug file.",
       "value-key": "[DBGARGS]",
       "type": "Flag",
-      "optional": true,
       "id": "dbgArgs",
       "name": "Debug arguments flag",
       "command-line-flag": "-dbgArgs"
@@ -234,7 +223,6 @@
       "description": "Show help message",
       "value-key": "[HELP]",
       "type": "Flag",
-      "optional": true,
       "id": "help",
       "name": "Help flag",
       "command-line-flag": "-help"
@@ -253,7 +241,6 @@
       "description": "Do not compute t-statistics",
       "value-key": "[NO_TSTAT]",
       "type": "Flag",
-      "optional": true,
       "id": "no_tstat",
       "name": "No t-stat flag",
       "command-line-flag": "-no_tstat"
@@ -264,7 +251,6 @@
     {
       "path-template": "[PREFIX].nii.gz",
       "description": "Output file from the analysis",
-      "optional": true,
       "id": "output_file",
       "name": "Output file"
     }

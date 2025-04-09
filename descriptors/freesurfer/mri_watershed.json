@@ -36,7 +36,6 @@
       "description": "Don't use the preweighting for the template deformation",
       "value-key": "[NO_WTA_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "no_wta_flag",
       "name": "No WTA Flag"
     },
@@ -63,7 +62,6 @@
       "description": "Don't use seedpoints using atlas information",
       "value-key": "[NO_SEEDPT_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "no_seedpt_flag",
       "name": "No Seedpoint Flag"
     },
@@ -72,7 +70,6 @@
       "description": "Don't use template deformation using atlas information",
       "value-key": "[NO_TA_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "no_ta_flag",
       "name": "No TA Flag"
     },
@@ -81,7 +78,6 @@
       "description": "Just copy input to output, ignore other options",
       "value-key": "[COPY_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "copy_flag",
       "name": "Copy Flag"
     },
@@ -90,7 +86,6 @@
       "description": "Use the atlas information to correct the segmentation",
       "value-key": "[ATLAS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "atlas_flag",
       "name": "Atlas Flag"
     },
@@ -108,7 +103,6 @@
       "description": "Use the surface RAS coordinates for surfaces",
       "value-key": "[USESURF_RAS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "usesurf_ras_flag",
       "name": "Use Surface RAS Flag"
     },
@@ -117,7 +111,6 @@
       "description": "Don't do T1 analysis, useful when running out of memory",
       "value-key": "[NO_T1_ANALYSIS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "no_t1_analysis_flag",
       "name": "No T1 Analysis Flag"
     },
@@ -126,7 +119,6 @@
       "description": "Shrink the surface",
       "value-key": "[SHRINK_SURFACE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "shrink_surface_flag",
       "name": "Shrink Surface Flag"
     },
@@ -135,7 +127,6 @@
       "description": "Expand the surface",
       "value-key": "[EXPAND_SURFACE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "expand_surface_flag",
       "name": "Expand Surface Flag"
     },
@@ -144,7 +135,6 @@
       "description": "Use only the watershed algorithm",
       "value-key": "[USE_WATERSHED_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "use_watershed_flag",
       "name": "Use Watershed Flag"
     },
@@ -162,7 +152,6 @@
       "description": "Use watershed algorithm and first template smoothing",
       "value-key": "[WAT_TEMP_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "wat_temp_flag",
       "name": "Watershed and Template Flag"
     },
@@ -171,7 +160,6 @@
       "description": "Use only the first template smoothing + local matching",
       "value-key": "[FIRST_TEMP_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "first_temp_flag",
       "name": "First Template Flag"
     },
@@ -180,7 +168,6 @@
       "description": "Visualize the surfaces onto the output volume",
       "value-key": "[SURF_DEBUG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "surf_debug_flag",
       "name": "Surface Debug Flag"
     },
@@ -249,7 +236,6 @@
       "description": "Don't use the watershed analysis process",
       "value-key": "[NO_WATERSHED_ANALYSIS_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "no_watershed_analysis_flag",
       "name": "No Watershed Analysis Flag"
     },
@@ -258,7 +244,6 @@
       "description": "Labelize the output volume into scalp, skull, csf, gray, and white matter",
       "value-key": "[LABEL_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "label_flag",
       "name": "Label Flag"
     },
@@ -286,7 +271,6 @@
       "description": "Mask a volume with the brain mask",
       "value-key": "[MASK_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "mask_flag",
       "name": "Mask Flag"
     }
@@ -295,14 +279,12 @@
     {
       "path-template": "[OUTPUT_VOLUME]",
       "description": "Skull stripped brain volume",
-      "optional": false,
       "id": "output_brain_vol",
       "name": "Output Brain Volume"
     },
     {
       "path-template": "[BRAIN_SURF_NAME]",
       "description": "Saved brain surface when specified",
-      "optional": true,
       "id": "output_brain_surf",
       "name": "Brain Surface File"
     }

@@ -21,7 +21,6 @@
       "value-key": "[EPI]",
       "command-line-flag": "-EPI",
       "description": "Assume the input dataset is a t2 (or t2\\*) weighted epi time series. after computing the scaling, apply it to all volumes (trs) in the input dataset. that is, a given voxel will be scaled by the same factor at each tr. this option also implies '-noduplo' and '-t2'.this option turns off '-gm' if you turned it on.",
-      "optional": true,
       "requires-inputs": ["no_duplo", "t2"]
     },
     {
@@ -30,8 +29,7 @@
       "type": "Flag",
       "value-key": "[GM]",
       "command-line-flag": "-GM",
-      "description": "Also scale to unifize 'gray matter' = lower intensity voxels (to aid in registering images from different scanners).",
-      "optional": true
+      "description": "Also scale to unifize 'gray matter' = lower intensity voxels (to aid in registering images from different scanners)."
     },
     {
       "id": "in_file",
@@ -48,8 +46,7 @@
       "type": "Flag",
       "value-key": "[NO_DUPLO]",
       "command-line-flag": "-noduplo",
-      "description": "Do not use the 'duplo down' step; this can be useful for lower resolution datasets.",
-      "optional": true
+      "description": "Do not use the 'duplo down' step; this can be useful for lower resolution datasets."
     },
     {
       "id": "num_threads",
@@ -75,8 +72,7 @@
       "type": "Flag",
       "value-key": "[QUIET]",
       "command-line-flag": "-quiet",
-      "description": "Don't print the progress messages.",
-      "optional": true
+      "description": "Don't print the progress messages."
     },
     {
       "id": "rbt",
@@ -105,8 +101,7 @@
       "type": "Flag",
       "value-key": "[T2]",
       "command-line-flag": "-T2",
-      "description": "Treat the input as if it were t2-weighted, rather than t1-weighted. this processing is done simply by inverting the image contrast, processing it as if that result were t1-weighted, and then re-inverting the results counts of voxel overlap, i.e., each voxel will contain the number of masks that it is set in.",
-      "optional": true
+      "description": "Treat the input as if it were t2-weighted, rather than t1-weighted. this processing is done simply by inverting the image contrast, processing it as if that result were t1-weighted, and then re-inverting the results counts of voxel overlap, i.e., each voxel will contain the number of masks that it is set in."
     },
     {
       "id": "t2_up",
@@ -140,7 +135,6 @@
     {
       "name": "Out file",
       "id": "out_file",
-      "optional": true,
       "description": "Output image file name.",
       "path-template": "[PREFIX]",
       "value-key": "[PREFIX]"
@@ -149,7 +143,6 @@
       "name": "Scale file",
       "id": "scale_file_outfile",
       "path-template": "[SCALE_FILE]",
-      "optional": true,
       "description": "Scale factor file."
     }
   ],

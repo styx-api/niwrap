@@ -77,7 +77,6 @@
       "id": "aseg_flag",
       "name": "Segmentations Flag",
       "type": "Flag",
-      "optional": true,
       "description": "Treat inputs as segmentations",
       "command-line-flag": "-aseg",
       "value-key": "[ASEG_FLAG]"
@@ -95,7 +94,6 @@
       "id": "optimal_flag",
       "name": "Optimal Search Optimization Flag",
       "type": "Flag",
-      "optional": true,
       "description": "Use line search optimization",
       "command-line-flag": "-OPTIMAL",
       "value-key": "[OPTIMAL_FLAG]"
@@ -104,7 +102,6 @@
       "id": "momentum_flag",
       "name": "Momentum Integration Flag",
       "type": "Flag",
-      "optional": true,
       "description": "Use fixed time-step integration",
       "command-line-flag": "-MOMENTUM",
       "value-key": "[MOMENTUM_FLAG]"
@@ -113,7 +110,6 @@
       "id": "fixed_flag",
       "name": "Fixed Time-Step Integration Flag",
       "type": "Flag",
-      "optional": true,
       "description": "Use fixed time-step integration",
       "command-line-flag": "-FIXED",
       "value-key": "[FIXED_FLAG]"
@@ -140,7 +136,6 @@
       "id": "match_peak_flag",
       "name": "Match Peak Flag",
       "type": "Flag",
-      "optional": true,
       "description": "Match peak of intensity ratio histogram",
       "command-line-flag": "-match_peak",
       "value-key": "[MATCH_PEAK_FLAG]"
@@ -185,7 +180,6 @@
       "id": "noregrid_flag",
       "name": "Disable Regridding Flag",
       "type": "Flag",
-      "optional": true,
       "description": "Disable regridding",
       "command-line-flag": "-noregrid",
       "value-key": "[NOREGRID_FLAG]"
@@ -194,7 +188,6 @@
       "id": "regrid_flag",
       "name": "Enable Regridding Flag",
       "type": "Flag",
-      "optional": true,
       "description": "Enable regridding",
       "command-line-flag": "-regrid",
       "value-key": "[REGRID_FLAG]"
@@ -449,7 +442,6 @@
     {
       "id": "warp_output",
       "name": "Warp Output File",
-      "optional": false,
       "description": "Resulting warp output file after alignment",
       "path-template": "[WARP]"
     }

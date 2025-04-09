@@ -2,7 +2,6 @@
   "tool-version": "7.4.1",
   "name": "mri_nl_align_binary",
   "author": "FreeSurfer Developers",
-  "descriptor-url": "https://surfer.nmr.mgh.harvard.edu/fswiki/mri_nl_align_binary",
   "description": "Non-linear alignment tool for MRI data",
   "command-line": "mri_nl_align_binary [SOURCE_FILE] [TARGET_FILE] [WARP_FILE]",
   "container-image": {
@@ -40,7 +39,6 @@
     {
       "path-template": "[WARP_FILE]",
       "description": "Output warp from the alignment process",
-      "optional": false,
       "id": "output_warp",
       "name": "Output Warp File"
     }

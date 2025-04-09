@@ -2,7 +2,6 @@
   "tool-version": "6.0.4",
   "name": "robustfov",
   "author": "FMRIB Analysis Group, University of Oxford",
-  "descriptor-url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/robustfov",
   "description": "Reduce FOV of image to remove lower head and neck.",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "robustfov [INPUT_FILE] [OUTPUT_IMAGE] [BRAIN_SIZE] [MATRIX_OUTPUT] [DEBUG_FLAG] [VERBOSE_FLAG]",
@@ -52,7 +51,6 @@
       "description": "Turn on debugging output",
       "value-key": "[DEBUG_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "debug_flag",
       "name": "Debug flag",
       "command-line-flag": "--debug"
@@ -61,7 +59,6 @@
       "description": "Switch on diagnostic messages",
       "value-key": "[VERBOSE_FLAG]",
       "type": "Flag",
-      "optional": true,
       "id": "verbose_flag",
       "name": "Verbose flag",
       "command-line-flag": "--verbose"
@@ -87,7 +84,6 @@
     {
       "path-template": "[OUTPUT_IMAGE].nii.gz",
       "description": "ROI volume output",
-      "optional": true,
       "id": "output_roi_volume",
       "name": "Output ROI volume",
       "path-template-stripped-extensions": [".nii.gz"]
@@ -95,7 +91,6 @@
     {
       "path-template": "[MATRIX_OUTPUT].txt",
       "description": "Matrix output (ROI to full FOV)",
-      "optional": true,
       "id": "output_matrix_file",
       "name": "Output matrix file"
     }
