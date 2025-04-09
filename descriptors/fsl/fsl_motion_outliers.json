@@ -140,33 +140,6 @@
     }
   ],
   "schema-version": "0.5",
-  "groups": [
-    {
-      "description": "Specify parameters for metrics calculation",
-      "id": "metrics_params_group",
-      "members": [
-        "mask_image",
-        "save_metric_file",
-        "save_metric_plot",
-        "temp_path",
-        "refrms_flag",
-        "dvars_flag",
-        "refmse_flag",
-        "fd_flag",
-        "fdrms_flag",
-        "abs_thresh",
-        "no_moco_flag",
-        "dummy_scans"
-      ],
-      "name": "Metrics Parameters"
-    },
-    {
-      "description": "Optional parameters for verbose output",
-      "id": "miscellaneous_params_group",
-      "members": ["verbose_flag"],
-      "name": "Miscellaneous Parameters"
-    }
-  ],
   "output-files": [
     {
       "path-template": "[OUTPUT_CONFOUND_FILE]",

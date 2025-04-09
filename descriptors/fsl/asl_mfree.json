@@ -179,40 +179,6 @@
     }
   ],
   "schema-version": "0.5",
-  "groups": [
-    {
-      "description": "Specify compulsory parameters for analysis",
-      "id": "compulsory_params_group",
-      "members": ["datafile", "mask", "out", "aif", "dt"],
-      "name": "Compulsory Parameters"
-    },
-    {
-      "description": "Specify optional parameters for enhanced analysis",
-      "id": "optional_params_group",
-      "members": [
-        "metric",
-        "mthresh",
-        "tcorrect",
-        "bata",
-        "batt",
-        "bat",
-        "bat_grad_thr",
-        "t1",
-        "fa",
-        "std",
-        "nwb",
-        "turbo_quasar",
-        "shift_factor"
-      ],
-      "name": "Optional Parameters"
-    },
-    {
-      "description": "Specify additional settings",
-      "id": "additional_params_group",
-      "members": ["verbose"],
-      "name": "Additional Settings"
-    }
-  ],
   "output-files": [
     {
       "path-template": "[OUT]/results.nii.gz",

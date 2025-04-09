@@ -86,26 +86,6 @@
     }
   ],
   "schema-version": "0.5",
-  "groups": [
-    {
-      "description": "Specify the main input files for swap_voxelwise",
-      "id": "compulsory_params_group",
-      "members": ["vectors_file_list", "scalars_file_list", "mask"],
-      "name": "Main Input Files"
-    },
-    {
-      "description": "Optional parameters for swap_voxelwise",
-      "id": "optional_params_group",
-      "members": [
-        "output_base_name",
-        "reorder_mode",
-        "init_mask",
-        "crossing_thresh",
-        "verbose_flag"
-      ],
-      "name": "Optional Parameters"
-    }
-  ],
   "output-files": [
     {
       "path-template": "[OUTPUT_BASE_NAME].nii.gz",

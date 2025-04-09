@@ -268,59 +268,6 @@
     }
   ],
   "schema-version": "0.5",
-  "groups": [
-    {
-      "description": "General options that control input, output, and other global settings",
-      "id": "general_options",
-      "members": [
-        "output",
-        "method",
-        "model",
-        "data",
-        "overwrite",
-        "link_to_latest",
-        "simple_output",
-        "load_models",
-        "evaluate",
-        "evaluate_params",
-        "evaluate_nt",
-        "optfile",
-        "debug"
-      ],
-      "name": "General Options"
-    },
-    {
-      "description": "Options to control multiple data files and masks",
-      "id": "data_handling_options",
-      "members": [
-        "data_mult",
-        "data_order",
-        "mask",
-        "masked_time_points",
-        "supp_data"
-      ],
-      "name": "Data Handling Options"
-    },
-    {
-      "description": "Options to control the output of model-related data",
-      "id": "model_output_options",
-      "members": [
-        "dump_param_names",
-        "save_model_fit",
-        "save_residuals",
-        "save_model_extras",
-        "save_mvn",
-        "save_mean",
-        "save_std",
-        "save_var",
-        "save_zstat",
-        "save_noise_mean",
-        "save_noise_std",
-        "save_free_energy"
-      ],
-      "name": "Model Output Options"
-    }
-  ],
   "output-files": [
     {
       "path-template": "[OUTPUT]/paramnames.txt",

@@ -108,14 +108,12 @@
                   "command-line-flag": "-weighted",
                   "description": "treat the roi values as weightings rather than binary",
                   "type": "Flag",
-                  "optional": true,
                   "value-key": "[OPT_WEIGHTED]"
                 }
               ]
             },
             "optional": true,
-            "value-key": "[VOLUME_ROI]",
-            "list": false
+            "value-key": "[VOLUME_ROI]"
           },
           {
             "id": "opt_voxel_subdiv_subdiv_num",
@@ -133,7 +131,6 @@
             "command-line-flag": "-thin-columns",
             "description": "use non-overlapping polyhedra",
             "type": "Flag",
-            "optional": true,
             "value-key": "[OPT_THIN_COLUMNS]"
           },
           {
@@ -197,14 +194,12 @@
                   "id": "weights_out",
                   "name": "weights_out",
                   "path-template": "[WEIGHTS_OUT]",
-                  "description": "volume to write the weights to",
-                  "optional": false
+                  "description": "volume to write the weights to"
                 }
               ]
             },
             "optional": true,
-            "value-key": "[OUTPUT_WEIGHTS]",
-            "list": false
+            "value-key": "[OUTPUT_WEIGHTS]"
           },
           {
             "id": "opt_output_weights_text_text_out",
@@ -218,8 +213,7 @@
         ]
       },
       "optional": true,
-      "value-key": "[RIBBON_CONSTRAINED]",
-      "list": false
+      "value-key": "[RIBBON_CONSTRAINED]"
     },
     {
       "id": "myelin_style",
@@ -262,14 +256,12 @@
             "command-line-flag": "-legacy-bug",
             "description": "emulate old v1.2.3 and earlier code that didn't follow a cylinder cutoff",
             "type": "Flag",
-            "optional": true,
             "value-key": "[OPT_LEGACY_BUG]"
           }
         ]
       },
       "optional": true,
-      "value-key": "[MYELIN_STYLE]",
-      "list": false
+      "value-key": "[MYELIN_STYLE]"
     },
     {
       "id": "opt_subvol_select_subvol",

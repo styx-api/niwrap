@@ -68,8 +68,7 @@
       "type": "Flag",
       "value-key": "[FISHER]",
       "command-line-flag": "-Fisher",
-      "description": "Apply the Fisher (inverse hyperbolic tangent) transformation to correlation results. Does not make sense with ktaub, covariance, or ycoef.",
-      "disables-inputs": ["ktaub", "covariance", "ycoef"]
+      "description": "Apply the Fisher (inverse hyperbolic tangent) transformation to correlation results. Does not make sense with ktaub, covariance, or ycoef."
     },
     {
       "id": "polort",
@@ -98,8 +97,7 @@
       "type": "Flag",
       "value-key": "[AUTOCLIP]",
       "command-line-flag": "-autoclip",
-      "description": "Clip off low-intensity regions in the two datasets, so that the correlation is only computed between high-intensity (presumably brain) voxels. The intensity level is determined the same way that 3dClipLevel works.",
-      "disables-inputs": ["automask"]
+      "description": "Clip off low-intensity regions in the two datasets, so that the correlation is only computed between high-intensity (presumably brain) voxels. The intensity level is determined the same way that 3dClipLevel works."
     },
     {
       "id": "automask",
@@ -107,8 +105,7 @@
       "type": "Flag",
       "value-key": "[AUTOMASK]",
       "command-line-flag": "-automask",
-      "description": "Clip off low-intensity regions in the two datasets, so that the correlation is only computed between high-intensity (presumably brain) voxels. The intensity level is determined the same way that 3dClipLevel works.",
-      "disables-inputs": ["autoclip"]
+      "description": "Clip off low-intensity regions in the two datasets, so that the correlation is only computed between high-intensity (presumably brain) voxels. The intensity level is determined the same way that 3dClipLevel works."
     },
     {
       "id": "zcensor",
@@ -116,8 +113,7 @@
       "type": "Flag",
       "value-key": "[ZCENSOR]",
       "command-line-flag": "-zcensor",
-      "description": "Omit (censor out) any time points where the xset volume is all zero OR where the yset volume is all zero (in mask). Please note that using -zcensor with any detrending is unlikely to be useful.",
-      "disables-inputs": ["ort", "polort"]
+      "description": "Omit (censor out) any time points where the xset volume is all zero OR where the yset volume is all zero (in mask). Please note that using -zcensor with any detrending is unlikely to be useful."
     },
     {
       "id": "prefix",

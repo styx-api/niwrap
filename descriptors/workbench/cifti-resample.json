@@ -99,7 +99,6 @@
             "command-line-flag": "-nearest",
             "description": "use nearest value dilation",
             "type": "Flag",
-            "optional": true,
             "value-key": "[OPT_NEAREST]"
           },
           {
@@ -128,20 +127,17 @@
                   "command-line-flag": "-legacy-cutoff",
                   "description": "use v1.3.2 logic for the kernel cutoff",
                   "type": "Flag",
-                  "optional": true,
                   "value-key": "[OPT_LEGACY_CUTOFF]"
                 }
               ]
             },
             "optional": true,
-            "value-key": "[WEIGHTED]",
-            "list": false
+            "value-key": "[WEIGHTED]"
           }
         ]
       },
       "optional": true,
-      "value-key": "[VOLUME_PREDILATE]",
-      "list": false
+      "value-key": "[VOLUME_PREDILATE]"
     },
     {
       "id": "surface_postdilate",
@@ -168,7 +164,6 @@
             "command-line-flag": "-nearest",
             "description": "use nearest value dilation",
             "type": "Flag",
-            "optional": true,
             "value-key": "[OPT_NEAREST]"
           },
           {
@@ -177,7 +172,6 @@
             "command-line-flag": "-linear",
             "description": "use linear dilation",
             "type": "Flag",
-            "optional": true,
             "value-key": "[OPT_LINEAR]"
           },
           {
@@ -206,20 +200,17 @@
                   "command-line-flag": "-legacy-cutoff",
                   "description": "use v1.3.2 logic for the kernel cutoff",
                   "type": "Flag",
-                  "optional": true,
                   "value-key": "[OPT_LEGACY_CUTOFF]"
                 }
               ]
             },
             "optional": true,
-            "value-key": "[WEIGHTED]",
-            "list": false
+            "value-key": "[WEIGHTED]"
           }
         ]
       },
       "optional": true,
-      "value-key": "[SURFACE_POSTDILATE]",
-      "list": false
+      "value-key": "[SURFACE_POSTDILATE]"
     },
     {
       "id": "affine",
@@ -268,14 +259,12 @@
               ]
             },
             "optional": true,
-            "value-key": "[FLIRT]",
-            "list": false
+            "value-key": "[FLIRT]"
           }
         ]
       },
       "optional": true,
-      "value-key": "[AFFINE]",
-      "list": false
+      "value-key": "[AFFINE]"
     },
     {
       "id": "warpfield",
@@ -307,8 +296,7 @@
         ]
       },
       "optional": true,
-      "value-key": "[WARPFIELD]",
-      "list": false
+      "value-key": "[WARPFIELD]"
     },
     {
       "id": "left_spheres",
@@ -365,8 +353,7 @@
               ]
             },
             "optional": true,
-            "value-key": "[LEFT_AREA_SURFS]",
-            "list": false
+            "value-key": "[LEFT_AREA_SURFS]"
           },
           {
             "id": "left_area_metrics",
@@ -397,14 +384,12 @@
               ]
             },
             "optional": true,
-            "value-key": "[LEFT_AREA_METRICS]",
-            "list": false
+            "value-key": "[LEFT_AREA_METRICS]"
           }
         ]
       },
       "optional": true,
-      "value-key": "[LEFT_SPHERES]",
-      "list": false
+      "value-key": "[LEFT_SPHERES]"
     },
     {
       "id": "right_spheres",
@@ -461,8 +446,7 @@
               ]
             },
             "optional": true,
-            "value-key": "[RIGHT_AREA_SURFS]",
-            "list": false
+            "value-key": "[RIGHT_AREA_SURFS]"
           },
           {
             "id": "right_area_metrics",
@@ -493,14 +477,12 @@
               ]
             },
             "optional": true,
-            "value-key": "[RIGHT_AREA_METRICS]",
-            "list": false
+            "value-key": "[RIGHT_AREA_METRICS]"
           }
         ]
       },
       "optional": true,
-      "value-key": "[RIGHT_SPHERES]",
-      "list": false
+      "value-key": "[RIGHT_SPHERES]"
     },
     {
       "id": "cerebellum_spheres",
@@ -557,8 +539,7 @@
               ]
             },
             "optional": true,
-            "value-key": "[CEREBELLUM_AREA_SURFS]",
-            "list": false
+            "value-key": "[CEREBELLUM_AREA_SURFS]"
           },
           {
             "id": "cerebellum_area_metrics",
@@ -589,14 +570,12 @@
               ]
             },
             "optional": true,
-            "value-key": "[CEREBELLUM_AREA_METRICS]",
-            "list": false
+            "value-key": "[CEREBELLUM_AREA_METRICS]"
           }
         ]
       },
       "optional": true,
-      "value-key": "[CEREBELLUM_SPHERES]",
-      "list": false
+      "value-key": "[CEREBELLUM_SPHERES]"
     }
   ],
   "output-files": [

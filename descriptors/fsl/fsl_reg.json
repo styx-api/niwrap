@@ -78,24 +78,6 @@
     }
   ],
   "schema-version": "0.5",
-  "groups": [
-    {
-      "description": "Flags controlling the type and extent of registration",
-      "id": "registration_flags_group",
-      "members": [
-        "estimate_only_flag",
-        "affine_only_flag",
-        "fnirt_fa_config_flag"
-      ],
-      "name": "Registration Flags"
-    },
-    {
-      "description": "Options to pass to FLIRT and FNIRT",
-      "id": "flirt_fnirt_options_group",
-      "members": ["flirt_options", "fnirt_options"],
-      "name": "FLIRT and FNIRT Options"
-    }
-  ],
   "output-files": [
     {
       "path-template": "[OUTPUT_FILE]",

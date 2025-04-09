@@ -125,32 +125,6 @@
     }
   ],
   "schema-version": "0.5",
-  "groups": [
-    {
-      "description": "Compulsory arguments group",
-      "id": "compulsory_arguments_group",
-      "members": ["input_file", "basename_output_files"],
-      "name": "Compulsory arguments"
-    },
-    {
-      "description": "Optional arguments group",
-      "id": "optional_arguments_group",
-      "members": [
-        "algorithm",
-        "design_matrix",
-        "mask_image",
-        "design_normalization",
-        "variance_normalisation",
-        "demean",
-        "nmf_dim",
-        "nmf_iterations",
-        "verbose",
-        "out_data",
-        "out_vnscales"
-      ],
-      "name": "Optional arguments"
-    }
-  ],
   "output-files": [
     {
       "path-template": "[BASENAME_OUTPUT_FILES]_out.nii.gz",

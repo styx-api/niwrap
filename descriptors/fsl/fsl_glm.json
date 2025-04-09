@@ -225,59 +225,6 @@
     }
   ],
   "schema-version": "0.5",
-  "groups": [
-    {
-      "description": "Compulsory inputs for FSL GLM",
-      "id": "compulsory_group",
-      "members": ["input_file", "design_matrix"],
-      "name": "Compulsory Parameters"
-    },
-    {
-      "description": "Optional inputs for FSL GLM",
-      "id": "optional_params_group",
-      "members": [
-        "output_file",
-        "contrasts",
-        "mask_file",
-        "dof",
-        "design_norm_flag",
-        "data_norm_flag",
-        "vn_flag",
-        "demean_flag"
-      ],
-      "name": "Optional Parameters"
-    },
-    {
-      "description": "Optional output files for FSL GLM",
-      "id": "optional_output_group",
-      "members": [
-        "output_copes",
-        "output_zstats",
-        "output_tstats",
-        "output_pvals",
-        "output_fvals",
-        "output_pfvals",
-        "output_residuals",
-        "output_varcb",
-        "output_sigsq",
-        "output_data",
-        "output_vnscales"
-      ],
-      "name": "Optional Output Files"
-    },
-    {
-      "description": "Beta options for FSL GLM",
-      "id": "beta_options_group",
-      "members": ["vx_text", "vx_images"],
-      "name": "Beta Options"
-    },
-    {
-      "description": "Miscellaneous options for FSL GLM",
-      "id": "miscellaneous_params_group",
-      "members": ["help_flag"],
-      "name": "Miscellaneous Parameters"
-    }
-  ],
   "output-files": [
     {
       "path-template": "[OUTPUT_FILE].nii.gz",

@@ -46,22 +46,6 @@
       "description": "Second input image file, if required by operation."
     }
   ],
-  "groups": [
-    {
-      "id": "largest_component_group",
-      "name": "Get Largest Component",
-      "description": "Get the single largest labeled object in an image.",
-      "members": ["operations"],
-      "mutually-exclusive": true
-    },
-    {
-      "id": "morphological_operations_group",
-      "name": "Morphological Operations",
-      "description": "Perform morphological operations such as closing, dilation, etc.",
-      "members": ["operations"],
-      "mutually-exclusive": true
-    }
-  ],
   "output-files": [
     {
       "id": "resulting_image",
@@ -70,8 +54,5 @@
       "path-template": "[OUTPUT_IMAGE]"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  }
+  "container-image": { "type": "docker", "image": "antsx/ants:v2.5.3" }
 }

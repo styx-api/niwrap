@@ -94,7 +94,6 @@
             "command-line-flag": "-greedy",
             "description": "instead of antialiasing partial-volumed voxels, put full metric values (legacy behavior)",
             "type": "Flag",
-            "optional": true,
             "value-key": "[OPT_GREEDY]"
           },
           {
@@ -103,14 +102,12 @@
             "command-line-flag": "-thick-columns",
             "description": "use overlapping columns (legacy method)",
             "type": "Flag",
-            "optional": true,
             "value-key": "[OPT_THICK_COLUMNS]"
           }
         ]
       },
       "optional": true,
-      "value-key": "[RIBBON_CONSTRAINED]",
-      "list": false
+      "value-key": "[RIBBON_CONSTRAINED]"
     }
   ],
   "output-files": [

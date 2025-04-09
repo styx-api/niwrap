@@ -309,56 +309,6 @@
     }
   ],
   "schema-version": "0.5",
-  "groups": [
-    {
-      "description": "Specify compulsory parameters",
-      "id": "compulsory_params_group",
-      "members": [
-        "input_file",
-        "output_root",
-        "design_mat",
-        "design_con",
-        "design_sub"
-      ],
-      "name": "Compulsory Parameters"
-    },
-    {
-      "description": "Specify optional parameters",
-      "id": "optional_params_group",
-      "members": [
-        "mask",
-        "fcon",
-        "modified",
-        "wild_bootstrap",
-        "logp",
-        "nboot",
-        "corrp",
-        "fonly",
-        "tfce",
-        "tfce_2d",
-        "cluster_t",
-        "cluster_t_mass",
-        "cluster_f",
-        "cluster_f_mass",
-        "quiet",
-        "raw",
-        "equiv",
-        "dof",
-        "uncorr_p",
-        "null_dist",
-        "no_rc_mask",
-        "seed",
-        "tfce_h",
-        "tfce_d",
-        "tfce_e",
-        "tfce_c",
-        "voxelwise_ev",
-        "voxelwise_evs",
-        "glm_output"
-      ],
-      "name": "Optional Parameters"
-    }
-  ],
   "output-files": [
     {
       "path-template": "[OUTPUT_ROOT]_logp.nii.gz",

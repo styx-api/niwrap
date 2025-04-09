@@ -452,23 +452,13 @@
       "name": "Out file",
       "id": "out_file",
       "description": "Registered output file.",
-      "value-key": "[OUT_FILE]",
       "path-template": "[OUT_FILE]"
     },
     {
       "name": "Out matrix file",
       "id": "out_matrix_file",
       "description": "Output affine matrix in 4x4 asciii format.",
-      "value-key": "[OUT_MATRIX_FILE]",
       "path-template": "[OUT_MATRIX_FILE]"
-    }
-  ],
-  "groups": [
-    {
-      "id": "mutex_group",
-      "name": "Mutex group",
-      "members": ["apply_xfm", "apply_isoxfm"],
-      "mutually-exclusive": true
     }
   ],
   "tool-version": "6.0.4",

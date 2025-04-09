@@ -180,39 +180,6 @@
     }
   ],
   "schema-version": "0.5",
-  "groups": [
-    {
-      "description": "Compulsory arguments needed to run BIANCA",
-      "id": "compulsory_args_group",
-      "members": [
-        "master_file",
-        "query_subject_num",
-        "brain_mask_feature_num",
-        "label_feature_num",
-        "training_nums",
-        "load_classifier_data"
-      ],
-      "name": "Compulsory Arguments"
-    },
-    {
-      "description": "Optional arguments for BIANCA",
-      "id": "optional_args_group",
-      "members": [
-        "out_name",
-        "feature_subset",
-        "mat_feature_num",
-        "spatial_weight",
-        "patch_sizes",
-        "patch_3d",
-        "select_pts",
-        "training_pts",
-        "non_les_pts",
-        "save_classifier_data",
-        "verbose_flag"
-      ],
-      "name": "Optional Arguments"
-    }
-  ],
   "output-files": [
     {
       "path-template": "[OUT_NAME]_bianca",

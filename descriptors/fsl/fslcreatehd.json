@@ -124,35 +124,6 @@
     }
   ],
   "schema-version": "0.5",
-  "groups": [
-    {
-      "description": "Specify parameters for creating a new NIfTI header",
-      "id": "header_params_group",
-      "members": [
-        "xsize",
-        "ysize",
-        "zsize",
-        "tsize",
-        "xvoxsize",
-        "yvoxsize",
-        "zvoxsize",
-        "tr",
-        "xorigin",
-        "yorigin",
-        "zorigin",
-        "datatype",
-        "headername"
-      ],
-      "name": "Header Creation Parameters"
-    },
-    {
-      "description": "Parameter for creating header from NIfTI XML file",
-      "mutually-exclusive": true,
-      "id": "nifti_xml_group",
-      "members": ["nifti_xml_file"],
-      "name": "NIfTI XML Parameter"
-    }
-  ],
   "output-files": [
     {
       "path-template": "[HEADERNAME].nii.gz",

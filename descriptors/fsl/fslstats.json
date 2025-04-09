@@ -245,46 +245,6 @@
     }
   ],
   "schema-version": "0.5",
-  "groups": [
-    {
-      "description": "Preoptions",
-      "id": "preoptions_group",
-      "members": ["index_mask", "timeseries_flag"],
-      "name": "Preoptions"
-    },
-    {
-      "description": "Optional parameters for setting thresholds, calculating statistics, and generating outputs",
-      "id": "optional_params_group",
-      "members": [
-        "lower_threshold",
-        "upper_threshold",
-        "robust_intensity_flag",
-        "minmax_intensity_flag",
-        "mean_entropy_flag",
-        "nonzero_mean_entropy_flag",
-        "voxels_volume_flag",
-        "nonzero_voxels_volume_flag",
-        "mean_flag",
-        "nonzero_mean_flag",
-        "std_dev_flag",
-        "nonzero_std_dev_flag",
-        "smallest_roi_flag",
-        "max_coords_flag",
-        "min_coords_flag",
-        "cog_mm_flag",
-        "cog_voxel_flag",
-        "percentile",
-        "nonzero_percentile",
-        "absolute_values_flag",
-        "nan_as_zero_flag",
-        "mask_image",
-        "difference_image",
-        "hist_bins",
-        "hist_bins_min_max"
-      ],
-      "name": "Optional Parameters"
-    }
-  ],
   "output-files": [
     {
       "path-template": "[INPUT_FILE]_stats.txt",

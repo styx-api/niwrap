@@ -123,7 +123,6 @@
       "command-line-flag-separator": "=",
       "description": "'y-' or 'y' or 'x' or 'x-' or 'z' or 'z-'. Indicates the direction that the distortions from --shiftmap goes. it depends on the direction and polarity of the phase-encoding in the epi sequence.",
       "optional": true,
-      "requires-inputs": ["shift_in_file"],
       "value-choices": ["y-", "y", "x", "x-", "z", "z-"]
     },
     {
@@ -162,30 +161,13 @@
       "name": "Out file",
       "id": "out_file",
       "description": "Name of output file, containing warps that are the combination of all those given as arguments. the format of this will be a field-file (rather than spline coefficients) with any affine components included.",
-      "path-template": "[REFERENCE]_concatwarp",
-      "value-key": "[OUT_FILE]",
-      "command-line-flag": "--out",
-      "command-line-flag-separator": "="
+      "path-template": "[REFERENCE]_concatwarp"
     },
     {
       "name": "Out file",
       "id": "out_file",
       "path-template": "out_file",
       "description": "Name of output file, containing the warp as field or coefficients."
-    }
-  ],
-  "groups": [
-    {
-      "id": "mutex_group",
-      "name": "Mutex group",
-      "members": ["relwarp", "abswarp"],
-      "mutually-exclusive": true
-    },
-    {
-      "id": "mutex_group_2",
-      "name": "Mutex group 2",
-      "members": ["out_abswarp", "out_relwarp"],
-      "mutually-exclusive": true
     }
   ],
   "tool-version": "6.0.4",

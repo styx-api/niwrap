@@ -230,60 +230,6 @@
       "description": "File name of every <sample'th> axial slice output image."
     }
   ],
-  "groups": [
-    {
-      "id": "sagittal_slice_args",
-      "name": "Arguments for sagittal slice output.",
-      "members": ["output_sagittal_slice", "output_sagittal_slice_fname"],
-      "all-or-none": true
-    },
-    {
-      "id": "axial_slice_args",
-      "name": "Arguments for axial slice output.",
-      "members": ["output_axial_slice", "output_axial_slice_fname"],
-      "all-or-none": true
-    },
-    {
-      "id": "coronal_slice_args",
-      "name": "Arguments for coronal slice output.",
-      "members": ["output_coronal_slice", "output_coronal_slice_fname"],
-      "all-or-none": true
-    },
-    {
-      "id": "all_axial_slice_args",
-      "name": "Arguments for all axial slice image",
-      "members": ["output_all_axial_slices", "output_all_axial_slices_fname"],
-      "all-or-none": true
-    },
-    {
-      "id": "sample_axial_slice_args",
-      "name": "Arguments for sampleth axial slice image",
-      "members": [
-        "output_sample_axial_slices",
-        "output_sample_axial_slices_width",
-        "output_sample_axial_slices_fname"
-      ],
-      "all-or-none": true
-    },
-    {
-      "id": "output_group",
-      "name": "Output group",
-      "members": [
-        "output_sagittal_slice",
-        "output_sagittal_slice_fname",
-        "output_axial_slice",
-        "output_axial_slice_fname",
-        "output_coronal_slice",
-        "output_coronal_slice_fname",
-        "output_all_axial_slices",
-        "output_all_axial_slices_fname",
-        "output_sample_axial_slices",
-        "output_sample_axial_slices_width",
-        "output_sample_axial_slices_fname"
-      ],
-      "one-is-required": false
-    }
-  ],
   "tool-version": "6.0.4",
   "schema-version": "0.5",
   "container-image": {

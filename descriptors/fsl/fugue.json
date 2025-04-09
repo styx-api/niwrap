@@ -99,8 +99,7 @@
       "type": "Flag",
       "value-key": "[ICORR]",
       "command-line-flag": "--icorr",
-      "description": "Apply intensity correction to unwarping (pixel shift method only).",
-      "requires-inputs": ["shift_in_file"]
+      "description": "Apply intensity correction to unwarping (pixel shift method only)."
     },
     {
       "id": "icorr_only",
@@ -108,8 +107,7 @@
       "type": "Flag",
       "value-key": "[ICORR_ONLY]",
       "command-line-flag": "--icorronly",
-      "description": "Apply intensity correction only.",
-      "requires-inputs": ["unwarped_file"]
+      "description": "Apply intensity correction only."
     },
     {
       "id": "in_file",
@@ -300,8 +298,7 @@
       "command-line-flag": "--unwarp",
       "command-line-flag-separator": "=",
       "description": "Apply unwarping and save as filename.",
-      "optional": true,
-      "requires-inputs": ["in_file"]
+      "optional": true
     },
     {
       "id": "warped_file",
@@ -311,8 +308,7 @@
       "command-line-flag": "--warp",
       "command-line-flag-separator": "=",
       "description": "Apply forward warping and save as filename.",
-      "optional": true,
-      "requires-inputs": ["in_file"]
+      "optional": true
     }
   ],
   "output-files": [
@@ -339,26 +335,6 @@
       "id": "warped_file_outfile",
       "path-template": "[WARPED_FILE]",
       "description": "Forward warped file."
-    }
-  ],
-  "groups": [
-    {
-      "id": "mutex_group",
-      "name": "Mutex group",
-      "members": ["warped_file", "unwarped_file"],
-      "mutually-exclusive": true
-    },
-    {
-      "id": "mutex_group_2",
-      "name": "Mutex group 2",
-      "members": ["save_unmasked_shift", "save_shift"],
-      "mutually-exclusive": true
-    },
-    {
-      "id": "mutex_group_3",
-      "name": "Mutex group 3",
-      "members": ["save_fmap", "save_unmasked_fmap"],
-      "mutually-exclusive": true
     }
   ],
   "tool-version": "6.0.4",

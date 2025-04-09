@@ -20,8 +20,7 @@
       "type": "Flag",
       "value-key": "[EPI]",
       "command-line-flag": "-EPI",
-      "description": "Assume the input dataset is a t2 (or t2\\*) weighted epi time series. after computing the scaling, apply it to all volumes (trs) in the input dataset. that is, a given voxel will be scaled by the same factor at each tr. this option also implies '-noduplo' and '-t2'.this option turns off '-gm' if you turned it on.",
-      "requires-inputs": ["no_duplo", "t2"]
+      "description": "Assume the input dataset is a t2 (or t2\\*) weighted epi time series. after computing the scaling, apply it to all volumes (trs) in the input dataset. that is, a given voxel will be scaled by the same factor at each tr. this option also implies '-noduplo' and '-t2'.this option turns off '-gm' if you turned it on."
     },
     {
       "id": "gm",
@@ -136,8 +135,7 @@
       "name": "Out file",
       "id": "out_file",
       "description": "Output image file name.",
-      "path-template": "[PREFIX]",
-      "value-key": "[PREFIX]"
+      "path-template": "[PREFIX]"
     },
     {
       "name": "Scale file",

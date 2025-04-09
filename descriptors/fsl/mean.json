@@ -178,38 +178,6 @@
     }
   ],
   "schema-version": "0.5",
-  "groups": [
-    {
-      "description": "Compulsory arguments (You MUST set one or more of)",
-      "id": "mandatory_params_group",
-      "members": ["datafile", "maskfile"],
-      "name": "Compulsory Arguments"
-    },
-    {
-      "description": "Optional arguments",
-      "id": "optional_params_group",
-      "members": [
-        "verbose_flag",
-        "debug_level",
-        "timing_flag",
-        "log_dir",
-        "forcedir_flag",
-        "inference_tech",
-        "num_jumps",
-        "num_burnin",
-        "num_sample_every",
-        "num_update_proposalevery",
-        "acceptance_rate",
-        "seed",
-        "error_precision",
-        "noamp_flag",
-        "prior_mean",
-        "prior_std",
-        "help_flag"
-      ],
-      "name": "Optional Arguments"
-    }
-  ],
   "output-files": [
     {
       "path-template": "logdir/mean_output.txt",

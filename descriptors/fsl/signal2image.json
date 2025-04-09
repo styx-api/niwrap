@@ -125,39 +125,6 @@
     }
   ],
   "schema-version": "0.5",
-  "groups": [
-    {
-      "description": "Compulsory arguments for running signal2image",
-      "id": "compulsory_arguments_group",
-      "members": ["pulse_sequence"],
-      "name": "Compulsory Arguments"
-    },
-    {
-      "description": "Optional arguments for specifying input and output options",
-      "id": "optional_arguments_group",
-      "members": [
-        "input_signal",
-        "output_image",
-        "kspace_coordinates",
-        "output_kspace"
-      ],
-      "name": "Optional Input/Output Arguments"
-    },
-    {
-      "description": "Optional modification and debug options",
-      "id": "mod_debug_arguments_group",
-      "members": [
-        "abs_flag",
-        "homodyne_flag",
-        "verbose_flag",
-        "apodize_flag",
-        "cutoff",
-        "rolloff",
-        "save_flag"
-      ],
-      "name": "Modification and Debug Options"
-    }
-  ],
   "output-files": [
     {
       "path-template": "[OUTPUT_IMAGE]",

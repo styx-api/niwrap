@@ -197,46 +197,6 @@
       "name": "Output Image"
     }
   ],
-  "groups": [
-    {
-      "description": "Specify parameters that alter the default make_bianca_mask functionality",
-      "id": "optional_params_group",
-      "members": [
-        "overlay_flag",
-        "binary_mask_flag",
-        "approx_skull_flag",
-        "no_seg_output_flag",
-        "fractional_intensity",
-        "vg_fractional_intensity",
-        "head_radius",
-        "center_of_gravity",
-        "thresholding_flag",
-        "vtk_mesh"
-      ],
-      "name": "Main Program Parameters"
-    },
-    {
-      "description": "Mutually exclusive options that specify variations on how make_bianca_mask should be run.",
-      "mutually-exclusive": true,
-      "id": "variational_params_group",
-      "members": [
-        "robust_iters_flag",
-        "residual_optic_cleanup_flag",
-        "reduce_bias_flag",
-        "slice_padding_flag",
-        "whole_set_mask_flag",
-        "additional_surfaces_flag",
-        "additional_surfaces_t2"
-      ],
-      "name": "Variations on Default Functionality"
-    },
-    {
-      "description": "Optional miscellaneous parameters when running make_bianca_mask",
-      "id": "miscellaneous_params_group",
-      "members": ["verbose_flag", "debug_flag"],
-      "name": "Miscellaneous Parameters"
-    }
-  ],
   "author": "FMRIB Analysis Group, University of Oxford",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
 }
