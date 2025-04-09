@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install pytest
-          pip install pip install git+https://github.com/styx-api/boutiques-schema-pydantic.git
+          pip install git+https://github.com/styx-api/boutiques-schema-pydantic.git
       - name: Run tests
         run: |
           pytest tests
