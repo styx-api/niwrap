@@ -36,7 +36,6 @@
       "name": "Operations",
       "description": "Operations to perform on input images",
       "list": true,
-      "optional": false,
       "type": {
         "id": "operation",
         "name": "Operation",
@@ -201,7 +200,6 @@
             "name": "Save",
             "type": "Flag",
             "description": "Save the current working image to the input filename",
-            "optional": true,
             "command-line-flag": "-save"
           },
           {
@@ -210,7 +208,6 @@
             "name": "Exponential",
             "type": "Flag",
             "description": "Exponential",
-            "optional": true,
             "command-line-flag": "-exp"
           },
           {
@@ -219,7 +216,6 @@
             "name": "Natural logarithm",
             "type": "Flag",
             "description": "Natural logarithm",
-            "optional": true,
             "command-line-flag": "-log"
           },
           {
@@ -228,7 +224,6 @@
             "name": "Sine",
             "type": "Flag",
             "description": "Sine function",
-            "optional": true,
             "command-line-flag": "-sin"
           },
           {
@@ -237,7 +232,6 @@
             "name": "Cosine",
             "type": "Flag",
             "description": "Cosine function",
-            "optional": true,
             "command-line-flag": "-cos"
           },
           {
@@ -246,7 +240,6 @@
             "name": "Tangent",
             "type": "Flag",
             "description": "Tangent function",
-            "optional": true,
             "command-line-flag": "-tan"
           },
           {
@@ -255,7 +248,6 @@
             "name": "Arc sine",
             "type": "Flag",
             "description": "Arc sine function",
-            "optional": true,
             "command-line-flag": "-asin"
           },
           {
@@ -264,7 +256,6 @@
             "name": "Arc cosine",
             "type": "Flag",
             "description": "Arc cosine function",
-            "optional": true,
             "command-line-flag": "-acos"
           },
           {
@@ -273,7 +264,6 @@
             "name": "Arc tangent",
             "type": "Flag",
             "description": "Arc tangent function",
-            "optional": true,
             "command-line-flag": "-atan"
           },
           {
@@ -282,7 +272,6 @@
             "name": "Square",
             "type": "Flag",
             "description": "Square",
-            "optional": true,
             "command-line-flag": "-sqr"
           },
           {
@@ -291,7 +280,6 @@
             "name": "Square root",
             "type": "Flag",
             "description": "Square root",
-            "optional": true,
             "command-line-flag": "-sqrt"
           },
           {
@@ -300,7 +288,6 @@
             "name": "Reciprocal",
             "type": "Flag",
             "description": "Reciprocal (1/current image)",
-            "optional": true,
             "command-line-flag": "-recip"
           },
           {
@@ -309,7 +296,6 @@
             "name": "Absolute value",
             "type": "Flag",
             "description": "Absolute value",
-            "optional": true,
             "command-line-flag": "-abs"
           },
           {
@@ -318,7 +304,6 @@
             "name": "Binarise",
             "type": "Flag",
             "description": "Use (current image>0) to binarise",
-            "optional": true,
             "command-line-flag": "-bin"
           },
           {
@@ -327,7 +312,6 @@
             "name": "Binarise and invert",
             "type": "Flag",
             "description": "Binarise and invert (binarisation and logical inversion)",
-            "optional": true,
             "command-line-flag": "-binv"
           },
           {
@@ -336,7 +320,6 @@
             "name": "Fill holes",
             "type": "Flag",
             "description": "Fill holes in a binary mask (holes are internal - i.e. do not touch the edge of the FOV)",
-            "optional": true,
             "command-line-flag": "-fillh"
           },
           {
@@ -345,7 +328,6 @@
             "name": "Fill holes using 26 connectivity",
             "type": "Flag",
             "description": "Fill holes using 26 connectivity",
-            "optional": true,
             "command-line-flag": "-fillh26"
           },
           {
@@ -354,7 +336,6 @@
             "name": "Index",
             "type": "Flag",
             "description": "Replace each nonzero voxel with a unique (subject to wrapping) index number",
-            "optional": true,
             "command-line-flag": "-index"
           },
           {
@@ -373,7 +354,6 @@
             "name": "Edge strength",
             "type": "Flag",
             "description": "Edge strength",
-            "optional": true,
             "command-line-flag": "-edge"
           },
           {
@@ -402,7 +382,6 @@
             "name": "Replace NaNs",
             "type": "Flag",
             "description": "Replace NaNs (improper numbers) with 0",
-            "optional": true,
             "command-line-flag": "-nan"
           },
           {
@@ -411,7 +390,6 @@
             "name": "Make NaN mask",
             "type": "Flag",
             "description": "Make NaN (improper number) mask with 1 for NaN voxels, 0 otherwise",
-            "optional": true,
             "command-line-flag": "-nanm"
           },
           {
@@ -420,7 +398,6 @@
             "name": "Add uniform noise",
             "type": "Flag",
             "description": "Add uniform noise (range 0:1)",
-            "optional": true,
             "command-line-flag": "-rand"
           },
           {
@@ -429,7 +406,6 @@
             "name": "Add Gaussian noise",
             "type": "Flag",
             "description": "Add Gaussian noise (mean=0 sigma=1)",
-            "optional": true,
             "command-line-flag": "-randn"
           },
           {
@@ -456,7 +432,6 @@
             "name": "Set output calmin/max to full data range",
             "type": "Flag",
             "description": "Set the output calmin/max to full data range",
-            "optional": true,
             "command-line-flag": "-range"
           },
           {
@@ -465,7 +440,6 @@
             "name": "Tensor decomposition",
             "type": "Flag",
             "description": "Convert a 4D (6-timepoint) tensor image into L1,2,3,FA,MD,MO,V1,2,3 (remaining image in pipeline is FA)",
-            "optional": true,
             "command-line-flag": "-tensor_decomp"
           },
           {
@@ -474,7 +448,6 @@
             "name": "3D kernel",
             "type": "Flag",
             "description": "3x3x3 box centered on target voxel (set as default kernel)",
-            "optional": true,
             "command-line-flag": "-kernel 3D"
           },
           {
@@ -483,7 +456,6 @@
             "name": "2D kernel",
             "type": "Flag",
             "description": "3x3x1 box centered on target voxel",
-            "optional": true,
             "command-line-flag": "-kernel 2D"
           },
           {
@@ -549,7 +521,6 @@
             "name": "Mean dilation",
             "type": "Flag",
             "description": "Mean Dilation of non-zero voxels",
-            "optional": true,
             "command-line-flag": "-dilM"
           },
           {
@@ -558,7 +529,6 @@
             "name": "Modal dilation",
             "type": "Flag",
             "description": "Modal Dilation of non-zero voxels",
-            "optional": true,
             "command-line-flag": "-dilD"
           },
           {
@@ -567,7 +537,6 @@
             "name": "Maximum filtering",
             "type": "Flag",
             "description": "Maximum filtering of all voxels",
-            "optional": true,
             "command-line-flag": "-dilF"
           },
           {
@@ -576,7 +545,6 @@
             "name": "Dilate all",
             "type": "Flag",
             "description": "Apply -dilM repeatedly until the entire FOV is covered",
-            "optional": true,
             "command-line-flag": "-dilall"
           },
           {
@@ -585,7 +553,6 @@
             "name": "Erode",
             "type": "Flag",
             "description": "Erode by zeroing non-zero voxels when zero voxels found in kernel",
-            "optional": true,
             "command-line-flag": "-ero"
           },
           {
@@ -594,7 +561,6 @@
             "name": "Minimum filtering",
             "type": "Flag",
             "description": "Minimum filtering of all voxels",
-            "optional": true,
             "command-line-flag": "-eroF"
           },
           {
@@ -603,7 +569,6 @@
             "name": "Median filtering",
             "type": "Flag",
             "description": "Median Filtering",
-            "optional": true,
             "command-line-flag": "-fmedian"
           },
           {
@@ -612,7 +577,6 @@
             "name": "Mean filtering",
             "type": "Flag",
             "description": "Mean filtering, kernel weighted (conventionally used with gauss kernel)",
-            "optional": true,
             "command-line-flag": "-fmean"
           },
           {
@@ -621,7 +585,6 @@
             "name": "Mean filtering un-normalised",
             "type": "Flag",
             "description": "Mean filtering, kernel weighted, un-normalised (gives edge effects)",
-            "optional": true,
             "command-line-flag": "-fmeanu"
           },
           {
@@ -630,7 +593,6 @@
             "name": "Gaussian kernel filtering",
             "type": "Number",
             "description": "Create a gauss kernel of sigma mm and perform mean filtering",
-            "optional": true,
             "command-line-flag": "-s"
           },
           {
@@ -639,7 +601,6 @@
             "name": "Downsample by factor of 2",
             "type": "Flag",
             "description": "Downsamples image by a factor of 2 (keeping new voxels centred on old)",
-            "optional": true,
             "command-line-flag": "-subsamp2"
           },
           {
@@ -648,7 +609,6 @@
             "name": "Downsample by factor of 2 (non-centred)",
             "type": "Flag",
             "description": "Downsamples image by a factor of 2 (non-centred)",
-            "optional": true,
             "command-line-flag": "-subsamp2offc"
           },
           {
@@ -657,7 +617,6 @@
             "name": "Mean across time",
             "type": "Flag",
             "description": "Mean across time",
-            "optional": true,
             "command-line-flag": "-Tmean"
           },
           {
@@ -666,7 +625,6 @@
             "name": "Mean across X axis",
             "type": "Flag",
             "description": "Mean across X axis",
-            "optional": true,
             "command-line-flag": "-Xmean"
           },
           {
@@ -675,7 +633,6 @@
             "name": "Mean across Y axis",
             "type": "Flag",
             "description": "Mean across Y axis",
-            "optional": true,
             "command-line-flag": "-Ymean"
           },
           {
@@ -684,7 +641,6 @@
             "name": "Mean across Z axis",
             "type": "Flag",
             "description": "Mean across Z axis",
-            "optional": true,
             "command-line-flag": "-Zmean"
           },
           {
@@ -693,7 +649,6 @@
             "name": "Standard deviation across time",
             "type": "Flag",
             "description": "Standard deviation across time",
-            "optional": true,
             "command-line-flag": "-Tstd"
           },
           {
@@ -702,7 +657,6 @@
             "name": "Standard deviation across X axis",
             "type": "Flag",
             "description": "Standard deviation across X axis",
-            "optional": true,
             "command-line-flag": "-Xstd"
           },
           {
@@ -711,7 +665,6 @@
             "name": "Standard deviation across Y axis",
             "type": "Flag",
             "description": "Standard deviation across Y axis",
-            "optional": true,
             "command-line-flag": "-Ystd"
           },
           {
@@ -720,7 +673,6 @@
             "name": "Standard deviation across Z axis",
             "type": "Flag",
             "description": "Standard deviation across Z axis",
-            "optional": true,
             "command-line-flag": "-Zstd"
           },
           {
@@ -729,7 +681,6 @@
             "name": "Max across time",
             "type": "Flag",
             "description": "Max across time",
-            "optional": true,
             "command-line-flag": "-Tmax"
           },
           {
@@ -738,7 +689,6 @@
             "name": "Max across X axis",
             "type": "Flag",
             "description": "Max across X axis",
-            "optional": true,
             "command-line-flag": "-Xmax"
           },
           {
@@ -747,7 +697,6 @@
             "name": "Max across Y axis",
             "type": "Flag",
             "description": "Max across Y axis",
-            "optional": true,
             "command-line-flag": "-Ymax"
           },
           {
@@ -756,7 +705,6 @@
             "name": "Max across Z axis",
             "type": "Flag",
             "description": "Max across Z axis",
-            "optional": true,
             "command-line-flag": "-Zmax"
           },
           {
@@ -765,7 +713,6 @@
             "name": "Time index of max across time",
             "type": "Flag",
             "description": "Time index of max across time",
-            "optional": true,
             "command-line-flag": "-Tmaxn"
           },
           {
@@ -774,7 +721,6 @@
             "name": "X index of max across X axis",
             "type": "Flag",
             "description": "X index of max across X axis",
-            "optional": true,
             "command-line-flag": "-Xmaxn"
           },
           {
@@ -783,7 +729,6 @@
             "name": "Y index of max across Y axis",
             "type": "Flag",
             "description": "Y index of max across Y axis",
-            "optional": true,
             "command-line-flag": "-Ymaxn"
           },
           {
@@ -792,7 +737,6 @@
             "name": "Z index of max across Z axis",
             "type": "Flag",
             "description": "Z index of max across Z axis",
-            "optional": true,
             "command-line-flag": "-Zmaxn"
           },
           {
@@ -801,7 +745,6 @@
             "name": "Min across time",
             "type": "Flag",
             "description": "Min across time",
-            "optional": true,
             "command-line-flag": "-Tmin"
           },
           {
@@ -810,7 +753,6 @@
             "name": "Min across X axis",
             "type": "Flag",
             "description": "Min across X axis",
-            "optional": true,
             "command-line-flag": "-Xmin"
           },
           {
@@ -819,7 +761,6 @@
             "name": "Min across Y axis",
             "type": "Flag",
             "description": "Min across Y axis",
-            "optional": true,
             "command-line-flag": "-Ymin"
           },
           {
@@ -828,7 +769,6 @@
             "name": "Min across Z axis",
             "type": "Flag",
             "description": "Min across Z axis",
-            "optional": true,
             "command-line-flag": "-Zmin"
           },
           {
@@ -837,7 +777,6 @@
             "name": "Median across time",
             "type": "Flag",
             "description": "Median across time",
-            "optional": true,
             "command-line-flag": "-Tmedian"
           },
           {
@@ -846,7 +785,6 @@
             "name": "Median across X axis",
             "type": "Flag",
             "description": "Median across X axis",
-            "optional": true,
             "command-line-flag": "-Xmedian"
           },
           {
@@ -855,7 +793,6 @@
             "name": "Median across Y axis",
             "type": "Flag",
             "description": "Median across Y axis",
-            "optional": true,
             "command-line-flag": "-Ymedian"
           },
           {
@@ -864,7 +801,6 @@
             "name": "Median across Z axis",
             "type": "Flag",
             "description": "Median across Z axis",
-            "optional": true,
             "command-line-flag": "-Zmedian"
           },
           {
@@ -917,7 +853,6 @@
             "name": "Temporal AR(1) coefficient",
             "type": "Flag",
             "description": "Temporal AR(1) coefficient (use -odt float and probably demean first)",
-            "optional": true,
             "command-line-flag": "-Tar1"
           },
           {
@@ -953,146 +888,6 @@
             "description": "<threshold> <output>. ROC analysis",
             "optional": true,
             "command-line-flag": "-roc"
-          }
-        ],
-        "groups": [
-          {
-            "id": "binary",
-            "name": "Binary Operations",
-            "description": "Binary operations to apply to the input images",
-            "members": [
-              "add",
-              "sub",
-              "mul",
-              "div",
-              "rem",
-              "mas",
-              "thr",
-              "thrp",
-              "thrP",
-              "uthr",
-              "uthrp",
-              "uthrP",
-              "max",
-              "min"
-            ],
-            "mutually-exclusive": true
-          },
-          {
-            "id": "unary",
-            "name": "Unary Operations",
-            "description": "Unary operations to apply to the input images",
-            "members": [
-              "exp",
-              "log",
-              "sin",
-              "cos",
-              "tan",
-              "asin",
-              "acos",
-              "atan",
-              "sqr",
-              "sqrt",
-              "recip",
-              "abs",
-              "bin",
-              "binv",
-              "fillh"
-            ],
-            "mutually-exclusive": true
-          },
-          {
-            "id": "statistics",
-            "name": "Statistics",
-            "description": "Statistical operations to apply to the input images",
-            "members": [
-              "Tmean",
-              "Xmean",
-              "Ymean",
-              "Zmean",
-              "Tstd",
-              "Xstd",
-              "Ystd",
-              "Zstd",
-              "Tmax",
-              "Xmax",
-              "Ymax",
-              "Zmax",
-              "Tmaxn",
-              "Xmaxn",
-              "Ymaxn",
-              "Zmaxn",
-              "Tmin",
-              "Xmin",
-              "Ymin",
-              "Zmin",
-              "Tmedian",
-              "Xmedian",
-              "Ymedian",
-              "Zmedian",
-              "Tperc",
-              "Xperc",
-              "Yperc",
-              "Zperc",
-              "Tar1"
-            ],
-            "mutually-exclusive": true
-          },
-          {
-            "id": "filtering",
-            "name": "Filtering",
-            "description": "Filtering operations to apply to the input images",
-            "members": [
-              "dilM",
-              "dilD",
-              "dilF",
-              "dilall",
-              "ero",
-              "eroF",
-              "fmedian",
-              "fmean",
-              "fmeanu",
-              "s",
-              "subsamp2",
-              "subsamp2offc"
-            ],
-            "mutually-exclusive": true
-          },
-          {
-            "id": "kernel",
-            "name": "Kernel",
-            "description": "Kernel to use for filtering operations",
-            "members": [
-              "kernel_3D",
-              "kernel_2D",
-              "kernel_box",
-              "kernel_boxv",
-              "kernel_boxv3",
-              "kernel_gauss",
-              "kernel_sphere",
-              "kernel_file"
-            ],
-            "mutually-exclusive": true
-          },
-          {
-            "id": "miscellaneous",
-            "name": "Miscellaneous",
-            "description": "Miscellaneous operations to apply to the input images",
-            "members": [
-              "nan",
-              "nanm",
-              "rand",
-              "randn",
-              "inm",
-              "ing",
-              "range",
-              "tensor_decomp",
-              "edge",
-              "tfce",
-              "tfceS",
-              "roc"
-            ],
-            "mutually-exclusive": true
           }
         ]
       }
