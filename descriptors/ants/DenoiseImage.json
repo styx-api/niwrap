@@ -6,10 +6,7 @@
   "url": "https://github.com/ANTsX/ANTs",
   "tool-version": "2.5.3",
   "schema-version": "0.5",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  },
+  "container-image": { "type": "docker", "image": "antsx/ants:v2.5.3" },
   "inputs": [
     {
       "id": "image_dimensionality",
@@ -116,7 +113,6 @@
               "name": "Output image",
               "id": "output_image_outfile",
               "path-template": "[OUTPUT]",
-              "optional": false,
               "description": "Denoised image."
             }
           ]
@@ -150,14 +146,12 @@
               "name": "Output image",
               "id": "output_image_outfile",
               "path-template": "[OUTPUT]",
-              "optional": false,
               "description": "Denoised output image."
             },
             {
               "name": "Noise map image",
               "id": "output_bias_image",
               "path-template": "[NOISE_IMAGE_PATH]",
-              "optional": true,
               "description": "Noise map image."
             }
           ]
