@@ -6,10 +6,7 @@
   "url": "https://github.com/ANTsX/ANTs",
   "tool-version": "2.5.3",
   "schema-version": "0.5",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  },
+  "container-image": { "type": "docker", "image": "antsx/ants:v2.5.3" },
   "inputs": [
     {
       "id": "image_dimensionality",
@@ -49,7 +46,6 @@
       "integer": true,
       "value-choices": [0, 1],
       "optional": true,
-      "requires-inputs": ["mask_image"],
       "command-line-flag": "--rescale-intensities",
       "description": "-r, --rescale-intensities 0/(1). At each iteration, a new intensity mapping is calculated and applied but there is nothing which constrains the new intensity range to be within certain values.  The result is that the range can \"drift\" from the original at each iteration.  This option rescales to the [min,max] range of the original image intensities within the user-specified mask. A mask is required to perform rescaling."
     },
