@@ -39,13 +39,13 @@
         {
           "id": "accum",
           "name": "accum",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-accum, -endaccum: Accumulate operations over all images\n\nSyntax: `-accum command-list -endaccum`\n\nApply a binary operation (such as addition or multiplication) to all the images on the stack in a cumulative fashion. The command(s) will be applied to the last and second-to-last images on the stack, then to the result of this operation and the third-to-last image on the stack and so on. Below is the example of using the command to add multiple images. \n\n    c3d image*.nii -accum -add -endaccum -o sum.nii",
           "inputs": [
             {
               "id": "accum",
               "name": "accum",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-accum",
               "optional": false,
@@ -56,13 +56,13 @@
         {
           "id": "acos",
           "name": "acos",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "No description found.",
           "inputs": [
             {
               "id": "acos",
               "name": "acos",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-acos",
               "optional": false,
@@ -73,13 +73,13 @@
         {
           "id": "add",
           "name": "add",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-add: Voxelwise image addition\n\nSyntax: `-add`\n\nAdds the last two images on the stack, and places the sum at the end of the stack.\n\n    # Add two images: x = a + b\n    c3d a.img b.img -add -o x.img\n\n    # Add three images, x = (a + b) + c in the first example, x = a + (b + c) in the second\n    c3d a.img b.img -add c.img -add -o x.img\n    c3d a.img b.img c.img -add -add -o x.img\n\n    # Subtract two images, using -scale command: x = a - b\n    c3d a.img b.img -scale -1 -add -o x.img",
           "inputs": [
             {
               "id": "add",
               "name": "add",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-add",
               "optional": false,
@@ -90,13 +90,13 @@
         {
           "id": "align_landmarks",
           "name": "align_landmarks",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-alm, -align-landmarks: Align images based on landmark matching\n\nSyntax: `-alm dof outfile`\n\nPerforms rigid or affine alignment between to sets of landmark images. A landmark image is an image where for every intensity value, the centroid of all voxels with that intensity represents a landmark. Landmarks can be created using the paintbrush tool in ITK-SNAP (they can be spheres, cubes, etc). The first image on the stack is the target/fixed/reference image, and the second is the moving image. The parameters are the degrees of freedom, which is a number (6 for rigid, 7 for rigid+scale, 12 for affine) and the output matrix file. In this example, we have images **fixed.nii* and **moving.nii** with corresponding landmark images. We use landmarks to align the moving image to the fixed:\n\n    c3d fixed_landmarks.nii moving_landmarks.nii -alm 6 rigid.mat\n    c3d fixed.nii moving.nii -reslice-matrix rigid.mat -o moving_resliced_to_fixed.nii",
           "inputs": [
             {
               "id": "align_landmarks",
               "name": "align_landmarks",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-align-landmarks",
               "optional": false,
@@ -107,13 +107,13 @@
         {
           "id": "anisotropic_diffusion",
           "name": "anisotropic_diffusion",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-add: Voxelwise image addition\n\nSyntax: `-add`\n\nAdds the last two images on the stack, and places the sum at the end of the stack.\n\n    # Add two images: x = a + b\n    c3d a.img b.img -add -o x.img\n\n    # Add three images, x = (a + b) + c in the first example, x = a + (b + c) in the second\n    c3d a.img b.img -add c.img -add -o x.img\n    c3d a.img b.img c.img -add -add -o x.img\n\n    # Subtract two images, using -scale command: x = a - b\n    c3d a.img b.img -scale -1 -add -o x.img",
           "inputs": [
             {
               "id": "anisotropic_diffusion",
               "name": "anisotropic_diffusion",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-anisotropic-diffusion",
               "optional": false,
@@ -124,13 +124,13 @@
         {
           "id": "antialias",
           "name": "antialias",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "No description found.",
           "inputs": [
             {
               "id": "antialias",
               "name": "antialias",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-antialias",
               "optional": false,
@@ -141,13 +141,13 @@
         {
           "id": "set",
           "name": "set",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-as: Assign image at the end of the stack to a variable\n\nSyntax: `-as var`\n\nAssociates the image currently at the end of the stack with variable name 'var'. This allows you to retrieve the image later on the command line using the **-push** command. The **-as** and **-push** commands are useful when you need to use a certain image more than once during a convert3d operation. For example, if you want to compute the distance transform of a binary image and mask it so that the values outside of the binary image region have value 0, you would use the following command: \n\n    c3d binary.img -as A -sdt -push A -times -o masked_distance.img",
           "inputs": [
             {
               "id": "set",
               "name": "set",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-as",
               "optional": false,
@@ -158,13 +158,13 @@
         {
           "id": "asin",
           "name": "asin",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "No description found.",
           "inputs": [
             {
               "id": "asin",
               "name": "asin",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-asin",
               "optional": false,
@@ -175,13 +175,13 @@
         {
           "id": "atan2",
           "name": "atan2",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-atan2: Voxelwise angle from sine and cosine\n\nSyntax: `-atan2`\n\nComputes the angle in radians from images containing sine and cosine. This is a voxel-wise operation. It requires two images on the stack (sine followed by cosine): \n\n    c3d sin_theta.nii.gz cos_theta.nii.gz -atan2 -o theta.nii.gz",
           "inputs": [
             {
               "id": "atan2",
               "name": "atan2",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-atan2",
               "optional": false,
@@ -192,13 +192,13 @@
         {
           "id": "background",
           "name": "background",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-background: Specify background intensity\n\nSyntax: `-background <value> `\n\nSets the background intensity for interpolation and other operations where some default background value is needed. Default is 0.",
           "inputs": [
             {
               "id": "background",
               "name": "background",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-background",
               "optional": false,
@@ -209,13 +209,13 @@
         {
           "id": "n4_bias_correction",
           "name": "n4_bias_correction",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-biascorr: Automatic MRI bias field correction\n\nSyntax: `-biascorr`\n\nPerforms automatic bias field correction for MRI images. This feature uses the [N3 implementation in ITK by Dr. Tustison][4], based on the N3 algorithm by Sled et al. \n\n    c3d mri.nii.gz -biascorr -o mricorr.nii.gz",
           "inputs": [
             {
               "id": "n4_bias_correction",
               "name": "n4_bias_correction",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-biascorr",
               "optional": false,
@@ -226,13 +226,13 @@
         {
           "id": "binarize",
           "name": "binarize",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-binarize: Convert image to binary\n\nSyntax: `-binarize`\n\nConverts an image to binary by mapping all background values (the background is 0 by default and can be changed by the option **-background**) to 0 and all non-background values to 1. The **-binarize** command is shorthand for the **-threshold** command. \n\n    c3d test.img -binarize -o binary.img \n    c3d -background 10 -binarize -o binary.img\n    c3d test.img -threshold 10 10 0 1              // equivalent to above command",
           "inputs": [
             {
               "id": "binarize",
               "name": "binarize",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-binarize",
               "optional": false,
@@ -243,13 +243,13 @@
         {
           "id": "canny",
           "name": "canny",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-canny: Canny edge detector\n\nSyntax: `-canny <sigma_vector> <t_lower> <t_upper>`\n\nPerforms edge detection on the last image on the stack using the Canny filter. The parameters are a vector of standard deviations defining the scale of the edges detected and lower and upper thresholds for edge selection. See documentation on the [ITK Canny Filter][14].",
           "inputs": [
             {
               "id": "canny",
               "name": "canny",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-canny",
               "optional": false,
@@ -260,13 +260,13 @@
         {
           "id": "ceil",
           "name": "ceil",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-ceil: Round up image intensities\n\nSyntax: `-ceil `\n\nEach image intensity is replaced by the smallest integer larger or equal to it\n\n    c3d input.img -ceil -o output.img",
           "inputs": [
             {
               "id": "ceil",
               "name": "ceil",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-ceil",
               "optional": false,
@@ -277,13 +277,13 @@
         {
           "id": "centroid",
           "name": "centroid",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-centroid: Report centroid of foreground voxels\n\nSyntax: `-centroid`\n\nReports the centroid, in physical coordinates, of all foreground voxels in the image. \n\n    c3d binaryimage.img -centroid                         // centroid of all non-0 voxels\n    c3d grayimage.img -thresh 1000 7000 1 0 -centroid 1   // centroid of all voxels in range 1000-7000\n    c3d labelimage.img -thresh 5 5 1 0 -centroid          // centroid of all voxels with label 5\n    c3d labelimage.img -split -foreach -centroid -endfor  // centroids of all labels (including 0)",
           "inputs": [
             {
               "id": "centroid",
               "name": "centroid",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-centroid",
               "optional": false,
@@ -294,13 +294,13 @@
         {
           "id": "centroid_mark",
           "name": "centroid_mark",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-centroid-mark: Mark the centroid of foreground voxels\n\nSyntax: `-centroid-mark <label>`\n\nMarks the centroid of the foreground voxels in an image. Unlike **-centroid**, this command does not print the centroid location, but marks the closest voxel in the image with the intensity **label**. The remaining voxels are assigned 0 intensity. Combined with -dilate, this can be used to mark centers of regions with spheres.\n\n    c3d binaryimage.nii -centroid-mark -dilate 1 3x3x3\n    c3d labelimage.nii -split -foreach -centroid-mark -endfor -merge -o centers.nii",
           "inputs": [
             {
               "id": "centroid_mark",
               "name": "centroid_mark",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-centroid-mark",
               "optional": false,
@@ -311,13 +311,13 @@
         {
           "id": "connected_components",
           "name": "connected_components",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-comp, -connected-components: Compute connected components\n\nSyntax: `-comp`\n\nComputes the connected components of a binary image. Each connected component is assigned an integer index. Indices are ordered by the size of the component, so the component assigned index 1 is the largest. The background is assigned index 0. To select the largest connected component, combine the call to **-comp** with a call to **-threshold**. \n\n    c3d binary.img -comp -o comp.img\n    c3d binary.img -comp -threshold 1 1 1 0 -o largest_comp.img",
           "inputs": [
             {
               "id": "connected_components",
               "name": "connected_components",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-connected-components",
               "optional": false,
@@ -328,13 +328,13 @@
         {
           "id": "clear",
           "name": "clear",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-clear: Clear the image stack\n\nSyntax: `-clear` \n\nClears the image stack. Images assigned a name with the **-as** command will remain in memory.",
           "inputs": [
             {
               "id": "clear",
               "name": "clear",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-clear",
               "optional": false,
@@ -345,13 +345,13 @@
         {
           "id": "clip",
           "name": "clip",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-clip: Clip image intensity to range\n\nSyntax: `-clip iMin iMax`\n\nClips image intensities, so that the values below *iMin* are converted to *iMin* and values greater than *iMax* are converted to *iMax*. This is useful for eliminating hyperintensities in images. Values *iMin* and *iMax* are intensity specifications (see below). \n\n    c3d mri.img -clip 1000 8000 -o mriclip01.img          // Clips below and above\n    c3d mri.img -clip -inf 8000 -o mriclip02.img          // Clips above only\n    c3d mri.img -clip -inf 95% -o mriclip03.img           // Clips at 95th percentile",
           "inputs": [
             {
               "id": "clip",
               "name": "clip",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-clip",
               "optional": false,
@@ -362,13 +362,13 @@
         {
           "id": "color_map",
           "name": "color_map",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-color-map, -colormap: Convert scalar image to RGB using color map    \n\nSyntax: `-color-map <ColormapName> [min max]`\n\nConverts a scalar image to a color (RGB) image using a specified color map. The output of the command are three images, containing the red, green and blue channels of the RGB image. The mapping uses the range of the input image, e.g., using the **jet** color map, the lowest intensity pixel in the image will be mapped to blue, and the highest intesnity pixel will be mapped to red. The admissible color maps are **hot,cool,spring,summer,autumn,winter,copper,jet,hsv,red,green,blue,grey,overunder**. The command can be used with the -omc command to write RGB images. The example below generates a PNG image from a slice in a scalar image. \n\n    c3d scalar.nii.gz -slice z 50% -flip y -color-map jet -type uchar -omc colorslice.png\n\nBy default the full image intensity range is mapped. The optional **min** and **max** parameters can be used to set the range of the color map. \n\n    c3d scalar.nii.gz -slice z 50% -flip y -color-map jet 0 1 -type uchar -omc colorslice.png",
           "inputs": [
             {
               "id": "color_map",
               "name": "color_map",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-colormap",
               "optional": false,
@@ -379,13 +379,13 @@
         {
           "id": "compress",
           "name": "compress",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-compress, -no-compress: Enable/disable compression for some image files\n\nSyntax: `-compress` or `-no-compress`\n\nTurns on compressing for image file formats that support it. For some file formats, like NIFTI (.nii), compression is enabled automatically when the filename includes the **.gz** extension. For other formats, like MetaImage, you need to specify **-compress** to enable compression. The following two commands save the image as compressed NIFTI and MetaImage files:\n\n    c3d input.nii -o output.nii.gz\n    c3d input.nii -compress -o output.mha",
           "inputs": [
             {
               "id": "compress",
               "name": "compress",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-compress",
               "optional": false,
@@ -396,13 +396,13 @@
         {
           "id": "no_compress",
           "name": "no_compress",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-compress, -no-compress: Enable/disable compression for some image files\n\nSyntax: `-compress` or `-no-compress`\n\nTurns on compressing for image file formats that support it. For some file formats, like NIFTI (.nii), compression is enabled automatically when the filename includes the **.gz** extension. For other formats, like MetaImage, you need to specify **-compress** to enable compression. The following two commands save the image as compressed NIFTI and MetaImage files:\n\n    c3d input.nii -o output.nii.gz\n    c3d input.nii -compress -o output.mha",
           "inputs": [
             {
               "id": "no_compress",
               "name": "no_compress",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-no-compress",
               "optional": false,
@@ -413,13 +413,13 @@
         {
           "id": "conv",
           "name": "conv",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-conv: Convolution\n\nSyntax `-conv`\n\nPerforms convolution between the last two images on the stack. The convolution is performed using the Fourier transform. The result is an image of the same dimensions as the first image. For more details, see [\"FFT Based Convolution\" by Gaetan Lehmann][Lehmann].\n\n    c3d image.nii kernel.nii -conv -o result.nii\n\n\n[Lehmann]: https://hdl.handle.net/10380/3154",
           "inputs": [
             {
               "id": "conv",
               "name": "conv",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-conv",
               "optional": false,
@@ -430,13 +430,13 @@
         {
           "id": "coordinate_map_voxel",
           "name": "coordinate_map_voxel",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-cmv, -coordinate-map-voxel: Generate voxel coordinate maps (voxel units)\n\nSyntax: `-cmv`\n\nFor a *N*-dimensional image, replaces the last image on the stack with *N* images. The *k*-th output image at each voxel contains the $k$-th coordinate of that voxel, in voxel units.\n\n    c3d image.nii -cmv -oo coordmap%d.nii.gz\n\nOne can use this command to split a brain segmentation image into a left hemisphere segmentation and a right hemisphere segmentation (assuming the X coordinate corresponds to the right-left axis)\n\n    c3d seg.nii -as SEG -cmv -pop -pop  -thresh 50% inf 1 0 -as MASK \\\n        -push SEG -times -o seg_left.nii.gz \\\n        -push MASK -replace 1 0 0 1 \\\n        -push SEG -times -o seg_right.nii.gz",
           "inputs": [
             {
               "id": "coordinate_map_voxel",
               "name": "coordinate_map_voxel",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-coordinate-map-voxel",
               "optional": false,
@@ -447,13 +447,13 @@
         {
           "id": "coordinate_map_physical",
           "name": "coordinate_map_physical",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-cmp, -coordinate-map-physical: Generate voxel coordinate maps (voxel units)\n\nSyntax: `-cmp`\n\nThis command is similar to **-cmv** (**-coordinate-map-voxel**), but the output will contain the physical coordinates of the voxels, in the NIFTI (RAS) coordinate frame.",
           "inputs": [
             {
               "id": "coordinate_map_physical",
               "name": "coordinate_map_physical",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-coordinate-map-physical",
               "optional": false,
@@ -464,13 +464,13 @@
         {
           "id": "copy_transform",
           "name": "copy_transform",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-copy-transform: Copy header information \n\nSyntax: `-copy-transform`\n\nCopies the image header, specifically the image to physical space transform (origin, spacing, direction cosines), from the first image (reference) to the second image (target). This is best done with NIFTI images, which store this information well. In the example below, *out.nii* will have the same header as *first.nii* and the same intensities as *second.nii*.\n\n    c3d first.nii second.nii -copy-transform -o out.nii",
           "inputs": [
             {
               "id": "copy_transform",
               "name": "copy_transform",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-copy-transform",
               "optional": false,
@@ -481,13 +481,13 @@
         {
           "id": "cos",
           "name": "cos",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "No description found.",
           "inputs": [
             {
               "id": "cos",
               "name": "cos",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-cos",
               "optional": false,
@@ -498,13 +498,13 @@
         {
           "id": "create",
           "name": "create",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-create: Generate blank image\n\nSyntax: `-create dimensions voxel_size`\n\nCreates a new blank image with specified dimensions and voxel size, and places it at the end of the stack. The image is set to the current background value, which is 0 by default but can be overwritten with the **-background** command. The origin of the image can be changed with the **-origin** command. \n\n    c3d -create 256x256x160 1x1x1mm -o newimage.img\n    c3d -background 128 -create 256x256x160 1x1x1mm -origin 128x128x80mm -o newimage.img",
           "inputs": [
             {
               "id": "create",
               "name": "create",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-create",
               "optional": false,
@@ -515,13 +515,13 @@
         {
           "id": "dicom_series_list",
           "name": "dicom_series_list",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-dicom-series-list: List image series in a DICOM directory\n\nSyntax: `-dicom-series-list <directory>\n\nPrints out a table of DICOM series ids and corresponding image information to standard output.",
           "inputs": [
             {
               "id": "dicom_series_list",
               "name": "dicom_series_list",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-dicom-series-list",
               "optional": false,
@@ -532,13 +532,13 @@
         {
           "id": "dicom_series_read",
           "name": "dicom_series_read",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-dicom-series-read: Read a DICOM image series\n\nSyntax: `-dicom-series-read <directory> <series_id>`\n\nImports a specific DICOM image series from a directory containing DICOM files. The **directory** parameter may also point to one of the DICOM files in the directory.\nThe **seried_id** is a string identifier for the series that can be obtained by calling **-dicom-series-list**",
           "inputs": [
             {
               "id": "dicom_series_read",
               "name": "dicom_series_read",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-dicom-series-read",
               "optional": false,
@@ -549,13 +549,13 @@
         {
           "id": "dilate",
           "name": "dilate",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-dilate: Binary dilation\n\nSyntax: `-dilate <label> <radius_vector>`\n\nApplies the dilation [mathematical morphology][5] operation to a binary image. The first parameter is the intensity value of the object that is to be dilated. The second is the radius of the dilation structuring element in 3D. \n\n    c3d binary.img -dilate 255 3x3x3vox -o newimage.img",
           "inputs": [
             {
               "id": "dilate",
               "name": "dilate",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-dilate",
               "optional": false,
@@ -566,13 +566,13 @@
         {
           "id": "divide",
           "name": "divide",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-divide: Voxelwise image division    \n\nSyntax: `-divide`\n\nDivides one image by another. For instance to compute C = A / B, use the command \n\n    c3d A.img B.img -divide -o C.img\n\nDivison may generate infinite and not-a-number (NaN) values if B contains zeros. You can use **-replace** to get rid of these values\n\n    c3d A.img B.img -divide -replace inf 1000 -inf -1000 NaN 0 -o C2.img",
           "inputs": [
             {
               "id": "divide",
               "name": "divide",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-divide",
               "optional": false,
@@ -583,13 +583,13 @@
         {
           "id": "duplicate",
           "name": "duplicate",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-dup: Duplicate the last image on the stack\n\nSyntax: `-dup` \n\nDuplicates the image at the end of the stack. This is equivalent to **-as var -push var**, but shorter. An example is when you want to pass an image as both arguments to a binary operator, e.g., computing the square of the image intensity: \n\n    c3d input.img -dup -times -o square.img\n\n### Commands: Voxelwise Calculations",
           "inputs": [
             {
               "id": "duplicate",
               "name": "duplicate",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-dup",
               "optional": false,
@@ -600,13 +600,13 @@
         {
           "id": "endaccum",
           "name": "endaccum",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-accum, -endaccum: Accumulate operations over all images\n\nSyntax: `-accum command-list -endaccum`\n\nApply a binary operation (such as addition or multiplication) to all the images on the stack in a cumulative fashion. The command(s) will be applied to the last and second-to-last images on the stack, then to the result of this operation and the third-to-last image on the stack and so on. Below is the example of using the command to add multiple images. \n\n    c3d image*.nii -accum -add -endaccum -o sum.nii",
           "inputs": [
             {
               "id": "endaccum",
               "name": "endaccum",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-endaccum",
               "optional": false,
@@ -617,13 +617,13 @@
         {
           "id": "endfor",
           "name": "endfor",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-foreach, -endfor: Loop commands over all images on the stack\n\nSyntax: `-foreach commands-list -endfor`\n\nThis command forces the commands between **-foreach** and **-endfor** to be applied to every image on the stack. The main use of this command is to automate processing of multiple datasets. For example, \n\n    c3d epi*.nii -foreach -smooth 3mm -endfor -oo epism%03d.nii",
           "inputs": [
             {
               "id": "endfor",
               "name": "endfor",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-endfor",
               "optional": false,
@@ -634,13 +634,13 @@
         {
           "id": "erode",
           "name": "erode",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-erode: Binary erosion\n\nSyntax: `-erode <label> <radius_vector>`\n\nApplies erosion [mathematical morphology][5] operation to a binary image. The first parameter is the intensity value of the object that is to be eroded. The second is the radius of the erosion structuring element in 3D. \n\n    c3d binary.img -erode 255 3x3x3vox -o newimage.img",
           "inputs": [
             {
               "id": "erode",
               "name": "erode",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-erode",
               "optional": false,
@@ -651,13 +651,13 @@
         {
           "id": "erf",
           "name": "erf",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-erf: Standard error function\n\nSyntax: `-erf mu sigma`\n\nComputes the standard error function. This is useful for applying soft thresholds. The function computes y = erf((x - mu)/sigma). \n\n    c3d input.img -erf 5 2 -o erf.img",
           "inputs": [
             {
               "id": "erf",
               "name": "erf",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-erf",
               "optional": false,
@@ -668,13 +668,13 @@
         {
           "id": "exp",
           "name": "exp",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-exp: Voxelwise natural exponent\n\nSyntax: `-exp`\n\nComputes exponent of each voxel in the last image on the stack.\n\n    c3d input.img -exp -o output.img",
           "inputs": [
             {
               "id": "exp",
               "name": "exp",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-exp",
               "optional": false,
@@ -685,13 +685,13 @@
         {
           "id": "export_patches",
           "name": "export_patches",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-export-patches, -xp: Fixed size patch sampling from masked regions\n\nSyntax: `-export-patches <outfile> <radius_vector> <frequency>`\n\nSee also: **-export-patches-aug (-xpa)** command, which provides data augmentation for deep learning.\n\nThis command samples patches from a region of a ND image and stores them into a data file that can be read easily in other software, for example, NumPy. This is useful for generating training data for machine learning projects. Multiple \"channels\" can be sampled.\n\n    c3d chan1.nii chan2.nii chan3.nii mask.nii -xp samples.dat 4x4x4 100\n\nThis command will sample the three images chan1, chan2, chan3 at foreground voxels in the mask. Voxels in the mask foreground region are sampled randomly, following a uniform distribution. The value of 100 means that every 100-th voxel, on average, is sampled. The radius 4x4x4 means that patches of size 9x9x9 will be generated. For each sampled voxel, the sampled intensity data is represented as a 3x9x9x9 array in this example.\n\nTo read these samples in NumPy use the following code\n\n    dims = (9,9,9)                          # Patch dimensions\n    k = 3                                   # Number of channels\n    bps = (4 * k * reduce(mul, dims, 1))    # Bytes per sample\n    np = os.path.getsize(fname) // bps      # Number of samples\n    arr = numpy.memmap(fname,'float32','r',shape=(np,k) + dims)\n\nIt is also possible to visualize the extracted samples in ITK-SNAP by reading them as a raw image, with dimensions equal to the dimensions of the patch, and the z-dimension multiplied by the number of samples.\n\nThe command can also be used to extract entire structures. For example, if we have a binary segmentation of a lesion of an approximately known size in an MRI scan, we can extract a patch of given size centered on this lesion, as follows:\n\n    c3d mri.nii lesion_seg.nii -centroid-mark 1 -xp single_sample.dat 50x50x20 1\n\nIn the above example, **-centroid-mark** transforms the lesion segmentation into a single-voxel mask, from which the sample from the MRI is taken.",
           "inputs": [
             {
               "id": "export_patches",
               "name": "export_patches",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-export-patches",
               "optional": false,
@@ -702,13 +702,13 @@
         {
           "id": "export_patches_aug",
           "name": "export_patches_aug",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-export-patches-aug, -xpa: data augmentation for deep learning\n\nSyntax `-export-patches-aug <N> <sigma_angle>`\n\nThis command must precede the `-export-patches (-xp)` command and instructs this command to not only sample patches along the image axes but to also sample **N** randomly rotated patches. Rotation is around a uniformly distributed axis with a rotation angle distributed normally with teh standard deviation **sigma_angle**, specified in degrees. This kind of sampling is useful for data augmentation for machine learning algorithms.\n\n    c3d chan1.nii chan2.nii chan3.nii mask.nii -xpa 5 10 -xp samples.dat 4x4x4 100",
           "inputs": [
             {
               "id": "export_patches_aug",
               "name": "export_patches_aug",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-export-patches-aug",
               "optional": false,
@@ -719,13 +719,13 @@
         {
           "id": "extrude_seg",
           "name": "extrude_seg",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "No description found.",
           "inputs": [
             {
               "id": "extrude_seg",
               "name": "extrude_seg",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-extrude-seg",
               "optional": false,
@@ -736,13 +736,13 @@
         {
           "id": "fill_background_with_noise",
           "name": "fill_background_with_noise",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "No description found.",
           "inputs": [
             {
               "id": "fill_background_with_noise",
               "name": "fill_background_with_noise",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-fill-background-with-noise",
               "optional": false,
@@ -753,13 +753,13 @@
         {
           "id": "fft",
           "name": "fft",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-fft: Fast Fourier transform\n\nSyntax `-fft`\n\nComputes the Fourier transform of a real-valued image at the end of the stack. The image is replaced by the real and imaginary components of the FFT. This command is only available if **convert3d** is compiled with the FFTW library support. \n\n    c3d image.nii -fft -oo real.nii imag.nii",
           "inputs": [
             {
               "id": "fft",
               "name": "fft",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-fft",
               "optional": false,
@@ -770,13 +770,13 @@
         {
           "id": "flip",
           "name": "flip",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-flip: Flip image around an axis    \n\nSyntax: `-flip axes`\n\nFlips the image around specified axes. The parameter 'axes' may be any combination of characters 'x', 'y', and 'z'; the order does not matter. \n\n    c3d input.img -flip xy -o output.img",
           "inputs": [
             {
               "id": "flip",
               "name": "flip",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-flip",
               "optional": false,
@@ -787,13 +787,13 @@
         {
           "id": "floor",
           "name": "floor",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-floor: Round down image intensities\n\nSyntax: `-floor `\n\nEach image intensity is replaced by the largest integer smaller or equal to it.\n\n    c3d input.img -floor -o output.img\n\nTo round each intensity to the closest integer, use\n\n    c3d input.img -shift 0.5 -floor",
           "inputs": [
             {
               "id": "floor",
               "name": "floor",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-floor",
               "optional": false,
@@ -804,13 +804,13 @@
         {
           "id": "foreach",
           "name": "foreach",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-foreach, -endfor: Loop commands over all images on the stack\n\nSyntax: `-foreach commands-list -endfor`\n\nThis command forces the commands between **-foreach** and **-endfor** to be applied to every image on the stack. The main use of this command is to automate processing of multiple datasets. For example, \n\n    c3d epi*.nii -foreach -smooth 3mm -endfor -oo epism%03d.nii",
           "inputs": [
             {
               "id": "foreach",
               "name": "foreach",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-foreach",
               "optional": false,
@@ -821,13 +821,13 @@
         {
           "id": "foreach_comp",
           "name": "foreach_comp",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-foreach-comp, -endfor: Loop commands over components of a multi-component image \n\nSyntax `-foreach-comp <N> commands-list -endfor`\n\nThis command runs the list of commands separately for each component of a set of multi-component images loaded with -mcs. This makes it possible to perform component-wise operations on multi-component images. For example, it can be used to average several multi-component images. If the image stack contains images *x1* *y1* *z1* *x2* *y2* *z2*, then the operations will be run on *[x1,x2]*, *[y1,y2]*, *[z1,z2]*. For example, if multi_1.nii to multi_10.nii are three-component images, then the mean three-component image is given by\n\n    c2d -mcs multi_*.nii -foreach-comp -mean -endfor -omc multi_mean.nii",
           "inputs": [
             {
               "id": "foreach_comp",
               "name": "foreach_comp",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-foreach-comp",
               "optional": false,
@@ -838,13 +838,13 @@
         {
           "id": "glm",
           "name": "glm",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-glm: General linear model    \n\nSyntax: `-glm design_matrix_file contrast_vector_file`\n\nApplies voxel-wise general linear model to a set of images. More precisely, the general linear model solves the following system: $Y = X \\beta + \\epsilon$, where Y are the observations (a list of n images, where each voxel is treated as an independent observation); X is the $n x k$ design matrix, where $k$ is the number of factors; $\\beta$ is a set of $k$ unknown images (factors) and $\\epsilon$ is the error term. The command will compute the $\\beta$ images and return a weighted sum of them, where the weights are specified in the contrast vector. The design matrix and the contrast vector are passed in as files. The file format is just a space-separated list of numbers. For a good explanation of the general linear model, see [S. Kiebel and A. Holmes, General Linear Model, in Ashburner, Friston, Holmes eds., *Human Brain Function, 2nd Edition*][6]. The example below computes the regression coefficient between a set of longitudinal images and subject's age: \n\n      echo \"1 67.00\" > design_mat.txt\n      echo \"1 75.00\" >> design_mat.txt\n      echo \"1 80.00\" >> design_mat.txt\n      echo \"1 83.00\" >> design_mat.txt\n      echo \"0 1\" >> contrast_vec.txt\n      c3d time1.img time2.img time3.img time4.img -glm design_mat.txt contrast_vec.txt -o regress.img",
           "inputs": [
             {
               "id": "glm",
               "name": "glm",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-glm",
               "optional": false,
@@ -855,13 +855,13 @@
         {
           "id": "gradient",
           "name": "gradient",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-grad, -gradient: Image gradient\n\nSyntax `-grad`\n\nComputes the gradient of the image. Each component of the gradient is placed on the stack in order (x,y,z). The gradient is computed in physical RAS coordinates, taking into account image spacing and orientation. In other words, the gradient is the vector in physical space orthogonal to the isocontours of the image. No smoothing is performed, so it is a good idea to smooth the image first before computing the gradient.\n\n    c3d myimage.nii -smooth 1.2vox -grad -oo grad_comp_%02d.nii",
           "inputs": [
             {
               "id": "gradient",
               "name": "gradient",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-grad",
               "optional": false,
@@ -872,13 +872,13 @@
         {
           "id": "_help",
           "name": "_help",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-hesseig, -hessian-eigenvalues: Compute eigenvalues of the Hessian matrix\n\nSyntax `-hesseig <scale>`\n\nComputes the Hessian matrix at every pixel of an image and the eigenvalues of the Hessian. Images of the eigenvalues (sorted by value) are placed on the stack. These images are useful as texture features. See also the '''-steig''' command. The scale determines the amount of Gaussian smoothing applied for computing the partial derivatives in the Hessian, and is in physical (mm) units.\n\n    c3d myimage.nii -hesseig 2.0 -oo eig%02d.nii.gz",
           "inputs": [
             {
               "id": "_help",
               "name": "_help",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-h",
               "optional": false,
@@ -889,13 +889,13 @@
         {
           "id": "holefill",
           "name": "holefill",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-holefill: Fill holes in binary image\n\nSyntax: `-holefill intensity_value [0|1] `\n\nApply the binary hole filling algorithm to a particular intensity value in the image. The input image is typically a binary image or a multi-label segmentation image. Holes (voxels not matching the specified intensity value that are completely contained by voxels matching this value) are filled. The second parameter specifies what type of topological connectivity is used to determine holes. The value 0 uses the default algorithm in ITK (face connectivity) and 1 uses the full connectivity variant (face, edge and vertex connectivity). For more details see the [ITK page for this algorithm][7]. \n\n    c3d segmentation.nii.gz -holefill 5 0 -type uchar -o filledlabel5.nii.gz",
           "inputs": [
             {
               "id": "holefill",
               "name": "holefill",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-hf",
               "optional": false,
@@ -906,13 +906,13 @@
         {
           "id": "hessian_eigenvalues",
           "name": "hessian_eigenvalues",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-hesseig, -hessian-eigenvalues: Compute eigenvalues of the Hessian matrix\n\nSyntax `-hesseig <scale>`\n\nComputes the Hessian matrix at every pixel of an image and the eigenvalues of the Hessian. Images of the eigenvalues (sorted by value) are placed on the stack. These images are useful as texture features. See also the '''-steig''' command. The scale determines the amount of Gaussian smoothing applied for computing the partial derivatives in the Hessian, and is in physical (mm) units.\n\n    c3d myimage.nii -hesseig 2.0 -oo eig%02d.nii.gz",
           "inputs": [
             {
               "id": "hessian_eigenvalues",
               "name": "hessian_eigenvalues",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-hesseig",
               "optional": false,
@@ -923,13 +923,13 @@
         {
           "id": "hessian_objectness",
           "name": "hessian_objectness",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-hessobj, -hessian-objectness: Hessian objectness filter\n\nSyntax: `-hessobj <dimension> <min_scale> <max_scale>`\n\nAlso known as the Frangi vesselness filter, this filter can be used to highlight tube-like, sheet-like and blob-like objects in the image. For details, see documentation to the [corresponging ITK class][HTOMIF]. \n\nParameter `dimension` is an integer that determines the kind of features that are highlighed. Use 0 for blobs, 1 for tubes, 2 for pancakes, etc. The min and max scale parameters are floating point values, giving the scale of the features highlighted, in physical units. Typically, just one scale is used.\n\n    # Detect vessel-like structures at scale 0.5mm\n    c3d image.nii.gz -hessobj 1 0.5 0.5\n\n [HTOMIF] http://www.itk.org/Doxygen/html/classitk_1_1HessianToObjectnessMeasureImageFilter.html",
           "inputs": [
             {
               "id": "hessian_objectness",
               "name": "hessian_objectness",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-hessobj",
               "optional": false,
@@ -940,13 +940,13 @@
         {
           "id": "histogram_match",
           "name": "histogram_match",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "No description found.",
           "inputs": [
             {
               "id": "histogram_match",
               "name": "histogram_match",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-histmatch",
               "optional": false,
@@ -957,13 +957,13 @@
         {
           "id": "info",
           "name": "info",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-info: Display brief image information        \n\nSyntax: `-info`\n\nPrints brief information about the last image on the stack. Does not affect the stack.\n\n    c3d image.hdr -info\n\nUse with the **-foreach** command to get information on multiple images\n\n    c3d images*.nii -foreach -info -endfor",
           "inputs": [
             {
               "id": "info",
               "name": "info",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-info",
               "optional": false,
@@ -974,13 +974,13 @@
         {
           "id": "info_full",
           "name": "info_full",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-info-full: Display verbose image information        \n\nSyntax: `-info-full`\n\nPrints extended information about the last image on the stack, such as the metadata dictionary. For example, \n\n    c3d image.hdr -info-full",
           "inputs": [
             {
               "id": "info_full",
               "name": "info_full",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-info-full",
               "optional": false,
@@ -991,13 +991,13 @@
         {
           "id": "insert",
           "name": "insert",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-insert: Insert image anywhere in the stack\n\nSyntax: `-insert var pos` \n\nThis command is similar to **-push**, but allows you to insert the image associated with 'var' at any position in the stack, counting from the end. When 'pos' is 0, the image is placed at the end of the stack (same as **-push**). When pos is one, the image is placed at the next-to-end position, and so on.",
           "inputs": [
             {
               "id": "insert",
               "name": "insert",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-insert",
               "optional": false,
@@ -1008,13 +1008,13 @@
         {
           "id": "interpolation",
           "name": "interpolation",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-interpolation: Set interpolation mode\n\nSyntax: `-interpolation <NearestNeighbor|Linear|Cubic|Sinc|Gaussian> [param]`\n\nSpecifies the interpolation used with **-resample** and other commands. Default is **Linear**. Gaussian interpolation takes as the parameter the standard deviation of the Gaussian filter (e.g, 1mm). Gaussian interpolation is very similar in result to first smoothing an image with a Gaussian filter and then reslicing it with linear interpolation, but is more accurate and has less aliasing artifacts. It is also slower, and should only be used with small sigmas (a few voxels across). \n\nShorthand 0 can be used for *NearestNeighbor*, 1 for *Linear* and 3 for *Cubic*. For example:\n\n    c3d -int 3 test.nii -resample 200x200x200% -o cubic_supersample.nii",
           "inputs": [
             {
               "id": "interpolation",
               "name": "interpolation",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-interpolation",
               "optional": false,
@@ -1025,13 +1025,13 @@
         {
           "id": "iterations",
           "name": "iterations",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "No description found.",
           "inputs": [
             {
               "id": "iterations",
               "name": "iterations",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-iterations",
               "optional": false,
@@ -1042,13 +1042,13 @@
         {
           "id": "label_overlap",
           "name": "label_overlap",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "No description found.",
           "inputs": [
             {
               "id": "label_overlap",
               "name": "label_overlap",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-label-overlap",
               "optional": false,
@@ -1059,13 +1059,13 @@
         {
           "id": "label_statistics",
           "name": "label_statistics",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-lstat, -label-statistics: Display segmentation volumes and intensity statistics\n\nSyntax: `-lstat`\n\nGiven a grayscale image and a multilabel (or binary) image, this command computes the statistics for every label in the latter, including volumes, average grayscale intensity, etc. For instance, if image *mri.nii* is a medical image and *seg.nii* is a multilabel segmentation of the image with labels 0, 1 and 4, the following command can be used to print the statistics of the intensity of *mri.nii* for each of the labels \n\n    c3d mri.nii seg.nii -lstat\n\nThe output contains the mean, standard deviation, maximum intensity and minimum intensity for each label. If you just need volumes from a multi-label image, use **-dup** command as follows:\n\n    c3d seg.nii -dup -lstat",
           "inputs": [
             {
               "id": "label_statistics",
               "name": "label_statistics",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-label-statistics",
               "optional": false,
@@ -1076,13 +1076,13 @@
         {
           "id": "landmarks_to_spheres",
           "name": "landmarks_to_spheres",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "No description found.",
           "inputs": [
             {
               "id": "landmarks_to_spheres",
               "name": "landmarks_to_spheres",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-landmarks-to-spheres",
               "optional": false,
@@ -1093,13 +1093,13 @@
         {
           "id": "laplacian",
           "name": "laplacian",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-laplacian, -laplace: Laplacian filter\n\nSyntax: `-laplacian`\n\nApplies the Laplacian filter to the image. Used to detect ridges of intensity. Typically, used with the **-smooth** option to obtain the equivalent of convolving the image with the *Laplacian of the Gaussian (LoG)* kernel: \n\n    c3d input.img -smooth 1.2vox -laplacian -o output.img",
           "inputs": [
             {
               "id": "laplacian",
               "name": "laplacian",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-laplacian",
               "optional": false,
@@ -1110,13 +1110,13 @@
         {
           "id": "levelset",
           "name": "levelset",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-levelset: Level set segmentation\n\nSyntax: `-levelset n_iter `\n\nPerform level set segmentation for *n\\_iter* iterations, like in ITK-SNAP. The last image on the stack is treated as the initialization image and the next-to-last image on the stack is the speed image. Both images should be in the range between -1 and 1. Here is how the signs of the different images are interpreted \n\n|    | Speed Image   | Initialization Image | Output Image |\n| -- | ------------- | -------------------- | ------------ |\n| +1 | Foreground    | Outside              | Outside      |\n| -1 | Background    | Inside               | Inside       | \n\nHere is an example where you have the speed and the initialization given: \n\n    c3d speed.img initial.img -levelset-curvature 0.5 -levelset 100 -o seg.img\n\nHere is an example of segmenting the ventricles in an MRI image, where the ventricles and other CSF have intensity below 715. The image seg_bubbles.nii.gz in this example is a binary image of the initialization seeds (1 inside the seeds, 0 outside). \n\n    c3d brain.nii.gz -erf 715 100 -scale -1 seg_bubbles.nii.gz \\\n        -replace 0 1 1 -1 -levelset-curvature 0.2 -levelset 500 \\\n        -thresh -inf 0 1 0 -o segmentation.nii.gz\n\nAnother example of smoothing a binary image that is useful for cleaning up manual segmentations. Here the speed image is positive inside the binary object, and the initialization is negative inside the object. The command writes out both the level set image (whose 0-level set is the smoothed boundary of the binary object) and the smoothed binary object \n\n    c3d binary.img -threshold 1 inf 1 -1 -binary.img 1 inf 1 -1 \\\n        -levelset-curvature 1.5 -levelset 100 -o levelset.img \\\n        -thresh -inf 0 1 0 -o smoothed_binary.img",
           "inputs": [
             {
               "id": "levelset",
               "name": "levelset",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-levelset",
               "optional": false,
@@ -1127,13 +1127,13 @@
         {
           "id": "levelset_curvature",
           "name": "levelset_curvature",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "No description found.",
           "inputs": [
             {
               "id": "levelset_curvature",
               "name": "levelset_curvature",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-levelset-curvature",
               "optional": false,
@@ -1144,13 +1144,13 @@
         {
           "id": "levelset_advection",
           "name": "levelset_advection",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "No description found.",
           "inputs": [
             {
               "id": "levelset_advection",
               "name": "levelset_advection",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-levelset-advection",
               "optional": false,
@@ -1161,13 +1161,13 @@
         {
           "id": "log",
           "name": "log",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-log, -ln: Voxelwise natural logarithm\n\nSyntax: `-log`\n\nComputes natural logarithm of each voxel in the last image on the stack.",
           "inputs": [
             {
               "id": "log",
               "name": "log",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-ln",
               "optional": false,
@@ -1178,13 +1178,13 @@
         {
           "id": "log10",
           "name": "log10",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-log10: Voxelwise base 10 logarithm\n\nSyntax: `-log10`\n\nComputes base 10 logarithm of each voxel in the last image on the stack.",
           "inputs": [
             {
               "id": "log10",
               "name": "log10",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-log10",
               "optional": false,
@@ -1195,13 +1195,13 @@
         {
           "id": "manual",
           "name": "manual",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "No description found.",
           "inputs": [
             {
               "id": "manual",
               "name": "manual",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-manual",
               "optional": false,
@@ -1212,13 +1212,13 @@
         {
           "id": "match_bounding_box",
           "name": "match_bounding_box",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-mbb, -match-bounding-box: Match bounding box of one image to another\n\nSyntax: `-mbb`\n\nGiven two images on the stack (reference and target), sets the header of the target image so that the two images occupy the same physical space. The direction cosines of the target image are set to match the reference image.  This command is related to '-copy-transform' but supports images of different size.\n\n    c3d reference.nii target.nii -mbb -o out.nii",
           "inputs": [
             {
               "id": "match_bounding_box",
               "name": "match_bounding_box",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-match-bounding-box",
               "optional": false,
@@ -1229,13 +1229,13 @@
         {
           "id": "maximum",
           "name": "maximum",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-max: Voxel-wise maximum of two images\n\nSyntax: `-max`\n\nComputes the voxel-wise maximum of two images. Can be used with the **-accum** command to compute maximum of all images. \n\n    c3d i1.nii i2.nii -max -o max12.nii\n    c3d i1.nii i2.nii i3.nii i4.nii -accum -max -endaccum -o max1234.nii",
           "inputs": [
             {
               "id": "maximum",
               "name": "maximum",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-maximum",
               "optional": false,
@@ -1246,13 +1246,13 @@
         {
           "id": "multicomponent_split",
           "name": "multicomponent_split",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-mcs, -multicomponent-split: Enable splitting of multi-component images on read\n\nSyntax: `-mcs`\n\nEnable reading of multi-component images. By default, when a multi-component image is encountered, the components are combined into a single image. Setting the **-mcs** flag changes this behavior, and each of the components is loaded sequentially. See the section below on multi-component image support. \n\n    $ c3d -mcs rgb.mha -foreach -probe 110x110x80mm -endfor\n    Interpolated image value at 110 110 80 is 1\n    Interpolated image value at 110 110 80 is 66\n    Interpolated image value at 110 110 80 is 29\n\n    $ c3d rgb.mha -foreach -probe 110x110x80mm -endfor\n    Interpolated image value at 110 110 80 is 49.5198",
           "inputs": [
             {
               "id": "multicomponent_split",
               "name": "multicomponent_split",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-mcs",
               "optional": false,
@@ -1263,13 +1263,13 @@
         {
           "id": "mean",
           "name": "mean",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-mean: Mean of all images on the stack    \n\nSyntax: `-mean `\n\nComputes the mean of all the images on the stack. All images on the stack are replaced with the mean image.\n\n    c3d image_*.nii -mean -o mean.nii",
           "inputs": [
             {
               "id": "mean",
               "name": "mean",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-mean",
               "optional": false,
@@ -1280,13 +1280,13 @@
         {
           "id": "median_filter",
           "name": "median_filter",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-median, -median-filter: Median filter\n\nSyntax: `-median <radius_vector>`\n\nApplies the median filter: the intensity of each voxel is replaced by the median of the intensities in the neighborhood of size specified by the radius parameter. For example, the following code will apply the median filter with the 5x5x5 neighborhood. \n\n    c3d in.nii -median 2x2x2 -o median.nii",
           "inputs": [
             {
               "id": "median_filter",
               "name": "median_filter",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-median",
               "optional": false,
@@ -1297,13 +1297,13 @@
         {
           "id": "merge",
           "name": "merge",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-merge: Merge images from previous split command   \n\nSyntax: `-merge`\n\nWorks in conjunction with the **-split** command. Has similar behavior to **-vote**, except that label values are carried from the input to the **-split** command.",
           "inputs": [
             {
               "id": "merge",
               "name": "merge",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-merge",
               "optional": false,
@@ -1314,13 +1314,13 @@
         {
           "id": "mean_filter",
           "name": "mean_filter",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-mf, -mean-filter: Mean filter\n\nSyntax: `-mf <radius_vector>`\n\nApplies the mean filter: the intensity of each voxel is replaced by the mean of the intensities in the neighborhood of size specified by the radius parameter. For example, the following code will apply the mean filter with the 5x5x5 neighborhood. \n\n    c3d in.nii -mf 2x2x2 -o filtered.nii",
           "inputs": [
             {
               "id": "mean_filter",
               "name": "mean_filter",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-mf",
               "optional": false,
@@ -1331,13 +1331,13 @@
         {
           "id": "mutual_info",
           "name": "mutual_info",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-min: Voxel-wise minimum of two images\n\nSyntax: `-min`\n\nComputes the voxel-wise minimum of two images. Can be used with the **-accum** command to compute minimum of all images. \n\n    c3d i1.nii i2.nii -min -o min12.nii\n    c3d i1.nii i2.nii i3.nii i4.nii -accum -min -endaccum -o min1234.nii",
           "inputs": [
             {
               "id": "mutual_info",
               "name": "mutual_info",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-mi",
               "optional": false,
@@ -1348,13 +1348,13 @@
         {
           "id": "minimum",
           "name": "minimum",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-min: Voxel-wise minimum of two images\n\nSyntax: `-min`\n\nComputes the voxel-wise minimum of two images. Can be used with the **-accum** command to compute minimum of all images. \n\n    c3d i1.nii i2.nii -min -o min12.nii\n    c3d i1.nii i2.nii i3.nii i4.nii -accum -min -endaccum -o min1234.nii",
           "inputs": [
             {
               "id": "minimum",
               "name": "minimum",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-minimum",
               "optional": false,
@@ -1365,13 +1365,13 @@
         {
           "id": "mixture_model",
           "name": "mixture_model",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "No description found.",
           "inputs": [
             {
               "id": "mixture_model",
               "name": "mixture_model",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-mixture",
               "optional": false,
@@ -1382,13 +1382,13 @@
         {
           "id": "moments",
           "name": "moments",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "No description found.",
           "inputs": [
             {
               "id": "moments",
               "name": "moments",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-moments",
               "optional": false,
@@ -1399,13 +1399,13 @@
         {
           "id": "mattes_mutual_info",
           "name": "mattes_mutual_info",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "No description found.",
           "inputs": [
             {
               "id": "mattes_mutual_info",
               "name": "mattes_mutual_info",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-mmi",
               "optional": false,
@@ -1416,13 +1416,13 @@
         {
           "id": "mean_square",
           "name": "mean_square",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-msq, -mean-square: Compute mean square difference metric\n\nSyntax: `-msq [movtransform.mat] [reftransform.mat]`\n\nCompute the mean square difference metric between the last two images on the stack. If an optional *movtransform.mat* file is provided, the metric is computed by applying the transform to the moving image. If, in addition to *movtransform.mat*, the optional *reftransform.mat* file is also provided -- the moving transform is applied to the moving image, the ref transform is applied to the reference image, and the metric is computed in an image space that is physically halfway between the reference and moving images. This may be useful for unbiased metric computation if the two transforms are inverse of each other as both images undergo similar amount of interpolation. The definitions of reference and moving images and the transform file format are similar to the **-reslice-matrix** command. \n\n    # Compute metric between ref.nii and mov.nii\n    c3d ref.nii mov.nii -msq\n\n    # Compute metric between ref.nii and mov.nii after applying transform to mov.nii\n    c3d ref.nii mov.nii -msq tmov.mat\n\n    # Compute metric between ref.nii and mov.nii in a neutral space after applying transforms to both\n    c3d ref.nii mov.nii -msq tmov.mat tref.mat",
           "inputs": [
             {
               "id": "mean_square",
               "name": "mean_square",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-msq",
               "optional": false,
@@ -1433,13 +1433,13 @@
         {
           "id": "multiply",
           "name": "multiply",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-multiply, -times: Multiply two images\n\nSyntax: `-multiply`\n\nMultiply two images voxel-by-voxel. The operation is applied to the last two images on the stack. \n\n    # Compute x = a * b\n    c3d a.img b.img -multiply -o x.img\n\n    # Compute x = a * (b + c) using add and -multiply\n    c3d a.img b.img c.img -multiply -add -o x.img\n\nCombine with the **-dup** command to compute voxelwise square of the image\n\n    # Compute x = a^2\n    c3d a.img -dup -multiply -o x.img",
           "inputs": [
             {
               "id": "multiply",
               "name": "multiply",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-multiply",
               "optional": false,
@@ -1450,13 +1450,13 @@
         {
           "id": "normalized_cross_correlation",
           "name": "normalized_cross_correlation",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-ncc, -normalized-cross-correlation: Compute normalized cross-correlation image\n\nSyntax: `-ncc <radius_vector>`\n\nComputes normalized cross-correlation between two images that occupy the same physical space. Each voxel in the resulting image is the cross-correlation of patches of given radius surrounding the voxel in the two input images. This is different from **-ncor**, which computes a global cross-correlation metric value.",
           "inputs": [
             {
               "id": "normalized_cross_correlation",
               "name": "normalized_cross_correlation",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-ncc",
               "optional": false,
@@ -1467,13 +1467,13 @@
         {
           "id": "normalized_correlation",
           "name": "normalized_correlation",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-ncor, -normalized-correlation: Compute normalized correlation metric\n\nSyntax: `-ncor [movtransform.mat] [reftransform.mat]`\n\n    :   Compute the normalized correlation metric between the last two images on the stack. See documentation for **-msq***.",
           "inputs": [
             {
               "id": "normalized_correlation",
               "name": "normalized_correlation",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-ncor",
               "optional": false,
@@ -1484,13 +1484,13 @@
         {
           "id": "normalized_mutual_info",
           "name": "normalized_mutual_info",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-mmi, -mattes-mutual-info: Compute mutual informaiton metric\n\nSyntax: `-nmi [movtransform.mat] [reftransform.mat]`\n\nCompute the Mattes mutual information metric between the last two images on the stack. See documentation for **-msq**.",
           "inputs": [
             {
               "id": "normalized_mutual_info",
               "name": "normalized_mutual_info",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-nmi",
               "optional": false,
@@ -1501,13 +1501,13 @@
         {
           "id": "noise_gaussian",
           "name": "noise_gaussian",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-noise-gaussian, -noise: Apply additive Gaussian noise\n\nSyntax: `-noise-gaussian <sigma>`\n\nAdds Gaussian noise to an image with zero mean and standard deviation sigma. Please see [Noise simulation article][15] by G. Lehmann for details.\n\n    c3d image.nii -noise-gaussian 5 -o noisy.nii",
           "inputs": [
             {
               "id": "noise_gaussian",
               "name": "noise_gaussian",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-noise-gaussian",
               "optional": false,
@@ -1518,13 +1518,13 @@
         {
           "id": "noise_poisson",
           "name": "noise_poisson",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-noise-poisson: Apply Poisson noise\nSyntax: `-noise-poisson <scale>`\n\nApplies Poisson (shot) noise to an image with given scale. Please see [Noise simulation article][15] by G. Lehmann for details.\n\n    c3d image.nii -noise-poisson 5 -o noisy.nii",
           "inputs": [
             {
               "id": "noise_poisson",
               "name": "noise_poisson",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-noise-poisson",
               "optional": false,
@@ -1535,13 +1535,13 @@
         {
           "id": "noise_speckle",
           "name": "noise_speckle",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-noise-speckle: Apply Poisson noise\nSyntax: `-noise-speckle <sigma>`\n\nApplies Speckle noise to an image with given standard deviation. Please see [Noise simulation article][15] by G. Lehmann for details.\n\n    c3d image.nii -noise-speckle 5 -o noisy.nii",
           "inputs": [
             {
               "id": "noise_speckle",
               "name": "noise_speckle",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-noise-speckle",
               "optional": false,
@@ -1552,13 +1552,13 @@
         {
           "id": "noise_salt_pepper",
           "name": "noise_salt_pepper",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-noise-salt-pepper: Apply salt and pepper noise\nSyntax: `-noise-salt-pepper <probability>`\n\nApplies salt and pepper noise to an image with given probability. Please see [Noise simulation article][15] by G. Lehmann for details.\n\n    c3d image.nii -noise-salt-pepper 0.1 -o noisy.nii",
           "inputs": [
             {
               "id": "noise_salt_pepper",
               "name": "noise_salt_pepper",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-noise-salt-pepper",
               "optional": false,
@@ -1569,13 +1569,13 @@
         {
           "id": "no_multicomponent_split",
           "name": "no_multicomponent_split",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-nomcs, -no-multicomponent-split: Disable splitting of multi-component images on read\n\nSyntax: `-nomcs`\n\nUsed to reverse the effect of previous **-mcs** command.",
           "inputs": [
             {
               "id": "no_multicomponent_split",
               "name": "no_multicomponent_split",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-nomcs",
               "optional": false,
@@ -1586,13 +1586,13 @@
         {
           "id": "normalize_local_window",
           "name": "normalize_local_window",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-nlw, -normalize-local-window: Standardize image intensity using local neighborhood\n\nSyntax: `-nlw <radius>`\n\nThis command takes as inputs an image and a mask image. At each voxel, the mean of the local neighborhood is subtracted, and the result is divided by the standard deviation of the neighborhood. The mean and standard deviation are computed only over the masked region. You might also want to multiply by the mask.\n\n    c3d gray.nii.gz mask.nii.gz -nlw 10x10x10 -o residual.nii.gz",
           "inputs": [
             {
               "id": "normalize_local_window",
               "name": "normalize_local_window",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-nlw",
               "optional": false,
@@ -1603,13 +1603,13 @@
         {
           "id": "normpdf",
           "name": "normpdf",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "No description found.",
           "inputs": [
             {
               "id": "normpdf",
               "name": "normpdf",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-normpdf",
               "optional": false,
@@ -1620,13 +1620,13 @@
         {
           "id": "noround",
           "name": "noround",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-noround, -round: Floating point rounding behavior\n\nSyntax: `-noround` or `-round `\n\nBy default, **convert3d** will round floating point values when converting to an integer, short or byte image. This command specifies that rounding should not be used. Rounding is used to avoid numerical errors stemming from the internal floating point representation. \n\n    c3d image1.img -type short -noround image2.img",
           "inputs": [
             {
               "id": "noround",
               "name": "noround",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-noround",
               "optional": false,
@@ -1637,13 +1637,13 @@
         {
           "id": "nospm",
           "name": "nospm",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-spm, -nospm: SPM compatibility in Analyze output\n\nSyntax: `-spm` or `-nospm `\n\nThese options specify whether use the SPM extension to the Analyze (.hdr,.img) format. When this option is on, the origin field stored by SPM in the Analyze header will be correctly interpreted. When saving analyze files, the origin will be set correctly. The default is equivalent to the **-nospm** option. Best to avoid this issue altogether by using NIFTI and SPM5 or later.\n\n    c3d -spm in.hdr out.img.gz",
           "inputs": [
             {
               "id": "nospm",
               "name": "nospm",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-nospm",
               "optional": false,
@@ -1654,13 +1654,13 @@
         {
           "id": "output",
           "name": "output",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-o: Output (write) last image on the stack to image file    \n\nSyntax: `-o filename`\n\nWrite image, overriding an existing image. Without the **-o** option, **convert3d** will write an image only if it does not exist. The **-o** options protects input images from being accidentally deleted. Here we copy an image, changing format:\n\n    c3d image1.mha -o image2.nii\n\nThe **-o** option can also be used to save an intermediate image in the stack: \n\n    c3d image1.img -threshold 1 10 1 0 -o thresh.img -resample 50% -o final.img",
           "inputs": [
             {
               "id": "output",
               "name": "output",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-o",
               "optional": false,
@@ -1672,20 +1672,20 @@
               "id": "output",
               "name": "Output",
               "description": "The output",
-              "path-template": "[x]"
+              "path-template": "[X]"
             }
           ]
         },
         {
           "id": "output_multicomponent",
           "name": "output_multicomponent",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-omc, -output-multicomponent: Output multiple images to single file\n\nSyntax: `-omc [number] filename`\n\nWrite multiple images on the **Convert3d** stack as a single multi-component image file. If the optional number *n* is specified, only the last *n* images on the stack will be used. Not all file formats support multi-component output. NIFTI is the safest bet.\n\n    c3d red.nii green.nii blue.nii -omc rgb.mha\n\nFor 2D images, this command can be used to generate color PNG files:\n\n    c3d image.nii -slice z 50% -colormap jet -type uchar -omc colorslice.png",
           "inputs": [
             {
               "id": "output_multicomponent",
               "name": "output_multicomponent",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-omc",
               "optional": false,
@@ -1696,13 +1696,13 @@
         {
           "id": "output_multiple_multicomponent",
           "name": "output_multiple_multicomponent",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-oomc: Output multiple multi-component images to multiple files\n\nSyntax: `-oomc n_comp image_list` or `-oomc n_comp image_spec`\n\nWrite all images on the **convert3d** stack as multiple multi-component image files. The command is a mixture of the **-omc** and **-oo** commands. There must be a multiple of 'n_comp' images on the stack. Every consecutive 'n_comp' images on the stack will be written to a separate multi-component image.\n\n### Commands: Stack Manipulation and Flow Control\n\nThese commands are used to manipulate the **convert3d** stack. The stack is a linear array of images. Every time an image is specified on the command line, it is loaded and placed at the end of the stack. Most operations take one image from the end of the stack, apply some operation to it, and place the result on the end of the stack. Certain commands like **-levelset** and **-reslice-matrix** take two images from the end of the stack as the input and replace them with a single output. Some other commands, like **-mean** and **-vote** take all images on the stack and replace them with a single output. \n\nSometimes, for complex operations, it is useful to change the order of the images on the stack, to duplicate images, or to execute the same command multiple times. The stack manipulation and flow control commands allow you to complete complex tasks without saving intermediate images to the disk.",
           "inputs": [
             {
               "id": "output_multiple_multicomponent",
               "name": "output_multiple_multicomponent",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-oomc",
               "optional": false,
@@ -1713,13 +1713,13 @@
         {
           "id": "orient",
           "name": "orient",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-orient: Change image orientation\n\nSyntax: `-orient CODE`\n\nSet the orientation of the image using one of 48 canonical orientations. The orientation describes the mapping from the voxel coordinate system (i,j,k) to the physical coordinate system (x,y,z). In the voxel coordinate system, i runs along columns of voxels, j runs along rows of voxels, and k runs along slices of voxels. It is assumed (by the NIFTI convention) that the axes of the physical coordinate system run as follows: x from (L)eft to (R)ight, y from (P)osterior to (A)nterior, z from (I)nferior to (S)uperior. \n\nThe CODE passed in is a three-letter code consisting of letters RLAPSI. Each letter describes the anatomical direction corresponding to the voxel coordinates (i,j,k). For example, code RAI means that i runs from Right to Left, j from Anterior to Posterior, and k from Inferior to Superior. \n\n    c3d input.img -orient RAI -o output.img\n    c3d input.img -orient SAL -o output.img\n\nThis command has the same behavior as the 'Reorient Image' menu option in ITK-SNAP.",
           "inputs": [
             {
               "id": "orient",
               "name": "orient",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-orient",
               "optional": false,
@@ -1730,13 +1730,13 @@
         {
           "id": "output_multiple",
           "name": "output_multiple",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-oo: Output multiple images to multiple files \n\nSyntax: `-oo image_list` or `-oo image_spec`\n\nWrite all images on the **convert3d** stack as multiple files. There are two ways to use this command. The first is to supply a list of file names, separated by spaces: \n\n    c3d labelimage.nii -split -oo labelA.nii labelB.nii labelC.nii\n\nIn the above example, the image at the end of the stack will be saved as *labelC.nii*, the image next to the end of the stack will be saved as *labelB.nii* and so on. \n\nThe second way to use the **-oo** command is to supply a pattern for the output filenames. In this case, all the images on the stack will be written. The format for the pattern is the same as for the [C++ printf command][8]. For example, the following command \n\n    c3d labelimage.nii -split -oo label%02d.nii\n\nwill generate images *label00.nii*, *label01.nii*, *label02.nii* and so on. The image at the end of the stack will have the highest number, and the image at the beginning of the stack will have number 00.",
           "inputs": [
             {
               "id": "output_multiple",
               "name": "output_multiple",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-oo",
               "optional": false,
@@ -1747,13 +1747,13 @@
         {
           "id": "orient",
           "name": "orient",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-orient: Change image orientation\n\nSyntax: `-orient CODE`\n\nSet the orientation of the image using one of 48 canonical orientations. The orientation describes the mapping from the voxel coordinate system (i,j,k) to the physical coordinate system (x,y,z). In the voxel coordinate system, i runs along columns of voxels, j runs along rows of voxels, and k runs along slices of voxels. It is assumed (by the NIFTI convention) that the axes of the physical coordinate system run as follows: x from (L)eft to (R)ight, y from (P)osterior to (A)nterior, z from (I)nferior to (S)uperior. \n\nThe CODE passed in is a three-letter code consisting of letters RLAPSI. Each letter describes the anatomical direction corresponding to the voxel coordinates (i,j,k). For example, code RAI means that i runs from Right to Left, j from Anterior to Posterior, and k from Inferior to Superior. \n\n    c3d input.img -orient RAI -o output.img\n    c3d input.img -orient SAL -o output.img\n\nThis command has the same behavior as the 'Reorient Image' menu option in ITK-SNAP.",
           "inputs": [
             {
               "id": "orient",
               "name": "orient",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-orient",
               "optional": false,
@@ -1764,13 +1764,13 @@
         {
           "id": "origin",
           "name": "origin",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-origin: Set image origin\n\nSyntax: `-origin vector `\n\nSet the origin of the image. The origin is the world coordinate (in NIfTI coordinate space) of the center of the voxel (0,0,0) in the image. The origin should be specified in millimeters. \n\n    c3d input.img -origin 100x100x100mm -o output.img",
           "inputs": [
             {
               "id": "origin",
               "name": "origin",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-origin",
               "optional": false,
@@ -1781,13 +1781,13 @@
         {
           "id": "origin_voxel",
           "name": "origin_voxel",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-origin-voxel: Assign image origin to a voxel\n\nSyntax: `-origin-voxel vector `\n\nSet the origin of the image by specifying the voxel coordinates of the center of the patient (RAS) coordinate system. The vector should be specified in voxel units. \n\n    c3d input.img -origin-voxel 60x70x35 -o output.img\n    c3d input.img -origin-voxel 50% -o output.img        # image centered around origin",
           "inputs": [
             {
               "id": "origin_voxel",
               "name": "origin_voxel",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-origin-voxel",
               "optional": false,
@@ -1798,13 +1798,13 @@
         {
           "id": "origin_voxel_coord",
           "name": "origin_voxel_coord",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-origin-voxel-coord: Set coordinate of specified voxel\n\nSyntax: `-origin-voxel-coord: <index> <vector>`\n\nThis command updates the origin of the image such that the specifed voxel has the specified coordinate. For example, you can use the command to set the world coordinate (in NIFTI coordinate space) of the center voxel of the image, as follows:\n\n    c3d input.nii -origin-voxel-coord: 50% 10x10x5mm -o output.nii",
           "inputs": [
             {
               "id": "origin_voxel_coord",
               "name": "origin_voxel_coord",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-origin-voxel-coord",
               "optional": false,
@@ -1815,13 +1815,13 @@
         {
           "id": "overlap",
           "name": "overlap",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-overlap: Compute relative overlap between binary images    \n\nSyntax: `-overlap Z`\n\nCompute relative overlap between labels in the last two images on the stack. Overlap is computed for a given label **Z**, i.e., the number of voxels that are equal to **Z** in both images is computed and divided by either the average number of voxels equal to **Z** in both images (to get Dice coefficient) or by the size of the region where at least one of the images is equal to **Z** (Jaccard coefficient). \n\nThe command below computes overlap for label 255.\n\n    c3d -verbose seg1.img seg2.img -overlap 255\n\nThe output of the command is in the following terse format, with the last two values giving Dice and Jaccard coefficients, respectively. \n\n    OVL: 1, 2383, 2474, 1807, 0.744081, 0.592459\n\nUse the flag **-verbose** to get full information.\n\n    Matching voxels in first image:  2383\n    Matching voxels in second image: 2474\n    Size of overlap region:          1807\n    Dice similarity coefficient:     0.744081\n    Intersection / ratio:            0.592459\n\nThis command does not alter the stack.",
           "inputs": [
             {
               "id": "overlap",
               "name": "overlap",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-overlap",
               "optional": false,
@@ -1832,13 +1832,13 @@
         {
           "id": "overlay_label_image",
           "name": "overlay_label_image",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-oli, -overlay-label-image: Overlay segmentation image on grayscale image\n\nSyntax: `-oli lookup_table_file opacity`\n\nThis command takes a grayscale image and a label image (i.e. image with a set of discrete values) and produces red, green and blue components of a color image. The resulting color image is an overlay of the labels over the grey image. The first parameter (*lookup\\_table*) is a text file with entries in the format \n\n    label_value red green blue alpha \n\nAlpha values must be between 0 and 1. Red, green and blue values should be on the same order as the intensity of the grey image (typically 0-255). The text file is compatible with ITK-SNAP and can be generated using the ITK-SNAP `Segmentation->Save Label Descriptions` command. The second parameter (*opacity*) is between 0 and 1 and sets the overall opacity of the overlay. The output of this command is similar to the way ITK-SNAP presents segmentation data on top of grayscale images. \n\n    c3d gray.nii.gz -stretch 2% 98% 0 255 -clip 0 255 seg.nii.gz -oli labels.txt 0.5 -omc rgb.nii.gz\n\nNote: this command does not interpolate between entries in the lookup table. It should not be used for images with a continuous intensity spectrum. \n\nHere is a more complex example, used to visualize a segmentation result. We do a few things in this command: trim grayscale and segmentation images to an ROI around the object of interest; map intensity range of the grayscale image to 0-255; extract slices through the middle of the cropped images; overlay segmentation on the grayscale image; and save as a color PNG file. \n\n    c3d seg.nii.gz -trim 20x20x0vox -as S gray.nii.gz -stretch 2% 98% 0 255 -clip 0 255 \\\\\n        -reslice-identity -push S -foreach -slice z 50% -flip xy -endfor \\\\\n        -oli labels.txt 0.5 -type uchar -omc ovl.png",
           "inputs": [
             {
               "id": "overlay_label_image",
               "name": "overlay_label_image",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-overlay-label-image",
               "optional": false,
@@ -1849,13 +1849,13 @@
         {
           "id": "pad",
           "name": "pad",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-pad: Pad image with constant value\n\nSyntax: `-pad <padlower> <padupper> <value> `\n\nPads the image by a given percentage or number of voxels. The *padlower* dimension pads along the zero faces of the image, and the *padupper* dimension pads along the upper faces of the image. For example to add 1 voxel to the left side of an image, do \n\n    c3d img1.nii -pad 1x0x0vox 0x0x0vox 0 -o padded.nii\n\nwhile \n\n    c3d img1.nii -pad 2x2x4vox 0% 0 -o padded.nii\n\nadds two voxels padding to the left and posterior sides, and four slices to the bottom of the image. Note that the first argument changes the location of voxel (0,0,0) and thus the origin of the output image will be changed to maintain anatomical alignment between the padded and original images. \n\nNormally you will want to pad with zeros, but you can pad with any constant value, eg : \n\n    c3d img1.nii -pad 10% 10% 1 -o padded.nii\n\nAdds 10% to all sides of the image, and fills the new voxels with the value 1.",
           "inputs": [
             {
               "id": "pad",
               "name": "pad",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-pad",
               "optional": false,
@@ -1866,13 +1866,13 @@
         {
           "id": "pad_to",
           "name": "pad_to",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "No description found.",
           "inputs": [
             {
               "id": "pad_to",
               "name": "pad_to",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-padto",
               "optional": false,
@@ -1883,13 +1883,13 @@
         {
           "id": "pca",
           "name": "pca",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-pca: Principal components analysis of foreground voxels\n\nSyntax: `-pca`\n\nSimilar to the *-centroid* command, computes the centroid and prinicipal components of the foregrond voxels in the image. For example if the image is a binary image of an ellipsoid, this will report the center and the principal axes of the ellipsoid, in physical NIFTI coordinates.\n\n    c3d binaryimage.img -pca                              // centroid of all non-0 voxels\n    c3d labelimage.img -thresh 5 5 1 0 -pca               // centroid of all voxels with label 5\n    c3d labelimage.img -split -foreach -pca -endfor       // centroids of all labels (including 0)",
           "inputs": [
             {
               "id": "pca",
               "name": "pca",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-pca",
               "optional": false,
@@ -1900,13 +1900,13 @@
         {
           "id": "percent_intensity_mode",
           "name": "percent_intensity_mode",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-pim, -percent-intensity-mode: Set behavior of % specifier\n\nSyntax: `-pim Quantile | q | ForegroundQuantile | fq | Range | r`\n\nThis options changes how the percent sign (%) is interpreted when specifying intensity values. **Quantile (q)** means that `10%` describes the 10th percentile of all intensity values in the image (i.e., 10% of the voxels have lower intensity). **ForegroundQuantile (fq)** is similar, but voxels with background intensity (see **-background** option) are excluded from the percentile computation. **Range (r)** changes the meaning of percent sign from percentile to the range between the minimum and maximum of the image, and `0.1%` becomes equal to MIN + 0.1 (MAX - MIN). The default is **Quantile**. \n\n    $ c3d comp01.png -verbose -pim Quantile -verbose -threshold 75% inf 1 0 \n    Quantile 0.75 maps to 18\n\n    $ c3d comp01.png -verbose -pim ForegroundQuantile -verbose -threshold 75% inf 1 0 \n    Foreground quantile 0.75 (over 37467 voxels) maps to 58\n\n    $ c3d comp01.png -verbose -pim Range -verbose -threshold 75% inf 1 0 \n    Intensity range spec 0.75 maps to 191.25",
           "inputs": [
             {
               "id": "percent_intensity_mode",
               "name": "percent_intensity_mode",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-percent-intensity-mode",
               "optional": false,
@@ -1917,13 +1917,13 @@
         {
           "id": "pixel",
           "name": "pixel",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "No description found.",
           "inputs": [
             {
               "id": "pixel",
               "name": "pixel",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-pixel",
               "optional": false,
@@ -1934,13 +1934,13 @@
         {
           "id": "pop",
           "name": "pop",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-pop: Remove last image from the stack\n\nSyntax: `-pop` \n\nRemoves the last image from the image stack. Images assigned a name with the **-as** command will remain in memory.",
           "inputs": [
             {
               "id": "pop",
               "name": "pop",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-pop",
               "optional": false,
@@ -1951,13 +1951,13 @@
         {
           "id": "popas",
           "name": "popas",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-popas: Remove last image from the stack and assign to variable\n\nSyntax: `-popas var` \n\nRemoves the last image from the stack, but also assigns it the name 'var', keeping the image in memory. Same as calling **-as** *var* followed by **-pop**.",
           "inputs": [
             {
               "id": "popas",
               "name": "popas",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-popas",
               "optional": false,
@@ -1968,13 +1968,13 @@
         {
           "id": "probe",
           "name": "probe",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-probe: Report image intensity at a voxel\n\nSyntax: `-probe <point_spec>`\n\nPrints the value of the image at the position specified by the parameter `point_spec`, which may be in physical units or voxel units:\n\n    c3d img1.img -probe 128x120x160vox\n    c3d img1.img -interpolation NearestNeighbor -probe 60x60x60mm\n    c3d img1.img -probe 50%",
           "inputs": [
             {
               "id": "probe",
               "name": "probe",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-probe",
               "optional": false,
@@ -1985,13 +1985,13 @@
         {
           "id": "push",
           "name": "push",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-push: Place variable at the end of the stack\n\nSyntax: `-push var`\n\nPlaces the image associated with variable name 'var' on end of the image stack. Variable names are assigned using the **-as** command. The **-as** and **-push** commands are useful when you need to use a certain image more than once during a convert3d operation. For example, if you want to compute the distance transform of a binary image and mask it so that the values outside of the binary image region have value 0, you would use the following command: \n\n    c3d binary.img -as A -sdt -push A -times -o masked_distance.img",
           "inputs": [
             {
               "id": "push",
               "name": "push",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-push",
               "optional": false,
@@ -2002,13 +2002,13 @@
         {
           "id": "rank",
           "name": "rank",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-rank: Voxelwise ranking of intensity values\n\nSyntax: `-rank `\n\nThis command takes N images as the input (all the images on the stack are used). It also generates N images as the output. For voxel k in image j, it assigns it a label based on its rank among the values of voxel k in all N images. If the voxel has highest intensity in image j, then the j'th output will have value 1. \n\n    c3d img1.img img2.img ... imgN.img -rank -oo rank%d.img",
           "inputs": [
             {
               "id": "rank",
               "name": "rank",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-rank",
               "optional": false,
@@ -2019,13 +2019,13 @@
         {
           "id": "reciprocal",
           "name": "reciprocal",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-reciprocal: Image voxelwise reciprocal \n\nSyntax: `-reciprocal `\n\nComputes the reciprocal of an image. For instance to compute B = 1 / A, use the command \n\n    c3d A.img -reciprocal -o B.img",
           "inputs": [
             {
               "id": "reciprocal",
               "name": "reciprocal",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-reciprocal",
               "optional": false,
@@ -2036,13 +2036,13 @@
         {
           "id": "region",
           "name": "region",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-region: Extract region from image\n\nSyntax: `-region vOrigin vSize `\n\nExtract a rectangular region from the image. The first parameter is the position of the corner of the region, and the second is the size of the region. \n\n    c3d img1.img -region 20x20x20vox 50x60x70vox -o img2.img\n    c3d img1.img -region 25% 50% -o img3.img",
           "inputs": [
             {
               "id": "region",
               "name": "region",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-region",
               "optional": false,
@@ -2053,13 +2053,13 @@
         {
           "id": "reorder",
           "name": "reorder",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-reorder: Rearrange images on the stack\n\nSyntax: `-reorder k` or `-reorder fraction`\n\nRearranges images in the stack, such that images that are k positions apart become next to each other on the stack. In other words, if the original order of the images is 1, 2, ..., n, the new order of the images becomes 1, 1+k, 1+2k, ..., 2, 2+k, 2+2k, ..., k, 2k, ... n. Of course, n must be divisible by k. As an alternative to specifying k, you can specify a floating point number (i.e., **-reorder** 0.5), in which case k is obtained by multiplying n by the floating point number and rounding to the nearest integer. \n\nThe following three commands are equivalent:\n\n    c3d a1.nii a2.nii a3.nii a4.nii b1.nii b2.nii b3.nii b4.nii -reorder 4 ...\n    c3d a1.nii a2.nii a3.nii a4.nii b1.nii b2.nii b3.nii b4.nii -reorder 0.5 ...\n    c3d a1.nii b1.nii a2.nii b2.nii a3.nii b3.nii a4.nii b4.nii ...\n\nThe **-reorder** command us useful when you specify two sets of images using wildcards and then want to perform pairwise operations on the images. For example \n\n    c3d weight*.nii gray*.nii -reorder 0.5 -weighted-sum-voxelwise -o wsum.nii\n\nis equivalent to the command\n\n    c3d weight1.nii gray1.nii weight2.nii gray2.nii ... -weighted-sum-voxelwise -o wsum.nii",
           "inputs": [
             {
               "id": "reorder",
               "name": "reorder",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-reorder",
               "optional": false,
@@ -2070,13 +2070,13 @@
         {
           "id": "retain_labels",
           "name": "retain_labels",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-retain-labels: Retain labels in a label image\n\nSyntax: `-retain-labels I1 I2 ... IN`\n\nAssuming that the input is a multi-label segmentation image, this command keeps all labels specifed in the list and replaces the remaining labels with the background value.\n\n    c3d seg.nii -retain-labels 2 3 4 8 -o subseg.nii",
           "inputs": [
             {
               "id": "retain_labels",
               "name": "retain_labels",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-retain-labels",
               "optional": false,
@@ -2087,13 +2087,13 @@
         {
           "id": "rf_apply",
           "name": "rf_apply",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-rf-apply: Apply Random Forest classifier \n\nSyntax: `-rf-apply <classifier_file>`\n\nThis command applies a classifier trained previously by **-rf-train**. The stack must contain the same number of feature images as when training. The images will be removed from the stack and replaced with a set of K probability images, where K is the number of classes during training. See examples under **-rf-train** for usage.",
           "inputs": [
             {
               "id": "rf_apply",
               "name": "rf_apply",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-rf-apply",
               "optional": false,
@@ -2104,13 +2104,13 @@
         {
           "id": "rf_train",
           "name": "rf_train",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-rf-train: Train Random Forest classifier\n\nSyntax: `-rf-train <classifier_file>`\n\nThis command trains a classifier using an implementation of the [Breyman et al. Random Forest Algorithm][Br2001], with modifications proposed by [Criminisi and Shotton][Cr2004]. The stack must contain one or more images of features (e.g., grayscale images), followed by a multi-label image. The latter must have at least two non-zero labels corresponding to different classes. The classifier is trained on a voxel by voxel basis. All voxels with label *L* are treated as the examples of class *L*. The classifier is output to a binary file that can later be used by the **-rf-apply** command. Multiple parameters can be specified with the **-rf-param-xxx** options before calling **-rf-train**. The stack is not modified by this command.\n\n    # Training with two MRI modalities as features and default parameters\n    c3d t1_mri.nii t2_mri.nii segmentation.nii -rf-train myforest1.rf\n\n    # Training with patches as features (see docs for -rf-param-patch)\n    c3d ultrasound.nii seg.nii -rf-param-patch 2x2x2 -rf-train myforest2.rf\n\n    # Applying the classifier\n    c3d ultrasound.nii -rf-apply myforest2.rf -omc class_prob.nii.gz\n\nThe commands are meant to replicate the \"classification\" pre-segmentation mode in ITK-SNAP, i.e., extending a rough example segmentation to the entire image domain. It is possible to also use the commands to train classifiers jointly on data from multiple subjects, each with its own segmentation, as long as the images from the different subjects occupy the same image space and can be stacked into a 4-dimensional image. For example:\n\n    # Train using MRI and segmentations from N subjects\n    c4d mri_subj*.nii -tile w -popas ALLMRI \\\n        seg_subj*.nii -tile w -popas ALLSEG \\\n        -rf-param-patch 2x2x2x0 \\\n        -push ALLMRI -push ALLSEG -rf-train myforest.rf\n\n    # Apply using single MRI\n    c4d mri_new.nii -rf-apply myforest.rf -omc classprob.nii\n\n [Br2001] Breiman, L. (2001). Random forests. Machine learning, 45(1), 5-32.\n [Cr2004] Criminisi, A., & Shotton, J. (2013). Decision forests for computer vision and medical image analysis. Springer Science & Business Media",
           "inputs": [
             {
               "id": "rf_train",
               "name": "rf_train",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-rf-train",
               "optional": false,
@@ -2121,13 +2121,13 @@
         {
           "id": "rf_param_patch",
           "name": "rf_param_patch",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-rf-param-patch: Random Forest training patch size\n\nSyntax: `-rf-param-patch <size_spec>`\n\nSet the radius of the patch used to generate features for the RF classifier. By default this is zero, which means that just the intensity of each voxel is used as a feature. Setting this to non-zero values will result in neighboring intensities also being used as features, and can improve classification in presence of complex image texture. The patch size in each dimension is (2 * radius + 1). See **-rf-train** command for details.\n\n    # Set patch size to 5x5x5 \n    c3d ... -rf-param-patch 2x2x2 ... -rf-train myforest.rf",
           "inputs": [
             {
               "id": "rf_param_patch",
               "name": "rf_param_patch",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-rf-param-patch",
               "optional": false,
@@ -2138,13 +2138,13 @@
         {
           "id": "rf_param_usexyz",
           "name": "rf_param_usexyz",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-rf-param-usexyz: Random Forest coordinate features\n\nSyntax: `-rf-param-usexyz`\n\nUse the coordinates of voxels as additional features. This allows some geometric relations between different labels to be learned. Equivalent to the corresponding ITK-SNAP option.",
           "inputs": [
             {
               "id": "rf_param_usexyz",
               "name": "rf_param_usexyz",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-rf-param-usexyz",
               "optional": false,
@@ -2155,13 +2155,13 @@
         {
           "id": "rf_param_nousexyz",
           "name": "rf_param_nousexyz",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "No description found.",
           "inputs": [
             {
               "id": "rf_param_nousexyz",
               "name": "rf_param_nousexyz",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-rf-param-nousexyz",
               "optional": false,
@@ -2172,13 +2172,13 @@
         {
           "id": "rf_param_ntrees",
           "name": "rf_param_ntrees",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-rf-param-ntrees: Random Forest forest size\n\nSyntax: `-rf-param-ntrees <integer>`\n\nSets the number of trees in the forest. Default value is 50. Larger forests are more robust but more time to train and apply.",
           "inputs": [
             {
               "id": "rf_param_ntrees",
               "name": "rf_param_ntrees",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-rf-param-ntrees",
               "optional": false,
@@ -2189,13 +2189,13 @@
         {
           "id": "rf_param_treedepth",
           "name": "rf_param_treedepth",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-rf-param-treedepth: Random Forest tree depth\n\nSyntax: `-rf-param-treedepth <integer>`\n\nSets the depth of the trees in the classifier. Default value is 30. Deeper trees can learn on more complex data but require more time.",
           "inputs": [
             {
               "id": "rf_param_treedepth",
               "name": "rf_param_treedepth",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-rf-param-treedepth",
               "optional": false,
@@ -2206,13 +2206,13 @@
         {
           "id": "set_sform",
           "name": "set_sform",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-set-sform: Set the transform to physical space\n\nSyntax: `-set-sform <sform.mat> `\n\nSets the Nifti sform of the last image on the stack to the 4x4 matrix provided.",
           "inputs": [
             {
               "id": "set_sform",
               "name": "set_sform",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-set-sform",
               "optional": false,
@@ -2223,13 +2223,13 @@
         {
           "id": "replace",
           "name": "replace",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-replace: Replace intensities in image\n\nSyntax: `-replace I1 J1 I2 J2 ... `\n\nReplace intensity I1 by J1, I2 by J2 and so on. Allowed values of intensity include **nan**, **inf** and **-inf**. \n\n    c3d img1.img -replace 1 128 nan 0.0 -o img2.img",
           "inputs": [
             {
               "id": "replace",
               "name": "replace",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-replace",
               "optional": false,
@@ -2240,13 +2240,13 @@
         {
           "id": "resample",
           "name": "resample",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-resample: Resample image to new dimensions\n\nSyntax: `-resample <dimensions> `\n\nResamples the image, keeping the bounding box the same, but changing the number of voxels in the image. The dimensions can be specified as a percentage, for example to double the number of voxels in each direction. The **-interpolation** flag affects how sampling is performed. \n\n    c3d img1.img -resample 123x142x200 -o img2.img \n    c3d img1.img -resample 200% -o img2.img \n    c3d img1.img -resample 100x100x200% -o img2.img \n    c3d img1.img -background 4.0 -interpolation Cubic -resample 123x142x200 -o img2.img",
           "inputs": [
             {
               "id": "resample",
               "name": "resample",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-resample",
               "optional": false,
@@ -2257,13 +2257,13 @@
         {
           "id": "resample_iso",
           "name": "resample_iso",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-resample-iso: Resample image to (approximately) isotropic resolution\n\nSyntax: `-resample-iso <min|max>`\n\nResamples the image to have approximately isotropic resolution, either based on the smallest voxel dimension ('min' mode) or largest voxel dimension ('max' mode). This command calls **-resample** with appropriately calculated new image dimensions. The bounding box of the image in physical space is preserved. Therefore, since the image dimensions must be integer, the actual voxel dimensions after resampling may not be precisely isotropic. \n\n    c3d img1.img -resample-iso min -o img2.img",
           "inputs": [
             {
               "id": "resample_iso",
               "name": "resample_iso",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-resample-iso",
               "optional": false,
@@ -2274,13 +2274,13 @@
         {
           "id": "resample_mm",
           "name": "resample_mm",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-resample-mm: Resample image to new resolution\n\nSyntax: `-resample-mm <voxel_size> `\n\nResamples the image as in **-resample**, but the user specifies the new voxel size rather than dimensions. This may not be precise, so the bounding box of the image may change. A warning will be generated in that case. \n\n    c3d img1.img -resample-mm 1.0x1.5x1.5mm -o img2.img",
           "inputs": [
             {
               "id": "resample_mm",
               "name": "resample_mm",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-resample-mm",
               "optional": false,
@@ -2291,13 +2291,13 @@
         {
           "id": "reslice_itk",
           "name": "reslice_itk",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-reslice-itk: Resample image using affine transform\n\nSyntax: `-reslice-itk <transform_file> `\n\nApplies affine (or other) transform in ITK (ANTs) format to an image. See notes to **-reslice-matrix** for usage.",
           "inputs": [
             {
               "id": "reslice_itk",
               "name": "reslice_itk",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-reslice-itk",
               "optional": false,
@@ -2308,13 +2308,13 @@
         {
           "id": "reslice_matrix",
           "name": "reslice_matrix",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "No description found.",
           "inputs": [
             {
               "id": "reslice_matrix",
               "name": "reslice_matrix",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-reslice-matrix",
               "optional": false,
@@ -2325,13 +2325,13 @@
         {
           "id": "reslice_identity",
           "name": "reslice_identity",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-reslice-identity: Resample image using identity transform \n\nSyntax: `-reslice-identity `\n\nApplies the **-reslice-matrix** command with the identity transform. This is useful when you have two scans of the same subject with different coordinate transformations to patient space and you want to resample one scan in the space of another scan. For example, if you have T1 and T2 images in different coordinate frames, and want to reslice the T2 image into the space of the T1 \n\n    c3d t1.nii t2.nii -reslice-identity -o t2_in_t1_space.nii",
           "inputs": [
             {
               "id": "reslice_identity",
               "name": "reslice_identity",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-reslice-identity",
               "optional": false,
@@ -2342,13 +2342,13 @@
         {
           "id": "rgb2hsv",
           "name": "rgb2hsv",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-rgb2hsv: Convert RGB image to HSV image\n\nSyntax `-rgb2hsv`\n\nTakes the last three images on the stack and treats them as red, green, and blue channels. Outputs three images corresponding to hue, saturation, value. To read color images you need the ***-msc*** command.\n\n    c3d -mcs color.png -rgb2hsv -omc hsv.png",
           "inputs": [
             {
               "id": "rgb2hsv",
               "name": "rgb2hsv",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-rgb2hsv",
               "optional": false,
@@ -2359,13 +2359,13 @@
         {
           "id": "rms",
           "name": "rms",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-rms: Voxelwise vector norm\n\nSyntax: `-rms`\n\nComputes RMS (root mean square) of all images on the stack. The command takes the square of each image on the stack, adds all the squared images and takes the square root of the result. This is very useful for statistical operations. Images must have the same size. \n\n    c3d img1.img img2.img img3.img img4.img -rms -o rms.img\n\nThe equivalent of this command is\n\n    c3d img1.img img2.img img3.img img4.img -foreach -dup -times -endfor \\\n        -accum -add -endaccum -sqrt -o rms.img",
           "inputs": [
             {
               "id": "rms",
               "name": "rms",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-rms",
               "optional": false,
@@ -2376,13 +2376,13 @@
         {
           "id": "round",
           "name": "round",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-noround, -round: Floating point rounding behavior\n\nSyntax: `-noround` or `-round `\n\nBy default, **convert3d** will round floating point values when converting to an integer, short or byte image. This command specifies that rounding should not be used. Rounding is used to avoid numerical errors stemming from the internal floating point representation. \n\n    c3d image1.img -type short -noround image2.img",
           "inputs": [
             {
               "id": "round",
               "name": "round",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-round",
               "optional": false,
@@ -2393,13 +2393,13 @@
         {
           "id": "scale",
           "name": "scale",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-scale: Scale intensity by constant factor\n\nSyntax: `-scale <factor>`\n\nMultiplies the intensity of each voxel in the last image on the stack by the given factor. \n\n    c3d img1.img -scale 0.5 -o img2.img",
           "inputs": [
             {
               "id": "scale",
               "name": "scale",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-scale",
               "optional": false,
@@ -2410,13 +2410,13 @@
         {
           "id": "set_sform",
           "name": "set_sform",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-set-sform: Set the transform to physical space\n\nSyntax: `-set-sform <sform.mat> `\n\nSets the Nifti sform of the last image on the stack to the 4x4 matrix provided.",
           "inputs": [
             {
               "id": "set_sform",
               "name": "set_sform",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-set-sform",
               "optional": false,
@@ -2427,13 +2427,13 @@
         {
           "id": "sin",
           "name": "sin",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-cos: Voxelwise cosine \n\nSyntax: `-sin`\n\nReplaces the last image on the stack with the cosine trigonometric operation applied to all voxels. Input must be in radians.",
           "inputs": [
             {
               "id": "sin",
               "name": "sin",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-sin",
               "optional": false,
@@ -2444,13 +2444,13 @@
         {
           "id": "slice",
           "name": "slice",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-slice: Extract slices from an image\n\nSyntax: `-slice axis position_spec`\n\nExtracts a slice along the specified axis (x,y or z). The position specifier **position_spec** can be a single slice or a range of slices. For a single slice, it can be specified as a number or a percentage. Numbering is zero-based, i.e, the first slice is slice 0, the last slice is N-1, where N is the number of slices. For a range, use MATLAB notation first:step:last. The slice is placed on the stack as an image with size 1 in the last dimension. You can save the slice as a 2D PNG image. \n\n    c3d input.img -slice x 128 -o myslice.nii.gz\n    c3d input.img -slice y 50% myslice.nii.gz\n    c3d input.img -slice z 25% -type uchar -stretch 0 2000 0 255 -o myslice.png\n    c3d input.img -slice z 0:-1 -oo slice%0d.nii.gz \n    c3d input.img -slice z 20%:10%:80% -oo slice%0d.nii.gz \n\nWith the new command **c4d**, the **-slice** command can be used to extract volumes from a 4D image. This can be useful to reformat a 4D NIFTI image as a 3D multi-component NIFTI image, using the command \n\n    c4d input4d.nii.gz -slice w 0:-1 -omc output3d_multicomp.nii.gz",
           "inputs": [
             {
               "id": "slice",
               "name": "slice",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-slice",
               "optional": false,
@@ -2461,13 +2461,13 @@
         {
           "id": "slice_all",
           "name": "slice_all",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-slice-all: Extract slices from all images on the stack\n\nSyntax `-slice-all axis position_spec`\n\nThis command behaves identical to the **-slice** command, but all images on the stack are sliced, and the slices are interleaved. This is useful for slicing multi-component images. For example, if you read a four-component image 'test4.nii.gz', you can extract and save the slices as follows:\n\n    c3d test4.nii.gz -slice-all 20%:10%:80% -oomc 4 slice4_%03d.nii.gz",
           "inputs": [
             {
               "id": "slice_all",
               "name": "slice_all",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-slice-all",
               "optional": false,
@@ -2478,13 +2478,13 @@
         {
           "id": "sharpen",
           "name": "sharpen",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-sharpen: Sharpen edges in the image\n\nSyntax: `-sharpen`\n\nApplies the Laplacian sharpening filter from ITK, which accentuates the edges in the image.\n\n    c3d input.nii.gz -sharpen -o output.nii.gz",
           "inputs": [
             {
               "id": "sharpen",
               "name": "sharpen",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-sharpen",
               "optional": false,
@@ -2495,13 +2495,13 @@
         {
           "id": "shift",
           "name": "shift",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-shift: Shift image intensity by constant\n\nSyntax: `-shift <constant>`\n\nAdds the given constant to every voxel.\n\n    c3d img1.img -shift 100 -o img2.img",
           "inputs": [
             {
               "id": "shift",
               "name": "shift",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-shift",
               "optional": false,
@@ -2512,13 +2512,13 @@
         {
           "id": "signed_distance_transform",
           "name": "signed_distance_transform",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-sdt, -signed-distance-transform: Signed distance transform of a binary image\n\nSyntax: `-sdt`\n\nComputes the signed distance transform of a binary image. Voxels where the binary image is non-zero will have negative values and voxels where the binary image is zero will have negative values. The magnitude of the value will be the approximate Euclidean distance to the boundary of the object represented by the binary image. \n\n    c3d binary.img -sdt -o dist.img",
           "inputs": [
             {
               "id": "signed_distance_transform",
               "name": "signed_distance_transform",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-signed-distance-transform",
               "optional": false,
@@ -2529,13 +2529,13 @@
         {
           "id": "smooth",
           "name": "smooth",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-smooth: Gaussian smoothing\n\nSyntax: `-smooth <sigma_vector> `\n\nApplies Gaussian smoothing to the image. The parameter vector specifies the standard deviation of the Gaussian kernel. Also see [Vector Format Specification][10] below. \n\n    c3d img1.img -smooth 2x1x1vox -o out.img",
           "inputs": [
             {
               "id": "smooth",
               "name": "smooth",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-smooth",
               "optional": false,
@@ -2546,13 +2546,13 @@
         {
           "id": "smooth_fast",
           "name": "smooth_fast",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-smooth-fast: Fast approximate Gaussian smoothing\n\nSyntax: `-smooth-fast <sigma_vector> `\n\nApplies Gaussian smoothing to the image using the fast [Deriche recursive smoothing algorithm][15].  The parameter vector specifies the standard deviation of the Gaussian kernel. Also see [Vector Format Specification][10] below. \n\n    c3d img1.img -smooth-fast 20x10x10vox -o out.img",
           "inputs": [
             {
               "id": "smooth_fast",
               "name": "smooth_fast",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-smooth-fast",
               "optional": false,
@@ -2563,13 +2563,13 @@
         {
           "id": "spacing",
           "name": "spacing",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-spacing: Set voxel spacing\n\nSyntax: `-spacing <vector> `\n\nSets the voxel spacing of the image. This should always be a vector with positive components. For example, to set the spacing of the image to 1mm isotropic, use the command below. This command only changes the header of the image, not its contents. \n\n    c3d img.nii -spacing 1x1x1mm -o out.img",
           "inputs": [
             {
               "id": "spacing",
               "name": "spacing",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-spacing",
               "optional": false,
@@ -2580,13 +2580,13 @@
         {
           "id": "split",
           "name": "split",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-split: Split multi-label image into binary images\n\nSyntax: `-split`\n\nThis command takes a multilabel image (one with a small number of discrete intensity levels), and replaces it with a set of binary images, one for each of the levels. The images can later be recombined using the **-merge** command. The labels corresponding to each binary image are remembered by **convert3d** so that when **-merge** is called, the labels are faithfully reassigned. The **-merge** command treats each input as a probability image, and selects at each voxel the label that has highest probability. The example below smooths each label independently, then recombines using **-merge** \n\n    c3d multilabel.nii -split -foreach -smooth 3mm -endfor -merge -o ml_smooth.nii\n\nAlso of note is that the **-split** command will disregard infinite intensity values. So if you want to apply voting to a subset of the labels, you can replace labels you do not care about with *inf*, for example, using the **-thresh** command.",
           "inputs": [
             {
               "id": "split",
               "name": "split",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-split",
               "optional": false,
@@ -2597,13 +2597,13 @@
         {
           "id": "sqrt",
           "name": "sqrt",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-sqrt: Take square root of image\n\nSyntax: `-sqrt `\n\nComputes square root of each voxel in the image.\n\n    c3d input.img -sqrt -o output.img",
           "inputs": [
             {
               "id": "sqrt",
               "name": "sqrt",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-sqrt",
               "optional": false,
@@ -2614,13 +2614,13 @@
         {
           "id": "staple",
           "name": "staple",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-staple: STAPLE algorithm to combine segmentations\n\nSyntax: `-staple <intensity_value> `\n\nRuns the ITK implementation of the STAPLE algorithm ([See Paper][11]). STAPLE generates an estimate of the 'true' segmentation of a structure given a set of segmentations by different raters. This command treats all images on the stack as inputs. Each image is considered to be a segmentation by a different rater. The parameter *intensity_value* specifies the label in the segmentation images corresponding to the structure of interest (e.g., the segmentation image may have value 1 corresponding to the caudate and value 2 corresponding to the hippocampus. To run STAPLE on the hippocampus, pass in 2 as the *intensity_value*). The output of STAPLE is a real-valued image with voxels between 0 and 1, representing the probability of each voxel being in the 'true' segmentation. This image can be thresholded to get a binary consensus segmentation. Additional outputs (estimates of the sensitivity and specificity of each rater) are printed out if the **-verbose** command is used before the **-staple** command. \n\n    c3d -verbose rater1.img rater2.img rater3.img -staple 1 -o probmap.img\n    c3d -verbose rater*.img -staple 1 -threshold 0.5 inf 1 0 -o bin_segm.img",
           "inputs": [
             {
               "id": "staple",
               "name": "staple",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-staple",
               "optional": false,
@@ -2631,13 +2631,13 @@
         {
           "id": "structure_tensor_eigenvalues",
           "name": "structure_tensor_eigenvalues",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-steig, -structure-tensor-eigenvalues: Compute eigenvalues of the structure tensor\n\nSyntax `-steig <scale> <radius>`\n\nComputes the Hessian matrix at every pixel of an image and the eigenvalues of the Hessian. Images of the eigenvalues (sorted by value) are placed on the stack. These images are useful as texture features. See also the '''-steig''' command. The scale determines the amount of Gaussian smoothing applied for computing the partial derivatives in the Hessian, and is in physical (mm) units.\n\n    c3d myimage.nii -hesseig 2.0 -oo eig%02d.nii.gz",
           "inputs": [
             {
               "id": "structure_tensor_eigenvalues",
               "name": "structure_tensor_eigenvalues",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-steig",
               "optional": false,
@@ -2648,13 +2648,13 @@
         {
           "id": "spm",
           "name": "spm",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-spm, -nospm: SPM compatibility in Analyze output\n\nSyntax: `-spm` or `-nospm `\n\nThese options specify whether use the SPM extension to the Analyze (.hdr,.img) format. When this option is on, the origin field stored by SPM in the Analyze header will be correctly interpreted. When saving analyze files, the origin will be set correctly. The default is equivalent to the **-nospm** option. Best to avoid this issue altogether by using NIFTI and SPM5 or later.\n\n    c3d -spm in.hdr out.img.gz",
           "inputs": [
             {
               "id": "spm",
               "name": "spm",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-spm",
               "optional": false,
@@ -2665,13 +2665,13 @@
         {
           "id": "subtract",
           "name": "subtract",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "No description found.",
           "inputs": [
             {
               "id": "subtract",
               "name": "subtract",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-subtract",
               "optional": false,
@@ -2682,13 +2682,13 @@
         {
           "id": "supervoxel",
           "name": "supervoxel",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "No description found.",
           "inputs": [
             {
               "id": "supervoxel",
               "name": "supervoxel",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-supervoxel",
               "optional": false,
@@ -2699,13 +2699,13 @@
         {
           "id": "stretch",
           "name": "stretch",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-stretch: Stretch image intensities linearly\n\nSyntax: `-stretch <u1 u2 v1 v2> `\n\nStretches the intensities in the image linearly, such that u1 maps to v1 and u2 maps to v2. The linear transformation is applied to all intensities in the image, whether inside the range or not. For example, to map a floating point image with intensities in interval (0,1) to the full range of an unsigned short image, use \n\n    c3d input.img -stretch 0.0 1.0 0 65535 -type ushort -o output.img",
           "inputs": [
             {
               "id": "stretch",
               "name": "stretch",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-stretch",
               "optional": false,
@@ -2716,13 +2716,13 @@
         {
           "id": "swapdim",
           "name": "swapdim",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-swapdim: Reorder the coordinate axes of an image\n\nSyntax `-swapdim <code>`\n\nThis command reorders the image axes (columns, rows, slices) to achieve a desired transformation between voxel space and physical space. The image remains exactly the same in physical space, but the encoding of the voxels in memory and on disk is changed to obtain the desired transformation. The transformation is specified as a three-letter 'RAI' code, as in the '''-orient''' command.\n\n    c3d img.nii -swapdim ASL -info -o out.nii\n\n\n### Commands: Image Processing\n\nThe following commands invoke an action that is applied to images. Unary commands apply the action to the last image on the stack, binary commands apply to the last two images and so on. Commands are affected by options, which are listed separately.",
           "inputs": [
             {
               "id": "swapdim",
               "name": "swapdim",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-swapdim",
               "optional": false,
@@ -2733,13 +2733,13 @@
         {
           "id": "test_image",
           "name": "test_image",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-test-image, -test-probe: Test condition\n\nSyntax: `-test-image [tolerance]` and `-test-probe <vector> <value> [tolerance]`\n\nThese advanced commands (with more to come in the future) are primarily meant to allow testing of **c3d**. However, they can also be used for flow control in shell scripts (e.g., **bash** shell). The commands check a certain aspect of the **c3d** state and cause the program to exit with either return code 0 if the test succeeded or a non-zero return code if the test failed. \n\n**-test-image** tests if the last two images on the stack are identical (both in terms of data and header). Returns 0 if the images are identical. The optional tolerance parameter has default value 1e-8. \n\n    c3d input1.img input2.img -test-image\n\n**-test-probe** is similar to the **-probe** command. It tests if the value of the last image on the stack at the position given by **vector** is equal to the **test_value**. An optional tolerance value may be specified, the default is 1e-8. \n\n    c3d input1.img -test-probe 40x40x20vox 1.0 1e-6",
           "inputs": [
             {
               "id": "test_image",
               "name": "test_image",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-test-image",
               "optional": false,
@@ -2750,13 +2750,13 @@
         {
           "id": "test_probe",
           "name": "test_probe",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-test-image, -test-probe: Test condition\n\nSyntax: `-test-image [tolerance]` and `-test-probe <vector> <value> [tolerance]`\n\nThese advanced commands (with more to come in the future) are primarily meant to allow testing of **c3d**. However, they can also be used for flow control in shell scripts (e.g., **bash** shell). The commands check a certain aspect of the **c3d** state and cause the program to exit with either return code 0 if the test succeeded or a non-zero return code if the test failed. \n\n**-test-image** tests if the last two images on the stack are identical (both in terms of data and header). Returns 0 if the images are identical. The optional tolerance parameter has default value 1e-8. \n\n    c3d input1.img input2.img -test-image\n\n**-test-probe** is similar to the **-probe** command. It tests if the value of the last image on the stack at the position given by **vector** is equal to the **test_value**. An optional tolerance value may be specified, the default is 1e-8. \n\n    c3d input1.img -test-probe 40x40x20vox 1.0 1e-6",
           "inputs": [
             {
               "id": "test_probe",
               "name": "test_probe",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-test-probe",
               "optional": false,
@@ -2767,13 +2767,13 @@
         {
           "id": "threshold",
           "name": "threshold",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-thresh, -threshold: Binary thresholding\n\nSyntax: `-thresh <u1 u2 vIn vOut> `\n\nThresholds the image, setting voxels whose intensity is in the range [u1,u2] to vIn and all other voxels to vOut. Values *u1* and *u2* are intensity specifications (see below). This means that you can supply values **inf** and **-inf** for u1 and u2 to construct a one-sided threshold. You can also specify *u1* and *u2* as percentiles. \n    c3d in.img -threshold -inf 128 1 0 -o out.img\n    c3d in.img -threshold 64 128 1 0 -o out.img\n    c3d in.img -threshold 20% 40% 1 0 -o out.img",
           "inputs": [
             {
               "id": "threshold",
               "name": "threshold",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-threshold",
               "optional": false,
@@ -2784,13 +2784,13 @@
         {
           "id": "tile",
           "name": "tile",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-tile: Tile and stack multiple images into one\n\nSyntax: `-tile <tile_spec>`\n\nTiles multiple images into a single image -- including stacking slices into a 3D volume. The command takes all images on the stack and produces a single tiled image. The **tile_spec** parameter can either specify a coordinate axis (x, y, or z) along which to tile the images, or a layout vector (e.g., **4x4**) which specifies the tiling along each coordinate. Passing 0 for the last value in the layout vector determines the value based on the number of images currently loaded. For example, to create a 3D volume from a set of slices, we use \n\n    c3d slices*.png -tile z -o volume.nii.gz\n\nAnd to arrange the same 2D slices into a 2D montage of 4 images per row, we would use the **c2d** command as follows: \n\n    c2d slices*.png -tile 4x0 -type uchar -o montage.png",
           "inputs": [
             {
               "id": "tile",
               "name": "tile",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-tile",
               "optional": false,
@@ -2801,13 +2801,13 @@
         {
           "id": "trim",
           "name": "trim",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-trim: Trim background region of image\n\nSyntax: `-trim <margin_vector>`\n\nUse this command to trim background in an image. When most of the image is filled by background, this command will find the smallest rectangular region that contains all of the non-background voxels in the image. I will then expand this region by the margin of the size specified, and return the resulting region as the new image. For example, this command will trim an image, leaving a 5-voxel margin of background values on all sides\n\n    c3d in.img -trim 5vox -o out.img",
           "inputs": [
             {
               "id": "trim",
               "name": "trim",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-trim",
               "optional": false,
@@ -2818,13 +2818,13 @@
         {
           "id": "trim_to_size",
           "name": "trim_to_size",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-trim-to-size: Trim image to given size\n\nSyntax: `-trim-to-size <size_vector>`\n\nLike **-trim**, this command trims the background in an image. However, instead of **-trim**, you specify the target size of the output region. The actual region may be smaller if the specified region falls outside the boundaries of the input image. For example, if you want a 64x64x128 image containing all the foreground pixels in your image, call \n\n    c3d in.img -trim-to-size 64x64x128vox -o out.img",
           "inputs": [
             {
               "id": "trim_to_size",
               "name": "trim_to_size",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-trim-to-size",
               "optional": false,
@@ -2835,13 +2835,13 @@
         {
           "id": "type",
           "name": "type",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-type: Specify pixel type for image output\n\nSyntax: `-type < char | uchar | short | ushort | int | uint | float | double > `\n\nSpecifies the pixel type for the output image. By default, images are written in floating point (**float**) format. The type does not affect how images are processed, only how they are saved. \n\n    c3d image1.img -type short image2.img\n\nSome images require data in certain types. For example, to save PNG images, uchar or ushort type must be specified.",
           "inputs": [
             {
               "id": "type",
               "name": "type",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-type",
               "optional": false,
@@ -2852,13 +2852,13 @@
         {
           "id": "verbose",
           "name": "verbose",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-verbose: Enable verbose output of commands\n\nSyntax: `-verbose`\n\nCommands entered after the **-verbose** command will print debugging information. This can be turned off with **-noverbose**.\n\n### Parameter Specifications",
           "inputs": [
             {
               "id": "verbose",
               "name": "verbose",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-verbose",
               "optional": false,
@@ -2869,13 +2869,13 @@
         {
           "id": "noverbose",
           "name": "noverbose",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "No description found.",
           "inputs": [
             {
               "id": "noverbose",
               "name": "noverbose",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-noverbose",
               "optional": false,
@@ -2886,13 +2886,13 @@
         {
           "id": "version",
           "name": "version",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "No description found.",
           "inputs": [
             {
               "id": "version",
               "name": "version",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-version",
               "optional": false,
@@ -2903,13 +2903,13 @@
         {
           "id": "vote",
           "name": "vote",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-vote: Vote among images on the stack\n\nSyntax: `-vote `\n\nThis command takes all images on the stack as arguments and at each voxel *(i,j,k)* returns the index of the image for which the image value at *(i,j,k)* is the greatest. This is most useful when combining probability maps into a single label image. If images prob1.img, prob2.img, etc. give the probability of label 1, 2, etc. over the image domain, the **-vote** command will return the most probable label at each voxel. \n\n    c3d prob1.img prob2.img prob3.img -vote -type uchar -o label.img\n\nThe value assigned to each image is based on its position from the bottom of the stack, with zero indicating bottom-most image. In the example above, the output image has values 0 for voxels where prob1.img is highest, 1 for prob2.img and 2 for prob3.img. Also see the related commands **-split** and **-merge**.",
           "inputs": [
             {
               "id": "vote",
               "name": "vote",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-vote",
               "optional": false,
@@ -2920,13 +2920,13 @@
         {
           "id": "vote_mrf",
           "name": "vote_mrf",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-vote-mrf: Vote with Markov Random Field regularlization\n\nSyntax: `-vote-mrf <mode> <lambda>`\n\nThis command is similar to **-vote** but it performs regularlization using the Markov Random Field (MRF). This form of regularization penalizes the total surface area of the segments in the output. It results in more contiguous segments. \n\nThe command takes all the images on the stack and assumes that they are likelihood images corresponding to labels 1, 2, ... N. This means that voxel **x** in image **k** holds the probability that voxel **x** has label **k**. Likelihood images must be between 0 and 1. Any values outside of the range are interpreted as the voxel being excluded from the voting. These voxels will be assigned label 0 in the output.\n\nThe problem is encoded in the form of energy minimization, consisting of a data term and a regularization term. The data term encodes the cost (penalty) associated with assigning the voxel **x** the label **k**. The parameter **mode** describes how likelihood images are mapped to the cost. \n\n* `VOTES_AGAINST` or `VA`. This mode is useful when the command is being used to combine several multi-label segmentations into a single one. Each likelihood image is assumed to be the proportion of segmentations that assign label *k* to voxel *x*. The data term equals to the error associated to assining the voxel *k* label *x*. This error is calculated as the sum of the likelihoods for all labels at *x* minus the likelihood for *k* at *x*. Note that the likelihoods do not have to add up to one, which may be interpreted as missing data for some voxels. \n\n* `LOG_LIKELIHOOD` or `LL`. The cost for label *k* at voxel *x* is the logarithm of the k-th likelihood image at *x*. This will assign infinite cost when the likelihood is zero. \n\nThe regularlization term is encoded as **lambda** times the total number of neighboring voxels inside the mask (non-excluded region of the image) that have different labels. \n\nThe optmization problem is solved using the Alpha-Expansion graph cut algorithm. Users of this functionality should cite the following papers. \n\n1. Yuri Boykov, Olga Veksler, Ramin Zabih, *Efficient Approximate Energy Minimization via Graph Cuts*, IEEE transactions on PAMI, vol. 20, no. 12, p. 1222-1239, 2001. \n\n2. Vladimir Kolmogorov and Ramin Zabih, *What Energy Functions can be Minimized via Graph Cuts?*, IEEE transactions on PAMI, vol. 26, no. 2, p. 147-159, 2004.\n\n3. Yuri Boykov and Vladimir Kolmogorov, *An Experimental Comparison of Min-Cut/Max-Flow Algorithms for Energy Minimization in Vision*, IEEE transactions on PAMI, vol. 26, no. 9, p. 1124-1137, 2004. \n\nAs noted in the open source implementation of the graph cuts algorithms distributed under the General Public License, \"This software can be used only for research purposes, you should cite the aforementioned paper in any resulting publication.  If you wish to use this software (or the algorithms described in the aforementioned paper) for commercial purposes, you should be aware that there is a US patent: R. Zabih, Y. Boykov, O. Veksler, *System and method for fast approximate energy minimization via graph cuts*, United Stated Patent 6,744,923, June 1, 2004.\n\nThe example below illustrates applying **-vote-mrf** with a user-specified mask. Voxels outside of the mask are first remapped to NaN (not a number) and thus excluded from the MRF optimization and given 0 label.\n\n    c3d lhood01.nii lhood02.nii lhood03.nii mask.nii -popas M \\\n        -foreach -push M -replace 0 NaN -times -endfor \\\n        -vote-mrf VA 0.2 -o result.nii",
           "inputs": [
             {
               "id": "vote_mrf",
               "name": "vote_mrf",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-vote-mrf",
               "optional": false,
@@ -2937,13 +2937,13 @@
         {
           "id": "vote_label",
           "name": "vote_label",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "No description found.",
           "inputs": [
             {
               "id": "vote_label",
               "name": "vote_label",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-vote-label",
               "optional": false,
@@ -2954,13 +2954,13 @@
         {
           "id": "voxel_sum",
           "name": "voxel_sum",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-voxel-sum: Print sum of all voxel intensities\n\nSyntax: `-voxel-sum `\n\nPrint the sum of all voxels in the image. \n\n    $ c3d image.img -voxel-sum \n    Voxel Sum: 200923123",
           "inputs": [
             {
               "id": "voxel_sum",
               "name": "voxel_sum",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-voxel-sum",
               "optional": false,
@@ -2971,13 +2971,13 @@
         {
           "id": "voxel_integral",
           "name": "voxel_integral",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-voxel-integral: Print volume integral of all voxel intensities\n\nSyntax: `-voxel-integral`\n\nLike **-voxel-sum**, but multiplies the sum of voxel intensities by voxel volume. This is useful for computing volumes of objects represented by binary images. The result is in 'ml'. \n\n    $ c3d image.img -voxel-integral \n    Voxel Integral: 2341",
           "inputs": [
             {
               "id": "voxel_integral",
               "name": "voxel_integral",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-voxel-integral",
               "optional": false,
@@ -2988,13 +2988,13 @@
         {
           "id": "voxelwise_regression",
           "name": "voxelwise_regression",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-voxreg, -voxelwise-regression: Regression between two images\n\nSyntax: `-voxreg regression_order `\n\nPerform regression between corresponding voxels in two images. This command takes two images as input, X and Y. This command finds parameters b\\_0, b\\_1, ..., b\\_k, such that Y is best approximated by b\\_0 + b\\_1 * X + b\\_2 * X^2 + ... + b_k * X^k. Here is an example of linear regression. \n\n    $ c3d Y.nii X.nii -voxreg 2 \n    REGCOEFF[0] = 5.56935\n    REGCOEFF[1] = 0.844024\n\n    $ c3d Y.nii X.nii -scale 0.844024 -shift 5.56935 -voxreg 2\n    REGCOEFF[0] = 0\n    REGCOEFF[1] = 1",
           "inputs": [
             {
               "id": "voxelwise_regression",
               "name": "voxelwise_regression",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-voxelwise-regression",
               "optional": false,
@@ -3005,13 +3005,13 @@
         {
           "id": "warp",
           "name": "warp",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "No description found.",
           "inputs": [
             {
               "id": "warp",
               "name": "warp",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-warp",
               "optional": false,
@@ -3022,13 +3022,13 @@
         {
           "id": "warp_label",
           "name": "warp_label",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "No description found.",
           "inputs": [
             {
               "id": "warp_label",
               "name": "warp_label",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-warp-label",
               "optional": false,
@@ -3039,13 +3039,13 @@
         {
           "id": "wrap",
           "name": "wrap",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-wrap: Wrap (rotate) image \n\nSyntax: `-wrap <vector> `\n\nWrap image around one or more voxel dimensions. Wrapping is typically used to correct for MRI wrap-around artifacts. The vector must have integer components, possibly negative. For example, \n\n    c3d badmri.nii.gz -wrap 0x20x0 -o fixedmri.nii.gz\n\nwill wrap the image in the second voxel dimension by 20 voxels (i.e., voxel at 10x40x20 will me moved to the position 10x20x20). \n\n\n### Commands: Options and Parameters\n\nOptions change the behavior of commands that *appear later on the command line*. This is very important. Specifying options after the command will have no effect.",
           "inputs": [
             {
               "id": "wrap",
               "name": "wrap",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-wrap",
               "optional": false,
@@ -3056,13 +3056,13 @@
         {
           "id": "weighted_sum",
           "name": "weighted_sum",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-wsum, -weighted-sum: Weighed sum of images with constant weights\n\nSyntax: `-wsum weight1 weight2 ... weightN `\n\nComputes weighted sum of the last N images on the stack. \n\n    c3d image1.nii image2.nii image3.nii -wsum 0.2 0.7 0.1 -o wsum.nii\n\nThis command is particularly useful for combining components in a multicomponent image. For example, for an RGB image, we can convert it to grayscale (using [ImageMagick][13] formula) as follows: \n\n    c3d -mcs rgb.nii -wsum 0.29900 0.58700 0.11400 -o gray.nii",
           "inputs": [
             {
               "id": "weighted_sum",
               "name": "weighted_sum",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-weighted-sum",
               "optional": false,
@@ -3073,13 +3073,13 @@
         {
           "id": "weighted_sum_voxelwise",
           "name": "weighted_sum_voxelwise",
-          "command-line": "[x]",
+          "command-line": "[X]",
           "description": "-wsv, -weighed-sum-voxelwise: Weighed sum of images with spatially varying weights\n\nSyntax: `-wsv `\n\nComputes weighted sum of N weight images and N scalar images. The images must be interleaved on the stack. All images on the stack are used.\n\n    c3d weight1.nii image1.nii weight2.nii image2.nii weight3.nii image3.nii -wsv -o mysum.nii.gz\n\nThe **-reorder** command can simplify loading the images:\n\n    c3d weight*.nii image*.nii -reorder 0.5 -wsv -o mysum.nii.gz\n\n### Commands: Image Header Manipulation",
           "inputs": [
             {
               "id": "weighted_sum_voxelwise",
               "name": "weighted_sum_voxelwise",
-              "value-key": "[x]",
+              "value-key": "[X]",
               "type": "String",
               "command-line-flag": "-weighted-sum-voxelwise",
               "optional": false,

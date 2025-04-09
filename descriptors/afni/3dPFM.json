@@ -148,183 +148,157 @@
       "id": "beta",
       "name": "Neuronal-related Time Series",
       "description": "Prefix for the neuronal-related (i.e. deconvolved) time series.",
-      "path-template": "[BETA]",
-      "command-line-flag": "-beta"
+      "path-template": "[BETA]"
     },
     {
       "id": "betafitts",
       "name": "Convolved Neuronal-related Time Series",
       "description": "Prefix of the convolved neuronal-related time series.",
-      "path-template": "[BETAFITTS]",
-      "command-line-flag": "-betafitts"
+      "path-template": "[BETAFITTS]"
     },
     {
       "id": "fitts",
       "name": "Fitted Time Series",
       "description": "Prefix for the fitted time series.",
-      "path-template": "[FITTS]",
-      "command-line-flag": "-fitts"
+      "path-template": "[FITTS]"
     },
     {
       "id": "resid",
       "name": "Residuals",
       "description": "Prefix for the residuals of the fit to the data.",
-      "path-template": "[RESID]",
-      "command-line-flag": "-resid"
+      "path-template": "[RESID]"
     },
     {
       "id": "mean",
       "name": "Intercept of the Model",
       "description": "Prefix for the intercept of the model.",
-      "path-template": "[MEAN]",
-      "command-line-flag": "-mean"
+      "path-template": "[MEAN]"
     },
     {
       "id": "LHSest",
       "name": "LHS Parameter Estimates",
       "description": "Prefix for the estimates of the LHS parameters.",
-      "path-template": "[LHSEST]",
-      "command-line-flag": "-LHSest"
+      "path-template": "[LHSEST]"
     },
     {
       "id": "LHSfitts",
       "name": "LHS Fitted Time Series",
       "description": "Prefix for the fitted time series of the LHS parameters.",
-      "path-template": "[LHSFITTS]",
-      "command-line-flag": "-LHSfitts"
+      "path-template": "[LHSFITTS]"
     },
     {
       "id": "lambda",
       "name": "Regularization Parameter",
       "description": "Prefix for output volume with the regularization parameter of the deconvolution of each voxel.",
-      "path-template": "[LAMBDA]",
-      "command-line-flag": "-lambda"
+      "path-template": "[LAMBDA]"
     },
     {
       "id": "costs",
       "name": "Cost Function Volume",
       "description": "Prefix for output volume of the cost function used to select the regularization parameter according to the selected criteria.",
-      "path-template": "[COSTS]",
-      "command-line-flag": "-costs"
+      "path-template": "[COSTS]"
     },
     {
       "id": "Tstats_beta",
       "name": "T-statistics for Beta",
       "description": "Prefix for the T-statistics of beta at each time point.",
-      "path-template": "[TSTATS_BETA]",
-      "command-line-flag": "-Tstats_beta"
+      "path-template": "[TSTATS_BETA]"
     },
     {
       "id": "Tdf_beta",
       "name": "Degrees of Freedom for T-statistics of Beta",
       "description": "Prefix for degrees of freedom of the T-statistics of beta.",
-      "path-template": "[TDF_BETA]",
-      "command-line-flag": "-Tdf_beta"
+      "path-template": "[TDF_BETA]"
     },
     {
       "id": "Z_Tstats_beta",
       "name": "Z-scores of T-statistics for Beta",
       "description": "Prefix for (normalized) z-scores of the T-statistics of beta.",
-      "path-template": "[Z_TSTATS_BETA]",
-      "command-line-flag": "-Z_Tstats_beta"
+      "path-template": "[Z_TSTATS_BETA]"
     },
     {
       "id": "Fstats_beta",
       "name": "F-statistics for Beta",
       "description": "Prefix for the F-statistics of the deconvolved component.",
-      "path-template": "[FSTATS_BETA]",
-      "command-line-flag": "-Fstats_beta"
+      "path-template": "[FSTATS_BETA]"
     },
     {
       "id": "Fdf_beta",
       "name": "Degrees of Freedom for F-statistics of Beta",
       "description": "Prefix for degrees of freedom of Fstats_beta.",
-      "path-template": "[FDF_BETA]",
-      "command-line-flag": "-Fdf_beta"
+      "path-template": "[FDF_BETA]"
     },
     {
       "id": "Z_Fstats_beta",
       "name": "Z-scores of F-statistics for Beta",
       "description": "Prefix for (normalized) z-scores of the Fstats_beta.",
-      "path-template": "[Z_FSTATS_BETA]",
-      "command-line-flag": "-Z_Fstats_beta"
+      "path-template": "[Z_FSTATS_BETA]"
     },
     {
       "id": "Tstats_LHS",
       "name": "T-statistics for LHS Regressors",
       "description": "Prefix for T-statistics of LHS regressors at each time point.",
-      "path-template": "[TSTATS_LHS]",
-      "command-line-flag": "-Tstats_LHS"
+      "path-template": "[TSTATS_LHS]"
     },
     {
       "id": "Tdf_LHS",
       "name": "Degrees of Freedom for T-statistics of LHS",
       "description": "Prefix for degrees of freedom of the Tstats_LHS.",
-      "path-template": "[TDF_LHS]",
-      "command-line-flag": "-Tdf_LHS"
+      "path-template": "[TDF_LHS]"
     },
     {
       "id": "Z_Tstats_LHS",
       "name": "Z-scores of T-statistics for LHS",
       "description": "Prefix for (normalized) z-scores of the Tstats_LHS.",
-      "path-template": "[Z_TSTATS_LHS]",
-      "command-line-flag": "-Z_Tstats_LHS"
+      "path-template": "[Z_TSTATS_LHS]"
     },
     {
       "id": "Fstats_LHS",
       "name": "F-statistics for LHS Regressors",
       "description": "Prefix for the F-statistics of the LHS regressors.",
-      "path-template": "[FSTATS_LHS]",
-      "command-line-flag": "-Fstats_LHS"
+      "path-template": "[FSTATS_LHS]"
     },
     {
       "id": "Fdf_LHS",
       "name": "Degrees of Freedom for F-statistics of LHS",
       "description": "Prefix for degrees of freedom of Fstats_LHS.",
-      "path-template": "[FDF_LHS]",
-      "command-line-flag": "-Fdf_LHS"
+      "path-template": "[FDF_LHS]"
     },
     {
       "id": "Z_Fstats_LHS",
       "name": "Z-scores of F-statistics for LHS",
       "description": "Prefix for (normalized) z-scores of Fstats_LHS.",
-      "path-template": "[Z_FSTATS_LHS]",
-      "command-line-flag": "-Z_Fstats_LHS"
+      "path-template": "[Z_FSTATS_LHS]"
     },
     {
       "id": "Fstats_full",
       "name": "F-statistics for Full Model",
       "description": "Prefix for the F-statistics of the full model.",
-      "path-template": "[FSTATS_FULL]",
-      "command-line-flag": "-Fstats_full"
+      "path-template": "[FSTATS_FULL]"
     },
     {
       "id": "Fdf_full",
       "name": "Degrees of Freedom for Full Model F-statistics",
       "description": "Prefix for degrees of freedom of Fstats_full.",
-      "path-template": "[FDF_FULL]",
-      "command-line-flag": "-Fdf_full"
+      "path-template": "[FDF_FULL]"
     },
     {
       "id": "Z_Fstats_full",
       "name": "Z-scores for Full Model F-statistics",
       "description": "Prefix for (normalized) z-scores of Fstats_full.",
-      "path-template": "[Z_FSTATS_FULL]",
-      "command-line-flag": "-Z_Fstats_full"
+      "path-template": "[Z_FSTATS_FULL]"
     },
     {
       "id": "R2_full",
       "name": "R\u00b2 of Full Model",
       "description": "Prefix for R\u00b2 (coefficient of determination) of the full model.",
-      "path-template": "[R2_FULL]",
-      "command-line-flag": "-R2_full"
+      "path-template": "[R2_FULL]"
     },
     {
       "id": "R2adj_full",
       "name": "R\u00b2 Adjusted for Full Model",
       "description": "Prefix for Adjusted R\u00b2 coefficient for the full model.",
-      "path-template": "[R2ADJ_FULL]",
-      "command-line-flag": "-R2adj_full"
+      "path-template": "[R2ADJ_FULL]"
     }
   ],
   "container-image": {
