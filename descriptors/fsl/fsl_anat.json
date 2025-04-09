@@ -162,37 +162,6 @@
     }
   ],
   "schema-version": "0.5",
-  "groups": [
-    {
-      "description": "Input options for specifying the structural image or existing anatomical directory",
-      "id": "input_options",
-      "members": ["structural_image", "existing_anat_dir"],
-      "name": "Input Options"
-    },
-    {
-      "description": "Output and operation control options",
-      "id": "output_control_options",
-      "members": [
-        "output_dir",
-        "clobber_flag",
-        "strongbias_flag",
-        "weakbias_flag",
-        "noreorient_flag",
-        "nocrop_flag",
-        "nobias_flag",
-        "noreg_flag",
-        "nononlinreg_flag",
-        "noseg_flag",
-        "nosubcortseg_flag",
-        "bias_smoothing",
-        "image_type",
-        "nosearch_flag",
-        "bet_f_param",
-        "nocleanup_flag"
-      ],
-      "name": "Output and Operation Control"
-    }
-  ],
   "output-files": [
     {
       "path-template": "[OUTPUT_DIR].anat",

@@ -195,46 +195,6 @@
     }
   ],
   "schema-version": "0.5",
-  "groups": [
-    {
-      "description": "Specify parameters that alter the default BET functionality",
-      "id": "optional_params_group",
-      "members": [
-        "fractional_intensity",
-        "vg_fractional_intensity",
-        "center_of_gravity",
-        "overlay",
-        "binary_mask",
-        "approx_skull",
-        "no_seg_output",
-        "vtk_mesh",
-        "head_radius",
-        "thresholding"
-      ],
-      "name": "Main Program Parameters"
-    },
-    {
-      "description": "Mutually exclusive options that specify variations on how BET should be run.",
-      "mutually-exclusive": true,
-      "id": "variational_params_group",
-      "members": [
-        "robust_iters",
-        "residual_optic_cleanup",
-        "reduce_bias",
-        "slice_padding",
-        "whole_set_mask",
-        "additional_surfaces",
-        "additional_surfaces_t2"
-      ],
-      "name": "Variations on Default Functionality"
-    },
-    {
-      "description": "Optional miscellaneous parameters when running BET",
-      "id": "miscellaneous_params_group",
-      "members": ["verbose", "debug"],
-      "name": "Miscellaneous Parameters"
-    }
-  ],
   "output-files": [
     {
       "path-template": "[MASKFILE].nii.gz",

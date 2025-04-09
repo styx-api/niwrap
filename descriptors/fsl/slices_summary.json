@@ -90,28 +90,6 @@
     }
   ],
   "schema-version": "0.5",
-  "groups": [
-    {
-      "description": "Full set of parameters for creating summary images",
-      "id": "creation_params_group",
-      "members": [
-        "4d_input_file",
-        "threshold",
-        "background_image",
-        "pictures_sum",
-        "single_slice_flag",
-        "darker_background_flag",
-        "dumb_rule_flag"
-      ],
-      "name": "Creation Parameters"
-    },
-    {
-      "description": "Parameters for processing timepoint list",
-      "id": "processing_params_group",
-      "members": ["pictures_sum_second", "output_png", "timepoints"],
-      "name": "Processing Parameters"
-    }
-  ],
   "output-files": [
     {
       "path-template": "[PICTURES_SUM_SECOND]",

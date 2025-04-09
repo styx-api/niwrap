@@ -272,49 +272,6 @@
     }
   ],
   "schema-version": "0.5",
-  "groups": [
-    {
-      "description": "One or more compulsory arguments",
-      "id": "compulsory_arguments",
-      "members": ["output_unwrap", "output_unwrap_alias"],
-      "name": "Compulsory Arguments"
-    },
-    {
-      "description": "Optional arguments",
-      "id": "optional_arguments",
-      "members": [
-        "complex_phase",
-        "complex_phase_alias",
-        "absolute_volume",
-        "absolute_volume_alias",
-        "phase_volume",
-        "phase_volume_alias",
-        "num_phase_split",
-        "label_slices",
-        "slice_processing",
-        "slice_processing_alias",
-        "force_3d",
-        "force_3d_alias",
-        "threshold",
-        "threshold_alias",
-        "mask_volume",
-        "mask_volume_alias",
-        "start_image",
-        "end_image",
-        "save_mask",
-        "save_raw_phase",
-        "save_raw_phase_alias",
-        "save_labels",
-        "save_labels_alias",
-        "remove_ramps",
-        "verbose",
-        "verbose_alias",
-        "help",
-        "help_alias"
-      ],
-      "name": "Optional Arguments"
-    }
-  ],
   "output-files": [
     {
       "path-template": "[OUTPUT_UNWRAP].nii.gz",

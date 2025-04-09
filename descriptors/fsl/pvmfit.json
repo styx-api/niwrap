@@ -142,32 +142,6 @@
     }
   ],
   "schema-version": "0.5",
-  "groups": [
-    {
-      "description": "Compulsory arguments for running pvmfit",
-      "id": "compulsory_args",
-      "members": ["data_file", "mask_file", "bvec_file", "bval_file"],
-      "name": "Compulsory Arguments"
-    },
-    {
-      "description": "Optional arguments for running pvmfit",
-      "id": "optional_args",
-      "members": [
-        "output_basename",
-        "number_of_fibres",
-        "model_type",
-        "fit_all_models",
-        "constrained_nonlinear",
-        "constrained_nonlinear_f",
-        "grid_search",
-        "include_noise_floor",
-        "save_bic",
-        "verbose",
-        "help"
-      ],
-      "name": "Optional Arguments"
-    }
-  ],
   "output-files": [
     {
       "path-template": "[OUTPUT_BASENAME].nii.gz",

@@ -257,44 +257,6 @@
     }
   ],
   "schema-version": "0.5",
-  "groups": [
-    {
-      "description": "Compulsory arguments for pulse",
-      "id": "compulsory_args_group",
-      "members": ["input_file", "output_base"],
-      "name": "Compulsory Arguments"
-    },
-    {
-      "description": "Optional arguments for pulse",
-      "id": "optional_args_group",
-      "members": [
-        "seq",
-        "angle",
-        "te",
-        "tr",
-        "trslc",
-        "nx",
-        "ny",
-        "dx",
-        "dy",
-        "maxG",
-        "riset",
-        "bw",
-        "numvol",
-        "numslc",
-        "slcthk",
-        "gap",
-        "zstart",
-        "slcdir",
-        "phasedir",
-        "readdir",
-        "verbose_flag",
-        "kcoord_flag",
-        "cover"
-      ],
-      "name": "Optional Arguments"
-    }
-  ],
   "output-files": [
     {
       "path-template": "[OUTPUT_BASE]_pulsesequence_matrix",

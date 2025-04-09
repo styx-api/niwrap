@@ -77,28 +77,6 @@
     }
   ],
   "schema-version": "0.5",
-  "groups": [
-    {
-      "description": "Main parameters for dual regression",
-      "id": "main_params",
-      "members": [
-        "group_ic_maps",
-        "des_norm",
-        "design_mat",
-        "design_con",
-        "n_perm",
-        "output_directory",
-        "input_files"
-      ],
-      "name": "Main Parameters"
-    },
-    {
-      "description": "Optional parameters for dual regression",
-      "id": "optional_params_group",
-      "members": ["thr_flag"],
-      "name": "Optional Parameters"
-    }
-  ],
   "output-files": [
     {
       "path-template": "[OUTPUT_DIRECTORY]/dr_stage1_subject[SUBJECT_INDEX].nii.gz",

@@ -185,42 +185,6 @@
     }
   ],
   "schema-version": "0.5",
-  "groups": [
-    {
-      "description": "Compulsory arguments",
-      "id": "mandatory_args_group",
-      "members": [
-        "data_file",
-        "output_basename",
-        "mask_file",
-        "bvec_file",
-        "bval_file"
-      ],
-      "name": "Mandatory Arguments"
-    },
-    {
-      "description": "Optional arguments",
-      "id": "optional_args_group",
-      "members": [
-        "verbose_flag",
-        "sse_flag",
-        "wls_flag",
-        "kurt_flag",
-        "kurtdir_flag",
-        "littlebit_flag",
-        "save_tensor_flag",
-        "zmin",
-        "zmax",
-        "ymin",
-        "ymax",
-        "xmin",
-        "xmax",
-        "gradnonlin_file",
-        "confound_regressors"
-      ],
-      "name": "Optional Arguments"
-    }
-  ],
   "output-files": [
     {
       "path-template": "[OUTPUT_BASENAME]_FA.nii.gz",

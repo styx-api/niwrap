@@ -146,37 +146,6 @@
     }
   ],
   "schema-version": "0.5",
-  "groups": [
-    {
-      "description": "Compulsory arguments for resampling",
-      "id": "compulsory_args_group",
-      "members": [
-        "input_image",
-        "output_image",
-        "echo_time",
-        "repetition_time",
-        "mrpar_file"
-      ],
-      "name": "Compulsory Arguments"
-    },
-    {
-      "description": "Optional arguments for resampling",
-      "id": "optional_args_group",
-      "members": [
-        "num_voxel_x",
-        "num_voxel_y",
-        "num_voxel_z",
-        "voxel_size_x",
-        "voxel_size_y",
-        "voxel_size_z",
-        "start_position",
-        "noise_sigma",
-        "save_flag",
-        "verbose_flag"
-      ],
-      "name": "Optional Arguments"
-    }
-  ],
   "output-files": [
     {
       "path-template": "[OUTPUT_IMAGE]",

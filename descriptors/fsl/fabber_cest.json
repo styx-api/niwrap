@@ -317,66 +317,6 @@
     }
   ],
   "schema-version": "0.5",
-  "groups": [
-    {
-      "description": "General options for running Fabber",
-      "id": "general_options_group",
-      "members": [
-        "help",
-        "listmethods",
-        "listmodels",
-        "listparams",
-        "descparams",
-        "listoutputs"
-      ],
-      "name": "General Options"
-    },
-    {
-      "description": "Options to evaluate models",
-      "id": "evaluation_options_group",
-      "members": ["evaluate", "evaluate_params", "evaluate_nt"],
-      "name": "Evaluation Options"
-    },
-    {
-      "description": "Options to handle data files",
-      "id": "data_options_group",
-      "members": [
-        "data_multi",
-        "data_order",
-        "mask",
-        "masked_timepoints",
-        "suppdata"
-      ],
-      "name": "Data Handling Options"
-    },
-    {
-      "description": "Output related options",
-      "id": "output_options_group",
-      "members": [
-        "output",
-        "overwrite",
-        "link_to_latest",
-        "save_model_fit",
-        "save_residuals",
-        "save_model_extras",
-        "save_mvn",
-        "save_mean",
-        "save_std",
-        "save_var",
-        "save_zstat",
-        "save_noise_mean",
-        "save_noise_std",
-        "save_free_energy"
-      ],
-      "name": "Output Options"
-    },
-    {
-      "description": "Miscellaneous options for advanced usage",
-      "id": "miscellaneous_options_group",
-      "members": ["optfile", "debug"],
-      "name": "Miscellaneous Options"
-    }
-  ],
   "output-files": [
     {
       "path-template": "[OUTPUT]/logfile.log",

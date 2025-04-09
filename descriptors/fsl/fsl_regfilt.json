@@ -161,35 +161,6 @@
     }
   ],
   "schema-version": "0.5",
-  "groups": [
-    {
-      "description": "Specify main inputs and outputs",
-      "id": "mandatory_params_group",
-      "members": ["infile", "outfile", "designfile"],
-      "name": "Main Inputs and Outputs"
-    },
-    {
-      "description": "Specify optional processing parameters",
-      "id": "optional_params_group",
-      "members": [
-        "maskfile",
-        "filter",
-        "freq_filter_flag",
-        "freq_ic_flag",
-        "freq_ic_smooth",
-        "fthresh",
-        "fthresh2",
-        "vn_flag",
-        "verbose_flag",
-        "aggressive_flag",
-        "help_flag",
-        "out_data",
-        "out_mix",
-        "out_vnscales"
-      ],
-      "name": "Optional Arguments"
-    }
-  ],
   "output-files": [
     {
       "path-template": "[OUTFILE].nii.gz",

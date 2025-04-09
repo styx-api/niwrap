@@ -92,20 +92,6 @@
     }
   ],
   "schema-version": "0.5",
-  "groups": [
-    {
-      "description": "Specify parameters for the ROI extraction excluding the time dimension",
-      "id": "spatial_roi_group",
-      "members": ["xmin", "xsize", "ymin", "ysize", "zmin", "zsize"],
-      "name": "Spatial ROI Parameters"
-    },
-    {
-      "description": "Specify parameters for the ROI extraction including the time dimension",
-      "id": "temporal_roi_group",
-      "members": ["tmin", "tsize"],
-      "name": "Temporal ROI Parameters"
-    }
-  ],
   "output-files": [
     {
       "path-template": "[OUTFILE]",

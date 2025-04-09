@@ -286,51 +286,5 @@
       "command-line-flag": "--xml",
       "description": "Output Slicer format features"
     }
-  ],
-  "groups": [
-    {
-      "id": "output_options",
-      "name": "Output Options",
-      "members": [
-        "compression_level",
-        "export_format",
-        "filename",
-        "output_dir",
-        "compression",
-        "endian"
-      ],
-      "description": "Options controlling output file format and location"
-    },
-    {
-      "id": "bids_options",
-      "name": "BIDS Options",
-      "members": ["bids", "bids_anon"],
-      "description": "Options related to BIDS sidecar generation"
-    },
-    {
-      "id": "processing_options",
-      "name": "Processing Options",
-      "members": [
-        "merge_2d",
-        "crop_3d",
-        "philips_scaling",
-        "scaling",
-        "ignore_derived"
-      ],
-      "description": "Options affecting how DICOM data is processed"
-    },
-    {
-      "id": "execution_options",
-      "name": "Execution Options",
-      "members": [
-        "verbose",
-        "search_mode",
-        "depth",
-        "single_file",
-        "rename",
-        "conflict_behavior"
-      ],
-      "description": "Options controlling program execution behavior"
-    }
   ]
 }
