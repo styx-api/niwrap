@@ -3,7 +3,7 @@
   "name": "3dCRUISEtoAFNI",
   "author": "AFNI Developers",
   "description": "Converts a CRUISE dataset defined by a header in OpenDX format.",
-  "command-line": "3dCRUISEtoAFNI [INPUT] [NOVOLREG] [NOXFORM] [SETENV] [TRACE] [TRACE] [NOMALL] [YESMALL] [HELP] [H]",
+  "command-line": "3dCRUISEtoAFNI [INPUT] [NOVOLREG] [NOXFORM] [SETENV] [TRACE] [NOMALL] [YESMALL] [HELP] [H]",
   "inputs": [
     {
       "description": "Input CRUISE header file in OpenDX format",
@@ -40,20 +40,35 @@
       "name": "Set Environment Variable"
     },
     {
-      "command-line-flag": "-trace",
+      "id": "trace",
+      "name": "Trace Debugging",
       "description": "Turns on In/Out debug and Memory tracing. It's recommended to redirect stdout to a file when using this option.",
       "value-key": "[TRACE]",
-      "type": "Flag",
-      "id": "trace",
-      "name": "Trace Debugging"
-    },
-    {
-      "command-line-flag": "-TRACE",
-      "description": "Turns on extreme tracing.",
-      "value-key": "[TRACE]",
-      "type": "Flag",
-      "id": "TRACE",
-      "name": "Extreme Tracing"
+      "optional": true,
+      "type": {
+        "id": "trace",
+        "command-line": "[TRACE] [EXTREME_TRACE]",
+        "inputs": [
+          {
+            "command-line-flag": "-trace",
+            "description": "Turns on In/Out debug and Memory tracing. It's recommended to redirect stdout to a file when using this option.",
+            "value-key": "[TRACE]",
+            "type": "Flag",
+            "optional": true,
+            "id": "trace",
+            "name": "Trace Debugging"
+          },
+          {
+            "command-line-flag": "-TRACE",
+            "description": "Turns on extreme tracing.",
+            "value-key": "[EXTREME_TRACE]",
+            "type": "Flag",
+            "optional": true,
+            "id": "TRACE",
+            "name": "Extreme Tracing"
+          }
+        ]
+      }
     },
     {
       "command-line-flag": "-nomall",

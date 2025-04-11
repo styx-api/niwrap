@@ -4,7 +4,7 @@
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Fabber is a tool for model-based Bayesian analysis of time-series data",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
-  "command-line": "fabber [OUTPUT] [METHOD] [MODEL] [DATA_FILE] [DATA_FILES] [DATA_ORDER] [MASK_FILE] [MT_N] [SUPP_DATA] [EVALUATE_OUTPUT] [EVALUATE_PARAMS] [EVALUATE_NT] [SIMPLE_OUTPUT] [OVERWRITE] [LINK_TO_LATEST] [LOAD_MODELS] [DEBUG] [OPTFILE] [SAVE_MODEL_FIT] [SAVE_RESIDUALS] [SAVE_MODEL_EXTRAS] [SAVE_MVN] [SAVE_MEAN] [SAVE_STD] [SAVE_VAR] [SAVE_ZSTAT] [SAVE_NOISE_MEAN] [SAVE_NOISE_STD] [SAVE_FREE_ENERGY] [HELP] [LIST_METHODS] [LIST_MODELS] [LIST_PARAMS] [DESC_PARAMS] [LIST_OUTPUTS] [OPTFILE] [OLD_OPTFILE]",
+  "command-line": "fabber [OUTPUT] [METHOD] [MODEL] [DATA_FILE] [DATA_FILES] [DATA_ORDER] [MASK_FILE] [MT_N] [SUPP_DATA] [EVALUATE_OUTPUT] [EVALUATE_PARAMS] [EVALUATE_NT] [SIMPLE_OUTPUT] [OVERWRITE] [LINK_TO_LATEST] [LOAD_MODELS] [DEBUG] [OPTFILE] [SAVE_MODEL_FIT] [SAVE_RESIDUALS] [SAVE_MODEL_EXTRAS] [SAVE_MVN] [SAVE_MEAN] [SAVE_STD] [SAVE_VAR] [SAVE_ZSTAT] [SAVE_NOISE_MEAN] [SAVE_NOISE_STD] [SAVE_FREE_ENERGY] [HELP] [LIST_METHODS] [LIST_MODELS] [LIST_PARAMS] [DESC_PARAMS] [LIST_OUTPUTS] [OLD_OPTFILE]",
   "container-image": {
     "type": "docker",
     "image": "brainlife/fsl:6.0.4-patched2"
@@ -162,13 +162,35 @@
       "name": "Debug Flag"
     },
     {
-      "command-line-flag": "--optfile",
-      "description": "File containing additional options, one per line, in the same form as specified on the command line",
-      "value-key": "[OPTFILE]",
-      "type": "File",
-      "optional": true,
       "id": "optfile",
-      "name": "Options File"
+      "name": "Options File",
+      "value-key": "[OPTFILE]",
+      "description": "File containing additional options, one per line, in the same form as specified on the command line",
+      "optional": true,
+      "type": {
+        "id": "optfile",
+        "command-line": "[SHORT_OPT] [LONG_OPT]",
+        "inputs": [
+          {
+            "command-line-flag": "--optfile",
+            "description": "File containing additional options, one per line, in the same form as specified on the command line",
+            "value-key": "[LONG_OPT]",
+            "type": "File",
+            "optional": true,
+            "id": "optfile_long",
+            "name": "Options File"
+          },
+          {
+            "command-line-flag": "-f",
+            "description": "Read options in option=value form from the specified file",
+            "value-key": "[SHORT_OPT]",
+            "type": "File",
+            "optional": true,
+            "id": "optfile_short",
+            "name": "Options File"
+          }
+        ]
+      }
     },
     {
       "command-line-flag": "--save-model-fit",
@@ -305,15 +327,6 @@
       "type": "Flag",
       "id": "list_outputs",
       "name": "List Outputs Flag"
-    },
-    {
-      "command-line-flag": "-f",
-      "description": "Read options in option=value form from the specified file",
-      "value-key": "[OPTFILE]",
-      "type": "File",
-      "optional": true,
-      "id": "optfile",
-      "name": "Options File"
     },
     {
       "command-line-flag": "-@",

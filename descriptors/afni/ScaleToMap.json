@@ -3,7 +3,7 @@
   "name": "ScaleToMap",
   "author": "AFNI Developers",
   "description": "Tool to scale values to a color map",
-  "command-line": "ScaleToMap [INPUT_FILE] [ICOL] [VCOL] [CMAP] [CMAPFILE] [CMAPDB] [FRF] [CLP] [PERC_CLP] [APR] [ANR] [INTERP] [NOINTERP] [DIRECT] [MSK_ZERO] [MSK] [MSK_COL] [NOMSK_COL] [BR] [HELP] [VERBOSE] [SHOWMAP] [SHOWDB] [NOVOLREG] [NOXFORM] [SETENV] [TRACE] [TRACE] [NOMALL] [YESMALL]",
+  "command-line": "ScaleToMap [INPUT_FILE] [ICOL] [VCOL] [CMAP] [CMAPFILE] [CMAPDB] [FRF] [CLP] [PERC_CLP] [APR] [ANR] [INTERP] [NOINTERP] [DIRECT] [MSK_ZERO] [MSK] [MSK_COL] [NOMSK_COL] [BR] [HELP] [VERBOSE] [SHOWMAP] [SHOWDB] [NOVOLREG] [NOXFORM] [SETENV] [TRACE] [NOMALL] [YESMALL]",
   "inputs": [
     {
       "description": "Input file in 1D formatted ascii containing node values",
@@ -234,20 +234,35 @@
       "name": "Set Environment Variable"
     },
     {
-      "command-line-flag": "-trace",
-      "description": "Turn on In/Out debug and Memory tracing",
-      "type": "Flag",
       "id": "trace",
-      "name": "Trace",
-      "value-key": "[TRACE]"
-    },
-    {
-      "command-line-flag": "-TRACE",
-      "description": "Turn on extreme tracing",
-      "type": "Flag",
-      "id": "TRACE",
-      "name": "Extreme Trace",
-      "value-key": "[TRACE]"
+      "name": "Trace Debugging",
+      "description": "Turns on In/Out debug and Memory tracing. It's recommended to redirect stdout to a file when using this option.",
+      "value-key": "[TRACE]",
+      "optional": true,
+      "type": {
+        "id": "trace",
+        "command-line": "[TRACE] [EXTREME_TRACE]",
+        "inputs": [
+          {
+            "command-line-flag": "-trace",
+            "description": "Turns on In/Out debug and Memory tracing. It's recommended to redirect stdout to a file when using this option.",
+            "value-key": "[TRACE]",
+            "type": "Flag",
+            "optional": true,
+            "id": "trace",
+            "name": "Trace Debugging"
+          },
+          {
+            "command-line-flag": "-TRACE",
+            "description": "Turns on extreme tracing.",
+            "value-key": "[EXTREME_TRACE]",
+            "type": "Flag",
+            "optional": true,
+            "id": "TRACE",
+            "name": "Extreme Tracing"
+          }
+        ]
+      }
     },
     {
       "command-line-flag": "-nomall",

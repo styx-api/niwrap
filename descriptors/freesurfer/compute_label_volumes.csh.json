@@ -1,6 +1,6 @@
 {
   "name": "compute_label_volumes.csh",
-  "command-line": "compute_label_volumes.csh [LABEL_VOL] [OUTPUT_FILE] [LABEL_L] [LABEL_L] [VERSION] [HELP]",
+  "command-line": "compute_label_volumes.csh [LABEL_VOL] [OUTPUT_FILE] [LABEL_L] [VERSION] [HELP]",
   "description": "Computes the number of voxels and the volumes of either all or a particular label in the input label volume.",
   "schema-version": "0.5",
   "inputs": [
@@ -23,22 +23,35 @@
       "name": "Output File"
     },
     {
-      "command-line-flag": "--L",
-      "description": "The particular label to be analyzed (case-sensitive option)",
-      "value-key": "[LABEL_L]",
-      "type": "String",
-      "optional": true,
       "id": "label_L",
-      "name": "Particular Label (L)"
-    },
-    {
-      "command-line-flag": "--l",
-      "description": "The particular label to be analyzed (case-insensitive option)",
+      "name": "Particular Label (L)",
       "value-key": "[LABEL_L]",
-      "type": "String",
+      "description": "The particular label to be analyzed",
       "optional": true,
-      "id": "label_l",
-      "name": "Particular Label (l)"
+      "type": {
+        "id": "label_L",
+        "command-line": "[UPPER_L] [LOWER_L]",
+        "inputs": [
+          {
+            "id": "upper_L",
+            "name": "Particular Label (L)",
+            "value-key": "[UPPER_L]",
+            "type": "String",
+            "command-line-flag": "--L",
+            "description": "The particular label to be analyzed (case-sensitive option)",
+            "optional": true
+          },
+          {
+            "id": "lower_L",
+            "name": "Particular Label (l)",
+            "value-key": "[LOWER_L]",
+            "type": "String",
+            "command-line-flag": "--l",
+            "description": "The particular label to be analyzed (case-insensitive option)",
+            "optional": true
+          }
+        ]
+      }
     },
     {
       "command-line-flag": "--version",
