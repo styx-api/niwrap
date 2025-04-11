@@ -162,13 +162,35 @@
       "name": "Debug Flag"
     },
     {
-      "command-line-flag": "--optfile",
-      "description": "File containing additional options, one per line, in the same form as specified on the command line",
-      "value-key": "[OPTFILE]",
-      "type": "File",
-      "optional": true,
       "id": "optfile",
-      "name": "Options File"
+      "name": "Options File",
+      "value-key": "[OPTFILE]",
+      "description": "File containing additional options, one per line, in the same form as specified on the command line",
+      "optional": true,
+      "type": {
+        "id": "optfile",
+        "command-line": "[SHORT_OPT] [LONG_OPT]",
+        "inputs": [
+          {
+            "command-line-flag": "--optfile",
+            "description": "File containing additional options, one per line, in the same form as specified on the command line",
+            "value-key": "[LONG_OPT]",
+            "type": "File",
+            "optional": true,
+            "id": "optfile_long",
+            "name": "Options File"
+          },
+          {
+            "command-line-flag": "-f",
+            "description": "Read options in option=value form from the specified file",
+            "value-key": "[SHORT_OPT]",
+            "type": "File",
+            "optional": true,
+            "id": "optfile_short",
+            "name": "Options File"
+          }
+        ]
+      }
     },
     {
       "command-line-flag": "--save-model-fit",
@@ -305,15 +327,6 @@
       "type": "Flag",
       "id": "list_outputs",
       "name": "List Outputs Flag"
-    },
-    {
-      "command-line-flag": "-f",
-      "description": "Read options in option=value form from the specified file",
-      "value-key": "[OPTFILE]",
-      "type": "File",
-      "optional": true,
-      "id": "optfile",
-      "name": "Options File"
     },
     {
       "command-line-flag": "-@",

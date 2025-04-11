@@ -252,40 +252,66 @@
       "name": "Output File C Contrast"
     },
     {
-      "description": "Specify the output file for the interaction contrast results between A and B.",
-      "value-key": "[OUTFILE_ABCONTR]",
-      "command-line-flag": "-aBcontr",
-      "type": "String",
-      "optional": true,
       "id": "outfile_abcontr",
-      "name": "Output File A and B Contrast"
-    },
-    {
-      "description": "Specify the output file for the interaction contrast results between A and B (case-sensitive).",
+      "name": "Output file A and B Contrast",
       "value-key": "[OUTFILE_ABCONTR]",
-      "command-line-flag": "-Abcontr",
-      "type": "String",
+      "description": "Specify the output file for the interaction contrast results between A and B.",
       "optional": true,
-      "id": "outfile_Abcontr",
-      "name": "Output File A and b Contrast"
+      "type": {
+        "id": "outfile_abcontr",
+        "command-line": "[OUTFILE_ABCONTR] [OUTFILE_ABCONTR_CASE]",
+        "inputs": [
+          {
+            "description": "Specify the output file for the interaction contrast results between A and B.",
+            "value-key": "[OUTFILE_ABCONTR]",
+            "command-line-flag": "-aBcontr",
+            "type": "String",
+            "optional": true,
+            "id": "outfile_abcontr",
+            "name": "Output File A and B Contrast"
+          },
+          {
+            "description": "Specify the output file for the interaction contrast results between A and B (case-sensitive).",
+            "value-key": "[OUTFILE_ABCONTR_CASE]",
+            "command-line-flag": "-Abcontr",
+            "type": "String",
+            "optional": true,
+            "id": "outfile_Abcontr",
+            "name": "Output File A and b Contrast"
+          }
+        ]
+      }
     },
     {
-      "description": "Specify the output file for the interaction difference results between A and B.",
-      "value-key": "[OUTFILE_ABDIFF]",
-      "command-line-flag": "-aBdiff",
-      "type": "String",
-      "optional": true,
       "id": "outfile_abdiff",
-      "name": "Output File A and B Difference"
-    },
-    {
-      "description": "Specify the output file for the interaction difference results between A and B (case-sensitive).",
+      "name": "Output file A and B Contrast",
       "value-key": "[OUTFILE_ABDIFF]",
-      "command-line-flag": "-Abdiff",
-      "type": "String",
+      "description": "Specify the output file for the interaction contrast results between A and B.",
       "optional": true,
-      "id": "outfile_Abdiff",
-      "name": "Output File A and b Difference"
+      "type": {
+        "id": "outfile_abcontr",
+        "command-line": "[OUTFILE_ABDIFF] [OUTFILE_ABDIFF_CASE]",
+        "inputs": [
+          {
+            "description": "Specify the output file for the interaction difference results between A and B.",
+            "value-key": "[OUTFILE_ABDIFF]",
+            "command-line-flag": "-aBdiff",
+            "type": "String",
+            "optional": true,
+            "id": "outfile_abdiff",
+            "name": "Output File A and B Difference"
+          },
+          {
+            "description": "Specify the output file for the interaction difference results between A and B (case-sensitive).",
+            "value-key": "[OUTFILE_ABDIFF_CASE]",
+            "command-line-flag": "-Abdiff",
+            "type": "String",
+            "optional": true,
+            "id": "outfile_Abdiff",
+            "name": "Output File A and b Difference"
+          }
+        ]
+      }
     },
     {
       "description": "Specify the output file for the mean results of the interaction between A and B.",

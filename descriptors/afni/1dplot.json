@@ -49,20 +49,35 @@
       "type": "Flag"
     },
     {
-      "command-line-flag": "-noline",
-      "description": "Don't plot the connecting lines.",
       "id": "noline",
       "name": "No Connecting Lines",
-      "type": "Flag",
-      "value-key": "[NOLINE]"
-    },
-    {
-      "command-line-flag": "-NOLINE",
-      "description": "Same as -noline, but will not try to plot values outside the rectangular box that contains the graph axes.",
-      "id": "NOLINE",
-      "name": "No Connecting Lines with Axis Containment",
-      "type": "Flag",
-      "value-key": "[NOLINE]"
+      "value-key": "[NOLINE]",
+      "description": "Don't plot the connecting lines.",
+      "optional": true,
+      "type": {
+        "id": "noline",
+        "command-line": "[LOWER_NOLINE] [UPPER_NOLINE]",
+        "inputs": [
+          {
+            "command-line-flag": "-noline",
+            "description": "Don't plot the connecting lines.",
+            "id": "noline",
+            "name": "No Connecting Lines",
+            "type": "Flag",
+            "optional": true,
+            "value-key": "[LOWER_NOLINE]"
+          },
+          {
+            "command-line-flag": "-NOLINE",
+            "description": "Same as -noline, but will not try to plot values outside the rectangular box that contains the graph axes.",
+            "id": "NOLINE",
+            "name": "No Connecting Lines with Axis Containment",
+            "type": "Flag",
+            "optional": true,
+            "value-key": "[UPPER_NOLINE]"
+          }
+        ]
+      }
     },
     {
       "command-line-flag": "-box",
@@ -379,20 +394,35 @@
       "value-key": "[VOLREG]"
     },
     {
-      "command-line-flag": "-thick",
-      "description": "Increase the line thickness used for plotting.",
       "id": "thick",
       "name": "Increase Line Thickness",
-      "type": "Flag",
-      "value-key": "[THICK]"
-    },
-    {
-      "command-line-flag": "-THICK",
-      "description": "Twice the power of '-thick' at no extra cost!",
-      "id": "THICK",
-      "name": "Double Line Thickness",
-      "type": "Flag",
-      "value-key": "[THICK]"
+      "value-key": "[THICK]",
+      "description": "Increase the line thickness used for plotting.",
+      "optional": true,
+      "type": {
+        "id": "thick",
+        "command-line": "[LOWER_THICK] [UPPER_THICK]",
+        "inputs": [
+          {
+            "command-line-flag": "-thick",
+            "description": "Increase the line thickness used for plotting.",
+            "id": "thick",
+            "name": "Increase Line Thickness",
+            "type": "Flag",
+            "optional": true,
+            "value-key": "[LOWER_THICK]"
+          },
+          {
+            "command-line-flag": "-THICK",
+            "description": "Twice the power of '-thick' at no extra cost!",
+            "id": "THICK",
+            "name": "Double Line Thickness",
+            "type": "Flag",
+            "optional": true,
+            "value-key": "[UPPER_THICK]"
+          }
+        ]
+      }
     },
     {
       "command-line-flag": "-dashed",
@@ -450,22 +480,35 @@
       "value-key": "[CONCAT]"
     },
     {
-      "command-line-flag": "-rbox",
-      "description": "Draw a rectangular box with specified corners and colors.",
       "id": "rbox",
       "name": "Draw Rectangular Box",
-      "type": "String",
+      "value-key": "[RBOX]",
+      "description": "Draw a rectangular box.",
       "optional": true,
-      "value-key": "[RBOX]"
-    },
-    {
-      "command-line-flag": "-Rbox",
-      "description": "Draw a rectangular box with one extra horizontal line.",
-      "id": "Rbox",
-      "name": "Draw Rectangular Box with Line",
-      "type": "String",
-      "optional": true,
-      "value-key": "[RBOX]"
+      "type": {
+        "id": "rbox",
+        "command-line": "[LOWER_RBOX] [CAPITAL_RBOX]",
+        "inputs": [
+          {
+            "command-line-flag": "-rbox",
+            "description": "Draw a rectangular box with specified corners and colors.",
+            "id": "rbox",
+            "name": "Draw Rectangular Box",
+            "type": "String",
+            "optional": true,
+            "value-key": "[LOWER_RBOX]"
+          },
+          {
+            "command-line-flag": "-Rbox",
+            "description": "Draw a rectangular box with one extra horizontal line.",
+            "id": "Rbox",
+            "name": "Draw Rectangular Box with Line",
+            "type": "String",
+            "optional": true,
+            "value-key": "[CAPITAL_RBOX]"
+          }
+        ]
+      }
     },
     {
       "command-line-flag": "-line",
