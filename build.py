@@ -11,6 +11,7 @@ from styx.backend.python.languageprovider import PythonLanguageProvider
 from styx.frontend.boutiques import from_boutiques
 from styx.ir.core import Documentation
 from styx.ir.optimize import optimize
+from styx.ir.serialize import to_json
 
 PATH_PACKAGES = Path("packages")
 PATH_DESCRIPTORS = Path("descriptors")
@@ -19,6 +20,7 @@ PATH_BUILD_TEMPLATES = Path("build-templates")
 PATH_DIST_ROOT = Path("dist")
 PATH_DIST_PYTHON = PATH_DIST_ROOT / "niwrap-python"
 PATH_DIST_JS = PATH_DIST_ROOT / "niwrap-js"
+PATH_DIST_IR_DUMP = PATH_DIST_ROOT / "niwrap-ir-dump"
 
 
 def iter_packages():
@@ -225,6 +227,40 @@ This package contains wrappers only and has no affiliation with the original aut
     (PATH_DIST_JS / "package.json").write_text(TEMPLATE_PACKAGE_JSON, encoding="utf8")
     (PATH_DIST_JS / "tsconfig.json").write_text(TEMPLATE_TSCONFIG_JSON, encoding="utf8")
 
+    # ------ IR DUMP ------------------------------------------------------
+    
+    PATH_DIST_IR_DUMP.mkdir(parents=True, exist_ok=True)
+
+    package_index = {
+        "packages": []
+    }
+    for _, package in iter_packages():
+        path_package = PATH_DIST_IR_DUMP / package["id"]
+        path_package.mkdir(parents=True, exist_ok=True)
+
+        endpoints = []
+        for command_name, ir_data in ((d.command.base.name, optimize(d)) for d in stream_descriptors_package(package)):
+            content = to_json(ir_data, 2)
+            (path_package / (command_name + ".json")).write_text(content, encoding="utf8")
+            endpoints.append({
+                "name": command_name,
+                "file": f'{package["id"]}/{command_name + ".json"}'
+            })
+
+        package_index["packages"].append({
+            "name": package["name"],
+            "author": package["author"],
+            "url": package["url"],
+            "approach": package["approach"],
+            "status": package["status"],
+            "container": package["container"],
+            "version": package["version"],
+            "description": package["description"],
+            "id": package["id"],
+            "api": endpoints,
+        })
+
+    (PATH_DIST_IR_DUMP / ("package_index.json")).write_text(json.dumps(package_index, indent=2), encoding="utf8")  # todo: just copy file?
 
 # =============================================================================
 # |                       PACKAGE OVERVIEW TABLE                              |
