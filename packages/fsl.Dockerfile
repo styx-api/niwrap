@@ -9,6 +9,7 @@ ENV FSLDIR="/usr/local/fsl" \
 # install dependencies and download installer
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \
+        ca-certificates \
         dc \
         file \
         libgomp1 \
