@@ -5,6 +5,7 @@
 [![CRAN status](https://img.shields.io/badge/CRAN-coming%20soon-orange)](https://cran.r-project.org/)
 [![GitHub stars](https://img.shields.io/github/stars/styx-api/niwrap?style=social)](https://github.com/styx-api/niwrap/stargazers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14509680.svg)](https://doi.org/10.5281/zenodo.14509680)
 
 ## 🧠 Modern Neuroimaging Made Simple
 
