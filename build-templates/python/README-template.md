@@ -67,3 +67,21 @@ The `niwrap` Python package, including all wrapper code, is licensed under the M
 The [Styx book](https://styx-api.github.io/styxbook/) aims to be a starting point for new users.
 
 If you encounter any problems or have any questions, please open an issue on our [GitHub repository](https://github.com/styx-api/niwrap).
+
+## 📚 Citation
+
+If you use NiWrap in your research, please consider citing:
+
+```bibtex
+@article {rupprecht2025styx,
+	author = {Rupprecht, Florian JM and Kai, Jason and Shrestha, Biraj and Giavasis, Steven and Xu, Ting and Glatard, Tristan and Milham, Michael P and Kiar, Gregory},
+	title = {Styx: A multi-language API Generator for Command-Line Tools},
+	elocation-id = {2025.07.24.666435},
+	year = {2025},
+	doi = {10.1101/2025.07.24.666435},
+	publisher = {Cold Spring Harbor Laboratory},
+	URL = {https://www.biorxiv.org/content/early/2025/07/30/2025.07.24.666435},
+	eprint = {https://www.biorxiv.org/content/early/2025/07/30/2025.07.24.666435.full.pdf},
+	journal = {bioRxiv}
+}
+```
