@@ -32,7 +32,9 @@ RUN python3 fslinstaller.py \
     --no_matlab \
     --cuda none \
     --fslversion 6.0.6 \
-    --overwrite
+    --overwrite \
+    --no_checksum \
+    --debug
 
 # cleanup
 RUN rm -f fslinstaller.py && \
