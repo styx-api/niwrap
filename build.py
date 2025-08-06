@@ -293,6 +293,9 @@ This package contains wrappers only and has no affiliation with the original aut
     (PATH_DIST_JSON_SCHEMA / ("schema.json")).write_text(
         json.dumps(full_schema, indent=2), encoding="utf8"
     )
+    (
+        PATH_DIST_JSON_SCHEMA / (".nojekyll")
+    ).touch()  # Maybe there is a better way to do this?
 
 
 # =============================================================================
