@@ -21,6 +21,7 @@ PATH_DIST_ROOT = Path("dist")
 PATH_DIST_PYTHON = PATH_DIST_ROOT / "niwrap-python"
 PATH_DIST_JS = PATH_DIST_ROOT / "niwrap-js"
 PATH_DIST_IR_DUMP = PATH_DIST_ROOT / "niwrap-ir-dump"
+PATH_DIST_JSON_SCHEMA = PATH_DIST_ROOT / "niwrap-json-schema"
 
 
 def iter_packages():
@@ -122,7 +123,7 @@ def compile_wrappers():
 
     package_reexports = []
     for _, package in iter_packages():
-        package_name = f'niwrap_{package["id"]}'
+        package_name = f"niwrap_{package['id']}"
         path_package = PATH_DIST_PYTHON / package_name
         (path_package / "src").mkdir(parents=True, exist_ok=True)
 
@@ -228,39 +229,71 @@ This package contains wrappers only and has no affiliation with the original aut
     (PATH_DIST_JS / "tsconfig.json").write_text(TEMPLATE_TSCONFIG_JSON, encoding="utf8")
 
     # ------ IR DUMP ------------------------------------------------------
-    
+
     PATH_DIST_IR_DUMP.mkdir(parents=True, exist_ok=True)
 
-    package_index = {
-        "packages": []
-    }
+    package_index = {"packages": []}
     for _, package in iter_packages():
         path_package = PATH_DIST_IR_DUMP / package["id"]
         path_package.mkdir(parents=True, exist_ok=True)
 
         endpoints = []
-        for command_name, ir_data in ((d.command.base.name, optimize(d)) for d in stream_descriptors_package(package)):
+        for command_name, ir_data in (
+            (d.command.base.name, optimize(d))
+            for d in stream_descriptors_package(package)
+        ):
             content = to_json(ir_data, 2)
-            (path_package / (command_name + ".json")).write_text(content, encoding="utf8")
-            endpoints.append({
-                "name": command_name,
-                "file": f'{package["id"]}/{command_name + ".json"}'
-            })
+            (path_package / (command_name + ".json")).write_text(
+                content, encoding="utf8"
+            )
+            endpoints.append(
+                {
+                    "name": command_name,
+                    "file": f"{package['id']}/{command_name + '.json'}",
+                }
+            )
 
-        package_index["packages"].append({
-            "name": package["name"],
-            "author": package["author"],
-            "url": package["url"],
-            "approach": package["approach"],
-            "status": package["status"],
-            "container": package["container"],
-            "version": package["version"],
-            "description": package["description"],
-            "id": package["id"],
-            "api": endpoints,
-        })
+        package_index["packages"].append(
+            {
+                "name": package["name"],
+                "author": package["author"],
+                "url": package["url"],
+                "approach": package["approach"],
+                "status": package["status"],
+                "container": package["container"],
+                "version": package["version"],
+                "description": package["description"],
+                "id": package["id"],
+                "api": endpoints,
+            }
+        )
 
-    (PATH_DIST_IR_DUMP / ("package_index.json")).write_text(json.dumps(package_index, indent=2), encoding="utf8")  # todo: just copy file?
+    (PATH_DIST_IR_DUMP / ("package_index.json")).write_text(
+        json.dumps(package_index, indent=2), encoding="utf8"
+    )  # todo: just copy file?
+
+    # ------ JSON SCHEMA ------------------------------------------------------
+
+    PATH_DIST_JSON_SCHEMA.mkdir(parents=True, exist_ok=True)
+
+    package_reexports = []
+    for _, package in iter_packages():
+        package_reexports.append(package["id"])
+        path_package = PATH_DIST_JSON_SCHEMA / package["id"]
+        path_package.mkdir(parents=True, exist_ok=True)
+
+        for compiled_file in compile_language(
+            "jsonschema", (optimize(d) for d in stream_descriptors_package(package))
+        ):
+            compiled_file.write(path_package)
+
+    full_schema = {
+        "oneOf": [({"$ref": str(Path(x) / "schema.json")}) for x in package_reexports]
+    }
+    (PATH_DIST_JSON_SCHEMA / ("schema.json")).write_text(
+        json.dumps(full_schema, indent=2), encoding="utf8"
+    )
+
 
 # =============================================================================
 # |                       PACKAGE OVERVIEW TABLE                              |
