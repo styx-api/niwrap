@@ -5,7 +5,8 @@
 [![CRAN status](https://img.shields.io/badge/CRAN-coming%20soon-orange)](https://cran.r-project.org/)
 [![GitHub stars](https://img.shields.io/github/stars/styx-api/niwrap?style=social)](https://github.com/styx-api/niwrap/stargazers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14509680.svg)](https://doi.org/10.5281/zenodo.14509680)
+[![Preprint](https://img.shields.io/badge/bioRxiv-preprint-green?logo=bookstack&logoColor=white)](https://doi.org/10.1101/2025.07.24.666435)
+[![Discord](https://dcbadge.limes.pink/api/server/https://discord.gg/QMKUVCFWsR?style=flat)](https://discord.gg/QMKUVCFWsR)
 
 ## 🧠 Modern Neuroimaging Made Simple
 
@@ -251,12 +252,16 @@ NiWrap is released under the MIT License. See the LICENSE file for details.
 If you use NiWrap in your research, please consider citing:
 
 ```bibtex
-% Placeholder - please cite our soon to be released preprint.
-@software{niwrap,
-  author = {The NiWrap Contributors},
-  title = {NiWrap: Type-Safe Neuroimaging Tool Wrappers},
-  url = {https://github.com/styx-api/niwrap},
-  year = {2023}
+@article {rupprecht2025styx,
+	author = {Rupprecht, Florian JM and Kai, Jason and Shrestha, Biraj and Giavasis, Steven and Xu, Ting and Glatard, Tristan and Milham, Michael P and Kiar, Gregory},
+	title = {Styx: A multi-language API Generator for Command-Line Tools},
+	elocation-id = {2025.07.24.666435},
+	year = {2025},
+	doi = {10.1101/2025.07.24.666435},
+	publisher = {Cold Spring Harbor Laboratory},
+	URL = {https://www.biorxiv.org/content/early/2025/07/30/2025.07.24.666435},
+	eprint = {https://www.biorxiv.org/content/early/2025/07/30/2025.07.24.666435.full.pdf},
+	journal = {bioRxiv}
 }
 ```
 

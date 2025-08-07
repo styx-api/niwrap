@@ -5,10 +5,13 @@
 
 🧠 Python wrappers for neuroimaging command-line tools
 
-[![Build](https://github.com/styx-api/niwrap-python/actions/workflows/compile.yml/badge.svg?branch=main)](https://github.com/styx-api/niwrap-python/actions/workflows/compile.yml?query=branch%3Amain)
+[![GitHub stars](https://img.shields.io/github/stars/styx-api/niwrap?style=social)](https://github.com/styx-api/niwrap/stargazers)
+[![PyPI](https://img.shields.io/pypi/v/niwrap.svg)](https://pypi.org/project/niwrap/)
 ![stability-stable](https://img.shields.io/badge/stability-experimental-red.svg)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/styx-api/niwrap-python/blob/main/LICENSE)
 [![pages](https://img.shields.io/badge/api-docs-blue)](https://styx-api.github.io/niwrap-python)
+[![Preprint](https://img.shields.io/badge/bioRxiv-preprint-green?logo=bookstack&logoColor=white)](https://doi.org/10.1101/2025.07.24.666435)
+[![Discord](https://dcbadge.limes.pink/api/server/https://discord.gg/QMKUVCFWsR?style=flat)](https://discord.gg/QMKUVCFWsR)
 
 ## 🚀 Quick Start
 
@@ -67,3 +70,21 @@ The `niwrap` Python package, including all wrapper code, is licensed under the M
 The [Styx book](https://styx-api.github.io/styxbook/) aims to be a starting point for new users.
 
 If you encounter any problems or have any questions, please open an issue on our [GitHub repository](https://github.com/styx-api/niwrap).
+
+## 📚 Citation
+
+If you use NiWrap in your research, please consider citing:
+
+```bibtex
+@article {rupprecht2025styx,
+	author = {Rupprecht, Florian JM and Kai, Jason and Shrestha, Biraj and Giavasis, Steven and Xu, Ting and Glatard, Tristan and Milham, Michael P and Kiar, Gregory},
+	title = {Styx: A multi-language API Generator for Command-Line Tools},
+	elocation-id = {2025.07.24.666435},
+	year = {2025},
+	doi = {10.1101/2025.07.24.666435},
+	publisher = {Cold Spring Harbor Laboratory},
+	URL = {https://www.biorxiv.org/content/early/2025/07/30/2025.07.24.666435},
+	eprint = {https://www.biorxiv.org/content/early/2025/07/30/2025.07.24.666435.full.pdf},
+	journal = {bioRxiv}
+}
+```
