@@ -185,6 +185,17 @@ This package contains wrappers only and has no affiliation with the original aut
         "\n".join(package_reexports), encoding="utf8"
     )
 
+    (PATH_DIST_PYTHON / "requirements.txt").write_text(
+        "\n".join(
+            [
+                f"git+https://github.com/styx-api/niwrap-python.git#subdirectory=niwrap_{pkg}"
+                for pkg in package_reexports
+            ]
+            + [f"git+https://github.com/styx-api/niwrap-python.git#subdirectory=niwrap"]
+        ),
+        encoding="utf8",
+    )
+
     (path_niwrap_root / "src/niwrap").mkdir(parents=True, exist_ok=True)
     (path_niwrap_root / "src/niwrap/__init__.py").write_text(
         "\n".join([f"from niwrap_{x} import {x}" for x in package_reexports])

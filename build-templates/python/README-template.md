@@ -35,7 +35,7 @@ pip install niwrap
 Or install the development version:
 
 ```bash
-pip install "git+https://github.com/styx-api/niwrap-python.git"
+pip install -r https://raw.githubusercontent.com/styx-api/niwrap-python/main/requirements.txt
 ```
 
 ## 🧰 Supported Tools
