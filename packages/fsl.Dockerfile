@@ -26,6 +26,12 @@ RUN wget -q https://fsl.fmrib.ox.ac.uk/fsldownloads/fslconda/releases/fslinstall
     ls -l fslinstaller.py
 
 # run installer
+# couldnt get "--package_ignore" to work so uninstall after installing:
+# fsleyes not usable as CLI
+# jupyter not used
+# fsl-tirl - seems unrelated to all other fsl libs, very dependency hungry (89 packages that nothing else uses)
+# /usr/local/fsl/docs folder: 91 MB of pdfs and tutorials
+# before this /usr/local/fsl is 8.7 GB
 RUN python3 fslinstaller.py \
     -d /usr/local/fsl \
     --skip_registration \
@@ -34,10 +40,14 @@ RUN python3 fslinstaller.py \
     --fslversion 6.0.6 \
     --overwrite \
     --no_checksum \
-    --debug
-
-# cleanup
-RUN rm -f fslinstaller.py && \
+    --debug && \
+    micromamba uninstall -n base \
+        fsleyes \
+        jupyter jupyter-client jupyter-console jupyter-core \
+        fsl-tirl && \
+    micromamba clean --all -y && \
+    rm -f /usr/local/fsl/docs && \
+    rm -f fslinstaller.py && \
     apt-get remove -y wget && \
     apt-get autoremove -y && \
     apt-get clean && \
