@@ -1,4 +1,4 @@
-# NiWrap <img src="logo.png" align="right" width="25%"/>
+# NiWrap <img src="logo.svg" align="right" width="25%"/>
 
 [![PyPI](https://img.shields.io/pypi/v/niwrap.svg)](https://pypi.org/project/niwrap/)
 [![npm](https://img.shields.io/npm/v/niwrap.svg)](https://www.npmjs.com/package/niwrap)
