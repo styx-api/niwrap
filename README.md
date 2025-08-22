@@ -31,7 +31,7 @@ NiWrap provides seamless, programmatic access to powerful neuroimaging command-l
 | [ANTs](https://github.com/ANTsX/ANTs) | Experimental | [`2.5.3`](https://hub.docker.com/r/antsx/ants) | 71/113 (62.8%) |
 | [Connectome Workbench](https://github.com/Washington-University/workbench) | Experimental | [`1.5.0`](https://hub.docker.com/r/brainlife/connectome_workbench) | 202/202 (100% 🎉) |
 | [Convert3D](http://www.itksnap.org/pmwiki/pmwiki.php?n=Convert3D.Convert3D) | Experimental | [`1.1.0`](https://hub.docker.com/r/pyushkevich/itksnap) | 4/4 (100% 🎉) |
-| [FSL](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki) | Experimental | [`6.0.5`](https://hub.docker.com/r/brainlife/fsl) | 245/313 (78.3%) |
+| [FSL](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki) | Experimental | [`6.0.4`](https://hub.docker.com/r/brainlife/fsl) | 245/313 (78.3%) |
 | [FastSurfer](https://github.com/Deep-MI/FastSurfer) | Experimental | [`2.3.3`](https://hub.docker.com/r/deepmi/fastsurfer) | 1/1 (100% 🎉) |
 | [FreeSurfer](https://github.com/freesurfer/freesurfer) | Experimental | [`7.4.1`](https://hub.docker.com/r/freesurfer/freesurfer) | 696/789 (88.2%) |
 | [Greedy](https://sites.google.com/view/greedyreg/about) | Experimental | [`1.0.1`](https://hub.docker.com/r/pyushkevich/itksnap) | 1/1 (100% 🎉) |
