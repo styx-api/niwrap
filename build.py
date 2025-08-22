@@ -228,10 +228,15 @@ This package contains wrappers only and has no affiliation with the original aut
         ):
             compiled_file.write(path_package)
 
-    # import * as afni from './afni'
+    # todo: move this to compiler
     (PATH_DIST_JS / "src/index.ts").write_text(
-        "\n".join([f"export * as {x} from './{x}'" for x in package_reexports])
-        + f"\nexport * from 'styxdefs'\nexport const version = '{niwrap_version}';",
+        "\n".join([f"export * as {x} from './{x}'" for x in package_reexports]) +"\n"
+        + "\n".join([f"import * as {x} from './{x}'" for x in package_reexports])
+        + f"\nimport {{Runner}} from 'styxdefs'\nexport const version = '{niwrap_version}';"
+        + "\nexport function execute(params: any, runner: Runner | null = null) {;"
+        + "\n  const stype = params[\"@type\"];\n"
+        + "\n".join([f"  if (stype.startsWith(\"{x}\")) return {x}.execute(params, runner);" for x in package_reexports])
+        + "\n}",
         encoding="utf8",
     )
 
