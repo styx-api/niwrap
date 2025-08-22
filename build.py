@@ -212,7 +212,7 @@ This package contains wrappers only and has no affiliation with the original aut
     )
     TEMPLATE_PACKAGE_JSON = (PATH_BUILD_TEMPLATES / "js/package.json").read_text(
         encoding="utf8"
-    )
+    ).replace("{{VERSION}}", niwrap_version)
     TEMPLATE_TSCONFIG_JSON = (PATH_BUILD_TEMPLATES / "js/tsconfig.json").read_text(
         encoding="utf8"
     )
