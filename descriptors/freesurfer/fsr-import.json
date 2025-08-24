@@ -86,28 +86,22 @@
   ],
   "output-files": [
     {
-      "path-template": "[OUTDIR]/t1w/*.mgz",
+      "path-template": "[OUTDIR]/t1w",
       "description": "Output directory for T1-weighted images",
       "id": "out_t1w",
       "name": "Output T1-weighted directory"
     },
     {
-      "path-template": "[OUTDIR]/t2w/*.mgz",
+      "path-template": "[OUTDIR]/t2w",
       "description": "Output directory for T2-weighted images",
       "id": "out_t2w",
       "name": "Output T2-weighted directory"
     },
     {
-      "path-template": "[OUTDIR]/flair/*.mgz",
+      "path-template": "[OUTDIR]/flair_input",
       "description": "Output directory for FLAIR images",
       "id": "out_flair",
       "name": "Output FLAIR directory"
-    },
-    {
-      "path-template": "[OUTDIR]/*/*.mgz",
-      "description": "Output directory for custom modality images based on mode",
-      "id": "out_custom_modes",
-      "name": "Output custom modalities directory"
     }
   ],
   "url": "https://github.com/freesurfer/freesurfer"
