@@ -157,28 +157,10 @@
   "schema-version": "0.5",
   "output-files": [
     {
-      "path-template": "[OUTPUT_DIR]/variance_map_run*.nii.gz",
-      "description": "Variance maps per run",
-      "id": "variance_maps",
-      "name": "Variance Maps"
-    },
-    {
-      "path-template": "[OUTPUT_DIR]/scaled_variance_map_run*.nii.gz",
-      "description": "Scaled variance maps per run",
-      "id": "scaled_variance_maps",
-      "name": "Scaled Variance Maps"
-    },
-    {
-      "path-template": "[OUTPUT_DIR]/cluster_report_run*.txt",
-      "description": "Cluster reports",
-      "id": "cluster_reports",
-      "name": "Cluster Reports"
-    },
-    {
-      "path-template": "[OUTPUT_DIR]/*.jpg",
-      "description": "JPEG images showing locations of high variance",
-      "id": "jpeg_images",
-      "name": "JPEG Images"
+      "path-template": "[OUTPUT_DIR]",
+      "description": "Output directory containing maps and reports.",
+      "id": "output_directory",
+      "name": "Output Directory"
     }
   ],
   "url": "https://afni.nimh.nih.gov/"
