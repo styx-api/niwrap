@@ -18,7 +18,10 @@
       "type": "Number",
       "integer": true,
       "optional": true,
-      "value-choices": [2, 3],
+      "value-choices": [
+        2,
+        3
+      ],
       "command-line-flag": "--image-dimensionality",
       "description": "This option forces the image to be treated as a specified-dimensional image. If not specified, the program tries to infer the dimensionality from the input image."
     },
@@ -93,12 +96,6 @@
       "name": "Output Directory",
       "description": "The directory where the output data will be stored.",
       "path-template": "[OUTPUT_DIRECTORY]"
-    },
-    {
-      "id": "filename_series",
-      "name": "FileName Series Root Name",
-      "description": "Root name for the series of output files.",
-      "path-template": "[OUTPUT_DIRECTORY]/[FILENAME_SERIES_ROOT_NAME]_*.nii"
     }
   ]
 }
