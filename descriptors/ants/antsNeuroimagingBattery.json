@@ -6,7 +6,10 @@
   "url": "https://github.com/ANTsX/ANTs",
   "tool-version": "2.5.3",
   "schema-version": "0.5",
-  "container-image": { "type": "docker", "image": "antsx/ants:v2.5.3" },
+  "container-image": {
+    "type": "docker",
+    "image": "antsx/ants:v2.5.3"
+  },
   "inputs": [
     {
       "id": "input_directory",
@@ -180,10 +183,10 @@
   ],
   "output-files": [
     {
-      "id": "output_transform",
-      "name": "Output Transform",
-      "description": "Output transform files.",
-      "path-template": "[OUTPUT_DIRECTORY]/[OUTPUT_NAME].*"
+      "id": "output_directory",
+      "name": "Output Directory",
+      "description": "Directory containing output transform files.",
+      "path-template": "[OUTPUT_DIRECTORY]"
     }
   ]
 }

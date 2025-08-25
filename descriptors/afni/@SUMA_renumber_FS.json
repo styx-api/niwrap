@@ -17,49 +17,49 @@
   "schema-version": "0.5",
   "output-files": [
     {
-      "path-template": "*_REN_all.nii.gz",
+      "path-template": "REN_all.nii.gz",
       "description": "Whole parcellation/segmentation file with renumbered ROIs.",
       "id": "ren_all",
       "name": "Renumbered parcellation"
     },
     {
-      "path-template": "*_REN_gm.nii.gz",
+      "path-template": "REN_gm.nii.gz",
       "description": "Gray matter tissue segmentation map.",
       "id": "ren_gm",
       "name": "Gray matter segmentation"
     },
     {
-      "path-template": "*_REN_wmat.nii.gz",
+      "path-template": "REN_wmat.nii.gz",
       "description": "White matter tissue segmentation map.",
       "id": "ren_wmat",
       "name": "White matter segmentation"
     },
     {
-      "path-template": "*_REN_csf.nii.gz",
+      "path-template": "REN_csf.nii.gz",
       "description": "Cerebrospinal fluid tissue segmentation map.",
       "id": "ren_csf",
       "name": "Cerebrospinal fluid segmentation"
     },
     {
-      "path-template": "*_REN_vent.nii.gz",
+      "path-template": "REN_vent.nii.gz",
       "description": "Ventricles and choroid plexus tissue segmentation map.",
       "id": "ren_vent",
       "name": "Ventricles and choroid plexus segmentation"
     },
     {
-      "path-template": "*_REN_othr.nii.gz",
+      "path-template": "REN_othr.nii.gz",
       "description": "Other tissue segmentation map (optic chiasm, non-WM-hypointens, etc.).",
       "id": "ren_othr",
       "name": "Other tissue segmentation"
     },
     {
-      "path-template": "*_REN_unkn.nii.gz",
+      "path-template": "REN_unkn.nii.gz",
       "description": "Unknown tissue segmentation map (FS-defined 'unknown', with voxel value >0).",
       "id": "ren_unkn",
       "name": "Unknown tissue segmentation"
     },
     {
-      "path-template": "*_REN_gmrois.nii.gz",
+      "path-template": "REN_gmrois.nii.gz",
       "description": "Gray matter ROIs without '*-Cerebral-Cortex' dots.",
       "id": "ren_gmrois",
       "name": "Gray matter ROIs segmentation"
@@ -77,7 +77,7 @@
       "name": "Lateral ventricles mask"
     },
     {
-      "path-template": "*_REN_all.niml.lt",
+      "path-template": "REN_all.niml.lt",
       "description": "Labeltable of the new ROI values.",
       "id": "ren_lbl_table",
       "name": "Labeltable"
