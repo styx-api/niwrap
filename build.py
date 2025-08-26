@@ -304,9 +304,9 @@ This package contains wrappers only and has no affiliation with the original aut
             compiled_file.write(path_package)
 
     full_schema = {
-        "oneOf": [({"$ref": str(Path(x) / "schema.json")}) for x in package_reexports]
+        "oneOf": [({"$ref": (Path(x) / "input.schema.json").as_posix()}) for x in package_reexports]
     }
-    (PATH_DIST_JSON_SCHEMA / ("schema.json")).write_text(
+    (PATH_DIST_JSON_SCHEMA / ("input.schema.json")).write_text(
         json.dumps(full_schema, indent=2), encoding="utf8"
     )
     (
