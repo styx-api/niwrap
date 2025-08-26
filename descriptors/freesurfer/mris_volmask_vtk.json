@@ -186,16 +186,29 @@
       "name": "Edited Aseg Output File"
     },
     {
-      "path-template": "mri/?h.dwhite.mgz",
-      "description": "Signed distance output for the white matter.",
-      "id": "dwhite_output",
-      "name": "Distance White Output File"
+      "path-template": "mri/lh.dwhite.mgz",
+      "description": "Signed distance output for the left hemisphere white matter.",
+      "id": "lh_dwhite_output",
+      "name": "Left Hemisphere Distance White Output File"
     },
     {
-      "path-template": "mri/?h.dpial.mgz",
-      "description": "Signed distance output for the pial surface.",
-      "id": "dpial_output",
-      "name": "Distance Pial Output File"
+      "path-template": "mri/lh.dpial.mgz",
+      "description": "Signed distance output for the left hemisphere pial surface.",
+      "id": "lh_dpial_output",
+      "name": "Left Hemisphere Distance Pial Output File"
+    },
+
+    {
+      "path-template": "mri/rh.dwhite.mgz",
+      "description": "Signed distance output for the right hemisphere white matter.",
+      "id": "rh_dwhite_output",
+      "name": "Right Hemisphere Distance White Output File"
+    },
+    {
+      "path-template": "mri/rh.dpial.mgz",
+      "description": "Signed distance output for the right hemisphere pial surface.",
+      "id": "rh_dpial_output",
+      "name": "Right Hemisphere Distance Pial Output File"
     }
   ],
   "container-image": {
