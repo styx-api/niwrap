@@ -38,40 +38,76 @@
       "name": "Surface Defects"
     },
     {
-      "path-template": "scripts/?h.defects.summary",
-      "description": "Summary of defects indicating numerical ID and number of vertices.",
-      "id": "defects_summary",
-      "name": "Defects Summary"
+      "path-template": "scripts/lh.defects.summary",
+      "description": "Defects summary with ID and number of vertices for left hemisphere.",
+      "id": "lh_defects_summary",
+      "name": "Left Defects Summary"
     },
     {
-      "path-template": "surf/?h.defect_labels.fix.mgz",
-      "description": "Fixed defect labels on the surface.",
-      "id": "defect_labels_fix",
-      "name": "Defect Labels Fix"
+      "path-template": "surf/lh.defect_labels.fix.mgz",
+      "description": "Fixed defect labels on the left hemisphere surface.",
+      "id": "lh_defect_labels_fix",
+      "name": "Left Defect Labels Fix"
     },
     {
-      "path-template": "surf/?h.defect_labels.fix.bin.mgz",
-      "description": "Binary labels for fixed defects.",
-      "id": "defect_labels_fix_bin",
-      "name": "Defect Labels Fix Binary"
+      "path-template": "surf/lh.defect_labels.fix.bin.mgz",
+      "description": "Binary labels for fixed defects on the left hemisphere.",
+      "id": "lh_defect_labels_fix_bin",
+      "name": "Left Defect Labels Fix Binary"
     },
     {
-      "path-template": "label/?h.defects.nofix.annot",
-      "description": "Annotation file for defects without fixes.",
-      "id": "defects_nofix_annot",
-      "name": "Defects No-Fix Annotation"
+      "path-template": "label/lh.defects.nofix.annot",
+      "description": "Annotation file for defects without fixes on the left hemisphere.",
+      "id": "lh_defects_nofix_annot",
+      "name": "Left Defects No-Fix Annotation"
     },
     {
-      "path-template": "label/?h.defects.fix.annot",
-      "description": "Annotation file for defects with fixes.",
-      "id": "defects_fix_annot",
-      "name": "Defects Fix Annotation"
+      "path-template": "label/lh.defects.fix.annot",
+      "description": "Annotation file for defects with fixes on the left hemisphere.",
+      "id": "lh_defects_fix_annot",
+      "name": "Left Defects Fix Annotation"
     },
     {
-      "path-template": "stats/?h.defects.stats",
-      "description": "Statistics summary of defects indicating area and average thickness.",
-      "id": "defects_stats",
-      "name": "Defects Stats"
+      "path-template": "stats/lh.defects.stats",
+      "description": "Statistics summary of defects indicating area and average thickness on the left hemisphere.",
+      "id": "lh_defects_stats",
+      "name": "Left Defects Stats"
+    },
+    {
+      "path-template": "scripts/rh.defects.summary",
+      "description": "Defects summary with ID and number of vertices for right hemisphere.",
+      "id": "rh_defects_summary",
+      "name": "Right Defects Summary"
+    },
+    {
+      "path-template": "surf/rh.defect_labels.fix.mgz",
+      "description": "Fixed defect labels on the Right hemisphere surface.",
+      "id": "rh_defect_labels_fix",
+      "name": "Right Defect Labels Fix"
+    },
+    {
+      "path-template": "surf/rh.defect_labels.fix.bin.mgz",
+      "description": "Binary labels for fixed defects on the right hemisphere.",
+      "id": "rh_defect_labels_fix_bin",
+      "name": "Right Defect Labels Fix Binary"
+    },
+    {
+      "path-template": "label/rh.defects.nofix.annot",
+      "description": "Annotation file for defects without fixes on the right hemisphere.",
+      "id": "rh_defects_nofix_annot",
+      "name": "Right Defects No-Fix Annotation"
+    },
+    {
+      "path-template": "label/rh.defects.fix.annot",
+      "description": "Annotation file for defects with fixes on the right hemisphere.",
+      "id": "rh_defects_fix_annot",
+      "name": "Right Defects Fix Annotation"
+    },
+    {
+      "path-template": "stats/rh.defects.stats",
+      "description": "Statistics summary of defects indicating area and average thickness on the right hemisphere.",
+      "id": "rh_defects_stats",
+      "name": "Right Defects Stats"
     }
   ],
   "container-image": {
