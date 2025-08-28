@@ -98,19 +98,7 @@
   "schema-version": "0.5",
   "output-files": [
     {
-      "path-template": "BASES_PREFIX.sph*.1D",
-      "description": "File for harmonics of each order l.",
-      "id": "harmonics_file",
-      "name": "Harmonics File"
-    },
-    {
-      "path-template": "PREFIX.beta.col*.1D.dset",
-      "description": "Beta coefficients for each data column.",
-      "id": "beta_coefficients",
-      "name": "Beta Coefficients File"
-    },
-    {
-      "path-template": "<PREFIX>_reconstructed",
+      "path-template": "[PREFIX]_reconstructed",
       "description": "Reconstructed data or surface files named based on PREFIX.",
       "id": "reconstructed_data",
       "name": "Reconstructed Data File"

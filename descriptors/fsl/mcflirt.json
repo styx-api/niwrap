@@ -69,7 +69,11 @@
       "command-line-flag-separator": "",
       "description": "'spline' or 'nn' or 'sinc'. Interpolation method for transformation.",
       "optional": true,
-      "value-choices": ["spline_final", "nn_final", "sinc_final"]
+      "value-choices": [
+        "spline_final",
+        "nn_final",
+        "sinc_final"
+      ]
     },
     {
       "id": "mean_vol",
@@ -203,12 +207,6 @@
     }
   ],
   "output-files": [
-    {
-      "name": "Mat file",
-      "id": "mat_file",
-      "path-template": "MAT_*",
-      "description": "A list of items which are an existing file name. Transformation matrices."
-    },
     {
       "name": "Mean img",
       "id": "mean_img",
