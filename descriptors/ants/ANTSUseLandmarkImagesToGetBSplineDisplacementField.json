@@ -55,7 +55,6 @@
       "type": "Number",
       "integer": true,
       "optional": true,
-      "default-value": 3,
       "description": "The order of the B-spline (default is 3)."
     },
     {
@@ -65,7 +64,6 @@
       "type": "Number",
       "integer": true,
       "optional": true,
-      "default-value": 1,
       "description": "Whether to enforce stationary boundaries (default is 1)."
     },
     {
@@ -85,5 +83,8 @@
       "path-template": "[OUTPUT_DISPLACEMENT_FIELD]"
     }
   ],
-  "container-image": { "type": "docker", "image": "antsx/ants:v2.5.3" }
+  "container-image": {
+    "type": "docker",
+    "image": "antsx/ants:v2.5.3"
+  }
 }

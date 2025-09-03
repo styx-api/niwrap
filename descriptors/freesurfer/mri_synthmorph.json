@@ -54,7 +54,6 @@
       "name": "Transformation Model",
       "type": "String",
       "value-choices": ["deform", "affine", "rigid"],
-      "default-value": "deform",
       "optional": true,
       "description": "Specifies the registration transformation model. Options include 'deform', 'affine', and 'rigid'.",
       "value-key": "[TRANSFORMATION_MODEL]"
@@ -92,7 +91,6 @@
       "type": "Number",
       "optional": true,
       "description": "Regularization parameter for deformable registration. Higher values indicate smoother displacement fields.",
-      "default-value": 1,
       "value-key": "[SMOOTH]"
     },
     {
@@ -103,7 +101,6 @@
       "value-choices": [192, 256],
       "optional": true,
       "description": "Isotropic extent of the registration space in unit voxels.",
-      "default-value": 256,
       "value-key": "[EXTENT]"
     },
     {
