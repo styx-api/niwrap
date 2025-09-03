@@ -67,10 +67,16 @@
   ],
   "output-files": [
     {
-      "path-template": "[OUTDIR]/?h.rcbf.mgh",
-      "description": "Registered and resampled rCBF volume for both hemispheres.",
-      "id": "hemisphere_rcbf",
-      "name": "Hemisphere rCBF"
+      "path-template": "[OUTDIR]/lh.rcbf.mgh",
+      "description": "Registered and resampled rCBF volume for left hemisphere.",
+      "id": "lh_hemisphere_rcbf",
+      "name": "Left Hemisphere rCBF"
+    },
+      {
+      "path-template": "[OUTDIR]/rh.rcbf.mgh",
+      "description": "Registered and resampled rCBF volume for right hemisphere.",
+      "id": "rh_hemisphere_rcbf_right",
+      "name": "Right Hemisphere rCBF"
     },
     {
       "path-template": "[OUTDIR]/rcbf.mni305.nii",

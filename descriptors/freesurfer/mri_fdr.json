@@ -97,20 +97,7 @@
       "name": "Check options"
     }
   ],
-  "output-files": [
-    {
-      "path-template": "<output>.mgh",
-      "description": "Output after applying FDR correction",
-      "id": "output_corrected",
-      "name": "Corrected output"
-    },
-    {
-      "path-template": "<output>_threshold.txt",
-      "description": "Threshold written to text file",
-      "id": "output_threshold",
-      "name": "Output threshold file"
-    }
-  ],
+  "output-files": [],
   "container-image": {
     "type": "docker",
     "image": "freesurfer/freesurfer:7.4.1"

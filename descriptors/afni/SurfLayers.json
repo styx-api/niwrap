@@ -102,22 +102,10 @@
   "schema-version": "0.5",
   "output-files": [
     {
-      "path-template": "[OUTDIR]/isurf.[HEMI].*.gii",
-      "description": "Interpolated surfaces files",
-      "id": "interpolated_surfaces",
-      "name": "Interpolated Surfaces"
-    },
-    {
-      "path-template": "[OUTDIR]/*",
-      "description": "Additional files if -spec option was used",
-      "id": "additional_spec_files",
-      "name": "Additional Spec Files"
-    },
-    {
-      "path-template": "[OUTDIR]/run*tcsh",
-      "description": "Run script to view output directly",
-      "id": "run_view_script",
-      "name": "Run View Script"
+      "path-template": "[OUTDIR]",
+      "description": "Directory containing output files",
+      "id": "output_dir",
+      "name": "Output directory"
     }
   ]
 }

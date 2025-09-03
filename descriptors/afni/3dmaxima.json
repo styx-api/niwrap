@@ -178,10 +178,16 @@
   "schema-version": "0.5",
   "output-files": [
     {
-      "path-template": "[OUTPUT_PREFIX]_mask+orig.[HEAD | BRIK]",
+      "path-template": "[OUTPUT_PREFIX]_mask+orig.HEAD",
       "description": "Output mask dataset with extrema locations",
-      "id": "output_mask",
-      "name": "Output Mask Dataset"
+      "id": "output_mask_head",
+      "name": "Output Mask Dataset in HEAD format"
+    },
+    {
+      "path-template": "[OUTPUT_PREFIX]_mask+orig.BRIK",
+      "description": "Output mask dataset with extrema locations",
+      "id": "output_mask_brik",
+      "name": "Output Mask Dataset in BRIK format"
     }
   ],
   "url": "https://afni.nimh.nih.gov/"

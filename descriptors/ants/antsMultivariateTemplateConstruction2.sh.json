@@ -1,31 +1,291 @@
 {
   "name": "antsMultivariateTemplateConstruction2.sh",
-  "command-line": "antsMultivariateTemplateConstruction2.sh [INPUT]",
-  "description": "The antsMultivariateTemplateConstruction2.sh script is part of the Advanced Normalization Tools (ANTs) suite. It is used for constructing multivariate templates.",
-  "schema-version": "0.5",
-  "inputs": [
-    {
-      "id": "input",
-      "name": "Input Options",
-      "value-key": "[INPUT]",
-      "type": "String",
-      "description": "Options for setting up and running the multivariate template construction process.",
-      "optional": false
-    }
-  ],
-  "tool-version": "2.5.3",
-  "output-files": [
-    {
-      "id": "template",
-      "name": "Template",
-      "description": "The output multivariate template.",
-      "path-template": "<output-prefix>Template.nii.gz"
-    }
-  ],
-  "author": "ANTs Developers",
+  "command-line": "antsMultivariateTemplateConstruction2.sh [DIMENSION] [OUTPUT_PREFIX] [IMAGE_STATISTIC] [SHARPENING] [BACKUP_IMAGES] [PARALLEL_CONTROL] [SINGLE_PRECISION] [GRADIENT_STEP] [ITERATIONS] [CPU_CORES] [NUM_MODALITIES] [MODALITY_WEIGHTS] [MAX_ITERATIONS] [SHRINK_FACTORS] [SMOOTHING_KERNELS] [N4_BIAS_CORRECTION] [PREPEND_COMMANDS] [RIGID_REGISTRATION] [LINEAR_REGISTRATION] [SIMILARITY_METRIC] [TRANSFORMATION_TYPE] [WALLTIME] [MEMORY_LIMIT] [XGRID_ARGS] [UPDATE_TEMPLATE] [TARGET_VOLUME] [INPUT_IMAGES]",
+  "description": "Multivariate template construction using ANTs registration tools (version 2). All images to be added to the template should be in the same directory, and this script should be invoked from that directory.",
+  "author": "Brian B. Avants, Nick Tustison and Gang Song",
   "url": "https://github.com/ANTsX/ANTs",
+  "tool-version": "2.5.3",
+  "schema-version": "0.5",
   "container-image": {
     "type": "docker",
     "image": "antsx/ants:v2.5.3"
-  }
+  },
+  "inputs": [
+    {
+      "id": "dimension",
+      "name": "Image Dimension",
+      "value-key": "[DIMENSION]",
+      "type": "Number",
+      "integer": true,
+      "optional": false,
+      "value-choices": [2, 3, 4],
+      "command-line-flag": "-d",
+      "description": "ImageDimension: 2 or 3 (for 2 or 3 dimensional registration of single volume), 4 (for template generation of time-series data)"
+    },
+    {
+      "id": "input_images",
+      "name": "Input Images",
+      "value-key": "[INPUT_IMAGES]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "description": "List of images in the current directory, eg *_t1.nii.gz. Should be at the end of the command. Optionally, one can specify a .csv or .txt file where each line is the location of the input image. One can also specify more than one file for each image for multi-modal template construction (e.g. t1 and t2). For the multi-modal case, the templates will be consecutively numbered."
+    },
+    {
+      "id": "output_prefix",
+      "name": "Output Prefix",
+      "value-key": "[OUTPUT_PREFIX]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "-o",
+      "description": "A prefix that is prepended to all output files (default = \"antsBTP\")"
+    },
+    {
+      "id": "image_statistic",
+      "name": "Image Statistic",
+      "value-key": "[IMAGE_STATISTIC]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [0, 1, 2],
+      "command-line-flag": "-a",
+      "description": "Image statistic used to summarize images (default 1): 0 = mean, 1 = mean of normalized intensities, 2 = median. Normalization here means dividing each image by its mean intensity."
+    },
+    {
+      "id": "sharpening",
+      "name": "Sharpening",
+      "value-key": "[SHARPENING]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [0, 1, 2],
+      "command-line-flag": "-A",
+      "description": "Sharpening applied to template at each iteration (default 1): 0 = none, 1 = Laplacian, 2 = Unsharp mask"
+    },
+    {
+      "id": "backup_images",
+      "name": "Backup Images",
+      "value-key": "[BACKUP_IMAGES]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [0, 1],
+      "command-line-flag": "-b",
+      "description": "Backup images and results from all iterations (default = 0): Boolean to save the transform files, bias corrected inputs, templates, transforms, and warped images for each iteration. By default, only the templates and the shape update warp field are saved."
+    },
+    {
+      "id": "parallel_control",
+      "name": "Parallel Control",
+      "value-key": "[PARALLEL_CONTROL]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [0, 1, 2, 3, 4, 5],
+      "command-line-flag": "-c",
+      "description": "Control for parallel computation (default 0): 0 = run serially, 1 = SGE qsub, 2 = use PEXEC (localhost), 3 = Apple XGrid, 4 = PBS qsub, 5 = SLURM"
+    },
+    {
+      "id": "single_precision",
+      "name": "Single Precision",
+      "value-key": "[SINGLE_PRECISION]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [0, 1],
+      "command-line-flag": "-e",
+      "description": "Use single precision (default 1)"
+    },
+    {
+      "id": "gradient_step",
+      "name": "Gradient Step Size",
+      "value-key": "[GRADIENT_STEP]",
+      "type": "Number",
+      "optional": true,
+      "maximum": 0.25,
+      "command-line-flag": "-g",
+      "description": "Gradient step size (default 0.25): smaller in magnitude results in more cautious steps. Use smaller steps to refine template details. 0.25 is an upper (aggressive) limit for this parameter."
+    },
+    {
+      "id": "iterations",
+      "name": "Iteration Limit",
+      "value-key": "[ITERATIONS]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "command-line-flag": "-i",
+      "description": "Iteration limit (default 4): iterations of the template construction (Iteration limit)*NumImages registrations"
+    },
+    {
+      "id": "cpu_cores",
+      "name": "CPU Cores",
+      "value-key": "[CPU_CORES]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "command-line-flag": "-j",
+      "description": "Number of cpu cores to use locally for pexec option (default 2; requires \"-c 2\")"
+    },
+    {
+      "id": "num_modalities",
+      "name": "Number of Modalities",
+      "value-key": "[NUM_MODALITIES]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "command-line-flag": "-k",
+      "description": "Number of modalities used to construct the template (default 1): For example, if one wanted to create a multimodal template consisting of T1,T2,and FA components (\"-k 3\")."
+    },
+    {
+      "id": "modality_weights",
+      "name": "Modality Weights",
+      "value-key": "[MODALITY_WEIGHTS]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "-w",
+      "description": "Modality weights used in the similarity metric (default = 1): specified as e.g. 1x0.5x0.75."
+    },
+    {
+      "id": "max_iterations",
+      "name": "Max Iterations",
+      "value-key": "[MAX_ITERATIONS]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "-q",
+      "description": "Max iterations for each pairwise registration (default = 100x100x70x20): specified in the form JxK...xF where J = max iterations at first (coarsest) resolution, K = max iterations at next resolution, F = max iterations at the final resolution"
+    },
+    {
+      "id": "shrink_factors",
+      "name": "Shrink Factors",
+      "value-key": "[SHRINK_FACTORS]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "-f",
+      "description": "Shrink factors in pairwise registration (default = 6x4x2x1): in the same form as max iterations. Must have the same number of components as the iterations and smoothing. The shrink factors are integer factors for downsampling the virtual space (usually the template image) during registration."
+    },
+    {
+      "id": "smoothing_kernels",
+      "name": "Smoothing Kernels",
+      "value-key": "[SMOOTHING_KERNELS]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "-s",
+      "description": "Smoothing kernels in pairwise registration (default = 3x2x1x0): also in the same form as max iterations and shrink factors, with the same number of components. Standard deviation of a Gaussian smoothing kernel applied to the images before downsampling at each level. The kernel may be specified in mm units or voxels with \"AxBxCmm\" or \"AxBxCvox\". Missing units implies vox."
+    },
+    {
+      "id": "n4_bias_correction",
+      "name": "N4 Bias Field Correction",
+      "value-key": "[N4_BIAS_CORRECTION]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [0, 1],
+      "command-line-flag": "-n",
+      "description": "N4BiasFieldCorrection of moving image: 0 off, 1 on (default 1)"
+    },
+    {
+      "id": "prepend_commands",
+      "name": "Prepend Commands",
+      "value-key": "[PREPEND_COMMANDS]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "-p",
+      "description": "Commands to prepend to job scripts (e.g., change into appropriate directory, set paths, etc)"
+    },
+    {
+      "id": "rigid_registration",
+      "name": "Rigid Registration",
+      "value-key": "[RIGID_REGISTRATION]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [0, 1],
+      "command-line-flag": "-r",
+      "description": "Do rigid-body registration of inputs to the initial template, before doing the main pairwise registration. 0 off 1 on (default 0). If you are trying to refine or update an existing template, you would use '-r 0'. Rigid initialization is useful when you do not have an initial template, or you want to use a single image as a reference for rigid alignment only."
+    },
+    {
+      "id": "linear_registration",
+      "name": "Linear Registration",
+      "value-key": "[LINEAR_REGISTRATION]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [0, 1],
+      "command-line-flag": "-l",
+      "description": "Use linear image registration stages during the pairwise (template/subject) deformable registration. Otherwise, registration is limited to SyN or B-spline SyN (see '-t' option). This is '1' by default."
+    },
+    {
+      "id": "similarity_metric",
+      "name": "Similarity Metric",
+      "value-key": "[SIMILARITY_METRIC]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "-m",
+      "description": "Type of similarity metric used for pairwise registration (default = CC). Options are case sensitive. CC = cross-correlation, MI = mutual information, MSQ = mean square difference, DEMONS = demon's metric. A similarity metric per modality can be specified. If the CC metric is chosen, one can also specify the radius in brackets, e.g. '-m \"CC[4]\"'."
+    },
+    {
+      "id": "transformation_type",
+      "name": "Transformation Type",
+      "value-key": "[TRANSFORMATION_TYPE]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "-t",
+      "description": "Type of transformation model used for registration (default = SyN): Options are case sensitive. SyN = Greedy SyN, BSplineSyN = Greedy B-spline SyN, TimeVaryingVelocityField = Time-varying velocity field, TimeVaryingBSplineVelocityField = Time-varying B-spline velocity field. Transformation parameters may be specified with brackets, eg '-t \"SyN[0.1,3,0]\"'. To use linear registration only, options are: Affine = Affine (runs Rigid + Affine), Rigid = Rigid (runs Rigid only)."
+    },
+    {
+      "id": "walltime",
+      "name": "Walltime",
+      "value-key": "[WALLTIME]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "-u",
+      "description": "Walltime (default = 20:00:00): Option for PBS/SLURM qsub specifying requested time per pairwise registration"
+    },
+    {
+      "id": "memory_limit",
+      "name": "Memory Limit",
+      "value-key": "[MEMORY_LIMIT]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "-v",
+      "description": "Memory limit (default = 8gb): Option for PBS/SLURM qsub specifying requested memory per pairwise registration"
+    },
+    {
+      "id": "xgrid_args",
+      "name": "XGrid Arguments",
+      "value-key": "[XGRID_ARGS]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "-x",
+      "description": "XGrid arguments (e.g., -x \"-p password -h controlhost\")"
+    },
+    {
+      "id": "update_template",
+      "name": "Update Template",
+      "value-key": "[UPDATE_TEMPLATE]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [0, 1],
+      "command-line-flag": "-y",
+      "description": "Update the template with the full affine transform (default 1). If 0, the rigid component of the affine transform will not be used to update the template. If your template drifts in translation or orientation try \"-y 0\"."
+    },
+    {
+      "id": "target_volume",
+      "name": "Target Volume",
+      "value-key": "[TARGET_VOLUME]",
+      "type": "File",
+      "list": true,
+      "optional": true,
+      "command-line-flag": "-z",
+      "description": "Use this this volume as the target of all inputs. When not used, the script will create an unbiased starting point by averaging all inputs, then aligning the center of mass of all inputs to that of the initial average. If you do not use -z, it is recommended to use \"-r 1\". Use the full path. For multiple modalities, specify -z modality1.nii.gz -z modality2.nii.gz ... in the same modality order as the input images."
+    }
+  ],
+  "output-files": [
+    {
+      "id": "intermediate_templates_dir",
+      "name": "Intermediate Templates Directory",
+      "description": "Directory containing intermediate templates and shape update warps from each iteration",
+      "path-template": "intermediateTemplates"
+    }
+  ]
 }

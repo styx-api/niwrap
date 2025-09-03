@@ -65,7 +65,10 @@
       "optional": true,
       "id": "input_type",
       "name": "Input Type",
-      "value-choices": ["VOLREG", "XMAT"]
+      "value-choices": [
+        "VOLREG",
+        "XMAT"
+      ]
     },
     {
       "description": "Font size for legend text.",
@@ -200,7 +203,7 @@
   "schema-version": "0.5",
   "output-files": [
     {
-      "path-template": "[OUTPUT_PREFIX]*.jpg",
+      "path-template": "[OUTPUT_PREFIX].jpg",
       "description": "Output plot file",
       "id": "output_plot",
       "name": "Output Plot File"
