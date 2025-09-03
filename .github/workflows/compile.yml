@@ -18,11 +18,6 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
 
-      - name: Prettify Descriptor JSON files
-        uses: creyD/prettier_action@v4.6
-        with:
-          prettier_options: --write descriptors/**/*.json
-
       - name: Checkout styx
         uses: actions/checkout@v5
         with:

@@ -73,51 +73,57 @@ def update_endpoint_lists():
                 changes_summary.append(f"Updated {package_file}")
 
 
-def build_package_overview_table():
-    packages = sorted(
-        [package for _, package in iter_packages()], key=lambda x: x["name"]
-    )
+def calculate_api_coverage(endpoints: list[dict[str, str]]) -> tuple[int, int, float]:
+    done = sum(1 for ep in endpoints if ep["status"] == "done")
+    ignored = sum(1 for ep in endpoints if ep["status"] == "ignore")
+    relevant = len(endpoints) - ignored
 
-    buf = "| Package | Status | Version | API Coverage |\n"
-    buf += "| --- | --- | --- | --- |\n"
+    if relevant == 0:
+        return done, relevant, 0.0
 
-    for package in packages:
-        name_link = f"[{package['name']}]({package['url']})"
+    percentage = done / relevant * 100
+    return done, relevant, percentage
 
-        # calculate coverage percent
-        total_endpoints = len(package["api"]["endpoints"])
-        done_endpoints = len(
-            [x for x in package["api"]["endpoints"] if x["status"] == "done"]
-        )
-        missing_endpoints = len(
-            [x for x in package["api"]["endpoints"] if x["status"] == "missing"]
-        )
-        ignored_endpoints = len(
-            [x for x in package["api"]["endpoints"] if x["status"] == "ignore"]
-        )
 
-        assert total_endpoints == done_endpoints + missing_endpoints + ignored_endpoints
+def svg_progress_bar(percentage: float, done: int, total: int) -> str:
+    color = "#22c55e" if percentage == 100 else "#3b82f6"
+    width = max(3, percentage * 1.25)
 
-        relevant_endpoints = total_endpoints - ignored_endpoints
+    svg = f'<svg width="125" height="24"><defs><clipPath id="rounded"><rect width="125" height="24" rx="8"/></clipPath></defs><g clip-path="url(#rounded)"><rect width="125" height="24" fill="#ffffff" fill-opacity="0.15"/><rect width="{width}" height="24" fill="{color}"/></g><text x="62.5" y="16" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="600">{done}/{total}</text></svg>'
+    return svg
 
-        coverage_percent = done_endpoints / relevant_endpoints * 100
 
-        coverage = ""
-        if missing_endpoints == 0:
-            coverage = f"{done_endpoints}/{relevant_endpoints} (100% 🎉)"
-        else:
-            coverage = (
-                f"{done_endpoints}/{relevant_endpoints} ({coverage_percent:.1f}%)"
-            )
+def build_package_overview_table() -> str:
+    packages = sorted([pkg for _, pkg in iter_packages()], key=lambda x: x["name"])
 
-        container_tag = package.get("container")
+    lines = [
+        "| Package | Status | Version | API Coverage |",
+        "| --- | --- | --- | --- |",
+    ]
+
+    for pkg in packages:
+        # Package name with link
+        name_link = f"[{pkg['name']}]({pkg['url']})"
+
+        # Container version
+        container_tag = pkg.get("container", "")
         if container_tag:
-            docker_image, _ = package["container"].split(":")
+            docker_image = container_tag.split(":")[0]
             docker_hub = f"https://hub.docker.com/r/{docker_image}"
-            container = f"[`{package['version']}`]({docker_hub})"
+            container = f"[`{pkg['version']}`]({docker_hub})"
+        else:
+            container = "?"
 
-        buf += f"| {name_link} | {package['status']} | {container if container_tag else '?'} | {coverage} |\n"
-    return buf
+        # API coverage with SVG progress bar
+        done, relevant, percentage = calculate_api_coverage(pkg["api"]["endpoints"])
+        if relevant == 0:
+            coverage = "N/A"
+        else:
+            coverage = svg_progress_bar(percentage, done, relevant)
+
+        lines.append(f"| {name_link} | {pkg['status']} | {container} | {coverage} |")
+
+    return "\n".join(lines)
 
 
 def patch_section(file, replacement, token):
