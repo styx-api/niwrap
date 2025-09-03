@@ -1,437 +1,359 @@
 """Run Styx to compile descriptors into wrappers & generate package metadata."""
 
 import json
-import os
+import time
 from pathlib import Path
 from shutil import rmtree
-import time
+from typing import Iterator, Any
 
 from styx.backend import compile_language
-from styx.backend.python.languageprovider import PythonLanguageProvider
 from styx.frontend.boutiques import from_boutiques
-from styx.ir.core import Documentation
+from styx.ir import core as ir
 from styx.ir.optimize import optimize
-from styx.ir.serialize import to_json
 
+# Configuration
 PATH_PACKAGES = Path("packages")
 PATH_DESCRIPTORS = Path("descriptors")
-
 PATH_BUILD_TEMPLATES = Path("build-templates")
 PATH_DIST_ROOT = Path("dist")
-PATH_DIST_PYTHON = PATH_DIST_ROOT / "niwrap-python"
-PATH_DIST_JS = PATH_DIST_ROOT / "niwrap-js"
-PATH_DIST_IR_DUMP = PATH_DIST_ROOT / "niwrap-ir-dump"
-PATH_DIST_JSON_SCHEMA = PATH_DIST_ROOT / "niwrap-json-schema"
+
+# Distribution configurations
+DISTRIBUTIONS = [
+    ("python", "python", True),
+    ("js", "typescript", False),
+    ("json-schema", "jsonschema", False),
+    ("ir-dump", "ir", False),
+]
 
 
-def iter_packages():
-    for filename_package in PATH_PACKAGES.glob("*.json"):
-        with open(filename_package) as filehandle_package:
-            yield filename_package, json.load(filehandle_package)
+class BuildStats:
+    """Track build statistics."""
+
+    def __init__(self):
+        self.packages = 0
+        self.descriptors = 0
+        self.files_generated = 0
+        self.errors = []
+        self.start_time = None
+
+    def start(self):
+        self.start_time = time.time()
+
+    def elapsed(self) -> float:
+        return time.time() - self.start_time if self.start_time else 0
 
 
-def iter_descriptors(package):
-    for filename_descriptor in sorted(
-        (PATH_DESCRIPTORS / package["id"]).glob("**/*.json")
-    ):
-        with open(filename_descriptor, "r", encoding="utf-8") as filehandle_descriptor:
-            yield filename_descriptor, json.load(filehandle_descriptor)
+def load_json_file(filepath: Path) -> dict[str, Any]:
+    """Load JSON file with proper encoding."""
+    with open(filepath, "r", encoding="utf-8") as f:
+        return json.load(f)
 
 
-# =============================================================================
-# |                               COMPILE                                     |
-# =============================================================================
+def iter_packages() -> Iterator[tuple[Path, dict[str, Any]]]:
+    """Iterate over all package definitions."""
+    for package_file in PATH_PACKAGES.glob("*.json"):
+        yield package_file, load_json_file(package_file)
 
 
-def stream_descriptors_package(package):
-    """Compile and stream descriptors for a given package."""
-    package_name = package["name"]
+def iter_descriptors(package: dict[str, Any]) -> Iterator[tuple[Path, dict[str, Any]]]:
+    """Iterate over all descriptors for a given package."""
+    package_path = PATH_DESCRIPTORS / package["id"]
+    for descriptor_file in sorted(package_path.glob("**/*.json")):
+        yield descriptor_file, load_json_file(descriptor_file)
 
-    # Print header with package name
-    print(f"\n📦 Processing package: {package_name} ".ljust(80, "─"))
 
-    # Track statistics for summary
-    total_descriptors = 0
-    patched_descriptors = 0
+def get_niwrap_version() -> str:
+    """Get the niwrap version from VERSION file."""
+    return Path("VERSION").read_text(encoding="utf-8").strip()
 
-    start_time = time.time()
 
-    for file_descriptor, descriptor in iter_descriptors(package):
-        total_descriptors += 1
-        descriptor_name = file_descriptor.stem
+def calculate_api_coverage(endpoints: list[dict[str, str]]) -> tuple[int, int, str]:
+    """Calculate API coverage statistics.
 
-        # Show progress with indentation for better readability
-        print(f"  ⚙️  Processing: {descriptor_name}")
+    Returns:
+        tuple of (done_count, relevant_count, formatted_coverage)
+    """
+    done = sum(1 for ep in endpoints if ep["status"] == "done")
+    ignored = sum(1 for ep in endpoints if ep["status"] == "ignore")
+    relevant = len(endpoints) - ignored
 
-        # Check if name needs patching
-        if descriptor_name != descriptor["name"]:
-            patched_descriptors += 1
-            print(f"    ↪ Patching name: '{descriptor['name']}' → '{descriptor_name}'")
-            descriptor["name"] = descriptor_name
+    if relevant == 0:
+        return done, relevant, "N/A"
 
-        # Add container information
-        descriptor["container-image"] = {
-            "image": package["container"],
-            "type": "docker",
-        }
+    percentage = done / relevant * 100
+    if percentage == 100:
+        return done, relevant, f"{done}/{relevant} (100% 🎉)"
+    return done, relevant, f"{done}/{relevant} ({percentage:.1f}%)"
 
-        # Create documentation object
-        package_docs = Documentation(
-            title=package_name,
-            urls=[package["url"]],
-            description=package["description"],
-        )
 
-        yield from_boutiques(descriptor, package["id"], package_docs)
+def build_package_overview_table() -> str:
+    """Build markdown table summarizing all packages."""
+    packages = sorted([pkg for _, pkg in iter_packages()], key=lambda x: x["name"])
 
-    # Print summary
-    elapsed_time = time.time() - start_time
-    print(
-        f"  ✅ Processed {total_descriptors} descriptors "
-        f"({patched_descriptors} patched) in {elapsed_time:.2f}s"
+    lines = [
+        "| Package | Status | Version | API Coverage |",
+        "| --- | --- | --- | --- |",
+    ]
+
+    for pkg in packages:
+        # Package name with link
+        name_link = f"[{pkg['name']}]({pkg['url']})"
+
+        # API coverage
+        _, _, coverage = calculate_api_coverage(pkg["api"]["endpoints"])
+
+        # Container version
+        container_tag = pkg.get("container", "")
+        if container_tag:
+            docker_image = container_tag.split(":")[0]
+            docker_hub = f"https://hub.docker.com/r/{docker_image}"
+            container = f"[`{pkg['version']}`]({docker_hub})"
+        else:
+            container = "?"
+
+        lines.append(f"| {name_link} | {pkg['status']} | {container} | {coverage} |")
+
+    return "\n".join(lines)
+
+
+def generate_python_readme() -> str:
+    """Generate README for Python distribution."""
+    template_path = PATH_BUILD_TEMPLATES / "python/README-template.md"
+    template = template_path.read_text(encoding="utf-8")
+    return template.replace("{{PACKAGES_TABLE}}", build_package_overview_table())
+
+
+def print_box(title: str, items: list[str]):
+    """Print a formatted box with title and items."""
+    item_widths = [len(item) + 2 for item in items]
+    dividers = "┬".join("─" * w for w in item_widths)
+    top_line = list(f"┌{dividers}┐")
+    title_text = f"─ {title} ─"
+    for i, char in enumerate(title_text):
+        if i + 1 < len(top_line):
+            top_line[i + 1] = char
+
+    print("".join(top_line))
+    print("│" + "│".join(f" {item} " for item in items) + "│")
+    print("└" + "┴".join("─" * w for w in item_widths) + "┘")
+
+
+def create_project_metadata() -> ir.Project:
+    """Create the main project metadata."""
+    return ir.Project(
+        name="niwrap",
+        version=get_niwrap_version(),
+        license="MIT",
+        docs=ir.Documentation(
+            title="NiWrap",
+            description="Neuroimaging wrappers.",
+            authors=["CMI DAIR"],
+            literature=[
+                "Rupprecht, F. J., Kai, J., Shrestha, B., Giavasis, S., Xu, T., "
+                "Glatard, T., ... & Kiar, G. (2025). Styx: A multi-language API "
+                "Generator for Command-Line Tools. bioRxiv, 2025-07."
+            ],
+            urls=["https://github.com/styx-api/niwrap"],
+        ),
     )
 
 
-def stream_descriptors():
-    for _, package in iter_packages():
-        yield from stream_descriptors_package(package)
+def process_package(pkg_json: dict[str, Any]) -> tuple[ir.Package, Any]:
+    """Process a single package and its descriptors.
+
+    Returns:
+        tuple of (package_metadata, interface_generator)
+    """
+    start_time = time.time()
+    print(f"    📦 {pkg_json['name']:<24} ", end="", flush=True)
+
+    package = ir.Package(
+        name=pkg_json["id"],
+        version=pkg_json["version"],
+        docker=pkg_json["container"],
+        docs=ir.Documentation(
+            title=pkg_json["name"],
+            description=pkg_json["description"],
+            authors=[pkg_json["author"]],
+            urls=[pkg_json["url"]],
+        ),
+    )
+
+    def interface_generator():
+        descriptor_count = 0
+        errors = []
+
+        for file_descriptor, descriptor in iter_descriptors(pkg_json):
+            descriptor_count += 1
+            try:
+                yield optimize(from_boutiques(descriptor))
+            except Exception as e:
+                error_msg = f"{file_descriptor.stem}: {str(e)}"
+                errors.append(error_msg)
+                print(f"\n      ❌ {error_msg}", end="")
+
+        # Report package completion
+        elapsed = time.time() - start_time
+        status = "⚠️" if errors else "✅"
+        error_text = f" ({len(errors)} errors)" if errors else ""
+        print(
+            f"{status} {descriptor_count:>3} descriptors ({elapsed:.2f}s){error_text}"
+        )
+
+    return package, interface_generator()
 
 
-def compile_wrappers():
+def compile_distribution(
+    dist_name: str,
+    backend_name: str,
+    needs_readme: bool,
+    project: ir.Project,
+    stats: BuildStats,
+) -> int:
+    """Compile a single distribution.
+
+    Returns:
+        Number of files generated.
+    """
+    print(f"  {dist_name}")
+
+    # Set distribution-specific metadata
+    project.extras["dist_repo_url"] = f"https://github.com/styx-api/niwrap-{dist_name}"
+    project.extras["readme_md"] = generate_python_readme() if needs_readme else None
+
+    dist_path = PATH_DIST_ROOT / f"niwrap-{dist_name}"
+    dist_start = time.time()
+    file_count = 0
+
+    # Generate package stream for this distribution
+    def create_package_stream():
+        for _, pkg_json in iter_packages():
+            yield process_package(pkg_json)
+
+    # Compile files
+    for file in compile_language(backend_name, project, create_package_stream()):
+        file.write(dist_path)
+        file_count += 1
+
+    # Add special files if needed
+    if dist_name == "json-schema":
+        (dist_path / ".nojekyll").touch()
+
+    elapsed = time.time() - dist_start
+    print(f"    → {file_count:>4} files ({elapsed:.1f}s)")
+
+    return file_count
+
+
+def compile_all_distributions(stats: BuildStats):
+    """Compile all distributions with progress tracking."""
+    # Clean and create output directory
     rmtree(PATH_DIST_ROOT, ignore_errors=True)
-
-    with open("VERSION", "r", encoding="utf-8") as file:
-        niwrap_version = file.read().strip()
-
     PATH_DIST_ROOT.mkdir(parents=True, exist_ok=True)
 
-    # ------ PYTHON -----------------------------------------------------------
-    TEMPLATE_ROOT_PYPROJECT = (
-        PATH_BUILD_TEMPLATES / "python/root-pyproject.toml"
-    ).read_text(encoding="utf8")
-    TEMPLATE_SUBPACKAGE_PYPROJECT = (
-        PATH_BUILD_TEMPLATES / "python/subpackage-pyproject.toml"
-    ).read_text(encoding="utf8")
-    TEMPLATE_README = (PATH_BUILD_TEMPLATES / "python/README-template.md").read_text(
-        encoding="utf8"
+    # Calculate build stats
+    stats.packages = sum(1 for _ in PATH_PACKAGES.glob("*.json"))
+    stats.descriptors = sum(1 for _ in PATH_DESCRIPTORS.glob("**/*.json"))
+
+    print_box(
+        title="Build Overview",
+        items=[
+            f"Packages: {stats.packages}",
+            f"Descriptors: {stats.descriptors}",
+            f"Distributions: {len(DISTRIBUTIONS)}",
+        ],
     )
-    SNIPPET_EXTRA_UTILS = (PATH_BUILD_TEMPLATES / "python/extra-utils.py").read_text(
-        encoding="utf8"
-    )
 
-    PATH_DIST_PYTHON.mkdir(parents=True, exist_ok=True)
+    project = create_project_metadata()
 
-    package_reexports = []
-    for _, package in iter_packages():
-        package_name = f"niwrap_{package['id']}"
-        path_package = PATH_DIST_PYTHON / package_name
-        (path_package / "src").mkdir(parents=True, exist_ok=True)
+    print("\n🔄 Generating distributions...")
+    build_start = time.time()
 
-        tsp = TEMPLATE_SUBPACKAGE_PYPROJECT
-
-        tsp = tsp.replace("{{PACKAGE}}", package["id"])
-        tsp = tsp.replace(
-            "{{PACKAGE_DESCRIPTION}}", f"NiWrap wrappers for {package['name']}."
+    for i, (dist_name, backend_name, needs_readme) in enumerate(DISTRIBUTIONS, 1):
+        print(f"\n  [{i}/{len(DISTRIBUTIONS)}] ", end="")
+        file_count = compile_distribution(
+            dist_name, backend_name, needs_readme, project, stats
         )
-        tsp = tsp.replace(
-            "{{STYXDEFS_VERSION}}",
-            PythonLanguageProvider.styxdefs_compat().replace("^", "~="),
-        )
-        tsp = tsp.replace("{{VERSION}}", niwrap_version)
+        stats.files_generated += file_count
 
-        (path_package / "pyproject.toml").write_text(tsp, encoding="utf8")
+    total_elapsed = time.time() - build_start
 
-        tsp = f"""# NiWrap wrappers for [{package["name"]}]({package["url"]})
-
-{package["description"]}
-
-{package["name"]} is made by {package["author"]}.
-
-This package contains wrappers only and has no affiliation with the original authors.
-"""
-        (path_package / "README.md").write_text(tsp, encoding="utf8")
-
-        package_reexports.append(package["id"])
-
-        for compiled_file in compile_language(
-            "python", (optimize(d) for d in stream_descriptors_package(package))
-        ):
-            compiled_file.write(path_package / "src" / package_name)
-
-    # NiWrap root package
-
-    path_niwrap_root = PATH_DIST_PYTHON / "niwrap"
-    path_niwrap_root.mkdir(parents=True, exist_ok=True)
-
-    tsp = TEMPLATE_ROOT_PYPROJECT
-
-    tsp = tsp.replace(
-        "{{DEPENDENCIES}}",
-        ",\n".join([f'  "niwrap_{x}=={niwrap_version}"' for x in package_reexports]),
-    )
-    tsp = tsp.replace("{{VERSION}}", niwrap_version)
-
-    (path_niwrap_root / "pyproject.toml").write_text(tsp, encoding="utf8")
-
-    tsp = TEMPLATE_README
-
-    tsp = tsp.replace("{{PACKAGES_TABLE}}", build_package_overview_table())
-
-    (path_niwrap_root / "README.md").write_text(tsp, encoding="utf8")
-    (PATH_DIST_PYTHON / "README.md").write_text(
-        tsp, encoding="utf8"
-    )  # Copy for repo root. Should this look different?
-    (PATH_DIST_PYTHON / "index.txt").write_text(
-        "\n".join(package_reexports), encoding="utf8"
+    print()
+    print_box(
+        title="Build Summary",
+        items=[
+            f"Total files: {stats.files_generated}",
+            f"Build time: {total_elapsed:.1f}s",
+        ],
     )
 
-    (PATH_DIST_PYTHON / "requirements.txt").write_text(
-        "\n".join(
-            [
-                f"git+https://github.com/styx-api/niwrap-python.git#subdirectory=niwrap_{pkg}"
-                for pkg in package_reexports
-            ]
-            + [f"git+https://github.com/styx-api/niwrap-python.git#subdirectory=niwrap"]
-        ),
-        encoding="utf8",
-    )
 
-    (path_niwrap_root / "src/niwrap").mkdir(parents=True, exist_ok=True)
-    (path_niwrap_root / "src/niwrap/__init__.py").write_text(
-        "\n".join([f"from niwrap_{x} import {x}" for x in package_reexports])
-        + f"\n{SNIPPET_EXTRA_UTILS}",
-        encoding="utf8",
-    )
+def validate_build(stats: BuildStats):
+    """Validate the build output."""
+    print("\n🔍 Validating...", end=" ", flush=True)
 
-    # ------ TYPESCRIPT ------------------------------------------------------
+    # Check Python distribution exists
+    path_dist_python = PATH_DIST_ROOT / "niwrap-python"
+    if not path_dist_python.exists():
+        raise ValueError("Python distribution not found")
 
-    PATH_DIST_JS.mkdir(parents=True, exist_ok=True)
-
-    TEMPLATE_BUILD_JS = (PATH_BUILD_TEMPLATES / "js/build.js").read_text(
-        encoding="utf8"
-    )
-    TEMPLATE_PACKAGE_JSON = (PATH_BUILD_TEMPLATES / "js/package.json").read_text(
-        encoding="utf8"
-    ).replace("{{VERSION}}", niwrap_version)
-    TEMPLATE_TSCONFIG_JSON = (PATH_BUILD_TEMPLATES / "js/tsconfig.json").read_text(
-        encoding="utf8"
-    )
-
-    package_reexports = []
-    for _, package in iter_packages():
-        package_reexports.append(package["id"])
-        path_package = PATH_DIST_JS / "src"
-        path_package.mkdir(parents=True, exist_ok=True)
-
-        for compiled_file in compile_language(
-            "typescript", (optimize(d) for d in stream_descriptors_package(package))
-        ):
-            compiled_file.write(path_package)
-
-    # todo: move this to compiler
-    (PATH_DIST_JS / "src/index.ts").write_text(
-        "\n".join([f"export * as {x} from './{x}'" for x in package_reexports]) +"\n"
-        + "\n".join([f"import * as {x} from './{x}'" for x in package_reexports])
-        + f"\nimport {{Runner}} from 'styxdefs'\nexport const version = '{niwrap_version}';"
-        + "\nexport function execute(params: any, runner: Runner | null = null) {;"
-        + "\n  const stype = params[\"@type\"];\n"
-        + "\n".join([f"  if (stype.startsWith(\"{x}\")) return {x}.execute(params, runner);" for x in package_reexports])
-        + "\n}",
-        encoding="utf8",
-    )
-
-    (PATH_DIST_JS / "build.js").write_text(TEMPLATE_BUILD_JS, encoding="utf8")
-    (PATH_DIST_JS / "package.json").write_text(TEMPLATE_PACKAGE_JSON, encoding="utf8")
-    (PATH_DIST_JS / "tsconfig.json").write_text(TEMPLATE_TSCONFIG_JSON, encoding="utf8")
-
-    # ------ IR DUMP ------------------------------------------------------
-
-    PATH_DIST_IR_DUMP.mkdir(parents=True, exist_ok=True)
-
-    package_index = {"packages": []}
-    for _, package in iter_packages():
-        path_package = PATH_DIST_IR_DUMP / package["id"]
-        path_package.mkdir(parents=True, exist_ok=True)
-
-        endpoints = []
-        for command_name, ir_data in (
-            (d.command.base.name, optimize(d))
-            for d in stream_descriptors_package(package)
-        ):
-            content = to_json(ir_data, 2)
-            (path_package / (command_name + ".json")).write_text(
-                content, encoding="utf8"
-            )
-            endpoints.append(
-                {
-                    "name": command_name,
-                    "file": f"{package['id']}/{command_name + '.json'}",
-                }
-            )
-
-        package_index["packages"].append(
-            {
-                "name": package["name"],
-                "author": package["author"],
-                "url": package["url"],
-                "approach": package["approach"],
-                "status": package["status"],
-                "container": package["container"],
-                "version": package["version"],
-                "description": package["description"],
-                "id": package["id"],
-                "api": endpoints,
-            }
-        )
-
-    (PATH_DIST_IR_DUMP / ("package_index.json")).write_text(
-        json.dumps(package_index, indent=2), encoding="utf8"
-    )  # todo: just copy file?
-
-    # ------ JSON SCHEMA ------------------------------------------------------
-
-    PATH_DIST_JSON_SCHEMA.mkdir(parents=True, exist_ok=True)
-
-    package_reexports = []
-    for _, package in iter_packages():
-        package_reexports.append(package["id"])
-        path_package = PATH_DIST_JSON_SCHEMA / package["id"]
-        path_package.mkdir(parents=True, exist_ok=True)
-
-        for compiled_file in compile_language(
-            "jsonschema", (optimize(d) for d in stream_descriptors_package(package))
-        ):
-            compiled_file.write(path_package)
-
-    full_schema = {
-        "oneOf": [({"$ref": (Path(x) / "input.schema.json").as_posix()}) for x in package_reexports]
-    }
-    (PATH_DIST_JSON_SCHEMA / ("input.schema.json")).write_text(
-        json.dumps(full_schema, indent=2), encoding="utf8"
-    )
-    (
-        PATH_DIST_JSON_SCHEMA / (".nojekyll")
-    ).touch()  # Maybe there is a better way to do this?
-
-
-# =============================================================================
-# |                       PACKAGE OVERVIEW TABLE                              |
-# =============================================================================
-
-
-def build_package_overview_table():
-    """Build same table as in update_readme.md (for now)"""
-    packages = sorted(
-        [package for _, package in iter_packages()], key=lambda x: x["name"]
-    )
-
-    buf = "| Package | Status | Version | API Coverage |\n"
-    buf += "| --- | --- | --- | --- |\n"
-
-    for package in packages:
-        name_link = f"[{package['name']}]({package['url']})"
-
-        # calculate coverage percent
-        total_endpoints = len(package["api"]["endpoints"])
-        done_endpoints = len(
-            [x for x in package["api"]["endpoints"] if x["status"] == "done"]
-        )
-        missing_endpoints = len(
-            [x for x in package["api"]["endpoints"] if x["status"] == "missing"]
-        )
-        ignored_endpoints = len(
-            [x for x in package["api"]["endpoints"] if x["status"] == "ignore"]
-        )
-
-        assert total_endpoints == done_endpoints + missing_endpoints + ignored_endpoints
-
-        relevant_endpoints = total_endpoints - ignored_endpoints
-
-        coverage_percent = done_endpoints / relevant_endpoints * 100
-
-        coverage = ""
-        if missing_endpoints == 0:
-            coverage = f"{done_endpoints}/{relevant_endpoints} (100% 🎉)"
-        else:
-            coverage = (
-                f"{done_endpoints}/{relevant_endpoints} ({coverage_percent:.1f}%)"
-            )
-
-        container_tag = package.get("container")
-        if container_tag:
-            docker_image, _ = package["container"].split(":")
-            docker_hub = f"https://hub.docker.com/r/{docker_image}"
-            container = f"[`{package['version']}`]({docker_hub})"
-
-        buf += f"| {name_link} | {package['status']} | {container if container_tag else '?'} | {coverage} |\n"
-    return buf
-
-
-# =============================================================================
-# |                           VALIDATE BUILD                                  |
-# =============================================================================
-
-
-def validate_build():
-    print("Validating build...")
-
-    # Check if the output directory exists
-    if not PATH_DIST_PYTHON.exists():
-        raise ValueError(f"Output directory {PATH_DIST_PYTHON} does not exist.")
-
-    # Check if there are Python files in the output directory
+    # Check for generated Python files
     python_files = [
-        f for f in PATH_DIST_PYTHON.glob("**/*.py") if f.name != "__init__.py"
+        f for f in path_dist_python.glob("**/*.py") if f.name != "__init__.py"
     ]
     if not python_files:
-        raise ValueError(f"No Python files found in {PATH_DIST_PYTHON}")
+        raise ValueError("No Python files generated")
 
-    # Check if the number of Python files matches the number of descriptors
-    descriptor_count = sum(1 for _ in Path(PATH_DESCRIPTORS).glob("**/*.json"))
-    if len(python_files) != descriptor_count:
-        raise ValueError(
-            f"Mismatch in number of Python files ({len(python_files)}) and descriptors ({descriptor_count})"
+    # Validate package structure
+    for package_file, package_data in iter_packages():
+        if not package_data.get("id"):
+            raise ValueError(f"Package {package_file.name} missing 'id'")
+
+        package_descriptors = list(
+            (PATH_DESCRIPTORS / package_data["id"]).glob("**/*.json")
         )
+        if not package_descriptors:
+            raise ValueError(f"No descriptors for package {package_data['id']}")
 
-    # Check if all packages have at least one descriptor
-    for package_file in PATH_PACKAGES.glob("*.json"):
-        with open(package_file, "r", encoding="utf-8") as f:
-            package_data = json.load(f)
-            package_id = package_data.get("id")
-            if not package_id:
-                raise ValueError(f"Package {package_file.name} is missing 'id' field")
-            package_descriptors = list(
-                (PATH_DESCRIPTORS / package_id).glob("**/*.json")
-            )
-            if not package_descriptors:
-                raise ValueError(f"No descriptors found for package {package_id}")
-
-    print("Build validation completed successfully.")
+    print(f"✅ {len(python_files)} files from {stats.descriptors} descriptors")
 
 
-# =============================================================================
-# |                                BUILD                                      |
-# =============================================================================
+def main():
+    """Main build function."""
+    # Change to script directory
+    script_dir = Path(__file__).parent
+    if script_dir != Path.cwd():
+        import os
 
+        os.chdir(script_dir)
 
-def time_execution(func, description):
-    """Execute a function and print its execution time."""
-    print(f"\n📌 {description} ".ljust(80, "─"))
-    start_time = time.time()
-    result = func()
-    elapsed_time = time.time() - start_time
-    print(f"✓ Completed in {elapsed_time:.2f} seconds")
-    return result
+    # Verify paths exist
+    if not PATH_DESCRIPTORS.exists() or not PATH_PACKAGES.exists():
+        print("❌ Error: Please ensure working directory is niwrap repo root.")
+        print(f"   Current directory: {Path.cwd()}")
+        return 1
+
+    print("🚀 NiWrap Build Process")
+
+    stats = BuildStats()
+    stats.start()
+
+    try:
+        compile_all_distributions(stats)
+        validate_build(stats)
+
+        print(f"\n✅ Build completed successfully in {stats.elapsed():.1f}s")
+        return 0
+
+    except Exception as e:
+        print(f"\n❌ Build failed: {e}")
+        import traceback
+
+        traceback.print_exc()
+        return 1
 
 
 if __name__ == "__main__":
-    os.chdir(Path(__file__).parent)
-    assert PATH_DESCRIPTORS.exists() and PATH_PACKAGES.exists()
+    import sys
 
-    print("🚀 Starting build process...")
-
-    # Execute each step with timing information
-    time_execution(compile_wrappers, "Compile Wrappers")
-    time_execution(validate_build, "Validate Build")
-
-    print("\n✅ Build process completed successfully!")
+    sys.exit(main())
