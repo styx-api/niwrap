@@ -6,7 +6,10 @@
   "url": "https://github.com/ANTsX/ANTs",
   "tool-version": "2.5.3",
   "schema-version": "0.5",
-  "container-image": { "type": "docker", "image": "antsx/ants:v2.5.3" },
+  "container-image": {
+    "type": "docker",
+    "image": "antsx/ants:v2.5.3"
+  },
   "inputs": [
     {
       "id": "image_dimensionality",
@@ -54,7 +57,6 @@
       "value-key": "[ALPHA]",
       "type": "Number",
       "optional": true,
-      "default-value": 0.1,
       "command-line-flag": "--alpha",
       "description": "Regularization term added to matrix Mx for calculating the inverse. Default = 0.1."
     },
@@ -64,7 +66,6 @@
       "value-key": "[BETA]",
       "type": "Number",
       "optional": true,
-      "default-value": 2.0,
       "command-line-flag": "--beta",
       "description": "Exponent for mapping intensity difference to the joint error. Default = 2.0."
     },
@@ -85,7 +86,6 @@
       "value-key": "[PATCH_RADIUS]",
       "type": "String",
       "optional": true,
-      "default-value": "2x2x2",
       "command-line-flag": "--patch-radius",
       "description": "Patch radius for similarity measures. Default = 2x2x2."
     },
@@ -96,7 +96,6 @@
       "type": "String",
       "optional": true,
       "value-choices": ["PC", "MSQ"],
-      "default-value": "PC",
       "command-line-flag": "--patch-metric",
       "description": "Metric to be used in determining the most similar neighborhood patch. Options include Pearson's correlation (PC) and mean squares (MSQ). Default = PC (Pearson correlation)."
     },
@@ -106,7 +105,6 @@
       "value-key": "[SEARCH_RADIUS]",
       "type": "String",
       "optional": true,
-      "default-value": "3x3x3",
       "command-line-flag": "--search-radius",
       "description": "Search radius for similarity measures. Default = 3x3x3. One can also specify an image where the value at the voxel specifies the isotropic search radius at that voxel."
     },

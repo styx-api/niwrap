@@ -48,7 +48,6 @@
       "type": "Number",
       "integer": true,
       "optional": true,
-      "default-value": 0,
       "description": "The label value considered as background."
     },
     {
@@ -58,7 +57,6 @@
       "type": "Number",
       "integer": true,
       "optional": true,
-      "default-value": 0,
       "value-choices": [0, 1, 2],
       "description": "Defines behavior when the input image voxel is non-background and the corresponding canvas voxel is background: 0 - leave as is, 1 - replace with input voxel value, 2 - replace with conflict label."
     },
@@ -69,7 +67,6 @@
       "type": "Number",
       "integer": true,
       "optional": true,
-      "default-value": -1,
       "description": "The label value used for conflicting non-background voxels if 'paintOverNonBackgroundVoxels' is set to 2."
     }
   ],
