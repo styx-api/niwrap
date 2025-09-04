@@ -41,12 +41,24 @@ jobs:
       - name: Install the latest version of uv
         uses: astral-sh/setup-uv@v6
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          registry-url: 'https://registry.npmjs.org'
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Compile
+      - name: Styx compile
         run: |
-          uv --directory styx run ../build.py ir-dump json-schema
+          uv --directory styx run ../build.py ir-dump json-schema js
+
+      - name: Build npm package
+        run: |
+          cd dist/niwrap-js
+          npm install
+          npm run build
 
       - name: Prepare GitHub Pages content
         run: |
@@ -65,6 +77,14 @@ jobs:
             cp -r dist/niwrap-json-schema _site/
           else
             echo "Warning: dist/niwrap-json-schema directory not found"
+            exit 1
+          fi
+          
+          # Copy the built JavaScript package dist folder to the Pages site
+          if [ -d "dist/niwrap-js/dist" ]; then
+            cp -r dist/niwrap-js/dist _site/js
+          else
+            echo "Warning: dist/niwrap-js/dist directory not found"
             exit 1
           fi
           
