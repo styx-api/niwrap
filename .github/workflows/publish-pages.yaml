@@ -46,7 +46,7 @@ jobs:
 
       - name: Compile
         run: |
-          uv --directory styx run ../build.py
+          uv --directory styx run ../build.py ir-dump json-schema
 
       - name: Prepare GitHub Pages content
         run: |

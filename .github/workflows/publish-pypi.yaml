@@ -30,7 +30,7 @@ jobs:
       
       - name: Compile
         run: |
-          uv --directory styx run ../build.py
+          uv --directory styx run ../build.py python
         
       - name: Build Python packages
         run: |
