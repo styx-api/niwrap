@@ -86,14 +86,8 @@ def calculate_api_coverage(endpoints: list[dict[str, str]]) -> tuple[int, int, f
     return done, relevant, percentage
 
 
-def svg_progress_bar(percentage: float, done: int, total: int) -> str:
-    color = "#22c55e" if percentage == 100 else "#3b82f6"
-    width = max(3, percentage * 1.25)
-
-    svg = f'<svg width="125" height="24" xmlns="http://www.w3.org/2000/svg"><defs><clipPath id="r"><rect width="125" height="24" rx="8"/></clipPath></defs><g clip-path="url(#r)"><rect width="125" height="24" fill="#fff" fill-opacity=".15"/><rect width="{width}" height="24" fill="{color}"/></g><text x="62.5" y="16" text-anchor="middle" fill="#fff" font-size="12" font-weight="600" font-family="system-ui,sans-serif">{done}/{total}</text></svg>'
-    
-    encoded = base64.b64encode(svg.encode('utf-8')).decode('utf-8')
-    return f'<img src="data:image/svg+xml;base64,{encoded}" alt="{done}/{total}">'
+def progress_bar(done: int, total: int) -> str:
+    return f"![{done}/{total}](https://progress-bar.xyz/{done}/?scale={total}&suffix=%2F{total})"
 
 
 def build_package_overview_table() -> str:
@@ -122,7 +116,7 @@ def build_package_overview_table() -> str:
         if relevant == 0:
             coverage = "N/A"
         else:
-            coverage = svg_progress_bar(percentage, done, relevant)
+            coverage = progress_bar(done, relevant)
 
         lines.append(f"| {name_link} | {pkg['status']} | {container} | {coverage} |")
 
