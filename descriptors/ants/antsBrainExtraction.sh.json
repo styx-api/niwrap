@@ -145,13 +145,15 @@
       "description": "Brain extracted image",
       "id": "brain_extracted_image",
       "name": "Brain Extracted Image",
-      "path-template": "[OUTPUT_PREFIX]_BrainExtractionBrain.nii.gz"
+      "path-template": "[OUTPUT_PREFIX]BrainExtractionBrain.nii.gz",
+      "path-template-fallback": ""
     },
     {
       "description": "Brain mask",
       "id": "brain_mask",
       "name": "Brain Mask",
-      "path-template": "[OUTPUT_PREFIX]_BrainExtractionMask.nii.gz"
+      "path-template": "[OUTPUT_PREFIX]BrainExtractionMask.nii.gz",
+      "path-template-fallback": ""
     },
     {
       "description": "Brain probability mask",
