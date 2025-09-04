@@ -2,9 +2,7 @@
   "name": "dwi2mask",
   "description": "Generates a whole brain mask from a DWI image.\n\nAll diffusion weighted and b=0 volumes are used to obtain a mask that includes both brain tissue and CSF.\n\nIn a second step peninsula-like extensions, where the peninsula itself is wider than the bridge connecting it to the mask, are removed. This may help removing artefacts and non-brain parts, e.g. eyes, from the mask.\n\nReferences:\n\nDhollander T, Raffelt D, Connelly A. Unsupervised 3-tissue response function estimation from single-shell or multi-shell diffusion MR data without a co-registered T1 image. ISMRM Workshop on Breaking the Barriers of Diffusion MRI, 2016, 5",
   "author": "MRTrix3 Developers",
-  "tool-version": "3.0.4",
-  "schema-version": "0.5",
-  "container-image": { "image": "mrtrix3/mrtrix3:3.0.4", "type": "docker" },
+  "schema-version": "0.5+styx",
   "command-line": "dwi2mask [OPTIONS_CLEAN_SCALE] [DW_GRADIENT_TABLE_IMPORT_OPTIONS_GRAD] [DW_GRADIENT_TABLE_IMPORT_OPTIONS_FSLGRAD] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION] [INPUT] [OUTPUT]",
   "inputs": [
     {

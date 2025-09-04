@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "cifti-merge-dense",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -cifti-merge-dense [DIRECTION] [CIFTI_OUT] [OPT_LABEL_COLLISION_ACTION] [CIFTI]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Merge cifti files along dense dimension.\n\nThe input cifti files must have matching mappings along the direction not specified, and the mapping along the specified direction must be brain models.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "direction",

@@ -2,9 +2,7 @@
   "name": "mrcolour",
   "description": "Apply a colour map to an image.\n\nUnder typical usage, this command will receive as input ad 3D greyscale image, and output a 4D image with 3 volumes corresponding to red-green-blue components; other use cases are possible, and are described in more detail below.\n\nBy default, the command will automatically determine the maximum and minimum intensities of the input image, and use that information to set the upper and lower bounds of the applied colourmap. This behaviour can be overridden by manually specifying these bounds using the -upper and -lower options respectively.\n\nReferences:\n\n",
   "author": "MRTrix3 Developers",
-  "tool-version": "3.0.4",
-  "schema-version": "0.5",
-  "container-image": { "image": "mrtrix3/mrtrix3:3.0.4", "type": "docker" },
+  "schema-version": "0.5+styx",
   "command-line": "mrcolour [OPTIONS_UPPER] [OPTIONS_LOWER] [OPTIONS_COLOUR] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION] [INPUT] [MAP] [OUTPUT]",
   "inputs": [
     {

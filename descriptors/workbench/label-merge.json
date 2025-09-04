@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "label-merge",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -label-merge [LABEL_OUT] [LABEL]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Merge label files into a new file.\n\nTakes one or more label files and constructs a new label file by concatenating columns from them.  The input files must have the same number of vertices and the same structure.\n\nExample: wb_command -label-merge out.label.gii -label first.label.gii -column 1 -label second.label.gii\n\nThis example would take the first column from first.label.gii and all subvolumes from second.label.gii, and write these to out.label.gii.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "label_out",

@@ -2,9 +2,7 @@
   "name": "dcmedit",
   "description": "Edit DICOM file in-place.\n\nNote that this command simply replaces the existing values without modifying the DICOM structure in any way. Replacement text will be truncated if it is too long to fit inside the existing tag.\n\nWARNING: this command will modify existing data! It is recommended to run this command on a copy of the original data set to avoid loss of data.\n\nReferences:\n\n",
   "author": "MRTrix3 Developers",
-  "tool-version": "3.0.4",
-  "schema-version": "0.5",
-  "container-image": { "image": "mrtrix3/mrtrix3:3.0.4", "type": "docker" },
+  "schema-version": "0.5+styx",
   "command-line": "dcmedit [OPTIONS_ANONYMISE] [OPTIONS_ID] [OPTIONS_TAG] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION] [FILE]",
   "inputs": [
     {

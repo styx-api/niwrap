@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "metric-find-clusters",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -metric-find-clusters [SURFACE] [METRIC_IN] [VALUE_THRESHOLD] [MINIMUM_AREA] [METRIC_OUT] [OPT_LESS_THAN] [OPT_ROI_ROI_METRIC] [OPT_CORRECTED_AREAS_AREA_METRIC] [OPT_COLUMN_COLUMN] [OPT_SIZE_RATIO_RATIO] [OPT_DISTANCE_DISTANCE] [OPT_START_STARTVAL]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Filter clusters by surface area.\n\nOutputs a metric with nonzero integers for all vertices within a large enough cluster, and zeros elsewhere.  The integers denote cluster membership (by default, first cluster found will use value 1, second cluster 2, etc).  Cluster values are not reused across maps of the output, but instead keep counting up.  By default, values greater than <value-threshold> are considered to be in a cluster, use -less-than to test for values less than the threshold.  To apply this as a mask to the data, or to do more complicated thresholding, see -metric-math.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "surface",

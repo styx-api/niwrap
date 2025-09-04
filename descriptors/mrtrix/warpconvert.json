@@ -2,9 +2,7 @@
   "name": "warpconvert",
   "description": "Convert between different representations of a non-linear warp.\n\nA deformation field is defined as an image where each voxel defines the corresponding position in the other image (in scanner space coordinates). A displacement field stores the displacements (in mm) to the other image from the each voxel's position (in scanner space). The warpfull file is the 5D format output from mrregister -nl_warp_full, which contains linear transforms, warps and their inverses that map each image to a midway space.\n\nReferences:\n\n",
   "author": "MRTrix3 Developers",
-  "tool-version": "3.0.4",
-  "schema-version": "0.5",
-  "container-image": { "image": "mrtrix3/mrtrix3:3.0.4", "type": "docker" },
+  "schema-version": "0.5+styx",
   "command-line": "warpconvert [OPTIONS_TEMPLATE] [OPTIONS_MIDWAY_SPACE] [OPTIONS_FROM] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION] [IN] [TYPE] [OUT]",
   "inputs": [
     {

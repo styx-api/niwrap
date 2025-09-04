@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "volume-remove-islands",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -volume-remove-islands [VOLUME_IN] [VOLUME_OUT]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Remove islands from an roi volume.\n\nFinds all face-connected parts of the ROI, and zeros out all but the largest one.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "volume_in",

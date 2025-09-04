@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "wbsparse-merge-dense",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -wbsparse-merge-dense [DIRECTION] [WBSPARSE_OUT] [WBSPARSE]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Merge wbsparse files along dense dimension.\n\nThe input wbsparse files must have matching mappings along the direction not specified, and the mapping along the specified direction must be brain models.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "direction",

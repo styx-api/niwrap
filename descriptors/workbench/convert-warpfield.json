@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "convert-warpfield",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -convert-warpfield [FROM_WORLD] [OPT_FROM_ITK_INPUT] [FROM_FNIRT] [OPT_TO_WORLD_OUTPUT] [OPT_TO_ITK_OUTPUT] [TO_FNIRT]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Convert a warpfield between conventions.\n\nNIFTI world warpfields can be used directly on mm coordinates via sampling the three subvolumes at the coordinate and adding the sampled values to the coordinate vector.  They use the NIFTI coordinate system, that is, X is left to right, Y is posterior to anterior, and Z is inferior to superior.\n\nNOTE: this command does not invert the warpfield, and to warp a surface, you must use the inverse of the warpfield that warps the corresponding volume.\n\nThe ITK format is used by ANTS.\n\nYou must specify exactly one -from option, but you may specify multiple -to options, and -to-fnirt may be specified more than once.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "from_world",

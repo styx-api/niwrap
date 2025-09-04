@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "cifti-extrema",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -cifti-extrema [CIFTI] [SURFACE_DISTANCE] [VOLUME_DISTANCE] [DIRECTION] [CIFTI_OUT] [OPT_LEFT_SURFACE_SURFACE] [OPT_RIGHT_SURFACE_SURFACE] [OPT_CEREBELLUM_SURFACE_SURFACE] [OPT_SURFACE_PRESMOOTH_SURFACE_KERNEL] [OPT_VOLUME_PRESMOOTH_VOLUME_KERNEL] [OPT_PRESMOOTH_FWHM] [THRESHOLD] [OPT_MERGED_VOLUME] [OPT_SUM_MAPS] [OPT_CONSOLIDATE_MODE] [OPT_ONLY_MAXIMA] [OPT_ONLY_MINIMA]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Find extrema in a cifti file.\n\nFinds spatial locations in a cifti file that have more extreme values than all nearby locations in the same component (surface or volume structure).  The input cifti file must have a brain models mapping along the specified direction.  COLUMN is the direction that works on dtseries and dscalar.  For dconn, if it is symmetric use COLUMN, otherwise use ROW.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "cifti",

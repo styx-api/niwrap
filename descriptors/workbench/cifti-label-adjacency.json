@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "cifti-label-adjacency",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -cifti-label-adjacency [LABEL_IN] [ADJACENCY_OUT] [OPT_LEFT_SURFACE_SURFACE] [OPT_RIGHT_SURFACE_SURFACE] [OPT_CEREBELLUM_SURFACE_SURFACE]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Make adjacency matrix of a cifti label file.\n\nFind face-adjacent voxels and connected vertices that have different label values, and count them for each pair.  Put the resulting counts into a parcellated connectivity file, with the diagonal being zero.  This gives a rough estimate of how long or expansive the border between two labels is.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "label_in",

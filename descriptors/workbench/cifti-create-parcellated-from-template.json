@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "cifti-create-parcellated-from-template",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -cifti-create-parcellated-from-template [CIFTI_TEMPLATE] [MODIFY_DIRECTION] [CIFTI_OUT] [OPT_FILL_VALUE_VALUE] [CIFTI]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Match parcels to template by name.\n\nFor each parcel name in the template mapping, find that name in an input cifti file and use its data in the output file.  All input cifti files must have a parcels mapping along <modify-direction> and matching mappings along other dimensions.  The direction can be either an integer starting from 1, or the strings 'ROW' or 'COLUMN'.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "cifti_template",

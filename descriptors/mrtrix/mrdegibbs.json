@@ -2,9 +2,7 @@
   "name": "mrdegibbs",
   "description": "Remove Gibbs Ringing Artifacts.\n\nThis application attempts to remove Gibbs ringing artefacts from MRI images using the method of local subvoxel-shifts proposed by Kellner et al. (see reference below for details).\n\nThis command is designed to run on data directly after it has been reconstructed by the scanner, before any interpolation of any kind has taken place. You should not run this command after any form of motion correction (e.g. not after dwifslpreproc). Similarly, if you intend running dwidenoise, you should run denoising before this command to not alter the noise structure, which would impact on dwidenoise's performance.\n\nNote that this method is designed to work on images acquired with full k-space coverage. Running this method on partial Fourier ('half-scan') data may lead to suboptimal and/or biased results, as noted in the original reference below. There is currently no means of dealing with this; users should exercise caution when using this method on partial Fourier data, and inspect its output for any obvious artefacts. \n\nReferences:\n\nKellner, E; Dhital, B; Kiselev, V.G & Reisert, M. Gibbs-ringing artifact removal based on local subvoxel-shifts. Magnetic Resonance in Medicine, 2016, 76, 1574\u00e2\u20ac\u201c1581.",
   "author": "MRTrix3 Developers",
-  "tool-version": "3.0.4",
-  "schema-version": "0.5",
-  "container-image": { "image": "mrtrix3/mrtrix3:3.0.4", "type": "docker" },
+  "schema-version": "0.5+styx",
   "command-line": "mrdegibbs [OPTIONS_AXES] [OPTIONS_NSHIFTS] [OPTIONS_MINW] [OPTIONS_MAXW] [DATA_TYPE_OPTIONS_DATATYPE] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION] [IN] [OUT]",
   "inputs": [
     {

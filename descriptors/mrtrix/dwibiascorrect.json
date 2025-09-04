@@ -1,12 +1,10 @@
 {
   "name": "dwibiascorrect",
-  "tool-version": "3.0.4",
   "author": "MRTrix3 Developers",
   "description": "Perform B1 field inhomogeneity correction for a DWI volume series using either ANTs or FSL.",
   "url": "https://www.mrtrix.org/",
   "command-line": "dwibiascorrect [ALGORITHM] [INPUT_IMAGE] [OUTPUT_IMAGE] [GRAD] [FSLGRAD_BVECS] [MASK_IMAGE] [BIAS_IMAGE] [NOCLEANUP] [SCRATCH] [CONTINUE_SCRATCH] [INFO] [QUIET] [DEBUG] [FORCE] [NTHREADS] [__STANDARD_OPTIONS_CONFIG] [HELP] [VERSION] [ANTS_B] [ANTS_C] [ANTS_S]",
-  "schema-version": "0.5",
-  "container-image": { "image": "mrtrix3/mrtrix3:3.0.4", "type": "docker" },
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "algorithm",

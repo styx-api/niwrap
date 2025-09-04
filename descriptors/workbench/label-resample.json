@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "label-resample",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -label-resample [LABEL_IN] [CURRENT_SPHERE] [NEW_SPHERE] [METHOD] [LABEL_OUT] [AREA_SURFS] [AREA_METRICS] [OPT_CURRENT_ROI_ROI_METRIC] [OPT_VALID_ROI_OUT_ROI_OUT] [OPT_LARGEST] [OPT_BYPASS_SPHERE_CHECK]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Resample a label file to a different mesh.\n\nResamples a label file, given two spherical surfaces that are in register.  If ADAP_BARY_AREA is used, exactly one of -area-surfs or -area-metrics must be specified.\n\nThe ADAP_BARY_AREA method is recommended for label data, because it should be better at resolving vertices that are near multiple labels, or in case of downsampling.  Midthickness surfaces are recommended for the vertex areas for most data.\n\nThe -largest option results in nearest vertex behavior when used with BARYCENTRIC, as it uses the value of the source vertex that has the largest weight.\n\nWhen -largest is not specified, the vertex weights are summed according to which label they correspond to, and the label with the largest sum is used.\n\nThe <method> argument must be one of the following:\n\nADAP_BARY_AREA\nBARYCENTRIC\n",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "label_in",

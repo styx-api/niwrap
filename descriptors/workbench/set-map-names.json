@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "set-map-names",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -set-map-names [DATA_FILE] [OPT_NAME_FILE_FILE] [OPT_FROM_DATA_FILE_FILE] [MAP]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Set the name of one or more maps in a file.\n\nSets the name of one or more maps for metric, shape, label, volume, cifti scalar or cifti label files.  You must specify either -name-file, or -from-data-file, or at least one -map option.  The three option types are mutually exclusive.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "data_file",

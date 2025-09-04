@@ -2,9 +2,7 @@
   "name": "mrfilter",
   "description": "Perform filtering operations on 3D / 4D MR images.\n\nThe available filters are: fft, gradient, median, smooth, normalise, zclean.\n\nEach filter has its own unique set of optional parameters.\n\nFor 4D images, each 3D volume is processed independently.\n\nReferences:\n\n",
   "author": "MRTrix3 Developers",
-  "tool-version": "3.0.4",
-  "schema-version": "0.5",
-  "container-image": { "image": "mrtrix3/mrtrix3:3.0.4", "type": "docker" },
+  "schema-version": "0.5+styx",
   "command-line": "mrfilter [OPTIONS_FOR_FFT_FILTER_AXES] [OPTIONS_FOR_FFT_FILTER_INVERSE] [OPTIONS_FOR_FFT_FILTER_MAGNITUDE] [OPTIONS_FOR_FFT_FILTER_CENTRE_ZERO] [OPTIONS_FOR_GRADIENT_FILTER_STDEV] [OPTIONS_FOR_GRADIENT_FILTER_MAGNITUDE] [OPTIONS_FOR_GRADIENT_FILTER_SCANNER] [OPTIONS_FOR_MEDIAN_FILTER_EXTENT] [OPTIONS_FOR_NORMALISATION_FILTER_EXTENT] [OPTIONS_FOR_SMOOTH_FILTER_STDEV] [OPTIONS_FOR_SMOOTH_FILTER_FWHM] [OPTIONS_FOR_SMOOTH_FILTER_EXTENT] [OPTIONS_FOR_ZCLEAN_FILTER_ZUPPER] [OPTIONS_FOR_ZCLEAN_FILTER_ZLOWER] [OPTIONS_FOR_ZCLEAN_FILTER_BRIDGE] [OPTIONS_FOR_ZCLEAN_FILTER_MASKIN] [OPTIONS_FOR_ZCLEAN_FILTER_MASKOUT] [STRIDE_OPTIONS_STRIDES] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION] [INPUT] [FILTER] [OUTPUT]",
   "inputs": [
     {

@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "volume-gradient",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -volume-gradient [VOLUME_IN] [VOLUME_OUT] [PRESMOOTH] [OPT_ROI_ROI_VOLUME] [OPT_VECTORS_VECTOR_VOLUME_OUT] [OPT_SUBVOLUME_SUBVOL]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Gradient of a volume file.\n\nComputes the gradient of the volume by doing linear regressions for each voxel, considering only its face neighbors unless too few face neighbors exist.  The gradient vector is constructed from the partial derivatives of the resulting linear function, and the magnitude of this vector is the output.  If specified, the volume vector output is arranged with the x, y, and z components from a subvolume as consecutive subvolumes.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "volume_in",

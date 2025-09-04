@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "volume-parcel-smoothing",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -volume-parcel-smoothing [DATA_VOLUME] [LABEL_VOLUME] [KERNEL] [VOLUME_OUT] [OPT_FWHM] [OPT_FIX_ZEROS] [OPT_SUBVOLUME_SUBVOL]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Smooth parcels in a volume separately.\n\nThe volume is smoothed within each label in the label volume using data only from within the label.  Equivalent to running volume smoothing with ROIs matching each label separately, then adding the resulting volumes, but faster.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "data_volume",

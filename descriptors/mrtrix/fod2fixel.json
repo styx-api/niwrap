@@ -2,9 +2,7 @@
   "name": "fod2fixel",
   "description": "Perform segmentation of continuous Fibre Orientation Distributions (FODs) to produce discrete fixels.\n\n\n\nReferences:\n\n* Reference for the FOD segmentation method:\nSmith, R. E.; Tournier, J.-D.; Calamante, F. & Connelly, A. SIFT: Spherical-deconvolution informed filtering of tractograms. NeuroImage, 2013, 67, 298-312 (Appendix 2)\n\n* Reference for Apparent Fibre Density (AFD):\nRaffelt, D.; Tournier, J.-D.; Rose, S.; Ridgway, G.R.; Henderson, R.; Crozier, S.; Salvado, O.; Connelly, A. Apparent Fibre Density: a novel measure for the analysis of diffusion-weighted magnetic resonance images.Neuroimage, 2012, 15;59(4), 3976-94",
   "author": "MRTrix3 Developers",
-  "tool-version": "3.0.4",
-  "schema-version": "0.5",
-  "container-image": { "image": "mrtrix3/mrtrix3:3.0.4", "type": "docker" },
+  "schema-version": "0.5+styx",
   "command-line": "fod2fixel [METRIC_VALUES_FOR_FIXEL_BASED_SPARSE_OUTPUT_IMAGES_AFD] [METRIC_VALUES_FOR_FIXEL_BASED_SPARSE_OUTPUT_IMAGES_PEAK_AMP] [METRIC_VALUES_FOR_FIXEL_BASED_SPARSE_OUTPUT_IMAGES_DISP] [FOD_FMLS_SEGMENTER_OPTIONS_FMLS_INTEGRAL] [FOD_FMLS_SEGMENTER_OPTIONS_FMLS_PEAK_VALUE] [FOD_FMLS_SEGMENTER_OPTIONS_FMLS_NO_THRESHOLDS] [FOD_FMLS_SEGMENTER_OPTIONS_FMLS_LOBE_MERGE_RATIO] [OTHER_OPTIONS_FOR_FOD2FIXEL_MASK] [OTHER_OPTIONS_FOR_FOD2FIXEL_MAXNUM] [OTHER_OPTIONS_FOR_FOD2FIXEL_NII] [OTHER_OPTIONS_FOR_FOD2FIXEL_DIRPEAK] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION] [FOD] [FIXEL_DIRECTORY]",
   "inputs": [
     {

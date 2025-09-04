@@ -1,12 +1,10 @@
 {
   "name": "dwigradcheck",
-  "tool-version": "3.0.4",
   "author": "MRTrix3 Developers",
   "description": "Check the orientation of the diffusion gradient table",
   "url": "https://www.mrtrix.org/",
   "command-line": "dwigradcheck [INPUT_IMAGE] [GRAD] [FSLGRAD_BVECS] [MASK_IMAGE] [NUMBER] [EXPORT_GRAD_MRTRIX] [EXPORT_GRAD_FSL] [NOCLEANUP] [SCRATCH] [CONTINUE_SCRATCH] [INFO] [QUIET] [DEBUG] [FORCE] [NTHREADS] [CONFIG] [HELP] [VERSION]",
-  "schema-version": "0.5",
-  "container-image": { "image": "mrtrix3/mrtrix3:3.0.4", "type": "docker" },
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "input_image",

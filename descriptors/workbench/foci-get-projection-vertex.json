@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "foci-get-projection-vertex",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -foci-get-projection-vertex [FOCI] [SURFACE] [METRIC_OUT] [OPT_NAME_NAME]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Get projection vertex for foci.\n\nFor each focus, a column is created in <metric-out>, and the vertex with the most influence on its projection is assigned a value of 1 in that column, with all other vertices 0.  If -name is used, only one focus will be used.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "foci",

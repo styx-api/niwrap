@@ -2,9 +2,7 @@
   "name": "tckconvert",
   "description": "Convert between different track file formats.\n\nThe program currently supports MRtrix .tck files (input/output), ascii text files (input/output), VTK polydata files (input/output), and RenderMan RIB (export only).\n\nNote that ascii files will be stored with one streamline per numbered file. To support this, the command will use the multi-file numbering syntax, where square brackets denote the position of the numbering for the files, for example:\n\n$ tckconvert input.tck output-'[]'.txt\n\nwill produce files named output-0000.txt, output-0001.txt, output-0002.txt, ...\n\nReferences:\n\n",
   "author": "MRTrix3 Developers",
-  "tool-version": "3.0.4",
-  "schema-version": "0.5",
-  "container-image": { "image": "mrtrix3/mrtrix3:3.0.4", "type": "docker" },
+  "schema-version": "0.5+styx",
   "command-line": "tckconvert [OPTIONS_SCANNER2VOXEL] [OPTIONS_SCANNER2IMAGE] [OPTIONS_VOXEL2SCANNER] [OPTIONS_IMAGE2SCANNER] [OPTIONS_SPECIFIC_TO_PLY_WRITER_SIDES] [OPTIONS_SPECIFIC_TO_PLY_WRITER_INCREMENT] [OPTIONS_SPECIFIC_TO_RIB_WRITER_DEC] [OPTIONS_FOR_BOTH_PLY_AND_RIB_WRITER_RADIUS] [OPTIONS_SPECIFIC_TO_VTK_WRITER_ASCII] [OPTIONS_SPECIFIC_TO_VTK_WRITER_BINARY] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION] [INPUT] [OUTPUT]",
   "inputs": [
     {

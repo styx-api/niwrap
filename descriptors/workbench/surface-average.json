@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "surface-average",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -surface-average [SURFACE_OUT] [OPT_STDDEV_STDDEV_METRIC_OUT] [OPT_UNCERTAINTY_UNCERT_METRIC_OUT] [SURF]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Average surface files together.\n\nThe 3D sample standard deviation is computed as 'sqrt(sum(squaredlength(xyz - mean(xyz)))/(n - 1))'.\n\nUncertainty is a legacy measure used in caret5, and is computed as 'sum(length(xyz - mean(xyz)))/n'.\n\nWhen weights are used, the 3D sample standard deviation treats them as reliability weights.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "surface_out",

@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "volume-vector-operation",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -volume-vector-operation [VECTORS_A] [VECTORS_B] [OPERATION] [VOLUME_OUT] [OPT_NORMALIZE_A] [OPT_NORMALIZE_B] [OPT_NORMALIZE_OUTPUT] [OPT_MAGNITUDE]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Do a vector operation on volume files.\n\nDoes a vector operation on two volume files (that must have a multiple of 3 subvolumes).  Either of the inputs may have multiple vectors (more than 3 subvolumes), but not both (at least one must have exactly 3 subvolumes).  The -magnitude and -normalize-output options may not be specified together, or with the DOT operation.  The <operation> parameter must be one of the following:\n\nDOT\nCROSS\nADD\nSUBTRACT",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "vectors_a",

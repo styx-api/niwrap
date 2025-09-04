@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "metric-rois-to-border",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -metric-rois-to-border [SURFACE] [METRIC] [CLASS_NAME] [BORDER_OUT] [OPT_PLACEMENT_FRACTION] [OPT_COLUMN_COLUMN]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Draw borders around metric rois.\n\nFor each ROI column, finds all edges on the mesh that cross the boundary of the ROI, and draws borders through them.  By default, this is done on all columns in the input file, using the map name as the name for the border.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "surface",

@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "surface-flip-lr",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -surface-flip-lr [SURFACE] [SURFACE_OUT]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Mirror a surface through the yz plane.\n\nThis command negates the x coordinate of each vertex, and flips the surface normals, so that you have a surface of opposite handedness with the same features and vertex correspondence, with normals consistent with the original surface.  That is, if the input surface has normals facing outward, the output surface will also have normals facing outward.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "surface",

@@ -2,9 +2,7 @@
   "name": "amp2sh",
   "description": "Convert a set of amplitudes (defined along a set of corresponding directions) to their spherical harmonic representation.\n\nThe spherical harmonic decomposition is calculated by least-squares linear fitting to the amplitude data.\n\nThe directions can be defined either as a DW gradient scheme (for example to compute the SH representation of the DW signal), a set of [az el] pairs as output by the dirgen command, or a set of [ x y z ] directions in Cartesian coordinates. The DW gradient scheme or direction set can be supplied within the input image header or using the -gradient or -directions option. Note that if a direction set and DW gradient scheme can be found, the direction set will be used by default.\n\nThe spherical harmonic coefficients are stored according the conventions described the main documentation, which can be found at the following link: \nhttps://mrtrix.readthedocs.io/en/3.0.4/concepts/spherical_harmonics.html\n\nReferences:\n\n",
   "author": "MRTrix3 Developers",
-  "tool-version": "3.0.4",
-  "schema-version": "0.5",
-  "container-image": { "image": "mrtrix3/mrtrix3:3.0.4", "type": "docker" },
+  "schema-version": "0.5+styx",
   "command-line": "amp2sh [OPTIONS_LMAX] [OPTIONS_NORMALISE] [OPTIONS_DIRECTIONS] [OPTIONS_RICIAN] [DW_GRADIENT_TABLE_IMPORT_OPTIONS_GRAD] [DW_GRADIENT_TABLE_IMPORT_OPTIONS_FSLGRAD] [DW_SHELL_SELECTION_OPTIONS_SHELLS] [STRIDE_OPTIONS_STRIDES] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION] [AMP] [SH]",
   "inputs": [
     {

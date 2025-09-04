@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "volume-fill-holes",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -volume-fill-holes [VOLUME_IN] [VOLUME_OUT]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Fill holes in an roi volume.\n\nFinds all face-connected parts that are not included in the ROI, and fills all but the largest one with ones.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "volume_in",

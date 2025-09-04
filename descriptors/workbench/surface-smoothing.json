@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "surface-smoothing",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -surface-smoothing [SURFACE_IN] [SMOOTHING_STRENGTH] [SMOOTHING_ITERATIONS] [SURFACE_OUT]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Surface smoothing.\n\nSmooths a surface by averaging vertex coordinates with those of the neighboring vertices.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "surface_in",

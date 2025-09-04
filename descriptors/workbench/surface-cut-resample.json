@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "surface-cut-resample",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -surface-cut-resample [SURFACE_IN] [CURRENT_SPHERE] [NEW_SPHERE] [SURFACE_OUT]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Resample a cut surface.\n\nResamples a surface file, given two spherical surfaces that are in register.  Barycentric resampling is used, because it is usually better for resampling surfaces, and because it is needed to figure out the new topology anyway.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "surface_in",

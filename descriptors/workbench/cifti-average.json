@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "cifti-average",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -cifti-average [CIFTI_OUT] [EXCLUDE_OUTLIERS] [OPT_MEM_LIMIT_LIMIT_GB] [CIFTI]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Average cifti files.\n\nAverages cifti files together.  Files without -weight specified are given a weight of 1.  If -exclude-outliers is specified, at each element, the data across all files is taken as a set, its unweighted mean and sample standard deviation are found, and values outside the specified number of standard deviations are excluded from the (potentially weighted) average at that element.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "cifti_out",

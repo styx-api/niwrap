@@ -1,12 +1,10 @@
 {
   "name": "responsemean",
-  "tool-version": "3.0.4",
   "author": "MRTrix3 Developers",
   "description": "Calculate the mean response function from a set of text files",
   "url": "https://www.mrtrix.org/",
   "command-line": "responsemean [INPUT_RESPONSES] [OUTPUT_RESPONSE] [LEGACY] [NOCLEANUP] [SCRATCH] [CONTINUE_SCRATCH] [INFO] [QUIET] [DEBUG] [FORCE] [NTHREADS] [CONFIG] [HELP] [VERSION]",
-  "schema-version": "0.5",
-  "container-image": { "image": "mrtrix3/mrtrix3:3.0.4", "type": "docker" },
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "input_response",

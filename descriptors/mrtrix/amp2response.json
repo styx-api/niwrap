@@ -2,9 +2,7 @@
   "name": "amp2response",
   "description": "Estimate response function coefficients based on the DWI signal in single-fibre voxels.\n\nThis command uses the image data from all selected single-fibre voxels concurrently, rather than simply averaging their individual spherical harmonic coefficients. It also ensures that the response function is non-negative, and monotonic (i.e. its amplitude must increase from the fibre direction out to the orthogonal plane).\n\nIf multi-shell data are provided, and one or more b-value shells are not explicitly requested, the command will generate a response function for every b-value shell (including b=0 if present).\n\nReferences:\n\nSmith, R. E.; Dhollander, T. & Connelly, A. Constrained linear least squares estimation of anisotropic response function for spherical deconvolution. ISMRM Workshop on Breaking the Barriers of Diffusion MRI, 23.",
   "author": "MRTrix3 Developers",
-  "tool-version": "3.0.4",
-  "schema-version": "0.5",
-  "container-image": { "image": "mrtrix3/mrtrix3:3.0.4", "type": "docker" },
+  "schema-version": "0.5+styx",
   "command-line": "amp2response [OPTIONS_ISOTROPIC] [OPTIONS_NOCONSTRAINT] [OPTIONS_DIRECTIONS] [DW_SHELL_SELECTION_OPTIONS_SHELLS] [DW_SHELL_SELECTION_OPTIONS_LMAX] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION] [AMPS] [MASK] [DIRECTIONS] [RESPONSE]",
   "inputs": [
     {

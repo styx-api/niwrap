@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "label-mask",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -label-mask [LABEL] [MASK] [LABEL_OUT] [OPT_COLUMN_COLUMN]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Mask a label file.\n\nBy default, the output label is a copy of the input label, but with the 'unused' label wherever the mask metric is zero or negative.  if -column is specified, the output contains only one column, the masked version of the specified input column.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "label",

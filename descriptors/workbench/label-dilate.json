@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "label-dilate",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -label-dilate [LABEL] [SURFACE] [DILATE_DIST] [LABEL_OUT] [OPT_BAD_VERTEX_ROI_ROI_METRIC] [OPT_COLUMN_COLUMN] [OPT_CORRECTED_AREAS_AREA_METRIC]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Dilate a label file.\n\nFills in label information for all vertices designated as bad, up to the specified distance away from other labels.  If -bad-vertex-roi is specified, all vertices, including those with the unlabeled key, are good, except for vertices with a positive value in the ROI.  If it is not specified, only vertices with the unlabeled key are bad.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "label",

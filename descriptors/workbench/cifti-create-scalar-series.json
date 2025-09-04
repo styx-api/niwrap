@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "cifti-create-scalar-series",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -cifti-create-scalar-series [INPUT] [CIFTI_OUT] [OPT_TRANSPOSE] [OPT_NAME_FILE_FILE] [SERIES]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Import series data into cifti.\n\nConvert a text file containing series of equal length into a cifti file.  The text file should have lines made up of numbers separated by whitespace, with no extra newlines between lines.\n\nThe <unit> argument must be one of the following:\n\nSECOND\nHERTZ\nMETER\nRADIAN",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "input",

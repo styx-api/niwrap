@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "file-convert",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -file-convert [BORDER_VERSION_CONVERT] [NIFTI_VERSION_CONVERT] [CIFTI_VERSION_CONVERT]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Change version of file format.\n\nYou may only specify one top-level option.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "border_version_convert",

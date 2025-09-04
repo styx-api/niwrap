@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "convert-affine",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -convert-affine [FROM_WORLD] [OPT_FROM_ITK_INPUT] [FROM_FLIRT] [TO_WORLD] [OPT_TO_ITK_OUTPUT] [TO_FLIRT]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Convert an affine file between conventions.\n\nNIFTI world matrices can be used directly on mm coordinates via matrix multiplication, they use the NIFTI coordinate system, that is, positive X is right, positive Y is anterior, and positive Z is superior.  Note that wb_command assumes that world matrices transform source coordinates to target coordinates, while other tools may use affines that transform target coordinates to source coordinates.\n\nThe ITK format is used by ANTS.\n\nYou must specify exactly one -from option, but you may specify multiple -to options, and -to-flirt may be specified more than once.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "from_world",

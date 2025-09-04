@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "cifti-pairwise-correlation",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -cifti-pairwise-correlation [CIFTI_A] [CIFTI_B] [CIFTI_OUT] [OPT_FISHER_Z] [OPT_OVERRIDE_MAPPING_CHECK]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Correlate paired rows between two cifti files.\n\nFor each row in <cifti-a>, correlate it with the same row in <cifti-b>, and put the result in the same row of <cifti-out>, which has only one column.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "cifti_a",

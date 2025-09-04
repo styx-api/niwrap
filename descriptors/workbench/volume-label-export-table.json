@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "volume-label-export-table",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -volume-label-export-table [LABEL_IN] [MAP] [TABLE_OUT]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Export label table from volume as text.\n\nTakes the label table from the volume label map, and writes it to a text format matching what is expected by -volume-label-import.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "label_in",

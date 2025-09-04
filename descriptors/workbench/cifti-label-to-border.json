@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "cifti-label-to-border",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -cifti-label-to-border [CIFTI_IN] [OPT_PLACEMENT_FRACTION] [OPT_COLUMN_COLUMN] [BORDER]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Draw borders around cifti labels.\n\nFor each surface, takes the labels on the matching structure and draws borders around the labels.  Use -column to only draw borders around one label map.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "cifti_in",

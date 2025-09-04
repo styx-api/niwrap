@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "spec-file-merge",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -spec-file-merge [SPEC_1] [SPEC_2] [OUT_SPEC]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Merge two spec files into one.\n\nThe output spec file contains every file that is in either of the input spec files.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "spec_1",

@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "scene-file-update",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -scene-file-update [INPUT_SCENE_FILE] [OUTPUT_SCENE_FILE] [SCENE_NAME_OR_NUMBER] [OPT_FIX_MAP_PALETTE_SETTINGS] [OPT_REMOVE_MISSING_FILES] [OPT_ERROR] [OPT_VERBOSE] [COPY_MAP_ONE_PALETTE] [DATA_FILE_ADD] [DATA_FILE_REMOVE]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Update scene file.\n\nThis command will update a scene for specific changes in data files.\n\n\"-fix-map-palette-settings\" will find all data files that have had a change in the number of maps since the scene scene was created.  If the file has its \"Apply to All Maps\" property enabled, the palette setting in the first map is copied to all maps in the file.  Note: This modifies the palette settings for the file in the scene (data file is NOT modified).\n\n\"-copy-map-one-palette\" will copy the palette settings from the first map to all other maps in a data file.  This option is typically used when the number of maps in a data file changes.  It changes the palette settings in the scene that are applied to the data file when the scene is loaded (the data file is not modified).  The name of the data file specified on the command line is matched to the end of file names in the scene.  This allows matching multiple files if their names end with the same characters.  It also allows including a relative path when there is more than one file with the same name but in different paths and only one of the files to be updated.\n\n\"-remove-missing-files\" Any files that fail to load when the scene is read will be removed from the scene.  Thus, if one deletes files prior to running with this option, the deleted files are removed from the scene.  \n\n\"-error\" If this option is provided and there is an error while performing any of the scene operations, the command will immediately cease processing and the output scene file will not be created.   Otherwise any errors will be listed after the command finishes.\n",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "input_scene_file",

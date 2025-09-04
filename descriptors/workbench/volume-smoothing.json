@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "volume-smoothing",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -volume-smoothing [VOLUME_IN] [KERNEL] [VOLUME_OUT] [OPT_FWHM] [OPT_ROI_ROIVOL] [OPT_FIX_ZEROS] [OPT_SUBVOLUME_SUBVOL]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Smooth a volume file.\n\nGaussian smoothing for volumes.  By default, smooths all subvolumes with no ROI, if ROI is given, only positive voxels in the ROI volume have their values used, and all other voxels are set to zero.  Smoothing a non-orthogonal volume will be significantly slower, because the operation cannot be separated into 1-dimensional smoothings without distorting the kernel shape.\n\nThe -fix-zeros option causes the smoothing to not use an input value if it is zero, but still write a smoothed value to the voxel.  This is useful for zeros that indicate lack of information, preventing them from pulling down the intensity of nearby voxels, while giving the zero an extrapolated value.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "volume_in",

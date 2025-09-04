@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "metric-convert",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -metric-convert [TO_NIFTI] [FROM_NIFTI]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Convert metric file to fake nifti.\n\nThe purpose of this command is to convert between metric files and nifti1 so that gifti-unaware programs can operate on the data.  You must specify exactly one of the options.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "to_nifti",

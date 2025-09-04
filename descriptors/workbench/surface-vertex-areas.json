@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "surface-vertex-areas",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -surface-vertex-areas [SURFACE] [METRIC]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Measure surface area each vertex is responsible for.\n\nEach vertex gets one third of the area of each triangle it is a part of.  Units are mm^2.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "surface",

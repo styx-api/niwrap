@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "border-resample",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -border-resample [BORDER_IN] [CURRENT_SPHERE] [NEW_SPHERE] [BORDER_OUT]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Resample a border file to a different mesh.\n\nResamples a border file, given two spherical surfaces that are in register.  Only borders that have the same structure as current-sphere will be resampled.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "border_in",

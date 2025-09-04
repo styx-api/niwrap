@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "surface-apply-warpfield",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -surface-apply-warpfield [IN_SURF] [WARPFIELD] [OUT_SURF] [OPT_FNIRT_FORWARD_WARP]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Apply warpfield to surface file.\n\nNOTE: warping a surface requires the INVERSE of the warpfield used to warp the volume it lines up with.  The header of the forward warp is needed by the -fnirt option in order to correctly interpret the displacements in the fnirt warpfield.\n\nIf the -fnirt option is not present, the warpfield must be a nifti 'world' warpfield, which can be obtained with the -convert-warpfield command.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "in_surf",

@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "foci-list-coords",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -foci-list-coords [FOCI_FILE] [COORD_FILE_OUT] [OPT_NAMES_OUT_NAMES_FILE_OUT]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Output foci coordinates in a text file.\n\nOutput the coordinates for every focus in the foci file, and optionally the focus names in a second text file.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "foci_file",

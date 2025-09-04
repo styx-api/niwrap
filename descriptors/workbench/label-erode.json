@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "label-erode",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -label-erode [LABEL] [SURFACE] [ERODE_DIST] [LABEL_OUT] [OPT_ROI_ROI_METRIC] [OPT_COLUMN_COLUMN] [OPT_CORRECTED_AREAS_AREA_METRIC]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Erode a label file.\n\nAround each vertex that is unlabeled, set surrounding vertices to unlabeled.  The surrounding vertices are all immediate neighbors and all vertices within the specified distance.\n\nNote that the -corrected-areas option uses an approximate correction for distance along the surface.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "label",

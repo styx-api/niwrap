@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "volume-all-labels-to-rois",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -volume-all-labels-to-rois [LABEL_IN] [MAP] [VOLUME_OUT]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Make rois from all labels in a volume frame.\n\nThe output volume has a frame for each label in the specified input frame, other than the ??? label, each of which contains an ROI of all voxels that are set to the corresponding label.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "label_in",

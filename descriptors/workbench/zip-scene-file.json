@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "zip-scene-file",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -zip-scene-file [SCENE_FILE] [EXTRACT_FOLDER] [ZIP_FILE] [OPT_BASE_DIR_DIRECTORY] [OPT_SKIP_MISSING] [OPT_WRITE_SCENE_FILE]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Zip a scene file and its data files.\n\nIf zip-file already exists, it will be overwritten.  If -base-dir is not specified, the base directory will be automatically set to the lowest level directory containing all files.  The scene file must contain only relative paths, and no data files may be outside the base directory.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "scene_file",

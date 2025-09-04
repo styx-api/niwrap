@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "nifti-information",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -nifti-information [NIFTI_FILE] [PRINT_HEADER] [OPT_PRINT_MATRIX] [PRINT_XML]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Display information about a nifti/cifti file.\n\nYou must specify at least one -print-* option.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "nifti_file",

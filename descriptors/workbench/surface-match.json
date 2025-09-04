@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "surface-match",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -surface-match [MATCH_SURFACE_FILE] [INPUT_SURFACE_FILE] [OUTPUT_SURFACE_NAME]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Surface match.\n\nThe Input Surface File will be transformed so that its coordinate ranges (bounding box) match that of the Match Surface File",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "match_surface_file",

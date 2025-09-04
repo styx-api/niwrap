@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "metadata-remove-provenance",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -metadata-remove-provenance [INPUT_FILE] [OUTPUT_FILE]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Remove provenance information from file metadata.\n\nRemoves the provenance metadata fields added by workbench during processing.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "input_file",

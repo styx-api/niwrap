@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "cifti-find-clusters",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -cifti-find-clusters [CIFTI] [SURFACE_VALUE_THRESHOLD] [SURFACE_MINIMUM_AREA] [VOLUME_VALUE_THRESHOLD] [VOLUME_MINIMUM_SIZE] [DIRECTION] [CIFTI_OUT] [OPT_LESS_THAN] [LEFT_SURFACE] [RIGHT_SURFACE] [CEREBELLUM_SURFACE] [OPT_CIFTI_ROI_ROI_CIFTI] [OPT_MERGED_VOLUME] [SIZE_RATIO] [DISTANCE] [OPT_START_STARTVAL]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Filter clusters by area/volume.\n\nOutputs a cifti file with nonzero integers for all brainordinates within a large enough cluster, and zeros elsewhere.  The integers denote cluster membership (by default, first cluster found will use value 1, second cluster 2, etc).  Cluster values are not reused across maps of the output, but instead keep counting up.  The input cifti file must have a brain models mapping on the chosen dimension, columns for .dtseries, and either for .dconn.  The ROI should have a brain models mapping along columns, exactly matching the mapping of the chosen direction in the input file.  Data outside the ROI is ignored.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "cifti",

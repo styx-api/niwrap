@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "border-merge",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -border-merge [BORDER_FILE_OUT] [BORDER]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Merge border files into a new file.\n\nTakes one or more border files and makes a new border file from the borders in them.\n\nExample: wb_command -border-merge out.border -border first.border -select 1 -border second.border\n\nThis example would take the first border from first.border, followed by all borders from second.border, and write these to out.border.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "border_file_out",

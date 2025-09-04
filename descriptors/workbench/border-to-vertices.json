@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "border-to-vertices",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -border-to-vertices [SURFACE] [BORDER_FILE] [METRIC_OUT] [OPT_BORDER_NAME]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Draw borders as vertices in a metric file.\n\nOutputs a metric with 1s on vertices that follow a border, and 0s elsewhere.  By default, a separate metric column is created for each border.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "surface",

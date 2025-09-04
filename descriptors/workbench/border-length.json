@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "border-length",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -border-length [BORDER] [SURFACE] [OPT_CORRECTED_AREAS_AREA_METRIC] [OPT_SEPARATE_PIECES] [OPT_HIDE_BORDER_NAME]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Report length of borders.\n\nFor each border, print its length along the surface, in mm.  If a border has multiple parts, their lengths are summed before printing, unless -separate-pieces is specified.\n\nThe -corrected-areas option is intended for when the length is not meaningfully measurable on individual surfaces, it is only an approximate correction for the reduction in structure of a group average surface.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "border",

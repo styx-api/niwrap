@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "surface-geodesic-rois",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -surface-geodesic-rois [SURFACE] [LIMIT] [VERTEX_LIST_FILE] [METRIC_OUT] [OPT_GAUSSIAN_SIGMA] [OPT_OVERLAP_LOGIC_METHOD] [OPT_NAMES_NAME_LIST_FILE] [OPT_CORRECTED_AREAS_AREA_METRIC]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Draw geodesic limited rois at vertices.\n\nFor each vertex in the list file, a column in the output metric is created, and an ROI around that vertex is drawn in that column.  Each metric column will have zeros outside the geodesic distance spacified by <limit>, and by default will have a value of 1.0 inside it.  If the -gaussian option is specified, the values inside the ROI will instead form a gaussian with the specified value of sigma, normalized so that the sum of the nonzero values in the metric column is 1.0.  The <method> argument to -overlap-logic must be one of ALLOW, CLOSEST, or EXCLUDE.  ALLOW is the default, and means that ROIs are treated independently and may overlap.  CLOSEST means that ROIs may not overlap, and that no ROI contains vertices that are closer to a different seed vertex.  EXCLUDE means that ROIs may not overlap, and that any vertex within range of more than one ROI does not belong to any ROI.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "surface",

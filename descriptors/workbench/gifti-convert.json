@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "gifti-convert",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -gifti-convert [GIFTI_ENCODING] [INPUT_GIFTI_FILE] [OUTPUT_GIFTI_FILE]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Convert a gifti file to a different encoding.\n\nThe value of <gifti-encoding> must be one of the following:\n\nASCII\nBASE64_BINARY\nGZIP_BASE64_BINARY\nEXTERNAL_FILE_BINARY",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "gifti_encoding",

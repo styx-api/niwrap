@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "convert-matrix4-to-workbench-sparse",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -convert-matrix4-to-workbench-sparse [MATRIX4_1] [MATRIX4_2] [MATRIX4_3] [ORIENTATION_FILE] [VOXEL_LIST] [WB_SPARSE_OUT] [OPT_SURFACE_SEEDS_SEED_ROI] [VOLUME_SEEDS]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Convert a 3-file matrix4 to a workbench sparse file.\n\nConverts the matrix 4 output of probtrackx to workbench sparse file format.  Exactly one of -surface-seeds and -volume-seeds must be specified.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "matrix4_1",

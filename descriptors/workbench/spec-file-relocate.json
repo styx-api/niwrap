@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "spec-file-relocate",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -spec-file-relocate [INPUT_SPEC] [OUTPUT_SPEC]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Recreate spec file in new location.\n\nSpec files contain internal relative paths, such that moving or copying a spec file will cause it to lose track of the files it refers to.  This command makes a modified copy of the spec file, changing the relative paths to refer to the new relative locations of the files.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "input_spec",

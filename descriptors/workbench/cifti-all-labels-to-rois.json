@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "cifti-all-labels-to-rois",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -cifti-all-labels-to-rois [LABEL_IN] [MAP] [CIFTI_OUT]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Make rois from all labels in a cifti label map.\n\nThe output cifti file is a dscalar file with a column (map) for each label in the specified input map, other than the ??? label, each of which contains a binary ROI of all brainordinates that are set to the corresponding label.\n\nMost of the time, specifying '1' for the <map> argument will do what is desired.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "label_in",

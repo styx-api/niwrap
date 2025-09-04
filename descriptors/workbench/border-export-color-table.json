@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "border-export-color-table",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -border-export-color-table [BORDER_FILE] [TABLE_OUT] [OPT_CLASS_COLORS]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Write border names and colors as text.\n\nTakes the names and colors of each border, and writes it to the same format as -metric-label-import expects.  By default, the borders are colored by border name, specify -class-colors to color them by class instead.  The key values start at 1 and follow the order of the borders in the file.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "border_file",

@@ -2,9 +2,7 @@
   "name": "connectome2tck",
   "description": "Extract streamlines from a tractogram based on their assignment to parcellated nodes.\n\nThe compulsory input file \"assignments_in\" should contain a text file where there is one row for each streamline, and each row contains a list of numbers corresponding to the parcels to which that streamline was assigned (most typically there will be two entries per streamline, one for each endpoint; but this is not strictly a requirement). This file will most typically be generated using the tck2connectome command with the -out_assignments option.\n\nReferences:\n\n",
   "author": "MRTrix3 Developers",
-  "tool-version": "3.0.4",
-  "schema-version": "0.5",
-  "container-image": { "image": "mrtrix3/mrtrix3:3.0.4", "type": "docker" },
+  "schema-version": "0.5+styx",
   "command-line": "connectome2tck [OPTIONS_FOR_DETERMINING_THE_CONTENT___FORMAT_OF_OUTPUT_FILES_NODES] [OPTIONS_FOR_DETERMINING_THE_CONTENT___FORMAT_OF_OUTPUT_FILES_EXCLUSIVE] [OPTIONS_FOR_DETERMINING_THE_CONTENT___FORMAT_OF_OUTPUT_FILES_FILES] [OPTIONS_FOR_DETERMINING_THE_CONTENT___FORMAT_OF_OUTPUT_FILES_EXEMPLARS] [OPTIONS_FOR_DETERMINING_THE_CONTENT___FORMAT_OF_OUTPUT_FILES_KEEP_UNASSIGNED] [OPTIONS_FOR_DETERMINING_THE_CONTENT___FORMAT_OF_OUTPUT_FILES_KEEP_SELF] [OPTIONS_FOR_IMPORTING___EXPORTING_STREAMLINE_WEIGHTS_TCK_WEIGHTS_IN] [OPTIONS_FOR_IMPORTING___EXPORTING_STREAMLINE_WEIGHTS_PREFIX_TCK_WEIGHTS_OUT] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION] [TRACKS_IN] [ASSIGNMENTS_IN] [PREFIX_OUT]",
   "inputs": [
     {

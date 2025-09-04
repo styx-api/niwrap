@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "surface-normals",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -surface-normals [SURFACE] [METRIC_OUT]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Output vertex normals as metric file.\n\nComputes the normal vectors of the surface file, and outputs them as a 3 column metric file.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "surface",

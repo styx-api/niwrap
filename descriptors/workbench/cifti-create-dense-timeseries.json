@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "cifti-create-dense-timeseries",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -cifti-create-dense-timeseries [CIFTI_OUT] [VOLUME] [LEFT_METRIC] [RIGHT_METRIC] [CEREBELLUM_METRIC] [OPT_TIMESTEP_INTERVAL] [OPT_TIMESTART_START] [OPT_UNIT_UNIT]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Create a cifti dense timeseries.\n\nAll input files must have the same number of columns/subvolumes.  Only the specified components will be in the output cifti.  At least one component must be specified.\n\nSee -volume-label-import and -volume-help for format details of label volume files.  The structure-label-volume should have some of the label names from this list, all other label names will be ignored:\n\nCORTEX_LEFT\nCORTEX_RIGHT\nCEREBELLUM\nACCUMBENS_LEFT\nACCUMBENS_RIGHT\nALL_GREY_MATTER\nALL_WHITE_MATTER\nAMYGDALA_LEFT\nAMYGDALA_RIGHT\nBRAIN_STEM\nCAUDATE_LEFT\nCAUDATE_RIGHT\nCEREBELLAR_WHITE_MATTER_LEFT\nCEREBELLAR_WHITE_MATTER_RIGHT\nCEREBELLUM_LEFT\nCEREBELLUM_RIGHT\nCEREBRAL_WHITE_MATTER_LEFT\nCEREBRAL_WHITE_MATTER_RIGHT\nCORTEX\nDIENCEPHALON_VENTRAL_LEFT\nDIENCEPHALON_VENTRAL_RIGHT\nHIPPOCAMPUS_LEFT\nHIPPOCAMPUS_RIGHT\nINVALID\nOTHER\nOTHER_GREY_MATTER\nOTHER_WHITE_MATTER\nPALLIDUM_LEFT\nPALLIDUM_RIGHT\nPUTAMEN_LEFT\nPUTAMEN_RIGHT\nTHALAMUS_LEFT\nTHALAMUS_RIGHT\n\nThe -unit option accepts these values:\n\nSECOND\nHERTZ\nMETER\nRADIAN",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "cifti_out",

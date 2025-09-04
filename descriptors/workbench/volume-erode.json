@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "volume-erode",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -volume-erode [VOLUME] [DISTANCE] [VOLUME_OUT] [OPT_ROI_ROI_VOLUME] [OPT_SUBVOLUME_SUBVOL]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Erode a volume file.\n\nAround each voxel with a value of zero, set surrounding voxels to zero.  The surrounding voxels are all face neighbors and all voxels within the specified distance (center to center).",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "volume",

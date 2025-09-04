@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "label-to-volume-mapping",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -label-to-volume-mapping [LABEL] [SURFACE] [VOLUME_SPACE] [VOLUME_OUT] [OPT_NEAREST_VERTEX_DISTANCE] [RIBBON_CONSTRAINED]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Map label file to volume.\n\nMaps labels from a gifti label file into a volume file.  You must specify exactly one mapping method option.  The -nearest-vertex method uses the label from the vertex closest to the voxel center.  The -ribbon-constrained method uses the same method as in -volume-to-surface-mapping, then uses the weights in reverse, with popularity logic to decide on a label to use.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "label",

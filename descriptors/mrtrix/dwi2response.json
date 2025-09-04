@@ -2,9 +2,7 @@
   "name": "dwi2response",
   "description": "Estimate response function(s) for spherical deconvolution.\ndwi2response offers different algorithms for performing various types of response function estimation. The name of the algorithm must appear as the first argument on the command-line after \u00e2\u20ac\u02dcdwi2response\u00e2\u20ac\u2122. The subsequent arguments and options depend on the particular algorithm being invoked.\nEach algorithm available has its own help page, including necessary references; e.g. to see the help page of the 'fa' algorithm, type 'dwi2response fa'.",
   "author": "MRTrix3 Developers",
-  "tool-version": "3.0.4",
-  "schema-version": "0.5",
-  "container-image": { "image": "mrtrix3/mrtrix3:3.0.4", "type": "docker" },
+  "schema-version": "0.5+styx",
   "command-line": "dwi2response [ALGORITHM] [OPTIONS_GRAD] [OPTIONS_FSLGRAD] [OPTIONS_MASK] [OPTIONS_VOXELS] [OPTIONS_SHELLS] [OPTIONS_LMAX] [OPTIONS_NOCLEANUP] [OPTIONS_SCRATCH] [OPTIONS_CONTINUE] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION]",
   "inputs": [
     {

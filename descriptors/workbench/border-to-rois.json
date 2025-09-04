@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "border-to-rois",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -border-to-rois [SURFACE] [BORDER_FILE] [METRIC_OUT] [OPT_BORDER_NAME] [OPT_INVERSE] [OPT_INCLUDE_BORDER]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Make metric rois from borders.\n\nBy default, draws ROIs inside all borders in the border file, as separate metric columns.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "surface",

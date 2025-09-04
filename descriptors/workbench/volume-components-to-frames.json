@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "volume-components-to-frames",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -volume-components-to-frames [INPUT] [OUTPUT]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Convert rgb/complex volume to frames.\n\nRGB and complex datatypes are not always well supported, this command allows separating them into standard subvolumes for better support.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "input",

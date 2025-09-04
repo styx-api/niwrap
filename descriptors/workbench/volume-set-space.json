@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "volume-set-space",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -volume-set-space [VOLUME_IN] [VOLUME_OUT] [PLUMB] [SFORM] [FILE]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Change volume space information.\n\nWrites a copy of the volume file, with the spacing information changed as specified.  No reordering of the voxel data occurs, see -volume-reorient to change the volume indexing order and reorder the voxels to match.  Exactly one of -plumb, -sform, or -file must be specified.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "volume_in",

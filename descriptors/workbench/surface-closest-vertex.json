@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "surface-closest-vertex",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -surface-closest-vertex [SURFACE] [COORD_LIST_FILE] [VERTEX_LIST_OUT]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Find closest surface vertex to coordinates.\n\nFor each coordinate XYZ triple, find the closest vertex in the surface, and output its vertex number into a text file.  The input file should only use whitespace to separate coordinates (spaces, newlines, tabs), for instance:\n\n20 30 25\n30 -20 10",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "surface",

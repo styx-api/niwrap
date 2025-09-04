@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "zip-spec-file",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -zip-spec-file [SPEC_FILE] [EXTRACT_FOLDER] [ZIP_FILE] [OPT_BASE_DIR_DIRECTORY] [OPT_SKIP_MISSING]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Zip a spec file and its data files.\n\nIf zip-file already exists, it will be overwritten.  If -base-dir is not specified, the directory containing the spec file is used for the base directory.  The spec file must contain only relative paths, and no data files may be outside the base directory.  Scene files inside spec files are not checked for what files they reference, ensure that all data files referenced by the scene files are also referenced by the spec file.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "spec_file",

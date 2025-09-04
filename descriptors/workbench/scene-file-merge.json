@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "scene-file-merge",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -scene-file-merge [SCENE_FILE_OUT] [SCENE_FILE]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Rearrange scenes into a new file.\n\nTakes one or more scene files and constructs a new scene file by concatenating specified scenes from them.\n\nExample: wb_command -scene-file-merge out.scene -scene-file first.scene -scene 1 -scene-file second.scene\n\nThis example would take the first scene from first.scene, followed by all scenes from second.scene, and write these scenes to out.scene.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "scene_file_out",

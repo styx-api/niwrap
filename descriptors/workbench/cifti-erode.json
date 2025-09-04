@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "cifti-erode",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -cifti-erode [CIFTI_IN] [DIRECTION] [SURFACE_DISTANCE] [VOLUME_DISTANCE] [CIFTI_OUT] [LEFT_SURFACE] [RIGHT_SURFACE] [CEREBELLUM_SURFACE] [OPT_MERGED_VOLUME]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Erode a cifti file.\n\nFor all data values that are empty (for label data, unlabeled, for other data, zero), set the surrounding values to empty.  The surrounding values are defined as the immediate neighbors and all values in the same structure within the specified distance (-merged-volume treats all voxels as one structure).\n\nThe -*-corrected-areas options are intended for eroding on group average surfaces, but it is only an approximate correction.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "cifti_in",

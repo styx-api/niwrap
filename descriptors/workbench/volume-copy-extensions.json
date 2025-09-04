@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "volume-copy-extensions",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -volume-copy-extensions [DATA_VOLUME] [EXTENSION_VOLUME] [VOLUME_OUT] [OPT_DROP_UNKNOWN]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Copy extended data to another volume file.\n\nThis command copies the information in a volume file that isn't a critical part of the standard header or data matrix, e.g. map names, palette settings, label tables.  If -drop-unknown is not specified, it also copies similar kinds of information set by other software.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "data_volume",

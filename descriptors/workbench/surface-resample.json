@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "surface-resample",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -surface-resample [SURFACE_IN] [CURRENT_SPHERE] [NEW_SPHERE] [METHOD] [SURFACE_OUT] [AREA_SURFS] [AREA_METRICS] [OPT_BYPASS_SPHERE_CHECK]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Resample a surface to a different mesh.\n\nResamples a surface file, given two spherical surfaces that are in register.  If ADAP_BARY_AREA is used, exactly one of -area-surfs or -area-metrics must be specified.  This method is not generally recommended for surface resampling, but is provided for completeness.\n\nThe BARYCENTRIC method is generally recommended for anatomical surfaces, in order to minimize smoothing.\n\nFor cut surfaces (including flatmaps), use -surface-cut-resample.\n\nInstead of resampling a spherical surface, the -surface-sphere-project-unproject command is recommended.\n\nThe <method> argument must be one of the following:\n\nADAP_BARY_AREA\nBARYCENTRIC\n",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "surface_in",

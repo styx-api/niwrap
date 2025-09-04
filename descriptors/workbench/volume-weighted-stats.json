@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "volume-weighted-stats",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -volume-weighted-stats [VOLUME_IN] [WEIGHT_VOLUME] [OPT_SUBVOLUME_SUBVOLUME] [ROI] [OPT_MEAN] [STDEV] [OPT_PERCENTILE_PERCENT] [OPT_SUM] [OPT_SHOW_MAP_NAME]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Weighted spatial statistics on a volume file.\n\nFor each subvolume of the input, a line of text is printed, resulting from the specified operation.  If -weight-volume is not specified, each voxel's volume is used.  Use -subvolume to only give output for a single subvolume.  If the -roi option is used without -match-maps, then each line will contain as many numbers as there are maps in the ROI file, separated by tab characters.  Exactly one of -mean, -stdev, -percentile or -sum must be specified.\n\nUsing -sum without -weight-volume is equivalent to integrating with respect to volume.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "volume_in",

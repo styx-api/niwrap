@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "volume-capture-plane",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -volume-capture-plane [VOLUME] [SUBVOLUME] [INTERP] [H_DIM] [V_DIM] [SCALE_MIN] [SCALE_MAX] [BOTTOM_LEFT_X] [BOTTOM_LEFT_Y] [BOTTOM_LEFT_Z] [BOTTOM_RIGHT_X] [BOTTOM_RIGHT_Y] [BOTTOM_RIGHT_Z] [TOP_LEFT_X] [TOP_LEFT_Y] [TOP_LEFT_Z] [IMAGE]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Interpolate image from plane through volume.\n\nNOTE: If you want to generate an image with all of the capabilities of the GUI rendering, see -show-scene.\n\nRenders an image of an arbitrary plane through the volume file, with a simple linear grayscale palette.  The parameter <interp> must be one of:\n\nCUBIC\nENCLOSING_VOXEL\nTRILINEAR",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "volume",

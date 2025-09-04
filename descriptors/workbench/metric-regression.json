@@ -1,14 +1,9 @@
 {
-  "tool-version": "1.5.0",
   "name": "metric-regression",
   "author": "Connectome Workbench Developers",
   "command-line": "wb_command -metric-regression [METRIC_IN] [METRIC_OUT] [OPT_ROI_ROI_METRIC] [OPT_COLUMN_COLUMN] [REMOVE] [KEEP]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/connectome_workbench:1.5.0-freesurfer-update"
-  },
   "description": "Regress spatial map out of a metric file.\n\nFor each regressor, its mean across the surface is subtracted from its data.  Each input map is then regressed against these, and a constant term.  The resulting regressed slopes of all regressors specified with -remove are multiplied with their respective regressor maps, and these are subtracted from the input map.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "metric_in",
