@@ -1,6 +1,5 @@
 {
   "name": "trk_tools",
-  "tool-version": "7.4.1",
   "description": "Tool for processing TRK files",
   "command-line": "trk_tools [REFERENCE_IMAGE] [INPUT_TRK] [OUTPUT_TRK] [OUTPUT_IMAGE] [UPDATE_HEADER] [OUTPUT_VTK]",
   "inputs": [
@@ -78,11 +77,7 @@
       "path-template": "[OUTPUT_VTK]"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

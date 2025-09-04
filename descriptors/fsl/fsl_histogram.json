@@ -1,5 +1,4 @@
 {
-  "tool-version": "6.0.4",
   "name": "fsl_histogram",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Histogram plotting tool for FSL",
@@ -230,7 +229,7 @@
       "name": "Use Gaussian Mixture Model"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_FILE_DUPLICATE]",
@@ -239,9 +238,5 @@
       "name": "PNG Output File"
     }
   ],
-  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  }
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
 }

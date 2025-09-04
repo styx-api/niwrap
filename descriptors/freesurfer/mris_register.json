@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_register",
   "author": "FreeSurfer Developers",
   "description": "This program registers a surface to an average surface template.",
   "command-line": "mris_register [SURF_FNAME] [TARGET] [OUT_FNAME] [ONE_FLAG] [ADDFRAME] [ANNOT_NAME] [CURVATURE_FNAME] [CANONICAL_NAME] [INFLATED] [INFLATED_NAME] [LABEL_FILE] [ORIG_NAME] [OVERLAY_VALUES] [OVERLAY_DIR] [STARTING_REG_FNAME] [JACOBIAN_FNAME] [N_AVERAGES] [ADAPTIVE] [L_AREA] [L_CORR] [CURVATURE_FLAG] [L_DIST] [DT_VALUE] [DT_DECREASE] [DT_INCREASE] [L_EXTERNAL] [ERROR_RATIO] [INITIAL_FLAG] [L_LAPLACIAN] [LINE_MIN] [MOMENTUM] [MAX_DEGREES] [MEDIAN] [MIN_DEGREES] [MULTI_SCALE] [N_ITERATIONS] [N_ANGLES] [NEIGHBORHOOD_SIZE] [L_NLAREA] [NO_CURV] [NO_NORMALIZATION] [NO_ROTATION] [NO_SULC] [NUM_SURFACES] [OVERLAY_CORR] [MAX_PASSES] [L_PAREA] [REMOVE_NEGATIVE] [REVERSE] [ROTATE_VALUES] [REGISTRATION_FILE] [SCALE] [SEARCH_FLAG] [SPRING_VALUE] [TOLERANCE] [TOPOLOGY_FLAG] [VNUM] [VSMOOTH] [WRITE_ITERATIONS] [GDIAG_NO] [VECTOR_FLAG] [THREADS] [VERSION_FLAG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Surface to register, often {hemi}.sphere",
@@ -568,9 +567,5 @@
       "name": "Jacobian output file"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

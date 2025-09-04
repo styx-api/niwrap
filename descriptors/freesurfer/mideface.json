@@ -2,7 +2,7 @@
   "name": "mideface",
   "command-line": "mideface [INPUT_VOLUME] [OUTPUT_VOLUME] [FACEMASK] [OUTPUT_DIR] [EXCLUSION_MASK] [SAMSEG_NDILATIONS] [SAMSEG_JSON] [SAMSEG_FAST] [NO_SAMSEG_FAST] [INIT_REG] [SYNTHSEG_NDILATIONS] [FILL_CONST] [FILL_ZERO] [FHI] [NO_EARS] [BACK_OF_HEAD] [FOREHEAD] [PICS] [CODE] [IMAGE_CONVERT] [NO_POST] [THREADS] [FORCE] [OUTPUT_FORMAT] [ATLAS] [EXPERT] [DISPLAY_NO] [APPLY_VOLUME] [CHECK_VOLUME] [CHECK_OUTPUT_FILE]",
   "description": "Minimally invasive defacing tool",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "input_volume",
@@ -284,10 +284,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

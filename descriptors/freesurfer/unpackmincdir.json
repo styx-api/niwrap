@@ -1,9 +1,8 @@
 {
-  "tool-version": "7.4.1",
   "name": "unpackmincdir",
   "description": "Tool for unpacking directories with MINC files.",
   "command-line": "unpackmincdir [SOURCE_DIRECTORY] [TARGET_DIRECTORY] [SCAN_SEQUENCE_INFO] [FUNCTIONAL_SEQUENCE] [FUNCTIONAL_SUBDIRECTORY] [MINC_ONLY] [NO_COPY] [UMASK]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-src",
@@ -77,9 +76,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

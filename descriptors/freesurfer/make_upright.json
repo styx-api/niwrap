@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "make_upright",
   "author": "FreeSurfer Developers",
   "description": "Registers MRI input to the left/right reversed version using mri_robust_register and making use of the half-way space, resulting in an upright, forward facing head position",
   "command-line": "make_upright [INPUT_IMAGE] [OUTPUT_IMAGE] [TRANSFORMATION_MAP]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input MRI image file in .mgz format",
@@ -39,9 +38,5 @@
       "name": "Registered Upright MRI Image"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

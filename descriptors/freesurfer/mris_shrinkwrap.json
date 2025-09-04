@@ -2,7 +2,7 @@
   "name": "mris_shrinkwrap",
   "description": "Generate shrink-wrapped tessellations of the input volume",
   "command-line": "mris_shrinkwrap [VOLUME] [OUTPUT_NAME] [THRESHOLD]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "volume",
@@ -51,10 +51,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

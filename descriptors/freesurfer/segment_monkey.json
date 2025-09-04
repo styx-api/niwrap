@@ -1,7 +1,7 @@
 {
   "name": "segment_monkey",
   "command-line": "segment_monkey [CONTROL_POINTS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "List of control points required for segmentation",
@@ -16,10 +16,5 @@
   ],
   "description": "A tool for segmenting images using specified control points",
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "tool-version": "7.4.1",
   "url": "https://github.com/freesurfer/freesurfer"
 }

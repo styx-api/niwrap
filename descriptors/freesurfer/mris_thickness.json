@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_thickness",
   "author": "FreeSurfer Developers",
   "description": "Measures the thickness of the cortical surface.",
   "command-line": "mris_thickness [SUBJECT_NAME] [HEMI] [THICKNESS_FILE] [MAX_THRESHOLD] [FILL_HOLES] [THICKNESS_FROM_SEG] [VECTOR]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "The subject name for processing.",

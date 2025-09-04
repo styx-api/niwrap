@@ -2,12 +2,7 @@
   "name": "unpacksdcmdir",
   "description": "A tool for unpacking SD card directories, typically used in neuroimaging workflows. It seems to have a dependency on Tcl, as indicated by the error messages.",
   "command-line": "unpacksdcmdir [INPUT_DIRECTORY] [OUTPUT_DIRECTORY]",
-  "tool-version": "7.4.1",
-  "schema-version": "0.5",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "The directory containing SD card data to be unpacked.",

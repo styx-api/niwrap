@@ -2,7 +2,7 @@
   "name": "run_segmentSubjectT2_autoEstimateAlveusML.sh",
   "description": "Script to run segmentSubjectT2_autoEstimateAlveusML operation. This script requires a MATLAB Compiler Runtime (MCR) root directory as input, but help output indicates missing library reference for operation.",
   "command-line": "run_segmentSubjectT2_autoEstimateAlveusML.sh [DEPLOYED_MCR_ROOT] [ARGUMENTS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Path to the deployed MATLAB Compiler Runtime (MCR) root directory.",
@@ -22,11 +22,6 @@
       "list": true
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
   "url": "https://github.com/freesurfer/freesurfer"
 }

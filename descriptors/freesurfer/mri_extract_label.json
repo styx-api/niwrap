@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_extract_label",
   "author": "FreeSurfer Developers",
   "description": "Extracts a set of labeled voxels from an image.",
   "command-line": "mri_extract_label [INPUT_VOLUME] [LABELS] [OUTPUT_NAME] [GAUSSIAN_SMOOTHING] [TRANSFORM_FILE] [EXIT_NONE_FOUND] [DILATE] [ERODE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input volume from which to extract labels.",
@@ -84,9 +83,5 @@
       "name": "Output Volume"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "img2stdcoord",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Transforms image coordinates using standard space transformations.",
   "command-line": "img2stdcoord [COORDINATE_FILE] [INPUT_IMAGE] [STANDARD_IMAGE] [AFFINE_TRANSFORM] [WARP_FIELD] [PREWARP_AFFINE_TRANSFORM] [VOXEL_FLAG] [MM_FLAG] [VERBOSE_FLAG_1] [VERBOSE_FLAG_2] [HELP_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Filename containing coordinates. If '-' is used, coordinates are read from standard input.",
@@ -103,6 +98,6 @@
       "name": "Help Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
 }

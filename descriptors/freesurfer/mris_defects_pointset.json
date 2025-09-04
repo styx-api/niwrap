@@ -2,7 +2,7 @@
   "name": "mris_defects_pointset",
   "description": "Produces a pointset file containing the locations of each topological defect in a surface",
   "command-line": "mris_defects_pointset [SURFACE] [DEFECTS] [OUT] [LABEL] [CONTROL]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--surf",
@@ -58,10 +58,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

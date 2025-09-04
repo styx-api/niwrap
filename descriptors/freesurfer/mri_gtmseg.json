@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_gtmseg",
   "author": "FreeSurfer Developers",
   "description": "Creates a segmentation that can be used with the geometric transfer matrix (GTM).",
   "command-line": "mri_gtmseg [OUTPUT_VOLUME] [SOURCE_SUBJECT] [INTERNAL_USF] [APAS_FILE] [CONTEXT_ANNOTATION] [SUBSEG_WM] [WM_ANNOTATION] [DMAX] [KEEP_HYPO] [KEEP_CC] [CTAB] [LHMINMAX] [RHMINMAX] [OUTPUT_USF] [THREADS] [THREADS_MAX] [THREADS_MAX_1] [DEBUG] [CHECK_OPTS]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--o",

@@ -2,7 +2,7 @@
   "name": "mkxsubjreg",
   "description": "Creates a new registration matrix that maps from the functional volume of the source subject to the orig of the target subject through the talairach transform.",
   "command-line": "mkxsubjreg [SRCREG] [TARGREG] [TARGSUBJ] [XFM] [SD] [FVOL] [HELP] [VERSION]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "srcreg",
@@ -76,10 +76,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

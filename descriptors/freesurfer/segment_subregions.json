@@ -2,7 +2,7 @@
   "name": "segment_subregions",
   "description": "Cross-sectional and longitudinal segmentation for brain structures like thalamus, brainstem, and hippo-amygdala.",
   "command-line": "segment_subregions [STRUCTURE] [CROSS] [LONG_BASE] [SD] [SUFFIX] [TEMP_DIR] [OUT_DIR] [DEBUG] [THREADS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "structure",
@@ -85,10 +85,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "fsl_schurprod",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Generates element-wise matrix products or product of matrices against vectors from 4D data",
   "command-line": "fsl_schurprod [INPUT_FILE] [DESIGN_FILE] [OUTPUT_FILE] [REGRESSION_FLAG] [INDEX] [MASK_FILE] [VERBOSE_FLAG] [HELP_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input file name (4D image file)",
@@ -79,7 +74,7 @@
       "name": "Help flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_FILE].nii.gz",

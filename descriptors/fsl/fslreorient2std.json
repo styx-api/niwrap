@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "fslreorient2std",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "A tool for reorienting an image to match the approximate orientation of standard template images (MNI152).",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "fslreorient2std [INPUT_IMAGE] [OUTPUT_IMAGE] [MATRIX_FILE]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input image to be reoriented (NIfTI format, e.g. img.nii.gz)",
@@ -36,7 +31,7 @@
       "name": "Matrix file"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_IMAGE].nii.gz",

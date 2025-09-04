@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "fsl_reg",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Image registration using FSL tools",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "fsl_reg [INPUT_FILE] [REFERENCE_FILE] [OUTPUT_FILE] [ESTIMATE_ONLY_FLAG] [AFFINE_ONLY_FLAG] [FNIRT_FA_CONFIG_FLAG] [FLIRT_OPTIONS] [FNIRT_OPTIONS]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input image file",
@@ -77,7 +72,7 @@
       "name": "FNIRT options"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_FILE]",

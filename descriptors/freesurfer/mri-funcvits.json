@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri-funcvits",
   "author": "FreeSurfer Developers",
   "description": "Tool for functional volume to surface conversion in neuroimaging analysis",
   "command-line": "mri-funcvits [STEM] [OUTDIR] [REG] [PAINTSURF] [SPHERE] [ICOSIZE] [HEMI] [SVITDIR] [ICODIR] [UMASK] [MAIL] [NOFORCE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--stem",
@@ -116,9 +115,5 @@
       "name": "No Force Flag"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

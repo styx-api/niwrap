@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_make_uchar",
   "author": "FreeSurfer Developers",
   "description": "Tool to adjust intensity of brain MRI images using a Talairach transformation.",
   "command-line": "mri_make_uchar [INPUT_VOLUME] [TALAIRACH_XFORM] [OUTPUT_VOLUME] [FIRST_PERCENTILE] [WM_PERCENTILE] [MAX_RADIUS] [CUMULATIVE_HISTO] [VRADVOL]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input volume file.",
@@ -84,9 +83,5 @@
       "name": "Output Volume File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

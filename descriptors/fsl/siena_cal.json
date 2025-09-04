@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "siena_cal",
   "description": "SIENA is part of FSL (FMRIB Software Library), which performs a two-timepoint brain volume change analysis.",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "siena_cal [INPUT1_FILE] [INPUT2_FILE] [SCALE] [SIENA_DIFF_OPTIONS]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "First input image file root (e.g., baseline image root).",
@@ -43,7 +38,7 @@
       "name": "SIENA Difference Options"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[INPUT1_FILE]_to_[INPUT2_FILE]_siena",

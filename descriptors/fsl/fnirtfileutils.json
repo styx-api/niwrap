@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "fnirtfileutils",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "FNIRT file utilities for FSL - Converts FNIRT warp field coefficients to other formats",
   "command-line": "fnirtfileutils [INPUT_COEFS] [REF_VOLUME] [OUT_FIELD] [OUTPUT_FORMAT] [WARP_RES] [KNOT_SPACE] [JACOBIAN_OUTPUT] [JACOBIAN_MATRIX_OUTPUT] [WITH_AFF] [VERBOSE_FLAG] [HELP_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "command-line-flag": "--in",
@@ -108,7 +103,7 @@
       "name": "Help Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUT_FIELD].nii.gz",

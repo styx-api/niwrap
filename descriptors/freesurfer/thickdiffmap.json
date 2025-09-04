@@ -2,7 +2,7 @@
   "name": "thickdiffmap",
   "description": "Compute and analyze cortical thickness difference maps",
   "command-line": "thickdiffmap [SUBJSCAN1] [SUBJSCAN2] [COMMONSUBJ] [HEMI] [STEPS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "First scan of a subject",
@@ -47,10 +47,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

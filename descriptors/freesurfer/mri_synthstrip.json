@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_synthstrip",
   "author": "FreeSurfer Developers",
   "description": "Robust, universal skull-stripping for brain images of any type.",
   "command-line": "mri_synthstrip [IMAGE] [[OUTPUT_IMAGE]] [[MASK]] [[GPU]] [[BORDER]] [[EXCLUDE_CSF]] [[MODEL_WEIGHTS]]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-i",
@@ -82,9 +81,5 @@
       "name": "Output mask file"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

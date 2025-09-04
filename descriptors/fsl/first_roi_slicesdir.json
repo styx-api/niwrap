@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "first_roi_slicesdir",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "A utility for generating slice directories for FIRST-ROI.",
   "command-line": "first_roi_slicesdir [INPUT_T1_IMAGES] [INPUT_LABEL_IMAGES]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input T1-weighted images of the brain (pattern-matched); for example, *_t1.nii.gz",
@@ -26,7 +21,7 @@
       "name": "Input label images"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[INPUT_T1_IMAGES]_slicesdir",

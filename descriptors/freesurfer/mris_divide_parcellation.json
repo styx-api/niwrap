@@ -2,7 +2,7 @@
   "name": "mris_divide_parcellation",
   "description": "Divides one or more parcellations into divisions perpendicular to the long axis of the label.",
   "command-line": "mris_divide_parcellation [SUBJECT] [HEMI] [SOURCEANNOT] [SPLITFILE_OR_AREATHRESH] [OUTANNOT] [SCALE] [LABEL_NAME]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "subject",
@@ -72,10 +72,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

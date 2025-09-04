@@ -1,6 +1,5 @@
 {
   "name": "fsl_ents",
-  "tool-version": "6.0.4",
   "description": "Extract component time series from a MELODIC .ica directory",
   "command-line": "fsl_ents [ICADIR] [COMPONENTS] [OUTFILE] [OVERWRITE] [CONFFILE]",
   "inputs": [
@@ -49,7 +48,7 @@
       "list": true
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "id": "out_time_series",
@@ -58,10 +57,6 @@
       "description": "File to save time series to"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "author": "FMRIB Analysis Group, University of Oxford",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
 }

@@ -2,7 +2,7 @@
   "name": "mri_normalize_tp2",
   "command-line": "mri_normalize_tp2 [INPUT_VOL] [NORMALIZED_VOL] [T1_VOLUME] [MASK1] [MASK2] [THRESHOLD] [CTRL] [XFORM] [INVERT_FLAG] [LTA_SRC] [LTA_DST]",
   "description": "Normalize the input volume using control points of tp1 to help normalize tp2.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "input_vol",
@@ -110,10 +110,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

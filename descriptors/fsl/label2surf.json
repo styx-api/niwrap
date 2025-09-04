@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "label2surf",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Transform a group of labels into a surface",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "label2surf [INPUT_SURFACE] [OUTPUT_SURFACE] [LABELS] [VERBOSE_FLAG] [HELP_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "command-line-flag": "--surf",
@@ -54,7 +49,7 @@
       "name": "Help Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_SURFACE]",

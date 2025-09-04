@@ -1,10 +1,9 @@
 {
   "name": "mri_synthmorph",
-  "tool-version": "7.4.1",
   "command-line": "mri_synthmorph [MOVING_IMAGE] [FIXED_IMAGE] [MOVED_OUTPUT] [TRANSFORM_OUTPUT] [HEADER_ONLY] [TRANSFORMATION_MODEL] [INIT_TRANSFORM] [THREADS] [GPU_FLAG] [SMOOTH] [EXTENT] [MODEL_WEIGHTS] [INSPECT_DIRECTORY]",
   "description": "SynthMorph is a deep-learning tool for brain-specific MRI image registration without preprocessing.",
   "author": "FreeSurfer Developers",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "moving_image",
@@ -136,9 +135,5 @@
       "description": "Transform file resulting from registration."
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

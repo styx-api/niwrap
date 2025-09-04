@@ -1,7 +1,7 @@
 {
   "name": "mri_topologycorrection",
   "command-line": "mri_topologycorrection [INPUT_ORIG_FILE] [INPUT_SEGMENTED_FILE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "description": "Corrects the topology of segmented MRI images.",
   "inputs": [
     {
@@ -30,10 +30,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

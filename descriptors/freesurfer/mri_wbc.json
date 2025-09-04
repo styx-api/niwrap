@@ -1,9 +1,8 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_wbc",
   "description": "A tool for working with functional brain imaging data on surfaces and volumes.",
   "command-line": "mri_wbc [FUNCTIONAL_VOLUME] [VOLUME_MASK] [LH_FUNCTIONAL_SURFACE] [LH_SURFACE] [LH_INFLATED] [LH_MASK] [LH_LABEL] [RH_FUNCTIONAL_SURFACE] [RH_SURFACE] [RH_INFLATED] [RH_MASK] [RH_LABEL] [RHO_THRESHOLD] [DIST_THRESHOLD] [THREADS] [DEBUG] [CHECKOPTS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--fvol",
@@ -158,9 +157,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

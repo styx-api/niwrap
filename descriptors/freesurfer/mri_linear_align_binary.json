@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_linear_align_binary",
   "author": "FreeSurfer Developers",
   "description": "A tool for linear alignment of MRI images",
   "command-line": "mri_linear_align_binary [SOURCE] [TARGET] [OUTPUT_XFORM] [TARGET_LABEL]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Source image file",
@@ -48,9 +47,5 @@
       "name": "Output Transformation"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

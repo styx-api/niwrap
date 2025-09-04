@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "atlasquery",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Structural lookup tool for FSL atlases.",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "atlasquery [DUMPATLASES_FLAG] [ATLAS] [COORD] [MASK] [VERBOSE_FLAG] [HELP_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "command-line-flag": "--dumpatlases",
@@ -62,5 +57,5 @@
       "name": "Help flag"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

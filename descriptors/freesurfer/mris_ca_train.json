@@ -1,6 +1,5 @@
 {
   "name": "mris_ca_train",
-  "tool-version": "7.4.1",
   "description": "Creates a cortical parcellation atlas file based on one or more annotated subjects using probabilistic information.",
   "command-line": "mris_ca_train [HEMI] [CANONSURF] [ANNOT_FILE] [SUBJECTS] [OUTPUT_FILE] [SDIR] [NBRS] [ORIG] [NORM1] [NORM2] [NORM3] [IC] [SULC] [SULCONLY] [A] [PARCELLATION_TABLE] [N] [VERBOSE] [DEBUG_VERTEX] [GCS_MEANS] [GCS_PRIORS] [GCS_DIFF] [NFILL] [NO_FILL] [HELP] [VERSION]",
   "inputs": [
@@ -235,11 +234,7 @@
       "name": "Classifier Array Output"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

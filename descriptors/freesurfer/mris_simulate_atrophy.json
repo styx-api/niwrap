@@ -1,13 +1,8 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_simulate_atrophy",
   "description": "Simulate atrophy on brain structures.",
   "command-line": "mris_simulate_atrophy [SUBJECT] [HEMI] [LABEL] [ATROPHY_FRACTION] [OUTPUT_VOLUME] [ATROPHY_PERCENT] [NOISE_LEVEL]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Subject identifier",

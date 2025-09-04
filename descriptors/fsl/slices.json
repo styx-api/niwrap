@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "slices",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Generate a set of slices from an image, possibly with some scaling and intensity range options, and save as a GIF.",
   "command-line": "slices [PRIMARY_INPUT] [SECONDARY_INPUT] [SCALE_FACTOR] [INTENSITY_RANGE] [OUTPUT_GIF]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Primary input image file (e.g. img1.nii.gz)",
@@ -56,6 +51,6 @@
       "name": "Output GIF File"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
 }

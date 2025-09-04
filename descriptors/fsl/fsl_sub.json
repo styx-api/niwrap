@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "fsl_sub",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "FSL cluster submission tool",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "fsl_sub [ARCH] [COPROCESSOR] [COPROCESSOR_MULTI] [COPROCESSOR_CLASS] [COPROCESSOR_CLASS_STRICT] [COPROCESSOR_TOOLKIT] [USESCRIPT] [JOBHOLD] [NOT_REQUEUEABLE] [ARRAY_HOLD] [LOGDIR] [MAILOPTIONS] [MAILTO] [NOVALIDATION] [NAME] [PRIORITY] [QUEUE] [RESOURCE] [DELETE_JOB] [JOBRAM] [PARALLELENV_THREADS] [ARRAY_TASK] [ARRAY_NATIVE] [ARRAY_LIMIT] [KEEP_JOBSCRIPT] [PROJECT] [NORAMSPLIT] [JOBTIME] [HAS_COPROCESSOR] [HAS_QUEUES] [SHOW_CONFIG] [VERBOSE] [VERSION] [FILEISIMAGE]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "command-line-flag": "-a",
@@ -307,5 +302,5 @@
       "name": "File is Image"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

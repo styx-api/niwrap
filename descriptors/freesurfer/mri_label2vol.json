@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_label2vol",
   "author": "FreeSurfer Developers",
   "description": "Converts a label or a set of labels into a volume.",
   "command-line": "mri_label2vol [LABELS] [ANNOTATION] [SEGMENTATION] [TEMPLATE] [REGISTRATION] [IDENTITY_FLAG] [FILL_THRESHOLD] [LABEL_VOX_VOL] [PROJECTION] [SUBJECT] [HEMISPHERE] [OUTPUT_VOLUME] [HITS_VOLUME] [LABEL_STAT_VOLUME] [STAT_THRESHOLD] [OFFSET] [DEFECTS] [NATIVE_VOX2RAS_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--label",

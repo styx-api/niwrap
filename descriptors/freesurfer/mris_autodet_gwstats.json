@@ -2,7 +2,7 @@
   "name": "mris_autodet_gwstats",
   "description": "Manages the computation of the gray/white statistics used to place the white and pial surfaces.",
   "command-line": "mris_autodet_gwstats [OUTPUT_FILE] [T1W_VOLUME] [WM_VOLUME] [SURF] [LHSURF] [RHSURF] [SUBJECT] [SUBJECTS_DIR] [MIN_BORDER_WHITE] [MAX_BORDER_WHITE] [MIN_GRAY_AT_WHITE_BORDER] [MAX_GRAY] [MAX_GRAY_AT_CSF_BORDER] [MIN_GRAY_AT_CSF_BORDER] [MAX_CSF]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--o",
@@ -149,10 +149,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

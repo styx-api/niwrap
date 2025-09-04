@@ -2,7 +2,7 @@
   "name": "oct_register_mosaic",
   "description": "Tool for registering multiple OCT (Optical Coherence Tomography) tiles or a mosaic list into a single output volume",
   "command-line": "oct_register_mosaic [TILES_OR_MOSAIC_LIST] [OUTPUT_VOLUME] [DOWNSAMPLE] [WEIGHT_FILE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "OCT tile images to be registered or a file listing the mosaic tiles",
@@ -49,10 +49,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

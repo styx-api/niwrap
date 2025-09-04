@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_cvs_register",
   "author": "FreeSurfer Developers",
   "description": "Combined Volume and Surface Registration",
   "command-line": "mri_cvs_register [MOV_SUBJID] [TEMPLATE_SUBJID] [TEMPLATEDIR] [MNI_FLAG] [OUTDIR] [ASEGFNAME] [VOLTYPE] [STEP1_FLAG] [STEP2_FLAG] [STEP3_FLAG] [NOASEG_FLAG] [NOINTENSITY_FLAG] [HEMI_FLAG] [MASKTARGETHEMI_FLAG] [MASKMOVINGHEMI_FLAG] [NOCLEANUP_FLAG] [KEEPELREG_FLAG] [KEEPALLM3Z_FLAG] [CLEANALL_FLAG] [CLEANSURFREG_FLAG] [CLEANELREG_FLAG] [CLEANVOLREG_FLAG] [M3D_FLAG] [OPENMP] [NOLOG_FLAG] [VERSION_FLAG] [HELP_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--mov",

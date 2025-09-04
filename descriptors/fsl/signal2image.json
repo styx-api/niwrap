@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "signal2image",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "A tool for converting MR signal data to images using specified k-space coordinates and pulse sequences.",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "signal2image [PULSE_SEQUENCE] [INPUT_SIGNAL] [OUTPUT_IMAGE] [KSPACE_COORDINATES] [OUTPUT_KSPACE] [ABS_FLAG] [HOMODYNE_FLAG] [VERBOSE_FLAG] [APODIZE_FLAG] [CUTOFF] [ROLLOFF] [SAVE_FLAG] [HELP_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "command-line-flag": "-p",
@@ -122,7 +117,7 @@
       "name": "Help Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_IMAGE]",

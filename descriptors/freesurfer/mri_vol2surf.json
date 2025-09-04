@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_vol2surf",
   "author": "FreeSurfer Developers",
   "description": "This program resamples a volume onto a surface of a subject or the sphere. The output can be viewed on the surface (using tksurfer) or can be used for surface-based intersubject averaging.",
   "command-line": "mri_vol2surf [INPUT_VOLUME] [REGISTRATION_FILE] [OUTPUT_PATH] [REFERENCE_VOLUME] [REGHEADER_SUBJECT] [MNI152REG_FLAG] [TARGET_SUBJECT] [HEMISPHERE] [SURFACE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--mov",
@@ -96,9 +95,5 @@
       "name": "Resampled Volume Output"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

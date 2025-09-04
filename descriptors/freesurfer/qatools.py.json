@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "qatools.py",
   "author": "FreeSurfer Developers",
   "description": "A tool to compute quality metrics from Freesurfer 6.0 analysis results.",
   "command-line": "qatools.py [SUBJECTS_DIR] [OUTPUT_DIR] [SUBJECTS] [SCREENSHOTS] [FORNIX] [OUTLIER] [OUTLIER_TABLE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Subjects directory containing a set of Freesurfer 6.0 processed individual datasets.",
@@ -82,9 +81,5 @@
       "name": "Screenshots Output"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

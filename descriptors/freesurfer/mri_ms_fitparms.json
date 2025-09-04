@@ -3,7 +3,7 @@
   "description": "Tool for estimating T1 and PD values from FLASH images and applying transformations.",
   "author": "FreeSurfer Developers",
   "command-line": "mri_ms_fitparms [VOLUMES] [OUTPUT_DIR] [AFI_FLAG] [AIT_FLAG] [AT] [CONFORM_FLAG] [CORRECT_FLAG] [CUBIC_FLAG] [DEBUG_SLICE_FLAG] [DEBUG_VOXEL_FLAG] [DT] [FA] [FA_SCALE] [FAF] [FSMOOTH] [INVERT_FLAG] [MOMENTUM] [MAX_T2] [N_ITER] [NEAREST_FLAG] [NOCOMPRESS_FLAG] [NOSYNTH_FLAG] [RESIDUALS] [SMOOTH_SIGMA] [SCALE_FACTOR] [SINC_FLAG] [TRANSFORM_FLAG] [ECHO_TIME] [REPETITION_TIME] [TRILINEAR_FLAG] [TUKEY_FLAG] [HELP_FLAG] [USE_BRAIN_MASK_FLAG] [WRITE_INTERMEDIATE] [EXTRACT_SUBIMAGE] [WINDOW_FLAG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "value-key": "[VOLUMES]",
@@ -350,10 +350,5 @@
       "name": "Affine Information for vol_2"
     }
   ],
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

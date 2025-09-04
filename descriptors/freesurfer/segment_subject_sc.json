@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "segment_subject_sc",
   "author": "FreeSurfer Developers",
   "description": "Front-end for MINC's mritotal. Computes the Talairach transform for mapping the input volume to the MNI305 space.",
   "command-line": "segment_subject_sc [INVOL] [OUTXFM] [LOG] [DEBUG]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input volume",

@@ -2,7 +2,7 @@
   "name": "mri_transform",
   "description": "Applies a linear transform to an MRI volume and writes out the result.",
   "command-line": "mri_transform [INPUT_VOLUME] [LTA_FILE] [OUTPUT_FILE] [OUT_LIKE] [INVERT]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input MRI volume",
@@ -55,10 +55,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

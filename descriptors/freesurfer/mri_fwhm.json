@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_fwhm",
   "author": "FreeSurfer Developers",
   "description": "FreeSurfer program to estimate the global Gaussian smoothness of a multi-frame, volume-based data set.",
   "command-line": "mri_fwhm [INPUTVOL] [OUTPUTVOL] [SAVE_DETRENDED] [SAVE_UNMASKED] [SMOOTH_ONLY] [MASK] [MASK_THRESH] [AUTO_MASK] [NERODE] [MASK_INV] [OUT_MASK] [DETREND_MATRIX] [DETREND_ORDER] [SQUARE_INPUT] [SMOOTH_BY_FWHM] [SMOOTH_BY_GSTD] [MEDIAN_FILTER] [SMOOTH_TO_FWHM] [TO_FWHM_TOL] [TO_FWHM_NMAX] [TO_FWHM_FILE] [SUMMARY_FILE] [DAT_FILE] [FWHM_DAT_FILE] [FWHM_VOL_MEAN_FILE] [FWHM_VOL] [SYNTH] [SYNTH_FRAMES] [NFRAMES_MIN] [ISPM] [NSPM_ZERO_PADDING] [THREADS] [DEBUG] [CHECKOPTS] [VERSION]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--i",
@@ -356,9 +355,5 @@
       "name": "FWHM Volume File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

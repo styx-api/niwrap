@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "fslmodhd",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "A tool for modifying header information of NIfTI images",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "fslmodhd [IMAGE] [KEYWORD] [VALUE]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input image file (e.g. image.nii.gz)",
@@ -35,5 +30,5 @@
       "name": "New value"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

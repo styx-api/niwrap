@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_compute_volume_fractions",
   "author": "FreeSurfer Developers",
   "description": "Computes partial volume fractions for cortex, subcortical GM, WM and CSF",
   "command-line": "mri_compute_volume_fractions [OUTPUT_STEM] [REGISTRATION_FILE] [REGHEADER] [USF] [RESOLUTION] [RESMM] [SEGMENTATION_FILE] [WSURF] [PSURF] [NO_ASEG] [STACKFILE] [GMFILE] [NO_FILL_CSF] [DILATION] [OUT_SEG] [TTSEG] [TTSEG_CTAB] [MGZ_FORMAT] [MGH_FORMAT] [NII_FORMAT] [NII_GZ_FORMAT] [TTYPE_HEAD] [VG_THRESH] [DEBUG] [CHECKOPTS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--o",
@@ -249,9 +248,5 @@
       "name": "Output CSF File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

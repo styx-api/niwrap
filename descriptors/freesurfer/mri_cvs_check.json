@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_cvs_check",
   "author": "FreeSurfer Developers",
   "description": "Checks whether the files required for mri_cvs_register all exist.",
   "command-line": "mri_cvs_check [MOV_SUBJID] [TEMPLATE_SUBJID] [HEMI] [HELP] [VERSION]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--mov",

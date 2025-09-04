@@ -2,7 +2,7 @@
   "name": "mri_compile_edits",
   "description": "Program to create a single volume showing all the volumetric edits made to a subject.",
   "command-line": "mri_compile_edits [SUBJECT_NAME] [OUTPUT_VOLUME]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Subject name whose edits are to be compiled into a volume",
@@ -30,10 +30,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

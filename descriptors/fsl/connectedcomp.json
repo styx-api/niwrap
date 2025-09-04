@@ -1,5 +1,4 @@
 {
-  "tool-version": "6.0.4",
   "name": "connectedcomp",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Connected component analysis tool",
@@ -31,7 +30,7 @@
       "name": "Number of connected components"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_VOLUME]",
@@ -40,9 +39,5 @@
       "name": "Output volume"
     }
   ],
-  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  }
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
 }

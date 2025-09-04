@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_extract_fcd_features",
   "author": "FreeSurfer Developers",
   "description": "A tool for extracting focal cortical dysplasia features.",
   "command-line": "mri_extract_fcd_features [SUBJECT] [HEMI] [OUTPUT_FILE] [SUBJECTS_DIR]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "The subject identifier.",
@@ -40,9 +39,5 @@
       "name": "Subjects Directory"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

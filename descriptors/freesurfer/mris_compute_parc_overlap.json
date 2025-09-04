@@ -2,7 +2,7 @@
   "name": "mris_compute_parc_overlap",
   "description": "Compares two parcellated (annotated or labeled) surfaces and computes an overall Dice coefficient and mean minimum distances (mm).",
   "command-line": "mris_compute_parc_overlap [SUBJECT] [HEMI] [ANNOT1] [ANNOT2] [LABEL1] [LABEL2] [SUBJ_DIR] [LOG_FILE] [LABEL_LIST] [NOCHECK_LABEL1_XYZ] [NOCHECK_LABEL2_XYZ] [NOCHECK_LABEL_XYZ] [USE_LABEL1_XYZ] [USE_LABEL2_XYZ] [USE_LABEL_XYZ] [DEBUG_OVERLAP]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "subject",
@@ -143,10 +143,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

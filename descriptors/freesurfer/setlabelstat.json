@@ -1,9 +1,8 @@
 {
-  "tool-version": "7.4.1",
   "name": "setlabelstat",
   "description": "Replaces the stat values in a label file with the single stat value supplied on the command-line.",
   "command-line": "setlabelstat [INLABELFILE] [OUTLABELFILE] [STATVAL] [HELP]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input label file.",
@@ -50,9 +49,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

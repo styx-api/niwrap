@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "probtrackx",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Streamlines tracking algorithm for probabilistic tractography",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "probtrackx [SAMPLES] [MASK] [SEED] [OUT] [VERBOSE] [TARGETMASKS] [MASK2] [WAYPOINTS] [NETWORK] [MESH] [SEEDREF] [DIR] [FORCEDIR] [OPD] [PD] [OS2T] [AVOID] [STOP] [XFM] [INVXFM] [NSAMPLES] [NSTEPS] [DISTTHRESH] [CTHR] [FIBTHRESH] [SAMPVOX] [STEPLENGTH] [LOOPCHECK] [USEF] [RANDFIB] [FIBST] [MODEULER] [RSEED] [S2TASTEXT]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "command-line-flag": "-s",
@@ -320,5 +315,5 @@
       "name": "Seed-to-target text output flag"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

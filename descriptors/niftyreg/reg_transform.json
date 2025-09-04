@@ -1,11 +1,10 @@
 {
   "name": "reg_transform",
-  "tool-version": "1.4.0",
   "author": "NiftyReg Developers",
   "description": "Tool for performing various transformation operations on medical images including control point to deformation conversion, composition of transformations, and converting between deformation and displacement fields.",
   "url": "http://cmictig.cs.ucl.ac.uk/wiki/index.php/NiftyReg",
   "command-line": "reg_transform [REFERENCE_IMAGE] [CPP2DEF_INPUT] [CPP2DEF_OUTPUT] [COMP1_CPP2] [COMP1_CPP1] [COMP1_OUTPUT] [COMP2_CPP] [COMP2_DEF] [COMP2_OUTPUT] [COMP3_DEF2] [COMP3_DEF1] [COMP3_OUTPUT] [DEF2DISP_INPUT] [DEF2DISP_OUTPUT] [DISP2DEF_INPUT] [DISP2DEF_OUTPUT] [UPD_SFORM_IMAGE] [UPD_SFORM_AFFINE] [UPD_SFORM_OUTPUT] [AFF2DEF_AFFINE] [AFF2DEF_TARGET] [AFF2DEF_CPP_OR_DEF] [AFF2DEF_OUTPUT] [INV_AFFINE_INPUT] [INV_AFFINE_OUTPUT] [COMP_AFF_1ST] [COMP_AFF_2ND] [COMP_AFF_OUTPUT]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "reference_image",
@@ -304,9 +303,5 @@
       "path-template": "[COMP_AFF_OUTPUT]",
       "description": "File containing the composed affine matrix."
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "vnmd/niftyreg_1.4.0:20220819"
-  }
+  ]
 }

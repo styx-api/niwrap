@@ -1,6 +1,5 @@
 {
   "name": "zero_lt_4dfp",
-  "tool-version": "7.4.1",
   "author": "FreeSurfer Developers",
   "description": "A tool to process 4dfp image files by zeroing values less than a given float threshold.",
   "command-line": "zero_lt_4dfp [FLT_VALUE] [FILE_4DFP] [OUTROOT] [ENDIANNESS]",
@@ -47,10 +46,6 @@
       "name": "Output 4dfp file"
     }
   ],
-  "schema-version": "0.5",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
+  "schema-version": "0.5+styx",
   "url": "https://github.com/freesurfer/freesurfer"
 }

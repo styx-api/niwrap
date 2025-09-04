@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "fslcomplex",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Tool for manipulating complex-valued MR data",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "fslcomplex [INPUT_FILE] [OUTPUT_FILE] [OUTPUT_TYPE] [START_VOL] [END_VOL]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input volume (e.g. complexvol.nii.gz)",
@@ -64,7 +59,7 @@
       "name": "End volume"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_FILE]",

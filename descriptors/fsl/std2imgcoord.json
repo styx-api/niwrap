@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "std2imgcoord",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Convert standard space coordinates to image space coordinates",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "std2imgcoord [FILENAME_COORDINATES] [STANDARD_IMAGE] [INPUT_IMAGE] [AFFINE_TRANSFORM] [WARP_FIELD] [PREWARP_AFFINE_TRANSFORM] [OUTPUT_MM] [OUTPUT_VOX] [VERBOSE] [MORE_VERBOSE]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Path to the filename containing coordinates or '-' to read from standard input",
@@ -96,5 +91,5 @@
       "name": "More verbose output"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

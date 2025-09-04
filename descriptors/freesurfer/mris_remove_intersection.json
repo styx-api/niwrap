@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_remove_intersection",
   "author": "FreeSurfer Developers",
   "description": "Tool to remove intersections in surface files.",
   "command-line": "mris_remove_intersection [SURFACE_IN_FILE] [CORRECTED_SURFACE_OUT_FILE] [FILL_HOLES] [MAP_OPTION] [PROJDISTMM]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input surface file.",
@@ -62,9 +61,5 @@
       "name": "Output Map File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

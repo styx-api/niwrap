@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "tksurfer",
   "author": "FreeSurfer Developers",
   "description": "3D visualization tool for cortical surface models (part of FreeSurfer)",
   "command-line": "tksurfer [SUBJECT_ID] [HEMISPHERE] [SURFACE_NAME] [OPTIONS]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Subject identifier",

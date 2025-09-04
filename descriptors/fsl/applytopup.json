@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "applytopup",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "applytopup applies corrections to images using the field estimates produced by topup.",
   "command-line": "applytopup [IMAIN] [DATAIN] [ININDEX] [TOPUP] [OUT] [METHOD] [INTERP] [DATATYPE] [VERBOSE]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "command-line-flag": "--imain",
@@ -106,7 +101,7 @@
       "name": "Verbose flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUT]",

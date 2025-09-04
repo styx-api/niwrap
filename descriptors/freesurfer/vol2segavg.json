@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "vol2segavg",
   "author": "FreeSurfer Developers",
   "description": "Computes the average of a volume inside a given segment of a segmentation resampling the input volume to the segmentation space.",
   "command-line": "vol2segavg [OUTPUT_FILE] [INPUT_VOLUME] [REGISTRATION] [SEGMENTATION_FILE] [APARC_ASEG_FLAG] [SUBJECT_ID] [SEGMENTATION_ID] [MULTIPLY_VALUE] [NO_BB_FLAG] [ERODE_VALUE] [DILATE_VALUE] [WM_FLAG] [VCSF_FLAG] [XCSF_FLAG] [REMOVE_MEAN_FLAG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--o",
@@ -145,9 +144,5 @@
       "name": "Output file"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

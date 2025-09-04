@@ -1,7 +1,7 @@
 {
   "name": "mri_joint_density",
   "command-line": "mri_joint_density [VOL1] [VOL2] [OUTPUT_DENSITY_FILE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "description": "Tool for computing joint density from two volumes",
   "inputs": [
     {
@@ -38,10 +38,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "map_all_labels",
   "author": "FreeSurfer Developers",
   "description": "Tool for mapping labels onto subject surfaces",
   "command-line": "map_all_labels [WHICH] [FNAME] [HEMI] [SPHERICAL_SURF] [SUBJECTS] [OUTPUT]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Select what to map (e.g. coords, label, vals, curv, area)",

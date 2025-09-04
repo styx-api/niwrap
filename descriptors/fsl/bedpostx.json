@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "bedpostx",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Bayesian Estimation of Diffusion Parameters Obtained using Sampling Techniques (BEDPOST) for modeling multiple fibers per voxel.",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "bedpostx [SUBJECT_DIR] [NUM_FIBRES] [ARD_WEIGHT] [BURNIN] [NUM_JUMPS] [SAMPLE_EVERY] [MODEL_TYPE] [GRAD_NONLINEAR]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input subject directory which contains bvals, bvecs, data, and nodif_brain_mask files.",
@@ -81,7 +76,7 @@
       "name": "Gradient Nonlinearities"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[SUBJECT_DIR]_bedpostx/xfms",

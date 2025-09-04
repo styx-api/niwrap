@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_rf_train",
   "author": "FreeSurfer Developers",
   "description": "Trains GCA data with multiple subjects using MRI data.",
   "command-line": "mri_rf_train [SEG_VOLUME] [ATLAS_TRANSFORM] [MASK_VOLUME] [NODE_SPACING] [PRIOR_SPACING] [INPUT_TRAINING_DATA] [SANITY_CHECK] [SUBJECTS] [OUTPUT_RFA]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-seg",
@@ -87,9 +86,5 @@
       "name": "Output RFA Filename"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "eddy_combine",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Combines diffusion data sets with opposite phase encoding directions for use with FSL's EDDY.",
   "command-line": "eddy_combine [POS_DATA] [POS_BVALS] [POS_BVECS] [POS_SERIES_VOL] [NEG_DATA] [NEG_BVALS] [NEG_BVECS] [NEG_SERIES_VOL] [OUTPUT_PATH] [ONLY_MATCHED_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Path to the positive phase-encoded data file (e.g. PosData.nii.gz)",
@@ -93,7 +88,7 @@
       "name": "Only Matched Volumes Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_PATH]/combined_data.nii.gz",

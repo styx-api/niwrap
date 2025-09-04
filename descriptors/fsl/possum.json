@@ -2,14 +2,9 @@
   "command-line": "possum [INPUT_VOLUME] [MR_PARAMETERS] [MOTION_MATRIX] [PULSE_SEQUENCE] [RF_SLICE_PROFILE] [OUTPUT_SIGNAL] [EVENT_MATRIX] [VERBOSE] [HELP] [KCOORD] [B0_INHOMOGENEITIES] [EXTRA_B0_INHOMOGENEITIES] [B0_INHOMOGENEITIES_TIMECOURSE] [RF_INHOMOGENEITY_RECEIVE] [RF_INHOMOGENEITY_TRANSMIT] [ACTIVATION_VOLUME] [ACTIVATION_TIMECOURSE] [ACTIVATION_4D_VOLUME] [ACTIVATION_4D_TIMECOURSE] [LEVEL] [NUM_PROCS] [PROC_ID] [NO_SPEEDUP] [RF_AVERAGE]",
   "name": "possum",
   "description": "Positron emission tomography (PET) simulation tool as part of FSL suite",
-  "schema-version": "0.5",
-  "tool-version": "6.0.4",
+  "schema-version": "0.5+styx",
   "author": "FMRIB Analysis Group, University of Oxford",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "id": "input_volume",

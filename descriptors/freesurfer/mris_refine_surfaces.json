@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_refine_surfaces",
   "author": "FreeSurfer Developers",
   "description": "Refines cortical surfaces around the region specified by the label file",
   "command-line": "mris_refine_surfaces [SUBJECT_NAME] [HEMI] [HIRES_VOLUME] [LABEL_FILE] [LOW_TO_HIRES_XFM] [SDIR] [USE_MGZ] [SUFFIX]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "The name of the subject",
@@ -87,9 +86,5 @@
       "name": "White matter surface"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

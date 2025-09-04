@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "pulse",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Generates a pulse sequence matrix for a given digital brain image.",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "pulse [INPUT_FILE] [OUTPUT_BASE] [SEQ] [ANGLE] [TE] [TR] [TRSLC] [NX] [NY] [DX] [DY] [MAXG] [RISET] [BW] [NUMVOL] [NUMSLC] [SLCTHK] [GAP] [ZSTART] [SLCDIR] [PHASEDIR] [READDIR] [VERBOSE_FLAG] [KCOORD_FLAG] [COVER]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "command-line-flag": "-i",
@@ -236,7 +231,7 @@
       "minimum": 50
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_BASE]_pulsesequence_matrix",

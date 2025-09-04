@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_aparc2aseg",
   "author": "FreeSurfer Developers",
   "description": "Maps the cortical labels from the automatic cortical parcellation to the automatic segmentation volume.",
   "command-line": "mri_aparc2aseg [SUBJECT] [OUTPUT_VOLFILE] [OLD_RIBBON] [NEW_RIBBON] [A2005S] [A2009S] [ANNOT_NAME] [ANNOT_TABLE] [BASE_OFFSET] [LABEL_WM] [WMPARC_DMAX] [RIP_UNKNOWN] [HYPO_AS_WM] [NO_FIX_PARAHIP] [SMOOTH_NORMALS] [CRS_TEST] [LEFT_HEMISPHERE] [RIGHT_HEMISPHERE] [THREADS] [HELP] [VERSION]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--s",
@@ -192,9 +191,5 @@
       "name": "Segmented Volume"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

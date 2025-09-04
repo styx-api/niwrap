@@ -1,13 +1,8 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_volume",
   "description": "A tool for computing the volume of a closed surface using a divergence formula.",
   "command-line": "mris_volume [SURFACE_FILE] [VERBOSE_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "The closed surface file whose volume is to be computed.",

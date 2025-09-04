@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_synthseg",
   "author": "FreeSurfer Developers",
   "description": "SynthSeg is a tool for brain image segmentation.",
   "command-line": "mri_synthseg [INPUT_IMAGE] [OUTPUT_SEGMENTATION] [CORTEX_PARCELLATION] [ROBUST_PREDICTION] [FAST_PREDICTION] [CLIP_CT] [OUTPUT_VOLUME] [OUTPUT_QC] [OUTPUT_POSTERIORS] [RESAMPLED_IMAGES] [IMAGE_PATCH_SIZE] [THREADS] [CPU] [VERSION_1] [PHOTO_SYNTHSEG]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Image(s) to segment. Can be a path to an image or to a folder.",

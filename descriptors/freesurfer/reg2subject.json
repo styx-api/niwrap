@@ -1,9 +1,8 @@
 {
-  "tool-version": "7.4.1",
   "name": "reg2subject",
   "description": "Returns the name of the subject in the registration file, whether it is an LTA or register.dat file.",
   "command-line": "reg2subject [REGFILE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input registration file, either in LTA or register.dat format.",
@@ -16,9 +15,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

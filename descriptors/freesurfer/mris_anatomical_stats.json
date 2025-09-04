@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_anatomical_stats",
   "author": "FreeSurfer Developers",
   "description": "This program computes a number of anatomical properties.",
   "command-line": "mris_anatomical_stats [SUBJECTNAME] [HEMISPHERE] [SURFACENAME] [THICKNESS_RANGE] [LABEL_FILE] [THICKNESS_FILE] [ANNOTATION_FILE] [TABULAR_OUTPUT] [TABLEFILE] [LOGFILE] [NSMOOTH] [COLOR_TABLE] [NOGLOBAL] [TH3_COMPUTATION]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Subject name",

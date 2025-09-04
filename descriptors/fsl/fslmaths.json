@@ -1,14 +1,9 @@
 {
   "name": "fslmaths",
-  "tool-version": "6.0.4",
   "description": "FSL utility for image arithmetic, statistics, and mathematical operations",
   "command-line": "fslmaths [DATATYPE_INTERNAL] [INPUT_FILES] [OPERATIONS] [OUTPUT] [OUTPUT_DATATYPE]",
   "author": "FMRIB Analysis Group, University of Oxford",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "datatype_internal",

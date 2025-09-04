@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "qboot",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Tool for computing q-ball ODFs using bootstrap samples",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "qboot [DATA_FILE] [MASK_FILE] [BVECS_FILE] [BVALS_FILE] [LOG_DIR] [FORCEDIR_FLAG] [Q_FILE] [MODEL_TYPE] [LMAX_ORDER] [NPEAKS] [THRESHOLD] [NUM_SAMPLES] [LAMBDA_PARAM] [DELTA_PARAM] [ALPHA_PARAM] [SEED_PARAM] [GFA_FLAG] [SAVECOEFF_FLAG] [SAVEMEANCOEFF_FLAG] [VERBOSE_FLAG] [HELP_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "command-line-flag": "-k",
@@ -202,7 +197,7 @@
       "name": "Help flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "logdir",

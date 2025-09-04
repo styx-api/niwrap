@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_target_pos",
   "author": "FreeSurfer Developers",
   "description": "Tool for setting target positions of a surface using input imaging data and other parameters.",
   "command-line": "mris_target_pos [INPUT_VOLUME] [INPUT_SURFACE] [OUTPUT_SURFACE] [ADGWS_FILE] [THRESHOLD_VALUES] [LABEL] [INTERPOLATION_METHOD] [DEBUG_VERTEX] [CBV_FLAG] [DEBUG_FLAG] [CHECK_OPTIONS] [HELP_FLAG] [VERSION_FLAG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--v",
@@ -122,9 +121,5 @@
       "name": "Version flag"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

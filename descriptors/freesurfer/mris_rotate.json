@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_rotate",
   "description": "Rotate a surface given three angles.",
   "author": "FreeSurfer Developers",
   "command-line": "mris_rotate [INPUT_SURFACE] [ALPHA_DEG] [BETA_DEG] [GAMMA_DEG] [OUTPUT_SURFACE] [REGFILE] [INVALIDATE_GEOMETRY]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input surface file to be rotated.",
@@ -75,9 +74,5 @@
       "name": "Rotated Surface"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

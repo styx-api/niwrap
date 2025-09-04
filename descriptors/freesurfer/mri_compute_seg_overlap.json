@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_compute_seg_overlap",
   "author": "FreeSurfer Developers",
   "description": "Compute coefficients of overlap between segmentation volumes.",
   "command-line": "mri_compute_seg_overlap [SEGVOL1] [SEGVOL2] [LOG_FILE] [MEAN_LOG_FILE] [STD_LOG_FILE] [OVERALL_LOG_FLAG] [EXCLUDE_CORTEX_FLAG] [EXCLUDE_WM_FLAG] [ALL_LABELS_FLAG] [DICE_PARAMS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "First segmentation volume.",
@@ -91,9 +90,5 @@
       "name": "Dice Params"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

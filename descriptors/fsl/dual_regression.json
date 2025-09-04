@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "dual_regression",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Dual regression algorithm to investigate group-ICA results",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "dual_regression [GROUP_IC_MAPS] [DES_NORM] [DESIGN_MAT] [DESIGN_CON] [N_PERM] [THR_FLAG] [OUTPUT_DIRECTORY] [INPUT_FILES]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "4D image containing spatial IC maps (melodic_IC) from the whole-group ICA analysis",
@@ -76,7 +71,7 @@
       "name": "Input Files"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_DIRECTORY]/dr_stage1_subject[SUBJECT_INDEX].nii.gz",

@@ -2,7 +2,7 @@
   "name": "mri_refine_seg",
   "description": "Refines a messy segmentation by recoding stray voxels.",
   "command-line": "mri_refine_seg [INPUT_SEGMENTATION] [OUTPUT_SEGMENTATION] [DEBUG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-i",
@@ -40,10 +40,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

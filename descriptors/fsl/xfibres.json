@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "xfibres",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Part of FSL - estimates diffusion parameters for multiple fibres per voxel",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "xfibres [DATAFILE] [MASKFILE] [BVECS] [BVALS] [LOGDIR] [FORCEDIR] [MAX_FIBRES] [MODEL] [FUDGE] [NUM_JUMPS] [NUM_BURNIN] [BURNIN_NOARD] [SAMPLEEVERY] [UPDATEPROPOSAL] [SEED] [NOARD] [ALLARD] [NOSPAT] [NONLINEAR] [CNONLINEAR] [RICIAN] [ADD_F0] [ARD_F0] [RMEAN] [RSTD] [VERBOSE_FLAG] [HELP_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "command-line-flag": "-k",
@@ -246,7 +241,7 @@
       "name": "Help Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "logdir",

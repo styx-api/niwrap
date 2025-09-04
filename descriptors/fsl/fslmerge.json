@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "fslmerge",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "FSL tool to concatenate images in various dimensions",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "fslmerge [MERGE_TIME] [MERGE_X] [MERGE_Y] [MERGE_Z] [AUTO_CHOOSE] [MERGE_SET_TR] [OUTPUT_FILE] [INPUT_FILES] [VOLUME_NUMBER] [TR_VALUE]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "command-line-flag": "-t",
@@ -93,7 +88,7 @@
       "name": "TR Value"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_FILE]",

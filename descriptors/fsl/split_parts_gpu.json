@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "split_parts_gpu",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Splits parts of data for GPU processing",
   "command-line": "split_parts_gpu [DATAFILE] [MASKFILE] [BVALS_FILE] [BVECS_FILE] [GRAD_FILE] [USE_GRAD_FILE] [TOTAL_NUM_PARTS] [OUTPUT_DIRECTORY]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input data file",
@@ -76,7 +71,7 @@
       "name": "Output directory"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [],
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
 }

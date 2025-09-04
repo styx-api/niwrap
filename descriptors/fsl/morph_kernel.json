@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "morph_kernel",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Tool to generate morphological kernels",
   "command-line": "morph_kernel [CUBE_SIDE_LENGTH] [SPHERE_RADIUS]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Side length of the cube (e.g., 11)",
@@ -26,7 +21,7 @@
       "name": "Sphere radius"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "sphere[OUTPUT_PREFIX].ker",

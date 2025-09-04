@@ -2,7 +2,7 @@
   "name": "mris_surface_to_vol_distances",
   "description": "Tool from FreeSurfer to calculate surface-to-volume distances",
   "command-line": "mris_surface_to_vol_distances [AVERAGE_SUBJECT] [HEMISPHERE] [SUBJECTS] [OUTPUT_PREFIX]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "The average subject.",
@@ -47,10 +47,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

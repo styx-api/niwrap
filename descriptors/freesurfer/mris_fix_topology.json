@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_fix_topology",
   "author": "FreeSurfer Developers",
   "description": "Computes a mapping from the unit sphere onto the cortical surface, ensuring a topologically correct surface.",
   "command-line": "mris_fix_topology [SUBJECT_NAME] [HEMISPHERE] [ORIG_NAME] [SPHERE_NAME] [INFLATED_NAME] [OUTPUT_NAME] [DEFECT_BASE_NAME] [WRITE_FIXED_INFLATED] [VERBOSE] [VERBOSE_LOW] [WARNINGS] [ERRORS] [MOVIES] [INTERSECT] [MAPPINGS] [CORRECT_DEFECT] [NITERS] [GENETIC] [OPTIMIZE] [RANDOM] [SEED] [DIAG] [MGZ] [SMOOTH] [DIAGNOSTIC_LEVEL] [THREADS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Subject name",
@@ -227,9 +226,5 @@
       "name": "Number of Threads"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

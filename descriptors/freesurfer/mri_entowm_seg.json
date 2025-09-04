@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_entowm_seg",
   "author": "FreeSurfer Developers",
   "description": "Segment white matter near gyrus ambiens entorhinal cortex using a deep learning model.",
   "command-line": "mri_entowm_seg [INPUT_IMAGE] [OUTPUT_SEGMENTATION] [RECON_SUBJECTS] [SUBJECTS_DIRECTORY] [CONFORM] [ETIV] [TAL] [WRITE_POSTERIORS] [WRITE_VOLUMES] [WRITE_QA_STATS] [EXCLUDE_LABELS] [KEEP_AC] [VOX_COUNT_VOLUMES] [MODEL_WEIGHTS] [COLOR_TABLE] [POPULATION_STATS] [DEBUG] [VMP] [THREADS] [SEVEN_TESLA] [PERCENTILE] [CUDA_DEVICE] [OUTPUT_BASE] [NO_CITE_SCLIMBIC] [NCHANNELS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-i",
@@ -249,9 +248,5 @@
       "name": "QA Statistics File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

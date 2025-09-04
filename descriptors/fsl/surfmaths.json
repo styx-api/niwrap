@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "surfmaths",
   "description": "A command-line tool for performing various mathematical operations on surface files.",
   "command-line": "surfmaths [FIRST_INPUT] [OPERATIONS_INPUTS] [OUTPUT]",
-  "schema-version": "0.5",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "First input surface file.",

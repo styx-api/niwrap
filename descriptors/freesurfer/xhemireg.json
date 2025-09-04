@@ -2,7 +2,7 @@
   "name": "xhemireg",
   "description": "Tool for hemisphere registration in neuroimaging.",
   "command-line": "xhemireg [SUBJECT] [OUTPUT_DIR] [MAP_LH] [MAP_RH] [PERFORM_REG] [TAL_COMPUTE] [NO_TAL_COMPUTE] [TAL_ESTIMATE] [NO_TAL_ESTIMATE] [GCAPREP] [THREADS] [VERSION] [HELP]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Subject ID for the hemisphere registration process",
@@ -114,10 +114,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

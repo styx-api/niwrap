@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "polyorder",
   "author": "FreeSurfer Developers",
   "description": "Computes the order of polynomial regressors needed to achieve a highpass filter with the given cutoff frequency.",
   "command-line": "polyorder [NTP] [TR] [CUTOFF]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--ntp",
@@ -34,9 +33,5 @@
       "name": "Cutoff Frequency (Hz)"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

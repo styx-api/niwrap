@@ -2,7 +2,7 @@
   "name": "mris_interpolate_warp",
   "description": "Interpolate warp on cortical surfaces",
   "command-line": "mris_interpolate_warp [START_SURFACE] [END_SURFACE] [WARP_FIELD]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "The starting surface file.",
@@ -30,10 +30,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

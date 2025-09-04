@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_profileClustering",
   "author": "FreeSurfer Developers",
   "description": "A tool from Freesurfer for clustering based on profile data.",
   "command-line": "mris_profileClustering [INPUT_FILE] [OUTPUT_FILE] [OTHER_OPTIONS]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input file required for clustering.",

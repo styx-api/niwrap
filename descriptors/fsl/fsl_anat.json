@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "fsl_anat",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "A wrapper for FSL tools to process anatomical scans.",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "fsl_anat [STRUCTURAL_IMAGE] [EXISTING_ANAT_DIR] [OUTPUT_DIR] [CLOBBER_FLAG] [STRONGBIAS_FLAG] [WEAKBIAS_FLAG] [NOREORIENT_FLAG] [NOCROP_FLAG] [NOBIAS_FLAG] [NOREG_FLAG] [NONONLINREG_FLAG] [NOSEG_FLAG] [NOSUBCORTSEG_FLAG] [BIAS_SMOOTHING] [IMAGE_TYPE] [NOSEARCH_FLAG] [BET_F_PARAM] [NOCLEANUP_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "command-line-flag": "-i",
@@ -161,7 +156,7 @@
       "name": "No Cleanup Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_DIR].anat",

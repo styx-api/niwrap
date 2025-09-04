@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "pngappend",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Append PNG files horizontally and/or vertically into a new PNG (or GIF) file",
   "command-line": "pngappend [INPUT_FILES_AND_OPTIONS] [OUTPUT_FILE]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "List of input files and options for appending (e.g., file1.png +3 file2.png -2 file3.png)",
@@ -27,6 +22,6 @@
       "name": "Output file"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
 }

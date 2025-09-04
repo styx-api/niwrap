@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "standard_space_roi",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Masks input and/or reduces its FOV based on a standard space image or mask, transformed into the space of the input image.",
   "command-line": "standard_space_roi [INFILE] [OUTFILE] [MASK_FOV_FLAG] [MASK_MASK] [MASK_NONE_FLAG] [ROI_FOV_FLAG] [ROI_MASK] [ROI_NONE_FLAG] [SS_REF] [ALT_INPUT] [DEBUG_FLAG] [BET_PREMASK_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input image",
@@ -110,7 +105,7 @@
       "name": "BET pre-mask"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTFILE]",

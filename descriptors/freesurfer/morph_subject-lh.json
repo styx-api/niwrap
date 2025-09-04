@@ -1,9 +1,8 @@
 {
-  "tool-version": "7.4.1",
   "name": "morph_subject-lh",
   "description": "A tool for morphing subject's left hemisphere.",
   "command-line": "morph_subject-lh [SUBJECT_ID]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Subject ID",
@@ -16,9 +15,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

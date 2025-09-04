@@ -1,9 +1,8 @@
 {
-  "tool-version": "7.4.1",
   "name": "sratio",
   "description": "Tool to compute ratio A/B if A>B, -B/A if B>A, with options for absolute computation and threshold masking.",
   "command-line": "sratio [VALUE_A] [VALUE_B] [ABS_FLAG] [MASK_THRESHOLD]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "First value for the sratio operation",
@@ -51,9 +50,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -2,7 +2,7 @@
   "name": "mri_mc",
   "description": "Extract a surface from a label volume using Marching Cubes algorithm.",
   "command-line": "mri_mc [INPUT_VOLUME] [LABEL_VALUE] [OUTPUT_SURFACE][CONNECTIVITY]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "input_volume",
@@ -43,10 +43,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

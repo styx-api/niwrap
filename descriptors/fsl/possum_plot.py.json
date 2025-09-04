@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "possum_plot.py",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Tool for plotting results from POSSUM simulations in FSL",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "possum_plot.py [INPUT_FILE] [OUTPUT_BASENAME]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input file from POSSUM simulation (e.g. simulation_results.txt)",
@@ -27,6 +22,6 @@
       "name": "Output basename"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": []
 }

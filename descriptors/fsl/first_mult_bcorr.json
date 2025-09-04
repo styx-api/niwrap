@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "first_mult_bcorr",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Part of FSL (ID: 6.0.5:9e026117), first_mult_bcorr converts label images to an output image.",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "first_mult_bcorr [INPUT_IMAGE] [CORRECTED_4D_LABELS] [UNCORRECTED_4D_LABELS] [OUTPUT_IMAGE] [VERBOSE_FLAG] [HELP_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "command-line-flag": "-i",
@@ -63,7 +58,7 @@
       "name": "Help Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_IMAGE]",

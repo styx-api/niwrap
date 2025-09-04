@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "register_subject",
   "author": "FreeSurfer Developers",
   "description": "Tool for registering brain MR volumes.",
   "command-line": "register_subject [INPUT_VOLUME] [MASK_VOLUME] [CONTROL_POINTS] [OUTPUT_DIRECTORY] [LOG_FILE] [GCA_FILE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input volume for registration (e.g., brain.mgz)",
@@ -69,9 +68,5 @@
       "name": "Transformed fsamples"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

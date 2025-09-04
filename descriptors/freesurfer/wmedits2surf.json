@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "wmedits2surf",
   "author": "FreeSurfer Developers",
   "command-line": "wmedits2surf [SUBJECT] [SELF] [OVERWRITE] [TMP_DIR] [CLEANUP] [NO_CLEANUP] [DEBUG] [LH] [RH] [NO_SURFS]",
   "description": "Computes binary maps of surface locations where the wm.mgz has been edited. Creates files for each hemisphere for each type of edit.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--s",
@@ -127,9 +126,5 @@
       "name": "WM Fill Stats"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

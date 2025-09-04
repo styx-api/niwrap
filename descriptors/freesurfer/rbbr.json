@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "rbbr",
   "author": "FreeSurfer Developers",
   "description": "Robust version of bbregister",
   "command-line": "rbbr [SUBJECT] [MOVING_IMAGE] [T1_CONTRAST] [T2_CONTRAST] [INIT_REG] [INIT_SPM] [INIT_FSL] [INIT_HEADER] [COST_THRESHOLD] [GTM_SYNTHESIZE] [TT_REDUCE] [ITERATIONS] [OUTPUT_REG] [OUTPUT_LTA] [LEFT_HEMI] [RIGHT_HEMI] [GM_PROJ_FRAC] [GM_PROJ_ABS] [WM_PROJ_ABS] [FRAME_NO] [OUTPUT_TEMPLATE] [NO_MERGE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--s",
@@ -215,9 +214,5 @@
       "name": "Output Template File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

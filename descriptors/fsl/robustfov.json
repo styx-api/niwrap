@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "robustfov",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Reduce FOV of image to remove lower head and neck.",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "robustfov [INPUT_FILE] [OUTPUT_IMAGE] [BRAIN_SIZE] [MATRIX_OUTPUT] [DEBUG_FLAG] [VERBOSE_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input image file",
@@ -63,7 +58,7 @@
       "command-line-flag": "--verbose"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_IMAGE].nii.gz",

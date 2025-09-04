@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_vol2vol",
   "author": "FreeSurfer Developers",
   "description": "Resamples a volume into another field-of-view using various types of matrices (FreeSurfer, FSL, SPM, and MNI).",
   "command-line": "mri_vol2vol [MOVVOL] [TARGVOL] [OUTVOL] [DISPVOL] [DOWNSAMPLE] [REGISTER_DAT] [LTA] [LTA_INV] [FSL] [XFM] [INV] [TAL] [TALRES] [TALXFM] [M3Z] [INV_MORPH] [FSTARG] [CROP] [SLICE_CROP] [SLICE_REVERSE] [SLICE_BIAS] [INTERP] [FILL_AVERAGE] [FILL_CONSERVE] [FILL_UP] [MUL] [PRECISION] [KEEP_PRECISION] [KERNEL] [COPY_CTAB] [GCAM] [SPM_WARP] [MAP_POINT] [MAP_POINT_INV_LTA] [NO_RESAMPLE] [ROT] [TRANS] [SHEAR] [REG_FINAL] [SYNTH] [SEED] [SAVE_REG] [DEBUG] [VERSION]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input volume (or output template with --inv)",
@@ -406,9 +405,5 @@
       "name": "Output volume"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

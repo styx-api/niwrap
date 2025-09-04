@@ -1,9 +1,8 @@
 {
   "name": "mris_annot_to_segmentation",
-  "tool-version": "7.4.1",
   "description": "Converts annotation files to segmentation volumes in FreeSurfer.",
   "command-line": "mris_annot_to_segmentation [SUBJECT_NAME] [HEMI] [SURFACE] [ANNOT_FILE] [COLOR_TABLE] [OUTPUT_VOLUME]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Subject name.",
@@ -63,9 +62,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

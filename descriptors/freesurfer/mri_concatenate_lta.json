@@ -2,7 +2,7 @@
   "name": "mri_concatenate_lta",
   "description": "Concatenates two consecutive LTA transformations into one overall transformation, Out = LTA2*LTA1",
   "command-line": "mri_concatenate_lta [LTA_1] [LTA_2] [LTA_FINAL] [TAL_SRC] [TAL_TEMPLATE] [INVERT1] [INVERT2] [INVERTOUT] [OUT_TYPE] [SUBJECT] [RMSDIFF_RADIUS] [RMSDIFF_OUTPUTFILE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "lta_1",
@@ -106,10 +106,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

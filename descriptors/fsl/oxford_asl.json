@@ -1,14 +1,9 @@
 {
   "command-line": "oxford_asl [ASL_DATA] [OUTPUT_DIR_NAME] [MASK] [SPATIAL_SMOOTHING] [WHITE_PAPER_ANALYSIS] [MOTION_CORRECTION] [INPUT_ASL_FORMAT] [INPUT_BLOCK_FORMAT] [INVERSION_TIMES] [TI_IMAGE] [CASL] [ARTERIAL_SUPPRESSION] [BOLUS_DURATION] [BAT] [TISSUE_T1] [BLOOD_T1] [SLICE_TIMING_DIFFERENCE] [SLICE_BAND] [FLIP_ANGLE] [FSL_ANAT_DIR] [STRUCTURAL_IMAGE] [BET_STRUCTURAL_IMAGE] [FAST_SEGMENTATION_IMAGES] [SENSITIVITY_CORRECTION] [PRECOMPUTED_M0_VALUE] [INVERSION_EFFICIENCY] [TR_CALIBRATION_DATA] [CALIBRATION_IMAGE] [CALIBRATION_METHOD]",
-  "tool-version": "6.0.4",
   "name": "oxford_asl",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Calculate perfusion maps from ASL data",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "id": "asl_data",
@@ -274,5 +269,5 @@
       "description": "Directory containing the output files"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

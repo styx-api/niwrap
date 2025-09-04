@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "popp",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Physiological data processing tool of FSL",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "popp [INPUT_FILE] [OUTPUT_BASENAME] [SAMPLING_RATE] [TR_VALUE] [RESP_COLUMN] [CARDIAC_COLUMN] [TRIGGER_COLUMN] [RVT_FLAG] [HEART_RATE_FLAG] [PULSEOX_TRIGGER_FLAG] [SMOOTH_CARD] [SMOOTH_RESP] [HIGH_FREQ_CUTOFF] [LOW_FREQ_CUTOFF] [INIT_THRESH_C] [N_THRESH_C] [INIT_THRESH_R] [N_THRESH_R] [INVERT_RESP_FLAG] [INVERT_CARDIAC_FLAG] [NOCLEAN1_FLAG] [NOCLEAN2_FLAG] [LOAD_CARD_PHASE] [LOAD_RESP_PHASE] [VOL_FILE] [START_SAMPLE] [RESP_ADD] [RESP_DEL] [CARD_ADD] [CARD_DEL] [VERBOSE_FLAG] [DEBUG_FLAG] [HELP_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "command-line-flag": "-i",
@@ -298,7 +293,7 @@
       "name": "Help Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_BASENAME]_processed.txt",

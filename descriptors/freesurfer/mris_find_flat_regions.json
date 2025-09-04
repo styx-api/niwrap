@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_find_flat_regions",
   "author": "FreeSurfer Developers",
   "description": "Compute regions in which the surface is almost perpendicular to one of the cardinal axes and write the results to a label file.",
   "command-line": "mris_find_flat_regions [SURFACE] [WFILE] [THRESHOLD]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Surface input file",

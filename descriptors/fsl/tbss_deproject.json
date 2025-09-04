@@ -1,12 +1,7 @@
 {
-  "tool-version": "6.0.4",
   "name": "tbss_deproject",
   "description": "Tool to deproject images from skeleton space to final space",
   "command-line": "tbss_deproject [SKELETON_SPACE_INPUT_IMAGE] [FINAL_SPACE_OPTION] [INDEX_IMAGE_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Skeleton space input image.",
@@ -34,7 +29,7 @@
       "name": "Index image flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "stats/[SKELETON_SPACE_INPUT_IMAGE]",

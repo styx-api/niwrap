@@ -2,11 +2,7 @@
   "name": "mri_compute_layer_fractions",
   "description": "This program computes volumetric partial volume fractions from laminar surfaces using FreeSurfer.",
   "command-line": "mri_compute_layer_fractions [REG_FILE] [INPUT_VOLUME] [OUTPUT_STEM] [OUTPUT_DIRECTORY] [ASEG_FILE] [TARGET_VOLUME] [HEMI_FLAG] [FS_NAMES_FLAG] [SUBJECT_ID] [N_LAYERS] [SYNTH_FLAG] [THICKNESS] [RANDOM_FILE] [IDENTITY_FILE]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "reg_file",
@@ -142,6 +138,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "pvmfit",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Fits diffusion models to multishell DWI data",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "pvmfit [DATA_FILE] [MASK_FILE] [BVEC_FILE] [BVAL_FILE] [OUTPUT_BASENAME] [NUMBER_OF_FIBRES] [MODEL_TYPE] [FIT_ALL_MODELS] [CONSTRAINED_NONLINEAR] [CONSTRAINED_NONLINEAR_F] [GRID_SEARCH] [INCLUDE_NOISE_FLOOR] [SAVE_BIC] [VERBOSE] [HELP]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Data file",
@@ -139,7 +134,7 @@
       "name": "Help"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_BASENAME].nii.gz",

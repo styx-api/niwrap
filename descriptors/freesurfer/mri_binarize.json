@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_binarize",
   "author": "FreeSurfer Developers",
   "description": "A program to binarize a volume or volume-encoded surface file, with options to merge and manipulate binarized output.",
   "command-line": "mri_binarize [INPUT_VOLUME] [OUTPUT_VOLUME] [MIN_THRESHOLD] [MAX_THRESHOLD] [PCT_THRESHOLD] [RMIN] [RMAX] [FDR_THRESHOLD] [MATCH_VALUES] [REPLACE_VALUES] [BINVAL] [BINVAL_NOT] [FRAME] [MERGE_VOLUME] [MASK_VOLUME] [MASK_THRESHOLD] [SURF_NAME] [SURF_SMOOTH] [THREADS] [CTX_WM_FLAG] [ALL_WM_FLAG] [VENTRICLES_FLAG] [WM_VCSF_FLAG] [GM_FLAG] [SUBCORT_GM_FLAG] [SCM_LH_FLAG] [SCM_RH_FLAG] [ZERO_EDGES_FLAG] [ZERO_SLICE_EDGES_FLAG] [DILATE_VERTEX] [REMOVE_ISLANDS_FLAG] [FILL_HOLES_FLAG] [NOVERBOSE_FLAG] [DEBUG_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "value-key": "[INPUT_VOLUME]",

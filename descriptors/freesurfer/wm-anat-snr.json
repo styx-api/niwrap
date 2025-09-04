@@ -1,9 +1,8 @@
 {
   "name": "wm-anat-snr",
-  "tool-version": "7.4.1",
   "description": "Measures the anatomical SNR in white matter (WM) for quality assurance (QA). This is an experimental metric.",
   "command-line": "wm-anat-snr [SUBJECT] [OUTPUT_FILE] [FORCE] [NERODE] [TMP_DIR] [CLEANUP] [NO_CLEANUP]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--s",
@@ -76,9 +75,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

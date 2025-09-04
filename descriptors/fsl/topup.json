@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "topup",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "topup is part of FSL and is used to estimate and correct for susceptibility-induced distortions in echo planar imaging (EPI) data.",
   "command-line": "topup [IMAIN] [DATAIN] [OUT] [FOUT] [IOUT] [LOGOUT] [WARPRES] [SUBSAMP] [FWHM] [CONFIG] [MITER] [LAMBDA] [SSQLAMBDA] [REGMOD] [ESTMOV] [MINMET] [SPLINEORDER] [NUMPREC] [INTERP] [SCALE] [REGRID] [NTHR] [VERBOSE]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "command-line-flag": "--imain",
@@ -237,7 +232,7 @@
       "name": "Verbose flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUT]_fieldcoef.nii.gz",

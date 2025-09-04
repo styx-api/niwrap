@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_distance_transform",
   "author": "FreeSurfer Developers",
   "description": "Computes the distance transform of a label on the surface.",
   "command-line": "mris_distance_transform [SURFACE] [LABEL] [MODE] [OUTPUT_FILE] [ANTERIOR] [POSTERIOR] [DIVIDE] [OLABEL]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Surface file for processing.",
@@ -83,9 +82,5 @@
       "name": "Result File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

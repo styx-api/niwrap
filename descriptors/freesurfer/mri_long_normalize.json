@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_long_normalize",
   "author": "FreeSurfer Developers",
   "description": "Tool to normalize the white-matter of MRI volumes, optionally based on control points.",
   "command-line": "mri_long_normalize [INPUT_VOL] [BASE_TP_FILE] [OUTPUT_VOL] [NORMALIZATION_ITERS] [DISABLE_1D] [SMOOTH_BIAS] [ASEG] [DEBUG_GVX] [DEBUG_GX] [READING] [PRINT_USAGE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input MRI volume file.",
@@ -119,9 +118,5 @@
       "name": "Output MRI Volume"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

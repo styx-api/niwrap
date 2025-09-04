@@ -2,7 +2,7 @@
   "name": "mris_ca_deform",
   "command-line": "mris_ca_deform [INPUT_SURFACE] [LABEL_VOL] [TRANSFORM] [INTENSITY_VOL] [OUTPUT_SURFACE]",
   "description": "Deforms a surface to match it to a volumetric map of cortical labels.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "input_surface",
@@ -53,11 +53,6 @@
       "description": "The result of the deformation process, output surface file."
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
   "url": "https://github.com/freesurfer/freesurfer"
 }

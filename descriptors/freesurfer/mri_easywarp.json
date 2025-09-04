@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_easywarp",
   "author": "FreeSurfer Developers",
   "description": "EasyReg: deep learning registration simple and easy",
   "command-line": "mri_easywarp [INPUT_IMAGE] [OUTPUT_IMAGE] [DEFORMATION_FIELD] [NEAREST_NEIGHBOR] [NUM_THREADS]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input image",

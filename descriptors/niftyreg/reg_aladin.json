@@ -1,11 +1,10 @@
 {
   "name": "reg_aladin",
-  "tool-version": "1.4.0",
   "author": "NiftyReg Developers",
   "description": "Block Matching algorithm for global registration based on \"Reconstructing a 3D structure from serial histological sections\", Image and Vision Computing, 2001",
   "url": "http://cmictig.cs.ucl.ac.uk/wiki/index.php/NiftyReg",
   "command-line": "reg_aladin [REFERENCE_IMAGE] [FLOATING_IMAGE] [SYMMETRIC] [OUTPUT_AFFINE] [RIGID_ONLY] [DIRECT_AFFINE] [SMOOTH_REF] [SMOOTH_FLOAT] [NUM_LEVELS] [FIRST_LEVELS] [USE_NIFTI_ORIGIN] [PERCENT_BLOCK] [PERCENT_INLIER]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "reference_image",
@@ -128,9 +127,5 @@
       "path-template": "outputAffine.txt",
       "description": "File containing the output affine transformation"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "vnmd/niftyreg_1.4.0:20220819"
-  }
+  ]
 }

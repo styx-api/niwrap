@@ -1,7 +1,7 @@
 {
   "name": "mri_copy_values",
   "command-line": "mri_copy_values [SOURCE_VOLUME] [TARGET_VOLUME] [OUTPUT_VOLUME]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Source volume from which values are copied.",
@@ -38,10 +38,5 @@
   ],
   "author": "FreeSurfer Developers",
   "description": "No description",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

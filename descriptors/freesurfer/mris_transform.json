@@ -3,7 +3,7 @@
   "description": "A tool to transform surfaces from one space to another using image transforms.",
   "author": "FreeSurfer Developers",
   "command-line": "mris_transform [INPUT_SURFACE] [TRANSFORM] [OUTPUT_SURFACE] [TRX_SRC] [TRX_DST] [IS_INVERSE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "input_surface",
@@ -64,10 +64,5 @@
       "description": "Transformed output surface file."
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "tool-version": "7.4.1",
   "url": "https://github.com/freesurfer/freesurfer"
 }

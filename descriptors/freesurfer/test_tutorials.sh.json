@@ -2,7 +2,7 @@
   "name": "test_tutorials.sh",
   "description": "A script to run various tutorial commands, with options for skipping GUI components and focusing on specific tutorials.",
   "command-line": "test_tutorials.sh [ALL_TUTORIALS] [QUICK_TEST] [AUTO_QUIT_FREEVIEW] [SKIP_ALL_GUIS] [SKIP_TK_GUIS] [SKIP_QDEC_GUIS] [INDIVIDUAL_SUBJECT] [TROUBLESHOOTING] [GROUP_ANALYSIS] [QDEC] [LONGITUDINAL] [ROI_ANALYSIS] [DIFFUSION] [TRACULA] [FSFAST] [MULTIMODAL]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-all",
@@ -134,10 +134,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

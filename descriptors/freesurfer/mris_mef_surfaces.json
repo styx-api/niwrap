@@ -2,7 +2,7 @@
   "name": "mris_mef_surfaces",
   "command-line": "mris_mef_surfaces [SUBJECT_NAME] [HEMISPHERE] [OMIT_SELF_INTERSECTION] [CURVATURE] [AVERAGE_CURVATURE] [WHITE_ONLY]",
   "description": "Positions the tessellation of the cortical surface at the white matter surface, then the gray matter surface and generates surface files for these surfaces. Also generates 'curvature' file for cortical thickness and a surface file approximating layer IV of the cortical sheet.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "subject_name",
@@ -55,10 +55,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

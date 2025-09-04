@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "unpack_ima1.tcl",
   "author": "FreeSurfer Developers",
   "description": "A tool for unpacking images using FreeSurfer",
   "command-line": "unpack_ima1.tcl [INPUT_DIRECTORY] [OUTPUT_DIRECTORY]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "The directory containing the input files to be unpacked.",

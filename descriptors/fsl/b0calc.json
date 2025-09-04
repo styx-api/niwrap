@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "b0calc",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "B0 field calculation program",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "b0calc [INPUT_FILE] [OUTPUT_FILE] [ZERO_ORDER_X] [ZERO_ORDER_Y] [ZERO_ORDER_Z] [B0_X] [B0_Y] [B0_Z] [DELTA] [CHI0] [XYZ_FLAG] [EXTEND_BOUNDARY] [DIRECT_CONV] [VERBOSE_FLAG] [HELP_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Filename of input image (usually a tissue/air segmentation)",
@@ -142,7 +137,7 @@
       "name": "Help flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_FILE]",

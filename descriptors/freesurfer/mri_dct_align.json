@@ -2,7 +2,7 @@
   "name": "mri_dct_align",
   "description": "MRI DCT alignment tool from FreeSurfer",
   "command-line": "mri_dct_align [SOURCE] [DESTINATION] [OUTPUT_XFORM]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Source image file",
@@ -38,10 +38,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

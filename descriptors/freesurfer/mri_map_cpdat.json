@@ -2,11 +2,7 @@
   "name": "mri_map_cpdat",
   "description": "Maps a control.dat file to a different space using an LTA",
   "command-line": "mri_map_cpdat [INPUT_FILE] [OUTPUT_FILE] [LTA_FILE] [TO_MNI305] [FROM_MNI305] [SUBJECT_LIST_FILE]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input control point text file",
@@ -72,6 +68,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
   "url": "https://github.com/freesurfer/freesurfer"
 }

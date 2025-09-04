@@ -2,11 +2,7 @@
   "name": "segmentSubjectT1T2_autoEstimateAlveusML",
   "description": "Tool for automatic estimation of the alveus in MR images using T1 and T2 contrast.",
   "command-line": "segmentSubjectT1T2_autoEstimateAlveusML [INPUT_T1] [INPUT_T2] [OUTPUT_DIRECTORY] [OTHER_OPTIONS]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "input_t1",
@@ -50,6 +46,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
   "url": "https://github.com/freesurfer/freesurfer"
 }

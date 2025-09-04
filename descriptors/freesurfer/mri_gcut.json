@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_gcut",
   "author": "FreeSurfer Developers",
   "description": "Skull stripping algorithm based on graph cuts.",
   "command-line": "mri_gcut [WMMASK_110] [MULT_FILE] [THRESHOLD_VALUE] [INFILE] [OUTFILE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input brain volume file, e.g. T1.mgz",
@@ -60,9 +59,5 @@
       "name": "Output mask file"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

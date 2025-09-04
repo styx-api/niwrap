@@ -2,7 +2,7 @@
   "name": "run_samseg",
   "description": "SAMSEG (Sequence Adaptive Multimodal SEGmentation) is a tool for automated segmentation of brain MRI data.",
   "command-line": "run_samseg [OUTPUT_DIR] [INPUT_FILES] [INPUT_MODE] [THREADS] [REG_ONLY] [REG_FILE] [INIT_REG_FILE] [ATLAS_DIR] [GMM_FILE] [IGNORE_UNKNOWN] [OPTIONS_FILE] [PALLIDUM_SEPARATE] [MESH_STIFFNESS] [SMOOTH_WM_CORTEX_PRIORS] [BIAS_FIELD_SMOOTHING_KERNEL] [LESION] [THRESHOLD] [SAMPLES] [BURNIN] [LESION_PSEUDO_SAMPLES] [LESION_RHO] [LESION_MASK_STRUCTURE] [LESION_MASK_PATTERN] [RANDOM_SEED] [DISSECTION_PHOTO] [HISTORY] [SAVE_POSTERIORS] [SAVE_PROBABILITIES] [SHOWFIGS] [SAVE_MESH] [SAVE_WARP] [MOVIE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "output_dir",
@@ -291,10 +291,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

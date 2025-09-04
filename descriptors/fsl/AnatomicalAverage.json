@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "AnatomicalAverage",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Tool to create an anatomical average of input brain images",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "AnatomicalAverage [OUTPUT_BASENAME] [INPUT_IMAGES] [STANDARD_IMAGE] [STANDARD_BRAIN_MASK] [NO_CROP_FLAG] [WORK_DIR] [BRAINSIZE] [NOCLEAN_FLAG] [VERBOSE_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Output basename",
@@ -89,7 +84,7 @@
       "name": "Verbose Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_BASENAME]_avg.nii.gz",

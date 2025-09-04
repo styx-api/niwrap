@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "make_folding_atlas",
   "author": "FreeSurfer Developers",
   "description": "Script to iteratively create a cortical folding atlas.",
   "command-line": "make_folding_atlas [SUBJLISTFILE] [FSGDFILE] [SUBJECTS] [OUTPUT_BASE] [MAX_ITERATIONS] [XHEMI] [INIT_SURF_REG] [INIT_SUBJECT] [NO_ANNOT_TEMPLATE] [LEFT_HEMISPHERE] [RIGHT_HEMISPHERE] [LHRH] [ICO_ORDER] [NO_VOL_ON_LAST] [VOL] [INIT] [SHORT_SLEEP] [NO_TEMPLATE_ONLY] [THREADS] [SLURM_ACCOUNT]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--f",
@@ -179,9 +178,5 @@
     }
   ],
   "output-files": [],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

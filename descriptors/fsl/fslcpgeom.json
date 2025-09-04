@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "fslcpgeom",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "FSL tool to copy image geometry from one file to another.",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "fslcpgeom [SOURCE_FILE] [DESTINATION_FILE] [DIMENSIONS_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Source image file (e.g. img1.nii.gz)",
@@ -35,5 +30,5 @@
       "name": "Dimensions flag"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

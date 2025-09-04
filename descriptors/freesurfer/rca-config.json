@@ -2,7 +2,7 @@
   "name": "rca-config",
   "description": "A command-line tool that processes configuration files and arguments.",
   "command-line": "rca-config [SOURCE_CONFIG] [UPDATED_CONFIG] [UNKNOWN_ARGS_FILE] [ARGS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Path to the source configuration file",
@@ -40,10 +40,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

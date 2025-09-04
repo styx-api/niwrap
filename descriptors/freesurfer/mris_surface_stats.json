@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_surface_stats",
   "author": "FreeSurfer Developers",
   "description": "Computes the group-wise mean and standard deviation of thickness differences at every vertex of the template surface.",
   "command-line": "mris_surface_stats [NSMOOTH] [SURF_NAME] [MASK_NAME] [OUT_NAME] [MEAN] [ABSMEAN] [ABSSTD] [ZSCORE] [FIRST_GROUP_SIZE] [SRC_TYPE] [TRG_TYPE] [DEBUG] [DATA_FILES]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-nsmooth",

@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_label_volume",
   "author": "FreeSurfer Developers",
   "description": "A tool to compute volumes of labeled voxels within MRI images, often used in conjunction with FreeSurfer processed data.",
   "command-line": "mri_label_volume [VOLUME] [LABELS] [PARTIAL_VOLUME_EFFECTS] [INTRACRANIAL_VOLUME] [SPREADSHEET_SUBJECT] [NON_ZERO_VOXELS] [REPLACE_LABEL_IN] [REPLACE_LABEL_OUT] [BRAIN_VOLUME] [PERCENTAGE] [LOG_RESULTS] [ATLAS_TRANSFORM_FILE] [ATLAS_SCALEFACTOR] [ETIV_TRANSFORM_FILE] [ETIV_SCALEFACTOR] [ETIV_SUBJECT]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Volume file (e.g., volume.mgz) to analyze",
@@ -159,9 +158,5 @@
       "name": "Output Log Results File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

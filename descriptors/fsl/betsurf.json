@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "betsurf",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "BET Surface Finder to extract brain surfaces using T1 and T2 images",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "betsurf [T1_IMAGE] [T2_IMAGE] [BET_MESH] [T1_TO_STANDARD_MAT] [OUTPUT_PREFIX] [HELP_FLAG] [VERBOSE_FLAG] [T1ONLY_FLAG] [OUTLINE_FLAG] [MASK_FLAG] [SKULL_MASK_FLAG] [INCREASED_PRECISION]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "T1-weighted MRI image",
@@ -109,7 +104,7 @@
       "integer": true
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_PREFIX]_mask.nii.gz",

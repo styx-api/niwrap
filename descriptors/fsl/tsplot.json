@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "tsplot",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Time series plotting tool for FSL",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "tsplot [INPUT_DIRECTORY] [MAIN_FILTERED_DATA] [COORDINATES] [COORDINATES_OUTPUT] [MASK] [OUTPUT_DIRECTORY] [NO_WEIGHT_FLAG] [PREWHITEN_FLAG] [NO_RAW_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input FEAT directory (e.g. feat_directory.feat)",
@@ -94,7 +89,7 @@
       "name": "No raw flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_DIRECTORY]/timeseries.txt",

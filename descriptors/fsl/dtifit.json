@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "dtifit",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "DTIFIT - Fit a diffusion tensor model at each voxel",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "dtifit [DATA_FILE] [OUTPUT_BASENAME] [MASK_FILE] [BVEC_FILE] [BVAL_FILE] [VERBOSE_FLAG] [SSE_FLAG] [WLS_FLAG] [KURT_FLAG] [KURTDIR_FLAG] [LITTLEBIT_FLAG] [SAVE_TENSOR_FLAG] [ZMIN] [ZMAX] [YMIN] [YMAX] [XMIN] [XMAX] [GRADNONLIN_FILE] [CONFOUND_REGRESSORS]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "command-line-flag": "-k",
@@ -184,7 +179,7 @@
       "name": "Confound regressors file"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_BASENAME]_FA.nii.gz",

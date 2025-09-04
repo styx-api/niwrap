@@ -2,7 +2,7 @@
   "name": "mris_map_cuts",
   "command-line": "mris_map_cuts [INPUT_PATCH] [OUTPUT_PATCH]",
   "description": "Tool for mapping cortical surface data onto cuts.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "input_patch",
@@ -22,10 +22,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "easythresh",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Cluster-based statistical thresholding tool from FSL",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "easythresh [RAW_ZSTAT_INPUT] [BRAIN_MASK_INPUT] [CLUSTER_Z_THRESH_INPUT] [CLUSTER_PROB_THRESH_INPUT] [BACKGROUND_IMAGE_INPUT] [OUTPUT_ROOT] [MM_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input raw z-statistics image",
@@ -67,7 +62,7 @@
       "name": "MM Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_ROOT]_thresh.nii.gz",

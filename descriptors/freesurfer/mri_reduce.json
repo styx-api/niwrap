@@ -1,9 +1,8 @@
 {
   "name": "mri_reduce",
-  "tool-version": "7.4.1",
   "description": "A tool to reduce MRI file dimensions",
   "command-line": "mri_reduce [INPUT_FILE] [OUTPUT_FILE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input MRI file",
@@ -31,9 +30,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

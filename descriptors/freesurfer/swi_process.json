@@ -2,11 +2,7 @@
   "name": "swi_process",
   "description": "Process the Susceptibility-weighted images. Ensure the inputs are post-phase unwrapping using PRELUDE.",
   "command-line": "swi_process [MAGNITUDE_IMAGE] [PHASE_IMAGE] [SWI_OUTPUT] [STDDEV] [PHASE_MASK_CUTOFF] [PHASE_MASK_RIGHT_CUTOFF] [SIGMOID_A] [SIGMOID_B] [PHASE_MULTIPLICATIONS] [MIP_LEVEL] [PHASE_MASK_METHOD]",
-  "schema-version": "0.5",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "magnitude_image",
@@ -114,6 +110,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
   "url": "https://github.com/freesurfer/freesurfer"
 }

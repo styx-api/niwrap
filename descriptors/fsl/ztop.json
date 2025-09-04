@@ -1,12 +1,7 @@
 {
-  "tool-version": "6.0.4",
   "name": "ztop",
   "description": "Converts a z-score to a p-value.",
   "command-line": "ztop [Z_SCORE] [TAIL_FLAG] [GRF_FLAG] [NUMBER_OF_RESELS]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input z-score",
@@ -41,7 +36,7 @@
       "name": "Number of Resels"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "author": "FMRIB Analysis Group, University of Oxford",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
 }

@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "nmovie_qt",
   "author": "FreeSurfer Developers",
   "description": "An image viewer using Qt for displaying images in sequence.",
   "command-line": "nmovie_qt [IMAGES]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input image files to be displayed. Multiple files can be provided.",
@@ -16,9 +15,5 @@
       "list": true
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_concat",
   "author": "FreeSurfer Developers",
   "description": "Concatenates input data sets.",
   "command-line": "mri_concat [INPUT_FILES] [OUTPUT_FILE] [FILE_LIST] [PAIRED_SUM] [PAIRED_AVG] [PAIRED_DIFF] [PAIRED_DIFF_NORM] [PAIRED_DIFF_NORM1] [PAIRED_DIFF_NORM2] [NORM_MEAN] [NORM1] [MATRIX] [FRAME_WEIGHT] [NORM_WEIGHT] [GROUP_MEAN] [COMBINE] [KEEP_DATATYPE] [ABS] [POS] [NEG] [MEAN] [MEDIAN] [MEAN_DIV_N] [SUM] [VAR] [STD] [MAX] [MAX_INDEX] [MAX_INDEX_PRUNE] [MAX_INDEX_ADD] [MIN] [REPLICATE_TIMES] [FNORM] [CONJUNCTION] [VOTE] [SORT] [TEMPORAL_AR1] [PRUNE] [PCA] [PCA_MASK] [SCM] [ZCONCAT] [MAX_BONFCOR] [MULTIPLY] [ADD] [MASK_FILE] [RMS] [NO_CHECK]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input image files (e.g. file1.mgh file2.mgh ...).",
@@ -405,9 +404,5 @@
       "value-key": "[NO_CHECK]"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

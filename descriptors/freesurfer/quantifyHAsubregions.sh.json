@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "quantifyHAsubregions.sh",
   "author": "FreeSurfer Developers",
   "description": "Tool to quantify hippocampal subregions using FreeSurfer",
   "command-line": "quantifyHAsubregions.sh [PREFIX] [SUFFIX] [OUTPUT_FILE] [SUBJECTS_DIRECTORY]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Prefix for the files to be processed.",
@@ -47,9 +46,5 @@
       "name": "Output Result File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

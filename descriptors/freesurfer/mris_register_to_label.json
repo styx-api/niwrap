@@ -1,9 +1,8 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_register_to_label",
   "description": "Register a surface to a volume using a label",
   "command-line": "mris_register_to_label [SURFACE] [REGFILE] [MRI_REG] [MOV_VOLUME] [RESOLUTION] [MAX_ROT] [MAX_TRANS] [SUBJECT] [LABEL] [OUT_REG] [DOWNSAMPLE] [COST_FILE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--surf",
@@ -115,9 +114,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

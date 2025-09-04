@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "talairach_mgh",
   "author": "FreeSurfer Developers",
   "description": "A tool for aligning brain volume with Talairach reference brain",
   "command-line": "talairach_mgh [INPUT_VOLUME] [OUTPUT_VOLUME]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input volume file for the talairach transformation",
@@ -31,9 +30,5 @@
       "name": "Transformed Output Volume"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

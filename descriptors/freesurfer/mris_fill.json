@@ -2,9 +2,8 @@
   "name": "mris_fill",
   "author": "FreeSurfer Developers",
   "description": "A tool that floodfills the interior of a surface and writes the results into a volume of specified resolution.",
-  "tool-version": "7.4.1",
   "command-line": "mris_fill [RESOLUTION] [CONFORM] [INPUT_SURFACE] [OUTPUT_VOLUME]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input surface file",
@@ -48,9 +47,5 @@
       "name": "Filled Volume"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

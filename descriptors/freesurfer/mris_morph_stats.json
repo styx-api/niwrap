@@ -2,7 +2,7 @@
   "name": "mris_morph_stats",
   "description": "This program generates statistics which characterize a surface-based deformation field.",
   "command-line": "mris_morph_stats [SUBJECT_NAME] [HEMISPHERE] [MORPHED_SURFACE] [OUTPUT_NAME]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Name of the subject.",
@@ -47,10 +47,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

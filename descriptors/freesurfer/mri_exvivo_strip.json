@@ -2,7 +2,7 @@
   "name": "mri_exvivo_strip",
   "description": "Tool for processing MRI volumes for ex vivo data",
   "command-line": "mri_exvivo_strip [INVOL] [OUTVOL] [HEMI] [PRED] [NORM] [FV] [UTHRESH] [BORDER] [MULTICHANNEL] [MODEL] [WTS] [GPU]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input MRI volume",
@@ -132,10 +132,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

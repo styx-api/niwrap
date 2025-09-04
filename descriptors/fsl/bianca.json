@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "bianca",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "BIANCA: Brain Intensity AbNormality Classification Algorithm",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "bianca [MASTER_FILE] [LABEL_FEATURE_NUM] [BRAIN_MASK_FEATURE_NUM] [QUERY_SUBJECT_NUM] [TRAINING_NUMS] [FEATURE_SUBSET] [MAT_FEATURE_NUM] [SPATIAL_WEIGHT] [PATCH_SIZES] [PATCH_3D] [SELECT_PTS] [TRAINING_PTS] [NON_LES_PTS] [LOAD_CLASSIFIER_DATA] [SAVE_CLASSIFIER_DATA] [VERBOSE_FLAG] [OUT_NAME]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Name of the master file",
@@ -176,7 +171,7 @@
       "name": "Verbose flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUT_NAME]_bianca",

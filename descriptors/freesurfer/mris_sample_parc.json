@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_sample_parc",
   "author": "FreeSurfer Developers",
   "description": "This program samples a volumetric parcellation onto a surface.",
   "command-line": "mris_sample_parc [SUBJECT_NAME] [HEMISPHERE] [PARC_NAME] [OUTPUT_ANNOT] [SDIR] [SURF] [FIX] [REPLACE] [TRANS] [CORTEX] [PROJMM] [PROJ] [PROJFRAC] [FILE] [CT] [V_LEVEL] [FILTER] [SMOOTH] [W_SIZE] [THICKNESS] [CHANGE_UNKNOWN] [HELP] [VERSION]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "The subject ID.",

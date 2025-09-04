@@ -2,7 +2,7 @@
   "name": "mri_exvivo_norm",
   "description": "MRI Ex Vivo Normalization Tool",
   "command-line": "mri_exvivo_norm [INPUT_VOLUME] [OUTPUT_VOLUME] [HEMI] [PREDICTION_VOLUME] [NORMALIZED_VOLUME] [FREEVIEW] [NORMALIZE_OUTPUT_MEAN] [WRITE_NORMALIZATION_ROUNDS] [UPPER_THRESHOLD] [BIAS_FIELD_SIGMA] [NORMALIZATION_ROUNDS] [MULTICHANNEL] [MODEL_FILE] [WEIGHTS_FILE] [GPU_NUMBER]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-i",
@@ -145,10 +145,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

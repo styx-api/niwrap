@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_robust_register",
   "author": "FreeSurfer Developers",
   "description": "Inverse consistent registration of two volumes using robust and standard cost functions.",
   "command-line": "mri_robust_register [MOVABLE_VOLUME] [TARGET_VOLUME] [OUTPUT_REGISTRATION] [OUTLIER_SENSITIVITY] [SATIT] [MAPPED_MOVABLE] [MAPPED_MOVABLE_HDR] [WEIGHTS] [ONEMINUS_W] [ISCALE] [ISCALE_ONLY] [ISCALE_OUT] [ISCALE_IN] [TRANS_ONLY] [AFFINE] [IXFORM] [INIT_ORIENT] [NO_INIT] [VOX2VOX] [COST] [ENT_RADIUS] [ENT_CORRECTION] [ENT_BALL] [ENT_MOV] [POWELL_TOLERANCE] [SOBEL] [NO_SYM] [MAXIMUM_ITERATIONS] [ENT_DST] [HIGH_ITER] [EPS_ITERATION] [NO_MULTISCALE] [MAX_SIZE] [MIN_SIZE] [W_LIMIT] [SUB_SAMPLE] [FLOAT_TYPE] [WHITE_BG_MOV] [WHITE_BG_DST] [UCHAR] [MASK_MOV] [MASK_DST] [HALF_MOV] [HALF_DST] [HALF_WEIGHTS] [HALF_MOV_LTA] [HALF_DST_LTA] [DEBUG] [VERBOSE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input movable volume to be aligned to target.",
@@ -503,9 +502,5 @@
       "name": "Destination Entropy Image"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

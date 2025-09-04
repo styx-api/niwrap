@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_rf_label",
   "author": "FreeSurfer Developers",
   "description": "A tool for labeling regions of a surface using random forest classification.",
   "command-line": "mris_rf_label [SUBJECT] [RF_CLASSIFIER] [OUTPUT_NAME] [HEMI] [SURF]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Subject identifier",
@@ -49,9 +48,5 @@
       "name": "Surface"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

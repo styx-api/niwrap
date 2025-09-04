@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "filmbabe",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "FILM with MCMC-based Bayesian Analysis for fMRI",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "filmbabe [DATAFILE] [DATAFILE_ALIAS] [MASK] [MASK_ALIAS] [DESIGNFILE] [DESIGNFILE_ALIAS_1] [DESIGNFILE_ALIAS_2] [FRF] [VERBOSE_FLAG] [VERBOSE_FLAG_ALIAS] [DEBUG_LEVEL] [DEBUG_LEVEL_ALIAS_1] [DEBUG_LEVEL_ALIAS_2] [TIMING_ON_FLAG] [HELP_FLAG] [HELP_FLAG_ALIAS] [FLOBS_PRIOR_OFF_FLAG] [FLOBS_PRIOR_OFF_ALIAS] [FLOBS_DIR] [PRIOR_COVAR_FILE] [PRIOR_COVAR_FILE_ALIAS] [PRIOR_MEAN_FILE] [PRIOR_MEAN_FILE_ALIAS] [LOG_DIR] [LOG_DIR_ALIAS_1] [LOG_DIR_ALIAS_2] [NUM_ITERATIONS] [TEMPORAL_AR_MRF_PREC] [TEMPORAL_AR_MRF_PREC_ALIAS] [TEMPORAL_AR_FLAG] [NUM_TRACE_SAMPLES] [NUM_TRACE_SAMPLES_ALIAS] [TEMPORAL_AR_ORDER]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "command-line-flag": "--df",
@@ -306,5 +301,5 @@
       "integer": true
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

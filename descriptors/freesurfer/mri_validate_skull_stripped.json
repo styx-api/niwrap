@@ -2,7 +2,7 @@
   "name": "mri_validate_skull_stripped",
   "command-line": "mri_validate_skull_stripped [MRI_REFERENCE] [MRI_TEST] [WEIGHT]",
   "description": "Tool to validate skull stripped MRI images.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "mri_reference",
@@ -31,10 +31,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "estnoise",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Estimate noise in 4D fMRI data.",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "estnoise [INPUT_4D_DATA] [SPATIAL_SIGMA] [TEMP_HP_SIGMA] [TEMP_LP_SIGMA]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input 4D fMRI data (e.g., fmri_data.nii.gz)",
@@ -43,7 +38,7 @@
       "name": "Temporal LP Sigma"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "noise_estimate.txt",

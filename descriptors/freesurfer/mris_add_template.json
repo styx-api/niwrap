@@ -1,10 +1,9 @@
 {
   "name": "mris_add_template",
-  "tool-version": "7.4.1",
   "description": "This tool has been removed from the current version of FreeSurfer.",
   "author": "FreeSurfer Developers",
   "command-line": "mris_add_template [PLACEHOLDER_INPUT]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "value-key": "[PLACEHOLDER_INPUT]",
@@ -23,9 +22,5 @@
       "name": "Placeholder Output"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

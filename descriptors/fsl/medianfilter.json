@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "medianfilter",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "A tool to perform 26 neighbourhood median filtering on an input image.",
   "command-line": "medianfilter [INFILE] [OUTFILE]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input image file to be filtered (e.g., img.nii.gz)",
@@ -26,7 +21,7 @@
       "name": "Output file"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTFILE]",

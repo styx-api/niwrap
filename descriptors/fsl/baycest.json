@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "baycest",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Bayesian analysis for chemical exchange saturation transfer z-spectra",
   "command-line": "baycest [DATA_FILE] [MASK_FILE] [OUTPUT_DIR] [POOLS_FILE] [SPEC_FILE] [PTRAIN_FILE] [SPATIAL_FLAG] [T12PRIOR_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Specify data file (nifti image)",
@@ -86,7 +81,7 @@
       "name": "T1 and T2 uncertainty flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_DIR]/output_file.nii.gz",

@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "fslinterleave",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Interleaves two input images slice-by-slice to produce an output image.",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "fslinterleave [INFILE1] [INFILE2] [OUTFILE] [REVERSE_SLICE_ORDER_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "First input image",
@@ -43,7 +38,7 @@
       "name": "Reverse slice order flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTFILE].nii.gz",

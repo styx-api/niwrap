@@ -2,7 +2,7 @@
   "name": "mri_mergelabels",
   "description": "A tool to merge two or more label files by concatenating them together.",
   "command-line": "mri_mergelabels [INPUT_LABELS] [OUTPUT_LABEL] [INPUT_DIRECTORY]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-i",
@@ -42,10 +42,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

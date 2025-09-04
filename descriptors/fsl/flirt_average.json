@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "flirt_average",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Averages multiple input images after linear registration (FLIRT).",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "flirt_average [NINPUTS] [INPUT1] [INPUT2] [INPUT3] [OUTPUT_FILE] [REFERENCE_IMAGE] [FLIRT_OPTIONS]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Number of input images",
@@ -70,7 +65,7 @@
       "name": "FLIRT options"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_FILE].nii.gz",

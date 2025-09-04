@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "tkmedit",
   "author": "FreeSurfer Developers",
   "description": "tkmedit is a multi-functional imaging tool for viewing and editing surface models and volumes in FreeSurfer. It provides a GUI representation of volumetric data and facilitates modifications in the data.",
   "command-line": "tkmedit [INPUT_VOLUME] [OPTIONS]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input volume file (e.g., nu.mgz or brain.mgz)",

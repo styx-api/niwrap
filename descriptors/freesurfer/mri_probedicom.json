@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_probedicom",
   "author": "FreeSurfer Developers",
   "description": "Utility to probe DICOM files for information.",
   "command-line": "mri_probedicom [DICOM_FILE] [OPTION1] [OPTION2]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "DICOM file to be probed.",

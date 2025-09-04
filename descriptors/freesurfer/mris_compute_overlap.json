@@ -2,7 +2,7 @@
   "name": "mris_compute_overlap",
   "description": "Tool to compute the overlap between two or more labels on a cortical surface.",
   "command-line": "mris_compute_overlap [SUBJECT] [HEMI] [SURFACE] [ANNOTATION] [LABELS] [PERCENTAGE] [LOG_FILE] [BRAIN_VOLUME]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Subject name",
@@ -73,10 +73,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

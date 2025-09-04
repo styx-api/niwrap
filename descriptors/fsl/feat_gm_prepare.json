@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "feat_gm_prepare",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Prepare 4D grey matter files for higher-level analysis in FEAT.",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "feat_gm_prepare [GM_OUTPUT] [FEAT_DIRS_LIST]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "4D grey matter output file",
@@ -28,5 +23,5 @@
       "name": "List of FEAT output directories"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

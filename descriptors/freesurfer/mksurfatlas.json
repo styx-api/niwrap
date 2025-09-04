@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mksurfatlas",
   "author": "FreeSurfer Developers",
   "description": "Creates an atlas using mris_make_template. The atlas can then be used to create the surface registration for each subject based on this atlas.",
   "command-line": "mksurfatlas [ATLAS] [HEMI] [SUBJECTS] [SURFVAL] [SURFVALDIR] [REGSURF] [DEBUG] [VERSION] [HELP]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--a",
@@ -94,9 +93,5 @@
       "name": "Output Atlas File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

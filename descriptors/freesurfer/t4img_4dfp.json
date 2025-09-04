@@ -2,7 +2,7 @@
   "name": "t4img_4dfp",
   "description": "Transforms a 4dfp image using a specified t4 file.",
   "command-line": "t4img_4dfp [T4FILE] [IMGFILE] [OUTFILE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Transformation matrix file (t4 file format).",
@@ -38,10 +38,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -2,7 +2,7 @@
   "name": "reregister_subject_mixed",
   "command-line": "reregister_subject_mixed [INPUT_VOLUME] [OUTPUT_DIRECTORY] [THREADS]",
   "description": "Tool for re-registering a subject's MRI volumes using Freesurfer.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input volume file path",
@@ -50,10 +50,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

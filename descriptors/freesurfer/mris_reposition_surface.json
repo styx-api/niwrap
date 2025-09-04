@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_reposition_surface",
   "author": "FreeSurfer Developers",
   "description": "Reposition a surface based on the given control points (in JSON format)",
   "command-line": "mris_reposition_surface [SURF] [VOLUME] [POINTS] [OUTPUT] [SIZE] [SIGMA] [ITERATIONS]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-s",

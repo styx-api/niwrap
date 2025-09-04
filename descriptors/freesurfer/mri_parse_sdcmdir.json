@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_parse_sdcmdir",
   "author": "FreeSurfer Developers",
   "description": "This program parses the Siemens DICOM files in a given directory and prints out information about each file.",
   "command-line": "mri_parse_sdcmdir [SDICOMDIR] [OUTFILE] [SORTBYRUN] [SUMMARIZE] [DWI]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--d",

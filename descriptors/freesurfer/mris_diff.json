@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_diff",
   "author": "FreeSurfer Developers",
   "description": "A tool for comparing differences between surface files in FreeSurfer.",
   "command-line": "mris_diff [SURFACE1] [SURFACE2] [SUBJECT1] [SUBJECT2] [SUBJ_DIR1] [SUBJ_DIR2] [HEMISPHERE] [SURF] [CURV] [APARC] [APARC2] [SIMPLE] [SIMPLE_PATCH] [THRESH] [MAXERRS] [RENUMBERED] [WORST_BUCKET] [GRID] [NO_CHECK_XYZ] [NO_CHECK_NXYZ] [XYZ_RMS] [ANGLE_RMS] [SEED] [MIN_DIST] [DEBUG] [GDIAG_NO] [CHECK_OPTS] [HELP] [VERSION]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "First surface file",
@@ -257,9 +256,5 @@
       "name": "Version"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

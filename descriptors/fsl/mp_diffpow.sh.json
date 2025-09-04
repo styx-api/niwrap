@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "mp_diffpow.sh",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Generates a file with specific motion parameter calculations useful for accounting for 'spin history' effects and other variations not accounted for by motion correction.",
   "command-line": "mp_diffpow.sh [REG_FILE] [DIFF_REG_FILE]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input file containing registration parameters (e.g., regparam.dat)",
@@ -26,7 +21,7 @@
       "name": "Differenced registration parameter file"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[DIFF_REG_FILE]",

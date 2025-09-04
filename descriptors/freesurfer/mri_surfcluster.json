@@ -1,11 +1,7 @@
 {
   "name": "mri_surfcluster",
   "command-line": "mri_surfcluster [INFILE] [THMIN] [SIGN] [NO_ADJUST_FLAG] [FDR] [SUBJECT] [HEMI] [SURF] [SURFPATH] [ANNOT] [FRAME] [CSD] [VWSIG] [CWSIG] [MAXCWPVAL] [BONFERRONI] [SIG2P_MAX_FLAG] [BONFERRONI_MAX] [CSDPDF] [CSDPDF_ONLY_FLAG] [CSD_OUT] [CWPVALTHRESH] [FWHM] [FWHMDAT] [CLABEL] [CORTEX_FLAG] [MASK] [MASK_INV_FLAG] [CENTROID_FLAG] [SUM] [POINTSET] [MAXAREAFILE] [O] [OCN] [OLAB] [OANNOT] [MINAREA] [XFM] [NO_FIXMNI_FLAG] [SD] [THMAX]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "description": "A tool for clustering vertices on a cortical surface based on intensity values.",
   "inputs": [
     {
@@ -411,6 +407,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
   "url": "https://github.com/freesurfer/freesurfer"
 }

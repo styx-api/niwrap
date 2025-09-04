@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_morphology",
   "author": "FreeSurfer Developers",
   "description": "MRI Morphology Tool - performs various morphological operations on a volume.",
   "command-line": "mri_morphology [INPUT_VOLUME] [OPERATION] [NUMBER_ITER] [OUTPUT_VOLUME] [LABEL_OPTION]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input volume file on which operations are to be applied.",

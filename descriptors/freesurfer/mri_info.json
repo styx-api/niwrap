@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_info",
   "author": "FreeSurfer Developers",
   "description": "Tool to extract metadata from MRI volumes",
   "command-line": "mri_info [INPUT1] [INPUT2] [CONFORMED] [CONFORMED_TO_MIN] [IS_1MM_ISO] [TYPE] [TR] [TE] [TI] [FA] [PEDIR] [RES] [CRES] [RRES] [SRES] [VOXVOL] [VOXVOLSUM] [NCOLS] [NROWS] [NSLICES] [DIM] [CDC] [RDC] [SDC] [VOX2RAS] [RAS2VOX] [VOX2RAS_TKR] [RAS2VOX_TKR] [VOX2RAS_FSL] [TKR2SCANNER] [SCANNER2TKR] [RAS_GOOD] [CRAS] [CENTER] [ZERO_CRAS] [P0] [DET] [DOF] [NFRAMES] [MID_FRAME] [FORMAT] [ORIENTATION] [SLICEDIRECTION] [AUTOALIGN] [CTAB] [CMDS] [DUMP] [VOXEL_CRS] [ENTROPY] [OUTPUT_FILE] [ORIG_RAS2VOX] [IN_TYPE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Primary input file",
@@ -429,9 +428,5 @@
       "name": "Input type"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

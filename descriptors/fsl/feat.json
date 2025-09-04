@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "feat",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "fMRI Expert Analysis Tool",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "feat [DESIGN_FILE]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "FEAT design file (e.g. design.fsf)",
@@ -19,7 +14,7 @@
       "name": "Design file"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "design.feat",

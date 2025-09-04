@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_flatten",
   "author": "FreeSurfer Developers",
   "description": "This program will flatten a surface patch",
   "command-line": "mris_flatten [INPUT_PATCH] [OUTPUT_PATCH] [ITERATIONS] [DISTANCES] [DILATIONS] [RANDOM_SEED] [COPY_COORDS] [NORAND]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input surface patch",
@@ -87,9 +86,5 @@
       "name": "Output Patch File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

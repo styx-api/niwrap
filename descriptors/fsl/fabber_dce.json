@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "fabber_dce",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Fabber DCE analysis tool for model-based analysis of dynamic contrast-enhanced imaging data.",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "fabber_dce [OUTPUT_DIRECTORY] [INFERENCE_METHOD] [FORWARD_MODEL] [INPUT_DATA] [HELP_FLAG] [LIST_METHODS] [LIST_MODELS] [LIST_PARAMS] [DESCRIBE_PARAMS] [LIST_OUTPUTS] [EVALUATE_MODEL] [EVALUATE_PARAMS] [EVALUATE_NT] [SIMPLE_OUTPUT] [OVERWRITE] [LINK_TO_LATEST] [LOAD_MODELS] [MULTIPLE_DATA] [DATA_ORDER] [MASK] [MASKED_TIME_POINTS] [SUPPLEMENTAL_DATA] [DUMP_PARAM_NAMES] [SAVE_MODEL_FIT] [SAVE_RESIDUALS] [SAVE_MODEL_EXTRAS] [SAVE_MVN] [SAVE_MEAN] [SAVE_STD] [SAVE_VARIANCES] [SAVE_ZSTAT] [SAVE_NOISE_MEAN] [SAVE_NOISE_STD] [SAVE_FREE_ENERGY] [OPTION_FILE] [DEBUG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "command-line-flag": "--output",
@@ -316,7 +311,7 @@
       "name": "Debug Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_DIRECTORY]",

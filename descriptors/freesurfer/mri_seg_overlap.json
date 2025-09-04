@@ -1,9 +1,8 @@
 {
   "name": "mri_seg_overlap",
-  "tool-version": "7.4.1",
   "description": "Compute the structural overlap between two segmentation volumes.",
   "command-line": "mri_seg_overlap [VOL1] [VOL2] [OUT_FILE] [MEASURES] [LABELS] [LABEL_NAMES] [LABEL_FILE] [NO_NAMES_FLAG] [SEG_FLAG] [QUIET_FLAG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "vol1",
@@ -103,9 +102,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "featquery",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Tool to extract statistics and/or time series from FEAT directories",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "featquery [N_FEATDIRS] [FEATDIRS] [N_STATS] [STATS] [OUTPUT_ROOTNAME] [ATLAS_FLAG] [PERCENT_CONVERT_FLAG] [THRESH_FLAG] [INTERP_THRESH] [TIMESERIES_FLAG] [WEIGHT_FLAG] [BROWSER_FLAG] [MASK_FILE] [COORDS]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Number of feat directories",
@@ -127,7 +122,7 @@
       "name": "Voxel coordinates"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_ROOTNAME]_queryreport.txt",

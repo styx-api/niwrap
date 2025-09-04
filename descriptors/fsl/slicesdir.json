@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "slicesdir",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "slicesdir generates a directory containing orthogonal slices through a set of images.",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "slicesdir [FLAG_FILELIST] [OUTLINE_IMAGE] [EDGE_THRESHOLD] [SLICE_OPTION] [FILELIST]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "List of image files to process",
@@ -54,5 +49,5 @@
       "name": "Second Axial Slice Option"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

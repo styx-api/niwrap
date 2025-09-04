@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "eddy_squad",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Study-wise QC for dMRI data",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "eddy_squad [GROUPING] [GROUP_DB] [UPDATE] [OUTPUT_DIR] [SUBJECT_LIST]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "command-line-flag": "-g",
@@ -54,7 +49,7 @@
       "name": "Subject ID list"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_DIR]/qc_results.json",

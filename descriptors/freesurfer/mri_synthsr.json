@@ -2,7 +2,7 @@
   "name": "mri_synthsr",
   "description": "Implementation of SynthSR that generates a synthetic 1mm MP-RAGE from a scan of any contrast and resolution.",
   "command-line": "mri_synthsr [INPUT] [OUTPUT] [CT] [DISABLE_SHARPENING] [DISABLE_FLIPPING] [LOWFIELD] [V1] [THREADS] [CPU] [MODEL]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Image(s) to super-resolve. Can be a path to an image or to a folder.",
@@ -88,10 +88,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

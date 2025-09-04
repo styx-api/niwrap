@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "ccops",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "ccops - Clustering of Connectomes Using Probabilistic Tractography",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "ccops [BASENAME] [INFILE] [TRACT_DIR] [EXCLUSION_MASK] [REORDER_SEEDSPACE] [REORDER_TRACTSPACE] [TRACT_REORD] [CONNEXITY_CONSTRAINT] [BINARISE_VAL] [MATRIX_POWER] [BRAIN_MASK] [SCHEME] [NCLUSTERS] [HELP]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Output basename",
@@ -136,7 +131,7 @@
       "name": "Help"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[BASENAME]_output.nii.gz",

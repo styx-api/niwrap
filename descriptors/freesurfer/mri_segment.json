@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_segment",
   "author": "FreeSurfer Developers",
   "description": "Segments white matter from the input volume.",
   "command-line": "mri_segment [IN_VOL] [OUT_VOL] [NO1D_REMOVE] [SLOPE] [PSLOPE] [NSLOPE] [DEBUG_VOXEL] [AUTO] [NOAUTO] [LOG] [KEEP] [GRAY_HI] [WM_LOW] [WM_LOW_FACTOR] [WM_HI] [NSEG] [THICKEN] [FILLBG] [FILLV] [BLUR_SIGMA] [ITERATIONS] [THIN_STRAND_LIMIT] [VERBOSE] [THRESHOLD] [EXTRACT_OPTIONS] [WSIZE] [WSIZEMM] [POLVW_SIZE] [POLV_LEN] [DATFILE] [SEGMENTATION] [DIAGNO] [DIAG_WRITE] [DIAG_VERBOSE]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "in_vol",

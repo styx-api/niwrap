@@ -2,7 +2,7 @@
   "name": "mri_brainvol_stats",
   "description": "Tool for computing brain volume statistics with FreeSurfer",
   "command-line": "mri_brainvol_stats [SUBJECT_ID] [XML_STRING] [NO_SURFACE] [INCLUDE_SEGMENTATION] [OUTPUT_FILE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--subject",
@@ -57,10 +57,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -1,9 +1,8 @@
 {
-  "tool-version": "7.4.1",
   "name": "xcorr",
   "description": "Computes the voxel-for-voxel correlation coefficient between two volumes.",
   "command-line": "xcorr [INPUT1] [INPUT2] [OUTPUT] [LOG_FILE] [TMP_DIR] [NO_CLEANUP]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--i1",
@@ -74,9 +73,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

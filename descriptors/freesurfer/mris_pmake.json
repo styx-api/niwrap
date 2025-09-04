@@ -2,8 +2,7 @@
   "name": "mris_pmake",
   "description": "Calculates paths and related costs on FreeSurfer surfaces based on an edge cost and Dijkstra's algorithm.",
   "command-line": "mris_pmake [OPTIONS_FILE] [WORKING_DIR] [LISTEN_MODE] [LISTEN_ON_PORT] [SUBJECT] [HEMISPHERE] [SURFACE0] [SURFACE1] [CURVE0] [CURVE1] [USE_ABS_CURVS] [MPM_PROG] [MPM_ARGS]",
-  "schema-version": "0.5",
-  "tool-version": "7.4.1",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--optionsFile",
@@ -122,9 +121,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

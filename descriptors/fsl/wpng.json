@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "wpng",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Simple PGM/PPM/PAM to PNG Converter",
   "command-line": "wpng [INPUT_FILE] [GAMMA] [BGCOLOR] [TEXT_FLAG] [TIME_FLAG] [INTERLACE_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input PNM file (binary PGM 'P5', PPM 'P6' or PAM 'P8')",
@@ -61,7 +56,7 @@
       "name": "Interlace flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[INPUT_FILE_BASE_NAME].png",

@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "make_hemi_mask",
   "author": "FreeSurfer Developers",
   "description": "Generates a hemisphere mask by registering input to the left/right reversed version using mri_robust_register, then keeps only the selected hemisphere.",
   "command-line": "make_hemi_mask [HEMI] [INPUT_FILE] [OUTPUT_FILE]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Hemisphere to keep ('lh' for left hemisphere, 'rh' for right hemisphere)",

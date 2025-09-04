@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "swi_preprocess",
   "author": "FreeSurfer Developers",
   "description": "Pre-process the Susceptibility-weighted images and write out nifti files for feeding into PRELUDE (Phase Unwrapping Library of FSL).",
   "command-line": "swi_preprocess [SCANNER] [GE_FILE] [PHILIPS_FILE] [SIEMENS_MAGNITUDE] [SIEMENS_PHASE] [OUT_MAGNITUDE] [OUT_PHASE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--scanner",
@@ -85,9 +84,5 @@
       "name": "Output Phase File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "sienax",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "A tool to estimate brain tissue volume from a single MR image and to compare it to an external standard.",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "sienax [INFILE] [OUTPUT_DIR] [DEBUG_FLAG] [BET_OPTIONS] [TWOCLASS_SEGMENT_FLAG] [T2_FLAG] [TOP_THRESHOLD] [BOTTOM_THRESHOLD] [REGIONAL_FLAG] [LESION_MASK] [FAST_OPTIONS]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input image (e.g. img.nii.gz)",
@@ -105,7 +100,7 @@
       "name": "FAST options"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_DIR]/segmentation.nii.gz",

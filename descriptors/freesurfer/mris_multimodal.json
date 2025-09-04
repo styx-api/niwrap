@@ -2,7 +2,7 @@
   "name": "mris_multimodal",
   "description": "A FreeSurfer tool for processing multimodal surface data.",
   "command-line": "mris_multimodal [INPUT_SURFACE] [TARGET_SURFACE] [OUTPUT_SURFACE] [FILL_HOLES] [CURVATURE] [THICKNESS] [ANNOTATION_OUTPUT] [OVERLAY_OUTPUT] [CSV_OUTPUT] [VTK_OUTPUT]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input surface file.",
@@ -118,10 +118,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

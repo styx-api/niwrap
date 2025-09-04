@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "fabber_dwi",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Fabber diffusion-weighted imaging tool for model-based analysis using forward models and different inference methods.",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "fabber_dwi [OUTPUT_DIR] [METHOD] [MODEL] [DATA_FILE] [HELP_FLAG] [LISTMETHODS_FLAG] [LISTMODELS_FLAG] [LISTPARAMS_FLAG] [DESCPARAMS_FLAG] [LISTOUTPUTS_FLAG] [EVALUATE] [EVALUATE_PARAMS] [EVALUATE_NT] [SIMPLE_OUTPUT_FLAG] [OVERWRITE_FLAG] [LINK_TO_LATEST_FLAG] [LOADMODELS] [MULTIPLE_DATA_FILES] [DATA_ORDER] [MASK_FILE] [MASKED_TIMEPOINTS] [SUPP_DATA] [DUMP_PARAM_NAMES_FLAG] [SAVE_MODEL_FIT_FLAG] [SAVE_RESIDUALS_FLAG] [SAVE_MODEL_EXTRAS_FLAG] [SAVE_MVN_FLAG] [SAVE_MEAN_FLAG] [SAVE_STD_FLAG] [SAVE_VAR_FLAG] [SAVE_ZSTAT_FLAG] [SAVE_NOISE_MEAN_FLAG] [SAVE_NOISE_STD_FLAG] [SAVE_FREE_ENERGY_FLAG] [OPTFILE] [DEBUG_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "command-line-flag": "--output",
@@ -315,7 +310,7 @@
       "name": "Debug Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_DIR]",

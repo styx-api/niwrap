@@ -1,9 +1,8 @@
 {
   "name": "mris_gradient",
-  "tool-version": "7.4.1",
   "description": "This program computes the gradient of an intensity profile of the cortical ribbon and writes the resulting measurement into a .mgz file.",
   "command-line": "mris_gradient [INPUT_SURFACE] [INPUT_VECTOR_FIELD] [OUTPUT_GRADIENT_FILE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "input_surface",
@@ -39,9 +38,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

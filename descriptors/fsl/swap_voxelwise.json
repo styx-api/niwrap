@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "swap_voxelwise",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Reordering of vectors with direction preservation",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "swap_voxelwise [VECTORS_FILE_LIST] [SCALARS_FILE_LIST] [MASK] [OUTPUT_BASE_NAME] [REORDER_MODE] [INIT_MASK] [CROSSING_THRESH] [VERBOSE_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Text file containing list of vectors",
@@ -82,7 +77,7 @@
       "name": "Verbose flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_BASE_NAME].nii.gz",

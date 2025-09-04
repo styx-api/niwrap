@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_tessellate",
   "author": "FreeSurfer Developers",
   "description": "This program creates a surface by tessellating a given input volume.",
   "command-line": "mri_tessellate [INPUT_VOLUME] [LABEL_VALUE] [OUTPUT_SURF] [DIFFERENT_LABELS] [MAX_VERTICES] [REAL_RAS]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input volume (e.g., a filled MRI image).",

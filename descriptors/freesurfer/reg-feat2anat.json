@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "reg-feat2anat",
   "author": "FreeSurfer Developers",
   "description": "Registers FSL-Feat example_func to FreeSurfer anatomical data.",
   "command-line": "reg-feat2anat [FEAT_DIR] [SUBJECT_ID] [OVERWRITE_EXF2STD] [MANUAL] [MANXFM_TYPE] [DOF] [BINS] [COST] [MAX_ANGLE] [BET] [TITLE] [NO_BBR] [SPM] [NO_INORM] [FMOV] [DEBUG]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Directory in which to find example_func.",

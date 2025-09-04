@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_fdr",
   "author": "FreeSurfer Developers",
   "description": "A program that performs False Discovery Rate correction.",
   "command-line": "mri_fdr [INPUT_FILES] [FDR_VALUE] [DEFAULT_FRAME] [POSITIVE_ONLY] [NEGATIVE_ONLY] [ALL_VOXELS] [RAW_P_VALUES] [THRESHOLD_FILE] [DEBUG] [CHECK_OPTIONS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--i",
@@ -98,9 +97,5 @@
     }
   ],
   "output-files": [],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

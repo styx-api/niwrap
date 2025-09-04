@@ -1,11 +1,10 @@
 {
   "name": "reg_f3d",
-  "tool-version": "1.4.0",
   "author": "NiftyReg Developers",
   "description": "Fast Free-Form Deformation algorithm for non-rigid registration based on Rueckert's 99 TMI work.",
   "url": "http://cmictig.cs.ucl.ac.uk/wiki/index.php/NiftyReg",
   "command-line": "reg_f3d [REFERENCE_IMAGE] [FLOATING_IMAGE] [AFFINE_TRANSFORM] [FLIRT_AFFINE_TRANSFORM] [CONTROL_POINT_GRID_INPUT] [OUTPUT_CPP] [OUTPUT_RESAMPLED_IMAGE] [REFERENCE_MASK] [SMOOTH_REFERENCE] [SMOOTH_FLOATING] [NUM_BINS_JOINT_HISTOGRAM] [NUM_BINS_FLOATING_JOINT_HISTOGRAM] [LOWER_THRESHOLD_REFERENCE] [UPPER_THRESHOLD_REFERENCE] [LOWER_THRESHOLD_FLOATING] [UPPER_THRESHOLD_FLOATING] [SPACING_X] [SPACING_Y] [SPACING_Z] [BENDING_ENERGY] [LINEAR_ELASTICITY] [L2_NORM_DISPLACEMENT] [JACOBIAN_DETERMINANT] [NO_APPROX_JL] [NO_CONJ] [SSD] [KLD] [AMC] [MAX_ITERATIONS] [NUM_LEVELS] [FIRST_LEVELS] [NO_PYRAMID] [SYMMETRIC] [FLOATING_MASK] [INVERSE_CONSISTENCY] [VELOCITY_FIELD] [COMPOSITION_STEPS] [SMOOTH_GRADIENT] [PADDING_VALUE] [VERBOSE_OFF]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "reference_image",
@@ -373,9 +372,5 @@
       "path-template": "[OUTPUT_RESAMPLED_IMAGE]",
       "description": "File containing the resampled image"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "vnmd/niftyreg_1.4.0:20220819"
-  }
+  ]
 }

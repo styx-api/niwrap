@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "tbss_fill",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Tool for filling skeletonized FA images in TBSS",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "tbss_fill [STATS_IMAGE] [THRESHOLD] [MEAN_FA] [OUTPUT] [INCLUDE_NEGATIVE_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Stats image",
@@ -51,7 +46,7 @@
       "name": "Include negative flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT]",

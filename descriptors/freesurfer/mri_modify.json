@@ -2,7 +2,7 @@
   "name": "mri_modify",
   "command-line": "mri_modify [X_RAS] [Y_RAS] [Z_RAS] [CRAS] [X_SIZE] [Y_SIZE] [Z_SIZE] [TR] [TE] [TI] [FA] [XFORM] [INPUT_VOLUME] [OUTPUT_VOLUME]",
   "description": "Tool for modifying MRI image headers",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-xras",
@@ -134,10 +134,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

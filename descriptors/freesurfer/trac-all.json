@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "trac-all",
   "author": "FreeSurfer Developers",
   "description": "Reconstruct white-matter pathways using an atlas of the underlying anatomy.",
   "command-line": "trac-all [CONFIG_FILE] [SUBJECT_NAME] [DICOM_FILE] [PRE_PROCESSING] [BEDPOST] [PATHWAY_RECONSTRUCTION] [ASSEMBLE_MEASURES] [IMAGE_CORRECTIONS] [NO_IMAGE_CORRECTIONS] [IMAGE_QUALITY_ASSESSMENT] [NO_IMAGE_QUALITY_ASSESSMENT] [INTRA_REGISTRATION] [NO_INTRA_REGISTRATION] [TENSOR_FIT] [NO_TENSOR_FIT] [INTER_REGISTRATION] [NO_INTER_REGISTRATION] [PATHWAY_PRIORS] [NO_PATHWAY_PRIORS] [INFANT_OPTIONS] [JOB_FILE] [LOG_FILE] [NO_APPEND_LOG] [CMD_FILE] [NO_IS_RUNNING] [SUBJECTS_DIRECTORY] [UMASK] [GROUP_ID] [ALLOW_CORE_DUMP] [DEBUG_MODE] [DONT_RUN] [ONLY_VERSIONS] [VERSION_INFO] [HELP]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-c",
@@ -302,9 +301,5 @@
       "name": "Default Command File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

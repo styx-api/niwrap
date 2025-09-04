@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "tbss_2_reg",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "TBSS utility for target selection and registration for Tract-Based Spatial Statistics (TBSS) analysis",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "tbss_2_reg [USE_FMRIB58_FA_1MM] [TARGET_IMAGE] [FIND_BEST_TARGET]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "command-line-flag": "-T",
@@ -36,5 +31,5 @@
       "name": "Find Best Target"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

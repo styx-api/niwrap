@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_log_likelihood",
   "author": "FreeSurfer Developers",
   "description": "MRI log likelihood calculation tool for brain images.",
   "command-line": "mri_log_likelihood [INPUT_BRAIN_IMAGES] [ATLAS_FILE] [TRANSFORM_FILE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "List of input brain images",
@@ -32,9 +31,5 @@
       "name": "Transform File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

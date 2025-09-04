@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_make_surfaces",
   "author": "FreeSurfer Developers",
   "description": "Positions the tessellation of the cortical surface at the white matter surface, then the gray matter surface, generating surface files along with a curvature file and a surface file for cortical thickness.",
   "command-line": "mris_make_surfaces [SUBJECT_NAME] [HEMISPHERE] [WHITE] [PIAL] [WHITEONLY] [NOWHITE] [ORIG_WHITE] [ORIG_PIAL] [Q] [MAX_GRAY_SCALE] [C] [CORTEX] [W] [FIRST_WM_PEAK] [A_AVGS] [PA_AVGS] [WA_AVGS] [T1_VOL] [W_VOL] [LONG] [DURA_THRESH] [SDIR] [ERASE_CEREBELLUM] [WM_WEIGHT] [NSIGMA_ABOVE] [NSIGMA_BELOW] [T2_MIN_INSIDE] [T2_MAX_INSIDE] [T2_OUTSIDE_MIN] [T2_OUTSIDE_MAX] [MIN_PEAK_PCT] [BORDER_VALS_HIRES] [NO_UNITIZE] [INTENSITY] [CURV] [TSPRING] [NSPRING] [REPULSE] [SAVE_TARGET] [SAVE_RES] [V_VERTEXNO] [DIAG_VERTEX] [RIP] [SIGMA_WHITE] [SIGMA_PIAL] [OUTPUT] [MIN_BORDER_WHITE] [MAX_BORDER_WHITE] [MIN_GRAY_WHITE_BORDER] [MAX_GRAY] [MAX_GRAY_CSF_BORDER] [MIN_GRAY_CSF_BORDER] [MAX_CSF]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Name of the subject",

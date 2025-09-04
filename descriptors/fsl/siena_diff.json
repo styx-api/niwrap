@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "siena_diff",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "SIENA_diff: Analysis of longitudinal brain image differences.",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "siena_diff [INPUT1_BASENAME] [INPUT2_BASENAME] [DEBUG_FLAG] [NO_SEG_FLAG] [SELF_CORR_FACTOR] [IGNORE_Z_FLOW_FLAG] [APPLY_STD_MASK_FLAG] [SEGMENT_OPTIONS]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input image 1 basename",
@@ -77,5 +72,5 @@
       "name": "Segmentation options"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

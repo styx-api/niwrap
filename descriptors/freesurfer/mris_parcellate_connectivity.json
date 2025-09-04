@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_parcellate_connectivity",
   "author": "FreeSurfer Developers",
   "description": "A tool to parcellate brain connectivity using surface and correlation data.",
   "command-line": "mris_parcellate_connectivity [SMOOTH_ITERATIONS] [INPUT_SURFACE] [INPUT_CORRELATIONS] [OUTPUT_PARCELLATION]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Number of averaging iterations for smoothing correlation matrix.",
@@ -48,9 +47,5 @@
       "name": "Output Parcellation File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

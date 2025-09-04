@@ -1,12 +1,7 @@
 {
-  "tool-version": "6.0.4",
   "name": "create_lut",
   "description": "A tool to create lookup tables",
   "command-line": "create_lut [OUTPUT_FILE_ROOT]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "The root name of the output file to be generated",
@@ -17,7 +12,7 @@
       "name": "Output file root"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [],
   "author": "FMRIB Analysis Group, University of Oxford",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"

@@ -2,7 +2,7 @@
   "name": "UpdateNeeded",
   "description": "A command-line tool to update a target file based on one or more source files.",
   "command-line": "UpdateNeeded [TARGET_FILE] [SOURCE_FILE] [ADDITIONAL_SOURCE_FILES]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "The target file that needs to be updated.",
@@ -31,10 +31,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

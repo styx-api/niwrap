@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "run_mris_preproc",
   "author": "FreeSurfer Developers",
   "description": "Utility to create pre-smoothed surface data on a target average subject for Qdec application",
   "command-line": "run_mris_preproc [QDEC_TABLE] [TARGET_AVERAGE]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Text file of subject data used by qdec",

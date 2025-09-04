@@ -1,14 +1,9 @@
 {
   "name": "tkregister2_cmdl",
-  "tool-version": "7.4.1",
   "author": "FreeSurfer Developers",
   "description": "tkregister2 is a tool to assist in the manual tuning of the linear registration between two volumes, mainly for the purpose of interacting with the FreeSurfer anatomical stream.",
   "command-line": "tkregister2_cmdl [MOVABLE_VOLUME] [TARGET_VOLUME] [FSTARG_FLAG] [REG_FILE] [CHECK_REG_FLAG] [REGHEADER_FLAG] [REGHEADER_CENTER_FLAG] [FSL_TARG_FLAG] [FSL_TARG_LR_FLAG] [GCA_SUBJECT] [GCA_SKULL_SUBJECT] [NO_ZERO_CRAS_FLAG] [MOVBRIGHT] [NO_INORM_FLAG] [FMOV] [FMOV_TARG_FLAG] [PLANE] [SLICE] [VOLVIEW] [FOV] [MOVSCALE] [SURF] [SURF_RGB] [LH_ONLY_FLAG] [RH_ONLY_FLAG] [FSTAL_FLAG] [TALXFMNAME] [IXFM] [XFM] [XFMOUT] [FSL] [FSLREGOUT] [FREEVIEW] [VOX2VOX] [LTA] [LTA_INV] [LTAOUT] [LTAOUT_INV_FLAG] [FEAT] [FSFEAT] [IDENTITY_FLAG] [SUBJECT_ID] [SUBJECTS_DIR] [NOFIX_FLAG] [FLOAT2INT] [TITLE] [TAG_FLAG] [MOV_ORIENTATION] [TARG_ORIENTATION] [INT] [DOUBLE_WINDOW_SIZE_FLAG] [WINDOW_SCALE] [DET] [ASEG_FLAG] [APARC_FLAG] [WMPARC_FLAG] [GDIAGNO] [TRANS] [ROT] [CONF_TARG_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Path to the movable volume.",

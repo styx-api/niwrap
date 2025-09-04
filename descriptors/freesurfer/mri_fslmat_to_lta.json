@@ -2,11 +2,7 @@
   "name": "mri_fslmat_to_lta",
   "command-line": "mri_fslmat_to_lta [SRC_VOL] [TARGET_VOL] [FSLMAT_FILE] [LTA_FILE]",
   "description": "This program creates the LTA transformation file using information from the src and target volumes and an FSL matrix file",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "src_vol",
@@ -50,6 +46,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
   "url": "https://github.com/freesurfer/freesurfer"
 }

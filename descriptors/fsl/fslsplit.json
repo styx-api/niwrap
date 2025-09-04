@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "fslsplit",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Split a 4D image into separate volumes or a 3D image into separate slices",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "fslsplit [INFILE] [OUTPUT_BASENAME] [SEPARATION_X] [SEPARATION_Y] [SEPARATION_Z] [SEPARATION_TIME]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input image (e.g. img.nii.gz)",
@@ -59,7 +54,7 @@
       "name": "Separate images in the z direction"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_BASENAME]",

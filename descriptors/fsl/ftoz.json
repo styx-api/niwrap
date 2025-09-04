@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "ftoz",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Convert F-statistics to Z-scores.",
   "command-line": "ftoz [INPUT_FILE] [DOF1] [DOF2] [OUTPUT_FILE] [HELP_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "id": "input_file",
@@ -59,6 +54,6 @@
       "path-template": "[OUTPUT_FILE]"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
 }

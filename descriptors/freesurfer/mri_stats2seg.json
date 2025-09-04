@@ -1,9 +1,8 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_stats2seg",
   "description": "A command-line tool for converting MRI statistical maps to segmented volume.",
   "command-line": "mri_stats2seg [STAT_FILE] [SEGMENTATION_VOLUME] [OUTPUT_FILE] [DEBUG] [CHECK_OPTS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--stat",
@@ -58,9 +57,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

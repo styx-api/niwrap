@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_mcsim",
   "author": "FreeSurfer Developers",
   "description": "Monte Carlo simulation tool for surface-based multiple comparisons",
   "command-line": "mri_mcsim [TOP_OUTPUT_DIR] [BASE_NAME] [SURFACE] [NUM_REPETITIONS] [FWHM_VALUES] [FWHM_MAX] [AVG_VERTEX_AREA] [RANDOM_SEED] [LABEL_FILE] [MASK_FILE] [NO_LABEL] [NO_SAVE_MASK] [SURFACE_NAME] [LOG_FILE] [DONE_FILE] [STOP_FILE] [SAVE_FILE] [SAVE_ITER] [SUBJECTS_DIR] [DEBUG] [CHECK_OPTS] [HELP] [VERSION]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--o",

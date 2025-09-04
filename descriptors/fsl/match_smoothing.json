@@ -1,12 +1,7 @@
 {
-  "tool-version": "6.0.4",
   "name": "match_smoothing",
   "description": "Computes the smoothing sigma needed to be applied to structural data to match a given functional data smoothing level.",
   "command-line": "match_smoothing [EXAMPLE_FUNC] [FUNC_SMOOTHING_FWHM] [EXAMPLE_STRUCTURAL] [STANDARD_SPACE_RESOLUTION]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Path to the example functional image file.",
@@ -41,7 +36,7 @@
       "name": "Standard space resolution"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "author": "FMRIB Analysis Group, University of Oxford",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
 }

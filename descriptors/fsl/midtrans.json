@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "midtrans",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Calculate the midpoint transform from a series of input transforms.",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "midtrans [TRANSFORMS] [OUTPUT_MATRIX] [TEMPLATE_IMAGE] [SEPARATE_BASENAME] [DEBUG_FLAG] [VERBOSE_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "List of input transform files (e.g. transform1.mat transform2.mat ... transformN.mat)",
@@ -63,5 +58,5 @@
       "name": "Verbose flag"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

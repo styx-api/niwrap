@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_mask",
   "author": "FreeSurfer Developers",
   "description": "Applies a mask volume (typically skull stripped)",
   "command-line": "mri_mask [INPUT_VOLUME] [MASK_VOLUME] [OUTPUT_VOLUME] [XFORM] [LTA_SRC] [LTA_DST] [THRESHOLD] [NPAD] [NPAD_VECTOR] [NPAD_MULTI_VECTOR] [ABS] [INVERT] [NO_INVERT] [RH_LABELS] [LH_LABELS] [DILATE] [NO_CEREBELLUM] [OVAL_VALUE] [TRANSFER_VALUE] [KEEP_MASK_DELETION_EDITS] [SAMSEG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input volume file",
@@ -195,9 +194,5 @@
       "name": "Output File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "tkmeditfv",
   "author": "FreeSurfer Developers",
   "description": "A wrapper script to run Freeview with arguments similar to tkmedit, providing both functionalities.",
   "command-line": "tkmeditfv [SUBJECT] [MAINVOL] [AUX_VOLUME] [SEG_VOLUME] [OVERLAY] [TIMECOURSE] [OVERLAY_REGISTRATION] [SURFACE] [EXTRA_VOLUMES] [CRS_LOCATION] [ZOOM_LEVEL] [ADDITIONAL_SEGMENTS] [LOAD_WHITE] [LOAD_PIAL] [LOAD_ORIG] [LOAD_ORIG_NOFIX] [LOAD_SMOOTHWM_NOFIX] [LOAD_WHITE_PREAPARC] [LOAD_INFLATED] [ANNOT] [LOAD_APARC] [SURFEXT] [SEG_OUTLINE] [INTENSITY_MINMAX] [LOAD_DEFECTS] [LOAD_DEFECT_POINTSET] [TRILIN_INTERPOLATION] [NEUROLOGICAL_ORIENTATION] [ROTATE_AROUND_CURSOR] [VGL_DISPLAY] [USE_TKMEDIT] [LOAD_APARC_ASEG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Subject's name",
@@ -285,9 +284,5 @@
       "name": "Load aparc+aseg"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

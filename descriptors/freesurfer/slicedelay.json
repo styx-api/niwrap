@@ -1,10 +1,9 @@
 {
   "name": "slicedelay",
-  "tool-version": "7.4.1",
   "description": "Creates an FSL custom slice delay file for use with slicetimer for slice-time correction of fMRI",
   "author": "FreeSurfer Developers",
   "command-line": "slicedelay [SLICEDELAYFILE] [NSLICES] [ORDER] [NGROUPS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "slicedelayfile",
@@ -52,9 +51,5 @@
       "path-template": "[SLICEDELAYFILE]"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

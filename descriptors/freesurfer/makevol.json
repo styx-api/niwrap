@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "makevol",
   "author": "FreeSurfer Developers",
   "description": "A tool to create a volume with given parameters.",
   "command-line": "makevol [FILENAME] [WIDTH] [HEIGHT] [DEPTH] [SIZEX] [SIZEY] [SIZEZ] [SET_METHOD]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-f",
@@ -90,9 +89,5 @@
       "name": "Output File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

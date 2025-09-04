@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_ca_register",
   "author": "FreeSurfer Developers",
   "description": "Generates a multi-dimensional talairach transform from a gca file and talairach.lta file",
   "command-line": "mri_ca_register [INPUT_VOLUME] [TEMPLATE] [OUTPUT_VOLUME] [TOLERANCE] [MASK] [TRANSFORM_LTA] [LEVEL] [READ_INTENSITY] [ALIGN] [INVERT_SAVE_FILE] [DISTANCE] [REGULARIZE] [REGULARIZE_MEAN] [SCALE_SMOOTHNESS] [NOBRIGHT] [RENORMALIZE_MAP] [RENORMALIZE] [READ_LTA] [SMOOTHNESS] [SAMPLES] [NSMALL] [FIXED] [OPTIMAL] [NONEG] [WM] [MIN_AVGS] [TRANSFORM_LIMIT] [RELABEL] [RELABEL_AVGS] [RESET_AVGS] [VF_FILE] [DIAG_FILE] [TR] [TE] [EXAMPLE] [BIGVENTRICLES] [UNCOMPRESS] [SECOND_PASS_RENORM] [THREADS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input volume",
@@ -351,9 +350,5 @@
       "name": "Output Multidimensional Transform"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -1,12 +1,7 @@
 {
-  "tool-version": "6.0.4",
   "name": "prewhiten",
   "command-line": "prewhiten [FEAT_DIRECTORY] [OUTPUT_DIRECTORY]",
   "description": "Prewhitening tool for FEAT directories",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input FEAT directory",
@@ -26,7 +21,7 @@
       "name": "Output Directory"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_DIRECTORY]",

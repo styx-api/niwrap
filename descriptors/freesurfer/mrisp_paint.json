@@ -2,7 +2,7 @@
   "name": "mrisp_paint",
   "description": "A tool for extracting arrays from a surface-registration template file and sampling them onto a surface mesh.",
   "command-line": "mrisp_paint [TEMPLATE_FILE] [INPUT_SURFACE] [OUTPUT_NAME] [SUBJECTS_DIR] [VERTEX_COORDS] [AVERAGE_FLAG] [NORMALIZE_FLAG] [FRAME_NUMBER] [SQUARE_ROOT_FLAG] [VARIANCE_PARAMS] [USAGE_FLAG] [BIRN_INFO_FLAG] [HELP_FLAG] [DIAG_VERTEX] [VERSION_FLAG] [DIAG_WRITE_FLAG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Full path to the template file. Template may contain multiple parameters. Example: 'somepath/mytemplate.tif#1'.",
@@ -147,11 +147,6 @@
       "name": "Output file"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
   "url": "https://github.com/freesurfer/freesurfer"
 }

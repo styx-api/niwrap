@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_ca_tissue_parms",
   "author": "FreeSurfer Developers",
   "description": "Tool for computing tissue parameters in canonical space.",
   "command-line": "mri_ca_tissue_parms [SUBJECTS] [OUTPUT_FILE] [SPACING_FLAG] [GRADIENT_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "subjects",

@@ -1,7 +1,7 @@
 {
   "name": "mri_reorient_LR.csh",
   "command-line": "mri_reorient_LR.csh [INPUT_VOL] [OUTPUT_VOL] [DISPLAY_RESULT] [CLEAN_FILES] [OUTPUT_REGISTRATION] [VERSION] [HELP]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "description": "A script to reorient MRI volumes from left-right orientation.",
   "inputs": [
     {
@@ -72,10 +72,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

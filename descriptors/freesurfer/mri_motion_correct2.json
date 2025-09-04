@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_motion_correct2",
   "author": "FreeSurfer Developers",
   "description": "Aligns and averages two or more volumes using minctracc for alignment and mincresample and mincaverage for resampling.",
   "command-line": "mri_motion_correct2 [OUTPUT_SPEC] [INPUT_FILES] [TARGET] [WILD] [TMP_DIR] [NOCLEANUP] [UMASK] [CM] [VERSION] [DEBUG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-o",
@@ -101,9 +100,5 @@
       "name": "Output File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -1,5 +1,4 @@
 {
-  "tool-version": "6.0.4",
   "name": "first",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "A command-line tool for segmenting subcortical structures in MRI images using models and transformations.",
@@ -135,7 +134,7 @@
       "name": "Load bvars flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_NAME]_seg.nii.gz",
@@ -143,9 +142,5 @@
       "id": "segmented_output_image",
       "name": "Segmented output image file"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  }
+  ]
 }

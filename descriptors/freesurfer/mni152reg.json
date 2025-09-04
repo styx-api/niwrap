@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mni152reg",
   "author": "FreeSurfer Developers",
   "description": "Registers the FreeSurfer subject to the FSL MNI 152 brain to create a tkregister-style registration matrix.",
   "command-line": "mni152reg [SUBJECT] [REGISTER_1MM] [OUTPUT] [SYMMETRIC] [SAVE_VOLUME]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "FreeSurfer subject ID",
@@ -63,9 +62,5 @@
       "name": "Registration matrix 1mm"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

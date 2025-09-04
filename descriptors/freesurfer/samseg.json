@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "samseg",
   "author": "FreeSurfer Developers",
   "description": "SAMSEG (Statistical and Algorithmic Methods for Segmentation) is a tool for segmenting neuroimaging data.",
   "command-line": "samseg [INPUT_FILES] [T1W_FILES] [T2W_FILES] [FLAIR_FILES] [OTHER_MODALITY_FILES] [OUTPUT_DIRECTORY] [OPTIONS_FILE] [DISSECTION_PHOTO_MODE] [SAVE_HISTORY] [SUBJECT] [SAVE_POSTERIORS] [SAVE_PROBABILITIES] [NO_SAVE_WARP] [MRF] [NO_MRF] [THREADS] [ATLAS_DIRECTORY] [GMM_FILE] [NO_BLOCK_COORDINATE_DESCENT] [LOGDOMAIN_COSTANDGRADIENT_CALCULATOR] [NO_LOGDOMAIN_COSTANDGRADIENT_CALCULATOR] [RECON] [FILL] [NORMALIZATION2] [USE_T2W] [USE_FLAIR] [HIRES] [SUBJECTS_DIRECTORY] [PALLIDUM_SEPARATE] [STIFFNESS] [LESION] [LESION_MASK_PATTERN] [BIAS_FIELD_SMOOTHING_KERNEL] [REGISTRATION_FILE] [REGMAT_FILE] [INIT_LTA] [REG_ONLY] [SSDD_DIRECTORY] [SAVE_MESH] [MAX_ITERS] [DICE_FILE] [IGNORE_UNKNOWN] [SMOOTH_WM_CORTEX] [PROFILE_FILE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--i",
@@ -415,9 +414,5 @@
       "name": "Mesh output"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

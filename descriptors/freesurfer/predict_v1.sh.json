@@ -2,7 +2,7 @@
   "name": "predict_v1.sh",
   "description": "A script for predicting brain images using registration",
   "command-line": "predict_v1.sh [TEMPLATE] [INFLATED_SURFACE_FLAG] [HEMISPHERE] [PRINT_MODE_FLAG] [SUBJECTS] [USAGE_FLAG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-t",
@@ -57,10 +57,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

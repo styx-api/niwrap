@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_glmfit-sim",
   "author": "FreeSurfer Developers",
   "description": "A tool to run corrections for multiple comparisons on volumes or surfaces, using various methods including Monte Carlo simulation, permutation, and Gaussian Random Fields.",
   "command-line": "mri_glmfit-sim [GLMDIR] [CWP] [MCZSIM] [MCZSIM_DIR] [MCZSIM_LABEL] [PERM] [PERM_RESID] [PERM_SIGNFLIP] [GRF] [SPACES_2] [SPACES_3] [OVERWRITE] [BG] [SLEEP] [A2009S] [ANNOT] [LOG] [BASE] [NO_SIM] [SEED] [FWHM_OVERRIDE] [FWHM_ADD] [UNIFORM] [NO_OUT_ANNOT] [NO_CLUSTER_MEAN] [Y_FILE] [CENTROID] [SPATIAL_SUM] [HELP]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--glmdir",

@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "bianca_overlap_measures",
   "description": "BIANCA overlap measures script for FSL",
   "author": "FMRIB Analysis Group, University of Oxford",
   "command-line": "bianca_overlap_measures [LESION_MASK] [MANUAL_MASK] [OUTPUT_DIR]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Lesion mask image file",
@@ -34,7 +29,7 @@
       "name": "Output Directory"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "{OUTPUT_DIR}/TPauto.nii.gz",

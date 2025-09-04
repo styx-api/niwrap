@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "find_the_biggest",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Tool to find the largest volume or surface from a set of inputs",
   "command-line": "find_the_biggest [VOLUMES_SURFACES] [OUTPUT_INDEX]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "List of input volumes or surfaces",
@@ -27,7 +22,7 @@
       "name": "Output Index"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_INDEX]",

@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "melodic",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Multivariate Exploratory Linear Optimised Decomposition into Independent Components",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "melodic [INPUT_FILE] [OUTPUT_DIRECTORY] [MASK_FILE] [DIMENSIONALITY_REDUCTION] [GENERATE_REPORT] [CIFTI_IO] [VARIANCE_NORMALIZATION] [NO_MASKING] [UPDATE_MASKING] [NO_BET] [BG_THRESHOLD] [DIMEST_TECHNIQUE] [SEPARATE_VARIANCE_NORMALIZATION] [DISABLE_MIGP] [NUM_INTERNAL_EIGENMAPS] [MIGP_SHUFFLE] [MIGP_FACTOR] [NUM_ICS] [NONLINEARITY] [COVAR_WEIGHTS] [EPS_ERROR] [EPS_RANK1_ERROR] [MAX_ITERS] [MAX_RESTARTS] [MM_THRESHOLD] [NO_MIXTURE_MODELING] [IC_COMPONENTS_FILE] [MIXING_MATRIX_FILE] [SESSION_MODES_FILE] [COMPONENT_FILTER] [BACKGROUND_IMAGE] [TR_SECONDS] [LOG_POWER_CALC] [TIME_DOMAIN_DESIGN_MATRIX] [TIME_DOMAIN_T_CONTRAST_MATRIX] [SUBJECT_DOMAIN_DESIGN_MATRIX] [SUBJECT_DOMAIN_T_CONTRAST_MATRIX] [OUTPUT_UNMIXING_MATRIX] [OUTPUT_STATS] [OUTPUT_PCA] [OUTPUT_WHITENING] [OUTPUT_ORIGINAL_ICS] [OUTPUT_MEAN_VOLUME] [VERSION] [COPYRIGHT] [HELP] [DEBUG] [REPORT_MAPS] [KEEP_MEANVOL]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "command-line-flag": "-i",
@@ -462,5 +457,5 @@
       "name": "Melodic report directory"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

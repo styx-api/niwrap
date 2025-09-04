@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_sample_label",
   "author": "FreeSurfer Developers",
   "description": "This tool samples a label onto a surface model.",
   "command-line": "mris_sample_label [INPUT_LABEL_FILE] [INPUT_SURFACE_FILE] [OUTPUT_LABEL_FILE]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input label file",

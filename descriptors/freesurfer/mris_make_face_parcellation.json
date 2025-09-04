@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_make_face_parcellation",
   "author": "FreeSurfer Developers",
   "description": "Generates a parcellation based on which icosahedral face each vertex maps to.",
   "command-line": "mris_make_face_parcellation [INPUT_SURFACE] [ICO_FILE] [OUTPUT_ANNOT] [COLORTABLE]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input surface file (e.g. lh.sphere or lh.sphere.reg)",

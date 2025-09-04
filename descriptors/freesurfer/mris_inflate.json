@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_inflate",
   "author": "FreeSurfer Developers",
   "description": "Cortical surface inflation tool",
   "command-line": "mris_inflate [INPUT_SURFACE] [OUTPUT_SURFACE] [MAX_ITERATIONS] [SNAPSHOT_INTERVAL] [DIST_COEFFICIENT] [NO_SAVE_SULC] [SULCNAME] [MM_FLAG] [SCALE_FLAG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input surface file",
@@ -92,9 +91,5 @@
       "name": "Output Surface File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

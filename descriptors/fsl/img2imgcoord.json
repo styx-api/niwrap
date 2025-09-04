@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "img2imgcoord",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Tool for transforming coordinates between images",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "img2imgcoord [COORDINATES_FILE] [SOURCE_IMAGE] [DEST_IMAGE] [AFFINE_TRANSFORM] [WARP_FIELD] [PRE_WARP_AFFINE] [COORDS_IN_VOXELS] [COORDS_IN_MM] [VERBOSE] [HELP]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Filename containing coordinates",
@@ -96,5 +91,5 @@
       "name": "Help"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

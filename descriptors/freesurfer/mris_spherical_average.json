@@ -3,7 +3,7 @@
   "description": "This tool adds a template into an average surface in FreeSurfer.",
   "author": "FreeSurfer Developers",
   "command-line": "mris_spherical_average [WHICH] [FNAME] [HEMI] [SPHERICAL_SURF] [SUBJECTS] [OUTPUT] [SEGMENT] [NORMALIZE] [ORIG] [OUTPUT_SUBJECT_NAME] [OUTPUT_SUBJECT_DIR] [SUBJECTS_DIR] [AVERAGE_AREA] [SUMMARY_STATISTICS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "which",
@@ -126,10 +126,5 @@
       "value-key": "[SUMMARY_STATISTICS]"
     }
   ],
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

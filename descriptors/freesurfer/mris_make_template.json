@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_make_template",
   "author": "FreeSurfer Developers",
   "description": "This program will add a template into an average surface.",
   "command-line": "mris_make_template [HEMI] [SURFACE_NAME] [SUBJECTS] [OUTPUT_NAME] [ADDFRAME_PARAMETERS] [VECTOR] [NOROT] [ROT] [ANNOT] [OVERLAY_PARAMETERS] [OVERLAY_DIR] [SCALE] [SURF_DIR] [SMOOTH_ITERATIONS] [SUBJECTS_DIR]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Hemisphere (e.g., 'lh' or 'rh')",
@@ -141,9 +140,5 @@
       "name": "Subjects Directory"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

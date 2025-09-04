@@ -2,7 +2,7 @@
   "name": "mri_stopmask",
   "description": "This program creates a mask used to stop the search for the maximum gradient in mris_place_surface, preventing the surface from wandering into areas it should not.",
   "command-line": "mri_stopmask [OUTPUT_MASK] [FILLED] [ASEG_PRESURF] [LATERAL_VENTRICLES] [WMSA] [WM_VOXELS] [BRAIN_FINAL_SURFS] [NO_FILLED] [NO_LV] [NO_WMSA] [NO_WM] [NO_BFS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--o",
@@ -118,10 +118,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

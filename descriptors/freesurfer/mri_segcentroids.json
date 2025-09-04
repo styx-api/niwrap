@@ -2,7 +2,7 @@
   "name": "mri_segcentroids",
   "description": "Computes the center of mass for individual structures in a segmentation.",
   "command-line": "mri_segcentroids [INPUT_SEGMENTATION] [OUTPUT_FILE] [POINTSET_FLAG] [REGISTRATION_FILE] [WEIGHTS_FILE] [LUT_FILE] [DEFAULT_LUT_FLAG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "input_segmentation",
@@ -75,10 +75,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -2,7 +2,7 @@
   "name": "mris_smooth",
   "description": "This program smooths the tessellation of a cortical surface and writes out the mean curvature and area files.",
   "command-line": "mris_smooth [INPUT_SURFACE] [OUTPUT_SURFACE] [AVERAGE_ITERS] [SMOOTHING_ITERS] [NO_WRITE] [CURVATURE_NAME] [AREA_NAME] [GAUSSIAN_PARAMS] [NORMALIZE_AREA] [MOMENTUM] [SNAPSHOT_INTERVAL]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input surface file for smoothing.",
@@ -124,10 +124,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

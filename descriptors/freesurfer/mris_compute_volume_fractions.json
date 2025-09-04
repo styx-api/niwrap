@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_compute_volume_fractions",
   "author": "FreeSurfer Developers",
   "description": "Computes volume fractions based on a given surface and volume.",
   "command-line": "mris_compute_volume_fractions [VOLUME_FILE] [SURFACE_FILE] [ACCURACY] [OUTPUT_FILE] [DEBUG] [CHECKOPTS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--vol",
@@ -67,9 +66,5 @@
       "name": "Output volume fractions file"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

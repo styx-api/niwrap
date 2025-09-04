@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "ptoz",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Convert p-values to z-values",
   "command-line": "ptoz [P_VALUE] [TAIL_FLAG] [GRF_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "p-value to convert",
@@ -35,6 +30,6 @@
       "name": "GRF flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
 }

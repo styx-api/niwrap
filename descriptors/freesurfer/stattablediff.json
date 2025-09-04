@@ -2,7 +2,7 @@
   "name": "stattablediff",
   "description": "Creates a table of the differences between two stats tables.",
   "command-line": "stattablediff [T1] [T2] [OUTPUT] [PERCENT_DIFF] [PERCENT_DIFF_T1] [PERCENT_DIFF_T2] [MULTIPLY] [DIVIDE] [COMMON] [REMOVE_EXVIVO] [DIFF_SUBJECTS] [NOREPLACE53]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "t1",
@@ -112,10 +112,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

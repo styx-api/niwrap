@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "fsl_tsplot",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Timeseries plotting tool from FSL",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "fsl_tsplot [INPUT_FILES] [OUTPUT_FILE] [TITLE] [LEGEND_FILE] [LABELS] [YMIN] [YMAX] [XLABEL] [YLABEL] [HEIGHT] [WIDTH] [UNIT] [PRECISION] [SCI_FLAG] [START_COL] [END_COL]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "command-line-flag": "-i",
@@ -154,7 +149,7 @@
       "name": "End Column"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_FILE]",

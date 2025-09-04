@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "vecreg",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Vector Affine/NonLinear Transformation with Orientation Preservation",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "vecreg [INPUT_FILE] [OUTPUT_FILE] [REFERENCE_VOLUME] [TRANSFORM_FILE] [VERBOSE_FLAG] [HELP_FLAG] [SECONDARY_AFFINE] [SECONDARY_WARP] [INTERP_METHOD] [BRAIN_MASK] [REF_BRAIN_MASK]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "command-line-flag": "-i",
@@ -108,7 +103,7 @@
       "name": "Reference Brain Mask"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_FILE]",

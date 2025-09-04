@@ -2,7 +2,7 @@
   "name": "mri_concatenate_gcam",
   "description": "Concatenate a combination of input LTAs (linear transform array) and GCAMs (Gaussian classifier atlas, M3Z).",
   "command-line": "mri_concatenate_gcam [INPUTS] [OUTPUT] [SOURCE_IMAGE] [TARGET_IMAGE] [REDUCE] [INVERT] [DOWNSAMPLE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "inputs",
@@ -73,10 +73,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

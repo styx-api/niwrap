@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "fslroi",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Extracts a region of interest (ROI) from an image",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "fslroi [INFILE] [OUTFILE] [XMIN] [XSIZE] [YMIN] [YSIZE] [ZMIN] [ZSIZE] [TMIN] [TSIZE]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input image file",
@@ -91,7 +86,7 @@
       "name": "T size"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTFILE]",

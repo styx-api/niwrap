@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_edit_wm_with_aseg",
   "author": "FreeSurfer Developers",
   "description": "A tool for editing white matter with anatomical segmentation.",
   "command-line": "mri_edit_wm_with_aseg [INPUT_WM] [INPUT_T1_BRAIN] [ASEG] [OUTPUT_WM] [FILLVEN] [FIX_SCM_HA] [FIX_SCM_HA_ONLY] [KEEP] [KEEP_IN] [LH] [RH] [FIX_ENTO_WM] [SA_FIX_ENTO_WM] [DEBUG_VOXEL]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input white matter file",
@@ -134,9 +133,5 @@
       "name": "Output WM file"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

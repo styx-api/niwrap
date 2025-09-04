@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "possum_interpmot.py",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Position Interpolation for Movers and Shakers",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "possum_interpmot.py [MOTION_TYPE] [TR] [TR_SLICE] [NSLICES] [NVOLS] [CUSTOM_MOTION_FILE] [OUTPUT_FILE]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Type of motion: 0 for continuous, 1 for between slices, 2 for between volumes",
@@ -74,7 +69,7 @@
       "name": "Output file"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_FILE]",

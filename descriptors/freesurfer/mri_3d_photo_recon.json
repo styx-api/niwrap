@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_3d_photo_recon",
   "author": "FreeSurfer Developers",
   "description": "Code for 3D photo reconstruction (Tregidgo, et al., MICCAI 2020)",
   "command-line": "mri_3d_photo_recon [INPUT_PHOTO_DIR] [INPUT_SEGMENTATION_DIR] [SLICE_THICKNESS] [PHOTO_RESOLUTION] [OUTPUT_DIRECTORY] [REF_MASK] [REF_SURFACE] [REF_SOFT_MASK] [MESH_REORIENT_WITH_INDICES] [PHOTOS_POSTERIOR_SIDE] [ORDER_POSTERIOR_TO_ANTERIOR] [ALLOW_Z_STRETCH] [RIGID_ONLY_FOR_PHOTOS] [GPU_INDEX]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--input_photo_dir",
@@ -145,9 +144,5 @@
       "name": "Reference Data"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

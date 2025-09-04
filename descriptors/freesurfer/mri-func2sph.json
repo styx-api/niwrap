@@ -1,13 +1,8 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri-func2sph",
   "description": "Maps functional data from volume space to spherical surface space.",
   "command-line": "mri-func2sph [INSTEM] [OUTSTEM] [HEMISPHERE] [FVITDIR] [HOLE_FILLING_ITERS] [ICOSAHEDRON_SIZE] [INPUT_TYPE] [UMASK]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-i",

@@ -2,7 +2,7 @@
   "name": "mri_normalize",
   "description": "Normalize the white-matter, optionally based on control points. The input volume is converted into a new volume where white matter image values all range around 110.",
   "command-line": "mri_normalize [INPUT_VOL] [OUTPUT_VOL] [NORM_ITERS] [DISABLE_1D] [NONMAX_SUPPRESS] [CONFORM] [NONCONFORM] [GENTLE] [CONTROL_POINTS] [FONLY_CONTROL_POINTS] [LONLY_LABELS] [LABELS] [WRITE_VOLUMES] [INTENSITY_ABOVE] [INTENSITY_BELOW] [INTENSITY_GRADIENT] [PRUNE] [NO_GENTLE_CP] [MASK_FILE] [ATLAS_TRANSFORM] [NOSKULL] [MONKEY] [NOSNR] [SIGMA_SMOOTH] [ASEG_FILE] [DEBUG_V] [DEBUG_D] [RENORM_VOL] [CHECKNORM_VOL] [LOAD_READ_CP] [CP_OUTPUT_VOL] [SURFACE_TRANSFORM] [SEED_VALUE] [PRINT_HELP]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "input_vol",
@@ -314,10 +314,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

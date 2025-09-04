@@ -1,7 +1,6 @@
 {
   "name": "mri_create_tests",
   "command-line": "mri_create_tests [INPUT_FILE] [OUT_SRC] [OUT_TARGET] [INPUT_TARGET] [LTA_IN] [MASK] [NOISE] [OUTLIER] [OUTLIER_BOX] [TRANSLATION_FLAG] [TRANSDIST] [ROTATION_FLAG] [MAXDEG] [INTENSITY_FLAG] [ISCALE] [LTA_OUT] [LTA_OUTS] [LTA_OUTT] [ISCALE_OUT]",
-  "tool-version": "7.4.1",
   "description": "Creates test cases for the registration by mapping the input to a source (half way backward) and to a target (half way forward).",
   "inputs": [
     {
@@ -174,10 +173,6 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "url": "https://github.com/freesurfer/freesurfer"
 }

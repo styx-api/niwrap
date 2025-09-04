@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "tbss_1_preproc",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "TBSS (Tract-Based Spatial Statistics) - Step 1: Preprocessing",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "tbss_1_preproc [IMAGES]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "List of input images (e.g. subj1_FA.nii.gz subj2_FA.nii.gz ...)",
@@ -20,5 +15,5 @@
       "name": "Input images"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

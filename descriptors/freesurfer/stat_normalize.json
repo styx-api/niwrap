@@ -1,7 +1,7 @@
 {
   "name": "stat_normalize",
   "command-line": "stat_normalize [INPUT_SV_PREFIX] [OUTPUT_SV_PREFIX] [RESOLUTION] [FIELD_OF_VIEW] [SPH_AVG] [XFM_FILE] [FIX_XFM_FLAG] [FLOAT2INT_OPTION]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "description": "This program will convert and average a sequence of volume-based statistics in Talairach space.",
   "inputs": [
     {
@@ -75,10 +75,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

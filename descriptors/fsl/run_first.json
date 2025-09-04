@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "run_first",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "A tool to run FSL's FIRST for subcortical segmentation",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "run_first [INPUT_IMAGE] [TRANSFORMATION_MATRIX] [N_MODES] [OUTPUT_BASENAME] [MODEL_NAME] [VERBOSE_FLAG] [INTREF_MODEL_NAME] [LOAD_BVARS] [MULTIPLE_IMAGES_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input image file (e.g. img.nii.gz)",
@@ -90,6 +85,6 @@
       "name": "Multiple Images Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": []
 }

@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "tal_QC_AZS",
   "author": "FreeSurfer Developers",
   "description": "A tool that processes a logfile.",
   "command-line": "tal_QC_AZS [LOGFILE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input logfile for processing.",
@@ -15,9 +14,5 @@
       "name": "Logfile"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

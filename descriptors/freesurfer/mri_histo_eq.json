@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_histo_eq",
   "author": "FreeSurfer Developers",
   "description": "MRI histogram equalization tool from Freesurfer",
   "command-line": "mri_histo_eq [INPUT_VOLUME_1] [INPUT_VOLUME_2]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input volume 1",

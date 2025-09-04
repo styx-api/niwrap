@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_nu_correct.mni",
   "author": "FreeSurfer Developers",
   "description": "Wrapper for nu_correct, used for correcting intensity non-uniformity (bias fields).",
   "command-line": "mri_nu_correct.mni [INPUT_VOLUME] [OUTPUT_VOLUME] [ITERATIONS] [PROTO_ITERATIONS] [MASK_VOLUME] [STOP_THRESHOLD] [UCHAR_TRANSFORM] [ANTS_N3] [ANTS_N4] [NO_UCHAR] [ANTS_N4_REPLACE_ZEROS] [CM_FLAG] [DEBUG_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--i",

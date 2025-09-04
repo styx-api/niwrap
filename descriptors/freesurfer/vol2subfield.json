@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "vol2subfield",
   "author": "FreeSurfer Developers",
   "description": "A tool for integrating arbitrary volumes with volumes that share a RAS space with the orig volume in the FreeSurfer mri folder.",
   "command-line": "vol2subfield [INPUT_VOLUME] [SUBFIELD_VOLUME] [REGISTRATION_FILE] [OUTPUT_VOLUME] [OUTPUT_REGISTRATION] [STATS_OUTPUT] [AVGWF_OUTPUT] [AVGWFVOL_OUTPUT] [COLOR_TABLE] [INTERPOLATION_NEAREST] [INTERPOLATION_TRILIN] [INTERPOLATION_CUBIC] [TMP_DIRECTORY] [PRESET_SUBFIELD_LH_HIPPOAMYG] [PRESET_SUBFIELD_RH_HIPPOAMYG] [PRESET_SUBFIELD_LH_HBT] [PRESET_SUBFIELD_RH_HBT] [PRESET_SUBFIELD_THALAMUS] [PRESET_SUBFIELD_BRAINSTEM]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--i",

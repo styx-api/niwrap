@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_surf2volseg",
   "author": "FreeSurfer Developers",
   "description": "Tool that cleans up presurf aseg cortex and WM, maps cortical labels from an annotation into a volume, and labels cerebral WM with closest cortical label.",
   "command-line": "mri_surf2volseg [INPUT_SEGMENTATION] [OUTPUT_SEGMENTATION] [SOURCE_SEGMENTATION] [LH_WHITE_SURF] [LH_PIAL_SURF] [RH_WHITE_SURF] [RH_PIAL_SURF] [LH_CORTEX_MASK] [RH_CORTEX_MASK] [FIX_PRESURF_RIBBON] [LABEL_CORTEX] [LABEL_WM] [LABEL_WM_UNKNOWN] [LH_ANNOTATION] [RH_ANNOTATION] [WMPARC_DMAX] [RIP_UNKNOWN] [HYPO_AS_WM] [HASHRES] [NHOPS] [HELP_FLAG] [VERSION_FLAG] [CRS_TEST] [CTAB_FILE] [THREADS_NUMBER]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--i",

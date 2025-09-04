@@ -1,9 +1,8 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_image2vtk",
   "description": "Convert image to VTK format with specified thresholds and smoothing parameters",
   "command-line": "mris_image2vtk [INPUT_FILENAME] [OUTPUT_FILENAME] [LOWER_THRESHOLD] [UPPER_THRESHOLD] [VTK_SMOOTHING_ITERS] [IMAGE_SMOOTHING_SIZE] [REDUCTION_PERCENT]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input image file name",
@@ -71,9 +70,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

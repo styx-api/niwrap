@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "trac-paths",
   "author": "FreeSurfer Developers",
   "description": "Tractography for a single subject.",
   "command-line": "trac-paths [DMRIRC_FILE] [LOG_FILE] [NO_LOG] [CMD_FILE] [NO_CMD] [NO_ISRUNNING] [UMASK] [GROUP_ID] [ALLOW_CORE_DUMP] [DEBUG] [DONTRUN] [VERSION] [HELP]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-c",
@@ -116,9 +115,5 @@
       "name": "Help flag"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

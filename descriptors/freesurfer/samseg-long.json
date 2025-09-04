@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "samseg-long",
   "author": "FreeSurfer Developers",
   "description": "Longitudinal analysis tool using SAMSEG in FreeSurfer",
   "command-line": "samseg-long [OUTPUT_DIR] [INPUT_FILES] [ALIGN_MC] [ALIGN_NO_MC] [THREADS] [SAVE_POSTERIORS] [FORCE_UPDATE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--o",
@@ -87,9 +86,5 @@
       "name": "Base output folder"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

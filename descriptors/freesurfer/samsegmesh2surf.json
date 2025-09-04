@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "samsegmesh2surf",
   "author": "FreeSurfer Developers",
   "description": "Generate Freesurfer surface from a SAMSEG atlas mesh file and generate priors at each vertex as overlay MRI volume.",
   "command-line": "samsegmesh2surf [ATLAS_MESH] [TEMPLATE] [LTA_TRANSFORM] [OUTPUT_SURFACE] [OUTPUT_PRIORS] [INVERT_FLAG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--atlasmesh",
@@ -74,9 +73,5 @@
       "name": "Priors MRI File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

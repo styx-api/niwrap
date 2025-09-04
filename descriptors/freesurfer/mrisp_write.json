@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mrisp_write",
   "author": "FreeSurfer Developers",
   "description": "This tool converts a surface overlay on a sphere into spherical coordinates.",
   "command-line": "mrisp_write [INPUT_SURFACE] [OVERLAY_FILENAME] [OUTPUT_NAME] [SUBJECTS_DIR] [COORDS] [AVERAGE_CURVATURE] [CORRELATION_MATRIX] [SCALE_FACTOR] [NORMALIZE_CURVATURE] [VERBOSE_VERTEX] [WRITE_DIAGNOSTICS]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Full path to input surface.",

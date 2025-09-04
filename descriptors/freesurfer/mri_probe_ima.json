@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_probe_ima",
   "author": "FreeSurfer Developers",
   "description": "Query Siemens IMA files to extract header information",
   "command-line": "mri_probe_ima [IMA_FILE] [KEY_STRING] [OFFSET_TYPE_LEN] [ATTRIBUTE_NAME] [FILEINFO] [DICTIONARY] [OB_STEM] [HELP] [VERSION]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--i",
@@ -84,9 +83,5 @@
       "name": "Version Flag"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_add_xform_to_header",
   "author": "FreeSurfer Developers",
   "description": "Program to add specified transformation to the volume header.",
   "command-line": "mri_add_xform_to_header [XFM_FILE] [INPUT_VOLUME] [OUTPUT_VOLUME] [VERBOSE] [COPY_NAME]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Transformation file to be added to the volume header.",

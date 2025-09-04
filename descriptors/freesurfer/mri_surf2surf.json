@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_surf2surf",
   "author": "FreeSurfer Developers",
   "description": "Resample one surface onto another using FreeSurfer",
   "command-line": "mri_surf2surf [SRC_SUBJECT] [SVAL_PATH] [SVAL_XYZ] [PROJFRAC] [PROJABS] [SVAL_TAL_XYZ] [SVAL_AREA] [SVAL_ANNOT] [SVAL_NXYZ] [PATCH] [SFMT] [REG] [REG_INV] [SRCICOORDER] [TRG_SUBJECT] [TRGICOORDER] [TVAL_PATH] [TVAL_XYZ] [TFMT] [TRG_DIST] [S] [HEMI] [SRC_HEMI] [TRG_HEMI] [DUAL_HEMI] [JAC] [SURFREG] [SRC_SURFREG] [TRG_SURFREG] [MAPMETHOD] [FRAME] [FWHM_SRC] [FWHM_TRG] [NSMOOTH_IN] [NSMOOTH_OUT] [CORTEX] [NO_CORTEX] [LABEL_SRC] [LABEL_TRG] [MUL] [DIV] [RESHAPE] [RESHAPE_FACTOR] [RESHAPE3D] [SPLIT] [SYNTH] [ONES] [NORMVAR] [SEED] [PRUNE] [NO_PRUNE] [PROJ_SURF] [PROJ_NORM] [REG_DIFF] [RMS] [RMS_MASK]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--srcsubject",

@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "tbss_3_postreg",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "TBSS post-registration processing",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "tbss_3_postreg [DERIVE_MEAN_FROM_STUDY] [USE_FMRIB58]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "command-line-flag": "-S",
@@ -27,5 +22,5 @@
       "name": "Use FMRIB58 flag"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

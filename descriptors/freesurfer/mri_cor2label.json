@@ -1,13 +1,8 @@
 {
   "name": "mri_cor2label",
-  "tool-version": "7.4.1",
   "description": "Converts values in a volume or surface overlay to a label. Designed to convert parcellation volumes stored in mri format.",
   "command-line": "mri_cor2label [INPUT_FILE] [LABEL_ID] [LABEL_FILE] [THRESHOLD] [VOLUME_FILE] [SURFACE_OVERLAY] [SURFACE_PATH] [OPTIMIZE] [REMOVE_HOLES_ISLANDS] [DILATE] [ERODE] [HELP]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input volume or surface overlay file.",

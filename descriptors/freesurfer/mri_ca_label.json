@@ -2,8 +2,7 @@
   "name": "mri_ca_label",
   "command-line": "mri_ca_label [INPUT_VOLUMES] [TRANSFORM_FILE] [GCA_FILE] [OUTPUT_VOLUME] [CROSS_SEQUENCE] [NO_GIBBS] [WM_SEGMENTATION] [CONFORM] [TOPO_DIST_THRESH] [TOPO_VOLUME_THRESH1] [TOPO_VOLUME_THRESH2] [NORM_PD] [THIN_TEMPORAL_LOBE] [DEBUG_VOXEL] [DEBUG_NODE] [DEBUG_LABEL] [TR] [TE] [ALPHA] [EXAMPLE] [PTHRESH] [NITER] [WRITE_PROBS] [NOVAR] [REGULARIZE] [NOHIPPO] [FIXED_WHITE_MATTER] [MRI] [HISTOGRAM_EQUALIZATION] [RENORM] [FLASH] [FLASH_PARAMS] [RENORMALIZE] [SET_INPUT_VOLUME] [HISTOGRAM_NORMALIZE] [MEAN_FILTER] [WRITE_SNAPSHOTS] [MASK_FINAL_LABELING] [EXPAND] [MAX_ITERATIONS] [FILTER_LABELED_VOLUME] [LONGITUDINAL_PROCESSING] [RELABEL_UNLIKELY] [DISABLES_WMSA] [FIX_VENTRICLE] [INSERT_WM_BET_PUTCTX] [SA_INSERT_WM_BET_PUTCTX] [INSERT_FROM_SEG] [SA_INSERT_FROM_SEG] [CBLUM_FROM_SEG] [SA_CBLUM_FROM_SEG] [THREADS]",
   "description": "MRI cortical annotation labeler using atlas prior (GCA).",
-  "tool-version": "7.4.1",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "input_volumes",
@@ -481,9 +480,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

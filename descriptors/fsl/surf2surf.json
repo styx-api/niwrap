@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "surf2surf",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Conversions between surface formats and/or conventions",
   "command-line": "surf2surf [INPUT_SURFACE] [OUTPUT_SURFACE] [INPUT_CONVENTION] [OUTPUT_CONVENTION] [INPUT_REF_VOLUME] [OUTPUT_REF_VOLUME] [TRANSFORM] [OUTPUT_TYPE] [OUTPUT_VALUES]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input surface",
@@ -93,6 +88,6 @@
       "name": "Output Values"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
 }

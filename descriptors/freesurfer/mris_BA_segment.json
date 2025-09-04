@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_BA_segment",
   "author": "FreeSurfer Developers",
   "description": "Segments a Brodmann area (MT currently) from a laminar intensity profile overlay.",
   "command-line": "mris_BA_segment [SURFACE] [PROFILES] [PRIOR_LABEL] [OUTPUT_LABEL]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input surface file",

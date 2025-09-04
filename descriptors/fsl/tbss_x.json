@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "tbss_x",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "TBSS cross-subject script for processing scalar and vector directories.",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "tbss_x [SCALAR_DIRS] [VECTOR_DIRS]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "List of scalar directories (e.g., F1, F2)",
@@ -27,5 +22,5 @@
       "name": "Vector directories"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

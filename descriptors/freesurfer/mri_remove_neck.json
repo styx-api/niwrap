@@ -2,7 +2,7 @@
   "name": "mri_remove_neck",
   "description": "Tool for removing neck from MRI volumes.",
   "command-line": "mri_remove_neck [INPUT_VOLUME] [TRANSFORM] [GCA] [OUTPUT_VOLUME]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input MRI volume.",
@@ -46,10 +46,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

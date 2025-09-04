@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_fit_bias",
   "author": "FreeSurfer Developers",
   "description": "A tool for intensity normalization and bias correction in MRI images.",
   "command-line": "mri_fit_bias [INPUTVOL] [LPF_CUTOFF] [SEGVOL] [MASKVOL] [OUTVOL] [BIASFIELD] [DCTVOL] [THRESHOLD] [NERODE] [NTHREADS] [DEBUG] [CHECKOPTS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--i",
@@ -127,9 +126,5 @@
       "name": "Bias Field Output"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

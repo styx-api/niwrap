@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_curvature",
   "author": "FreeSurfer Developers",
   "description": "Compute the second fundamental form of a cortical surface to generate mean and Gaussian curvature.",
   "command-line": "mris_curvature [SAVE_CURVATURE_FILES] [MAX_PRINCIPAL_CURVATURE] [MGH_OUTPUT_FORMAT] [MIN_PRINCIPAL_CURVATURE] [ITERATIVE_AVERAGES] [NEIGHBORHOOD_SIZE] [RANDOM_SEED] [CURVATURES] [H_CURVATURE] [K_CURVATURE] [K1_CURVATURE] [K2_CURVATURE] [K1K2_CURVATURE] [INPUT_SURFACE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input surface file",
@@ -129,9 +128,5 @@
     }
   ],
   "output-files": [],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

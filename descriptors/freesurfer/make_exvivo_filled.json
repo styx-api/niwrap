@@ -2,7 +2,7 @@
   "name": "make_exvivo_filled",
   "description": "A command-line tool for generating filled ex vivo brain images.",
   "command-line": "make_exvivo_filled [SUBJECT_NAME] [INPUT_SAMSEG] [INPUT_INTENSITY_VOL] [HEMI_BOTH]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Name of the subject.",
@@ -38,10 +38,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

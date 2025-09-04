@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "spmregister",
   "author": "FreeSurfer Developers",
   "description": "Registers a volume to its FreeSurfer anatomical using SPM's spm_coreg",
   "command-line": "spmregister [SUBJID] [MOV] [REG] [FRAME] [MID_FRAME] [TEMPLATE_OUT] [FSVOL] [FORCE_RAS] [OUTVOL] [TMPDIR] [NOCLEANUP] [VERSION] [HELP]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--s",
@@ -133,9 +132,5 @@
       "name": "Resampled movable volume"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

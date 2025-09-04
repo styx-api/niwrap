@@ -1,13 +1,8 @@
 {
   "name": "makerot",
-  "tool-version": "6.0.4",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Tool to create a rotation matrix for a given angle and axis of rotation.",
   "command-line": "makerot [AXIS] [COV] [CENTER] [OUTPUT_FILE] [VERBOSE_FLAG] [HELP_FLAG] [THETA]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "command-line-flag": "--theta",
@@ -72,7 +67,7 @@
       "name": "Help flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_FILE]",

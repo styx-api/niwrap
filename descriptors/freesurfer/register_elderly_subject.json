@@ -3,11 +3,7 @@
   "author": "FreeSurfer Developers",
   "description": "Tool for registering MRI images of elderly subjects using Freesurfer's mri_em_register",
   "command-line": "register_elderly_subject [SAMPLING_PERCENTAGE] [OUTPUT_FSAMPLES] [OUTPUT_NORM] [INPUT_VOLUME] [GCA_FILE] [TRANSFORM_FILE]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-p",
@@ -77,6 +73,5 @@
       "name": "Normalized Volume"
     }
   ],
-  "tool-version": "7.4.1",
   "url": "https://github.com/freesurfer/freesurfer"
 }

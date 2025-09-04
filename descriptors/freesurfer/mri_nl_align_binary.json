@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_nl_align_binary",
   "author": "FreeSurfer Developers",
   "description": "Non-linear alignment tool for MRI data",
   "command-line": "mri_nl_align_binary [SOURCE_FILE] [TARGET_FILE] [WARP_FILE]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Source image file for alignment",

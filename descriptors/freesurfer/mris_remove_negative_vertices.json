@@ -1,9 +1,8 @@
 {
   "name": "mris_remove_negative_vertices",
-  "tool-version": "7.4.1",
   "description": "This program adds a template into an average surface.",
   "command-line": "mris_remove_negative_vertices [SURFACE_FILE] [PATCH_FILE] [OUTPUT_PATCH]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "surface_file",
@@ -39,9 +38,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

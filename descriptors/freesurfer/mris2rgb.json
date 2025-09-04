@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris2rgb",
   "author": "FreeSurfer Developers",
   "description": "A tool from FreeSurfer for converting MRI surface files to RGB images.",
   "command-line": "mris2rgb [LIBRARY_PATH]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "export LD_LIBRARY_PATH=",
@@ -16,9 +15,5 @@
       "name": "Library Path"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

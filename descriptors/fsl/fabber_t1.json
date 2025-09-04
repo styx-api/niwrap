@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "fabber_t1",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Fabber is a tool for performing model-based analysis of fMRI data, using advanced Bayesian inference techniques.",
   "command-line": "fabber_t1 [OUTPUT] [METHOD] [MODEL] [DATA] [DATA_MULT] [DATA_ORDER] [MASK] [MASKED_TIME_POINTS] [SUPP_DATA] [OVERWRITE] [LINK_TO_LATEST] [SIMPLE_OUTPUT] [LOAD_MODELS] [EVALUATE] [EVALUATE_PARAMS] [EVALUATE_NT] [DUMP_PARAM_NAMES] [SAVE_MODEL_FIT] [SAVE_RESIDUALS] [SAVE_MODEL_EXTRAS] [SAVE_MVN] [SAVE_MEAN] [SAVE_STD] [SAVE_VAR] [SAVE_ZSTAT] [SAVE_NOISE_MEAN] [SAVE_NOISE_STD] [SAVE_FREE_ENERGY] [OPTFILE] [DEBUG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "command-line-flag": "--output",
@@ -266,7 +261,7 @@
       "name": "Debug"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT]/paramnames.txt",

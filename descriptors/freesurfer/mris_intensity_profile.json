@@ -2,7 +2,7 @@
   "name": "mris_intensity_profile",
   "description": "This program computes the intensity profile of the cortical ribbon and writes the resulting measurement into a 'curvature' file.",
   "command-line": "mris_intensity_profile [SUBJECT_NAME] [HEMI] [VOLUME] [OUTPUT_FILE] [WRITE_SURF] [SDIR] [WHITE] [PIAL] [NORMALIZE_FLAG] [MEAN] [XFORM] [SRC] [DST] [INVERT_FLAG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "subject_name",
@@ -140,10 +140,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

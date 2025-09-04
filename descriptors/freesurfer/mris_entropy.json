@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_entropy",
   "author": "FreeSurfer Developers",
   "description": "Computes the entropy of a surface activation pattern for FreeSurfer",
   "command-line": "mris_entropy [SUBJECT] [HEMI] [WFILE] [CURVFILE] [AVERAGE_ITERATIONS] [NORMALIZE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Subject ID",
@@ -64,9 +63,5 @@
       "name": "Entropy Output File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -1,7 +1,7 @@
 {
   "name": "talairach_avi",
   "description": "Front-end for Avi Snyder's image registration tool. Computes the Talairach transform that maps the input volume to the MNI average_305.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "command-line": "talairach_avi [INPUT_FILE] [OUTPUT_XFM] [ATLAS] [LOG] [DEBUG]",
   "inputs": [
     {
@@ -57,11 +57,6 @@
       "name": "Output XFM File"
     }
   ],
-  "tool-version": "7.4.1",
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

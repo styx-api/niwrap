@@ -3,7 +3,7 @@
   "author": "FreeSurfer Developers",
   "description": "Rigid registration tool for MRI volumes",
   "command-line": "mri_rigid_register [SOURCE_VOLUME] [TARGET_VOLUME] [TRANSFORM_OUTPUT]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Source volume file for registration",
@@ -38,10 +38,5 @@
       "name": "Transform File"
     }
   ],
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

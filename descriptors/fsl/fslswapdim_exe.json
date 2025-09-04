@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "fslswapdim_exe",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Tool to swap the x, y, z axes dimensions of an image",
   "command-line": "fslswapdim_exe [INPUT_FILE] [AXIS_A] [AXIS_B] [AXIS_C] [OUTPUT_FILE] [CHECKLR_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input image file (e.g., input.nii.gz)",
@@ -58,7 +53,7 @@
       "name": "Check Left-Right Swap Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_FILE]",

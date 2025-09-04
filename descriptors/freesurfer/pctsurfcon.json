@@ -1,9 +1,8 @@
 {
-  "tool-version": "7.4.1",
   "name": "pctsurfcon",
   "description": "Compute surface-wise gray/white matter contrast.",
   "command-line": "pctsurfcon [SUBJECT] [FSVOL] [OUTBASE] [LH_ONLY] [RH_ONLY] [GM_PROJ_FRAC] [GM_PROJ_ABS] [WM_PROJ_ABS] [NEG] [NO_MASK] [PIAL] [TMP] [NOCLEANUP]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "FreeSurfer subject name",
@@ -118,9 +117,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -2,7 +2,7 @@
   "name": "mris_left_right_register",
   "description": "Register left and right hemisphere spherical surfaces",
   "command-line": "mris_left_right_register [LH_SPHERE] [RH_SPHERE] [LH_SPHERE_LEFT_RIGHT] [RH_SPHERE_LEFT_RIGHT]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Left hemisphere spherical surface input file",
@@ -52,10 +52,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

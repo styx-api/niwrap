@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_synthsr_hyperfine",
   "author": "FreeSurfer Developers",
   "description": "Implementation of SynthSR that generates a synthetic 1mm MP-RAGE from a pair of T1-T2 standard Hyperfine scans (1.5x1.5x5mm axial)",
   "command-line": "mri_synthsr_hyperfine [T1_IMAGE] [T2_IMAGE] [OUTPUT] [THREADS] [CPU]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--t1",
@@ -59,9 +58,5 @@
       "name": "Synthetic MP-RAGE"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

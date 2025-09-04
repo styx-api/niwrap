@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_seg2annot",
   "author": "FreeSurfer Developers",
   "description": "Converts a surface-based segmentation into a custom annotation file.",
   "command-line": "mris_seg2annot [SURFSEG] [COLORTABLE] [AUTO_CTAB] [SUBJECT] [HEMI] [OUTPUT_ANNOTATION] [SURF] [DEBUG] [DEBUG_VERTEX] [CHECKOPTS] [VERSION]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--seg",
@@ -111,9 +110,5 @@
       "name": "Annotation file"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

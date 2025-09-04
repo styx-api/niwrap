@@ -1,11 +1,10 @@
 {
   "name": "reg_resample",
-  "tool-version": "1.4.0",
   "author": "NiftyReg Developers",
   "description": "Tool for resampling floating images to the reference image space using different transformations.",
   "url": "http://cmictig.cs.ucl.ac.uk/wiki/index.php/NiftyReg",
   "command-line": "reg_resample [REFERENCE_IMAGE] [FLOATING_IMAGE] [AFFINE_TRANSFORM] [FLIRT_AFFINE_TRANSFORM] [CONTROL_POINT_GRID] [DEFORMATION_FIELD] [RESAMPLED_IMAGE] [RESAMPLED_BLANK] [NEAREST_NEIGHBOR] [LINEAR_INTERPOLATION]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "reference_image",
@@ -109,9 +108,5 @@
       "path-template": "[RESAMPLED_BLANK]",
       "description": "File containing the resampled blank grid"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "vnmd/niftyreg_1.4.0:20220819"
-  }
+  ]
 }

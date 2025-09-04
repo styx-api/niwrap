@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_maps2csd",
   "author": "FreeSurfer Developers",
   "description": "Tool to create CSD files and PDFs from input maps and apply them.",
   "command-line": "mri_maps2csd [INPUT_FILES] [CSD_FILE] [PDF_FILE] [SUBJECT_HEMI_SURF] [THRESH] [SIGN] [CSD_APPLY_FILE] [APPLY_OUT] [SUBJECTS_DIR] [DEBUG] [CHECKOPTS]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--i",

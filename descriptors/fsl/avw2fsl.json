@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "avw2fsl",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Processing script to copy files and directories.",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "avw2fsl [SOURCE] [DESTINATION] [ARCHIVE] [ATTRIBUTES_ONLY] [BACKUP] [BACKUP_NOARG] [COPY_CONTENTS] [NO_DEREFERENCE_PRESERVE_LINKS] [FORCE] [INTERACTIVE] [FOLLOW_SYMLINKS_CMDLINE] [HARD_LINK] [DEREFERENCE] [NO_CLOBBER] [NO_DEREFERENCE] [PRESERVE] [PRESERVE_ATTR] [PRESERVE_CONTEXT] [NO_PRESERVE] [PARENTS] [RECURSIVE] [REFLINK] [REMOVE_DESTINATION] [SPARSE] [STRIP_TRAILING_SLASHES] [SYMBOLIC_LINK] [SUFFIX] [TARGET_DIRECTORY] [NO_TARGET_DIRECTORY] [UPDATE] [VERBOSE] [ONE_FILE_SYSTEM] [SELINUX_CONTEXT] [CONTEXT] [HELP] [VERSION]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Source file(s) or directory to copy.",
@@ -316,7 +311,7 @@
       "name": "Version"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[DESTINATION]",

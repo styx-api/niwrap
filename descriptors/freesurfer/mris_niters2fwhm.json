@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_niters2fwhm",
   "author": "FreeSurfer Developers",
   "description": "Convert number of iterations to full width at half maximum (FWHM) for surface.",
   "command-line": "mris_niters2fwhm [SUBJECT] [HEMI] [SURF] [DOF] [NITERS] [DEBUG] [CHECKOPTS] [HELP] [VERSION]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--s",
@@ -84,9 +83,5 @@
       "name": "Version Flag"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

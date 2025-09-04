@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "make_symmetric",
   "author": "FreeSurfer Developers",
   "description": "Registers an input image to its left/right reversed version using mri_robust_register in a half-way space and mirrors the selected hemisphere.",
   "command-line": "make_symmetric [HEMI] [INPUT_FILE] [OUTPUT_FILE] [TRANSFORM_MAP]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "The hemisphere to mirror; accepted values are 'lh' for left hemisphere or 'rh' for right hemisphere.",

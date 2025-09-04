@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_rf_long_train",
   "author": "FreeSurfer Developers",
   "description": "Trains GCA data with multiple subjects for FreeSurfer",
   "command-line": "mri_rf_long_train [SEG_DIR] [XFORM] [MASK] [NODE_SPACING] [PRIOR_SPACING] [INPUT_DATA] [CHECK] [SUBJECTS] [OUTPUT_RFA]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-seg",
@@ -95,9 +94,5 @@
       "name": "Output RFA File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_align_long.csh",
   "author": "FreeSurfer Developers",
   "description": "Aligns all longitudinal norm and aseg files to the base space in FreeSurfer processing.",
   "command-line": "mri_align_long.csh [BASE_ID]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Identifier for the base subject",
@@ -29,9 +28,5 @@
       "name": "Aligned aseg volume"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

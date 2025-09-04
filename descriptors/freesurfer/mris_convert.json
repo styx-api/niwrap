@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_convert",
   "author": "FreeSurfer Developers",
   "description": "This program will convert MRI-surface data formats.",
   "command-line": "mris_convert [INPUT_FILE] [SECOND_INPUT_FILE] [OUTPUT_FILE] [PATCH] [CURV_OVERLAY_FILES] [FUNCTIONAL_DATA_FILE] [ORIG_POSITIONS] [SCALE] [RESCALE] [TALAIRACH_XFM] [NORMALS] [NEIGHBORS] [XYZ] [ANNOTATION_FILE] [PARCSTATS_FILE] [GIFTI_DATAARRAY_NUM] [LABEL_FILE] [LABEL_STATS_FILE] [COMBINE_SURFS] [MERGE_GIFTI] [SPLIT_GIFTI] [GIFTI_OUTDIR] [DELETE_CMDS] [CENTER] [VOL_GEOM] [REMOVE_VOL_GEOM] [TO_SURF] [TO_SCANNER] [TO_TKR] [USEREALRAS] [USESURFRAS] [UPSAMPLE] [VOLUME] [AREA] [ANGLE] [LABEL_TO_MASK] [CRAS_ADD] [CRAS_SUBTRACT]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input filename",
@@ -338,9 +337,5 @@
       "name": "Converted surface output file"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

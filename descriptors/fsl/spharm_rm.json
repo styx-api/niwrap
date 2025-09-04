@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "spharm_rm",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Part of FSL - Spherical harmonics removal tool to process neuroimaging data",
   "command-line": "spharm_rm [INPUT_FILE] [OUTPUT_FILE] [MASK_FILE] [NUMBER_OF_TERMS] [VERBOSE_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input image filename",
@@ -54,7 +49,7 @@
       "command-line-flag": "--verbose"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_FILE]",

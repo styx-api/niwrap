@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "fslfft",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "A tool to compute the Fourier transform of an input volume and save the result in an output volume.",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "fslfft [INPUT_VOLUME] [OUTPUT_VOLUME] [INVERSE_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input volume file (e.g. invol.nii.gz)",
@@ -35,7 +30,7 @@
       "name": "Inverse Transform Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_VOLUME].nii.gz",

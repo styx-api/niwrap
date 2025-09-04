@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "film_cifti",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "A tool for statistical analysis of CIFTI files using FILM.",
   "command-line": "film_cifti [INPUT_FILENAME] [BASENAME] [LEFT_SURFACE] [RIGHT_SURFACE] [SUSAN_THRESHOLD] [SUSAN_EXTENT] [SURFACE_SIGMA] [SURFACE_EXTENT] [FILM_OPTIONS]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input CIFTI file",
@@ -91,7 +86,7 @@
       "name": "Film options"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[BASENAME]_results.nii.gz",

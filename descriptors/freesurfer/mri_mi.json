@@ -1,10 +1,9 @@
 {
   "name": "mri_mi",
-  "tool-version": "7.4.1",
   "author": "FreeSurfer Developers",
   "description": "Computes mutual information (mi) between two input volumes.",
   "command-line": "mri_mi [INPUT_FILE1] [INPUT_FILE2] [BINS] [SILENT]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "First input file name.",
@@ -40,9 +39,5 @@
       "name": "Silent Flag"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "morph_tables-lh",
   "author": "FreeSurfer Developers",
   "description": "Morphological analysis tool for left hemisphere in Freesurfer",
   "command-line": "morph_tables-lh [INPUT_FILE] [SOME_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input file for morphological analysis",

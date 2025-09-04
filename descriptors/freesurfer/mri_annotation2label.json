@@ -2,7 +2,7 @@
   "name": "mri_annotation2label",
   "description": "Convert an annotation into multiple label files or into a segmentation volume.",
   "command-line": "mri_annotation2label [SUBJECT] [HEMI] [LOBES] [LOBES_STRICT] [LOBES_STRICT_PHCG] [LABEL] [LABELBASE] [OUTDIR] [SEG] [SEGBASE] [CTAB] [BORDER] [BORDER_ANNOT] [ANNOTATION] [SUBJECTS_DIR] [SURFACE] [STAT] [HELP] [VERSION]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--subject",
@@ -175,10 +175,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

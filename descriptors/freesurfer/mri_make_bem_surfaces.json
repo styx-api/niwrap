@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_make_bem_surfaces",
   "author": "FreeSurfer Developers",
   "description": "Tool to create Boundary Element Method (BEM) surfaces.",
   "command-line": "mri_make_bem_surfaces [NAME] [MFILE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "The name of the subject or session to process.",
@@ -37,9 +36,5 @@
       "name": "Inner Skull Temporary Triangle File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

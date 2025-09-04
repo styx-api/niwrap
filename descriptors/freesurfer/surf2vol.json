@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "surf2vol",
   "author": "FreeSurfer Developers",
   "description": "Diffuse surface deformation to volumes using surface and MRI data.",
   "command-line": "surf2vol [FIXED_SURFACE] [MOVING_SURFACE] [FIXED_MRI] [MOVING_MRI] [OUTPUT_FILE] [OUTPUT_FIELD] [OUTPUT_AFFINE] [OUTPUT_SURF] [OUTPUT_SURF_AFFINE] [OUTPUT_MESH] [SPACING_X] [SPACING_Y] [SPACING_Z] [POISSON_RATIO] [DIRTY_FACTOR] [DEBUG_OUTPUT] [CACHE_TRANSFORM]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-fixed_surf",

@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_or",
   "author": "FreeSurfer Developers",
   "description": "Performs a logical voxel-wise OR on a series of volumes",
   "command-line": "mri_or [ORIGINAL_LABELS] [INPUT_FILES]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input image files on which to perform the logical OR operation",

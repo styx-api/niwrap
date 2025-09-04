@@ -2,7 +2,7 @@
   "name": "mri_create_t2combined",
   "description": "Utility to combine two or three T2* 7T partial-brain volumes into one volume, retaining resolution and registered to the MPRAGE anatomical.",
   "command-line": "mri_create_t2combined [SUBJID] [T1WB] [T2UPPER] [T2MIDDLE] [T2LOWER] [T2COMBINED] [SHOW]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "subjid",
@@ -76,10 +76,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

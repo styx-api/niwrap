@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "tcalc",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Resample a 4D phantom for theoretical calculations",
   "command-line": "tcalc [INPUT_IMAGE] [OUTPUT_IMAGE] [ECHO_TIME] [REPETITION_TIME] [MRPAR_FILE] [NUM_VOXEL_X] [NUM_VOXEL_Y] [NUM_VOXEL_Z] [VOXEL_SIZE_X] [VOXEL_SIZE_Y] [VOXEL_SIZE_Z] [START_POSITION] [NOISE_SIGMA] [SAVE_FLAG] [VERBOSE_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input image (4D phantom for theoretical calculations)",
@@ -145,7 +140,7 @@
       "name": "Verbose Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_IMAGE]",

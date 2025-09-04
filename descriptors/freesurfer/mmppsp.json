@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mmppsp",
   "author": "FreeSurfer Developers",
   "description": "MultiModal Posterior Probability Surface Placement",
   "command-line": "mmppsp [SAMSEG_DIR] [OUTDIR] [LH_FLAG] [RH_FLAG] [LIKELIHOOD_FLAG] [POSTERIOR_FLAG] [FORCE_UPDATE_FLAG] [THREADS] [NO_INITSPHREG_FLAG] [STOP_AFTER] [WEXPANDDIST]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--samseg",
@@ -108,9 +107,5 @@
       "name": "Output Surface Files"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -1,10 +1,9 @@
 {
   "name": "mris_AA_shrinkwrap",
-  "tool-version": "7.4.1",
   "author": "FreeSurfer Developers",
   "description": "This program positions the tessellation of the cortical surface at the white matter surface, then the gray matter surface and generates surface files for these surfaces as well as a 'curvature' file for the cortical thickness, and a surface file which approximates layer IV of the cortical sheet.",
   "command-line": "mris_AA_shrinkwrap [T1_VOL] [PD_VOL] [OUTPUT_DIR] [OMIT_SELF_INTERSECTION] [CREATE_CURVATURE_AREA] [AVERAGE_CURVATURE] [WHITE_ONLY]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "T1 volume file",
@@ -64,9 +63,5 @@
       "name": "White Only Flag"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

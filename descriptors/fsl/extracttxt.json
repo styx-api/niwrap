@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "extracttxt",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Extracts text from a file based on a search word",
   "command-line": "extracttxt [SEARCH_WORD] [FILE] [NUM_TRAILING_LINES] [RELATIVE_START]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "The word to search for in the file",
@@ -42,7 +37,7 @@
       "name": "Relative Start Position"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "output.txt",

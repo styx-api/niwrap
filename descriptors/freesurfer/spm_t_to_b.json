@@ -2,7 +2,7 @@
   "name": "spm_t_to_b",
   "command-line": "spm_t_to_b [SPM_STEM_FORMAT] [BSHORT_STEM]",
   "description": "Converts SPM format to Bshort format.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "spm_stem_format",
@@ -22,10 +22,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

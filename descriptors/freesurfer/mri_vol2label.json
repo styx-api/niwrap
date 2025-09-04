@@ -1,9 +1,8 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_vol2label",
   "description": "Converts values in a volume or surface overlay to a label using specified parameters.",
   "command-line": "mri_vol2label [INPUT] [LABEL_ID] [THRESHOLD] [LABEL_FILE] [VOL_FILE] [SURF_SUBJECT_HEMI] [SURF_PATH] [OPT_PARAMS] [REMOVE_HOLES] [DILATIONS] [EROSIONS] [HELP]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input volume or surface overlay.",
@@ -127,9 +126,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

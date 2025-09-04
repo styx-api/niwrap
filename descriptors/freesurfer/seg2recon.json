@@ -1,9 +1,8 @@
 {
-  "tool-version": "7.4.1",
   "name": "seg2recon",
   "description": "Creates and populates a subjects directory from an input image and segmentation suitable for running recon-all.",
   "command-line": "seg2recon [SUBJECT] [SEGVOL] [INPUTVOL] [CTAB] [NDILATE] [THREADS] [FORCE_UPDATE] [NO_CC] [MASK] [HEADMASK] [THRESH] [EXPERT] [RCA] [NO_BIAS_FIELD_COR]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "value-key": "[SUBJECT]",
@@ -149,9 +148,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

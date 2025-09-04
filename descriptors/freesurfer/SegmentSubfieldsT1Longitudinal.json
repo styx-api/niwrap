@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "SegmentSubfieldsT1Longitudinal",
   "author": "FreeSurfer Developers",
   "description": "FreeSurfer tool for segmenting subfields in longitudinal T1-weighted images.",
   "command-line": "SegmentSubfieldsT1Longitudinal [SUBJECT_ID] [INPUT_IMAGE] [OUTPUT_DIR]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Subject ID for the longitudinal analysis",
@@ -39,9 +38,5 @@
       "name": "Segmentation Output"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

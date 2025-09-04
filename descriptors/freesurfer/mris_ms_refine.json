@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_ms_refine",
   "author": "FreeSurfer Developers",
   "description": "This program positions the tessellation of the cortical surface at the white matter surface, then the gray matter surface. It generates surface files for these surfaces as well as a 'curvature' file for the cortical thickness, and a surface file which approximates layer IV of the cortical sheet.",
   "command-line": "mris_ms_refine [SUBJECT_NAME] [HEMISPHERE] [XFORM] [FLASH_FILES] [RESIDUALS] [OMIT_SELF_INTERSECTION] [CREATE_CURVATURE_FILES] [AVERAGE_CURVATURE] [WHITE_ONLY]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "The name of the subject",
@@ -107,9 +106,5 @@
       "name": "Layer IV surface"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

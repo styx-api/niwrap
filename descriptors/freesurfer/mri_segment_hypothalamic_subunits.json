@@ -2,7 +2,7 @@
   "name": "mri_segment_hypothalamic_subunits",
   "description": "This module segments hypothalamic subunits and can be run in two modes: on FreeSurfer subjects or on any T1-weighted scan(s) of approximately 1mm resolution.",
   "command-line": "mri_segment_hypothalamic_subunits [SUBJECTS] [SUBJECTS_DIR] [WRITE_POSTERIORS] [IMAGE_INPUT] [OUTPUT] [POSTERIORS] [RESAMPLE] [VOLUME_OUTPUT] [CROP_SIZE] [THREADS] [CPU]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--s",
@@ -131,10 +131,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

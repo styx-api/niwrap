@@ -1,9 +1,8 @@
 {
   "name": "tkregisterfv",
-  "tool-version": "7.4.1",
   "description": "A script that runs freeview with arguments like tkregister, focusing on LTA files.",
   "command-line": "tkregisterfv [MOV] [TARG] [REG] [SUBJECT] [FSTARG] [SD] [SEG] [ASEG_FLAG] [APARC_ASEG_FLAG] [OPACITY] [SURFS_FLAG] [PIAL_SURFS_FLAG] [ALL_SURFS_FLAG] [NO_SURFS_FLAG] [LH_ONLY_FLAG] [RH_ONLY_FLAG] [SURF] [AUX_S] [PLANE] [NO_CONFIG_FLAG] [MOV2] [REG2] [MOV3] [REG3] [HEAT_FLAG] [REGHEADER_FLAG] [PARAMS] [FLIP_X_FLAG] [FLIP_Y_FLAG] [FLIP_Z_FLAG] [FSTAL] [AUX]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "mov",
@@ -281,9 +280,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

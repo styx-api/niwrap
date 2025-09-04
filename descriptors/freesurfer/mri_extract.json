@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_extract",
   "author": "FreeSurfer Developers",
   "description": "MRI data extraction tool for FreeSurfer",
   "command-line": "mri_extract [LIKE_TEMPLATE] [SRC_VOLUME] [DST_VOLUME] [COORDINATES]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-like",

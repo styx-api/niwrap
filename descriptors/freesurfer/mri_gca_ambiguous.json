@@ -2,7 +2,7 @@
   "name": "mri_gca_ambiguous",
   "description": "This program computes an ambiguity measure across a GCA and outputs an MR image of it",
   "command-line": "mri_gca_ambiguous [GCA_FILE] [OUTPUT_VOLUME]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "The input GCA file",
@@ -30,10 +30,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

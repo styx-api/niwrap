@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "old_betall",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Automated brain extraction tool for FSL involving both T1 and T2 images",
   "command-line": "old_betall [T1_FILEROUT] [T2_FILEROUT]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input T1 image file root (e.g. img_t1.nii.gz)",
@@ -26,7 +21,7 @@
       "name": "T2 File Root"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[T1_FILEROUT]",

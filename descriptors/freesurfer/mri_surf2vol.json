@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_surf2vol",
   "author": "FreeSurfer Developers",
   "description": "Resamples a surface into a volume using one of two methods.",
   "command-line": "mri_surf2vol [SURFACE_OVERLAY] [LTAFILE] [OUTFILE] [SUBJECT] [RIBBONFILE] [MERGE_VOLUME] [SURFACE_VALUES] [MKMASK] [HEMI] [SURFNAME] [PROJFRAC] [FILL_RIBBON] [FILL_PROJFRAC] [REG_VOLUME] [IDENTITY] [TEMPLATE_VOLUME] [FSTAL_RES] [VTXVOL] [FLAT2MRI] [SPHPVF] [MASK_TO_CORTEX] [MASK_TO_LABEL] [SURFACE_MASK] [ADD_CONST] [COPY_CTAB] [SUBJECTS_DIR] [GDIAGNO] [VERSION] [HELP]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--so",

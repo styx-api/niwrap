@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "make-segvol-table",
   "author": "FreeSurfer Developers",
   "description": "Creates a table of volumes of subcortical structures for a given list of subjects using FreeSurfer.",
   "command-line": "make-segvol-table [SUBJECTS] [SUBJECT_FILE] [OUTFILE] [IDMAP] [STRUCTURE_IDS] [SEGDIR] [SUBJECTS_DIR] [UMASK] [VERSION] [HELP]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-s",
@@ -105,9 +104,5 @@
       "name": "Output table file"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

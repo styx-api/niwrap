@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_defacer",
   "author": "FreeSurfer Developers",
   "description": "Tool for defacing MRI images to remove facial features",
   "command-line": "mri_defacer [INPUT_VOLUME] [HEADMASK] [TEMPSURF] [TEMPLABEL] [WATERMARK] [DEFACED_VOLUME] [FACEMASK] [FILL_CONSTANTS] [EXCLUDE_MASK] [TEMPREG] [MINSURFPATH] [MAXSURFPATH] [DISTBOUNDS] [DISTOVERLAY] [DISTDAT] [STATSPATH] [OUTPUT_TEMPSURF] [APPLY_TO_VOLUME] [RIPPLE_CENTER] [APPLY_RIPPLE] [DIAGNOSTIC_LEVEL] [DEBUG] [CHECKOPTS] [VERSION]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input volume",
@@ -233,9 +232,5 @@
       "name": "Version Flag"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -1,10 +1,9 @@
 {
   "name": "mri_seghead",
-  "tool-version": "7.4.1",
   "author": "FreeSurfer Developers",
   "description": "Binarizes an input volume to identify the head's voxels.",
   "command-line": "mri_seghead [INPUT_VOLUME] [OUTPUT_VOLUME] [FILL_VALUE] [FHI_VALUE] [THRESH1_VALUE] [THRESH2_VALUE] [THRESHOLD] [NHITSMIN_VALUE] [HVOLDAT_FILE] [SIGNAL_BEHIND_HEAD] [RESCALE] [FILL_HOLES_ISLANDS] [SEED_POINT] [OR_MASK_FILE] [GDIAG_OPTION]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--invol",
@@ -142,9 +141,5 @@
       "name": "Gdiag Option"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

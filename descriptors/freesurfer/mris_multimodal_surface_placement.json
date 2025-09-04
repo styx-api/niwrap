@@ -1,7 +1,7 @@
 {
   "name": "mris_multimodal_surface_placement",
   "command-line": "mris_multimodal_surface_placement [INPUT_SURFACE] [OUTPUT_SURFACE] [SPHERE_SURFACE] [NORMALS] [VALUES] [DEBUG_VERTEX] [STEP_SIZE] [NUMBER_OF_STEPS] [GRADIENT_SIGMA] [ASEG_APARC] [WHITE_SURFACE] [PROB_OF_CSF] [T1_IMAGE] [T2_IMAGE] [FLAIR_IMAGE] [MIN_MAX]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "input_surface",
@@ -147,12 +147,7 @@
       "description": "Toggle between min or max operation"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "description": "FreeSurfer command for multimodal surface placement",
-  "tool-version": "7.4.1",
   "author": "FreeSurfer Developers",
   "url": "https://github.com/freesurfer/freesurfer"
 }

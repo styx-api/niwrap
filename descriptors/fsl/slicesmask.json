@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "slicesmask",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Tool for masking slices from an image using a mask",
   "command-line": "slicesmask [IMAGE] [MASK] [OUTPUT]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input image file",
@@ -34,7 +29,7 @@
       "name": "Output File"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT]",

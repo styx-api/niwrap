@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "segmentHA_T1.sh",
   "author": "FreeSurfer Developers",
   "description": "Tool for hippocampal/amygdalar subfield segmentation.",
   "command-line": "segmentHA_T1.sh [INPUT_IMAGE] [OUTPUT_DIRECTORY] [BRAIN_MASK] [VERBOSE] [DEBUG]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "The input T1-weighted MRI image for hippocampal/amygdalar segmentation.",

@@ -1,7 +1,7 @@
 {
   "name": "mri_strip_subject_info",
   "command-line": "mri_strip_subject_info [INPUT_FILES] [OUTPUT_DIRECTORY]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "description": "A tool to strip subject information from MRI data files",
   "inputs": [
     {
@@ -23,10 +23,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "rca-long-tp-init",
   "author": "FreeSurfer Developers",
   "description": "Initialize long timepoint subject for recon-all processing.",
   "command-line": "rca-long-tp-init [TIMEPOINT] [BASE] [USE_LONG_BASE_CTRL_VOL] [HEMISPHERE] [EXPERT_OPTS] [SUBJECT]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Timepoint identifier",
@@ -60,9 +59,5 @@
       "name": "Subject"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

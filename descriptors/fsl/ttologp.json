@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "ttologp",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Tool for computing logp",
   "command-line": "ttologp [VARSFILE] [CBSFILE] [DOF] [OUTPUTVOL] [HELP_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Path to the vars file",
@@ -51,7 +46,7 @@
       "name": "Help Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUTVOL].nii.gz",

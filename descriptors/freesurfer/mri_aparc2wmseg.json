@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_aparc2wmseg",
   "author": "FreeSurfer Developers",
   "description": "A tool to convert aparc+aseg.mgz annotations into a white matter segmentation file.",
   "command-line": "mri_aparc2wmseg [SUBJECT] [WMSEG_FILE] [HELP] [VERSION]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--s",
@@ -41,9 +40,5 @@
       "name": "Version flag"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

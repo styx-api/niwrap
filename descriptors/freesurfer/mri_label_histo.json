@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_label_histo",
   "author": "FreeSurfer Developers",
   "description": "Tool for creating a histogram of voxel values within a specified label.",
   "command-line": "mri_label_histo [T1_VOLUME] [LABELED_VOLUME] [LABEL] [OUTPUT]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input T1-weighted anatomical volume.",
@@ -47,9 +46,5 @@
       "name": "Histogram Output"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

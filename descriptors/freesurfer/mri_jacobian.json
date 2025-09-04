@@ -2,11 +2,7 @@
   "name": "mri_jacobian",
   "description": "Compute the Jacobian of a morph with FreeSurfer",
   "command-line": "mri_jacobian [MORPH_FILE] [TEMPLATE_VOL] [OUTPUT_VOL] [ATLAS_COORD] [WRITE_AREA_VOLS] [LOG_JACOBIAN] [SMOOTH_SIGMA] [ZERO_MEAN_LOG] [TM3D] [HELP1] [HELP2] [DT] [DEBUG_VOXEL] [REMOVE]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "3D morph input file",
@@ -135,6 +131,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
   "url": "https://github.com/freesurfer/freesurfer"
 }

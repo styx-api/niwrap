@@ -1,11 +1,10 @@
 {
   "name": "reg_tools",
-  "tool-version": "1.4.0",
   "author": "NiftyReg Developers",
   "description": "A versatile tool for manipulating and processing medical images.",
   "url": "http://cmictig.cs.ucl.ac.uk/wiki/index.php/NiftyReg",
   "command-line": "reg_tools [INPUT_IMAGE] [OUTPUT_IMAGE] [ADD_VALUE_OR_IMAGE] [SUB_VALUE_OR_IMAGE] [MUL_VALUE_OR_IMAGE] [DIV_VALUE_OR_IMAGE] [SMOOTH_VALUE] [SMOOTH_GAUSSIAN] [RMS_IMAGE] [BINARIZE] [THRESHOLD_VALUE] [NAN_MASK_IMAGE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "input_image",
@@ -125,9 +124,5 @@
       "path-template": "[OUTPUT_IMAGE]",
       "description": "File containing the output image"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "vnmd/niftyreg_1.4.0:20220819"
-  }
+  ]
 }

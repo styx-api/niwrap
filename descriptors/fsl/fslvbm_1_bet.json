@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "fslvbm_1_bet",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Brain extraction for VBM using FSL BET",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "fslvbm_1_bet [DEFAULT_BET] [INCREASED_ROBUSTNESS] [BET_PARAMETERS]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "command-line-flag": "-b",
@@ -35,5 +30,5 @@
       "name": "BET parameters"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

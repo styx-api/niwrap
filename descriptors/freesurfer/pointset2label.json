@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "pointset2label",
   "author": "FreeSurfer Developers",
   "description": "Tool for applying waypoint labels to a volume.",
   "command-line": "pointset2label [WAYPOINT_FILE] [INPUT_VOLUME] [LABEL_VALUE] [OUTPUT_VOLUME] [CLEAR_OPTION]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Path to the waypoint file.",
@@ -55,9 +54,5 @@
       "id": "output_label_volume"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

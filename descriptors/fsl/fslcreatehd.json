@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "fslcreatehd",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Tool to create a new NIfTI header.",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "fslcreatehd [XSIZE] [YSIZE] [ZSIZE] [TSIZE] [XVOXSIZE] [YVOXSIZE] [ZVOXSIZE] [TR] [XORIGIN] [YORIGIN] [ZORIGIN] [DATATYPE] [HEADERNAME] [NIFTI_XML_FILE]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Size of the image in the x dimension",
@@ -123,7 +118,7 @@
       "name": "NIfTI XML file"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[HEADERNAME].nii.gz",

@@ -1,9 +1,8 @@
 {
   "name": "mris_segment_vals",
-  "tool-version": "7.4.1",
   "description": "This program segments an input val file into connected components",
   "command-line": "mris_segment_vals [INPUT_SURFACE] [INPUT_CURV_FILE] [OUTPUT_CURV_FILE] [THRESHOLD] [AREA_THRESH]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input surface file",
@@ -57,9 +56,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

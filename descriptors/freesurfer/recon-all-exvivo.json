@@ -2,7 +2,7 @@
   "name": "recon-all-exvivo",
   "description": "A script to perform an ex vivo reconstruction with FreeSurfer.",
   "command-line": "recon-all-exvivo [SUBJECT_ID] [HEMISPHERE] [NOCEREBELLUM]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Subject identifier",
@@ -31,11 +31,6 @@
       "name": "No Cerebellum"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
   "url": "https://github.com/freesurfer/freesurfer"
 }

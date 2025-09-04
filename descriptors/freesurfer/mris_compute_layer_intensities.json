@@ -1,9 +1,8 @@
 {
   "name": "mris_compute_layer_intensities",
-  "tool-version": "7.4.1",
   "description": "Computes intensity overlays for specified cortical layers based on input volumes and surfaces.",
   "command-line": "mris_compute_layer_intensities [INPUT_INTENSITY_VOLUME] [LAYER_VOLUME_FRACTIONS_FILE] [INPUT_SURFACE] [OUTPUT_OVERLAY]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "input_intensity_volume",
@@ -47,9 +46,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -2,7 +2,7 @@
   "name": "table2map",
   "command-line": "table2map [INPUT_TABLE] [OUTPUT_MAP] [SEGMENTATION] [PARCELLATION] [COLUMNS] [LOOKUP_TABLE]",
   "description": "A tool to map data from a table onto an output map, optionally using segmentation or parcellation files.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-t",
@@ -61,10 +61,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

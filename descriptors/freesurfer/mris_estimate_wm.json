@@ -2,7 +2,7 @@
   "name": "mris_estimate_wm",
   "command-line": "mris_estimate_wm [SUBJS] [HEMI] [SDIR] [MODEL] [SUFFIX] [GPU] [RSI] [SINGLE_ITER] [VOL]",
   "description": "Tool to estimate white matter surfaces using MRI data.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-s",
@@ -85,10 +85,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

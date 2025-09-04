@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "design_ttest2",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Command for generating group mean contrasts for a two-sample t-test design.",
   "command-line": "design_ttest2 [DESIGN_FILES_ROOTNAME] [NGROUPA] [NGROUPB] [INCLUDE_MEAN_CONTRASTS]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Root name for design files",
@@ -42,6 +37,6 @@
       "name": "Include Mean Contrasts"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
 }

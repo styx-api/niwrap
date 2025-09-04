@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_em_register",
   "author": "FreeSurfer Developers",
   "description": "This program creates a transform in lta format",
   "command-line": "mri_em_register [INPUT_VOLUME] [TEMPLATE_GCA] [OUTPUT_TRANSFORM] [DISTANCE] [NOMAP] [FLASH] [MASK] [SKULL] [UNS] [DIAG] [DEBUG_VOXEL] [DEBUG_LABEL] [TR] [TE] [ALPHA] [EXAMPLE] [SAMPLES] [FSAMPLES] [NSAMPLES] [CONTRAST] [FLASH_PARMS] [TRANSONLY] [WRITE_MEAN] [PRIOR] [SPACING] [SCALES] [NOVAR] [DT] [TOL] [CENTER] [NOSCALE] [NOISCALE] [NUM_TRANSFORMS] [AREA] [NLAREA] [LEVELS] [INTENSITY] [REDUCE] [N_SAMPLES] [NORM] [TRANS] [STEPS] [LONG_REG] [CPFILE] [TRANSLATION_VECTOR] [ROTATION_VECTOR] [XFORM] [BLUR] [DIAGNO] [S] [MAX_ANGLE] [NITERS] [WRITE_ITERS] [CTL_POINT_PCT] [MOMENTUM] [THREADS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input brain volume",
@@ -518,9 +517,5 @@
       "name": "Output Transform File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

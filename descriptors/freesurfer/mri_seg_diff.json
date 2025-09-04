@@ -1,9 +1,8 @@
 {
   "name": "mri_seg_diff",
-  "tool-version": "7.4.1",
   "description": "This program computes and merges differences in segmentation volumes, primarily for managing manual edits in FreeSurfer's aseg.mgz.",
   "command-line": "mri_seg_diff [SEG1] [SEG2] [SEG] [DIFF] [DIFF_IN] [MERGED] [DIFF_FORCE] [DEBUG] [CHECKOPTS] [VERSION]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--seg1",
@@ -107,9 +106,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

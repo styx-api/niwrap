@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "meanval",
   "author": "FreeSurfer Developers",
   "description": "Tool to calculate the mean value of an image within a mask",
   "command-line": "meanval [INPUT_FILE] [MASK_FILE] [OUTPUT_FILE] [AVGWF_FLAG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--i",
@@ -50,9 +49,5 @@
       "name": "Mean output file"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

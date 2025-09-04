@@ -2,7 +2,7 @@
   "name": "mri_matrix_multiply",
   "description": "Command-line tool for multiplying and manipulating MRI transformation matrices.",
   "command-line": "mri_matrix_multiply [INPUT_MATRICES] [INVERTED_INPUT_MATRICES] [OUTPUT_MATRIX] [VERBOSE] [FSL] [BINARIZE] [SUBJECT_NAME]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-im",
@@ -76,10 +76,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

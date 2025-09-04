@@ -1,7 +1,7 @@
 {
   "name": "morph_rgb-rh",
   "description": "Morphs RGB values onto a FreeSurfer right hemisphere surface",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "command-line": "morph_rgb-rh [SUBJECT_ID]",
   "inputs": [
     {
@@ -14,11 +14,6 @@
       "command-line-flag": "-rh"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
   "url": "https://github.com/freesurfer/freesurfer"
 }

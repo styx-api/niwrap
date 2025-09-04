@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "eddy_correct",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Eddy current correction tool for FSL",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "eddy_correct [4D_INPUT] [4D_OUTPUT] [REFERENCE_NO][INTERP_METHOD]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input 4D image file (e.g., dti.nii.gz)",
@@ -45,7 +40,7 @@
       "value-choices": ["trilinear", "spline"]
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[4D_OUTPUT].nii.gz",

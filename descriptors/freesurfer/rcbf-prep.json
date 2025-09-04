@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "rcbf-prep",
   "author": "FreeSurfer Developers",
   "description": "Performs integration of rCBF as produced by Siemens scanners with FreeSurfer analysis in preparation for group analysis.",
   "command-line": "rcbf-prep [OUTDIR] [RCBFVOL] [SUBJECT] [ROITAB] [REGISTER] [TEMPLATE]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--o",

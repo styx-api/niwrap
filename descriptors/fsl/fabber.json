@@ -1,15 +1,10 @@
 {
-  "tool-version": "6.0.4",
   "name": "fabber",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Fabber is a tool for model-based Bayesian analysis of time-series data",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "fabber [OUTPUT] [METHOD] [MODEL] [DATA_FILE] [DATA_FILES] [DATA_ORDER] [MASK_FILE] [MT_N] [SUPP_DATA] [EVALUATE_OUTPUT] [EVALUATE_PARAMS] [EVALUATE_NT] [SIMPLE_OUTPUT] [OVERWRITE] [LINK_TO_LATEST] [LOAD_MODELS] [DEBUG] [OPTFILE] [SAVE_MODEL_FIT] [SAVE_RESIDUALS] [SAVE_MODEL_EXTRAS] [SAVE_MVN] [SAVE_MEAN] [SAVE_STD] [SAVE_VAR] [SAVE_ZSTAT] [SAVE_NOISE_MEAN] [SAVE_NOISE_STD] [SAVE_FREE_ENERGY] [HELP] [LIST_METHODS] [LIST_MODELS] [LIST_PARAMS] [DESC_PARAMS] [LIST_OUTPUTS] [OLD_OPTFILE]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--output",

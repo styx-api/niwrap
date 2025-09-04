@@ -2,7 +2,7 @@
   "name": "mri_extract_largest_CC",
   "description": "This program extracts the largest connected component of the input volume.",
   "command-line": "mri_extract_largest_CC [INPUT_VOLUME] [OUTPUT_VOLUME] [THRESHOLD] [HEMISPHERE] [LARGEST_CC_IN_BG] [ORIGINAL_VOLUME] [LABEL_VALUE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input volume.",
@@ -75,10 +75,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_congeal",
   "author": "FreeSurfer Developers",
   "description": "Program that registers a set of input surfaces together and generates an atlas.",
   "command-line": "mris_congeal [INPUT_SURFACE_NAME] [HEMI] [SUBJECTS] [OUTPUT_SURFACE_NAME] [SUBJECTS_DIR] [DISABLE_RIGID_ALIGNMENT] [DISABLE_SULC_ALIGNMENT] [SMOOTHWM_CURV] [JACOBIAN_OUTPUT] [DISTANCE_TERM] [MANUAL_LABEL] [ADDFRAME] [OVERLAY] [OVERLAY_DIR] [TARGET_SUBJECT]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input surface name",

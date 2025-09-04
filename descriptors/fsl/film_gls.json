@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "film_gls",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "General Linear Model fitting with autocorrelation in FMRI",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "film_gls [INFILE] [AC_FLAG] [THRESHOLD] [AR_FLAG] [NOEST_FLAG] [OUTPUTPW_FLAG] [PAVA_FLAG] [SA_FLAG] [VERBOSE_FLAG] [RESULTS_DIR] [MODE] [INPUT_SURFACE] [MEAN_FUNC_FILE] [MIN_TIMEPOINT_FILE] [PARADIGM_FILE] [T_CONTRASTS_FILE] [F_CONTRASTS_FILE] [EPITH] [MS] [TUKEY] [MT] [VEN] [VEF]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input data file (NIFTI for volumetric, GIFTI for surface)",
@@ -212,7 +207,7 @@
       "name": "Voxelwise EVs files"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[rn]/prewhitened_data.nii.gz",

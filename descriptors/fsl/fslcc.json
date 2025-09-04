@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "fslcc",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Cross-correlate two time-series, timepoint by timepoint",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "fslcc [FIRST_INPUT] [SECOND_INPUT] [MASK] [NOABS_FLAG] [NODEMEAN_FLAG] [THRESHOLD] [DECIMAL_PLACES]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "First input time-series",
@@ -70,5 +65,5 @@
       "name": "Decimal Places"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

@@ -2,7 +2,7 @@
   "name": "xfmrot",
   "description": "Tool to apply a transformation defined in a transform file to an input vector file.",
   "command-line": "xfmrot [TRANSFORM_FILE] [INPUT_VECTOR_FILE] [OUTPUT_VECTOR_FILE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Transform file, can be an eddy_correct/eddy log file or a .mat file.",
@@ -38,10 +38,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

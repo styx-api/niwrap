@@ -1,12 +1,7 @@
 {
-  "tool-version": "6.0.4",
   "name": "perfusion_subtract",
   "description": "Subtract control images from tag images in 4D perfusion data.",
   "command-line": "perfusion_subtract [FOUR_D_INPUT] [FOUR_D_OUTPUT] [CONTROL_FIRST_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input 4D perfusion image (e.g. perfusion.nii.gz)",
@@ -41,7 +36,7 @@
       "name": "Output 4D Image"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "author": "FMRIB Analysis Group, University of Oxford",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
 }

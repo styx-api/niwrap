@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_register_label_map",
   "author": "FreeSurfer Developers",
   "description": "Tool for registering label maps in Freesurfer.",
   "command-line": "mris_register_label_map [SUBJECTS_LIST] [TARGET_SUBJECT] [PRIOR] [LABEL] [TEMPLATE_VOLUME] [DEBUG] [CHECK_OPTS] [HELP] [SUBJECTS_DIR] [VERSION] [VNO]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--subjects",

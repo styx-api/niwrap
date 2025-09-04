@@ -1,13 +1,8 @@
 {
   "name": "mris_fwhm",
-  "tool-version": "7.4.1",
   "description": "Smooths surface data and/or estimates FWHM",
   "command-line": "mris_fwhm [INPUT_FILE] [SUBJECT] [HEMI] [SURF] [LABEL_FILE] [CORTEX_FLAG] [MASK_FILE] [X_MATRIX] [DETREND_ORDER] [SMOOTH_ONLY_FLAG] [NO_DETREND_FLAG] [SQR_FLAG] [SUM_FILE] [DAT_FILE] [AR1DAT_FILE] [AR1VOL] [FWHMMAP] [PRUNE_FLAG] [NO_PRUNE_FLAG] [OUT_MASK] [VARNORM_FLAG] [FWHM] [NITERS_ONLY] [OUTPUT_FILE] [SD] [SYNTH_FLAG] [SYNTH_FRAMES] [THREADS] [DEBUG_FLAG] [CHECKOPTS_FLAG] [VERSION_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "input_file",

@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "vno_match_check",
   "author": "FreeSurfer Developers",
   "description": "Checks that all surfaces and surface data files for a subject have the same number of vertices.",
   "command-line": "vno_match_check [SUBJID] [DEBUG] [RIGHT_HEMI] [LEFT_HEMI]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Subject ID for which the vertex number check is performed",
@@ -39,9 +38,5 @@
       "name": "Left Hemisphere Flag"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

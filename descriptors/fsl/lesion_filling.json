@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "lesion_filling",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Lesion filling tool as part of FSL",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "lesion_filling [INFILE] [OUTFILE] [LESIONMASK] [WMMASK] [VERBOSE_FLAG] [COMPONENTS_FLAG] [HELP_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "command-line-flag": "-i",
@@ -71,7 +66,7 @@
       "name": "Help Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTFILE]",

@@ -2,7 +2,7 @@
   "name": "mri_path2label",
   "description": "Converts a path file to a label or a label file to a path file.",
   "command-line": "mri_path2label [INPUT_FILE] [OUTPUT_FILE] [SINGLE] [PATH_TO_LABEL] [LABEL_TO_PATH] [CONNECT] [FILL] [CONFILLX] [CONFILL] [SOURCE_FILE] [DEST_FILE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input file, either a path or label file.",
@@ -104,10 +104,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

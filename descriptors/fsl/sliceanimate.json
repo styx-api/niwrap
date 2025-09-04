@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "sliceanimate",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "A tool for animating slices of an image using whirlgif",
   "command-line": "sliceanimate [OUTPUT_FILE] [INPUT_FILES]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Output animated GIF file",
@@ -27,7 +22,7 @@
       "name": "Input Files"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_FILE]",

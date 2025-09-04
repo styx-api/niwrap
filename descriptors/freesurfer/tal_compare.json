@@ -2,7 +2,7 @@
   "name": "tal_compare",
   "description": "Tool for comparing TAL databases",
   "command-line": "tal_compare [REF_FILE] [MOVING_FILE] [OUTPUT_FILE] [VERBOSE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Reference TAL database file.",
@@ -46,10 +46,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

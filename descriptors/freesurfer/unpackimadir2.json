@@ -1,9 +1,8 @@
 {
   "name": "unpackimadir2",
   "description": "Tool to unpack image directories, from FreeSurfer suite.",
-  "tool-version": "7.4.1",
   "command-line": "unpackimadir2 [DIRECTORY]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Image directory to unpack.",
@@ -14,10 +13,6 @@
       "name": "Input directory"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "author": "FreeSurfer Developers",
   "url": "https://github.com/freesurfer/freesurfer"
 }

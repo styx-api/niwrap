@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "register_subject_flash",
   "author": "FreeSurfer Developers",
   "description": "Register subject using the FLASH forward model to predict intensity values.",
   "command-line": "register_subject_flash [INPUT_VOLUMES]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input volumes to register.",
@@ -24,9 +23,5 @@
       "name": "Log File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

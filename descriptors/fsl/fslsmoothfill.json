@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "fslsmoothfill",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Smoothfill is a tool designed to fill in holes in images by smoothly interpolating the pixel values.",
   "command-line": "fslsmoothfill [INPUT_IMAGE] [MASK_IMAGE] [OUTPUT_IMAGE] [NUMBER_OF_ITERATIONS] [DEBUG_FLAG] [VERBOSE_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Filename of the input image.",
@@ -66,6 +61,6 @@
       "command-line-flag": "--verbose"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
 }

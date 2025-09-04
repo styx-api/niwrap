@@ -2,7 +2,7 @@
   "name": "run_samseg_long",
   "description": "Longitudinal image segmentation using SAMSEG.",
   "command-line": "run_samseg_long [TIMEPOINT] [OUTPUT] [LESION] [THRESHOLD] [SAMPLES] [BURNIN] [LESION_MASK_STRUCTURE] [LESION_MASK_PATTERN] [MODE] [ATLAS] [DEFORMATION_HYPERPRIOR] [GMM_HYPERPRIOR] [SAVE_WARP] [SAVE_MESH] [SAVE_POSTERIORS] [PALLIDUM_SEPARATE] [THREADS] [TP_TO_BASE_TRANSFORM] [FORCE_DIFFERENT_RESOLUTIONS] [HISTORY] [SHOWFIGS] [MOVIE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-t",
@@ -201,10 +201,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

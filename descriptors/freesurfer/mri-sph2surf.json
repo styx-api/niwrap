@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri-sph2surf",
   "author": "FreeSurfer Developers",
   "description": "Converts spherical functional data to surface data in the FreeSurfer processing pipeline.",
   "command-line": "mri-sph2surf [INSTEM] [OUTSTEM] [HEMI] [SUBJECT] [OFFSET] [SVITDIR] [UMASK] [VERBOSE] [VERSION]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-i",
@@ -94,9 +93,5 @@
       "name": "Output file"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

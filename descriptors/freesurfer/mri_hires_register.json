@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_hires_register",
   "author": "FreeSurfer Developers",
   "description": "A tool for high-resolution registration for Freesurfer images",
   "command-line": "mri_hires_register [HIRES_LABELING] [INPUT_INTENSITY] [INPUT_ASEG] [OUTPUT_XFORM]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "The high resolution labeling input file",

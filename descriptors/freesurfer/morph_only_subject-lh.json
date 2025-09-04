@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "morph_only_subject-lh",
   "author": "FreeSurfer Developers",
   "description": "A tool for morphological processing for the left hemisphere.",
   "command-line": "morph_only_subject-lh [SUBJECT_DIR]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Directory of the subject to process.",
@@ -24,9 +23,5 @@
       "name": "Morphological Results"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

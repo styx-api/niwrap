@@ -1,13 +1,8 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_volsmooth",
   "description": "Performs surface-based smoothing inside a volume by sampling a volume to a surface, smoothing on the surface, then replacing the surface voxels in the volume with values that were smoothed.",
   "command-line": "mris_volsmooth [INPUT_VOLUME] [OUTPUT_VOLUME] [REGISTRATION] [PROJFRAC] [PROJFRAC_AVG] [FILL_RIBBON] [SURF_OUT] [FWHM] [NITERS] [VOL_FWHM] [LOG] [NOCLEANUP] [DEBUG]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Source volume with values that will be smoothed on the surface.",

@@ -2,7 +2,7 @@
   "name": "mris_annot_diff",
   "description": "Compare two surface annotation files. The program works with .annot only.",
   "command-line": "mris_annot_diff [ANNOT1] [ANNOT2] [DIFF_CTAB] [VERBOSE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input .annot file 1",
@@ -38,10 +38,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

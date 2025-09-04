@@ -2,7 +2,7 @@
   "name": "test_recon-all.csh",
   "command-line": "test_recon-all.csh [REFERENCE_SUBJ_SOURCE_DIR] [REFERENCE_SUBJID] [TEST_SUBJECT_DEST_DIR] [TEST_SUBJID] [FREESURFER_HOME] [NORECON]",
   "description": "Script for testing recon-all and other utilities with FreeSurfer.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "reference_subj_source_dir",
@@ -115,10 +115,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

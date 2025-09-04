@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "make_dyadic_vectors",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Generate dyadic vectors from theta and phi volumes.",
   "command-line": "make_dyadic_vectors [THETA_VOL] [PHI_VOL] [MASK] [OUTPUT] [PERC]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Theta volume input file",
@@ -58,6 +53,6 @@
       "name": "Dyadic Vectors Output File"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
 }

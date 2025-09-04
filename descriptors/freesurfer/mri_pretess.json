@@ -3,7 +3,7 @@
   "author": "FreeSurfer Developers",
   "description": "Tool to modify WM segmentation so that all neighbors of WM voxels have a common face.",
   "command-line": "mri_pretess [FILLEDVOL] [LABELSTRING] [NORMVOL] [NEWFILLEDVOL] [DEBUG_VOXEL] [NOCORNERS] [WRITE] [KEEP] [TEST]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input filled volume, usually wm.mgz",
@@ -90,10 +90,5 @@
       "name": "Output New Filled Volume"
     }
   ],
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

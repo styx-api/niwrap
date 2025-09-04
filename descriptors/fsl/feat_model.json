@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "feat_model",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Generate design matrices for use by FEAT",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "feat_model [DESIGN_NAME_ROOT] [CONFOUND_MATRIX]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Design name root",
@@ -27,5 +22,5 @@
       "name": "Confound Matrix"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

@@ -1,10 +1,9 @@
 {
   "name": "mri_volsynth",
-  "tool-version": "7.4.1",
   "description": "Synthesizes a volume with specified geometry and probability distribution function.",
   "author": "FreeSurfer Developers",
   "command-line": "mri_volsynth [OUTPUT_VOLID] [TEMPLATE] [NFRAMES] [OFFSET_FLAG] [OFFSET_MID_FLAG] [CURV] [DIM] [RES] [VOX_SIZE] [TR] [CDIRCOS] [RDIRCOS] [SDIRCOS] [C_RAS] [P0] [PRECISION] [SEED] [SEEDFILE] [PDF] [BB] [GMEAN] [GSTD] [DELTA_CRSF] [DELTA_VAL] [DELTA_VAL_OFF] [GRID] [DOF] [DOF_NUM] [DOF_DEN] [RESCALE_FLAG] [VAL_A] [VAL_B] [VOX_RADIUS] [MM_RADIUS] [SPHERE_CENTER] [HSC] [ABS_FLAG] [CP] [SPIKE] [FWHM] [SUM2] [DIM_SURF_FLAG] [CTAB]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--o",
@@ -428,9 +427,5 @@
       "optional": true
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "prelude",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Phase Region Expanding Labeller for Unwrapping Discrete Estimates",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "prelude [OUTPUT_UNWRAP] [OUTPUT_UNWRAP_ALIAS] [COMPLEX_PHASE] [COMPLEX_PHASE_ALIAS] [ABSOLUTE_VOLUME] [ABSOLUTE_VOLUME_ALIAS] [PHASE_VOLUME] [PHASE_VOLUME_ALIAS] [NUM_PHASE_SPLIT] [LABEL_SLICES] [SLICE_PROCESSING] [SLICE_PROCESSING_ALIAS] [FORCE_3D] [FORCE_3D_ALIAS] [THRESHOLD] [THRESHOLD_ALIAS] [MASK_VOLUME] [MASK_VOLUME_ALIAS] [START_IMAGE] [END_IMAGE] [SAVE_MASK] [SAVE_RAW_PHASE] [SAVE_RAW_PHASE_ALIAS] [SAVE_LABELS] [SAVE_LABELS_ALIAS] [REMOVE_RAMPS] [VERBOSE] [VERBOSE_ALIAS] [HELP] [HELP_ALIAS]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "command-line-flag": "-o",
@@ -271,7 +266,7 @@
       "name": "Help flag (alias)"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_UNWRAP].nii.gz",

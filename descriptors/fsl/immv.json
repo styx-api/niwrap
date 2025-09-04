@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "immv",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Moves images from one file or directory to another.",
   "command-line": "immv [SOURCE_FILES] [DESTINATION]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Source files to be moved. Recognized file extensions: .nii.gz, .nii, .img, .hdr, .img.gz, .hdr.gz",
@@ -27,6 +22,6 @@
       "name": "Destination"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
 }

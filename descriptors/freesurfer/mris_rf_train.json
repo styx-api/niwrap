@@ -1,7 +1,7 @@
 {
   "name": "mris_rf_train",
   "command-line": "mris_rf_train [SUBJECTS] [OUTPUT_NAME] [HEMI] [SURF]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "description": "Tool for training a random forest classifier using MRIS surface data.",
   "inputs": [
     {
@@ -41,10 +41,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

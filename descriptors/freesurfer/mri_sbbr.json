@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_sbbr",
   "author": "FreeSurfer Developers",
   "description": "Special implementation of boundary-based registration for a single slice.",
   "command-line": "mri_sbbr [TEMPLATE_VOLUME] [SURFACE_FILE] [INIT_REG_FILE] [T1] [T2] [OPTIMIZATION_TYPE] [DISTANCE_IN] [DISTANCE_OUT] [SLOPE] [FTOL] [LINMINTOL] [NITERS_MAX] [SEARCH] [SEARCH1D] [PARAMETER_SET] [INCREMENT] [SLICE_NUMBER] [THREADS] [OUTPUT_REGISTRATION] [INVERTED_OUTPUT_REGISTRATION] [OUTPUT_SURFACE] [DEBUG] [DIAGNOSTIC] [CHECK_OPTIONS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--mov",
@@ -218,9 +217,5 @@
       "name": "Check Options Flag"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

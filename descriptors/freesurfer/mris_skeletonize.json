@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_skeletonize",
   "author": "FreeSurfer Developers",
   "description": "Computes the skeleton of gyri (ie, the crowns) or sulci (ie, the fundi).",
   "command-line": "mris_skeletonize [SURFACE] [SURFVALS] [MASK] [K1] [CURV_NONMAXSUP] [GYRUS] [SULCUS] [OUTDIR] [SPHERE] [POINTSET] [LABEL] [NBRSIZE] [THRESHOLD] [CLUSTER] [FWHM]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--surf",
@@ -158,9 +157,5 @@
       "name": "Skeleton Label Output File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

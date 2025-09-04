@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_sclimbic_seg",
   "author": "FreeSurfer Developers",
   "description": "Segment subcortical limbic structures using Freesurfer.",
   "command-line": "mri_sclimbic_seg [INPUT_FILE] [OUTPUT_FILE] [SUBJECTS] [SUBJECTS_DIR] [CONFORM] [ETIV] [EXCLUDE_LABELS] [KEEP_AC] [VOX_COUNT_VOLUMES] [MODEL_FILE] [CTAB_FILE] [POPULATION_STATS] [DEBUG] [VMP] [THREADS] [TAL_XFM] [WRITE_POSTERIORS] [WRITE_VOLUMES] [WRITE_QA_STATS] [PREPROCESS_7T] [PERCENTILE] [CUDA_DEVICE] [OUTPUT_BASE] [NO_CITE] [NCHANNELS]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-i",

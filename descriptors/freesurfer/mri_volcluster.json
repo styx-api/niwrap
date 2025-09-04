@@ -2,11 +2,7 @@
   "name": "mri_volcluster",
   "description": "A tool for finding clusters in a volume, useful for analyzing MRI data.",
   "command-line": "mri_volcluster [INPUT_FILE] [SUMMARY_FILE] [OUTPUT_VOLID] [OUTPUT_CLUSTER_NUM_VOLID] [CWSIG_VOLID] [POINTSET_FILE] [MIN_THRESHOLD] [MAX_THRESHOLD] [SIGN] [NO_ADJUST_FLAG] [MATCH_VALUE] [CWPVAL_THRESHOLD] [REGISTRATION_FILE] [MNI152REG_FLAG] [REGHEADER_SUBJECT] [FSAVERAGE_FLAG] [FRAME_NUMBER] [CSD_FILES] [CWSIG_MAP] [VWSIG_MAP] [MAX_CWPVAL_FILE] [CSDPDF_FILE] [CSDPDF_ONLY_FLAG] [FWHM_VALUE] [FWHM_FILE] [MIN_SIZE] [MIN_SIZE_VOX] [MIN_DISTANCE] [ALLOW_DIAG_FLAG] [BONFERRONI_NUMBER] [BONFERRONI_MAX_NUMBER] [SIG2P_MAX_FLAG] [GTE_FLAG] [MASK_VOLID] [MASK_TYPE] [MASK_FRAME] [MASK_THRESHOLD] [MASK_SIGN] [MASK_INVERT_FLAG] [OUT_MASK_VOLID] [OUT_MASK_TYPE] [LABEL_FILE] [NLABEL_CLUSTER] [LABEL_BASE] [SYNTH_FUNC] [DIAGNOSTIC_LEVEL] [FILL_PARAMS] [HELP_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "input_file",
@@ -460,6 +456,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
   "url": "https://github.com/freesurfer/freesurfer"
 }

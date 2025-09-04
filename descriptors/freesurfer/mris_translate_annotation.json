@@ -2,7 +2,7 @@
   "name": "mris_translate_annotation",
   "description": "This program applies a translation table to an annotation file.",
   "command-line": "mris_translate_annotation [SUBJECT] [HEMI] [IN_ANNOT] [TRANSLATION_FILE] [OUT_ANNOT]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "The subject identifier.",
@@ -54,10 +54,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

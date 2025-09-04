@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_glmfit",
   "author": "FreeSurfer Developers",
   "description": "Performs general linear model (GLM) analysis in the volume or the surface.",
   "command-line": "mri_glmfit [GLMDIR] [Y_INPUT] [TABLE_INPUT] [FSGD] [DESIGN_MATRIX] [CONTRAST_MATRIX] [OSGM_FLAG] [NO_CONTRASTS_OK_FLAG] [DTI_PARAMS] [DTI_MATRIX] [PVR] [SELFREG] [WLS] [YFFXVAR] [FFXDOF] [FFXDOFDAT] [WEIGHT] [WEIGHT_INV_FLAG] [WEIGHT_SQRT_FLAG] [FWHM] [VAR_FWHM] [NO_MASK_SMOOTH_FLAG] [NO_EST_FWHM_FLAG] [MASK] [LABEL] [NO_MASK_FLAG] [NO_CORTEX_FLAG] [MASK_INV_FLAG] [PRUNE_FLAG] [NO_PRUNE_FLAG] [LOGY_FLAG] [NO_LOGY_FLAG] [RM_SPATIAL_MEAN_FLAG] [YHAT_SAVE_FLAG] [ERES_SAVE_FLAG] [ERES_SCM_FLAG] [SAVE_FWHM_MAP_FLAG] [Y_OUT] [SURFACE] [SKEW_FLAG] [KURTOSIS_FLAG] [SIM_PARAMS] [SIM_SIGN] [UNIFORM_PARAMS] [PERMUTE_INPUT_FLAG] [PCA_FLAG] [TAR1_FLAG] [SAVE_YHAT_FLAG] [SAVE_COND_FLAG] [VOXDUMP] [SEED] [SYNTH_FLAG] [RESYNTHTEST_IT] [PROFILE_IT] [MRTM1_PARAMS] [MRTM2_PARAMS] [LOGAN_PARAMS] [BP_CLIP_NEG_FLAG] [BP_CLIP_MAX] [PERM_FORCE_FLAG] [DIAG_LEVEL] [DIAG_CLUSTER_FLAG] [DEBUG_FLAG] [CHECKOPTS_FLAG] [HELP_FLAG] [VERSION_FLAG] [NO_FIX_VERTEX_AREA_FLAG] [ALLOWSUBJREP_FLAG] [ALLOW_ZERO_DOF_FLAG] [ILLCOND_FLAG] [SIM_DONE_FILE] [NO_SIG_DOUBLE_FLAG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--glmdir",
@@ -693,9 +692,5 @@
       "name": "Contrast output directory"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

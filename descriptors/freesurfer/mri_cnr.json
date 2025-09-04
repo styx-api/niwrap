@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_cnr",
   "author": "FreeSurfer Developers",
   "description": "Compute the gray/white/csf contrast-to-noise ratio for volumes using FreeSurfer.",
   "command-line": "mri_cnr [SURF_DIR] [VOLUME_FILES] [SLOPE] [LOGFILE] [LABELS] [PRINT_TOTAL_CNR] [VERSION_FLAG] [HELP_FLAG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Directory containing surface data.",
@@ -81,9 +80,5 @@
       "name": "Help Flag"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

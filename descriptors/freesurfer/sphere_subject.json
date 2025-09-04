@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "sphere_subject",
   "author": "FreeSurfer Developers",
   "description": "A FreeSurfer tool for processing subject data.",
   "command-line": "sphere_subject [INPUT_DIR] [OUTPUT_FILE] [LICENSE_FILE]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input subject directory",

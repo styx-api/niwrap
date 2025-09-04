@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "sfa2fieldsign",
   "author": "FreeSurfer Developers",
   "description": "Computes fieldsign map from sfa-sess output. Masks the angle volumes and samples them to the surface.",
   "command-line": "sfa2fieldsign [SFADIR] [REGISTER_DAT] [THRESHOLD] [FWHM] [PROJ_FRAC] [OCCIP] [PATCH] [OSD] [LH] [RH]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--sfa",
@@ -150,9 +149,5 @@
       "name": "Right fieldsign Masked MGH"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

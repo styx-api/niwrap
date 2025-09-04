@@ -1,14 +1,9 @@
 {
   "name": "SegmentThalamicNuclei",
-  "tool-version": "7.4.1",
   "description": "A tool for segmenting thalamic nuclei using FreeSurfer",
   "author": "FreeSurfer Developers",
   "command-line": "SegmentThalamicNuclei [T1_IMAGE] [OUTPUT_DIR]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "t1_image",

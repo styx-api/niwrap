@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "fdr",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "False Discovery Rate (FDR) correction tool from FSL",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "fdr [INFILE] [MASKFILE] [QVALUE] [ADJUSTEDIMAGE] [OTHRESH_FLAG] [ORDER_FLAG] [ONEMINUSP_FLAG] [POSITIVE_CORR_FLAG] [INDEPENDENT_FLAG] [CONSERVATIVE_FLAG] [DEBUG_FLAG] [VERBOSE_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input p-value image file",
@@ -111,7 +106,7 @@
       "command-line-flag": "-v"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[ADJUSTEDIMAGE].nii.gz",

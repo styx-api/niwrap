@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "fslascii2img",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Convert data from ASCII format to NIfTI format",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "fslascii2img [INFILE] [XSIZE] [YSIZE] [ZSIZE] [TSIZE] [XDIM] [YDIM] [ZDIM] [TR] [OUTFILE]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input ASCII file",
@@ -108,5 +103,5 @@
       "name": "Output NIfTI file"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

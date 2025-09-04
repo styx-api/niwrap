@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "fslFixText",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Ensures standard UNIX line endings in the output text file",
   "command-line": "fslFixText [INPUT_TEXT_FILE] [OUTPUT_TEXT_FILE]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input text file",
@@ -34,6 +29,6 @@
       "name": "Output Text File"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
 }

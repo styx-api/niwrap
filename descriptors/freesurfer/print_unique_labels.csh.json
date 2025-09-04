@@ -1,9 +1,8 @@
 {
   "name": "print_unique_labels.csh",
-  "tool-version": "7.4.1",
   "description": "Prints the list of unique labels (with structure name) in the input volume.",
   "command-line": "print_unique_labels.csh [LABEL_VOLUME] [OUTPUT_FILE] [LIST_ONLY] [VERSION] [HELP]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "label_volume",
@@ -57,9 +56,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

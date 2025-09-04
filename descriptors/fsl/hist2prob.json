@@ -1,12 +1,7 @@
 {
-  "tool-version": "6.0.4",
   "name": "hist2prob",
   "description": "Converts a histogram image to a probability map based on specified thresholds",
   "command-line": "hist2prob [IMAGE] [SIZE] [LOW_THRESHOLD] [HIGH_THRESHOLD]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input histogram image",
@@ -42,7 +37,7 @@
       "name": "High Threshold"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[IMAGE]_probability_map.nii.gz",

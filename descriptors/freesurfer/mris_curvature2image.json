@@ -2,7 +2,7 @@
   "name": "mris_curvature2image",
   "description": "Tool to convert surface curvature data to an image using FreeSurfer.",
   "command-line": "mris_curvature2image [SURFACE] [MASK] [OUTPUT_OVERLAY] [OUTPUT_DISTANCE] [OVERLAY] [LABEL] [INVERT_FLAG] [RADIUS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-s",
@@ -91,10 +91,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

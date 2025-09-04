@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "first_flirt",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "FLIRT-based image registration tool with additional options for brain extraction and weighting masks",
   "command-line": "first_flirt [INPUT_IMAGE] [OUTPUT_BASENAME] [ALREADY_BRAIN_EXTRACTED_FLAG] [DEBUG_FLAG] [INWEIGHT_FLAG] [STRUCWEIGHT_MASK] [CORT_FLAG] [COST_FUNCTION]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input image (e.g. subject10rawT1.nii.gz)",
@@ -76,7 +71,7 @@
       "name": "Cost Function"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_BASENAME]_result.nii.gz",

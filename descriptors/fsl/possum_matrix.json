@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "possum_matrix",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Event matrix generator for POSSUM simulation in FSL",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "possum_matrix [PULSE_SEQUENCE] [MOTION_MATRIX] [OUTPUT_MATRIX] [VERBOSE_FLAG] [HELP_FLAG] [OLD_VERSION_FLAG] [SEGMENT_SIZE]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "command-line-flag": "-p",
@@ -71,7 +66,7 @@
       "name": "Segment size"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_MATRIX]",

@@ -2,7 +2,7 @@
   "name": "mri_ribbon",
   "description": "MRI Ribbon tool to create ribbon volumes from surface files",
   "command-line": "mri_ribbon [LABEL_FILE] [INNER_SURFACE] [OUTER_SURFACE] [INPUT_VOLUME] [OUTPUT_VOLUME]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-l",
@@ -55,10 +55,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

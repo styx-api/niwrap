@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_info",
   "author": "FreeSurfer Developers",
   "description": "Prints out information about a surface file.",
   "command-line": "mris_info [SURFACEFILE] [OUTFILE] [SUBJECT_HEMI_SURFNAME] [TALAIRACH_XFM_FLAG] [RESCALE_FLAG] [PATCHFILE] [VERTEX_NUMBER] [EXTENDED_VERTEX_NUMBER] [CURVFILE] [ANNOTFILE] [AREA_STATS_FLAG] [EDGE_STATS_ID] [EDGE_NUMBER] [VTXNO] [MATRIX_FORMAT] [QUALITY_STATS_FLAG] [INTERSECTIONS_FLAG] [MASK_FILE] [LABEL_FILE] [EDGE_FILE] [NOGIFTI_FLAG] [VERSION_FLAG] [HELP_FLAG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "value-key": "[SURFACEFILE]",
@@ -219,9 +218,5 @@
       "name": "Output edge file"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

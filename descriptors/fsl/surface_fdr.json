@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "surface_fdr",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Tool to calculate surface FDR correction for vertex analysis.",
   "command-line": "surface_fdr [INPUT_VTK]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input VTK file from vertex analysis",
@@ -18,7 +13,7 @@
       "name": "Input VTK file"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[INPUT_VTK]_pvals.vtk",

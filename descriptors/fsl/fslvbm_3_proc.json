@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "fslvbm_3_proc",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Pipeline for voxel-based morphometry analysis using FSL tools",
   "command-line": "fslvbm_3_proc [ARCH] [COPROCESSOR] [COPROCESSOR_MULTI] [COPROCESSOR_CLASS] [COPROCESSOR_CLASS_STRICT] [COPROCESSOR_TOOLKIT] [NOT_REQUEUEABLE] [JOBHOLD] [ARRAY_HOLD] [LOGDIR] [MAILOPTIONS] [MAILTO] [NAME] [PRIORITY] [QUEUE] [RESOURCE] [DELETE_JOB] [MEMORY_GB] [PARALLEL_ENV_THREADS] [ARRAY_TASK] [ARRAY_NATIVE] [NUMBER_JOBSCRIPTS] [KEEP_JOBSCRIPT] [COPROCESSOR_NAME] [HAS_QUEUES] [PROJECT] [SUBMIT_SCHEDULER] [RUNTIME_LIMIT] [SHOW_CONFIG] [VERBOSE] [VERSION] [CONFIG_FILE]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-a",

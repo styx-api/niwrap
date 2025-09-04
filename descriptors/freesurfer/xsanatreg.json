@@ -2,7 +2,7 @@
   "name": "xsanatreg",
   "description": "A tool for registering source and target COR volumes.",
   "command-line": "xsanatreg [SRC_CORDIR] [TARG_CORDIR] [TRANSFORM_FILE] [TEMP_DIRECTORY] [SOURCE_MINC] [TARGET_MINC] [NO_CLEANUP] [VERSION] [UMASK]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-src",
@@ -85,10 +85,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

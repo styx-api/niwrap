@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_thickness_diff",
   "author": "FreeSurfer Developers",
   "description": "Computes the difference of two surface data sets defined on two surface meshes.",
   "command-line": "mris_thickness_diff [SRC_TYPE] [TRG_TYPE] [OUT_FILE] [OUT_RESAMPLED] [NSMOOTH] [REGISTER] [XFORM] [INVERT] [SRC_VOLUME] [DST_VOLUME] [ABS] [LOG_FILE] [SUBJECT_NAME]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input surface data format (curv, paint or w)",

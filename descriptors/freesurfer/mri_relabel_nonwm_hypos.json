@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_relabel_nonwm_hypos",
   "author": "FreeSurfer Developers",
   "description": "Relabels non-WM hypointensities based on proximity to a nearby label.",
   "command-line": "mri_relabel_nonwm_hypos [INPUTSEG] [OUTPUTSEG] [SEGMENTS] [SEG_DEFAULT] [DEBUG] [CHECKOPTS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input segmentation file with non-wm-hypos labeled as 80, 81, or 82.",
@@ -67,9 +66,5 @@
       "name": "Output Segmentation File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

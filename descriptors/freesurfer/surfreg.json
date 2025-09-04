@@ -1,9 +1,8 @@
 {
-  "tool-version": "7.4.1",
   "name": "surfreg",
   "description": "Performs surface registration (mris_register) between a subject and a target average subject based on the hemi.reg.template.tif atlas in the average subject.",
   "command-line": "surfreg [SUBJECT] [TARGET] [CROSS_HEMI] [REG_LH] [REG_RH] [REG_BOTH] [NO_ANNOT] [ANNOT] [APARC] [NONEG] [INIT_REG] [LTA] [INIT_FROM_TAL] [OUTSURF] [NO_SET_VOL_GEOM] [THREADS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--s",
@@ -150,9 +149,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

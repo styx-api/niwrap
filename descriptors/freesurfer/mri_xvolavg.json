@@ -1,9 +1,8 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_xvolavg",
   "description": "Tool to average multiple volumes together (including 4D volumes).",
   "command-line": "mri_xvolavg [INPUT_VOLUMES] [VOL_TYPE] [OUTPUT_VOLUME] [OUTPUT_TYPE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--vol",
@@ -52,9 +51,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

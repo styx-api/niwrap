@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "fabber_qbold",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Fabber - a flexible BaYesian modeling framework for FMRI and MRI analysis.",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "fabber_qbold [OUTPUT_DIR] [METHOD] [MODEL] [DATA] [DATA_N] [DATA_ORDER] [MASK] [MT_N] [SUPPDATA] [LISTMETHODS] [LISTMODELS] [LISTPARAMS] [DESCPARAMS] [LISTOUTPUTS] [EVALUATE] [EVALUATE_PARAMS] [EVALUATE_NT] [SIMPLE_OUTPUT] [OVERWRITE] [LINK_LATEST] [LOADMODELS] [DUMP_PARAM_NAMES] [SAVE_MODEL_FIT] [SAVE_RESIDUALS] [SAVE_MODEL_EXTRAS] [SAVE_MVN] [SAVE_MEAN] [SAVE_STD] [SAVE_VAR] [SAVE_ZSTAT] [SAVE_NOISE_MEAN] [SAVE_NOISE_STD] [SAVE_FREE_ENERGY] [OPTFILE] [DEBUG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "command-line-flag": "--output",
@@ -305,7 +300,7 @@
       "name": "Debug Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_DIR]/paramnames.txt",

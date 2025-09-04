@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_diff",
   "author": "FreeSurfer Developers",
   "description": "Determines whether two volumes differ based on dimensions, resolutions, acquisition parameters, geometry, precision, and pixel data.",
   "command-line": "mri_diff [VOL1FILE] [VOL2FILE] [RESOLUTION_CHECK] [ACQUISITION_PARAM_CHECK] [GEOMETRY_CHECK] [PRECISION_CHECK] [PIXEL_CHECK] [ORIENTATION_CHECK] [FILE_TYPE_DIFF_CHECK] [NO_EXIT_ON_DIFF] [QUALITY_ASSURANCE] [PIXEL_ONLY] [ABS_DIFFERENCE] [NO_ABS_DIFFERENCE] [DIFFERENCE_ABS] [PERCENTAGE_DIFFERENCE] [RSS_SAVE] [SSD_PRINT] [RMS_PRINT] [COUNT_DIFF_VOXELS] [PIXEL_THRESHOLD] [COUNT_THRESH_VOXELS] [LOG_FILE] [DIFFERENCE_IMAGE] [SUSPICIOUS_DIFF_VOLUME] [SEGMENTATION_DIFF] [MERGE_EDITS] [AVERAGE_DIFFERENCE] [DEBUG_MODE] [VERBOSE_MODE] [CHECK_OPTIONS]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "First volume to compare (e.g., vol1.mgz)",

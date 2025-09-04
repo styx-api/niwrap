@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "featregapply",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Apply registration from FEAT analysis to other images",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "featregapply [FEAT_DIRECTORY] [FORCE_FLAG] [CLEANUP_FLAG] [UPSAMPLE_TRILINEAR] [UPSAMPLE_SPLINE] [STANDARD_SPACE_RES] [EXCLUDE_FILTERED_FUNC_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "FEAT directory from which registration will be taken",
@@ -70,7 +65,7 @@
       "name": "Exclude Filtered Func Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[FEAT_DIRECTORY]/reg_standard",

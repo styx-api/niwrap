@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mri_z2p",
   "author": "FreeSurfer Developers",
   "description": "Converts Z-statistic volumes to P-value volumes.",
   "command-line": "mri_z2p [Z_VOLUME] [P_VOLUME] [SIG_VOLUME] [MASK_VOLUME] [TWO_SIDED] [ONE_SIDED] [SIGNED] [FEAT] [FEAT_FORMAT] [NII_FORMAT] [NIIGZ_FORMAT] [MGH_FORMAT] [MGZ_FORMAT] [IMG_FORMAT] [DEBUG] [CHECK_OPTS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--z",
@@ -155,9 +154,5 @@
       "name": "Output Significance Volume"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

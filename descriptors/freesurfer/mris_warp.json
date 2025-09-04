@@ -1,9 +1,8 @@
 {
   "name": "mris_warp",
-  "tool-version": "7.4.1",
   "description": "This program will warp a surface using a specified deformation field.",
   "command-line": "mris_warp [DEFORMVOL] [M3Z] [REGFILE] [SURF] [OUT] [ABS] [HELP] [VERSION]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--deformvol",
@@ -84,9 +83,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -3,7 +3,7 @@
   "description": "Computes a volume mask at the same resolution as <subject>/mri/brain.mgz and labels voxels based on the signed-distance function from the surface.",
   "author": "FreeSurfer Developers",
   "command-line": "mris_volmask_novtk [IO] [CAP_DISTANCE] [LABEL_BACKGROUND] [LABEL_LEFT_WHITE] [LABEL_LEFT_RIBBON] [LABEL_RIGHT_WHITE] [LABEL_RIGHT_RIBBON] [SURF_WHITE] [SURF_PIAL] [ASEG_NAME] [OUT_ROOT] [SUBJECTS_DIR] [SAVE_DISTANCE] [LH_ONLY] [RH_ONLY] [PARALLEL] [EDIT_ASEG] [SAVE_RIBBON]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "io",
@@ -161,10 +161,5 @@
       "name": "Save Ribbon"
     }
   ],
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

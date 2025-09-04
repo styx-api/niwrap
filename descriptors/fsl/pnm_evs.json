@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "pnm_evs",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "PNM EVs: Generates physiological noise regressors for fMRI data",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "pnm_evs [INPUT_FILE] [OUTPUT_FILE] [TR_VALUE] [CARDIAC_FILE] [RESPIRATORY_FILE] [ORDER_CARDIAC] [ORDER_RESPIRATORY] [ORDER_MULT_CARDIAC] [ORDER_MULT_RESPIRATORY] [CSF_MASK] [RVT_FILE] [HEARTRATE_FILE] [RVT_SMOOTH] [HEARTRATE_SMOOTH] [SLICE_DIRECTION] [SLICE_ORDER] [SLICE_TIMING_FILE] [DEBUG_FLAG] [VERBOSE_FLAG] [HELP_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input image filename (4D functional/EPI data)",
@@ -188,7 +183,7 @@
       "command-line-flag": "--help"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_FILE]",

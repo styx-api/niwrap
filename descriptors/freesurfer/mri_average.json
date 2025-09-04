@@ -1,9 +1,8 @@
 {
   "name": "mri_average",
-  "tool-version": "7.4.1",
   "description": "Averages multiple volumes with various options for alignment, interpolation, and transformations.",
   "command-line": "mri_average [INPUT_VOLUMES] [OUTPUT_VOLUME] [RIGID_ALIGNMENT] [READ_FROM_FILE] [DT] [TOL] [CONFORM] [NOCONFORM] [REDUCE] [SINC_INTERPOLATION] [TRILINEAR] [WINDOW] [SNAPSHOTS] [TRANSLATION] [ROTATION] [MOMENTUM] [RMS] [RMS_ALT] [PERCENT] [BINARIZE] [ABSOLUTE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input volumes to average.",
@@ -199,9 +198,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

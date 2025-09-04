@@ -2,7 +2,7 @@
   "name": "mris_remesh",
   "description": "Remeshes a surface to a desired edge length, number of vertices, or average face area.",
   "command-line": "mris_remesh [INPUT] [OUTPUT] [EDGE_LENGTH] [NUM_VERTICES] [FACE_AREA] [REMESH] [ITERATIONS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input surface file",
@@ -76,10 +76,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

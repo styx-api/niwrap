@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "mris_expand",
   "author": "FreeSurfer Developers",
   "description": "Expand a given surface by a specified distance",
   "command-line": "mris_expand [INPUT_SURFACE] [EXPANSION_DISTANCE] [OUTPUT_SURFACE] [THICKNESS] [LABEL] [TMAP] [TMAP_RANDOM]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input surface file (e.g. lh.white)",

@@ -1,9 +1,8 @@
 {
   "name": "mris_resample",
-  "tool-version": "7.4.1",
   "description": "Resample cortical surfaces in FreeSurfer",
   "command-line": "mris_resample [ATLAS_REG] [SUBJECT_REG] [SUBJECT_SURF] [OUTPUT] [ANNOT_IN] [ANNOT_OUT]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "atlas_reg",
@@ -74,10 +73,6 @@
       "name": "Resampled Annotation Output"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "author": "FreeSurfer Developers",
   "url": "https://github.com/freesurfer/freesurfer"
 }

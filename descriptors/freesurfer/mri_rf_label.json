@@ -2,7 +2,7 @@
   "name": "mri_rf_label",
   "description": "MRI automatic tissue labeling using a Gaussian Classifier Atlas (GCA).",
   "command-line": "mri_rf_label [INPUT_VOLUMES] [TRANSFORM_FILE] [GCAFILE] [OUTPUT_VOLUME] [CROSS_SEQUENCE_FLAG] [NOGIBBS_FLAG] [WM_PATH] [CONFORM_FLAG] [NORMPD_FLAG] [GCA_TL] [DEBUG_VOXEL] [DEBUG_NODE] [DEBUG_LABEL] [TR] [TE] [ALPHA] [EXAMPLE] [PTHRESH] [NITER] [NOVAR_FLAG] [REGULARIZE] [NOHIPPO_FLAG] [FWM] [MRI_VOL] [HEQ] [RENORM] [FLASH_FLAG] [FLASH_PARAMS] [RENORMALIZE] [SET_INPUT] [HISTOGRAM_FLAG] [COND_DENSITY_MEAN] [SNAPSHOTS] [MASK] [EXPAND] [MAX_ITER] [FILTER_MODE] [LONGITUDINAL_VOL] [LONGITUDINAL_LTA] [RELABEL_UNLIKELY_FLAG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input volume(s)",
@@ -379,10 +379,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "fabber_dualecho",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "FMRIB's Advanced Bayesian Estimation and Inference tool for FMRI analysis.",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "fabber_dualecho [OUTPUT_DIRECTORY] [METHOD] [MODEL] [DATA] [DATA_ORDER] [MASK_FILE] [MT_LIST] [SUPP_DATA] [OPTIONS_FILE] [HELP_FLAG] [LIST_METHODS_FLAG] [LIST_MODELS_FLAG] [LIST_PARAMS_FLAG] [DESC_PARAMS_FLAG] [LIST_OUTPUTS_FLAG] [EVALUATE] [EVALUATE_PARAMS] [EVALUATE_NT] [SIMPLE_OUTPUT_FLAG] [OVERWRITE_FLAG] [LINK_TO_LATEST_FLAG] [LOAD_MODELS] [DUMP_PARAM_NAMES_FLAG] [SAVE_MODEL_FIT_FLAG] [SAVE_RESIDUALS_FLAG] [SAVE_MODEL_EXTRAS_FLAG] [SAVE_MVN_FLAG] [SAVE_MEAN_FLAG] [SAVE_STD_FLAG] [SAVE_VAR_FLAG] [SAVE_ZSTAT_FLAG] [SAVE_NOISE_MEAN_FLAG] [SAVE_NOISE_STD_FLAG] [SAVE_FREE_ENERGY_FLAG] [DEBUG_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Directory for output files (including logfile)",
@@ -303,7 +298,7 @@
       "name": "Debug Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_DIRECTORY]",

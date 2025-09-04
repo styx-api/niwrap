@@ -2,11 +2,7 @@
   "name": "mri_paint",
   "description": "This program will paint average Talairach stats onto a surface",
   "command-line": "mri_paint [INPUT_VOLUME] [INPUT_SURFACE] [REGISTRATION_FILE] [OUTPUT_FLOAT_FILE] [IMAGE_OFFSET] [PAINT_SURF_COORDS]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "input_volume",
@@ -67,6 +63,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
   "url": "https://github.com/freesurfer/freesurfer"
 }

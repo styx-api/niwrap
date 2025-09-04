@@ -2,7 +2,7 @@
   "name": "parc_atlas_jackknife_test",
   "description": "Tool for conducting a jackknife accuracy test using FreeSurfer atlases.",
   "command-line": "parc_atlas_jackknife_test [REGISTER] [REG_DIST] [REG_APPEND] [REG_COPY] [TRAIN] [CLASSIFY] [TEST] [ALL] [SUBJECTS_DIR] [FREESURFER_HOME] [BINARIES_PATH] [DONTRUN]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-register",
@@ -116,10 +116,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

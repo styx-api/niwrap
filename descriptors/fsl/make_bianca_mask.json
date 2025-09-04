@@ -1,12 +1,7 @@
 {
-  "tool-version": "6.0.4",
   "name": "make_bianca_mask",
   "description": "A script for generating BIANCA masks",
   "command-line": "make_bianca_mask [INPUT_IMAGE] [OUTPUT_IMAGE] [OVERLAY_FLAG] [BINARY_MASK_FLAG] [APPROX_SKULL_FLAG] [NO_SEG_OUTPUT_FLAG] [FRACTIONAL_INTENSITY] [VG_FRACTIONAL_INTENSITY] [HEAD_RADIUS] [CENTER_OF_GRAVITY] [THRESHOLDING_FLAG] [VTK_MESH] [ROBUST_ITERS_FLAG] [RESIDUAL_OPTIC_CLEANUP_FLAG] [REDUCE_BIAS_FLAG] [SLICE_PADDING_FLAG] [WHOLE_SET_MASK_FLAG] [ADDITIONAL_SURFACES_FLAG] [ADDITIONAL_SURFACES_T2] [VERBOSE_FLAG] [DEBUG_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input image",
@@ -188,7 +183,7 @@
       "name": "Debug Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_IMAGE]",

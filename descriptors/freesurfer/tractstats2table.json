@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "tractstats2table",
   "author": "FreeSurfer Developers",
   "description": "Converts a track overall stats file created by tracula into a table used for group statistics.",
   "command-line": "tractstats2table [INPUTS] [LOAD_PATHSTATS_FROM_FILE] [OVERALL] [BYVOXEL] [BYVOXEL_MEASURE] [TABLEFILE] [DELIMITER] [TRANSPOSE] [DEBUG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--inputs",
@@ -95,9 +94,5 @@
       "name": "Output table file"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

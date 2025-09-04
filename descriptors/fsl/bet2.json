@@ -1,14 +1,9 @@
 {
-  "tool-version": "6.0.4",
   "name": "bet2",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Automated brain extraction tool for FSL",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
   "command-line": "bet2 [INPUT_FILEROOT] [OUTPUT_FILEROOT] [FRACTIONAL_INTENSITY] [VERTICAL_GRADIENT] [CENTER_OF_GRAVITY] [OUTLINE_FLAG] [MASK_FLAG] [SKULL_FLAG] [NO_OUTPUT_FLAG] [MESH_FLAG] [HEAD_RADIUS] [SMOOTH_FACTOR] [THRESHOLD_FLAG] [VERBOSE_FLAG] [HELP_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input file root (e.g. img)",
@@ -145,7 +140,7 @@
       "name": "Help flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_FILEROOT]_mask.nii.gz",

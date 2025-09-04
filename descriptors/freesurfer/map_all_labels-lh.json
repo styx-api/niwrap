@@ -1,14 +1,9 @@
 {
   "name": "map_all_labels-lh",
-  "tool-version": "7.4.1",
   "author": "FreeSurfer Developers",
   "description": "Paints output onto a subject's left hemisphere using FreeSurfer.",
   "command-line": "map_all_labels-lh [WHICH] [FNAME] [HEMI] [SPHERICAL_SURF] [SUBJECTS] [OUTPUT]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Which type of data to process. Options are: coords, label, vals, curv, area.",

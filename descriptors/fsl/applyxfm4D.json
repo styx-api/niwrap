@@ -1,13 +1,8 @@
 {
-  "tool-version": "6.0.4",
   "name": "applyxfm4D",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "Applies 4D transformation matrices to 4D volumes",
   "command-line": "applyxfm4D [INPUT_VOLUME] [REF_VOLUME] [OUTPUT_VOLUME] [TRANSFORMATION_MATRIX] [INTERPOLATION_METHOD] [SINGLE_MATRIX_FLAG] [FOUR_DIGIT_FLAG] [USER_PREFIX]",
-  "container-image": {
-    "type": "docker",
-    "image": "brainlife/fsl:6.0.4-patched2"
-  },
   "inputs": [
     {
       "description": "Input 4D volume (e.g. img.nii.gz)",
@@ -76,7 +71,7 @@
       "name": "User prefix"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_VOLUME].nii.gz",

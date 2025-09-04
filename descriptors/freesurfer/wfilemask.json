@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "wfilemask",
   "author": "FreeSurfer Developers",
   "description": "Zero-out regions of a surface value file (.w file) using a label.",
   "command-line": "wfilemask [W_FILE] [LABEL_FILE] [OUTPUT_FILE] [PERMISSION_MASK] [HELP_FLAG] [VERSION_FLAG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-w",
@@ -67,9 +66,5 @@
       "name": "Output W File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

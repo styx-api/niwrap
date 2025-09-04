@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "tksurferfv",
   "description": "A script that runs freeview with arguments similar to tksurfer.",
   "author": "FreeSurfer Developers",
   "command-line": "tksurferfv [SUBJECT] [HEMI] [SURFACE] [TKSURFER] [ALL_SURFACES] [VGL] [NO_VGL] [NO_OUTLINE] [NEURO_ORIENTATION] [ROTATE_AROUND_CURSOR] [HEAT_SCALE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Subject identifier.",
@@ -95,9 +94,5 @@
       "optional": true
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }
