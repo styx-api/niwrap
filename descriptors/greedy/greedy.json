@@ -713,12 +713,38 @@
     {
       "id": "interpolation",
       "name": "Interpolation Mode",
-      "type": "String",
       "command-line-flag": "-ri",
       "optional": true,
-      "value-choices": ["NN", "LINEAR", "LABEL"],
       "description": "Interpolation for the next pair (NN, LINEAR*, LABEL sigma)",
-      "value-key": "[INTERPOLATION]"
+      "value-key": "[INTERPOLATION]",
+      "type": [
+        {
+          "command-line": "NN",
+          "id": "nn",
+          "name": "Nearest neighbor",
+          "description": "rarely recommended, results in the most aliasing"
+        },
+        {
+          "command-line": "LINEAR",
+          "id": "linear",
+          "name": "Bilinear/trilinear interpolation",
+          "description": "default interpolation mode, fast and less aliasing"
+        },
+        {
+          "command-line": "LABEL [SIGMA]",
+          "id": "label",
+          "name": "Label interpolation",
+          "description": "this special mode is used for warping/reslicing multi-label segmentations. This mode applies a little bit of smoothing to each label in your segmentation (including the background), warps this smoothed segmentation, and then performs voting among warped smoothed binary segmentations to assign each voxel in reference space a label. This works better than nearest neighbor interpolation (less aliasing).",
+          "inputs": [
+            {
+              "id": "sigma_spec",
+              "type": "String",
+              "value-key": "[SIGMA]",
+              "description": "The <sigma_spec> parameter to the -ri LABEL command specifies the standard deviation of the Gaussian kernel used to smooth the labels. It can be provided in voxel units (e.g., 0.2vox) or millimeter units (e.g., 0.2mm). Value of 0.2vox works well in most situations"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "reslice_background",
