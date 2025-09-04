@@ -1,0 +1,97 @@
+name: Publish to GitHub Pages
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+on:
+  push:
+    tags:
+    - '*'
+  workflow_dispatch:
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ github.head_ref }}
+          
+      - name: Checkout styx
+        uses: actions/checkout@v5
+        with:
+          repository: 'styx-api/styx'
+          path: 'styx'
+    
+      - name: Install the latest version of uv
+        uses: astral-sh/setup-uv@v6
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Compile
+        run: |
+          uv --directory styx run ../build.py
+
+      - name: Prepare GitHub Pages content
+        run: |
+          # Create a temporary directory for GitHub Pages content
+          mkdir -p _site
+          
+          # Copy the dist directories to the Pages site
+          if [ -d "dist/niwrap-ir-dump" ]; then
+            cp -r dist/niwrap-ir-dump _site/
+          else
+            echo "Warning: dist/niwrap-ir-dump directory not found"
+            exit 1
+          fi
+          
+          if [ -d "dist/niwrap-json-schema" ]; then
+            cp -r dist/niwrap-json-schema _site/
+          else
+            echo "Warning: dist/niwrap-json-schema directory not found"
+            exit 1
+          fi
+          
+          # Create index.html that redirects to the repository
+          cat > _site/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html>
+          <head>
+              <meta charset="utf-8">
+              <meta http-equiv="refresh" content="0; url=https://github.com/${{ github.repository }}">
+              <link rel="canonical" href="https://github.com/${{ github.repository }}">
+              <title>Redirecting to Repository</title>
+          </head>
+          <body>
+              <p>Redirecting to <a href="https://github.com/${{ github.repository }}">repository</a>...</p>
+              <script>
+                  window.location.href = "https://github.com/${{ github.repository }}";
+              </script>
+          </body>
+          </html>
+          EOF
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '_site'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
