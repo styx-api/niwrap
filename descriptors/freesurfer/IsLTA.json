@@ -1,9 +1,8 @@
 {
-  "tool-version": "7.4.1",
   "name": "IsLTA",
   "description": "Determines if a given file is an LTA (Linear Transform Array) file. Outputs 1 if true, otherwise outputs 0.",
   "command-line": "IsLTA [CANDIDATE_FILE] [OUTFILE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Candidate file to check if it is an LTA",
@@ -33,9 +32,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

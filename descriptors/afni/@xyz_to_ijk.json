@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "@xyz_to_ijk",
   "author": "AFNI Developers",
   "description": "Helper script to convert (x, y, z) coordinates to (i, j, k) indices for a volumetric dataset.",
@@ -49,7 +48,7 @@
       "name": "Output prefix"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX]",
@@ -58,9 +57,5 @@
       "name": "Output file"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "url": "https://afni.nimh.nih.gov/"
 }

@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "label_elderly_subject",
   "author": "FreeSurfer Developers",
   "description": "Tool for labeling brain structures in MRI images of elderly subjects using Freesurfer.",
   "command-line": "label_elderly_subject [NORM_VOLUME] [TRANSFORM_LTA] [CLASSIFIER_ARRAY] [ASEG_VOLUME]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Normalized input volume (e.g. norm.mgz)",

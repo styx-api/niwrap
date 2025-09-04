@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3danisosmooth",
   "author": "AFNI Developers",
   "description": "Smooths a dataset using an anisotropic smoothing technique.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3danisosmooth [INPUT_DATASET] [PREFIX] [ITERATIONS] [2D_FLAG] [3D_FLAG] [MASK_DATASET] [AUTOMASK_FLAG] [VIEWER_FLAG] [NOSMOOTH_FLAG] [SIGMA1] [SIGMA2] [DELTAT] [SAVETEMPDATA_FLAG] [SAVE_TEMP_WITH_DIFF_MEASURES_FLAG] [PHIDING_FLAG] [PHIEXP_FLAG] [NONEG_FLAG] [SETNEG_VALUE] [EDGEFRACTION] [DATUM_TYPE] [MATCHORIG_FLAG] [HELP_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input dataset to be smoothed",
@@ -198,7 +193,7 @@
       "name": "Help flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX]+smooth",

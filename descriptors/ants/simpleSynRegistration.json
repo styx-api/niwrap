@@ -3,8 +3,7 @@
   "command-line": "simpleSynRegistration [FIXED_IMAGE] [MOVING_IMAGE] [INITIAL_TRANSFORM] [OUTPUT_PREFIX]",
   "description": "A simple SyN registration tool.",
   "url": "https://github.com/ANTsX/ANTs",
-  "tool-version": "2.5.3",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "fixed_image",
@@ -53,9 +52,5 @@
       "path-template": "[OUTPUT_PREFIX]Transform.mat"
     }
   ],
-  "author": "ANTs Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  }
+  "author": "ANTs Developers"
 }

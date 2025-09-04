@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dGetrow",
   "author": "AFNI Developers",
   "description": "Program to extract 1 row from a dataset and write it as a .1D file",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dGetrow [XROW] [YROW] [ZROW] [INPUT_FILE] [OUTPUT_FILE]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-xrow",
@@ -68,7 +63,7 @@
       "name": "Output File"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_FILE].1D",

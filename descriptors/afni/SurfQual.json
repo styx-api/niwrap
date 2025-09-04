@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "SurfQual",
   "author": "AFNI Developers",
   "description": "A program to check the quality of surfaces.",
   "command-line": "SurfQual [SPEC_FILE] [SURFACE_A] [SPHERE_FLAG] [SUMMARY_FLAG] [SELF_INTERSECT_FLAG] [OUTPUT_PREFIX]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-spec",
@@ -62,7 +57,7 @@
       "name": "Output Prefix"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_PREFIX]_Dist.1D.dset",

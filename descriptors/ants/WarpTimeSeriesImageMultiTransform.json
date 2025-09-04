@@ -3,8 +3,7 @@
   "command-line": "WarpTimeSeriesImageMultiTransform [IMAGE_DIMENSION] [MOVING_IMAGE] [OUTPUT_IMAGE] [REFERENCE_IMAGE] [TRANSFORMS] [INTERPOLATION]",
   "description": "WarpTimeSeriesImageMultiTransform is a tool used to apply a series of transformations to a time series image, either forward or reverse, using affine transforms and warps.",
   "url": "https://github.com/ANTsX/ANTs",
-  "tool-version": "2.5.3",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "image_dimension",
@@ -68,9 +67,5 @@
       "description": "The transformed image that is saved as output."
     }
   ],
-  "author": "ANTs Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  }
+  "author": "ANTs Developers"
 }

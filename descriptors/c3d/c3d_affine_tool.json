@@ -3,12 +3,7 @@
   "command-line": "c3d_affine_tool [TRANSFORM_FILE] [REFERENCE_FILE] [SOURCE_FILE] [SFORM_FILE] [INVERT] [DETERMINANT] [MULTIPLY] [SQRT] [ITK_TRANSFORM] [IRTK_TRANSFORM] [FSL2RAS] [RAS2FSL] [OUT_ITK_TRANSFORM] [OUT_IRTK_TRANSFORM] [OUT_MATFILE] [INFO] [INFO_FULL]",
   "author": "Convert3D Developers",
   "description": "RAS affine transform tool",
-  "tool-version": "1.1.0",
-  "schema-version": "0.5",
-  "container-image": {
-    "image": "pyushkevich/itksnap:v3.8.2",
-    "type": "docker"
-  },
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "transform_file",

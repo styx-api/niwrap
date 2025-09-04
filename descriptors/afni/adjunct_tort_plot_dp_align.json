@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "adjunct_tort_plot_dp_align",
   "author": "AFNI Developers",
   "description": "Tool to display the rigid-body alignment parameters from TORTOISE's DIFFPREP, useful for analyzing subject motion in DWI data.",
@@ -76,10 +75,6 @@
       "path-template": "[OUTPUT_PREFIX].svg"
     }
   ],
-  "schema-version": "0.5",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
+  "schema-version": "0.5+styx",
   "url": "https://afni.nimh.nih.gov/"
 }

@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "@SUMA_AlignToExperiment",
   "author": "AFNI Developers",
   "description": "Creates a version of Surface Anatomy that is registered to Experiment Anatomy.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "@SUMA_AlignToExperiment [EXP_ANAT] [SURF_ANAT] [DXYZ] [OUT_DXYZ] [WD] [AL] [AL_OPT] [OK_CHANGE_VIEW] [STRIP_SKULL] [SKULL_STRIP_OPT] [ALIGN_CENTERS] [INIT_XFORM] [EA_CLIP_BELOW] [PREFIX] [SURF_ANAT_FOLLOWERS] [FOLLOWERS_INTERP] [ATLAS_FOLLOWERS] [ECHO] [KEEP_TMP] [OVERWRITE_RESP]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "id": "exp_anat",
@@ -198,5 +193,5 @@
       "path-template": "[PREFIX]_Alnd_Exp_Fdset.nii.gz"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

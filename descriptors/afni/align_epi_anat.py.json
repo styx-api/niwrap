@@ -1,11 +1,10 @@
 {
   "name": "align_epi_anat.py",
-  "tool-version": "24.2.06",
   "description": "Align EPI to anatomical datasets or vice versa",
   "author": "AFNI Developers",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "align_epi_anat.py [EPI] [ANAT] [EPI_BASE] [ANAT2EPI] [EPI2ANAT] [SUFFIX] [ADDEDGE] [BIG_MOVE] [GIANT_MOVE] [GINORMOUS_MOVE] [KEEP_RM_FILES] [PREP_ONLY] [ANA_HAS_SKULL] [EPI_STRIP] [VOLREG_METHOD] [EX_MODE] [OVERWRITE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "epi",
@@ -169,9 +168,5 @@
       "description": "A version of the EPI dataset aligned to the Anatomy",
       "path-template": "[EPI]+orig"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  }
+  ]
 }

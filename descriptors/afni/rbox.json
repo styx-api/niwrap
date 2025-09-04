@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "rbox",
   "description": "Generate various point distributions. Default is random in cube.",
   "command-line": "rbox [NUMBER_POINTS] [DIMENSION] [UNIT_CUBE] [UNIT_DIAMOND] [SPIRAL] [REGULAR_POLYGON] [COSPHERICAL_POINTS] [SIMPLEX_POINTS] [SIMPLEX_PLUS_POINTS] [ADD_POINT] [LENS_DISTRIBUTION] [RANDOM_WITHIN] [RANDOM_DISK] [BOUNDING_BOX] [HOMOGENEOUS_COORDINATES] [REMOVE_COMMAND_LINE] [TIME_SEED] [INTEGER_COORDINATES] [OFFSET] [USER_SEED] [MESH_LATTICE]",
@@ -184,11 +183,7 @@
       "name": "Integer coordinates"
     }
   ],
-  "schema-version": "0.5",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
+  "schema-version": "0.5+styx",
   "author": "AFNI Developers",
   "url": "https://afni.nimh.nih.gov/"
 }

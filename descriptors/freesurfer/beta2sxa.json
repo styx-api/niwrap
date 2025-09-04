@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "beta2sxa",
   "author": "FreeSurfer Developers",
   "description": "A script to create files for plotting in tkmedit or tksurfer based on tabular data.",
   "command-line": "beta2sxa [BETA_FILES] [NUMBER_OF_CONDITIONS] [NUMBER_OF_PER_SUBJECTS] [SXA_OUTPUT]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--b",
@@ -52,9 +51,5 @@
       "name": "Sxa Output File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

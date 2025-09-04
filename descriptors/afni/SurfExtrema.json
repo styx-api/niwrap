@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "SurfExtrema",
   "author": "AFNI Developers",
   "description": "A program finding the local extrema in a dataset.",
   "command-line": "SurfExtrema [INPUT] [HOOD] [THRESH] [GTHRESH] [GSCALE] [EXTYPE] [PREFIX] [TABLE]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input dataset in which Extrema are to be identified.",
@@ -84,7 +79,7 @@
       "command-line-flag": "-table"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX].grd",

@@ -3,7 +3,7 @@
   "author": "FreeSurfer Developers",
   "description": "A tool to group streamlines by their endpoints using diffusion MRI data.",
   "command-line": "dmri_groupByEndpoints [STREAMLINE_FILE] [IMAGE_FILE] [OUTPUT_DIRECTORY]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-s",
@@ -33,10 +33,5 @@
       "name": "Output Directory"
     }
   ],
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

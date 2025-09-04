@@ -1,6 +1,5 @@
 {
   "name": "quick.alpha.vals.py",
-  "tool-version": "24.2.06",
   "description": "Generate an alpha table from slow_surf_clustsim.py results",
   "author": "AFNI Developers",
   "url": "https://afni.nimh.nih.gov/",
@@ -25,7 +24,7 @@
       "value-key": "[MAX_FILE]"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "id": "alpha_table",
@@ -33,9 +32,5 @@
       "description": "Generated alpha table file",
       "path-template": "alpha_table.txt"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  }
+  ]
 }

@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dThreetoRGB",
   "author": "AFNI Developers",
   "description": "Converts 3 sub-bricks of input to an RGB-valued dataset.",
   "command-line": "3dThreetoRGB [OUTPUT_PREFIX] [SCALE_FACTOR] [MASK_DATASET] [FIM] [ANAT] [INPUT_DATASET] [INPUT_DATASET2] [INPUT_DATASET3]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input dataset or first dataset if three datasets are provided",
@@ -78,7 +73,7 @@
       "name": "Anatomical flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_PREFIX]+rgb.HEAD",

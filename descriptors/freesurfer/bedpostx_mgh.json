@@ -2,9 +2,8 @@
   "name": "bedpostx_mgh",
   "author": "FreeSurfer Developers",
   "description": "A modified version of FSL's bedpostx compatible with PBS queueing system for parallel computation.",
-  "tool-version": "7.4.1",
   "command-line": "bedpostx_mgh [SUBJECT_DIRECTORY] [FIBRES] [ARD_WEIGHT] [BURNIN] [JUMPS] [SAMPLE_EVERY] [DECONV_MODEL] [GRADIENT_NONLIN]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "subject_directory",
@@ -77,9 +76,5 @@
       "value-key": "[GRADIENT_NONLIN]"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

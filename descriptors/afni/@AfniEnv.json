@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "@AfniEnv",
   "author": "AFNI Developers",
   "description": "Script to set or unset an AFNI environment variable in your .afnirc file",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "@AfniEnv [SET_FLAG] [UNSET_FLAG] [GET_FLAG] [HELP_FLAG] [HELP_WEB_FLAG] [HELP_WEB_FLAG_ALIAS] [HELP_VIEW_FLAG] [HELP_VIEW_FLAG_ALIAS] [ALL_OPTS_FLAG] [HELP_FIND_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-set",
@@ -98,5 +93,5 @@
       "name": "Help Find"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

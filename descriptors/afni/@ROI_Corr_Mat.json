@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "@ROI_Corr_Mat",
   "author": "AFNI Developers",
   "description": "Script to produce an NxN ROI correlation matrix of N ROIs",
   "command-line": "@ROI_Corr_Mat [TS_VOL] [ROI_VOL] [PREFIX] [ROISEL] [ZVAL] [MAT_OPT] [DIRTY] [KEEP_TMP] [ECHO] [VERB]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Time series volume",
@@ -95,7 +90,7 @@
       "command-line-flag": "-verb"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX]_matrix.1D",

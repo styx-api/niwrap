@@ -1,6 +1,5 @@
 {
   "name": "@afni_refacer_make_master",
-  "tool-version": "24.2.06",
   "description": "This script makes a new mask/shell dataset for use with @afni_refacer_run by averaging 'faces' (non-brain tissue) from input datasets.",
   "author": "AFNI Developers",
   "command-line": "@afni_refacer_make_master [INPUT_DATASETS]",
@@ -15,11 +14,7 @@
       "optional": false
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "afni_refacer_shell.nii.gz",

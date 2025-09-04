@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "@Spharm.examples",
   "author": "AFNI Developers",
   "description": "A script to demonstrate the usage of spherical harmonics decomposition with SUMA",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "@Spharm.examples [HELP_WEB] [HELP_WEB_ALIAS] [HELP_VIEW] [HELP_VIEW_ALIAS] [ALL_OPTS] [HELP_FIND]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-h_web",
@@ -60,5 +55,5 @@
       "name": "Help Find"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

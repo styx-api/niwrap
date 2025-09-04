@@ -4,12 +4,7 @@
   "description": "Create an itkImage of itkVector pixels (NOT an itkVectorImage), using each scalar input component image for each vector component. An itkImage of itkVectors is the standard type for displacement fields in ITK. All component images (up to 8) are assumed to have the same size, offset, origin, and spacing. The 'EnforceZeroBoundaryFlag' option will create zero-valued vectors along the borders when enabled (pass 1), and is recommended for better displacement field behavior.",
   "author": "ANTs Developers",
   "url": "https://github.com/ANTsX/ANTs",
-  "tool-version": "2.5.3",
-  "schema-version": "0.5",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  },
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "image_dimension",

@@ -4,8 +4,7 @@
   "author": "ANTs Developers",
   "description": "iMath is a tool for performing various image mathematical operations on medical images, specifically supporting operations on 2D, 3D, and 4D data.",
   "url": "https://github.com/ANTsX/ANTs",
-  "tool-version": "2.5.3",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "image_dimension",
@@ -53,9 +52,5 @@
       "description": "The output image resulting from the operation.",
       "path-template": "[OUTPUT_IMAGE]"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  }
+  ]
 }

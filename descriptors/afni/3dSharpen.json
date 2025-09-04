@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dSharpen",
   "author": "AFNI Developers",
   "description": "Applies a simple 3D sharpening filter to the positive values in the #0 volume of the input dataset, and writes out a new dataset.",
   "command-line": "3dSharpen [SHARPENING_FACTOR] [INPUT_DATASET] [OUTPUT_PREFIX]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input dataset (e.g., input.nii.gz)",
@@ -39,7 +34,7 @@
       "name": "Output prefix"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_PREFIX].nii.gz",

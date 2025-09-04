@@ -1,9 +1,8 @@
 {
-  "tool-version": "7.4.1",
   "name": "groupstatsdiff",
   "description": "Evaluate the differences between two groupstats outputs from recon-all analyses in Freesurfer.",
   "command-line": "groupstatsdiff [GROUP1_DIR] [GROUP2_DIR] [OUTPUT_DIR] [NO_MAPS] [OSGM] [NO_COMMON] [ALLOW_SUBJ_DIFF] [NO_AREA] [NO_VOLUME] [NO_BA] [NO_APARCSTATS] [NO_ASEGSTATS] [NO_WPARCSTATS] [NO_STATS] [NO_PRUNE] [FWHM_VALUE] [SUBJECTS_DIR1] [SUBJECTS_DIR2] [NO_DICE] [DICE_CTAB]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Output folder from groupstats for group 1",
@@ -174,9 +173,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

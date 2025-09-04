@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "waver",
   "author": "AFNI Developers",
   "description": "Creates an ideal waveform timeseries file.",
   "command-line": "waver [WAV] [GAM] [EXPR] [FILE_OPT] [DELAY_TIME] [RISE_TIME] [FALL_TIME] [UNDERSHOOT] [RESTORE_TIME] [GAMB] [GAMC] [GAMD] [PEAK] [DT] [TR] [XYOUT] [INPUT_FILE] [INLINE_DATA] [TSTIM_DATA] [WHEN_DATA] [NUMOUT] [VER_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Sets waveform to Cox special [default]",
@@ -224,6 +219,6 @@
       "path-template": "output_filename"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "url": "https://afni.nimh.nih.gov/"
 }

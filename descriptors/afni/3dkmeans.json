@@ -1,13 +1,8 @@
 {
   "name": "3dkmeans",
-  "tool-version": "24.2.06",
   "description": "3d+t Clustering segmentation based on The C clustering library.",
   "author": "AFNI Developers",
   "command-line": "3dkmeans [VERSION] [INPUT] [MASK] [MASK_RANGE] [CMASK] [JOBNAME] [PREFIX] [DISTANCE_MEASURE] [NUM_CLUSTERS] [REMAP_METHOD] [LABELTABLE] [CLABELS] [CLUST_INIT] [NUM_REPEATS] [RSIGS] [VERBOSE] [WRITE_DISTS] [VOXDBG] [SEED]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "id": "version",
@@ -229,6 +224,6 @@
       "description": "Output text file containing distance from voxel to its centroid."
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "url": "https://afni.nimh.nih.gov/"
 }

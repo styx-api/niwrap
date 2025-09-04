@@ -3,8 +3,7 @@
   "command-line": "NonLocalSuperResolution [IMAGE_DIMENSIONALITY] [INPUT_IMAGE] [INTERPOLATED_IMAGE] [REFERENCE_IMAGE] [PATCH_RADIUS] [SEARCH_RADIUS] [INTENSITY_DIFFERENCE_SIGMA] [PATCH_SIMILARITY_SIGMA] [SCALE_LEVELS] [INTERPOLATION] [OUTPUT] [VERBOSE]",
   "author": "ANTs Developers",
   "description": "Non-local super resolution described in the papers by JV Manjon et al., focusing on MRI superresolution using self-similarity and image priors.",
-  "tool-version": "2.5.3",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "image_dimensionality",
@@ -139,9 +138,5 @@
       "path-template": "[OUTPUT]"
     }
   ],
-  "url": "https://github.com/ANTsX/ANTs",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  }
+  "url": "https://github.com/ANTsX/ANTs"
 }

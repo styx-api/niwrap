@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dinfill",
   "author": "AFNI Developers",
   "description": "A program to fill holes in volumes.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dinfill [INPUT] [PREFIX] [NITER] [BLEND] [MINHITS] [ED] [MASK] [MASK_RANGE] [MRANGE] [CMASK]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Fill volume dataset",
@@ -111,7 +106,7 @@
       "name": "CMask Expression"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX]_filled.nii.gz",

@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "labels_disjoint",
   "author": "FreeSurfer Developers",
   "description": "Subtracts one label file from another, effectively creating a label that represents label1 minus label2",
   "command-line": "labels_disjoint [LABEL1] [LABEL2] [OUTPUTNAME]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "First label file (e.g., rh.Occ.label).",
@@ -39,9 +38,5 @@
       "name": "Output File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

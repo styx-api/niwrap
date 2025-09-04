@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "@MakeLabelTable",
   "author": "AFNI Developers",
   "description": "Script used to create, modify, and transform label tables",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "@MakeLabelTable [LABELTABLE] [ATLAS_POINTLIST] [LAB_R] [LAB_V] [LAB_FILE_DELIM] [LAB_FILE] [DSET] [LONGNAMES] [LAST_LONGNAME_COL] [CENTERS] [CENTERTYPE] [CENTERMASK] [SKIP_NOVOXELS] [ALL_LABELS] [ALL_KEYS] [LKEYS] [RKEYS] [KLABEL] [MATCH_LABEL] [LABELTABLE_OF_DSET] [WORD_LABEL_MATCH] [QUIET_DEATH] [LT_TO_ATLAS_PL] [DSET_LT_TO_ATLAS_PL] [LT_TO_CSV] [ATLASIZE_LABELED_DSET] [ATLAS_FILE] [ATLAS_NAME] [ATLAS_DESCRIPTION] [REPLACE] [ADD_ATLAS_DSET] [H_WEB] [H_VIEW] [ALL_OPTS] [H_FIND]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Name of output label table",
@@ -324,7 +319,7 @@
       "name": "Help Find"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[LABELTABLE].niml.lt",

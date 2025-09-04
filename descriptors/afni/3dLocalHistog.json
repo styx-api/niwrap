@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dLocalHistog",
   "author": "AFNI Developers",
   "description": "This program computes a local histogram at each voxel in the input datasets.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dLocalHistog [NBHD_OPTION] [PREFIX] [HSAVE] [LAB_FILE] [EXCLUDE] [EXC_NONLAB] [MINCOUNT] [PROBABILITY] [QUIET] [INPUT_DATASETS]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input dataset(s) for the 3dLocalHistog tool",
@@ -99,7 +94,7 @@
       "name": "Quiet Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX]+orig.HEAD",

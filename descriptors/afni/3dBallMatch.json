@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dBallMatch",
   "author": "AFNI Developers",
   "description": "A tool to find a good match between a ball (filled sphere) of the given radius and a dataset to determine a crude approximate center of the brain quickly.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dBallMatch [INPUT_DATASET] [RADIUS] [DATASET_OPTION] [BALL_RADIUS] [SPHEROID_AXES]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input dataset (e.g., Fred.nii)",
@@ -57,7 +52,7 @@
       "name": "Spheroid Axes"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "stdout",

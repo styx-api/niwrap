@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3drotate",
   "author": "AFNI Developers",
   "description": "Rotates and/or translates all bricks from an AFNI dataset.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3drotate [DATASET] [PREFIX] [VERBOSE] [ASHIFT] [BSHIFT] [ROTATE] [ROTPARENT] [GRIDPARENT] [MATVEC_DICOM] [MATVEC_ORDER] [MATVEC_DSET] [DFILE] [1DFILE] [POINTS] [ORIGIN] [FOURIER] [NN] [LINEAR] [CUBIC] [QUINTIC] [HEPTIC] [FOURIER_NOPAD] [CLIPIT] [NOCLIP] [ZPAD]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "id": "dataset",
@@ -236,7 +231,7 @@
       "optional": true
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX]+orig.HEAD",

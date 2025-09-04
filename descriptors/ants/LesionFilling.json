@@ -2,8 +2,7 @@
   "name": "LesionFilling",
   "command-line": "LesionFilling [IMAGE_DIMENSION] [T1_IMAGE] [LESION_MASK] [OUTPUT_LESION_FILLED]",
   "description": "A tool for filling lesions in T1 images using a mask.",
-  "tool-version": "2.5.3",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "image_dimension",
@@ -48,9 +47,5 @@
     }
   ],
   "author": "ANTs Developers",
-  "url": "https://github.com/ANTsX/ANTs",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  }
+  "url": "https://github.com/ANTsX/ANTs"
 }

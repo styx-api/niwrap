@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "dicom_hdr",
   "author": "AFNI Developers",
   "description": "A tool to print DICOM file information to stdout.",
   "command-line": "dicom_hdr [FILES] [HEX] [NONAME] [SEXINFO] [MULFRAM] [V_DUMP] [NO_LENGTH] [SLICE_TIMES] [SLICE_TIMES_VERB] [SIEMENS_CSA_DATA]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "DICOM file(s) to read",
@@ -92,6 +87,6 @@
       "name": "Siemens CSA data flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "url": "https://afni.nimh.nih.gov/"
 }

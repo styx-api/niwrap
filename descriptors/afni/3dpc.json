@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dpc",
   "author": "AFNI Developers",
   "description": "Principal Component Analysis of 3D Datasets",
   "command-line": "3dpc [DATASETS] [DMEAN] [VMEAN] [VNORM] [NORMALIZE] [NSCALE] [PCSAVE] [REDUCE] [PREFIX] [DUMMY_LINES] [VERBOSE] [QUIET] [EIGONLY] [FLOAT] [MASK]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input dataset(s) with sub-brick selector list support",
@@ -140,7 +135,7 @@
       "name": "Mask file"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX]+orig.BRIK",

@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "xmat_tool.py",
   "author": "AFNI Developers",
   "description": "A tool for evaluating an AFNI X-matrix",
   "command-line": "xmat_tool.py [NO_GUI] [LOAD_XMAT] [LOAD_1D] [CHOOSE_COLS] [CHOOSE_NONZERO_COLS] [CHRONO] [CORMAT_CUTOFF] [COSMAT_CUTOFF] [COSMAT_MOTION] [VERB] [SHOW_COL_TYPES] [SHOW_CONDS] [SHOW_CORMAT] [SHOW_CORMAT_WARNINGS] [SHOW_COSMAT] [SHOW_COSMAT_WARNINGS] [SHOW_FIT_BETAS] [SHOW_FIT_TS] [SHOW_XMAT] [SHOW_1D] [GUI_PLOT_XMAT_AS_ONE]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-no_gui",
@@ -184,7 +179,7 @@
       "name": "GUI Plot Xmat As One"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "fitts.1D",

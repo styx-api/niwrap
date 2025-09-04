@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dClustSim",
   "author": "AFNI Developers",
   "description": "Program to estimate the probability of false positive (noise-only) clusters.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dClustSim [NXYZ] [DXYZ] [BALL] [MASK] [OKSMALLMASK] [INSET] [FWHM] [ACF] [NOPAD] [PTHR] [ATHR] [LOTS] [MEGA] [ITER] [NODEC] [SEED] [NIML] [BOTH] [PREFIX] [CMD] [QUIET] [SSAVE]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-nxyz",
@@ -201,7 +196,7 @@
       "id": "ssave"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX].NN1_1sided.1D",

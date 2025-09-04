@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "1d_tool.py",
   "author": "AFNI Developers",
   "description": "A tool for manipulating and evaluating 1D files",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "1d_tool.py [INFILE] [WRITE] [SELECT_COLS] [SELECT_ROWS] [SELECT_GROUPS] [CENSOR_MOTION] [PAD_INTO_MANY_RUNS] [SET_NRUNS] [SET_RUN_LENGTHS] [SHOW_ROWS_COLS] [TRANSPOSE] [REVERSE] [SHOW_MAX_DISPLACE]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input 1D file",
@@ -124,7 +119,7 @@
       "value-key": "[SHOW_MAX_DISPLACE]"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[WRITE]",

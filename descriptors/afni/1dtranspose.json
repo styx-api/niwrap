@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "1dtranspose",
   "author": "AFNI Developers",
   "description": "Transpose an AFNI *.1D file (ASCII list of numbers arranged in columns).",
@@ -23,7 +22,7 @@
       "name": "Output file"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTFILE]",
@@ -31,9 +30,5 @@
       "id": "outfile",
       "name": "Output file"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  }
+  ]
 }

@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dANOVA3",
   "author": "AFNI Developers",
   "description": "Performs three-factor ANOVA on 3D data sets.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dANOVA3 [TYPE] [ALEVELS] [BLEVELS] [CLEVELS] [DSETS] [VOXEL_NUM] [DISKSPACE] [MASK] [OUTFILE_FA] [OUTFILE_FB] [OUTFILE_FC] [OUTFILE_FAB] [OUTFILE_FAC] [OUTFILE_FBC] [OUTFILE_FABC] [OUTFILE_AMEAN] [OUTFILE_BMEAN] [OUTFILE_CMEAN] [OUTFILE_XMEAN] [OUTFILE_ADIFF] [OUTFILE_BDIFF] [OUTFILE_CDIFF] [OUTFILE_XDIFF] [OUTFILE_ACONTR] [OUTFILE_BCONTR] [OUTFILE_CCONTR] [OUTFILE_ABCONTR] [OUTFILE_ABDIFF] [OUTFILE_ABMEAN] [OUTFILE_BUCKET] [ANOVA_OPTIONS]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Type of ANOVA model to be used. k = 1: A,B,C fixed; AxBxC, k = 2: A,B,C random; AxBxC, k = 3: A fixed; B,C random; AxBxC, k = 4: A,B fixed; C random; AxBxC, k = 5: A,B fixed; C random; AxB,BxC,C(A)",
@@ -342,7 +337,7 @@
       "name": "ANOVA Computation Options"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "description": "Output file for the main ANOVA result.",

@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "imcalc",
   "author": "AFNI Developers",
   "description": "Tool for arithmetic operations on 2D images, pixel-by-pixel",
   "command-line": "imcalc [DATUM_TYPE] [IMAGE_INPUTS] [EXPRESSION] [OUTPUT_NAME]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-datum type",
@@ -47,7 +42,7 @@
       "name": "Output Image Filename"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_NAME]",

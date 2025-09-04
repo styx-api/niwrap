@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "dcmsplit",
   "author": "FreeSurfer Developers",
   "description": "Splits DICOM files into separate folders based on a unique identifier (UID).",
   "command-line": "dcmsplit [DCM_DIR] [OUT_DIR] [COPY] [LINK] [SPLIT_NAME] [SPLIT_UID] [SERIES_NO] [SERIES_PLUS] [DICOM_TAG] [STUDY_DESCRIPTION]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Directory containing the DICOM files",
@@ -90,9 +89,5 @@
       "name": "Split by Study Description Flag"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

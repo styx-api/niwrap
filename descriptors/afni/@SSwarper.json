@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "@SSwarper",
   "author": "AFNI Developers",
   "description": "Dual purposes for processing a given subject's anatomical volume: skull-strip the brain and calculate the warp to a reference template/standard space.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "@SSwarper [INPUT_FILE] [BASE_TEMPLATE] [SUBJECT_ID] [OUTPUT_DIR] [MIN_PATCH_SIZE] [NO_LITE] [SKIP_WARP] [UNIFIZE_OFF] [INIT_SKULLSTR_OFF] [EXTRA_QC_OFF] [JUMP_TO_EXTRA_QC] [COST_NL_INIT] [COST_NL_FINAL] [DEOBLIQUE] [DEOBLIQUE_REFITLY] [WARP_SCALE] [SSOPT_FLAG] [ANISO_OFF] [CEIL_OFF] [TMP_NAME_NICE] [ECHO] [VERBOSE] [NOCLEAN]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "An anatomical dataset, not skull-stripped, with about 1 mm resolution.",
@@ -206,7 +201,7 @@
       "name": "No clean flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "anatDO.[SUBJECT_ID].nii",

@@ -1,9 +1,8 @@
 {
   "name": "lta_convert",
-  "tool-version": "7.4.1",
   "description": "This program converts between different linear transform formats.",
   "command-line": "lta_convert [IN_LTA] [IN_FSL] [IN_MNI] [IN_REG] [IN_NIFTYREG] [IN_ITK] [IN_VOX] [OUT_LTA] [OUT_FSL] [OUT_MNI] [OUT_REG] [OUT_NIFTYREG] [OUT_ITK] [OUT_VOX] [INVERT] [LTAVOX2VOX] [LTATKREG] [SRC_GEOMETRY] [TRG_GEOMETRY] [TRG_CONFORM] [SUBJECT_NAME]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--inlta",
@@ -200,9 +199,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

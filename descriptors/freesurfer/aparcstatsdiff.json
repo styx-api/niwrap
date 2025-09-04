@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "aparcstatsdiff",
   "author": "FreeSurfer Developers",
   "description": "Utility to calculate percentage differences in aparc morphometry data between two subjects",
   "command-line": "aparcstatsdiff [SUBJ1] [SUBJ2] [HEMI] [PARC] [MEAS] [OUTDIR]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Subject 1 identifier",
@@ -63,9 +62,5 @@
       "name": "Output Table File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

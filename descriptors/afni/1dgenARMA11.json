@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "1dgenARMA11",
   "author": "AFNI Developers",
   "description": "Program to generate an ARMA(1,1) time series, for simulation studies. Results are written to stdout.",
@@ -113,7 +112,7 @@
       "name": "Restricted ARMA(5,1) model parameters"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "description": "Generated ARMA(1,1) time series",
@@ -122,9 +121,5 @@
       "name": "Output time series"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "url": "https://afni.nimh.nih.gov/"
 }

@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dXClustSim",
   "author": "AFNI Developers",
   "description": "ETAC processing tool to find cluster figure of merit (FOM) thresholds.",
   "command-line": "3dXClustSim [INSET] [INSDAT] [NN] [SID] [HPOW] [NCASE] [PTHR] [FPR] [MULTIFPR] [MINCLUST] [LOCAL] [GLOBAL] [NOLOCAL] [NOGLOBAL] [SPLITFRAC] [PREFIX] [VERBOSE] [QUIET]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Mask sdata file (from 3dtoXdataset or 3dttest++)",
@@ -170,7 +165,7 @@
       "name": "Quiet mode"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [],
   "url": "https://afni.nimh.nih.gov/"
 }

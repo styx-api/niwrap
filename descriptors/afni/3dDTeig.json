@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dDTeig",
   "author": "AFNI Developers",
   "description": "Computes eigenvalues and eigenvectors for an input dataset of tensors",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dDTeig [INPUT_DATASET] [PREFIX] [DATUM] [SEP_DSETS] [UDDATA]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input dataset of Dxx, Dxy, Dyy, Dxz, Dyz, Dzz sub-bricks",
@@ -54,7 +49,7 @@
       "name": "Upper Diagonal Data Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX].nii.gz",

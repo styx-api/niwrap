@@ -3,12 +3,7 @@
   "command-line": "antsAtroposN4.sh [IMAGE_DIMENSION] [INPUT_IMAGE] [MASK_IMAGE] [NUMBER_OF_CLASSES] [OUTPUT_PREFIX] [MAX_N4_ATROPOS_ITERATIONS] [MAX_ATROPOS_ITERATIONS] [SEGMENTATION_PRIORS] [MRF] [DENOISE_ANATOMICAL_IMAGES] [POSTERIOR_FORMULATION] [LABEL_PROPAGATION] [POSTERIOR_LABEL_FOR_N4_WEIGHT_MASK] [IMAGE_FILE_SUFFIX] [KEEP_TEMPORARY_FILES] [USE_RANDOM_SEEDING] [ATROPOS_SEGMENTATION_PRIOR_WEIGHT] [N4_CONVERGENCE] [N4_SHRINK_FACTOR] [N4_BSPLINE_PARAMS] [ATROPOS_SEGMENTATION_ICM] [ATROPOS_SEGMENTATION_USE_EUCLIDEAN_DISTANCE] [TEST_DEBUG_MODE]",
   "author": "ANTs Developers",
   "description": "antsAtroposN4.sh iterates between N4 <-> Atropos to improve segmentation results.",
-  "tool-version": "2.5.3",
-  "schema-version": "0.5",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  },
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "image_dimension",

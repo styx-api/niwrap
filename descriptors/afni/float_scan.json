@@ -1,10 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "float_scan",
   "author": "AFNI Developers",
   "description": "Scans the input file of IEEE floating point numbers for illegal values: infinities and not-a-number (NaN) values.",
   "command-line": "float_scan [FIX_ILLEGAL_VALUES] [VERBOSE_MODE] [SKIP_COUNT] [INPUT_FILE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input file containing IEEE floating point numbers",
@@ -49,9 +48,5 @@
       "name": "Standard Output"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "url": "https://afni.nimh.nih.gov/"
 }

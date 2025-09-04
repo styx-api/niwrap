@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dZipperZapper",
   "author": "AFNI Developers",
   "description": "A basic program to highlight problematic volumes in data sets, especially EPI/DWI data sets with interleaved acquisition.",
   "command-line": "3dZipperZapper [INPUT_FILE] [OUTPUT_PREFIX] [MASK_FILE] [MIN_SLICE_NVOX] [MIN_STREAK_LEN] [DO_OUT_SLICE_PARAM] [NO_OUT_BAD_MASK] [NO_OUT_TEXT_VALS] [DONT_USE_STREAK] [DONT_USE_DROP] [DONT_USE_CORR] [MIN_STREAK_VAL] [MIN_DROP_FRAC] [MIN_DROP_DIFF] [MIN_CORR_LEN] [MIN_CORR_CORR]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input 3D+time file of DWIs or EPIs.",
@@ -148,7 +143,7 @@
       "name": "Minimum correlation value"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_PREFIX]_badmask.nii.gz",

@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "@Align_Centers",
   "author": "AFNI Developers",
   "description": "Moves the center of a dataset (DSET) to the center of a base volume (BASE) and optionally creates a transform matrix.",
   "command-line": "@Align_Centers [BASE] [DSET] [CHILDREN] [ECHO] [OVERWRITE] [PREFIX] [MATRIX_ONLY] [MATRIX_ONLY_NO_DSET] [NO_CP] [CENTER_GRID] [CENTER_CM] [CENTER_CM_NO_AMASK] [SHIFT_XFORM] [SHIFT_XFORM_INV]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Base volume, typically a template. Can also specify RAI coordinates for center alignment.",
@@ -127,7 +122,7 @@
       "name": "Shift Transform Inverse File"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "description": "Transform matrix needed for the shift applied to DSET.",

@@ -3,12 +3,7 @@
   "command-line": "antsApplyTransforms [DIMENSIONALITY] [INPUT_IMAGE_TYPE] [INPUT_IMAGE] [REFERENCE_IMAGE] [OUTPUT] [INTERPOLATION] [OUTPUT_DATA_TYPE] [TRANSFORM] [DEFAULT_VALUE] [STATIC_CAST_FOR_R] [FLOAT] [VERBOSE]",
   "author": "ANTs Developers",
   "description": "antsApplyTransforms, applied to an input image, transforms it according to a reference image and a transform (or a set of transforms).",
-  "tool-version": "2.5.3",
-  "schema-version": "0.5",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  },
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "dimensionality",

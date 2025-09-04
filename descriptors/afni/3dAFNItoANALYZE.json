@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dAFNItoANALYZE",
   "author": "AFNI Developers",
   "description": "Writes AFNI dataset to ANALYZE 7.5 format .hdr/.img file pairs.",
   "command-line": "3dAFNItoANALYZE [4D_OPTION] [ORIENT_OPTION] [OUTPUT_NAME] [AFNI_DATASET]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Output ANALYZE file base name (e.g., aname)",
@@ -43,7 +38,7 @@
       "name": "Orientation code"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_NAME]_[INDEX].hdr",

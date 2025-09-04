@@ -1,10 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "build_afni.py",
   "author": "AFNI Developers",
   "description": "Compile an AFNI package from the git repository.",
   "command-line": "build_afni.py [BUILD_ROOT] [CLEAN_ROOT] [GIT_BRANCH] [GIT_TAG] [GIT_UPDATE] [MAKE_TARGET] [MAKEFILE] [PACKAGE] [PREP_ONLY] [RUN_CMAKE] [RUN_MAKE] [VERBOSE_LEVEL] [HELP] [HISTORY] [SHOW_VALID_OPTS] [VERSION]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Root directory to use for git and building",
@@ -160,9 +159,5 @@
       "name": "Screen Output History File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "url": "https://afni.nimh.nih.gov/"
 }

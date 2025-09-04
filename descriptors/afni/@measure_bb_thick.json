@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "@measure_bb_thick",
   "author": "AFNI Developers",
   "description": "Compute thickness of mask using ball and box method",
   "command-line": "@measure_bb_thick [MASKSET] [SURFSET] [OUTDIR] [RESAMPLE] [INCREMENT] [SURFSMOOTH] [SMOOTHMM] [MAXTHICK] [DEPTH_SEARCH] [KEEP_TEMP_FILES] [BALLS_ONLY] [SURFSMOOTH_METHOD]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Mask dataset for input",
@@ -116,7 +111,7 @@
       "name": "Surface smooth method"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTDIR]/maxfill.nii.gz",

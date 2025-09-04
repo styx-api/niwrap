@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "bblabel",
   "author": "FreeSurfer Developers",
   "description": "Applies a bounding box to a label, copying only the label points within the specified box to the output.",
   "command-line": "bblabel [LABELFILE] [XMIN] [XMAX] [YMIN] [YMAX] [ZMIN] [ZMAX] [OUTLABELFILE] [DEBUG] [UMASK]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--l",
@@ -104,9 +103,5 @@
       "name": "Output label file"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

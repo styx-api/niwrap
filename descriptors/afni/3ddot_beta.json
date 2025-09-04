@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3ddot_beta",
   "author": "AFNI Developers",
   "description": "Beta version of updating 3ddot, currently only performing eta2 tests and outputting a full matrix to a text file.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3ddot_beta [INPUT_FILE] [PREFIX] [DOETA2] [MASK]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input file with N bricks",
@@ -46,7 +41,7 @@
       "name": "Mask file"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX]_eta2.dat",

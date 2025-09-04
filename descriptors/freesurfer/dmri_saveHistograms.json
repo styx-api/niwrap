@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "dmri_saveHistograms",
   "author": "FreeSurfer Developers",
   "description": "A tool to save histograms from diffusion MRI tractography data.",
   "command-line": "dmri_saveHistograms [PARCELLATION] [NUMBER_OF_BUNDLES] [VTK_BUNDLE_LIST] [OUTPUT_CSV] [BRAIN_BUNDLE_FLAG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-p",
@@ -59,9 +58,5 @@
       "name": "Histogram CSV"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

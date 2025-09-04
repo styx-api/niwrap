@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "nsize",
   "author": "AFNI Developers",
   "description": "Zero pads an input image to the nearest larger NxN dimensions",
@@ -23,7 +22,7 @@
       "name": "Output Image"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[IMAGE_OUT]",
@@ -31,9 +30,5 @@
       "id": "image_out_file",
       "name": "Output Image File"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  }
+  ]
 }

@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "Surf2VolCoord",
   "author": "AFNI Developers",
   "description": "Relates node indices to coordinates given x y z coordinates and returns the nodes closest to them.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "Surf2VolCoord [SURFACE] [GRID_VOL] [GRID_SUBBRICK] [SV] [ONE_NODE] [CLOSEST_NODES] [QUAL] [LPI] [RAI] [VERB_LEVEL] [PREFIX]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Specify input surface.",
@@ -108,7 +103,7 @@
       "name": "Prefix"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX]",

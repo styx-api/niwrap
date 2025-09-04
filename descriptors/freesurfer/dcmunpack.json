@@ -1,9 +1,8 @@
 {
-  "tool-version": "7.4.1",
   "name": "dcmunpack",
   "description": "Sorts and converts a directory of DICOM files (Siemens, GE, Philips) into an output hierarchy with nifti (nii), mgh, mgz, or analyze output formats.",
   "command-line": "dcmunpack [SRC] [TARG] [RUN] [AUTO_RUNSEQ] [KEEP_SCOUTS] [SCANONLY] [ONE_PER_DIR] [EXT] [PRE] [PAT] [NO_INFODUMP] [GENERIC] [COPY_ONLY] [NO_CONVERT] [FORCE_UPDATE] [MAX] [BASE] [KEY_STRING] [INDEX_OUT] [INDEX_IN] [IT_DICOM] [NO_EXIT_ON_ERROR] [RUN_SKIP] [NO_RESCALE_DICOM] [RESCALE_DICOM] [NO_DWI] [IID] [IJD] [IKD] [EXTRA_INFO] [FIRST_DICOM] [NO_DCM2NIIX] [PHASE] [FIPS] [FIPS_RUN] [XML_ONLY] [LOG] [DEBUG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Dicom source directory. You can specify more than one.",
@@ -332,9 +331,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

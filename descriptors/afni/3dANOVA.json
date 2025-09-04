@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dANOVA",
   "author": "AFNI Developers",
   "description": "Performs single-factor Analysis of Variance (ANOVA) on 3D datasets",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dANOVA [LEVELS] [DATASETS] [VOXEL] [DISKSPACE] [MASK] [DEBUG] [FTR] [MEAN] [DIFF] [CONTR] [OLD_METHOD] [OK] [ASSUME_SPH] [BUCKET]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Number of factor levels",
@@ -137,7 +132,7 @@
       "command-line-flag": "-bucket"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[FTR].HEAD",

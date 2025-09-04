@@ -1,9 +1,8 @@
 {
   "name": "get_label_thickness",
-  "tool-version": "7.4.1",
   "description": "Tool to calculate label thickness.",
   "command-line": "get_label_thickness [INFILE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input file",
@@ -15,9 +14,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

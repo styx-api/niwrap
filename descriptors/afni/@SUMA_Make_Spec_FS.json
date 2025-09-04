@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "@SUMA_Make_Spec_FS",
   "author": "AFNI Developers",
   "description": "Prepare for surface viewing in SUMA",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "@SUMA_Make_Spec_FS [SUBJECT_ID] [DEBUG] [FS_SETUP] [FILESYSTEM_PATH] [EXTRA_ANNOT_LABELS] [EXTRA_FS_DSETS] [MAKE_RANK_DSETS] [USE_MGZ] [NEURO] [GNIFTI] [NIFTI] [INFLATE] [SET_SPACE] [LD] [LDPREF] [NO_LD]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-sid",
@@ -153,7 +148,7 @@
       "name": "No MapIcosahedron flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "SUMA",

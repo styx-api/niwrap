@@ -2,8 +2,7 @@
   "name": "ImageIntensityStatistics",
   "command-line": "ImageIntensityStatistics [IMAGE_DIMENSION] [INPUT_IMAGE] [LABEL_IMAGE]",
   "description": "This tool computes intensity statistics of an input image, optionally given a label image.",
-  "schema-version": "0.5",
-  "tool-version": "2.5.3",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "image_dimension",
@@ -40,9 +39,5 @@
     }
   ],
   "author": "ANTs Developers",
-  "url": "https://github.com/ANTsX/ANTs",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  }
+  "url": "https://github.com/ANTsX/ANTs"
 }

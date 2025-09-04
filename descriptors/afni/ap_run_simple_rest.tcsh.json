@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "ap_run_simple_rest.tcsh",
   "author": "AFNI Developers",
   "description": "Run a quick afni_proc.py analysis for QC",
   "command-line": "ap_run_simple_rest.tcsh [ANAT] [EPI] [NT_RM] [RUN_AP] [RUN_PROC] [SUBJID] [TEMPLATE] [COMPRESSOR] [VERB] [ECHO]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "EPI datasets",
@@ -98,7 +93,7 @@
       "name": "Echo Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "run_ap_[SUBJID]",

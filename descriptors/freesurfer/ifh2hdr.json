@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "ifh2hdr",
   "author": "FreeSurfer Developers",
   "description": "Tool for converting IFH (Interfile Header) to HDR (Header) format in 4dfp (Four-Dimensional Functional Image) file format.",
   "command-line": "ifh2hdr [INPUT_FILE] [RANGE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input 4dfp file",
@@ -24,9 +23,5 @@
       "name": "Range"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

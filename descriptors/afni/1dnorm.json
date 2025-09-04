@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "1dnorm",
   "author": "AFNI Developers",
   "description": "Normalize columns of a 1D file (AFNI ASCII list of numbers)",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "1dnorm [INFILE] [OUTFILE] [NORM1] [NORMX] [DEMEAN] [DEMED]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input AFNI *.1D file (ASCII list of numbers arranged in columns); if '-' input will be read from stdin.",
@@ -59,7 +54,7 @@
       "name": "Demedian flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTFILE]",

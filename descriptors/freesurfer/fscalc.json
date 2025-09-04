@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "fscalc",
   "author": "FreeSurfer Developers",
   "description": "A frontend tool to perform mathematical operations on volumes/surfaces of data using mris_calc.",
   "command-line": "fscalc [INPUT1] [OPERATION] [INPUT2] [OUTPUT_FILE] [OUTPUT_DATA_TYPE] [DEBUG] [TMPDIR] [NOCLEANUP] [LOG_FILE]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "First input image or constant.",

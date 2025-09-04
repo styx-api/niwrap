@@ -1,7 +1,7 @@
 {
   "name": "long_qdec_table",
   "description": "Tool to operate on longitudinal QDEC tables.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "command-line": "long_qdec_table [QDEC_TABLE] [SPLIT] [CROSS_FLAG] [SORT] [OUT]",
   "inputs": [
     {
@@ -58,10 +58,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

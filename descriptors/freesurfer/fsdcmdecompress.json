@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "fsdcmdecompress",
   "author": "FreeSurfer Developers",
   "description": "A tool for decompressing DICOM files using GDCM or DCMTK.",
   "command-line": "fsdcmdecompress [INDCMFILE] [OUTDCMFILE] [DCMTK] [JPEG] [RLE] [GDCM]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input DICOM file to decompress",

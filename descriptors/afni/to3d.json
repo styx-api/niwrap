@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "to3d",
   "author": "AFNI Developers",
   "description": "Creates 3D datasets for use with AFNI from 2D image files",
   "command-line": "to3d [INPUT_FILES] [TYPE] [STATPAR] [PREFIX] [SESSION] [GEOMPARENT] [ANATPARENT] [NOSAVE_FLAG] [NOWRITEBRIK_FLAG] [VIEW] [TIME_ZT] [TIME_TZ] [TR_UNITS] [TORG] [XFOV] [YFOV] [ZFOV] [XSLAB] [YSLAB] [ZSLAB] [ZORIGIN] [DATA_TYPE] [GLOBAL_SCALING_FACTOR] [NOFLOATSCAN_FLAG] [IN1_FLAG] [ORIENT] [SKIP_OUTLIERS_FLAG] [TEXT_OUTLIERS_FLAG] [SAVE_OUTLIERS] [ASSUME_DICOM_MOSAIC_FLAG] [OBLIQUE_ORIGIN_FLAG] [REVERSE_LIST_FLAG] [USE_LAST_ELEM_FLAG] [USE_OLD_MOSAIC_CODE_FLAG] [USHORT2FLOAT_FLAG] [VERBOSE_FLAG] [GAMMA] [NCOLORS] [XTWARNS_FLAG] [QUIT_ON_ERR_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input 2D image files",
@@ -387,7 +382,7 @@
       "name": "Quit on Error Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX].HEAD",

@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "fat_mvm_scripter.py",
   "author": "AFNI Developers",
   "description": "Automated tool to create command scripts for 3dMVM statistical modeling.",
@@ -120,7 +119,7 @@
       "name": "Categorical Pair Off Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX]_scri.tcsh",
@@ -135,9 +134,5 @@
       "name": "Results File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "url": "https://afni.nimh.nih.gov/"
 }

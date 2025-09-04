@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "find_variance_lines.tcsh",
   "author": "AFNI Developers",
   "description": "Look for bars of high variance that might suggest scanner interference in EPI datasets.",
   "command-line": "find_variance_lines.tcsh [INPUT_FILES] [MASK] [MIN_CVOX] [MIN_NT] [NERODE] [NFIRST] [PERCENTILE] [POLORT] [OUTPUT_DIR] [DO_CLEAN] [DO_IMG] [ECHO] [HELP] [HIST] [VER]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input EPI datasets",
@@ -154,7 +149,7 @@
       "name": "Version"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_DIR]",

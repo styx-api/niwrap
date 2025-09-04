@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "@ROI_modal_grow",
   "author": "AFNI Developers",
   "description": "Script to grow a set of regions in a volumetric dataset using modal smoothing.",
   "command-line": "@ROI_modal_grow [INPUT_DSET] [NITERS] [OUTDIR] [MASK] [PREFIX] [NEIGHBORHOOD_TYPE]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-input",
@@ -67,7 +62,7 @@
       "maximum": 3
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTDIR]/[PREFIX].nii.gz",

@@ -1,11 +1,10 @@
 {
-  "tool-version": "24.2.06",
   "name": "afni_history",
   "author": "AFNI Developers",
   "description": "Show AFNI updates per user, dates, or levels.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "afni_history [VERB_LEVEL] [CHECK_DATE] [HELP] [HISTORY] [LIST_AUTHORS] [LIST_TYPES] [VERSION] [AUTHOR] [LEVEL] [MIN_LEVEL] [PROGRAM] [PAST_ENTRIES] [PAST_DAYS] [PAST_MONTHS] [PAST_YEARS] [TYPE] [HTML] [DLINE] [REVERSE] [SHOW_FIELD] [SHOW_FIELD_NAMES]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-verb",
@@ -200,9 +199,5 @@
       "id": "show_field_names",
       "name": "Show Field Names Flag"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  }
+  ]
 }

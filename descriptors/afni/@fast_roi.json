@@ -1,10 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "@fast_roi",
   "author": "AFNI Developers",
   "description": "Creates Atlas-based ROI masked in ANAT's original space. The script executes rapidly for realtime fMRI applications.",
   "command-line": "@fast_roi [REGION] [DRAWN_ROI] [ANAT] [ANAT_NS] [BASE] [ROI_GRID] [PREFIX] [TIME] [TWOPASS] [HELP]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-region",
@@ -103,9 +102,5 @@
       "name": "ROI Output Volume"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "url": "https://afni.nimh.nih.gov/"
 }

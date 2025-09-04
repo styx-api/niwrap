@@ -2,7 +2,7 @@
   "name": "isolate_labels.csh",
   "description": "Tool to separate out a particular or all labels into individual binary files for subsequent shape analysis.",
   "command-line": "isolate_labels.csh [LABEL_VOLUME] [OUTPUT_PREFIX] [LABEL_OPTION] [LOWERCASE_LABEL_OPTION] [VERSION] [KEEPVAL] [HELP]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Label volume to be analyzed",
@@ -66,10 +66,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

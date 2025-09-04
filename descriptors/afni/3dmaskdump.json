@@ -1,15 +1,10 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dmaskdump",
   "author": "AFNI Developers",
   "description": "Outputs voxel values from AFNI datasets satisfying mask criteria to an ASCII file.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dmaskdump [INPUT_FILES] [MASK_DATASET] [MASK_RANGE] [OUTPUT_INDEX] [OUTPUT_NOIJK] [OUTPUT_XYZ] [OUTPUT_FILENAME] [CALC_MASK_OPTS] [XBOX_COORDS] [DBOX_COORDS] [NBOX_COORDS] [IBOX_COORDS] [XBALL_COORDS] [DBALL_COORDS] [NBALL_COORDS] [NOZERO_OUTPUT] [RANDOM_VOXELS] [RANDOM_SEED] [OUTPUT_NIML] [QUIET_MODE]",
-  "schema-version": "0.5",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input datasets to dump voxel values",

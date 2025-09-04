@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "rPkgsInstall",
   "author": "AFNI Developers",
   "description": "A tool for installing, checking, updating, or removing R packages for AFNI.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "rPkgsInstall [PACKAGES] [DOWNLOAD_SITE] [CHECK] [UPDATE] [REMOVE]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-pkgs",
@@ -53,7 +48,7 @@
       "name": "Remove flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PACKAGES]",

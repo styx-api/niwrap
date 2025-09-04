@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "@SUMA_FSvolToBRIK",
   "author": "AFNI Developers",
   "description": "A script to convert COR- or .mgz files from FreeSurfer to BRIK format",
   "command-line": "@SUMA_FSvolToBRIK [FS_VOL_DATA] [PREFIX]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input FreeSurfer volume data (e.g. COR- images or .mgz volume)",
@@ -26,7 +21,7 @@
       "name": "Output Prefix"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX].BRIK",

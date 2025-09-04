@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "afni",
   "author": "AFNI Developers",
   "description": "Tool for reading in sessions of 3D datasets and visualizing them",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "afni [SESSION_DIRECTORIES] [BYSUB] [ALL_DSETS] [PURGE] [POSFUNC] [RECURSIVE] [NO1D] [NOCSV] [NOTSV] [UNIQUE] [ORIENT] [NOPLUGINS] [SEEHIDDEN] [ALLOW_ALL_PLUGINS] [YESPLUGOUTS] [DEBUG_PLUGOUTS] [NOPLUGOUTS] [SKIP_AFNIRC] [LAYOUT] [NIML] [NP] [NPQ] [NPB] [COM] [COMSEP]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input session directories containing the datasets",
@@ -223,7 +218,7 @@
       "name": "Command Separator"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "output_session.nii.gz",

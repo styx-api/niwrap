@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3ddot",
   "author": "AFNI Developers",
   "description": "Computes correlation coefficients between sub-brick pairs",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3ddot [INPUT_DATASETS] [MASK] [MRANGE] [DEMEAN] [DOCOR] [DODOT] [DOCOEF] [DOSUMS] [DOETA2] [DODICE] [SHOW_LABELS] [UPPER] [FULL] [1D] [NIML]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "List of input datasets to be used (e.g. img1+orig, img2+orig)",
@@ -137,7 +132,7 @@
       "name": "NIML Format Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "stdout",

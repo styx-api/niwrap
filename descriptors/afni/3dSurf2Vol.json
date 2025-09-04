@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dSurf2Vol",
   "author": "AFNI Developers",
   "description": "Map data from a surface domain to an AFNI volume domain",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dSurf2Vol [SPEC] [SURFACE_VOLUME] [SURF_A] [SURF_B] [GRID_PARENT] [MAP_FUNC] [PREFIX] [SURF_XYZ_1D] [SDATA_1D] [SDATA] [F_STEPS] [F_INDEX] [F_P1_FR] [F_PN_FR] [F_P1_MM] [F_PN_MM] [STOP_GAP] [CMASK] [DATA_EXPR] [DATUM] [DEBUG] [DNODE] [DVOXEL] [NOSCALE] [SXYZ_ORIENT_AS_GPAR]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "SUMA spec file",
@@ -236,6 +231,6 @@
       "command-line-flag": "-sxyz_orient_as_gpar"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": []
 }

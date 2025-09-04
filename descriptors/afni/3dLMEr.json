@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dLMEr",
   "author": "AFNI Developers",
   "description": "Program for Voxelwise Linear Mixed-Effects (LME) Analysis",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dLMEr [BOUND_LOWER] [BOUND_UPPER] [CIO] [DATA_TABLE] [DEBUG_ARGS] [GLF_CODE] [GLT_CODE] [HELP] [INPUT_FILE_COLUMN] [JOBS] [MASK] [MODEL] [PREFIX] [QVAR_CENTERS] [QVARS] [RESID] [RIO] [SHOW_OPTIONS] [SS_TYPE] [TRR] [VVAR_CENTERS] [VVARS]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Specify the lower and upper bounds for outlier removal",
@@ -201,7 +196,7 @@
       "name": "Voxel-wise Variables"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX].nii.gz",

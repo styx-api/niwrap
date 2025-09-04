@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dNotes",
   "author": "AFNI Developers",
   "description": "A program to add, delete and show notes for AFNI datasets.",
   "command-line": "3dNotes [ADD_NOTE] [APPEND_HISTORY] [REPLACE_HISTORY] [DELETE_NOTE] [PRINT_NOTES] [HELP] [DATASET]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "AFNI compatible dataset [required].",
@@ -70,6 +65,6 @@
       "name": "Help"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "url": "https://afni.nimh.nih.gov/"
 }

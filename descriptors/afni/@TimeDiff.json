@@ -1,10 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "@TimeDiff",
   "author": "AFNI Developers",
   "description": "A tool to compare the modification times of two files",
   "command-line": "@TimeDiff [FILE1] [FILE2]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "First file to compare (e.g., file1.txt)",
@@ -23,9 +22,5 @@
       "name": "File 2"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "url": "https://afni.nimh.nih.gov/"
 }

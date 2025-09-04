@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dInvFMRI",
   "author": "AFNI Developers",
   "description": "Program to compute stimulus time series, given a 3D+time dataset and an activation map (the inverse of the usual FMRI analysis problem).",
   "command-line": "3dInvFMRI [INPUT_FILE] [ACTIVATION_MAP] [MAP_WEIGHT] [MASK] [BASELINE_FILE] [POLYNOM_ORDER] [OUTPUT_FILE] [METHOD] [ALPHA] [SMOOTH_FIR] [SMOOTH_MEDIAN]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input 3D+time dataset.",
@@ -116,6 +111,6 @@
       "name": "Output file"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "url": "https://afni.nimh.nih.gov/"
 }

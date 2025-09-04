@@ -2,7 +2,7 @@
   "name": "analyzeto4dfp",
   "command-line": "analyzeto4dfp [ANALYZE_IMAGE] [ROIS_SCALE] [FLIP_X] [FLIP_Y] [FLIP_Z] [ENDIAN] [ORIENTATION]",
   "description": "Convert ANALYZE image format to 4dfp format with various options",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "analyze_image",
@@ -67,10 +67,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

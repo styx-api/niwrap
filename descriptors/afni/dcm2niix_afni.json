@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "dcm2niix_afni",
   "author": "AFNI Developers",
   "description": "DICOM to NIfTI converter optimized for AFNI",
   "command-line": "dcm2niix_afni [INPUT_FOLDER] [COMPRESSION_LEVEL] [ADJACENT_DICOMS] [BIDS_SIDECAR] [ANONYMIZE_BIDS] [COMMENT] [DIRECTORY_SEARCH_DEPTH] [EXPORT_FORMAT] [FILENAME_TEMPLATE] [GENERATE_DEFAULTS] [IGNORE_IMAGES] [LOSSLESS_SCALE] [MERGE_SLICES] [SERIES_CRC_NUMBER] [OUTPUT_DIRECTORY] [PHILLIPS_SCALING] [RENAME_DICOMS] [SINGLE_FILE_MODE] [UP_TO_DATE] [VERBOSE] [WRITE_BEHAVIOR] [CROP_3D] [GZ_COMPRESS] [BIG_ENDIAN] [PROGRESS] [IGNORE_TRIGGER_TIMES] [TERSE] [VERSION] [XML]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "id": "input_folder",
@@ -270,7 +265,7 @@
       "name": "XML"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_DIRECTORY]",

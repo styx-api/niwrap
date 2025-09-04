@@ -1,9 +1,8 @@
 {
-  "tool-version": "7.4.1",
   "name": "dmri_vox2vox",
   "description": "Tool for voxel-to-voxel transformations in diffusion MRI data processing",
   "command-line": "dmri_vox2vox [INPUT_FILES] [INPUT_DIRECTORY] [OUTPUT_FILES] [OUTPUT_DIRECTORY] [INPUT_REFERENCE] [OUTPUT_REFERENCE] [AFFINE_REGISTRATION] [NONLINEAR_REGISTRATION] [INVERSE_NONLINEAR] [DEBUG] [CHECK_OPTIONS] [HELP] [VERSION]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--in",
@@ -121,9 +120,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

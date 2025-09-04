@@ -2,8 +2,7 @@
   "name": "@djunct_edgy_align_check",
   "description": "Helper script for various tasks, heavily modeled on RW Cox's '@snapshot_volreg' script",
   "command-line": "@djunct_edgy_align_check [ULAY] [OLAY] [PREFIX] [SET_DICOM_XYZ] [BOX_FOCUS_SLICES] [MONTGAP] [MONTCOLOR] [CBAR] [SAVE_FTYPE] [UMIN_FAC] [MONTX] [MONTY] [USE_OLAY_GRID] [LABEL_MODE] [HELP_FLAG] [VER_FLAG] [ECHO_FLAG] [SHARPEN_ULAY_OFF_FLAG] [MASK_OLAY_EDGES_FLAG] [NO_COR_FLAG] [NO_SAG_FLAG] [NO_AXI_FLAG] [NO_CLEAN_FLAG] [ULAY_RANGE] [ULAY_RANGE_NZ] [ULAY_RANGE_AM]",
-  "tool-version": "24.2.06",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "ULAY",
@@ -226,10 +225,6 @@
       "value-key": "[NO_CLEAN_FLAG]"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "author": "AFNI Developers",
   "url": "https://afni.nimh.nih.gov/"
 }

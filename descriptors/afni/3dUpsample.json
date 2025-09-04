@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dUpsample",
   "author": "AFNI Developers",
   "description": "Upsamples a 3D+time dataset in the time direction by a specified factor.",
   "command-line": "3dUpsample [UPSAMPLE_FACTOR] [INPUT_DATASET] [LINEAR_INTERPOLATION] [OUTPUT_PREFIX] [VERBOSE_FLAG] [DATATYPE]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-n",
@@ -65,7 +60,7 @@
       "name": "Output Datatype"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_PREFIX]+orig.BRIK",

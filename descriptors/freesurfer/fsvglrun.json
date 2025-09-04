@@ -1,9 +1,8 @@
 {
-  "tool-version": "7.4.1",
   "name": "fsvglrun",
   "description": "A tool to execute a command, replacing the shell with the specified program, typically used within FreeSurfer environment.",
   "command-line": "fsvglrun [ZEROTH_ARG_NAME] [EMPTY_ENV] [DASHED_ARG] [COMMAND] [COMMAND_ARGS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-a",
@@ -49,9 +48,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -4,8 +4,7 @@
   "author": "ANTs Developers",
   "description": "A tool to convert NIfTI images to JPG format.",
   "url": "https://github.com/ANTsX/ANTs",
-  "tool-version": "2.5.3",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "infile",
@@ -31,9 +30,5 @@
       "description": "The converted JPG image.",
       "path-template": "[OUTFILE]"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  }
+  ]
 }

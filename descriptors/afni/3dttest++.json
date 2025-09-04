@@ -1,11 +1,10 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dttest++",
   "author": "AFNI Developers",
   "description": "Gosset (Student) t-test of sets of 3D datasets in AFNI",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dttest++ [SETA] [SETB] [SETA_LONG] [SETB_LONG] [COVARIATES] [LABELA] [LABELB] [SETWEIGHTA] [SETWEIGHTB] [PREFIX] [RESID] [PAIRED] [UNPOOLED] [MASK] [EXBLUR] [RANDOMSIGN] [PERMUTE] [ETAC] [ETAC_BLUR] [ETAC_OPT] [SEED]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Set A in short form, e.g., 'a+tlrc[3]' b+tlrc[3] ...'",
@@ -214,9 +213,5 @@
       "id": "residuals",
       "name": "Residuals output"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  }
+  ]
 }

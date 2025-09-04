@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dfim+",
   "author": "AFNI Developers",
   "description": "Program to calculate the cross-correlation of an ideal reference waveform with the measured FMRI time series for each voxel.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dfim+ [INFILE] [INPUT1DFILE] [MASKFILE] [FIRST_IMAGE] [LAST_IMAGE] [BASELINE_POLYNOMIAL] [THRESHOLD] [CDISP_VALUE] [ORT_FILE] [IDEAL_FILE] [OUTPUT_PARAMS] [OUTPUT_BUCKET]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Filename of input 3d+time dataset",
@@ -125,7 +120,7 @@
       "name": "Output bucket prefix"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_BUCKET]+tlrc.HEAD",

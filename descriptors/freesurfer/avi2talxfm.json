@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "avi2talxfm",
   "author": "FreeSurfer Developers",
   "description": "Convert voxel-to-voxel transform to MNI transform.",
   "command-line": "avi2talxfm [INPUT_VOLUME] [TARGET_VOLUME] [VOX2VOX_TRANSFORM] [OUTPUT_XFM]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input volume file",

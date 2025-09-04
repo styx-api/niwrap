@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "SurfMesh",
   "author": "AFNI Developers",
   "description": "Surface mesh manipulation tool",
   "command-line": "SurfMesh [INPUT_SURFACE] [OUTPUT_SURFACE] [EDGE_FRACTION] [SURFACE_VOLUME] [ONE_STATE] [ANATOMICAL_LABEL] [NO_VOLUME_REGISTRATION] [SET_ENV]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input surface file with specified type",
@@ -89,6 +84,6 @@
       "name": "Output Surface File"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "url": "https://afni.nimh.nih.gov/"
 }

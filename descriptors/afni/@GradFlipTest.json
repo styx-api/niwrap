@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "@GradFlipTest",
   "author": "AFNI Developers",
   "description": "Script to test the correct flip for a data set when using 1dDW_Grad_o_Mat++.",
@@ -131,7 +130,7 @@
       "name": "Clean temporary directory"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX].txt",
@@ -145,9 +144,5 @@
       "id": "temp_directory",
       "name": "Temporary Working Directory"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  }
+  ]
 }

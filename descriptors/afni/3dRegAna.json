@@ -1,11 +1,10 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dRegAna",
   "author": "AFNI Developers",
   "description": "Multiple linear regression analysis for AFNI datasets",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dRegAna [ROWS] [COLS] [XYDATA] [MODEL] [DISKSPACE] [WORKMEM] [RMSMIN] [FDISP] [FLOF] [FCOEF] [RCOEF] [TCOEF] [BUCKET] [BRICK] [DATUM]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-rows",
@@ -178,9 +177,5 @@
       "id": "output_bucket_brik",
       "name": "Bucket dataset BRIK"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  }
+  ]
 }

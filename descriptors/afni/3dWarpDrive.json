@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dWarpDrive",
   "author": "AFNI Developers",
   "description": "Warp a dataset to match another one (the base) using an affine transformation.",
   "command-line": "3dWarpDrive [DATASET] [BASE_DATASET] [PREFIX] [SHIFT_ONLY] [SHIFT_ROTATE] [SHIFT_ROTATE_SCALE] [AFFINE_GENERAL] [BILINEAR_GENERAL] [LINEAR] [CUBIC] [NN] [QUINTIC] [INPUT_DATASET] [VERBOSITY_FLAG] [SUMMARY_FILE] [MAX_ITERATIONS] [DELTA] [WEIGHT] [CONVERGENCE_THRESH] [TWOPASS] [FINAL_MODE] [PARFIX] [ONED_FILE] [FLOAT_FORMAT] [COARSEROT_INIT] [ONED_MATRIX_SAVE] [SDU_ORDER] [SUD_ORDER] [DSU_ORDER] [DUS_ORDER] [USD_ORDER] [UDS_ORDER] [SUPPER_S_MATRIX] [SLOWER_S_MATRIX] [ASHIFT] [BSHIFT]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input dataset",
@@ -338,6 +333,6 @@
       "name": "Transformation Matrices File"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "url": "https://afni.nimh.nih.gov/"
 }

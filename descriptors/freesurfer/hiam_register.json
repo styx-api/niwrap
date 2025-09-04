@@ -2,11 +2,7 @@
   "name": "hiam_register",
   "description": "This program registers a surface with an average surface.",
   "command-line": "hiam_register [INPUT_SURFACE] [AVERAGE_SURFACE] [OUTPUT_SURFACE]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "input_surface",
@@ -42,6 +38,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
   "url": "https://github.com/freesurfer/freesurfer"
 }

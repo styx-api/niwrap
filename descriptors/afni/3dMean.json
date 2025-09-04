@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dMean",
   "author": "AFNI Developers",
   "description": "Takes the voxel-by-voxel mean of all input datasets; designed to be faster than 3dcalc.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dMean [INPUT_FILES] [VERBOSE] [PREFIX] [DATUM] [FSCALE] [GSCALE] [NSCALE] [NON_ZERO] [STDEV] [SQR] [SUM] [COUNT] [MAX] [MIN] [ABSMAX] [SIGNED_ABSMAX] [MASK_INTER] [MASK_UNION] [WEIGHTSET]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input datasets",
@@ -167,7 +162,7 @@
       "name": "Weightset"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX]",

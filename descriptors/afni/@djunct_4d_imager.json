@@ -1,6 +1,5 @@
 {
   "command-line": "@djunct_4d_imager [INSET] [PREFIX] [DO_MOVIE] [NO_CLEAN]",
-  "tool-version": "24.2.06",
   "name": "@djunct_4d_imager",
   "author": "AFNI Developers",
   "description": "The program is useful for viewing the same slice across the 'time' dimension of a 4D data set.",
@@ -41,7 +40,7 @@
       "value-key": "[NO_CLEAN]"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX]_onescl.png",
@@ -79,9 +78,5 @@
       "id": "sepscl_gif",
       "name": "Sepscale AGIF"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  }
+  ]
 }

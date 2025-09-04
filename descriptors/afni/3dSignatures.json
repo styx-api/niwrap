@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dSignatures",
   "author": "AFNI Developers",
   "description": "3dSignatures analysis tool for 3D genome organization",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dSignatures [INFILE] [OUTFILE] [SEGMENTATION] [FILTER] [THRESHOLD] [SMOOTHING]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input file containing 3D genome data (e.g. genome_data.txt)",
@@ -64,7 +59,7 @@
       "name": "Smoothing kernel size"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTFILE].txt",

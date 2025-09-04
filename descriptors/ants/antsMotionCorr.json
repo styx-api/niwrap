@@ -3,8 +3,7 @@
   "command-line": "antsMotionCorr [DIMENSIONALITY] [N_IMAGES] [METRIC] [USE_FIXED_REFERENCE_IMAGE] [USE_SCALES_ESTIMATOR] [TRANSFORM] [ITERATIONS] [SMOOTHING_SIGMAS] [SHRINK_FACTORS] [OUTPUT] [AVERAGE_IMAGE] [WRITE_DISPLACEMENT] [USE_HISTOGRAM_MATCHING] [RANDOM_SEED] [INTERPOLATION] [VERBOSE]",
   "description": "ANTS Motion Correction application to perform motion correction on 4D time series data.",
   "author": "ANTs Developers",
-  "tool-version": "2.5.3",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "dimensionality",
@@ -189,9 +188,5 @@
       "path-template": "[OUTPUT_TRANSFORM_PREFIX]Average.nii.gz"
     }
   ],
-  "url": "https://github.com/ANTsX/ANTs",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  }
+  "url": "https://github.com/ANTsX/ANTs"
 }

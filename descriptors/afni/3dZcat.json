@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dZcat",
   "author": "AFNI Developers",
   "description": "Concatenates datasets in the slice (z) direction",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dZcat [PREFIX] [DATUM] [FSCALE] [NSCALE] [VERB] [FRUGAL] [INPUT_FILES]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Use 'pname' for the output dataset prefix name. [default='zcat']",
@@ -71,7 +66,7 @@
       "name": "Input Files"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX]+orig.HEAD",

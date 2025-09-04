@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "1dsound",
   "author": "AFNI Developers",
   "description": "Program to create a sound file from a 1D file (column of numbers).",
   "command-line": "1dsound [TSFILE] [PREFIX] [ENCODING_16PCM] [ENCODING_8PCM] [ENCODING_8ULAW] [TPER_OPTION] [FM_OPTION] [NOTES_OPTION] [NOTEWAVE_OPTION] [DESPIKE_OPTION] [PLAY_OPTION]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "id": "tsfile",
@@ -111,6 +106,6 @@
       "name": "Output audio file"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "url": "https://afni.nimh.nih.gov/"
 }

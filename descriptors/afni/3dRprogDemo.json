@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dRprogDemo",
   "author": "AFNI Developers",
   "description": "Template program to help users write their own R processing routines on MRI volumes.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dRprogDemo [INPUT_DSETS] [MASK] [SCALE] [PREFIX] [HELP_ASPX] [HELP_RAW] [HELP_SPX] [HELP_TXT] [HELP] [SHOW_ALLOWED_OPTIONS] [VERBOSITY_LEVEL]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input dataset(s) to be scaled.",
@@ -104,7 +99,7 @@
       "name": "Verbosity level"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX].nii",

@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "afni_proc.py",
   "author": "AFNI Developers",
   "description": "Generate a tcsh script for an AFNI single subject processing stream",
@@ -103,7 +102,7 @@
       "name": "Extra Regression Parameters"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUT_DIR]",
@@ -111,9 +110,5 @@
       "id": "output_directory",
       "name": "Output Directory"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  }
+  ]
 }

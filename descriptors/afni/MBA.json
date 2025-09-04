@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "MBA",
   "author": "AFNI Developers",
   "description": "Matrix-Based Analysis Program through Bayesian Multilevel Modeling",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "MBA [PREFIX] [CHAINS] [ITERATIONS] [MODEL] [EOI] [DATA_TABLE] [CVARS] [QVARS] [QCVAR] [STDZ] [WCP] [DISTY] [SE] [DBGARGS] [HELP]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Prefix for output file names",
@@ -146,7 +141,7 @@
       "name": "Help"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX].txt",

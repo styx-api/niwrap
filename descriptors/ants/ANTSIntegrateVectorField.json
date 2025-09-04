@@ -4,8 +4,7 @@
   "author": "ANTs Developers",
   "description": "This tool integrates a vector field, where vectors are voxels, using a region of interest (ROI) mask. The ROI mask controls where the integration is performed and specifies the starting point region.",
   "url": "https://github.com/ANTsX/ANTs",
-  "tool-version": "2.5.3",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "vector_field_input",
@@ -53,9 +52,5 @@
       "description": "The output is the length image.",
       "path-template": "[LENGTH_IMAGE_OUTPUT]"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  }
+  ]
 }

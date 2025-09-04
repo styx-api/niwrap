@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "ROIgrow",
   "author": "AFNI Developers",
   "description": "A program to expand an ROI on the surface.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "ROIgrow [INPUT_SURFACE] [ROI_LABELS] [LIM_DISTANCE] [OUTPUT_PREFIX] [FULL_LIST] [GROW_FROM_EDGE] [INSPHERE_DIAMETER] [INBOX_EDGES]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Specify input surface. You can also use -t* and -spec and -surf methods to input surfaces.",
@@ -84,7 +79,7 @@
       "name": "Inbox Edges"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_PREFIX].1D",

@@ -3,8 +3,7 @@
   "author": "AFNI Developers",
   "description": "Performs nonparametric Mann-Whitney two-sample test.",
   "command-line": "3dMannWhitney [DSET1_X] [DSET2_Y] [OUTPUT_PREFIX] [WORKMEM] [VOXEL_NUM]",
-  "schema-version": "0.5",
-  "tool-version": "24.2.06",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-dset 1",
@@ -57,9 +56,5 @@
     }
   ],
   "output-files": [],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "url": "https://afni.nimh.nih.gov/"
 }

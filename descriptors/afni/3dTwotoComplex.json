@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dTwotoComplex",
   "author": "AFNI Developers",
   "description": "Converts 2 sub-bricks of input to a complex-valued dataset",
   "command-line": "3dTwotoComplex [DATASET1] [DATASET2] [PREFIX] [RI] [MP] [MASK]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input dataset (either as 1 dataset with 2 sub-bricks or 2 separate datasets)",
@@ -60,7 +55,7 @@
       "name": "Mask Dataset"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX]+orig.BRIK",

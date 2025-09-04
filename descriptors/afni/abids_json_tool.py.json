@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "abids_json_tool.py",
   "author": "AFNI Developers",
   "description": "This script helps to manipulate json files in various ways.",
   "command-line": "abids_json_tool.py [INPUT_FILE] [PREFIX] [TXT2JSON] [JSON2TXT] [ADD_JSON] [DEL_JSON] [FORCE_ADD] [OVERWRITE] [HELP] [DELIMITER_MAJOR] [DELIMITER_MINOR] [LITERAL_KEYS] [VALUES_STAY_STR]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "One file to convert. Enter NULL with -add_json to create new json file.",
@@ -122,6 +117,6 @@
       "name": "Values Stay String"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "url": "https://afni.nimh.nih.gov/"
 }

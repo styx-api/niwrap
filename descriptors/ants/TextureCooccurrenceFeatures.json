@@ -4,8 +4,7 @@
   "author": "ANTs Developers",
   "description": "Calculates texture co-occurrence features such as Energy, Entropy, Inverse Difference Moment, Inertia, Cluster Shade, and Cluster Prominence from an input image.",
   "url": "https://github.com/ANTsX/ANTs",
-  "tool-version": "2.5.3",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "image_dimension",
@@ -58,9 +57,5 @@
       "description": "The output file containing the calculated texture co-occurrence features.",
       "path-template": "[INPUT_IMAGE]_features.txt"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  }
+  ]
 }

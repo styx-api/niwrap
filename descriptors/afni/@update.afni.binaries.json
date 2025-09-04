@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "@update.afni.binaries",
   "author": "AFNI Developers",
   "description": "Install or update AFNI binaries.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "@update.afni.binaries [DEFAULTS_FLAG] [HELP_FLAG] [HELP_SYS_PROGS_FLAG] [APSEARCH] [BINDIR] [CURL_FLAG] [DO_DOTFILES_FLAG] [DO_EXTRAS_FLAG] [ECHO_FLAG] [MAKE_BACKUP] [NO_CERT_VERIFY_FLAG] [NO_RECUR_FLAG] [PROTO] [QUICK_FLAG] [SHOW_OBSOLETES_FLAG] [SHOW_OBSOLETES_GREP_FLAG] [SHOW_SYSTEM_PROGS_FLAG] [SYS_OK_FLAG] [TEST_FLAG] [TEST_PROTOS_FLAG] [REVERT_FLAG] [LOCAL_PACKAGE] [PROG_LIST] [PACKAGE]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-defaults",
@@ -211,5 +206,5 @@
       "name": "Revert Flag"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

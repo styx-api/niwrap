@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "labels_union",
   "author": "FreeSurfer Developers",
   "description": "Utility to create the union of two label files.",
   "command-line": "labels_union [LABEL1] [LABEL2] [OUTPUTNAME]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "First label file (e.g., rh.BA3a.label)",

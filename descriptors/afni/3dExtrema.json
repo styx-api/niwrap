@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dExtrema",
   "author": "AFNI Developers",
   "description": "Find local extrema (minima or maxima) in 3D datasets.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dExtrema [INPUT_DATASET] [OUTPUT_PREFIX] [OUTPUT_SESSION] [QUIET] [MASK_FILE] [MASK_THRESHOLD] [DATA_THRESHOLD] [N_BEST] [SEPARATION_DISTANCE] [MINIMA] [MAXIMA] [STRICT] [PARTIAL] [INTERIOR] [CLOSURE] [SLICE] [VOLUME] [REMOVE] [AVERAGE] [WEIGHT]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input dataset (e.g. dataset+tlrc'[sub-brick]')",
@@ -178,7 +173,7 @@
       "name": "Weighted Average Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_PREFIX].HEAD",

@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "uber_align_test.py",
   "author": "AFNI Developers",
   "description": "Generate script to test anatomical/EPI alignment",
   "command-line": "uber_align_test.py [NO_GUI] [PRINT_SCRIPT] [SAVE_SCRIPT] [USER_VARIABLE] [QT_OPTS] [HELP] [HELP_GUI] [HISTORY] [SHOW_VALID_OPTS] [VERSION]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-no_gui",
@@ -94,6 +89,6 @@
       "value-key": "[VERSION]"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "url": "https://afni.nimh.nih.gov/"
 }

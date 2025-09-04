@@ -4,8 +4,7 @@
   "author": "ANTs Developers",
   "description": "The Shape Operator for Differential Analysis of Images. It can operate on binary or gray scale images with various modes to see different effects.",
   "url": "https://github.com/ANTsX/ANTs",
-  "tool-version": "2.5.3",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "filename_in",
@@ -48,9 +47,5 @@
       "description": "The processed image file.",
       "path-template": "[FILENAME_OUT]"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  }
+  ]
 }

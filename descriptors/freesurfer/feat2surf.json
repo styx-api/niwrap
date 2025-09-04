@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "feat2surf",
   "author": "FreeSurfer Developers",
   "description": "Resamples Feat statistics onto the surface of the subject and onto a stereo-taxic surface atlas.",
   "command-line": "feat2surf [FEAT_DIRS] [FEAT_DIRFILE] [PROJ_FRAC] [HEMI] [TARGET] [SURF] [COPE_ONLY] [DEBUG_FLAG] [NOLOG_FLAG] [OUT_DIR]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--feat",
@@ -121,9 +120,5 @@
       "name": "Right hemisphere target output"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

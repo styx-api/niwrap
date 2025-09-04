@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "images_equal",
   "author": "AFNI Developers",
   "description": "A simple program to test if two 2D images are identical.",
@@ -30,7 +29,7 @@
       "name": "All Images Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "comparison_result.txt",
@@ -39,9 +38,5 @@
       "name": "Comparison Result"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "url": "https://afni.nimh.nih.gov/"
 }

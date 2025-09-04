@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "@RetinoProc",
   "author": "AFNI Developers",
   "description": "A script to process retinotopic FMRI data, using AFNI's 3dRetinoPhase and SurfRetinMap.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "@RetinoProc [CCW] [CLW] [EXP] [CON] [EPI_REF] [EPI_ANAT_REF] [ANAT_VOL] [ANAT_VOL_EPI] [SURF_VOL] [SURF_VOL_EPI] [PHASE] [DELAY] [TR] [PERIOD_ECC] [PERIOD_POL] [PRE_ECC] [PRE_POL] [ON_ECC] [ON_POL] [VAR_ON_ECC] [VAR_ON_POL] [NWEDGES] [NRINGS] [FWHM_POL] [FWHM_ECC] [IGNORE] [NO_TSHIFT] [SPEC_LEFT] [SPEC_RIGHT] [DORTS] [CCW_ORTS] [CLW_ORTS] [EXP_ORTS] [CON_ORTS] [SID] [OUT_DIR] [ECHO] [ECHO_EDU] [A2E_OPTS] [AEA_OPTS]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input time series dataset for counterclockwise stimulus",
@@ -374,5 +369,5 @@
       "name": "AEA Options"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

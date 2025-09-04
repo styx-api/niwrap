@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "@chauffeur_afni",
   "author": "AFNI Developers",
   "description": "Automated QC snapshots generator in AFNI",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "@chauffeur_afni [ULAY] [OLAY] [PREFIX] [MODE_4D] [FUNC_RANGE] [OPACITY] [SET_SUBBRICKS] [MONTX] [MONTY] [MONTGAP] [LABEL_MODE] [LABEL_SIZE] [LABEL_COLOR] [LABEL_SETBACK] [NO_CLEAN] [DO_CLEAN] [HELP] [VERSION]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Name of underlay dataset (required); can be 3D or 4D set",
@@ -166,7 +161,7 @@
       "value-key": "[VERSION]"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX].png",

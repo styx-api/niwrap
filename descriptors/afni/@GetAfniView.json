@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "@GetAfniView",
   "author": "AFNI Developers",
   "description": "A tool to retrieve the AFNI view of a given dataset name",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "@GetAfniView [DATASET_NAME]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Name of the dataset (including path) from which to retrieve the AFNI view (+orig, +acpc, etc.)",
@@ -19,7 +14,7 @@
       "name": "Dataset Name"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "view_extension.txt",

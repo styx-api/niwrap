@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dWilcoxon",
   "author": "AFNI Developers",
   "description": "Nonparametric Wilcoxon signed-rank test for paired comparisons of two samples",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dWilcoxon [WORKMEM] [VOXEL] [DSET1_X] [DSET2_Y] [OUTPUT_PREFIX]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Data set for X observations. The user must specify 1 and only 1 sub-brick with each -dset command.",
@@ -58,7 +53,7 @@
       "name": "Output file prefix"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_PREFIX]",

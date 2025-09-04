@@ -1,10 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "column_cat",
   "author": "AFNI Developers",
   "description": "Catenate files horizontally. Each line of output is the concatenation of each current line from the input files, all on the same line, separated by a space or a user-defined separator.",
   "command-line": "column_cat [LINE_NUMBER] [SEPARATOR_STRING] [INPUT_FILES]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input files to be concatenated",
@@ -42,9 +41,5 @@
       "name": "Output file"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "url": "https://afni.nimh.nih.gov/"
 }

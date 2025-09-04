@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "ClustExp_HistTable.py",
   "author": "AFNI Developers",
   "description": "Script to extract the data table from history of datasets from 3dttest++, 3dMVM, or 3dLME.",
@@ -41,7 +40,7 @@
       "name": "Overwrite"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX]_GroupTable.csv",
@@ -50,9 +49,5 @@
       "name": "GroupTable"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "url": "https://afni.nimh.nih.gov/"
 }

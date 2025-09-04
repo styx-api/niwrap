@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "@afni_R_package_install",
   "author": "AFNI Developers",
   "description": "Helper script to install R packages for various afni-ish purposes.",
   "command-line": "@afni_R_package_install [AFNI] [SHINY] [BAYES_VIEW] [CIRCOS] [CUSTOM_PACKAGES] [MIRROR] [HELP]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-afni",
@@ -68,7 +63,7 @@
       "name": "Help Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "R_packages_installed.txt",

@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "fsr-getxopts",
   "author": "FreeSurfer Developers",
   "description": "Tool to retrieve extended options for a specific context or configuration",
   "command-line": "fsr-getxopts [HELP]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--help",

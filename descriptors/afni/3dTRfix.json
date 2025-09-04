@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dTRfix",
   "author": "AFNI Developers",
   "description": "Re-sample dataset with irregular time grid to regular time grid via linear interpolation.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dTRfix [INPUT_FILE] [TR_LIST] [TIME_LIST] [PREFIX] [OUTPUT_TR]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input dataset",
@@ -56,7 +51,7 @@
       "command-line-flag": "-TRout"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX]+orig.HEAD",

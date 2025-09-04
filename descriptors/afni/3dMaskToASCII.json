@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dMaskToASCII",
   "author": "AFNI Developers",
   "description": "Converts a byte-valued 0/1 dataset into an ASCII string, or vice versa.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dMaskToASCII [TOBIN_FLAG] [DATASET] [OUTPUTFILE]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input dataset (e.g. mask.nii.gz)",
@@ -37,7 +32,7 @@
       "name": "Output file"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUTFILE]",

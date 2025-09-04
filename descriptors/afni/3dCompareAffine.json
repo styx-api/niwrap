@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dCompareAffine",
   "author": "AFNI Developers",
   "description": "Compares two (or more) affine spatial transformations on a dataset and outputs measurements of their differences in spatial displacements.",
   "command-line": "3dCompareAffine [MASK] [DSET] [AFFINE]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-mask",
@@ -38,7 +33,7 @@
       "name": "Affine transformation"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_PREFIX]_comparison.txt",

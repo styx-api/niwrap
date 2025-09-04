@@ -2,8 +2,7 @@
   "name": "TextureRunLengthFeatures",
   "command-line": "TextureRunLengthFeatures [IMAGE_DIMENSION] [INPUT_IMAGE] [NUMBER_OF_BINS_PER_AXIS] [MASK_IMAGE] [MASK_LABEL]",
   "description": "A tool to calculate texture run length features on an input image.",
-  "tool-version": "2.5.3",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "image_dimension",
@@ -112,9 +111,5 @@
     }
   ],
   "author": "ANTs Developers",
-  "url": "https://github.com/ANTsX/ANTs",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  }
+  "url": "https://github.com/ANTsX/ANTs"
 }

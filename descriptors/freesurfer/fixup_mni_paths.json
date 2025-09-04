@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "fixup_mni_paths",
   "author": "FreeSurfer Developers",
   "description": "A utility for patching MNI tools to ensure correct paths are used.",
   "command-line": "fixup_mni_paths [VERBOSE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-v",
@@ -95,9 +94,5 @@
       "name": "XFMTool Backup"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

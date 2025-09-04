@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "imand",
   "author": "AFNI Developers",
   "description": "Image AND operation tool. Only pixels nonzero in all input images (and above the threshold, if given) will be output.",
   "command-line": "imand [THRESHOLD] [INPUT_IMAGES] [OUTPUT_IMAGE]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Threshold value; only pixels above this value will be output. Optional.",
@@ -37,7 +32,7 @@
       "name": "Output Image"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_IMAGE]",

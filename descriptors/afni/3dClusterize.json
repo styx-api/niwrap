@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dClusterize",
   "author": "AFNI Developers",
   "description": "A tool for voxelwise thresholding and clusterizing of datasets.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dClusterize [INSET] [MASK] [MASK_FROM_HDR] [OUT_MASK] [ITHR] [IDAT] [ONESIDED] [TWOSIDED] [BISIDED] [WITHIN_RANGE] [NN] [CLUST_NVOX] [CLUST_VOL] [PREF_MAP] [PREF_DAT] [ONE_D_FORMAT] [NO_ONE_D_FORMAT] [SUMMARIZE] [NOSUM] [QUIET] [OUTVOL_IF_NO_CLUST] [ORIENT] [ABS_TABLE_DATA] [BINARY]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Load in a dataset for thresholding and clusterizing",
@@ -221,7 +216,7 @@
       "command-line-flag": "-binary"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREF_MAP]+orig.HEAD",

@@ -1,6 +1,5 @@
 {
   "name": "1dFlagMotion",
-  "tool-version": "24.2.06",
   "description": "Produces a list of time points with excessive motion relative to the previous time point.",
   "author": "AFNI Developers",
   "command-line": "1dFlagMotion [INPUT_MOTION_FILE] [MAX_TRANSLATION] [MAX_ROTATION]",
@@ -40,10 +39,6 @@
       "path-template": "output_motion_points.1D"
     }
   ],
-  "schema-version": "0.5",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
+  "schema-version": "0.5+styx",
   "url": "https://afni.nimh.nih.gov/"
 }

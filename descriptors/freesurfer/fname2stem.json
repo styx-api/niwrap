@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "fname2stem",
   "author": "FreeSurfer Developers",
   "description": "Converts the name of a file to a stem. Example: f.mgh, f.nii, f.nii.gz would return f.",
   "command-line": "fname2stem [FILENAME]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "The name of the file to convert to a stem. The file does not need to exist.",
@@ -15,9 +14,5 @@
       "name": "Filename"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

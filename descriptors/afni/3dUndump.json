@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dUndump",
   "author": "AFNI Developers",
   "description": "Assembles a 3D dataset from an ASCII list of coordinates and optionally values.",
   "command-line": "3dUndump [INPUT_FILES] [PREFIX] [MASTER] [DIMENSIONS] [MASK] [DATATYPE] [DVAL] [FVAL] [IJK] [XYZ] [SPHERE_RADIUS] [CUBE_MODE] [ORIENT] [HEAD_ONLY] [ROIMASK] [ALLOW_NAN]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input ASCII file(s), with one voxel specification per line.",
@@ -151,7 +146,7 @@
       "name": "Allow NaNs"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX].nii.gz",

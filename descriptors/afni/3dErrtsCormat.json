@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dErrtsCormat",
   "author": "AFNI Developers",
   "description": "Computes the correlation matrix corresponding to the residual (or error) time series in 'dset'.",
@@ -60,7 +59,7 @@
       "optional": true
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "id": "output",
@@ -68,9 +67,5 @@
       "description": "1D file of the Toeplitz entries.",
       "path-template": "stdout"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  }
+  ]
 }

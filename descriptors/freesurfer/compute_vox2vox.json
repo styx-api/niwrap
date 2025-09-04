@@ -3,7 +3,7 @@
   "author": "FreeSurfer Developers",
   "description": "Tool for computing voxel-to-voxel transformations.",
   "command-line": "compute_vox2vox [SOURCE] [T4FILE] [TARGET]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "source",
@@ -31,10 +31,5 @@
     }
   ],
   "output-files": [],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "tool-version": "7.4.1",
   "url": "https://github.com/freesurfer/freesurfer"
 }

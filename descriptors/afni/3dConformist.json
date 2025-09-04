@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dConformist",
   "author": "AFNI Developers",
   "description": "Program to conform a collection of datasets to the same size by zero padding",
   "command-line": "3dConformist [INPUT_FILES]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input datasets to be zero padded to the same size",
@@ -19,7 +14,7 @@
       "value-key": "[INPUT_FILES]"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "description": "Zero padded output dataset files",

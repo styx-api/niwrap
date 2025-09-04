@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dROIMaker",
   "author": "AFNI Developers",
   "description": "Create a labelled set of ROIs from input data, useful in combining functional and tractographic/structural data.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dROIMaker [INSET] [THRESH] [PREFIX] [REFSET] [VOLTHR] [ONLY_SOME_TOP] [ONLY_CONN_TOP] [INFLATE] [TRIM_OFF_WM] [WM_SKEL] [SKEL_THR] [SKEL_STOP] [SKEL_STOP_STRICT] [CSF_SKEL] [MASK] [NEIGH_UPTO_VERT] [NIFTI] [PREINFL_INSET] [PREINFL_INFLATE] [DUMP_NO_LABTAB]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "3D volume(s) of values, especially functionally-derived quantities like correlation values or ICA Z-scores.",
@@ -184,7 +179,7 @@
       "name": "Disable labeltable"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX]_GM+orig.HEAD",

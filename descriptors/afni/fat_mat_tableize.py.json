@@ -1,6 +1,5 @@
 {
   "name": "fat_mat_tableize.py",
-  "tool-version": "24.2.06",
   "description": "Make tables for AFNI group analysis programs from 3dNetCorr (*.netcc) and 3dTrackID (*.grid) outputs, with optional additional subject information from CSV files.",
   "author": "AFNI Developers",
   "command-line": "fat_mat_tableize.py [INPUT_MATRICES] [INPUT_CSV] [INPUT_LIST] [OUTPUT_PREFIX] [PARAMETERS] [VERSION] [DATE] [HELP] [HELP_SHORT] [HELP_VIEW]",
@@ -107,10 +106,6 @@
       "id": "output_log"
     }
   ],
-  "schema-version": "0.5",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
+  "schema-version": "0.5+styx",
   "url": "https://afni.nimh.nih.gov/"
 }

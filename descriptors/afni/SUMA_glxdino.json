@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "SUMA_glxdino",
   "author": "AFNI Developers",
   "description": "A simple openGL test program using GLX. If it does not run, then SUMA certainly won't.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "SUMA_glxdino [VERBOSE]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-v",
@@ -19,5 +14,5 @@
       "name": "Verbose Flag"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

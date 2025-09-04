@@ -1,10 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dFriedman",
   "author": "AFNI Developers",
   "description": "Performs nonparametric Friedman test for randomized complete block design experiments",
   "command-line": "3dFriedman [LEVELS] [DATASETS] [WORKMEM] [VOXEL_NUM] [OUTPUT_PREFIX]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Number of treatments",
@@ -56,9 +55,5 @@
     }
   ],
   "output-files": [],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "url": "https://afni.nimh.nih.gov/"
 }

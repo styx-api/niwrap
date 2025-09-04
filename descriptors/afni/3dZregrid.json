@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dZregrid",
   "author": "AFNI Developers",
   "description": "Alters the input dataset's slice thickness and/or number.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dZregrid [Z_THICKNESS] [SLICE_COUNT] [Z_SIZE] [PREFIX] [INFILE] [VERBOSE]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input dataset",
@@ -63,7 +58,7 @@
       "name": "Verbose Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX]+orig.HEAD",

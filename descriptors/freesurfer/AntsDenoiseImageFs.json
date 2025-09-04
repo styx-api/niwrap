@@ -1,13 +1,8 @@
 {
   "name": "AntsDenoiseImageFs",
-  "tool-version": "7.4.1",
   "description": "Denoises an image with a spatially adaptive filter. This program wraps the AntsDenoiseImage utility available in the ANTs package.",
   "command-line": "AntsDenoiseImageFs [INPUT_IMAGE] [OUTPUT_IMAGE] [RICIAN_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "input_image",

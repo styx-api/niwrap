@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "djpeg",
   "author": "AFNI Developers",
   "description": "Decompress a JPEG file to an image file",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "djpeg [INPUT_FILE] [OUTPUT_FILE] [GRAY] [FAST_DCT] [ONE_PIXEL_HEIGHT] [PSEUDO_PIXEL_RATIO] [CROP_REGION]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input JPEG file (e.g. image.jpg)",
@@ -68,7 +63,7 @@
       "name": "Crop region"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_FILE]",

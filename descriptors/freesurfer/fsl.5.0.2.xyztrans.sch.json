@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "fsl.5.0.2.xyztrans.sch",
   "author": "FreeSurfer Developers",
   "description": "A script with unclear functionality, potentially related to terminal operations.",
   "command-line": "fsl.5.0.2.xyztrans.sch [TERM_OPTION] [VERSION_FLAG] [NO_SCROLLBACK_FLAG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-T",
@@ -32,9 +31,5 @@
       "name": "No Scrollback Flag"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "cblumwmgyri",
   "author": "FreeSurfer Developers",
   "description": "Segments cerebellar white matter into gyral and core components using geometrical constraints.",
   "command-line": "cblumwmgyri [SUBJECT] [SOURCE_SEG] [N_ERODES_DILATES] [OUT_SEG] [NO_SEGSTATS] [SUBJECTS_DIR]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--s",

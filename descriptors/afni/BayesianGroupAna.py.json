@@ -1,6 +1,5 @@
 {
   "name": "BayesianGroupAna.py",
-  "tool-version": "24.2.06",
   "description": "This program conducts Bayesian Group Analysis (BGA) on a list of regions of interest (ROIs). Compared to the conventional univariate GLM, BGA pools and shares the information across the ROIs in a multilevel system.",
   "author": "AFNI Developers",
   "command-line": "BayesianGroupAna.py [DATATABLE] [Y_VARIABLE] [PREFIX] [X_VARIABLES] [NO_CENTER] [ITERATIONS] [CHAINS] [CONTROL_LIST] [PLOT] [MORE_PLOTS] [RDATA] [SEED] [OVERWRITE] [HELP]",
@@ -154,9 +153,5 @@
       "description": "The same table as the Intercept but for the specified x variable."
     }
   ],
-  "schema-version": "0.5",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  }
+  "schema-version": "0.5+styx"
 }

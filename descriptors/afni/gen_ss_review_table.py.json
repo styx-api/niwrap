@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "gen_ss_review_table.py",
   "author": "AFNI Developers",
   "description": "Generate a table from ss_review_basic output files",
@@ -128,7 +127,7 @@
       "name": "Verbosity level"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[WRITE_TABLE]",
@@ -143,9 +142,5 @@
       "name": "Output Outliers File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "url": "https://afni.nimh.nih.gov/"
 }

@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "balloon",
   "author": "AFNI Developers",
   "description": "Simulation of haemodynamic response using the balloon model. Based on the theoretical model proposed by Buxton et al. (1998).",
   "command-line": "balloon [TR] [NUM_SCANS] [EVENT_TIMES] [T_RISE] [T_FALL] [T_SUSTAIN]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Scan repetition time in seconds (TR), the interval at which the output curve will be sampled.",
@@ -66,6 +61,6 @@
       "max-list-entries": 1
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "url": "https://afni.nimh.nih.gov/"
 }

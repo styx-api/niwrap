@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "dmri_group",
   "author": "FreeSurfer Developers",
   "description": "A tool to process and analyze diffusion MRI group data.",
   "command-line": "dmri_group [INPUT_LIST] [REFERENCE_VOLUME] [OUTPUT_BASE] [NO_INTERPOLATION] [SECTIONS_NUM] [DEBUG_MODE] [CHECK_OPTIONS]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--list",

@@ -2,7 +2,7 @@
   "name": "lpcregister",
   "description": "Registers a volume to its FreeSurfer anatomical using Local Pearson Correlation (LPC) (the AFNI lpc_align.py program). Creates a FreeSurfer register.dat file.",
   "command-line": "lpcregister [SUBJECT_ID] [MOV_VOLUME] [REG_FILE] [DOF_9] [DOF_12] [FRAME_NUMBER] [MID_FRAME] [FSVOL] [OUTPUT_VOLUME] [TMP_DIR] [NO_CLEANUP] [VERSION] [HELP]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Subject ID found in SUBJECTS_DIR. The reference volume is the mri/brain volume (modifiable with --fsvol). Converted to analyze using mri_convert.",
@@ -131,10 +131,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

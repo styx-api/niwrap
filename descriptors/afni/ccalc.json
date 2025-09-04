@@ -1,11 +1,10 @@
 {
-  "tool-version": "24.2.06",
   "name": "ccalc",
   "author": "AFNI Developers",
   "description": "Command line calculator with formatted output options",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "ccalc [FORMAT] [EXPR]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Format output in a nice form. Choose from 'double', 'nice', 'int', 'rint', 'cint', 'fint', or custom format string (e.g., %n.mf)",
@@ -25,9 +24,5 @@
       "name": "Expression",
       "command-line-flag": "-eval"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  }
+  ]
 }

@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "fsl_label2voxel",
   "author": "FreeSurfer Developers",
   "description": "Converts labeled volumes to voxels based on specified labels",
   "command-line": "fsl_label2voxel [LABEL_VALUE] [LABELED_VOLUME] [SRC_VOLUME] [OUTPUT_FILENAME]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Label value to convert",

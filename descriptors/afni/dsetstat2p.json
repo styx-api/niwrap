@@ -1,11 +1,10 @@
 {
-  "tool-version": "24.2.06",
   "name": "dsetstat2p",
   "author": "AFNI Developers",
   "description": "Converts a statistic to a p-value with reference to a particular dataset",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "dsetstat2p [DATASET] [STATVAL] [BISIDED] [TWO_SIDED] [ONE_SIDED] [QUIET]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Specify a dataset DDD and, if it has multiple sub-bricks, the [i]th subbrick with the statistic of interest MUST be selected explicitly; note the use of quotation marks around the brick selector (because of the square-brackets). Note that 'i' can be either a number of a string label selector.",
@@ -65,9 +64,5 @@
       "id": "output_file",
       "name": "Output file"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  }
+  ]
 }

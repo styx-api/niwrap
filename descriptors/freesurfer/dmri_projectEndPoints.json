@@ -1,7 +1,7 @@
 {
   "name": "dmri_projectEndPoints",
   "command-line": "dmri_projectEndPoints [STREAMLINE_FILE] [LEFT_SURFACE_FILE] [RIGHT_SURFACE_FILE] [LEFT_OVERLAY_FILE] [RIGHT_OVERLAY_FILE] [REFERENCE_IMAGE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "description": "A tool for projecting the endpoints of streamlines onto cortical surfaces, producing overlay files for visualization.",
   "inputs": [
     {
@@ -74,10 +74,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

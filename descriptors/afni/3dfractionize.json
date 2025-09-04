@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dfractionize",
   "author": "AFNI Developers",
   "description": "For each voxel in the output dataset, computes the fraction of it that is occupied by nonzero voxels from the input.",
   "command-line": "3dfractionize [TEMPLATE] [INPUT] [PREFIX] [CLIP] [WARP] [PRESERVE] [VOTE]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-template",
@@ -71,7 +66,7 @@
       "name": "Vote for Preservation Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX]",

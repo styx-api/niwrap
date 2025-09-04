@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "dcmdrle.fs",
   "author": "FreeSurfer Developers",
   "description": "Decodes RLE-compressed DICOM files.",
   "command-line": "dcmdrle.fs [INPUT_FILE] [OUTPUT_FILE] [HELP] [VERSION] [ARGUMENTS] [QUIET] [VERBOSE] [DEBUG] [LOG_LEVEL] [LOG_CONFIG] [READ_FILE] [READ_FILE_ONLY] [READ_DATASET] [UID_DEFAULT] [UID_ALWAYS] [BYTE_ORDER_DEFAULT] [BYTE_ORDER_REVERSE] [WRITE_FILE] [WRITE_DATASET] [WRITE_XFER_LITTLE] [WRITE_XFER_BIG] [WRITE_XFER_IMPLICIT] [ENABLE_NEW_VR] [DISABLE_NEW_VR] [GROUP_LENGTH_RECALC] [GROUP_LENGTH_CREATE] [GROUP_LENGTH_REMOVE] [LENGTH_EXPLICIT] [LENGTH_UNDEFINED] [PADDING_RETAIN] [PADDING_OFF] [PADDING_CREATE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "DICOM input filename to be converted.",
@@ -274,9 +273,5 @@
       "name": "Output DICOM file"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

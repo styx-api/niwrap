@@ -1,9 +1,8 @@
 {
-  "tool-version": "7.4.1",
   "name": "inflate_subject-rh",
   "description": "Freesurfer command to perform an operation on the right hemisphere of a subject's brain image data.",
   "command-line": "inflate_subject-rh [ARGUMENTS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Arguments for the command. Placeholder due to lack of detailed help text.",
@@ -16,9 +15,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

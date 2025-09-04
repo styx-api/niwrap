@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "1dsum",
   "author": "AFNI Developers",
   "description": "Sum or average columns of ASCII files with numbers arranged in rows and columns.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "1dsum [INPUT_FILES] [IGNORE_ROWS] [USE_ROWS] [MEAN_FLAG] [NOCOMMENT_FLAG] [OKEMPTY_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input ASCII files with numbers arranged in rows and columns.",
@@ -62,7 +57,7 @@
       "name": "OK empty flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "output.txt",

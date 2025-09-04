@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "AnalyzeTrace",
   "author": "AFNI Developers",
   "description": "A program to analyze SUMA (and AFNI's perhaps) stack output for functions that return with RETURN without bothering to go on the stack.",
@@ -100,10 +99,6 @@
       "name": "Enable memory tracing"
     }
   ],
-  "schema-version": "0.5",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
+  "schema-version": "0.5+styx",
   "url": "https://afni.nimh.nih.gov/"
 }

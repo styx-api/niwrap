@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "label2patch",
   "author": "FreeSurfer Developers",
   "description": "Utility to create patches from label files in Freesurfer.",
   "command-line": "label2patch [SUBJECT_NAME] [HEMISPHERE] [LABEL_FILE] [OUTPUT_PATCH] [DILATE] [ERODE] [CLOSE] [SUBJECTS_DIR] [SURFACE_NAME] [WRITE_SURFACE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Subject name",
@@ -92,9 +91,5 @@
       "name": "Write Surface"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

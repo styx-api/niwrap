@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "uber_subject.py",
   "author": "AFNI Developers",
   "description": "Graphical interface to afni_proc.py",
   "command-line": "uber_subject.py [QT_OPTS] [SVAR] [CVAR] [NO_GUI] [PRINT_AP_COMMAND] [SAVE_AP_COMMAND] [EXEC_AP_COMMAND] [EXEC_PROC_SCRIPT] [ALIGN_COST] [ALIGN_GIANT_MOVE] [ALIGN_OPTS_AEA] [ANAL_DOMAIN] [ANAL_TYPE] [ANAT] [ANAT_HAS_SKULL] [BLOCKS] [BLUR_SIZE] [EPI] [EPI_WILDCARD] [GID] [GLTSYM] [GLTSYM_LABEL] [MOTION_LIMIT] [OUTLIER_LIMIT] [REGRESS_GOFORIT] [REGRESS_BANDPASS] [REGRESS_JOBS] [REGRESS_MOT_DERIV] [REGRESS_OPTS_3DD] [REML_EXEC] [RUN_CLUSTSIM] [SID] [STIM] [STIM_BASIS] [STIM_LABEL] [STIM_TYPE] [STIM_WILDCARD] [TCAT_NFIRST] [TLRC_BASE] [TLRC_OK_MAXITE] [TLRC_OPTS_AT] [VOLREG_BASE] [VERB]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Pass options to PyQt4",
@@ -393,6 +388,6 @@
       "name": "Verbose Level"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "url": "https://afni.nimh.nih.gov/"
 }

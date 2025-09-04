@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "gen_ss_review_scripts.py",
   "author": "AFNI Developers",
   "description": "Generate single subject analysis review scripts",
   "command-line": "gen_ss_review_scripts.py [SUBJECT_ID] [RM_TRS] [NUM_STIM] [MB_LEVEL] [SLICE_PATTERN] [MOTION_DSET] [OUTLIER_DSET] [ENORM_DSET] [MOT_LIMIT] [OUT_LIMIT] [XMAT_REGRESS] [XMAT_UNCENSORED] [STATS_DSET] [FINAL_ANAT] [FINAL_VIEW] [PREFIX] [VERBOSITY] [UVARS_JSON] [INIT_UVARS_JSON]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Subject ID",
@@ -181,7 +176,7 @@
       "name": "Initialize uvars JSON file"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "./@ss_review_basic",

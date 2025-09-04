@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dAutobox",
   "author": "AFNI Developers",
   "description": "Computes size of a box that fits around the volume. Can also be used to crop the volume to that box.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dAutobox [INPUT] [PREFIX] [ALT_INPUT] [NOCLUST] [EXTENT] [EXTENT_IJK] [EXTENT_IJK_TO_FILE] [EXTENT_IJK_MIDSLICE] [EXTENT_IJKORD] [EXTENT_IJKORD_TO_FILE] [EXTENT_XYZ_TO_FILE] [EXTENT_XYZ_MIDSLICE] [NPAD] [NPAD_SAFETY_ON]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input dataset",
@@ -129,5 +124,5 @@
       "name": "Npad safety on flag"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

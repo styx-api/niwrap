@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dBRAIN_VOYAGERtoAFNI",
   "author": "AFNI Developers",
   "description": "Converts a BrainVoyager vmr dataset to AFNI's BRIK format based on information from BrainVoyager's website.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dBRAIN_VOYAGERtoAFNI [INPUT_FILE] [FORCE_BYTE_SWAP] [BRAINVOYAGER_QX] [TLRC_SPACE] [ACPC_SPACE] [ORIG_SPACE] [PREFIX] [NOVOLREG] [NOXFORM] [SET_ENVIRONMENT] [TRACE_DEBUGGING] [TRACE_EXTREME_DEBUGGING] [TURN_OFF_MEMORY_TRACING] [TURN_ON_MEMORY_TRACING]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "--input",
@@ -126,7 +121,7 @@
       "name": "Turn On Memory Tracing"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "output.BRIK",

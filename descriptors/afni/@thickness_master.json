@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "@thickness_master",
   "description": "Compute cortical thickness using mask and surface datasets",
   "command-line": "@thickness_master [MASKSET] [SURFSET] [OUTDIR]",
@@ -52,11 +51,7 @@
       "name": "In2out output directory"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "author": "AFNI Developers",
   "url": "https://afni.nimh.nih.gov/"
 }

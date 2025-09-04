@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "SampBias",
   "author": "AFNI Developers",
   "description": "SampBias is a tool for sampling bias resultant segments between paired nodes on anatomical surfaces.",
@@ -69,11 +68,7 @@
       "name": "Segment Display Object"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTFILE].1D",

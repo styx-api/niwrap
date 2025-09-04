@@ -1,10 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dRankizer",
   "author": "AFNI Developers",
   "description": "Tool to rank each voxel as sorted into increasing value. Ties get the average rank.",
   "command-line": "3dRankizer [DATASET] [BASE_RANK] [MASK] [PREFIX] [PERCENTIZE] [PERCENTIZE_MASK]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input MRI dataset",
@@ -66,9 +65,5 @@
       "name": "Output dataset"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "url": "https://afni.nimh.nih.gov/"
 }

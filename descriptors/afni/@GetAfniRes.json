@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "@GetAfniRes",
   "author": "AFNI Developers",
   "description": "Tool to return the voxel resolution of a dataset",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "@GetAfniRes [OUTPUT_TYPE] [INPUT_DATASET]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Output type specifying whether to return the minimum, maximum, or mean resolution",
@@ -28,5 +23,5 @@
       "name": "Input dataset"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "@SUMA_Make_Spec_Caret",
   "author": "AFNI Developers",
   "description": "Prepare surfaces for viewing in SUMA, tested with Caret-5.2 surfaces.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "@SUMA_Make_Spec_Caret [SUBJECT_ID] [HELP] [DEBUG] [ECHO] [SURFACE_PATH] [SIDE_LABELS_STYLE]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-sid",
@@ -69,7 +64,7 @@
       "maximum": 3
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[SUBJECT_ID]_lh.spec",

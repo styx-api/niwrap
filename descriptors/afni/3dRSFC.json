@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dRSFC",
   "author": "AFNI Developers",
   "description": "Program to calculate common resting state functional connectivity (RSFC) parameters.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dRSFC [FBOT] [FTOP] [INPUT_DATASET] [DESPIKE] [ORT_FILE] [DSORT_FILE] [NODETREND] [TIME_STEP] [NFFT] [NORM] [MASK] [AUTOMASK] [BLUR] [LOCALPV] [INPUT_ALT] [BAND] [PREFIX] [QUIET] [NO_RS_OUT] [UN_BANDPASS_OUT] [NO_RSFA] [BP_AT_END] [NOTRANS] [NOSAT]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input dataset (3D+time sequence of volumes)",
@@ -222,7 +217,7 @@
       "name": "No Saturation Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX]_LFF+orig",

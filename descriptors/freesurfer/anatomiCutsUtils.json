@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "anatomiCutsUtils",
   "author": "FreeSurfer Developers",
   "description": "A tool for anatomical segmentation using graph-based methods.",
   "command-line": "anatomiCutsUtils [MODULES]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Specify the modules to import for processing. Ensure necessary modules like 'graph_tools' are installed.",

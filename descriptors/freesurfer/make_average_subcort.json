@@ -1,9 +1,8 @@
 {
-  "tool-version": "7.4.1",
   "name": "make_average_subcort",
   "description": "This creates an average subcortical mask for the given input subjects, intended for use in subcortical analysis in FSFAST to exclude cortical voxels.",
   "command-line": "make_average_subcort [SUBJECTS] [OUTPUT_VOLUME]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "List of subject identifiers",
@@ -33,9 +32,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

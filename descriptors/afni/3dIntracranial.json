@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dIntracranial",
   "author": "AFNI Developers",
   "description": "Performs automatic segmentation of intracranial region.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dIntracranial [INFILE] [PREFIX] [MIN_VAL] [MAX_VAL] [MIN_CONN] [MAX_CONN] [NO_SMOOTH] [MASK] [QUIET]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Filename of anat dataset to be segmented",
@@ -89,7 +84,7 @@
       "name": "Quiet flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX]+orig",

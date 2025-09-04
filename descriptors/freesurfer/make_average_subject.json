@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "make_average_subject",
   "author": "FreeSurfer Developers",
   "description": "Creates an average subject by averaging surfaces, curvatures, and volumes from a set of subjects.",
   "command-line": "make_average_subject [SUBJECTS] [FSGD_FILE] [SUBJECT_LIST_FILE] [AVERAGE_SUBJECT_NAME] [SD_OUT] [NO_LINK] [SDIR] [ICO_ORDER] [TRANSFORM_FILE] [SURFACE_REGISTRATION] [NO_SURFACES] [NO_VOLUMES] [FORCE] [KEEP_ALL_ORIG] [NO_SYMLINK] [NO_RIBBON] [NO_SURF2SURF] [RCA_THREADS] [HELP] [VERSION] [ECHO] [DEBUG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--subjects",
@@ -194,9 +193,5 @@
       "name": "Debug flag"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

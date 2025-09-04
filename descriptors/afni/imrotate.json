@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "imrotate",
   "author": "AFNI Developers",
   "description": "Shifts and rotates an image",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "imrotate [LINEAR_INTERPOLATION] [FOURIER_INTERPOLATION] [DX] [DY] [PHI] [INPUT_IMAGE] [OUTPUT_IMAGE]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input image file",
@@ -67,7 +62,7 @@
       "name": "Fourier Interpolation"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_IMAGE]",

@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dMSS",
   "author": "AFNI Developers",
   "description": "Voxelwise Multilevel Smoothing Spline (MSS) Analysis",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dMSS [PREFIX] [JOBS] [MRR_FORMULA] [LME_FORMULA] [RANDOM_EFFECT] [QVARS] [MASK] [BOUNDS] [PREDICTION_TABLE] [DATA_TABLE] [CIO_FLAG] [RIO_FLAG] [HELP_FLAG] [DBG_ARGS_FLAG] [IF_NAME] [SHOW_ALLOWED_OPTIONS_FLAG] [SDIFF_VARS] [VT_FORMULA]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Output file name. For AFNI format, provide prefix only, with no view+suffix needed. Filename for NIfTI format should have .nii attached.",
@@ -170,7 +165,7 @@
       "name": "Varying smoothing terms"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX].nii",

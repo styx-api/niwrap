@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "fat_mvm_prep.py",
   "author": "AFNI Developers",
   "description": "Combine FATCAT output with CSV data for statistical modeling.",
   "command-line": "fat_mvm_prep.py [PREFIX] [CSV_FILE] [MATRIX_FILES] [LIST_MATCH] [UNIONIZE_ROIS] [NA_WARN_OFF] [EXTERN_LABELS_NO]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-p",
@@ -70,7 +65,7 @@
       "name": "Disable External Labels"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX]_MVMtbl.txt",

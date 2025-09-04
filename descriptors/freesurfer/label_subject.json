@@ -2,7 +2,7 @@
   "name": "label_subject",
   "description": "A tool for labeling subject MRI data in FreeSurfer.",
   "command-line": "label_subject [NU_FILE] [ORIG_DIR]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Path to the nu.mgz file. If not provided, defaults to nu.mgz.",
@@ -30,10 +30,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

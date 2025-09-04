@@ -4,8 +4,7 @@
   "author": "ANTs Developers",
   "description": "This script performs T1 anatomical brain processing including brain extraction, brain n-tissue segmentation, cortical thickness estimation, and optional registration to a template.",
   "url": "https://github.com/ANTsX/ANTs",
-  "schema-version": "0.5",
-  "tool-version": "2.5.3",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "image_dimension",
@@ -270,9 +269,5 @@
       "description": "The segmentation posteriors for different tissue classes.",
       "path-template": "[OUTPUT_PREFIX]BrainSegmentationPosteriors.nii.gz"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  }
+  ]
 }

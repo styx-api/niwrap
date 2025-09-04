@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dMEPFM",
   "author": "AFNI Developers",
   "description": "Voxelwise deconvolution of Multiecho fMRI data to yield time-varying estimates of changes in transverse relaxation (DR2*) and optionally, net magnetization (DS0)",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dMEPFM [INPUT_FILES] [DBGARGS] [MASK] [HRF_MODEL] [VERBOSITY]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Dataset to analyze with Multiecho Paradigm Free Mapping, along with the echo time",
@@ -57,7 +52,7 @@
       "name": "Verbosity level"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "DR2_[PREFIX].nii.gz",

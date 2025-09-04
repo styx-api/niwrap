@@ -2,7 +2,7 @@
   "name": "dmri_train",
   "command-line": "dmri_train [SLIST] [TRK_FILES] [ROIS] [SEG] [CMASK] [LMASK] [BMASK_TRAINING] [OUTTRK] [BMASK_TEST] [FA] [REG] [REGNL] [REFNL] [BASEREG] [BASEREF] [NCPTS] [MAX_STREAMLINES] [XSTR] [APRIOR] [SPRIOR] [TRUNC] [OUT_FILES] [OUTDIR] [CPTDIR] [DEBUG] [CHECKOPTS] [HELP] [VERSION]",
   "description": "DMRI training tool for processing diffusion MRI data in FreeSurfer",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--slist",
@@ -261,10 +261,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

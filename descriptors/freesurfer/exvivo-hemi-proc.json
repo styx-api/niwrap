@@ -1,9 +1,8 @@
 {
-  "tool-version": "7.4.1",
   "name": "exvivo-hemi-proc",
   "description": "Processes whole hemisphere data for Jeans entorhinal subfield labeling project.",
   "command-line": "exvivo-hemi-proc [FLASHDIR] [OUTDIR] [SUBJECT] [LEFT_HEMI] [RIGHT_HEMI] [SUPTENT] [NO_ROTATE] [T1THRESH] [THREADS] [CHECK_ONLY] [PREP_ONLY] [MASK_ONLY] [SAMSEG_ONLY] [STOP_MMPPSP_AFTER] [FORCE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--i",
@@ -133,9 +132,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

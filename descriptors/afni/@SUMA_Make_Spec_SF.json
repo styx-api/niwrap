@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "@SUMA_Make_Spec_SF",
   "author": "AFNI Developers",
   "description": "Prepare for surface viewing in SUMA",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "@SUMA_Make_Spec_SF [DEBUG_LEVEL] [SURFACE_PATH] [SUBJECT_ID]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-sid",
@@ -40,7 +35,7 @@
       "name": "Surface path"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "SURFACES",

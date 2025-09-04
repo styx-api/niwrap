@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dSetupGroupInCorr",
   "author": "AFNI Developers",
   "description": "Pre-process a collection of AFNI 3D+time datasets for use with Group InstaCorr.",
   "command-line": "3dSetupGroupInCorr [DATASETS] [MASK_DATASET] [PREFIX] [SHORT_FLAG] [BYTE_FLAG] [LABELS_FILE] [DELETE_FLAG] [PREP_METHOD] [LR_PAIRS]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "AFNI 3D+time datasets to be processed.",
@@ -90,7 +85,7 @@
       "name": "Left-Right pairs"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX].grpincorr.niml",

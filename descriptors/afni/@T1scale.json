@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "@T1scale",
   "author": "AFNI Developers",
   "description": "Fix bias field shading in T1 by scaling it with PD image. You can also get a decent result even without the PD volume.",
   "command-line": "@T1scale [T1_VOLUME] [PD_VOLUME] [OUTPUT_DIRECTORY] [ALIGN] [MASK] [HEAD_MASK] [UNMASKED_UNI] [MASKED_UNI] [ECHO] [HELP] [H_WEB] [H_VIEW] [ALL_OPTS] [H_FIND_WORD]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-T1",
@@ -127,7 +122,7 @@
       "name": "Find Word in Help"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "T1.uni+orig",

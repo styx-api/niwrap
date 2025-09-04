@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "afni_open",
   "author": "AFNI Developers",
   "description": "A program to open various AFNI/SUMA files.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "afni_open [FILES] [METHOD] [EDITOR] [DOWNLOADER] [EXAMINEXMAT] [BROWSER] [README] [AFNIWEB] [GLOBAL_HELP] [GOPTS_HELP] [HELP] [MINI_HELP] [EXTREME_HELP] [H_VIEW] [H_WEB]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input file(s) to be opened.",
@@ -133,5 +128,5 @@
       "name": "View Help in Browser Flag"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

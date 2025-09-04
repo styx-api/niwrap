@@ -1,10 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "24swap",
   "author": "AFNI Developers",
   "description": "Swaps bytes pairs and/or quadruples on the files listed.",
   "command-line": "24swap [QUIET] [PATTERN] [INPUT_FILES]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input file(s) to swap bytes",
@@ -33,9 +32,5 @@
       "name": "Byte Swap Pattern"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "url": "https://afni.nimh.nih.gov/"
 }

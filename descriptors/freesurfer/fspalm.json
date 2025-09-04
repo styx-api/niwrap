@@ -1,10 +1,9 @@
 {
   "name": "fspalm",
   "description": "Prepares and analyzes the output of mri_glmfit for Permutation Analysis of Linear Models (PALM) to correct for multiple comparisons.",
-  "tool-version": "7.4.1",
   "author": "FreeSurfer Developers",
   "command-line": "fspalm [GLMDIR] [CFT] [CWP] [ONETAIL] [TWOTAIL] [NAME] [ITERS] [MONLY] [PPONLY] [OCTAVE] [CENTROID] [2SPACES] [3SPACES] [PARGS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "glmdir",
@@ -125,9 +124,5 @@
       "command-line-flag": "--pargs"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

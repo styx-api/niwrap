@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "fat_proc_align_anat_pair",
   "author": "AFNI Developers",
   "description": "A tool for aligning a T1w anatomical image to a T2w anatomical image using solid-body parameters (translation and rotation)",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "fat_proc_align_anat_pair [INPUT_T1W] [INPUT_T2W] [OUTPUT_PREFIX] [OUTPUT_GRID] [OUT_T2W_GRID] [INPUT_T2W_MASK] [DO_SS_TMP_T1W] [WARP] [MATRIX] [WORKDIR] [NO_CMD_OUT] [NO_CLEAN]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "T1-weighted volume",
@@ -115,7 +110,7 @@
       "name": "No clean flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_PREFIX]_t1w_aligned.nii.gz",

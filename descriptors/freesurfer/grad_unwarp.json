@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "grad_unwarp",
   "author": "FreeSurfer Developers",
   "description": "Convert, dewarp, and resample DICOM files to MGH files.",
   "command-line": "grad_unwarp [INFILE] [SERIESNO] [UNWARP_TYPE] [NOJAC] [CORFOV] [COR] [INTERP] [OUTFILE] [MATLAB_BINARY]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input file or directory (dcmfile, dcmdir, or mghfile)",
@@ -98,9 +97,5 @@
       "name": "COR Output directory"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

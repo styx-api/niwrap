@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dAFNIto3D",
   "author": "AFNI Developers",
   "description": "Reads in an AFNI dataset, and writes it out as a 3D file.",
   "command-line": "3dAFNIto3D [DATASET] [PREFIX] [BINARY] [TEXT]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "AFNI dataset to be converted",
@@ -43,7 +38,7 @@
       "name": "Text Format Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX].3D",

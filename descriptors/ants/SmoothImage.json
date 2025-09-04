@@ -2,8 +2,7 @@
   "name": "SmoothImage",
   "command-line": "SmoothImage [IMAGE_DIMENSION] [IMAGE_EXT] [SMOOTHING_SIGMA] [OUT_IMAGE_EXT] [SIGMA_UNITS] [MEDIAN_FILTER]",
   "description": "SmoothImage allows smoothing of images with adjustable sigma values, offering optional median filtering functionality.",
-  "schema-version": "0.5",
-  "tool-version": "2.5.3",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "image_dimension",
@@ -64,9 +63,5 @@
     }
   ],
   "author": "ANTs Developers",
-  "url": "https://github.com/ANTsX/ANTs",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  }
+  "url": "https://github.com/ANTsX/ANTs"
 }

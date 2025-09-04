@@ -3,8 +3,7 @@
   "command-line": "WarpTensorImageMultiTransform [IMAGE_DIMENSION] [MOVING_IMAGE] [OUTPUT_IMAGE] [REFERENCE_IMAGE] [TIGHTEST_BOUNDING_BOX] [RESLICE_BY_HEADER] [USE_NEAREST_NEIGHBOR] [TRANSFORMS] [ANTS_PREFIX] [ANTS_PREFIX_INVERT]",
   "description": "WarpTensorImageMultiTransform is used to apply transformations including affine and deformation fields to an image, supporting various interpolation techniques, image header reslicing, and compatibility with ANTS-generated transformations.",
   "url": "https://github.com/ANTsX/ANTs",
-  "tool-version": "2.5.3",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "image_dimension",
@@ -96,9 +95,5 @@
       "description": "The resultant transformed output image."
     }
   ],
-  "author": "ANTs Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  }
+  "author": "ANTs Developers"
 }

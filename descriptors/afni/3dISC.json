@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dISC",
   "author": "AFNI Developers",
   "description": "Program for Voxelwise Inter-Subject Correlation (ISC) Analysis using linear mixed-effects modeling.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dISC [OUTFILE_PREFIX] [NUM_JOBS] [MASK_FILE] [MODEL_STRUCTURE] [QVAR_CENTERS] [QUANTITATIVE_VARS] [FISHER_TRANSFORM] [IO_FUNCTIONS] [DATA_TABLE]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Output file name. For AFNI format, provide prefix only, with no view+suffix needed.",
@@ -92,7 +87,7 @@
       "name": "Data table"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTFILE_PREFIX]_ISC.nii",

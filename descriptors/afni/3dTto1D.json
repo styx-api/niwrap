@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dTto1D",
   "author": "AFNI Developers",
   "description": "Collapse a 4D time series to a 1D time series",
   "command-line": "3dTto1D [INPUT_DATASET] [METHOD] [AUTOMASK] [MASK] [PREFIX] [VERBOSE]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Specify input dataset. This should be a set of 3D time series. If the input is in 1D format, a transpose operator will typically be required.",
@@ -63,7 +58,7 @@
       "name": "Verbose Level"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX]",

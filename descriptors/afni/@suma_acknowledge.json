@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "@suma_acknowledge",
   "author": "AFNI Developers",
   "description": "Demo script to create a graph dataset to show names of individuals and groups, potentially useful for acknowledgements in a talk.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "@suma_acknowledge [INPUT_FILE] [SURFACE_FILE] [OUTPUT_PREFIX] [CENTER_FLAG] [SUBSURFACE_FILE] [SCALE_FACTOR] [REDUCE_FACTOR]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Required input text file with format for each line: first last groupname.",
@@ -73,7 +68,7 @@
       "name": "Reduce factor"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_PREFIX]_graph_dataset",

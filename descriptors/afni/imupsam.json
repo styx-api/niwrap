@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "imupsam",
   "author": "AFNI Developers",
   "description": "Upsamples a 2D image by a specified factor",
   "command-line": "imupsam [ASCII_FLAG] [FACTOR] [INPUT_IMAGE] [OUTPUT_IMAGE]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Upsampling factor; must be an integer in the range 2 to 30",
@@ -45,7 +40,7 @@
       "name": "ASCII output flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_IMAGE]",

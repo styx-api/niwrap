@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "imstack",
   "author": "AFNI Developers",
   "description": "Stacks up a set of 2D images into one big file (a la MGH).",
@@ -34,7 +33,7 @@
       "name": "Output prefix"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_PREFIX].b[DATA_TYPE]",
@@ -49,9 +48,5 @@
       "name": "Output header file"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "url": "https://afni.nimh.nih.gov/"
 }

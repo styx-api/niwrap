@@ -1,9 +1,8 @@
 {
   "name": "fsr-coreg",
-  "tool-version": "7.4.1",
   "description": "Co-registers input data in preparation for FreeSurfer analysis",
   "command-line": "fsr-coreg [IMPORT_DIR] [REFERENCE_MODE] [NUM_THREADS] [FORCE_UPDATE] [OUTPUT_DIR] [EXPERT_OPTIONS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Data directory created by fsr-import",
@@ -74,9 +73,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

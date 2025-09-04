@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "fs_lib_check",
   "author": "FreeSurfer Developers",
   "description": "Checks if the operating system has the necessary system libraries required to run FreeSurfer.",
   "command-line": "fs_lib_check [USE_LDCONFIG] [USE_RPM] [SHOW_HELP] [SHOW_VERSION]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-l",
@@ -39,9 +38,5 @@
       "name": "Show version"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

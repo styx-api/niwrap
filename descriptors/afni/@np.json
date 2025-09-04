@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "@np",
   "description": "Finds an appropriate new prefix to use, given the files you already have in your directory. It automatically creates a valid prefix when you are repeatedly running similar commands but do not want to delete previous output.",
   "command-line": "@np [PREFIX]",
@@ -13,7 +12,7 @@
       "name": "Prefix"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "appropriate_prefix.txt",
@@ -22,10 +21,6 @@
       "name": "Output file"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "author": "AFNI Developers",
   "url": "https://afni.nimh.nih.gov/"
 }

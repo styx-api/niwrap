@@ -1,10 +1,9 @@
 {
   "name": "bbregister",
-  "tool-version": "7.4.1",
   "author": "FreeSurfer Developers",
   "description": "Performs within-subject, cross-modal registration using a boundary-based cost function.",
   "command-line": "bbregister [SUBJECT] [MOVEABLE_VOLUME] [REG_FILE] [CONTRAST_TYPE_T1] [CONTRAST_TYPE_T2] [VSM] [INIT_COREG] [NO_COREG_REF_MASK] [INIT_HEADER] [INIT_REG] [INTVOL] [MID_FRAME] [FRAME_NO] [TEMPLATE_OUT] [O_OUTVOL] [S_FROM_REG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "subject",
@@ -158,9 +157,5 @@
       "path-template": "[O_OUTVOL]"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

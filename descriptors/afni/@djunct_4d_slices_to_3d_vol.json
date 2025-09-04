@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "@djunct_4d_slices_to_3d_vol",
   "author": "AFNI Developers",
   "description": "Tool description goes here",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "@djunct_4d_slices_to_3d_vol [DO_SOMETHING]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-do-something",
@@ -19,7 +14,7 @@
       "name": "Do something flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "output_file",

@@ -1,9 +1,8 @@
 {
   "command-line": "3dTfitter [RHS] [LHS] [POLORT] [VTHR] [FALTUNG] [LSQFIT] [L1FIT] [L2LASSO] [LASSO_CENTRO_BLOCK] [L2SQRTLASSO] [CONSIGN] [CONSFAL] [PREFIX] [LABEL] [FITTS] [ERRSUM] [MASK] [QUIET]",
   "description": "* At each voxel, assembles and solves a set of linear equations.\n ++ The matrix at each voxel may be the same or may be different.\n ++ This flexibility (for voxel-wise regressors) is one feature\n    that makes 3dTfitter different from 3dDeconvolve.\n ++ Another distinguishing feature is that 3dTfitter allows for\n    L2, L1, and L2+L1 (LASSO) regression solvers, and allows you\n    to impose sign constraints on the solution parameters.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "name": "3dTfitter",
-  "tool-version": "24.2.06",
   "inputs": [
     {
       "id": "RHS",
@@ -172,10 +171,6 @@
       "value-key": "[QUIET]"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "output-files": [
     {
       "id": "output_prefix",

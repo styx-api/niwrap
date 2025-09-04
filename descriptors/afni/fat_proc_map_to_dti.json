@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "fat_proc_map_to_dti",
   "author": "AFNI Developers",
   "description": "A program for mapping data sets into DWI space, suitable for aligning anatomical ROI maps or EPI data to a DWI reference volume.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "fat_proc_map_to_dti [SOURCE] [BASE] [PREFIX] [FOLLOWERS_NN] [FOLLOWERS_WSINC5] [FOLLOWERS_SURF] [FOLLOWERS_NDSET] [FOLLOWERS_SPEC] [MATRIX] [WORKDIR] [NO_CMD_OUT] [NO_CLEAN]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "T1w volume file (source volume)",
@@ -122,5 +117,5 @@
       "command-line-flag": "-no_clean"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

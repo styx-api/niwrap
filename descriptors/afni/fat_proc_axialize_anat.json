@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "fat_proc_axialize_anat",
   "author": "AFNI Developers",
   "description": "Helps align the major axes of an anatomical volume to those of the volumetric field of view.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "fat_proc_axialize_anat [IN_FILE] [REF_FILE] [PREFIX] [MODE_T2W] [MODE_T1W] [WORKDIR] [OUT_MATCH_REF] [DO_CEIL_OUT] [EXTRA_AL_WTMASK] [EXTRA_AL_COST] [EXTRA_AL_OPTS] [FOCUS_MASK] [FOCUS_BY_SS] [REMOVE_INF_SLI] [PRE_ALIGN_CENTER_MASS] [PRE_CENTER_MASS] [POST_LR_SYMM] [NO_PRE_LR_SYMM] [NO_CLEAN] [QC_ULAY_RANGE] [NO_QC_VIEW] [QC_PREFIX]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input anatomical volume full name",
@@ -198,7 +193,7 @@
       "name": "QC prefix"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX].nii.gz",

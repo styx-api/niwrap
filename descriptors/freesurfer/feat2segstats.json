@@ -1,9 +1,8 @@
 {
-  "tool-version": "7.4.1",
   "name": "feat2segstats",
   "description": "Computes segmentation summaries and stores output in featdir/freesurfer/segstats/segvol/statname.dat",
   "command-line": "feat2segstats [FEAT_DIR] [FEATDIRFILE] [SEG_VOL] [ASEG_FLAG] [APARC_ASEG_FLAG] [CTAB] [ALL_SEGS_FLAG] [COPES_FLAG] [VARCOPES_FLAG] [ZSTATS_FLAG] [PES_FLAG] [RVAR] [EXAMPLE_FUNC] [MASK] [MEAN_FUNC] [STAT] [VERSION_FLAG] [HELP_FLAG] [DEBUG_FLAG] [NOLOG_FLAG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--feat",
@@ -184,9 +183,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

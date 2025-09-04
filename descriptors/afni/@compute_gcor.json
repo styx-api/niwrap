@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "@compute_gcor",
   "author": "AFNI Developers",
   "description": "Compute GCOR, the global correlation",
@@ -68,7 +67,7 @@
       "maximum": 3
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[CORR_VOL_PREFIX]+tlrc.BRIK",
@@ -82,9 +81,5 @@
       "id": "corr_vol_head",
       "name": "Correlation Volume HEAD"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  }
+  ]
 }

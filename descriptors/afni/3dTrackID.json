@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dTrackID",
   "author": "AFNI Developers",
   "description": "FACTID-based tractography code for AFNI, part of FATCAT",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dTrackID [MODE] [NETROIS] [PREFIX] [DTI_IN] [DTI_LIST] [DTI_EXTRA] [DTI_SEARCH_NO] [HARDI_GFA] [HARDI_DIRS] [HARDI_PARS] [MASK] [THRU_MASK] [TARG_SURF_STOP] [TARG_SURF_TWIXT] [LOGIC] [MINI_NUM] [UNCERT] [UNC_MIN_FA] [UNC_MIN_V] [ALGOPT] [ALG_THRESH_FA] [ALG_THRESH_ANG] [ALG_THRESH_LEN] [ALG_NSEED_X] [ALG_NSEED_Y] [ALG_NSEED_Z] [ALG_THRESH_FRAC] [ALG_NSEED_VOX] [ALG_NMONTE] [EXTRA_TR_PAR] [UNCUT_AT_ROIS] [DUMP_ROIS] [DUMP_NO_LABTAB] [DUMP_LAB_CONSEC] [POSTERIORI] [REC_ORIG] [DO_TRK_OUT] [TRK_OPP_ORIENT] [NIFTI] [NO_INDIPAIR_OUT] [WRITE_ROIS] [WRITE_OPTS] [PAIR_OUT_POWER] [VERB]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "The mode of tracking: DET, MINIP, or PROB",
@@ -366,7 +361,7 @@
       "name": "Verbosity level"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX]_INDIMAP.nii.gz",

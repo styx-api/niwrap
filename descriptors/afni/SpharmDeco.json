@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "SpharmDeco",
   "author": "AFNI Developers",
   "description": "Spherical Harmonics Decomposition of a surface's coordinates or data",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "SpharmDeco [I_TYPE_S] [UNIT_SPH_LABEL] [ORDER_L] [I_TYPE_SD] [DATA_D] [BASES_PREFIX] [PREFIX] [O_TYPE_SDR] [DEBUG] [SIGMA]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Unit sphere, isotopic to the surface domain over which the data to be decomposed is defined.",
@@ -95,7 +90,7 @@
       "name": "Smoothing sigma"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX]_reconstructed",

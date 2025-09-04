@@ -3,7 +3,7 @@
   "description": "Submits jobs to the cluster (either seychelles or launchpad at NMR) for longitudinal post-processing.",
   "author": "FreeSurfer Developers",
   "command-line": "long_submit_postproc [QDEC] [PROG] [FLAGS] [DIR] [SIMULATE] [PAUSE] [MAX] [QUEUE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "qdec",
@@ -77,10 +77,5 @@
       "optional": true
     }
   ],
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

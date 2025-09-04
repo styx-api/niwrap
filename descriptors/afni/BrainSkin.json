@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "BrainSkin",
   "author": "AFNI Developers",
   "description": "A program to create an unfolded surface that wraps the brain (skin) and Gyrification Indices.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "BrainSkin [SURFACE] [SKINGRID_VOLUME] [PREFIX] [PLIMIT] [DLIMIT] [SEGDO] [VOXELIZE] [INFILL] [OUT_FILE] [VOL_SKIN] [VOL_HULL] [NO_ZERO_ATTRACTION] [NODE_DBG]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Surface to smooth or the domain over which DSET is defined.",
@@ -126,7 +121,7 @@
       "name": "Node Debug"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX].stitch.gii",

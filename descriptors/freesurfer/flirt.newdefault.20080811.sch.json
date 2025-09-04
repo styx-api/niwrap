@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "flirt.newdefault.20080811.sch",
   "author": "FreeSurfer Developers",
   "description": "FLIRT (FMRIB's Linear Image Registration Tool) new default configuration script.",
   "command-line": "flirt.newdefault.20080811.sch [TERM_OPTION] [CURSES_FLAG] [SCROLLBACK_FLAG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-T",
@@ -32,9 +31,5 @@
       "name": "Clear Scrollback Flag"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "fat_proc_filter_dwis",
   "author": "AFNI Developers",
   "description": "Filter out user-found and user-defined bad volumes from DWI data sets.",
@@ -103,7 +102,7 @@
       "value-key": "[DO_MOVIE]"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "id": "filtered_dwi",
@@ -124,9 +123,5 @@
       "description": "Filtered b-values file, if provided."
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "url": "https://afni.nimh.nih.gov/"
 }

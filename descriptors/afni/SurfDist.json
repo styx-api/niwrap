@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "SurfDist",
   "author": "AFNI Developers",
   "description": "Calculate shortest distance between node pairs on a surface mesh.",
@@ -74,7 +73,7 @@
       "name": "To nodes"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "example.1D",
@@ -82,9 +81,5 @@
       "id": "distances",
       "name": "Distances file"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  }
+  ]
 }

@@ -1,9 +1,8 @@
 {
   "name": "ico_supersample",
-  "tool-version": "7.4.1",
   "description": "A tool for refining icosahedron meshes with user-specified parameters.",
   "command-line": "ico_supersample [REFINE] [RADIUS] [PROJECTION_POINT]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-y",
@@ -40,9 +39,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

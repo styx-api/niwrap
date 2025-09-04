@@ -2,7 +2,7 @@
   "name": "long_submit_jobs",
   "command-line": "long_submit_jobs [QDEC] [CDIR] [BDIR] [LDIR] [SCRIPTSDIR] [CROSS] [BASE] [LONG] [CFLAGS] [BFLAGS] [LFLAGS] [AFFINE] [FORCE] [SIMULATE] [SIMFILES] [CHECK] [PAUSE] [MAX] [QUEUE] [CMEM] [BMEM] [LMEM] [CNODES] [BNODES] [LNODES]",
   "description": "Submits longitudinal processing jobs to the NMR cluster (seychelles or launchpad).",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "qdec",
@@ -223,10 +223,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

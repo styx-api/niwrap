@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dSynthesize",
   "author": "AFNI Developers",
   "description": "Reads a '-cbucket' dataset and a '.xmat.1D' matrix from 3dDeconvolve, and synthesizes a fit dataset using selected sub-bricks and matrix columns.",
@@ -69,10 +68,6 @@
       "value-choices": ["zero", "nbhr", "none"]
     }
   ],
-  "schema-version": "0.5",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
+  "schema-version": "0.5+styx",
   "url": "https://afni.nimh.nih.gov/"
 }

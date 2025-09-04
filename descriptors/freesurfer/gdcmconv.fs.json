@@ -1,13 +1,8 @@
 {
-  "tool-version": "7.4.1",
   "name": "gdcmconv.fs",
   "description": "Convert a DICOM file into another DICOM file.",
   "command-line": "gdcmconv.fs [INPUT_FILE] [OUTPUT_FILE] [EXPLICIT_FLAG] [IMPLICIT_FLAG] [USE_DICT_FLAG] [WITH_PRIVATE_DICT_FLAG] [CHECK_META_FLAG] [ROOT_UID] [REMOVE_GL_FLAG] [REMOVE_PRIVATE_TAGS_FLAG] [REMOVE_RETIRED_FLAG] [APPLY_LUT_FLAG] [PHOTOMETRIC_INTERPRETATION] [RAW_FLAG] [DEFLATED_FLAG] [JPEG_FLAG] [J2K_FLAG] [JPEGLS_FLAG] [RLE_FLAG] [FORCE_FLAG] [GENERATE_ICON_FLAG] [ICON_MINMAX] [ICON_AUTO_MINMAX_FLAG] [COMPRESS_ICON_FLAG] [PLANAR_CONFIGURATION] [LOSSY_FLAG] [SPLIT] [VERBOSE_FLAG] [WARNING_FLAG] [DEBUG_FLAG] [ERROR_FLAG] [QUIET_FLAG] [JPEG_QUALITY] [LOSSY_ERROR] [RATE] [J2K_QUALITY] [TILE] [NUMBER_RESOLUTION] [IRREVERSIBLE_FLAG] [IGNORE_ERRORS_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "input_file",

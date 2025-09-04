@@ -2,7 +2,7 @@
   "name": "fs_install_mcr",
   "command-line": "fs_install_mcr [MCR_VERSION]",
   "description": "MCR installation tool for FreeSurfer",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "mcr_version",
@@ -14,10 +14,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

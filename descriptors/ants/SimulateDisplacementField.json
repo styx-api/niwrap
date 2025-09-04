@@ -2,8 +2,7 @@
   "name": "SimulateDisplacementField",
   "command-line": "SimulateDisplacementField [IMAGE_DIMENSION] [DISPLACEMENT_FIELD_TYPE] [DOMAIN_IMAGE] [OUTPUT_FIELD] [NUMBER_OF_RANDOM_POINTS] [STANDARD_DEVIATION_DISPLACEMENT_FIELD] [ENFORCE_STATIONARY_BOUNDARY] [DISPLACEMENT_SPECIFIC_OPTIONS]",
   "description": "Simulate displacement fields using various methods such as BSpline or Exponential.",
-  "schema-version": "0.5",
-  "tool-version": "2.5.3",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "image_dimension",
@@ -120,9 +119,5 @@
     }
   ],
   "author": "ANTs Developers",
-  "url": "https://github.com/ANTsX/ANTs",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  }
+  "url": "https://github.com/ANTsX/ANTs"
 }

@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dQwarp",
   "author": "AFNI Developers",
   "description": "Computes a nonlinearly warped version of source_dataset to match base_dataset.",
   "command-line": "3dQwarp [BASE_DATASET] [SOURCE_DATASET] [PREFIX] [NO_WARP] [INVERSE_WARP] [NO_DATASET] [A_WARP] [PCL] [PEAR] [HEL] [MI] [NMI] [LPC] [LPA] [NONEG] [NOPENALTY] [MINPATCH] [MAXLEV] [VERBOSE] [QUIET]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Base dataset",
@@ -192,6 +187,6 @@
       "name": "Inverse Warp Dataset"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "url": "https://afni.nimh.nih.gov/"
 }

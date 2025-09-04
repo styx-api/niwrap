@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3ddelay",
   "author": "AFNI Developers",
   "description": "Estimates the time delay between each voxel time series in a 3D+time dataset and a reference time series.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3ddelay [INPUT_FILE] [REFERENCE_FILE] [SAMPLING_FREQ] [STIM_PERIOD] [PREFIX] [POLORT] [NODTRND] [UNITS_SECONDS] [UNITS_DEGREES] [UNITS_RADIANS] [PHZWRP] [NOPHZWRP] [PHZREVERSE] [PHZSCALE] [BIAS] [NOBIAS] [DSAMP] [NODSAMP] [MASK] [NFIRST] [NLAST] [CO] [ASC] [ASCTS]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Filename of the input 3D+time dataset",
@@ -214,7 +209,7 @@
       "name": "Output ASCII file with time series"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX].DEL+orig.BRIK",

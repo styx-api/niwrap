@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "@GetAfniOrient",
   "author": "AFNI Developers",
   "description": "Returns the orient code of AFNI datasets",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "@GetAfniOrient [EXPLORATORY] [INFILE]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input AFNI dataset (e.g. Hello+orig.HEAD)",
@@ -27,7 +22,7 @@
       "name": "Exploratory flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[INFILE]_orient_code.txt",

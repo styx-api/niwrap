@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "plugout_tt",
   "author": "AFNI Developers",
   "description": "This program connects to AFNI and receives notification whenever the user changes Talairach coordinates.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "plugout_tt [HOST] [IJK_OPTION] [VERBOSE] [PORT] [NAME] [PORT_OFFSET] [PORT_OFFSET_QUIET] [PORT_BLOC] [MAX_PORT_BLOC] [MAX_PORT_BLOC_QUIET] [NUM_ASSIGNED_PORTS] [NUM_ASSIGNED_PORTS_QUIET]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Name of the host computer to connect to AFNI on. The default is to connect on the current host using shared memory.",
@@ -113,5 +108,5 @@
       "name": "Number of Assigned Ports Quiet"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

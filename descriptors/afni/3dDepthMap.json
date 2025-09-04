@@ -1,10 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dDepthMap",
   "author": "AFNI Developers",
   "description": "Calculates the Euclidean Distance Transform (EDT) for 3D volumes, allowing computation of ROI depth maps and applying various adjustments like masking and rimification.",
   "command-line": "3dDepthMap [INPUT_DATASET] [OUTPUT_PREFIX] [MASK] [DIST_SQUARED] [IGNORE_VOXDIMS] [RIMIFY] [ZEROS_ARE_ZERO] [ZEROS_ARE_NEG] [NZ_ARE_NEG] [BOUNDS_ARE_NOT_ZERO] [ONLY2D] [BINARY_ONLY] [VERBOSITY]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "input_dataset",
@@ -125,9 +124,5 @@
       "description": "Main output file"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "url": "https://afni.nimh.nih.gov/"
 }

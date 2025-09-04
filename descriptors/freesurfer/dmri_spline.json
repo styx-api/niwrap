@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "dmri_spline",
   "author": "FreeSurfer Developers",
   "description": "Tool for interpolating and analyzing splines within a defined mask",
   "command-line": "dmri_spline [CONTROL_POINTS_FILE] [MASK_VOLUME] [OUTPUT_VOLUME] [SHOW_POINTS] [OUTPUT_POINTS] [OUTPUT_VECTORS_BASE] [DEBUG] [CHECK_OPTIONS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--cpts",
@@ -108,9 +107,5 @@
       "name": "Output Curvature File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

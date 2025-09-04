@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "gen_epi_review.py",
   "author": "AFNI Developers",
   "description": "Generate an AFNI processing script to review EPI data",
   "command-line": "gen_epi_review.py [DATASETS] [SCRIPT_NAME] [WINDOWS] [VERBOSITY] [IMAGE_SIZE] [IMAGE_XOFFSET] [IMAGE_YOFFSET] [GRAPH_SIZE] [GRAPH_XOFFSET] [GRAPH_YOFFSET]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Specify input datasets for processing",

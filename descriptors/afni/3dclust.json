@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dclust",
   "author": "AFNI Developers",
   "description": "Performs simple-minded cluster detection in 3D datasets",
   "command-line": "3dclust [RMM] [VMUL] [DATASETS] [NN1] [NN2] [NN3] [NOABS] [SUMMARIZE] [NOSUM] [VERB] [ONED_FORMAT] [NO_ONED_FORMAT] [QUIET] [MNI] [ISOVALUE] [ISOMERGE] [INMASK] [PREFIX] [SAVEMASK] [BINARY]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Cluster connection radius in millimeters.",
@@ -173,7 +168,7 @@
       "name": "Binary mask flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX].nii.gz",

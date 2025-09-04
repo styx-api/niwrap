@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "adjunct_aw_tableize_roi_info.py",
   "author": "AFNI Developers",
   "description": "A simple helper function for the fat_proc scripts that generates a text file containing ROI count/size information based on provided atlases and masks.",
@@ -54,7 +53,7 @@
       "name": "Modesmooth value"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_FILE]",
@@ -63,9 +62,5 @@
       "name": "Output file"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "url": "https://afni.nimh.nih.gov/"
 }

@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "adjunct_suma_fs_roi_info",
   "author": "AFNI Developers",
   "description": "Script for making ROI stats for the SUMA/ directory created by @SUMA_Make_Spec_FS after running FreeSurfer's recon-all.",
@@ -48,7 +47,7 @@
       "name": "Version"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "stats_fs_rois_2000_FT.1D",
@@ -75,9 +74,5 @@
       "name": "Segmentations 2009"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "url": "https://afni.nimh.nih.gov/"
 }

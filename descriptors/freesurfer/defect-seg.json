@@ -2,7 +2,7 @@
   "name": "defect-seg",
   "description": "This program creates some files that allows the user to visualize and evaluate the surface defects that were automatically detected and fixed by the topology correction program.",
   "command-line": "defect-seg [SUBJECT] [LH_ONLY] [RH_ONLY]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--s",
@@ -110,11 +110,6 @@
       "name": "Right Defects Stats"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "tool-version": "7.4.1",
   "author": "FreeSurfer Developers",
   "url": "https://github.com/freesurfer/freesurfer"
 }

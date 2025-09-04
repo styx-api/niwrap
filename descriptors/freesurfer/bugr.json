@@ -1,10 +1,9 @@
 {
   "name": "bugr",
-  "tool-version": "7.4.1",
   "description": "Utility for generating and reporting FreeSurfer bugs",
   "author": "FreeSurfer Developers",
   "command-line": "bugr [SUBJECT_NAME] [COMMAND_LINE] [ERROR_MESSAGE] [LOG_FILE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Subject name to include in the bug report",
@@ -43,9 +42,5 @@
       "command-line-flag": "-log"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

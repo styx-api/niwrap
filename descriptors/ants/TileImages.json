@@ -2,8 +2,7 @@
   "name": "TileImages",
   "command-line": "TileImages [IMAGE_DIMENSION] [OUTPUT_IMAGE] [LAYOUT] [INPUT_IMAGES]",
   "description": "TileImages allows assembling images into a multi-dimensional array, producing a single output image. The input images must have a dimension less than or equal to the specified output image dimension.",
-  "schema-version": "0.5",
-  "tool-version": "2.5.3",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "image_dimension",
@@ -46,9 +45,5 @@
     }
   ],
   "author": "ANTs Developers",
-  "url": "https://github.com/ANTsX/ANTs",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  }
+  "url": "https://github.com/ANTsX/ANTs"
 }

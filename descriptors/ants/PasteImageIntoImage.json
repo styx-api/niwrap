@@ -2,8 +2,7 @@
   "name": "PasteImageIntoImage",
   "command-line": "PasteImageIntoImage [IMAGE_DIMENSION] [INPUT_CANVAS_IMAGE] [INPUT_IMAGE] [OUTPUT_IMAGE] [START_INDEX] [BACKGROUND_LABEL] [PAINT_OVER_NON_BACKGROUND_VOXELS] [CONFLICT_LABEL]",
   "description": "Paste the input image into the input canvas image. Depending on parameters, it can replace or merge existing voxel values.",
-  "tool-version": "2.5.3",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "image_dimension",
@@ -79,9 +78,5 @@
     }
   ],
   "author": "ANTs Developers",
-  "url": "https://github.com/ANTsX/ANTs",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  }
+  "url": "https://github.com/ANTsX/ANTs"
 }

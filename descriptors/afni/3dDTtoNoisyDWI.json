@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dDTtoNoisyDWI",
   "author": "AFNI Developers",
   "description": "Generate a synthetic set of DWI measures with a given SNR from an AFNI-style DT file and a set of gradients. This can be useful for simulations and testing.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dDTtoNoisyDWI [DT_FILE] [GRAD_FILE] [NOISE_DWI] [NOISE_B0] [PREFIX] [MASK] [BVAL] [S0]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Diffusion tensor file with six bricks of DT components ordered in the AFNI manner: Dxx,Dxy,Dyy,Dxz,Dyz,Dzz.",
@@ -81,7 +76,7 @@
       "name": "Reference b=0 signal strength"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX]+orig",

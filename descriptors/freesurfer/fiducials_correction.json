@@ -2,11 +2,7 @@
   "name": "fiducials_correction",
   "description": "A tool for correcting fiducial markers in imaging data. Note: This command has dependency issues with the Qt platform plugin 'xcb'. Ensure dependencies are properly configured.",
   "command-line": "fiducials_correction [INPUT_FILE] [OUTPUT_FILE]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input file containing imaging data with fiducial markers to correct.",
@@ -34,6 +30,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
   "url": "https://github.com/freesurfer/freesurfer"
 }

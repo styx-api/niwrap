@@ -4,12 +4,7 @@
   "description": "antsApplyTransformsToPoints, applied to an input image, transforms it according to a reference image and a transform (or a set of transforms). It reads in a CSV file with the first D columns defining the spatial location where the spatial location is defined in physical coordinates. The CSV file should have a header row.",
   "author": "ANTs Developers",
   "url": "https://github.com/ANTsX/ANTs",
-  "tool-version": "2.5.3",
-  "schema-version": "0.5",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  },
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "dimensionality",

@@ -2,7 +2,7 @@
   "name": "fsl_rigid_register",
   "description": "A front-end tool for FSL's FLIRT that computes a rigid registration matrix and resamples the input volume to the reference volume.",
   "command-line": "fsl_rigid_register [REFVOL] [INPUTVOL] [OUTPUTVOL] [FSLMAT] [REGMAT] [XFMMAT] [LTAMAT] [NOINITGEOM] [APPLYXFM] [APPLYINITXFM] [INITXFM] [MAXANGLE] [INTERP] [DOF] [BINS] [COST] [TMPDIR] [NOCLEANUP] [CLEANUP] [SUBJECT] [VERSION] [HELP]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "refvol",
@@ -206,10 +206,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

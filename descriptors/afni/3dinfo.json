@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dinfo",
   "author": "AFNI Developers",
   "description": "Prints out sort-of-useful information from a 3D dataset's header",
   "command-line": "3dinfo [ORIENT] [LEXTENT] [REXTENT] [AEXTENT] [PEXTENT] [IEXTENT] [SEXTENT] [ALL_NAMES] [VERB] [VERY_VERBOSE] [SHORT] [NO_HIST] [H] [HELP] [EXTREME_HELP] [H_VIEW] [H_WEB] [H_FIND] [H_RAW] [H_SPX] [H_ASPX] [ALL_OPTS] [LABEL2INDEX] [NIML_HDR] [SUBBRICK_INFO] [EXISTS] [ID] [IS_ATLAS] [IS_ATLAS_OR_LABELTABLE] [IS_NIFTI] [DSET_EXTENSION] [STORAGE_MODE] [SPACE] [GEN_SPACE] [AV_SPACE] [NIFTI_CODE] [IS_OBLIQUE] [HANDEDNESS] [OBLIQUITY] [PREFIX] [PREFIX_NOEXT] [NI] [NJ] [NK] [NIJK] [NV] [NT] [N4] [NVI] [NTI] [NTIMES] [MAX_NODE] [DI] [DJ] [DK] [D3] [ADI] [ADJ] [ADK] [AD3] [VOXVOL] [OI] [OJ] [OK] [O3] [DCX] [DCY] [DCZ] [DC3] [TR] [DMIN] [DMAX] [DMINUS] [DMAXUS] [SMODE] [HEADER_NAME] [BRICK_NAME] [INAME] [EXTENT] [FAC] [LABEL] [DATUM] [MIN] [MAX] [MINUS] [MAXUS] [LABELTABLE] [LABELTABLE_AS_ATLAS_POINTS] [ATLAS_POINTS] [HISTORY] [SLICE_TIMING] [HEADER_LINE] [HDR] [SB_DELIM] [NA_FLAG] [ATR_DELIM] [AFORM_REAL] [AFORM_REAL_ONELINE] [AFORM_REAL_REFIT_ORI] [IS_AFORM_REAL_ORTH] [AFORM_ORTH] [PERM_TO_ORIENT] [SAME_GRID] [SAME_DIM] [SAME_DELTA] [SAME_ORIENT] [SAME_CENTER] [SAME_OBL] [SAME_ALL_GRID] [VAL_DIFF] [SVAL_DIFF] [MONOG_PAIRS] [DATASET]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Datasets to retrieve information from",
@@ -921,7 +916,7 @@
       "name": "Monogamous Pairs"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "url": "https://afni.nimh.nih.gov/",
   "stdout-output": {
     "id": "info",

@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "inflate_subject-lh",
   "author": "FreeSurfer Developers",
   "description": "A tool to process and inflate left hemisphere subject data in FreeSurfer",
   "command-line": "inflate_subject-lh [INPUT_FOLDER] [HOSTNAME_FLAG]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input folder containing subject data",

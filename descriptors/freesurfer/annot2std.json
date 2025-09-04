@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "annot2std",
   "author": "FreeSurfer Developers",
   "description": "Creates an average annotation in a standard space based on transforming the annotations of the individual subjects to the standard space through the surface registration.",
   "command-line": "annot2std [OUTPUT_ANNOT_PATH] [SUBJECTS] [FSGD_FILE] [SUBJECT_LIST_FILE] [TARGET] [LEFT_HEMISPHERE] [RIGHT_HEMISPHERE] [XHEMI] [SURFREG] [SRCSURFREG] [TRGSURFREG] [ANNOTNAME] [APARC] [A2009S] [SEGMENTATION] [STACK] [HELP] [VERSION]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--o",

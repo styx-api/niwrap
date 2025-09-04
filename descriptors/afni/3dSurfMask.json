@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dSurfMask",
   "author": "AFNI Developers",
   "description": "Creates volumetric datasets marking voxels based on their location relative to a surface",
@@ -81,7 +80,7 @@
       "name": "No Distance"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX].m+orig.BRIK",
@@ -95,9 +94,5 @@
       "id": "distance_dataset",
       "name": "Distance Dataset"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  }
+  ]
 }

@@ -2,7 +2,7 @@
   "name": "listsubj",
   "description": "List subject IDs in SUBJECT_DIR",
   "command-line": "listsubj [SUBJECT_DIR] [CROSS] [BASE] [LONG] [DONE] [ERROR] [RUNNING] [FULL_PATH] [COUNT] [HELP]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "subject_dir",
@@ -86,10 +86,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -1,7 +1,7 @@
 {
   "name": "dicom-rename",
   "description": "Copies dicom file(s) to new path with more meaningful names",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "command-line": "dicom-rename [INPUT_FILES] [OUTPUT_BASE] [VERSION] [HELP]",
   "inputs": [
     {
@@ -49,10 +49,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

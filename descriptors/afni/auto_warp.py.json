@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "auto_warp.py",
   "author": "AFNI Developers",
   "description": "Nonlinear registration tool.",
   "command-line": "auto_warp.py [BASE] [INPUT] [SKULL_STRIP_INPUT] [QBLUR] [QWORKHARD] [QW_OPTS] [KEEP_RM_FILES] [PREP_ONLY] [HELP] [HVIEW] [LIMITED_HELP] [OPTION_HELP] [VERSION] [VER] [VERB] [SAVE_SCRIPT] [SKIP_AFFINE] [SKULL_STRIP_BASE] [EX_MODE] [OVERWRITE] [SUFFIX] [CHILD_ANAT] [WARP_DXYZ] [AFFINE_DXYZ] [AFFINE_INPUT_XMAT] [SMOOTH_ANAT] [SMOOTH_BASE] [UNIFIZE_INPUT] [OUTPUT_DIR] [FOLLOWERS] [AFFINE_FOLLOWERS_XMAT] [SKULLSTRIP_OPTS] [AT_OPTS]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Name of reference or template volume",
@@ -290,6 +285,6 @@
       "name": "Auto TLRC Options"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "url": "https://afni.nimh.nih.gov/"
 }

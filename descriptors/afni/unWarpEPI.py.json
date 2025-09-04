@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "unWarpEPI.py",
   "author": "AFNI Developers",
   "description": "Routine to unwarp EPI data set using another data set with opposite polarity",
   "command-line": "unWarpEPI.py [FORWARD] [REVERSE] [ANAT4WARP] [DATA] [SUBJID] [GIANT_MOVE]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Calibration matching data to be corrected",
@@ -63,6 +58,6 @@
       "command-line-flag": "-g"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "url": "https://afni.nimh.nih.gov/"
 }

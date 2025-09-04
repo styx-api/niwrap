@@ -2,7 +2,7 @@
   "name": "extract_seg_waveform",
   "description": "This program extracts an average waveform from an input volume where the average is computed over the voxels in the given segmentation indices. The input volume is mapped to the space of the segmentation given the registration, and if a voxel shift map (VSM) is supplied, it is applied simultaneously as part of the transform.",
   "command-line": "extract_seg_waveform [SEG_FILE] [SEG_INDICES] [INPUT_VOLUME] [REG_FILE] [VSM_FILE] [REGHEADER_FLAG] [DEMEAN_FLAG] [OUTPUT_FILE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--seg",
@@ -77,10 +77,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

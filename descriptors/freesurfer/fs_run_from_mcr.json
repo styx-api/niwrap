@@ -2,7 +2,7 @@
   "name": "fs_run_from_mcr",
   "description": "Replace the shell with the given command.",
   "command-line": "fs_run_from_mcr [NAME] [COMMAND] [ZEROTH_FLAG] [EMPTY_ENV_FLAG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-a",
@@ -39,10 +39,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

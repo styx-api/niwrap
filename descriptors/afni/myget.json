@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "myget",
   "description": "A simple file downloader from a URL",
   "command-line": "myget [PROTOCOL_VERSION] [URL] [OUTPUT_FILE]",
@@ -39,11 +38,7 @@
       "path-template": "[OUTPUT_FILE]"
     }
   ],
-  "schema-version": "0.5",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
+  "schema-version": "0.5+styx",
   "author": "AFNI Developers",
   "url": "https://afni.nimh.nih.gov/"
 }

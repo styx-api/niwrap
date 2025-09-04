@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "fat_mat_sel.py",
   "author": "AFNI Developers",
   "description": "Perform simple matrix plotting operations from outputs of FATCAT programs 3dNetCorr and 3dTrackID.",
   "command-line": "fat_mat_sel.py [PARAMETERS] [MATR_IN] [LIST_MATCH] [OUT_IND_MATR] [OUT_IND_1DDSET] [HOLD_IMAGE] [EXTERN_LABS_NO] [TYPE_FILE] [DPI_FILE] [XLEN_FILE] [YLEN_FILE] [TIGHT_LAYOUT_ON] [FIG_OFF] [SIZE_FONT] [LAB_SIZE_FONT] [A_PLOTMIN] [B_PLOTMAX] [CBAR_OFF] [MAP_OF_COLORS] [CBAR_INT_NUM] [WIDTH_CBAR_PERC] [SPECIFIER] [XTICK_LAB_OFF]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "--Pars",
@@ -209,7 +204,7 @@
       "name": "X-axis Label Off"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "individual_images",

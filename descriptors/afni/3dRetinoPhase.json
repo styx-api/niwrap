@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dRetinoPhase",
   "author": "AFNI Developers",
   "description": "Process time series from retinotopy stimuli to create phase datasets and visual field angle datasets",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dRetinoPhase [PREFIX] [DATASET] [EXP] [CON] [CLW] [CCW] [SPECTRA] [TSTIM] [NRINGS] [NWEDGES] [ORT_ADJUST] [PRE_STIM] [SUM_ADJUST] [PHASE_ESTIMATE] [REF_TS] [MULTI_REF_TS]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Prefix of output datasets.",
@@ -152,7 +147,7 @@
       "name": "Multiple Reference Time Series"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX].ecc+",

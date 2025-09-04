@@ -1,11 +1,10 @@
 {
-  "tool-version": "24.2.06",
   "name": "suma_change_spec",
   "author": "AFNI Developers",
   "description": "This program changes SUMA's surface specification (Spec) files.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "suma_change_spec [INPUT] [STATE] [DOMAINPARENT] [OUTPUT] [REMOVE] [ANATOMICAL]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "SUMA Spec file to change",
@@ -69,9 +68,5 @@
       "id": "backup_spec",
       "name": "Backup Spec file"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  }
+  ]
 }

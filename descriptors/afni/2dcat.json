@@ -1,11 +1,10 @@
 {
-  "tool-version": "24.2.06",
   "name": "2dcat",
   "author": "AFNI Developers",
   "description": "Puts a set of images into an image matrix montage of NX by NY images.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "2dcat [FILENAMES] [SCALE_IMAGE] [SCALE_PIXELS] [SCALE_INTENSITY] [GSCALE] [RGB_OUT] [RES_IN] [RESPAD_IN] [PAD_VAL] [CROP] [AUTOCROP_CTOL] [AUTOCROP_ATOL] [AUTOCROP] [ZERO_WRAP] [WHITE_WRAP] [GRAY_WRAP] [IMAGE_WRAP] [RAND_WRAP] [PREFIX] [MATRIX] [NX] [NY] [MATRIX_FROM_SCALE] [GAP] [GAP_COL]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "List of input image files.",
@@ -257,9 +256,5 @@
       "id": "output_1D",
       "name": "Output 1D File"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  }
+  ]
 }

@@ -2,7 +2,7 @@
   "name": "fix_subject",
   "description": "Tool to fix subjects in FreeSurfer, encountered errors due to incorrect path handling.",
   "command-line": "fix_subject [ARGUMENTS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Arguments for fix_subject command. Currently, help output shows directory errors. Ensure the correct paths are used.",
@@ -13,11 +13,6 @@
       "name": "Arguments"
     }
   ],
-  "tool-version": "7.4.1",
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

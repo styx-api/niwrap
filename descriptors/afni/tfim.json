@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "tfim",
   "author": "AFNI Developers",
   "description": "MCW TFIM: t-tests on sets of functional images",
   "command-line": "tfim [PREFIX] [PTHRESH] [EQCORR] [PAIRED] [SET1_IMAGES] [SET2_IMAGES] [BASE1_VALUE]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-prefix",
@@ -77,7 +72,7 @@
       "name": "Base value"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX].diff",

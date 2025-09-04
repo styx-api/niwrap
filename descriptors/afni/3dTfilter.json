@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dTfilter",
   "author": "AFNI Developers",
   "description": "3dTfilter filters the time series in each voxel according to the user-specified filter functions.",
@@ -34,11 +33,7 @@
       "command-line-flag": "-filter"
     }
   ],
-  "schema-version": "0.5",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUTDATASET]",

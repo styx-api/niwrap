@@ -1,9 +1,8 @@
 {
-  "tool-version": "7.4.1",
   "name": "hiam_make_template",
   "description": "This program adds a template into an average surface using FreeSurfer.",
   "command-line": "hiam_make_template [HEMI] [SURFACE_NAME] [SUBJECTS] [OUTPUT_NAME]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Hemisphere to be processed (e.g. lh or rh)",
@@ -40,9 +39,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "epi_b0_correct.py",
   "author": "AFNI Developers",
   "description": "B0 distortion correction tool using an acquired frequency (phase) image.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "epi_b0_correct.py [PREFIX] [INPUT_FREQ] [INPUT_EPI] [INPUT_MASK] [INPUT_MAGN] [INPUT_ANAT] [INPUT_JSON] [EPI_PE_DIR] [EPI_PE_BWPP] [EPI_PE_ECHO_SP] [EPI_PE_VOX_DIM] [SCALE_FREQ] [OUT_CMDS] [OUT_PARS] [WDIR_NAME] [BLUR_SIGMA] [DO_RECENTER_FREQ] [MASK_DILATE] [NO_CLEAN] [QC_BOX_FOCUS_ULAY] [NO_QC_IMAGE] [HELP] [VER] [DATE]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Prefix of output files; can include path.",
@@ -221,7 +216,7 @@
       "name": "Date"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX]_WARP.nii.gz",

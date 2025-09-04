@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "@SUMA_renumber_FS",
   "author": "AFNI Developers",
   "description": "This script processes FreeSurfer-generated parcellation files and produces various derived datasets and segmentation maps.",
@@ -14,7 +13,7 @@
       "name": "SUMA directory"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "REN_all.nii.gz",
@@ -83,9 +82,5 @@
       "name": "Labeltable"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "url": "https://afni.nimh.nih.gov/"
 }

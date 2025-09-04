@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "count",
   "author": "AFNI Developers",
   "description": "Numbered copies generator with custom format support and random sequence options",
   "command-line": "count [BOT] [TOP] [STEP] [SEED] [SSEED] [COLUMN] [DIGITS] [FORM] [ROOT] [SEP] [SUFFIX] [SCALE] [COMMA] [SKIPNMODM]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Starting number or character",
@@ -131,6 +126,6 @@
       "name": "Skip Modulus"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "url": "https://afni.nimh.nih.gov/"
 }

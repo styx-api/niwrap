@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "dmri_extractSurfaceMeasurements",
   "author": "FreeSurfer Developers",
   "description": "A tool for extracting surface measurements from diffusion MRI data.",
   "command-line": "dmri_extractSurfaceMeasurements [STREAMLINE_FILE] [LH_SURFACE_FILE] [LH_THICKNESS_OVERLAY] [LH_CURVATURE_OVERLAY] [RH_SURFACE_FILE] [RH_THICKNESS_OVERLAY] [RH_CURVATURE_OVERLAY] [OUTPUT_DIRECTORY] [REFERENCE_IMAGE] [REFERENCE_IMAGE_ANATOMICAL] [TRANSFORMATION] [ANNOTATION_FILE] [FA_OPTIONS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-i",
@@ -125,9 +124,5 @@
       "list": true
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

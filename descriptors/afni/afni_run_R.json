@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "afni_run_R",
   "author": "AFNI Developers",
   "description": "Run an R script with the specified arguments",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "afni_run_R [R_SCRIPT] [R_ARGS]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "R script to be executed",
@@ -28,5 +23,5 @@
       "name": "R Script Arguments"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "1dUpsample",
   "author": "AFNI Developers",
   "description": "Upsamples a 1D time series to a finer time grid.",
@@ -32,7 +31,7 @@
       "name": "Linear Interpolation Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "description": "Upsampled 1D time series output",
@@ -41,9 +40,5 @@
       "name": "Output File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "url": "https://afni.nimh.nih.gov/"
 }

@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "@djunct_modal_smoothing_with_rep",
   "author": "AFNI Developers",
   "description": "A script to perform modal smoothing of ROI maps and check for eliminated ROIs. If any ROIs are eliminated during smoothing, they are restored, potentially in a degraded form.",
   "command-line": "@djunct_modal_smoothing_with_rep [INPUT_FILE] [OUTPUT_PREFIX] [MODESMOOTH] [HELP_VIEW] [HELP] [VERSION] [OVERWRITE] [NO_CLEAN]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input dataset (assumes < 10^5 subbricks)",
@@ -75,7 +70,7 @@
       "name": "No clean flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_PREFIX]+tlrc.HEAD",

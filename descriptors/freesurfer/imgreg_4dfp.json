@@ -3,7 +3,7 @@
   "author": "FreeSurfer Developers",
   "description": "Image registration utility using 4dfp",
   "command-line": "imgreg_4dfp [TARGET_IMAGE] [TARGET_MASK] [SOURCE_IMAGE] [SOURCE_MASK] [T4FILE] [MODE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Target image",
@@ -56,10 +56,5 @@
       "name": "Mode"
     }
   ],
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "@2dwarper",
   "author": "AFNI Developers",
   "description": "2D image warping tool",
@@ -14,7 +13,7 @@
       "name": "Input dataset"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "warped_output",
@@ -23,9 +22,5 @@
       "name": "Warped output file"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "url": "https://afni.nimh.nih.gov/"
 }

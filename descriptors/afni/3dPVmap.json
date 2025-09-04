@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dPVmap",
   "author": "AFNI Developers",
   "description": "Computes the first two principal component vectors of a time series dataset, then outputs the R-squared coefficient of each voxel time series with these first two components.",
   "command-line": "3dPVmap [PREFIX] [MASK] [AUTOMASK] [INPUTDATASET]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-prefix",
@@ -44,7 +39,7 @@
       "name": "Input Dataset"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX]+orig.BRIK",

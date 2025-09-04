@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "histo_compute_joint_density",
   "author": "FreeSurfer Developers",
   "description": "A tool to compute the joint density of two volumes.",
   "command-line": "histo_compute_joint_density [VOLUME1] [VOLUME2] [JOINT_DENSITY_FILE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input volume 1",
@@ -39,9 +38,5 @@
       "name": "Output Joint Density File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

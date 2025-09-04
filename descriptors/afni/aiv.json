@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "aiv",
   "author": "AFNI Developers",
   "description": "AFNI Image Viewer program. Shows the 2D images on the command line in an AFNI-like image viewer.",
   "command-line": "aiv [VERBOSE] [QUIET] [TITLE] [PORT] [PAD] [INPUT_IMAGES]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-v",
@@ -64,6 +59,6 @@
       "name": "Input Images"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "url": "https://afni.nimh.nih.gov/"
 }

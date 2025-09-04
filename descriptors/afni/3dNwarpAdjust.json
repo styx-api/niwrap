@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dNwarpAdjust",
   "author": "AFNI Developers",
   "description": "Program to adjust 3D warp datasets by composing them with the inverse of their average, optionally warping input datasets and generating an output mean dataset.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dNwarpAdjust [INPUT_WARPS] [SOURCE_DATASETS] [OUTPUT_PREFIX]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-nwarp",
@@ -40,7 +35,7 @@
       "name": "Output Prefix"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_PREFIX]+tlrc.BRIK",

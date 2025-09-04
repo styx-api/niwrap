@@ -2,8 +2,7 @@
   "name": "ANTSUseDeformationFieldToGetAffineTransform",
   "command-line": "ANTSUseDeformationFieldToGetAffineTransform [DEFORMATION_FIELD] [LOAD_RATIO] [TRANSFORM_TYPE] [OUTPUT_AFFINE] [MASK]",
   "description": "Extracts an affine transform from a deformation field. The input deformation field is expected to be in the same physical space as the images you want to transform.",
-  "tool-version": "2.5.3",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "deformation_field",
@@ -56,9 +55,5 @@
     }
   ],
   "author": "ANTs Developers",
-  "url": "https://github.com/ANTsX/ANTs",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  }
+  "url": "https://github.com/ANTsX/ANTs"
 }

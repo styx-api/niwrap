@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "@auto_tlrc",
   "author": "AFNI Developers",
   "description": "A script to transform an anatomical dataset to align with some standard space template and to apply the same TLRC transform obtained with @auto_tlrc in Usage 1 mode to other datasets.",
@@ -338,7 +337,7 @@
       "value-key": "[VERB]"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX].nii.gz",
@@ -352,9 +351,5 @@
       "id": "transform_file",
       "name": "Transformation File"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  }
+  ]
 }

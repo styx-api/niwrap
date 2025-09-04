@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "3dvolreg.afni",
   "author": "FreeSurfer Developers",
   "description": "AFNI program for volume registration",
   "command-line": "3dvolreg.afni [INPUT_FILE] [OUTPUT_FILE] [OPTIONS]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input dataset to be registered",

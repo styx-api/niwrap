@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "longmc",
   "author": "FreeSurfer Developers",
   "description": "Perform motion correction for the longitudinal recon-all stream when creating the longitudinal timepoint of a subject.",
   "command-line": "longmc [CROSS_TP_NAME] [BASE_NAME] [CONFORM_TO_HIRES] [NO_CONFORM_TO_HIRES] [SUBJECTS_DIR] [SUBJECT_NAME] [NO_FORCE_UPDATE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Cross time point name for the longitudinal analysis",
@@ -66,9 +65,5 @@
       "name": "No Force Update Flag"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

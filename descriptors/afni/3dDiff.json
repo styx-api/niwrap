@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dDiff",
   "author": "AFNI Developers",
   "description": "A program to examine element-wise differences between two images.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dDiff [DATASET_A] [DATASET_B] [TOLERANCE] [MASK] [QUIET_MODE] [TABULAR_MODE] [BRUTALIST_MODE] [LONG_REPORT_MODE]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "First input dataset for comparison.",
@@ -79,7 +74,7 @@
       "name": "Long Report Mode"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[DATASET_A]_vs_[DATASET_B].log",

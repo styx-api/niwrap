@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "freeview",
   "author": "FreeSurfer Developers",
   "description": "Freeview is a 3D/2D brain visualization tool.",
   "command-line": "freeview [ARGS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Arguments for freeview",
@@ -15,9 +14,5 @@
       "name": "Arguments"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

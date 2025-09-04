@@ -2,7 +2,7 @@
   "name": "build_desikan_killiany_gcs.csh",
   "command-line": "build_desikan_killiany_gcs.csh [HEMI]",
   "description": "Tool to build Desikan-Killiany cortical parcellation in FreeSurfer.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "hemi",
@@ -13,11 +13,6 @@
       "optional": false
     }
   ],
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "author": "FreeSurfer Developers",
   "url": "https://github.com/freesurfer/freesurfer"
 }

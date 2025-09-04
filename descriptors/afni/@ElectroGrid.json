@@ -1,11 +1,10 @@
 {
-  "tool-version": "24.2.06",
   "name": "@ElectroGrid",
   "author": "AFNI Developers",
   "description": "Creates a mesh representation of an electrode grid for use with SUMA",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "@ElectroGrid [STRIP] [GRID] [PREFIX] [COORDS] [WITH_MARKERS] [ECHO]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-strip",
@@ -72,9 +71,5 @@
       "id": "output_surface",
       "name": "Output surface"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  }
+  ]
 }

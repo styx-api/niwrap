@@ -1,15 +1,10 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dClustCount",
   "author": "AFNI Developers",
   "description": "This program takes as input 1 or more datasets, thresholds them at various levels, and counts up the number of clusters of various sizes.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dClustCount [DATASETS] [PREFIX] [FINAL] [QUIET]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input datasets to be processed.",

@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dGroupInCorr",
   "author": "AFNI Developers",
   "description": "Functional connectivity analysis in group of subjects",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dGroupInCorr [SET_A] [SET_B] [APAIR] [LABEL_A] [LABEL_B] [POOLED] [UNPOOLED] [PAIRED] [NOSIX] [COVARIATES_FILE] [CENTER] [SEED_RADIUS] [SENDALL] [DONOCOV] [DOSPCOV] [CLUSTER] [READ] [ZTEST] [AH] [PORT_OFFSET] [PORT_OFFSET_QUIET] [PORT_BLOC] [SUMA] [QUIET] [VERBOSE] [VERY_VERBOSE] [DEBUG] [BATCH]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-setA",
@@ -248,7 +243,7 @@
       "name": "Batch mode"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[SET_A].results.nii",

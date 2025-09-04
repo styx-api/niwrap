@@ -2,7 +2,7 @@
   "name": "gems_compute_atlas_probs",
   "description": "Tool to compute atlas probabilities using SAMSEG results.",
   "command-line": "gems_compute_atlas_probs [SUBJECTS_DIR] [MESH_COLLECTIONS] [OUT_DIR] [SEGMENTATIONS_DIR] [GT_FROM_FS] [SEGMENTATION_NAME] [MULTI_STRUCTURE] [LABELS] [FROM_SAMSEG] [EM_ITERATIONS] [SHOW_FIGS] [SAVE_FIGS] [SAVE_AVERAGE_FIGS] [SUBJECTS_FILE] [LABELS_FILE] [SAMSEG_SUBDIR]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--subjects-dir",
@@ -146,10 +146,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

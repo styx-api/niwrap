@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "SurfToSurf",
   "author": "AFNI Developers",
   "description": "Interpolate data from one surface to another",
   "command-line": "SurfToSurf [INPUT_SURFACE_1] [INPUT_SURFACE_2] [SURFACE_VOLUME] [PREFIX] [OUTPUT_PARAMS] [NODE_INDICES] [PROJ_DIR] [DATA] [NODE_DEBUG] [DEBUG_LEVEL] [MAKE_CONSISTENT] [DSET] [MAPFILE]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "First input surface file (S1)",
@@ -124,7 +119,7 @@
       "name": "Mapfile"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX].1D",

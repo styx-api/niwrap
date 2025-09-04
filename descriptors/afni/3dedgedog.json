@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dedgedog",
   "author": "AFNI Developers",
   "description": "Calculate edges in an image using the Difference of Gaussians (DOG) method with extensions/tweaks of the Marr-Hildreth algorithm.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dedgedog [INPUT] [PREFIX] [MASK] [AUTOMASK] [SIGMA_RAD] [SIGMA_NVOX] [RATIO_SIGMA] [OUTPUT_INTERMED] [EDGE_BND_NN] [EDGE_BND_SIDE] [EDGE_BND_SCALE] [ONLY2D]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input dataset",
@@ -115,7 +110,7 @@
       "name": "Only 2D slice"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX]_edge.nii.gz",

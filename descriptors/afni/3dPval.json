@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dPval",
   "author": "AFNI Developers",
   "description": "Convert a dataset's statistical sub-bricks to p-values or other statistical representations.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dPval [INPUT_DATASET] [ZSCORE] [LOG2] [LOG10] [QVAL] [PREFIX]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input dataset (e.g., InputDataset.nii)",
@@ -60,7 +55,7 @@
       "name": "Output prefix"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX].nii.gz",

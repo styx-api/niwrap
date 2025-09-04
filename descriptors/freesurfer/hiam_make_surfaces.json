@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "hiam_make_surfaces",
   "author": "FreeSurfer Developers",
   "description": "Surface creation tool for specified brain structures",
   "command-line": "hiam_make_surfaces [SUBJECT_NAME] [STRUCTURE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Subject name for which surfaces are to be created",
@@ -24,9 +23,5 @@
       "value-choices": ["RA", "LA", "RH", "LH"]
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

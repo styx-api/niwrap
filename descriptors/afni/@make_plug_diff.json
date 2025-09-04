@@ -1,11 +1,10 @@
 {
-  "tool-version": "24.2.06",
   "name": "@make_plug_diff",
   "author": "AFNI Developers",
   "description": "Compiles AFNI's diffusion plugin.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "@make_plug_diff [VTK_DIR] [XM_DIR] [AFNI_SRC_DIR] [AFNI_BIN_DIR] [COMMENTS] [LINUX] [DIFF_DIR]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-vtk",
@@ -68,9 +67,5 @@
       "id": "linux",
       "name": "Linux Flag"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  }
+  ]
 }

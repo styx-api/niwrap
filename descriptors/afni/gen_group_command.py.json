@@ -1,15 +1,10 @@
 {
-  "tool-version": "24.2.06",
   "name": "gen_group_command.py",
   "author": "AFNI Developers",
   "description": "Generate group analysis command scripts by parsing wildcard-based lists of input datasets.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "gen_group_command.py [COMMAND_NAME] [DATASETS] [PREFIX] [SET_LABELS] [SUBJ_PREFIX] [SUBJ_SUFFIX] [SUBS_BETAS] [SUBS_TSTATS] [TYPE] [VERB] [WRITE_SCRIPT] [OTHER_OPTIONS]",
-  "schema-version": "0.5",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Resulting command, such as 3dttest++",

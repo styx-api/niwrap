@@ -3,8 +3,7 @@
   "command-line": "ConvertTransformFile [DIMENSIONS] [INPUT_TRANSFORM_FILE] [OUTPUT_TRANSFORM_FILE] [MATRIX] [HOMOGENEOUS_MATRIX] [RAS] [CONVERT_TO_AFFINE_TYPE]",
   "author": "ANTs Developers",
   "description": "Utility to read in a transform file (presumed to be in binary format) and output it in various formats. Default output is legacy human-readable text format. Without any options, the output filename extension must be .txt or .tfm to signify a text-formatted transform file.",
-  "tool-version": "2.5.3",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "dimensions",
@@ -64,9 +63,5 @@
       "description": "Convert the input transform type to AffineTransform and output again as a binary transform file."
     }
   ],
-  "url": "https://github.com/ANTsX/ANTs",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  }
+  "url": "https://github.com/ANTsX/ANTs"
 }

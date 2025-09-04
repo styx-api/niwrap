@@ -1,6 +1,5 @@
 {
   "name": "p2dsetstat",
-  "tool-version": "24.2.06",
   "author": "AFNI Developers",
   "description": "Convert a p-value to a statistic of choice with reference to a specific dataset.",
   "url": "https://afni.nimh.nih.gov/",
@@ -59,7 +58,7 @@
       "value-key": "[QUIET]"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "description": "The converted statistic value.",
@@ -67,9 +66,5 @@
       "name": "Statistic Value",
       "path-template": "stdout"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  }
+  ]
 }

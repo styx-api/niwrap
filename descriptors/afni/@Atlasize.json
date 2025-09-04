@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "@Atlasize",
   "author": "AFNI Developers",
   "description": "Script to turn a volumetric dataset into an AFNI atlas",
   "command-line": "@Atlasize [DSET] [SPACE] [LAB_FILE] [LAB_FILE_DELIM] [LONGNAMES] [LAST_LONGNAME_COL] [ATLAS_TYPE] [ATLAS_DESCRIPTION] [ATLAS_NAME] [AUTO_BACKUP] [CENTERS] [CENTERTYPE] [CENTERMASK] [SKIP_NOVOXELS] [H_WEB] [H_VIEW] [ALL_OPTS] [H_FIND]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-dset",
@@ -168,7 +163,7 @@
       "name": "Help Find"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[DSET].niml",

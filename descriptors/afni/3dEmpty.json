@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dEmpty",
   "author": "AFNI Developers",
   "description": "Tool to create an 'empty' dataset .HEAD file.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dEmpty [PREFIX] [GEOMETRY] [NXYZ] [NT]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-prefix",
@@ -50,7 +45,7 @@
       "name": "Number of Time Points"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX].HEAD",

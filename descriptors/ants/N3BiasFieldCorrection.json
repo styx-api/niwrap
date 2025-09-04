@@ -4,12 +4,7 @@
   "description": "This N3 is a variant of the popular N3 (nonparametric nonuniform normalization) retrospective bias correction algorithm. Based on the assumption that the corruption of the low frequency bias field can be modeled as a convolution of the intensity histogram by a Gaussian, the basic algorithmic protocol is to iterate between deconvolving the intensity histogram by a Gaussian, remapping the intensities, and then spatially smoothing this result by a B-spline modeling of the bias field itself.",
   "author": "ANTs Developers",
   "url": "https://github.com/ANTsX/ANTs",
-  "schema-version": "0.5",
-  "tool-version": "2.5.3",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  },
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "image_dimensionality",

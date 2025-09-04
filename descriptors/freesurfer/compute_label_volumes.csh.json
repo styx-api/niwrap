@@ -2,7 +2,7 @@
   "name": "compute_label_volumes.csh",
   "command-line": "compute_label_volumes.csh [LABEL_VOL] [OUTPUT_FILE] [LABEL_L] [VERSION] [HELP]",
   "description": "Computes the number of voxels and the volumes of either all or a particular label in the input label volume.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--vol",
@@ -79,10 +79,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

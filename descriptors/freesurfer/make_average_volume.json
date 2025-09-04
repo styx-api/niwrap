@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "make_average_volume",
   "author": "FreeSurfer Developers",
   "description": "Creates average volumes from a set of subjects.",
   "command-line": "make_average_volume [SUBJECTS] [FSGD] [OUT] [TOPDIR] [XFORM] [SDIR] [SD_FLAG] [FORCE_FLAG] [KEEP_ALL_ORIG_FLAG] [NO_ASEG_FLAG] [CTAB] [CTAB_DEFAULT_FLAG] [ECHO_FLAG] [DEBUG_FLAG] [NOCLEANUP_FLAG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--subjects",
@@ -135,9 +134,5 @@
       "value-key": "[NOCLEANUP_FLAG]"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

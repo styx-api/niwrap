@@ -2,7 +2,7 @@
   "name": "SuperResolution",
   "command-line": "SuperResolution [IMAGE_DIMENSION] [OUTPUT_IMAGE] [DOMAIN_IMAGE] [GRADIENT_SIGMA] [MESH_SIZE] [NUMBER_OF_LEVELS] [INPUT_IMAGE_FILES]",
   "description": "The SuperResolution tool enhances the spatial resolution of input images. The 'gradientSigma' parameter is used in calculating the gradient magnitude of the input images for weighting the voxel points during fitting. If a negative 'gradient' sigma is specified then no weighting is used.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "image_dimension",
@@ -72,11 +72,6 @@
       "path-template": "[OUTPUT_IMAGE]"
     }
   ],
-  "tool-version": "2.5.3",
   "author": "ANTs Developers",
-  "url": "https://github.com/ANTsX/ANTs",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  }
+  "url": "https://github.com/ANTsX/ANTs"
 }

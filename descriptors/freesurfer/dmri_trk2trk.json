@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "dmri_trk2trk",
   "author": "FreeSurfer Developers",
   "description": "A tool for transforming and analyzing tractography data.",
   "command-line": "dmri_trk2trk [IN_TRK] [IN_ASC] [IN_DIR] [OUT_TRK] [OUT_ASC] [OUT_VOL] [OUT_DIR] [IN_REF] [OUT_REF] [REG_FILE] [REGNL_FILE] [INV_FLAG] [FILL_FLAG] [OVERLAY] [INCLUSION_MASK] [EXCLUSION_MASK] [TERMINAL_INCLUSION_MASK] [TERMINAL_EXCLUSION_MASK] [LENGTH_MIN] [LENGTH_MAX] [MEAN_FLAG] [NEARMEAN_FLAG] [NTH_STREAMLINE] [EVERY_NTH_STREAMLINE] [SMOOTH_FLAG] [DEBUG_FLAG] [CHECK_OPTS]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--in",

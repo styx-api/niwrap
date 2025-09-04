@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "Vecwarp",
   "author": "AFNI Developers",
   "description": "Transforms (warps) a list of 3-vectors into another list of 3-vectors according to the specified options.",
@@ -66,7 +65,7 @@
       "name": "Force Overwrite Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT]",
@@ -75,9 +74,5 @@
       "name": "Transformed Vectors Output File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "url": "https://afni.nimh.nih.gov/"
 }

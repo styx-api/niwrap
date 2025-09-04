@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "apas2aseg",
   "author": "FreeSurfer Developers",
   "description": "Converts aparc+aseg.mgz into aseg.mgz-like format by replacing specific cortical segmentations.",
   "command-line": "apas2aseg [SUBJECT] [INPUT_APARC_ASEG] [OUTPUT_SEG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--s",
@@ -42,9 +41,5 @@
       "name": "Output segmentation file"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

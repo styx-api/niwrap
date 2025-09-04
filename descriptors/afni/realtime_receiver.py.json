@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "realtime_receiver.py",
   "author": "AFNI Developers",
   "description": "Program to receive and display real-time plugin data from AFNI.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "realtime_receiver.py [SHOW_DATA] [WRITE_TEXT_DATA] [DATA_CHOICE] [SERIAL_PORT] [SHOW_DEMO_GUI] [DC_PARAMS] [EXTRAS_ON_ONE_LINE] [SHOW_COMM_TIMES] [SHOW_DEMO_DATA] [SWAP] [TCP_PORT] [VERBOSITY]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-show_data",
@@ -121,5 +116,5 @@
       "name": "Verbosity Level"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

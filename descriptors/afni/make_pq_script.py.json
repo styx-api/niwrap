@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "make_pq_script.py",
   "author": "AFNI Developers",
   "description": "Creates a script to compute p-value and q-value curves.",
@@ -38,7 +37,7 @@
       "name": "Output script"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUT_SCRIPT]",
@@ -47,9 +46,5 @@
       "name": "Output script"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "url": "https://afni.nimh.nih.gov/"
 }

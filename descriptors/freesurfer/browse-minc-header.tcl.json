@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "browse-minc-header.tcl",
   "author": "FreeSurfer Developers",
   "description": "A tool for browsing MINC file headers, likely part of the FreeSurfer package",
   "command-line": "browse-minc-header.tcl [INFILE]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "MINC file for which the header is to be browsed",

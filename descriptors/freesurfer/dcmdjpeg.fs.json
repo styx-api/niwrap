@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "dcmdjpeg.fs",
   "author": "FreeSurfer Developers",
   "description": "A tool to decode JPEG-compressed DICOM files.",
   "command-line": "dcmdjpeg.fs [INPUT_FILE] [OUTPUT_FILE] [HELP] [VERSION] [ARGUMENTS] [QUIET] [VERBOSE] [DEBUG] [LOG_LEVEL] [LOG_CONFIG] [READ_FILE] [READ_FILE_ONLY] [READ_DATASET] [CONV_PHOTOMETRIC] [CONV_LOSSY] [CONV_GUESS] [CONV_GUESS_LOSSY] [CONV_ALWAYS] [CONV_NEVER] [PLANAR_AUTO] [COLOR_BY_PIXEL] [COLOR_BY_PLANE] [UID_DEFAULT] [UID_ALWAYS] [WORKAROUND_PRED6] [WORKAROUND_INCPL] [WRITE_FILE] [WRITE_DATASET] [WRITE_XFER_LITTLE] [WRITE_XFER_BIG] [WRITE_XFER_IMPLICIT] [ENABLE_NEW_VR] [DISABLE_NEW_VR] [GROUP_LENGTH_RECALC] [GROUP_LENGTH_CREATE] [GROUP_LENGTH_REMOVE] [LENGTH_EXPLICIT] [LENGTH_UNDEFINED] [PADDING_RETAIN] [PADDING_OFF] [PADDING_CREATE]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "DICOM input filename to be converted",

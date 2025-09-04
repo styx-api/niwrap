@@ -1,10 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "@djunct_anonymize",
   "author": "AFNI Developers",
   "description": "Helper program to anonymize files",
   "command-line": "@djunct_anonymize [INPUT] [ADD_NOTE] [COPY_TO] [OVERWRITE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input dataset",
@@ -41,9 +40,5 @@
       "name": "Overwrite"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "url": "https://afni.nimh.nih.gov/"
 }

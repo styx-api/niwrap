@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "CompareSurfaces",
   "author": "AFNI Developers",
   "description": "Calculates distance at each node in Surface 1 (S1) to Surface 2 (S2) along the local surface normal at each node in S1. Superseded by SurfToSurf.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "CompareSurfaces [SPEC_FILE] [HEMISPHERE] [VOLUME_PARENT_1] [VOLUME_PARENT_2] [FILE_PREFIX] [ONE_NODE] [NODE_RANGE] [NO_CONSISTENCY_CHECK] [NO_VOLREG] [NO_TRANSFORM] [SET_ENVIRONMENT_VARIABLE] [TRACE] [EXTREME_TRACE] [NO_MEMORY_TRACE] [YES_MEMORY_TRACE]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-spec",
@@ -142,7 +137,7 @@
       "name": "Yes memory trace"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[FILE_PREFIX]_distance.txt",

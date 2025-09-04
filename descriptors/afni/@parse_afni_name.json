@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "@parse_afni_name",
   "author": "AFNI Developers",
   "description": "A script to parse an AFNI name, outputting the path, prefix, view, and sub-brick selection string.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "@parse_afni_name [AFNI_NAME]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "The AFNI name to be parsed",
@@ -19,7 +14,7 @@
       "name": "AFNI Name"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "parsed_name_path.txt",

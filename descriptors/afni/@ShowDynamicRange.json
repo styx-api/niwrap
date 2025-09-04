@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "@ShowDynamicRange",
   "author": "AFNI Developers",
   "description": "The script checks the dynamic range of the time series data at locations inside the brain.",
   "command-line": "@ShowDynamicRange [INFILE]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input EPI time series dataset (e.g. epi.nii.gz)",
@@ -18,7 +13,7 @@
       "name": "Input file"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[INFILE]_minpercchange.nii.gz",

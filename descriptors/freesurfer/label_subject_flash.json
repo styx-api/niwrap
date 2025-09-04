@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "label_subject_flash",
   "author": "FreeSurfer Developers",
   "description": "A tool for labeling brain structures in an MRI dataset using FLASH sequences and the FreeSurfer software",
   "command-line": "label_subject_flash [TISSUE_PARAMS] [NORM_VOLUME] [TRANSFORM_FILE] [CLASSIFIER_ARRAY] [ASEG_OUTPUT]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Path to the tissue parameter file for FLASH sequences.",

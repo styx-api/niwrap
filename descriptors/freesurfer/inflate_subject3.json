@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "inflate_subject3",
   "author": "FreeSurfer Developers",
   "description": "A tool related to subject inflation in FreeSurfer.",
   "command-line": "inflate_subject3 [SUBJECTS_DIR] [SCRIPT_NAME]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "The directory where FreeSurfer subjects are stored.",
@@ -23,9 +22,5 @@
       "name": "Script Name"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dLocalstat",
   "author": "AFNI Developers",
   "description": "This program computes statistics at each voxel, based on a local neighborhood of that voxel",
   "command-line": "3dLocalstat [DATASET] [NBHD] [STAT] [MASK] [AUTOMASK] [USE_NONMASK] [PREFIX] [DATUM] [LABEL_EXT] [REDUCE_GRID] [REDUCE_RESTORE_GRID] [REDUCE_MAX_VOX] [GRID_RMODE] [QUIET] [VERBOSE] [PROCEED_SMALL_N] [FILLVALUE] [UNFILLVALUE] [MASKVALUE] [MASKVALUE2]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input dataset",
@@ -191,7 +186,7 @@
       "name": "Mask value 2"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX].nii.gz",

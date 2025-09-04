@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "imreg",
   "author": "AFNI Developers",
   "description": "Registers each 2D image in 'image_sequence' to 'base_image'",
   "command-line": "imreg [BASE_IMAGE] [IMAGE_SEQUENCE] [NOWRITE] [PREFIX] [SUFFIX] [START] [STEP] [FLIM] [KEEPSIZE] [QUIET] [DEBUG] [DPREFIX] [BILINEAR] [MODES] [MLCF] [WTIM] [DFSPACE] [CMASS] [FINE] [NOFINE]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Base image or method to determine base image ('+AVER' or '+count')",
@@ -182,7 +177,7 @@
       "name": "No Fine Fit Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX].[INDEX].[SUFFIX]",

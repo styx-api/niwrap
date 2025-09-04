@@ -2,7 +2,7 @@
   "name": "dmri_match",
   "description": "Tool for matching diffusion MRI parcellations",
   "command-line": "dmri_match [PARCELLATION1] [PARCELLATION2] [NUM_CLUSTERS] [CLUSTERING_PATH1] [CLUSTERING_PATH2] [LABELS] [EUCLIDEAN] [BOUNDING_BOX] [SYMMETRY] [INTER_HEMI_RATIO_REMOVAL] [OUTPUT]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-s1",
@@ -108,10 +108,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

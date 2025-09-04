@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "groupstats",
   "author": "FreeSurfer Developers",
   "description": "A script for comprehensive group analysis on both maps and ROI results within FreeSurfer.",
   "command-line": "groupstats [OUTDIR] [GROUP_FSGD] [SUBJECTFILE] [FWHM] [SUBJECT_DIR] [MAPNAME] [SRCSURFREG] [NO_MAPS] [LH_ONLY] [RH_ONLY] [NO_APARCSTATS] [NO_ASEGSTATS] [NO_WPARCSTATS] [NO_STATS] [NEW] [BASE] [KEEP53]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--o",

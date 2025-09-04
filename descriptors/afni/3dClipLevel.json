@@ -1,11 +1,10 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dClipLevel",
   "author": "AFNI Developers",
   "description": "Estimates the value at which to clip the anatomical dataset so that background regions are set to zero.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dClipLevel [DATASET] [MFRAC] [DOALL] [GRAD]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input dataset (e.g. dataset.nii.gz)",
@@ -41,9 +40,5 @@
       "id": "grad",
       "name": "Gradual clip level prefix"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  }
+  ]
 }

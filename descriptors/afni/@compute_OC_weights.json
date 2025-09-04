@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "@compute_OC_weights",
   "author": "AFNI Developers",
   "description": "Compute optimal combined weights dataset for multi-echo EPI data.",
@@ -97,7 +96,7 @@
       "name": "Verbose flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX]+tlrc.HEAD",
@@ -105,9 +104,5 @@
       "id": "output_oc_weights",
       "name": "OC Weights Dataset"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  }
+  ]
 }

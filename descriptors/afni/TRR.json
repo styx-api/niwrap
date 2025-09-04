@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "TRR",
   "author": "AFNI Developers",
   "description": "Test-Retest Reliability Program through Bayesian Multilevel Modeling",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "TRR [PREFIX] [CHAINS] [ITERATIONS] [RESPONSE_VAR] [SUBJECT_VAR] [REPETITION_VAR] [CONDITION_VAR] [DATA_TABLE] [CATEGORICAL_VARS] [QUANTITATIVE_VARS] [RESPONSE_DIST] [MODEL] [PLOT_SIZE] [STANDARD_ERROR] [T_STAT] [WITHIN_CHAIN_PARALLELIZATION] [DEBUG] [VERBOSE]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-prefix",
@@ -175,7 +170,7 @@
       "name": "Verbose level"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX].txt",

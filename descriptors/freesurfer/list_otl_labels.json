@@ -2,7 +2,7 @@
   "name": "list_otl_labels",
   "description": "Tool for listing labels in an imaging file.",
   "command-line": "list_otl_labels [INPUT_FILE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input volume filename",
@@ -14,11 +14,6 @@
       "name": "Input file"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "tool-version": "7.4.1",
   "author": "FreeSurfer Developers",
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "@Quiet_Talkers",
   "author": "AFNI Developers",
   "description": "A script to find and kill AFNI processes",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "@Quiet_Talkers [SUDO] [PROG] [NPB_VAL] [NPB_RANGE] [PIF_KEY] [NO_NPB] [LIST] [QUIET]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-sudo",
@@ -84,5 +79,5 @@
       "name": "Quiet flag"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

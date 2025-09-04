@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "@FromRAI",
   "author": "AFNI Developers",
   "description": "Changes the RAI coordinates to the specified orientation",
   "command-line": "@FromRAI [RAI_COORDINATES] [ORIENTATION]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-xyz",
@@ -31,6 +26,6 @@
       "name": "Orientation"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "url": "https://afni.nimh.nih.gov/"
 }

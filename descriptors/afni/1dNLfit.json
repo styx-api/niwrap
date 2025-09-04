@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "1dNLfit",
   "author": "AFNI Developers",
   "description": "Program to fit a model to a vector of data. The model is given by a symbolic expression, with parameters to be estimated.",
@@ -53,7 +52,7 @@
       "name": "Fit Method"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "stdout",
@@ -62,9 +61,5 @@
       "name": "Fit Results"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "url": "https://afni.nimh.nih.gov/"
 }

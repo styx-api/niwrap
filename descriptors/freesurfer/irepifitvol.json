@@ -2,7 +2,7 @@
   "name": "irepifitvol",
   "description": "A tool for 3D volume fitting",
   "command-line": "irepifitvol [INPUT_FILE] [OUTPUT_FILE]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input volume file for fitting",
@@ -31,10 +31,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

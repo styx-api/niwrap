@@ -1,9 +1,8 @@
 {
-  "tool-version": "7.4.1",
   "name": "gcatrain",
   "description": "GCA training tool for building a GCA from a group of manually labeled subjects.",
   "command-line": "gcatrain [GCADIR] [SUBJECTLISTFILE] [INIT_SUBJECT_TRANSFORM] [SEG_FILE] [SOURCE_SUBJECTS_DIR] [NUM_ITERS] [NUM_THREADS] [EXCLUDE_FILE] [EXCLUDE_SUBJECT] [SYMMETRIC_ATLAS] [COLOR_TABLE] [NO_SUBMIT] [MAIL_FLAG] [NO_STRICT] [GCAREG_ITERS] [PREP_ONLY] [NU10_FLAG] [NU12_FLAG] [NO_EMREG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--g",
@@ -172,9 +171,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

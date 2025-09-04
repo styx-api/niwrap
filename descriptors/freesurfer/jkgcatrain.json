@@ -1,9 +1,8 @@
 {
-  "tool-version": "7.4.1",
   "name": "jkgcatrain",
   "description": "Jackknife training of GCA using existing output from gcatrain.",
   "command-line": "jkgcatrain [GCA_DIRECTORY] [ITERATION_NUMBER] [NUM_THREADS] [NO_SUBMIT] [MAIL_FLAG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--g",
@@ -50,9 +49,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

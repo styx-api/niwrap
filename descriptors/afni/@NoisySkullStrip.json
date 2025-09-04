@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "@NoisySkullStrip",
   "author": "AFNI Developers",
   "description": "Strips the skull of anatomical datasets with low SNR.",
   "command-line": "@NoisySkullStrip [INPUT_FILE] [KEEP_TMP] [3DSKULLSTRIP_OPTS]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "The anatomical dataset",
@@ -36,7 +31,7 @@
       "name": "3dSkullStrip Options"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[INPUT_FILE].ns",

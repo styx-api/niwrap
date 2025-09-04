@@ -2,8 +2,7 @@
   "name": "antsAlignOrigin",
   "command-line": "antsAlignOrigin [DIMENSIONALITY] [INPUT] [REFERENCE_IMAGE] [OUTPUT]",
   "description": "antsAlignOrigin, applied to an input image, transforms it according to a reference image and a transform (or a set of transforms).",
-  "tool-version": "2.5.3",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "dimensionality",
@@ -53,9 +52,5 @@
     }
   ],
   "author": "ANTs Developers",
-  "url": "https://github.com/ANTsX/ANTs",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  }
+  "url": "https://github.com/ANTsX/ANTs"
 }

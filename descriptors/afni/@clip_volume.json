@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "@clip_volume",
   "author": "AFNI Developers",
   "description": "A tool to clip regions of a volume in various ways, such as above/below certain coordinates or within a specified box.",
   "command-line": "@clip_volume [INPUT_VOLUME] [BELOW_ZMM] [ABOVE_ZMM] [LEFT_XMM] [RIGHT_XMM] [ANTERIOR_YMM] [POSTERIOR_YMM] [BOX] [MASK_BOX] [AND_LOGIC] [OR_LOGIC] [VERBOSITY] [CROP_ALLZERO] [CROP_GREEDY] [CROP] [CROP_NPAD] [OUTPUT_PREFIX] [FOLLOWERS]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Volume to clip",
@@ -172,7 +167,7 @@
       "name": "Followers"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_PREFIX]_clp.nii.gz",

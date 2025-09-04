@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "1dDW_Grad_o_Mat++",
   "author": "AFNI Developers",
   "description": "Manipulation of diffusion-weighted (DW) gradient vector files, b-value files, and b- or g-matrices with various input and output configurations.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "1dDW_Grad_o_Mat++ [IN_ROW_VEC] [IN_COL_VEC] [IN_COL_MATA] [IN_COL_MATT] [FLIP_X] [FLIP_Y] [FLIP_Z] [NO_FLIP] [OUT_ROW_VEC] [OUT_COL_VEC] [OUT_COL_MATA] [OUT_COL_MATT] [IN_BVALS] [OUT_COL_BVAL] [OUT_ROW_BVAL_SEP] [OUT_COL_BVAL_SEP] [UNIT_MAG_OUT] [CHECK_ABS_MIN] [BREF_MEAN_TOP] [PUT_ZEROS_TOP] [BMAX_REF]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-in_row_vec",
@@ -192,7 +187,7 @@
       "name": "Maximum Reference B-Value Threshold"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUT_ROW_VEC]",

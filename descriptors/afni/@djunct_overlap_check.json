@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "@djunct_overlap_check",
   "author": "AFNI Developers",
   "description": "A helper script for visualizing overlap between datasets in AFNI",
   "command-line": "@djunct_overlap_check [ULAY] [OLAY] [PREFIX] [BOX_FOCUS_SLICES] [MONTGAP] [MONTCOLOR] [CBAR] [OPACITY] [ZEROCOLOR] [SET_DICOM_XYZ] [ULAY_RANGE] [ULAY_RANGE_NZ] [MONTX] [MONTY] [MONTX_CAT] [MONTY_CAT] [LABEL_MODE] [PBAR_POSONLY_OFF] [EDGY_ULAY] [SET_DICOM_XYZ_OFF] [NO_COR] [NO_AXI] [NO_SAG] [NO_CLEAN]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Dataset to use as the underlay (background)",
@@ -224,6 +219,6 @@
       "name": "No clean"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "url": "https://afni.nimh.nih.gov/"
 }

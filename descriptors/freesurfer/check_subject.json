@@ -2,7 +2,7 @@
   "name": "check_subject",
   "description": "Checks a subject directory for the existence of a surf directory.",
   "command-line": "check_subject [SUBJECT_DIR]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Path to the subject directory to check.",
@@ -13,11 +13,6 @@
       "name": "Subject Directory"
     }
   ],
-  "tool-version": "7.4.1",
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

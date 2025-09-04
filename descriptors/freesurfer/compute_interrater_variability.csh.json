@@ -1,9 +1,8 @@
 {
   "name": "compute_interrater_variability.csh",
-  "tool-version": "7.4.1",
   "description": "Computes the interrater variability between label volumes from different raters or time points using several metrics.",
   "command-line": "compute_interrater_variability.csh [LABEL_VOL1] [LABEL_VOL2] [OUTPUT_PREFIX] [VERSION] [HELP]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "label_vol1",
@@ -70,9 +69,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "apsearch",
   "author": "AFNI Developers",
   "description": "A tool for searching applications.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "apsearch [SEARCH_TERM] [FILE_OUTPUT] [VERBOSE]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Term to search",
@@ -35,7 +30,7 @@
       "name": "Verbose Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[FILE_OUTPUT]",

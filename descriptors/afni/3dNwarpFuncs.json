@@ -1,6 +1,5 @@
 {
   "name": "3dNwarpFuncs",
-  "tool-version": "24.2.06",
   "description": "Compute functions of 3D warp displacements, such as bulk volume change, shear energy, and vorticity energy.",
   "author": "AFNI Developers",
   "command-line": "3dNwarpFuncs [INPUT_WARP] [OUTPUT_PREFIX] [BULK_FLAG] [SHEAR_FLAG] [VORTICITY_FLAG] [ALL_FLAG]",
@@ -64,10 +63,6 @@
       "description": "The output dataset with the computed functions."
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "url": "https://afni.nimh.nih.gov/"
 }

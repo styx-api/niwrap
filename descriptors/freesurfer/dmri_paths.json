@@ -2,7 +2,7 @@
   "name": "dmri_paths",
   "command-line": "dmri_paths [INDIR] [OUTDIR] [DWI] [GRAD] [BVAL] [MASK] [BPDIR] [NTR] [FMIN] [BASEREG] [BASEMASK] [ROI1] [ROI2] [ROIMESH1] [ROIMESH2] [ROIREF1] [ROIREF2] [PRIOR] [NPRIOR] [NSET] [LPRIOR] [LSET] [SEG] [TPRIOR] [CPRIOR] [REG] [REGNL] [INIT] [NB] [NS] [NK] [NU] [SDP] [DEBUG] [CHECKOPTS] [VERSION]",
   "description": "Tool for diffusion MRI path analysis.",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "indir",
@@ -327,10 +327,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

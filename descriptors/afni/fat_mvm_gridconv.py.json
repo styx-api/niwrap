@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "fat_mvm_gridconv.py",
   "author": "AFNI Developers",
   "description": "Preprocess 'old school' *.grid files for statistical modeling using 3dMVM.",
   "command-line": "fat_mvm_gridconv.py [MATRIX_FILES] [LIST_FILE]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-m",
@@ -28,7 +23,7 @@
       "name": "List file"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [],
   "url": "https://afni.nimh.nih.gov/"
 }

@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dTagalign",
   "author": "AFNI Developers",
   "description": "Rotates/translates dataset 'dset' to be aligned with the master using the tagsets embedded in their .HEAD files",
   "command-line": "3dTagalign [INPUT_DATASET] [MASTER_DATASET] [TAGSET_FILE] [NO_KEEP_TAGS] [MATVEC_FILE] [ROTATE] [AFFINE] [ROTSCL] [PREFIX] [VERBOSE] [DUMMY] [LINEAR_INTERPOLATION] [CUBIC_INTERPOLATION] [NEAREST_NEIGHBOR_INTERPOLATION] [QUINTIC_INTERPOLATION]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input dataset to align",
@@ -134,7 +129,7 @@
       "name": "Quintic interpolation"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX]+orig.HEAD",

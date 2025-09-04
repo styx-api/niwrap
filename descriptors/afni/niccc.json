@@ -1,10 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "niccc",
   "author": "AFNI Developers",
   "description": "A program for conducting certain NIML tests on input from streamspec and write the results to stderr",
   "command-line": "niccc [STREAMSPEC] [DUPLICATE] [NODATA] [ATTRIBUTE] [MATCH] [FILE] [STRING] [STDOUT] [HASH] [QUIET] [FIND_ATTR] [SKIP_ATTR]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "A string defining a NIML stream",
@@ -121,9 +120,5 @@
       "name": "Standard Error Output"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "url": "https://afni.nimh.nih.gov/"
 }

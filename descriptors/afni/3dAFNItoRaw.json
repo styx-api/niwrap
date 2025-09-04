@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dAFNItoRaw",
   "author": "AFNI Developers",
   "description": "Convert an AFNI brik file with multiple sub-briks to a raw file with each sub-brik voxel concatenated voxel-wise.",
   "command-line": "3dAFNItoRaw [OUTPUT_FILE] [FORCE_FLOAT] [DATASET]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input AFNI dataset with possible modifiers for sub-brick and sub-range selection.",
@@ -35,6 +30,6 @@
       "name": "Force Float Output"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "url": "https://afni.nimh.nih.gov/"
 }

@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "@AddEdge",
   "author": "AFNI Developers",
   "description": "A script to create composite edge-enhanced datasets and drive the AFNI interface to display the results",
@@ -137,7 +136,7 @@
       "name": "No auto flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "dset_nn_ec",
@@ -163,9 +162,5 @@
       "id": "dset_nn_e3",
       "name": "Input dataset with only edges"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  }
+  ]
 }

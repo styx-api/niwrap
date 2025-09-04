@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "fix_subject_corrected-rh",
   "description": "A tool related to FreeSurfer subject correction",
   "author": "FreeSurfer Developers",
   "command-line": "fix_subject_corrected-rh [SUBJECT_DIR]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Path to the FreeSurfer subject directory",

@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dTqual",
   "author": "AFNI Developers",
   "description": "Computes a quality index for each sub-brick in a 3D+time dataset.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dTqual [DATASET] [SPEARMAN] [QUADRANT] [AUTOCLIP] [AUTOMASK] [CLIP] [MASK] [RANGE]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input 3D+time dataset",
@@ -77,7 +72,7 @@
       "name": "Range flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "stdout",

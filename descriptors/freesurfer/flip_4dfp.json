@@ -2,7 +2,7 @@
   "name": "flip_4dfp",
   "description": "A tool to flip 4dfp images along specified axes.",
   "command-line": "flip_4dfp [INPUT_IMAGE] [OUTPUT_IMAGE] [FLIP_X] [FLIP_Y] [FLIP_Z] [ENDIANNESS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input 4dfp image file",
@@ -64,10 +64,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "fsl_sub_mgh",
   "author": "FreeSurfer Developers",
   "description": "Wrapper for job control system such as SGE, modified for compatibility with the PBS queueing system.",
   "command-line": "fsl_sub_mgh [ESTIMATED_TIME] [QUEUE_NAME] [ARCHITECTURE] [JOB_PRIORITY] [EMAIL_ADDRESS] [HOLD_JOB] [TASK_FILE] [JOB_NAME] [LOG_DIR] [MAIL_OPTIONS] [FLAGS_IN_SCRIPTS] [VERBOSE] [SHELL_PATH]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-T",
@@ -124,9 +123,5 @@
       "name": "Shell path"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

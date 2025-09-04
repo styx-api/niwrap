@@ -3,12 +3,7 @@
   "command-line": "SurfaceBasedSmoothing [IMAGE_TO_SMOOTH] [SIGMA] [SURFACE_IMAGE] [OUTNAME] [NUM_REPEATS]",
   "description": "Surface-based smoothing applied to ImageToSmooth using a geodesic neighbourhood defined by sigma and the surface image.",
   "author": "ANTs Developers",
-  "tool-version": "2.5.3",
-  "schema-version": "0.5",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  },
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "image_to_smooth",

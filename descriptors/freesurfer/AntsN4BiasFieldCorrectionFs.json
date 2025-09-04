@@ -1,10 +1,9 @@
 {
   "name": "AntsN4BiasFieldCorrectionFs",
   "command-line": "AntsN4BiasFieldCorrectionFs [INPUT_FILE] [OUTPUT_FILE] [MASK_FILE] [SHRINK_FACTOR] [ITERATIONS] [OUTPUT_DTYPE] [REPLACE_ZEROS]",
-  "tool-version": "7.4.1",
   "description": "Runs N4 (nonparameteric, nonuniform normalization) retrospective bias correction on an image. This program wraps the AntsN4BiasFieldCorrection utility available in the ANTs package.",
   "author": "FreeSurfer Developers",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "-i",
@@ -80,9 +79,5 @@
       "id": "corrected_output_file"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -2,7 +2,7 @@
   "name": "lta_diff",
   "description": "A tool to compute different distance norms for a single transform or for the difference between two transforms.",
   "command-line": "lta_diff [TRANSFORM1] [TRANSFORM2] [DIST_TYPE] [INVERT1] [INVERT2] [VOX] [NORMDIV] [RADIUS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "First transform file",
@@ -74,10 +74,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "tool-version": "7.4.1",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

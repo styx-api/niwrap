@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "convert_cdiflist_to_grads.py",
   "author": "AFNI Developers",
   "description": "This program reads in a GE cdiflist and outputs gradient file and file of bvalues for subsequent processing.",
@@ -65,7 +64,7 @@
       "name": "Help in text editor flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX]_rvec.dat",
@@ -86,9 +85,5 @@
       "name": "Column gradient file"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "url": "https://afni.nimh.nih.gov/"
 }

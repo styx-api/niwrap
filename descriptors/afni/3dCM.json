@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dCM",
   "author": "AFNI Developers",
   "description": "Tool for computing the center of mass of a dataset",
   "command-line": "3dCM [DSET] [MASK] [AUTOMASK] [SET_ORIGIN] [LOCAL_IJK] [ROI_VALS] [ALL_ROIS] [ICENT] [DCENT]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "stdout-output": {
     "id": "stdout",
     "description": "center of mass of the dataset",
@@ -94,7 +89,7 @@
       "name": "Distance Center flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [],
   "url": "https://afni.nimh.nih.gov/"
 }

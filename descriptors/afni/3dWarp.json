@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dWarp",
   "author": "AFNI Developers",
   "description": "Warp (spatially transform) one 3D dataset.",
   "command-line": "3dWarp [MATVEC_IN2OUT] [MATVEC_OUT2IN] [TTA2MNI] [MNI2TTA] [MATPARENT] [CARD2OBLIQUE] [OBLIQUE_PARENT] [DEOBLIQUE] [OBLIQUE2CARD] [DISP_OBL_XFORM_ONLY] [LINEAR] [CUBIC] [NN] [QUINTIC] [WSINC5] [FSL_MATVEC] [NEWGRID] [GRIDSET] [ZPAD] [VERB] [PREFIX] [DATASET]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input dataset to be warped",
@@ -195,6 +190,6 @@
       "optional": true
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "url": "https://afni.nimh.nih.gov/"
 }

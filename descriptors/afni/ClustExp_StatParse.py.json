@@ -2,8 +2,7 @@
   "name": "ClustExp_StatParse.py",
   "description": "Parser for statistical data sets and subject data sets, generating several outputs for further analysis.",
   "command-line": "ClustExp_StatParse.py [STATDSET] [MEANBRIK] [THRESHBRIK] [SUBJDSET] [SUBJTABLE] [MASTER] [PREFIX] [PVAL] [MINVOX] [ATLAS] [SESSION] [NOSHINY] [OVERWRITE]",
-  "schema-version": "0.5",
-  "tool-version": "24.2.06",
+  "schema-version": "0.5+styx",
   "author": "AFNI Developers",
   "inputs": [
     {
@@ -172,9 +171,5 @@
       "path-template": "[PREFIX]_master.nii.gz"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "url": "https://afni.nimh.nih.gov/"
 }

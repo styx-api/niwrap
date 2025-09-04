@@ -2,8 +2,7 @@
   "name": "ExtractRegionFromImageByMask",
   "command-line": "ExtractRegionFromImageByMask [IMAGE_DIMENSION] [INPUT_IMAGE] [OUTPUT_IMAGE] [LABEL_MASK_IMAGE] [LABEL] [PAD_RADIUS]",
   "description": "Extract a sub-region from an image using the bounding box from a label image, with an optional padding radius.",
-  "tool-version": "2.5.3",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "image_dimension",
@@ -58,9 +57,5 @@
     }
   ],
   "author": "ANTs Developers",
-  "url": "https://github.com/ANTsX/ANTs",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  }
+  "url": "https://github.com/ANTsX/ANTs"
 }

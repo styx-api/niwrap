@@ -1,9 +1,5 @@
 {
   "command-line": "long_mris_slopes [QDEC] [MEAS] [HEMI] [SD] [DO_AVG] [DO_RATE] [DO_PC1FIT] [DO_PC1] [DO_SPC] [DO_STACK] [DO_LABEL] [QCACHE] [RESID] [FWHM] [NOSMOOTH] [TIME] [GENERIC_TIME] [IN_LABEL] [JAC] [NAME_AVG] [NAME_RATE] [NAME_PC1FIT] [NAME_PC1] [NAME_SPC] [NAME_RESID] [OUT_STACK] [OUT_LABEL] [ISEC_LABELS] [STACK_AVG] [STACK_RATE] [STACK_PC1FIT] [STACK_PC1] [STACK_SPC] [STACK_RESID]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "description": "Computes slope maps (e.g., of thickness) in a longitudinal study using FreeSurfer",
   "inputs": [
     {
@@ -304,8 +300,7 @@
     }
   ],
   "name": "long_mris_slopes",
-  "schema-version": "0.5",
-  "tool-version": "7.4.1",
+  "schema-version": "0.5+styx",
   "author": "FreeSurfer Developers",
   "url": "https://github.com/freesurfer/freesurfer"
 }

@@ -1,9 +1,8 @@
 {
   "name": "histo_register_block",
-  "tool-version": "7.4.1",
   "description": "A tool to align a histological slice with a block face image.",
   "command-line": "histo_register_block [SEG_TIME1] [SEG_TIME2] [TRANSFORM1] [TRANSFORM2] [OUTPUT_FILE] [OUT_LIKE] [INVERT_TRANSFORM]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Segmented image at time point 1",
@@ -72,9 +71,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

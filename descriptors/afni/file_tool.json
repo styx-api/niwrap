@@ -1,11 +1,10 @@
 {
-  "tool-version": "24.2.06",
   "name": "file_tool",
   "author": "AFNI Developers",
   "description": "Program to display or modify sections of a file",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "file_tool [HELP] [VERSION] [HIST] [DEBUG] [INFILES] [GE_ALL] [GE_HEADER] [GE_EXTRAS] [GE_UV17] [GE_RUN] [GE_OFF] [GE4_ALL] [GE4_IMAGE] [GE4_SERIES] [GE4_STUDY] [DEF_ANA_HDR] [DIFF_ANA_HDRS] [DISP_ANA_HDR] [HEX] [MOD_ANA_HDR] [MOD_FIELD] [PREFIX] [OVERWRITE] [SHOW_BAD_ALL] [SHOW_BAD_BACKSLASH] [SHOW_BAD_CHAR] [SHOW_FILE_TYPE] [FIX_RICH_QUOTES] [TEST] [LENGTH] [MOD_DATA] [MOD_TYPE] [OFFSET] [QUIET] [DISP_HEX] [DISP_HEX1] [DISP_HEX2] [DISP_HEX4] [DISP_INT2] [DISP_INT4] [DISP_REAL4] [SWAP_BYTES]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "help",
@@ -361,9 +360,5 @@
       "path-template": "[PREFIX]",
       "description": "The modified output file"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  }
+  ]
 }

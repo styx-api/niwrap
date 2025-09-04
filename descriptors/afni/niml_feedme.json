@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "niml_feedme",
   "author": "AFNI Developers",
   "description": "Sends volumes from the dataset to AFNI via the NIML socket interface.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "niml_feedme [HOST] [INTERVAL] [VERBOSE] [ACCUM] [TARGET_DATASET] [DRIVE_CMDS] [DATASET]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Send data, via TCP/IP, to AFNI running on the computer system 'sname'. By default, uses the current system (localhost), if you don't use this option.",
@@ -72,5 +67,5 @@
       "name": "Input dataset"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

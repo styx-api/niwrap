@@ -3,12 +3,7 @@
   "command-line": "SmoothDisplacementField [IMAGE_DIMENSION] [INPUT_FIELD] [OUTPUT_FIELD] [VARIANCE_OR_MESH_SIZE_BASE_LEVEL] [NUMBER_OF_LEVELS] [SPLINE_ORDER] [ESTIMATE_INVERSE] [CONFIDENCE_IMAGE]",
   "description": "SmoothDisplacementField applies smoothing to a displacement field over a specified number of levels with optional parameters for spline order, inverse estimation, and confidence image output.",
   "author": "ANTs Developers",
-  "tool-version": "2.5.3",
-  "schema-version": "0.5",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  },
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "image_dimension",

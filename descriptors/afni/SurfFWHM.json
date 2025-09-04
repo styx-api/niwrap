@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "SurfFWHM",
   "author": "AFNI Developers",
   "description": "A program for calculating local and global FWHM.",
   "command-line": "SurfFWHM [INPUT_FILE] [MASK] [SURF_1] [SURF_SPHERE] [CLEAN] [DETREND] [DETPOLY] [DETPREFIX] [PREFIX] [VOX_SIZE] [NEIGHBORHOOD] [OK_WARN] [EXAMPLES] [SLICE]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Dataset for which the FWHM is to be calculated.",
@@ -157,6 +152,6 @@
       "name": "Mask output"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "url": "https://afni.nimh.nih.gov/"
 }

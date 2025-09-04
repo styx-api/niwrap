@@ -1,9 +1,8 @@
 {
   "name": "createMorph",
-  "tool-version": "7.4.1",
   "description": "Tool to create morphological transformations using specified input transforms.",
   "command-line": "createMorph [INPUT_TRANSFORMS] [OUTPUT_TRANSFORM] [TEMPLATE] [SUBJECT] [DEBUG_COORDINATES]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "input_transforms",
@@ -64,9 +63,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

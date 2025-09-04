@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dnewid",
   "author": "AFNI Developers",
   "description": "Assigns a new ID code to a dataset, ensuring internal ID codes remain unique.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dnewid [DATASETS] [FUN] [FUN11] [INT] [HASH] [MD5]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input datasets to assign new ID codes.",
@@ -63,5 +58,5 @@
       "name": "MD5 hash of string"
     }
   ],
-  "schema-version": "0.5"
+  "schema-version": "0.5+styx"
 }

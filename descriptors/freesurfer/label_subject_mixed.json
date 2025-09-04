@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "label_subject_mixed",
   "author": "FreeSurfer Developers",
   "description": "Automatic labeling of brain regions using a Gaussian classifier array.",
   "command-line": "label_subject_mixed [BRAIN_MASK] [NORM_VOLUME] [TRANSFORM] [GCA_FILE] [ASEG_OUTPUT]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Brain mask to be used for final labeling",

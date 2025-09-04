@@ -1,9 +1,8 @@
 {
   "name": "gauss_4dfp",
-  "tool-version": "7.4.1",
   "description": "Applies a Gaussian filter to 4dfp or conc input files.",
   "command-line": "gauss_4dfp [INPUT_FILE] [F_HALF] [OUTPUT_ROOT] [ENDIAN_FLAG] [WRAP_FLAG] [DIFFERENTIATE_FLAG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "input_file",
@@ -64,9 +63,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

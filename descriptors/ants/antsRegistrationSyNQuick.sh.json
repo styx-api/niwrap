@@ -2,12 +2,7 @@
   "name": "antsRegistrationSyNQuick.sh",
   "command-line": "antsRegistrationSyNQuick.sh [DIMENSIONALITY] [FIXED_IMAGE] [MOVING_IMAGE] [OUTPUT_PREFIX] [TRANSFORM_TYPE]",
   "description": "A script to quickly compute a SyN-based registration between two images using ANTS.",
-  "schema-version": "0.5",
-  "tool-version": "2.5.3",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  },
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "dimensionality",

@@ -1,9 +1,8 @@
 {
-  "tool-version": "7.4.1",
   "name": "biasfield",
   "description": "Computes the bias field by dividing the (unconformed) orig.mgz by the norm.mgz.",
   "command-line": "biasfield [SUBJECT] [TMPDIR] [NO_CLEANUP] [HELP] [DEBUG] [VERSION]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--s",
@@ -71,9 +70,5 @@
     }
   ],
   "author": "FreeSurfer Developers",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

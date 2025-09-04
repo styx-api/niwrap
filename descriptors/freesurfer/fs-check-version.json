@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "fs-check-version",
   "author": "FreeSurfer Developers",
   "description": "Script to manage which version of FreeSurfer can be used to analyze data ensuring consistency with the desired version.",
   "command-line": "fs-check-version [SUBJECTS_DIR] [OUTFILE] [SUBJECT] [REQUIRE_MATCH] [NO_REQUIRE_MATCH] [TEST] [TEST_DEBUG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--sd",
@@ -74,9 +73,5 @@
       "name": "Output Version Match File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

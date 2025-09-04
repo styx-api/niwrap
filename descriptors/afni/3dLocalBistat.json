@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dLocalBistat",
   "author": "AFNI Developers",
   "description": "Compute statistics between 2 datasets at each voxel based on a local neighborhood.",
   "command-line": "3dLocalBistat [NBHD] [STATS] [MASK] [AUTOMASK] [WEIGHT] [PREFIX] [HISTPOW] [HISTBIN] [HCLIP1] [HCLIP2] [DATASET1] [DATASET2]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "The first input dataset (e.g. data1.nii)",
@@ -122,7 +117,7 @@
       "name": "Clip Dataset 2"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX]+orig.HEAD",

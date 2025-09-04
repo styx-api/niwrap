@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "meica.py",
   "author": "AFNI Developers",
   "description": "Multi-Echo Independent Component Analysis for fMRI denoising",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "meica.py [INFILE] [ECHO_TIMES] [AFFINE] [OUTPUT_DIRECTORY] [COMPONENTS] [TALAIRACH] [THRESHOLD] [DEBUG]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input image dataset (e.g. dataset.nii.gz)",
@@ -81,7 +76,7 @@
       "name": "Debug Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_DIRECTORY]/cleaned_bold.nii.gz",

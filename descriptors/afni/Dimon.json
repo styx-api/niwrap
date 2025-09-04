@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "Dimon",
   "author": "AFNI Developers",
   "description": "Monitor real-time acquisition of DICOM image files",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "Dimon [INFILE_PREFIX] [INFILE_PATTERN] [INFILE_LIST] [RT_CMD] [HOST] [DRIVE_AFNI] [DRIVE_WAIT] [TE_LIST] [SORT_METHOD]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Prefix matching input files",
@@ -92,7 +87,7 @@
       "name": "Sort method"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[INFILE_LIST]_details",

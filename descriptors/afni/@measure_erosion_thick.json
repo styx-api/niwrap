@@ -1,10 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "@measure_erosion_thick",
   "author": "AFNI Developers",
   "description": "Compute thickness of mask using erosion method.",
   "command-line": "@measure_erosion_thick [MASKSET] [SURFSET] [OUTDIR] [RESAMPLE] [SURFSMOOTH] [SMOOTHMM] [MAXTHICK] [DEPTHSEARCH] [KEEP_TEMP_FILES] [SURFSMOOTH_METHOD]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Mask dataset for input.",
@@ -152,9 +151,5 @@
       "name": "Quick Specification File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "url": "https://afni.nimh.nih.gov/"
 }

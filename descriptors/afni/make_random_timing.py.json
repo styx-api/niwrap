@@ -1,11 +1,10 @@
 {
-  "tool-version": "24.2.06",
   "name": "make_random_timing.py",
   "author": "AFNI Developers",
   "description": "Create random stimulus timing files for use with AFNI 3dDeconvolve.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "make_random_timing.py [NUM_RUNS] [RUN_TIME] [NUM_STIM] [NUM_REPS] [PREFIX] [STIM_DUR] [ACROSS_RUNS] [MAX_CONSEC] [MAX_REST] [MIN_REST] [NOT_FIRST] [NOT_LAST] [OFFSET] [ORDERED_STIMULI] [PRE_STIM_REST] [POST_STIM_REST] [SAVE_3DD_CMD] [SEED] [STIM_LABELS] [T_DIGITS] [T_GRAN] [TR] [TR_LOCKED] [VERB] [SHOW_TIMING_STATS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Set the number of runs.",
@@ -248,9 +247,5 @@
       "value-key": "[SHOW_TIMING_STATS]"
     }
   ],
-  "output-files": [],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  }
+  "output-files": []
 }

@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "dt_recon",
   "author": "FreeSurfer Developers",
   "description": "Performs DTI reconstruction from the raw DWI input files.",
   "command-line": "dt_recon [INPUT_VOLUME] [BVALS_BVECS] [SUBJECT_ID] [OUTPUT_DIR] [INFO_DUMP] [EC_REFERENCE] [NO_EC_FLAG] [NO_REG_FLAG] [REGISTER_FILE] [NO_TAL_FLAG] [SUBJECTS_DIR] [SAVE_EC_RESIDUALS_FLAG] [PCA_ANALYSIS_FLAG] [MASK_PRUNE_THRESHOLD] [INIT_SPM_FLAG] [INIT_FSL_FLAG] [DEBUG_FLAG] [VERSION_FLAG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--i",
@@ -204,9 +203,5 @@
       "name": "Mask File"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

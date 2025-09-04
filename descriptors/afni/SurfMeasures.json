@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "SurfMeasures",
   "author": "AFNI Developers",
   "description": "Compute measures from surface dataset(s)",
   "command-line": "SurfMeasures [SPEC_FILE] [SURF_A] [SURF_B] [OUT_1D] [OUT_DSET] [FUNC] [SURF_VOLUME] [CMASK] [DEBUG] [DNODE] [NODES_1D] [INFO_ALL] [INFO_AREA] [INFO_NORMS] [INFO_THICK] [INFO_VOL] [INFO_VOLG] [VER]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "SUMA spec file containing a list of related surfaces",
@@ -169,7 +164,7 @@
       "command-line-flag": "-ver"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUT_1D].1D",

@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dREMLfit",
   "author": "AFNI Developers",
   "description": "Generalized least squares time series fit, with REML estimation of the temporal auto-correlation structure",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dREMLfit [INPUT_FILE] [REGRESSION_MATRIX] [BASELINE_FILES] [SORT_NODS] [TEMP_STORAGE] [MASK] [OUTPUT_PREFIX] [NO_FDR_CURVE] [GO_FOR_IT] [MAX_A_PARAM] [MAX_B_PARAM] [GRID_PARAM] [NEGATIVE_CORR] [QUIET] [VERBOSE]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "command-line-flag": "-input",
@@ -140,7 +135,7 @@
       "name": "Verbose flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[OUTPUT_PREFIX].nii.gz",

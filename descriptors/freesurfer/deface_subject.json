@@ -1,14 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "deface_subject",
   "author": "FreeSurfer Developers",
   "description": "Tool for defacing MRI images to anonymize patient data.",
   "command-line": "deface_subject [SUBJECTS_DIR] [SUBJECT_ID] [VOLUME_INPUT] [VOLUME_OUTPUT]",
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Directory containing FreeSurfer subject directories.",

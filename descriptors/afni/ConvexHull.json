@@ -1,11 +1,10 @@
 {
-  "tool-version": "24.2.06",
   "name": "ConvexHull",
   "author": "AFNI Developers",
   "description": "A program to find the convex hull, or perform a Delaunay triangulation of a set of points.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "ConvexHull [VOL] [ISOVAL] [ISORANGE] [ISOCMASK] [XFORM] [SURFACE_INPUT] [SURF_VOL] [INPUT_1D] [Q_OPT] [PROJ_XY] [ORIG_COORD] [THESE_COORDS] [OUTPUT_PREFIX] [DEBUG] [NOVOLREG] [SETENV]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Input AFNI (or AFNI readable) volume.",
@@ -159,9 +158,5 @@
       "id": "out_surf",
       "name": "Output surface"
     }
-  ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  }
+  ]
 }

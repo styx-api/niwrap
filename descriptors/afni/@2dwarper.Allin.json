@@ -1,13 +1,8 @@
 {
-  "tool-version": "24.2.06",
   "name": "@2dwarper.Allin",
   "author": "AFNI Developers",
   "description": "Perform 2D registration on each slice of a 3D+time dataset, and combine the results.",
   "command-line": "@2dwarper.Allin [INPUT_PREFIX] [MASK_PREFIX] [OUTPUT_PREFIX]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "id": "input_prefix",
@@ -36,7 +31,7 @@
       "optional": true
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "id": "reg_output",

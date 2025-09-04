@@ -3,8 +3,7 @@
   "command-line": "ThresholdImage [IMAGE_DIMENSION] [IMAGE_IN] [OUT_IMAGE] [THRESHLO] [THRESHHI] [INSIDE_VALUE] [OUTSIDE_VALUE] [OTSU_NUMBER_OF_THRESHOLDS] [KMEANS_NUMBER_OF_THRESHOLDS] [MASK_IMAGE]",
   "author": "ANTs Developers",
   "description": "Image thresholding utility that applies different thresholding techniques to an input image. It can use fixed thresholds, Otsu method, or K-means for thresholding.",
-  "tool-version": "2.5.3",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "image_dimension",
@@ -96,9 +95,5 @@
       "path-template": "[OUT_IMAGE]"
     }
   ],
-  "url": "https://github.com/ANTsX/ANTs",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  }
+  "url": "https://github.com/ANTsX/ANTs"
 }

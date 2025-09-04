@@ -1,9 +1,8 @@
 {
   "name": "dmri_ac.sh",
-  "tool-version": "7.4.1",
   "description": "A script related to diffusion MRI processing in FreeSurfer.",
   "command-line": "dmri_ac.sh [ADDITIONAL_ARGS]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "description": "Additional arguments for dmri_ac.sh script.",
@@ -14,10 +13,6 @@
       "name": "Additional arguments"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "author": "FreeSurfer Developers",
   "url": "https://github.com/freesurfer/freesurfer"
 }

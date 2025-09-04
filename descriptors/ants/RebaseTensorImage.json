@@ -2,8 +2,7 @@
   "name": "RebaseTensorImage",
   "command-line": "RebaseTensorImage [DIMENSION] [INFILE] [OUTFILE] [METHOD] [REFERENCE]",
   "description": "Rebase Tensor Image using specified dimensionality and method.",
-  "schema-version": "0.5",
-  "tool-version": "2.5.3",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "dimension",
@@ -53,9 +52,5 @@
     }
   ],
   "author": "ANTs Developers",
-  "url": "https://github.com/ANTsX/ANTs",
-  "container-image": {
-    "type": "docker",
-    "image": "antsx/ants:v2.5.3"
-  }
+  "url": "https://github.com/ANTsX/ANTs"
 }

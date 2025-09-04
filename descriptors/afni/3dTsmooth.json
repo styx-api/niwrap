@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dTsmooth",
   "author": "AFNI Developers",
   "description": "Smooths each voxel time series in a 3D+time dataset and produces as output a new 3D+time dataset (e.g., lowpass filter in time).",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dTsmooth [INPUT_DATASET] [PREFIX] [DATUM_TYPE] [LIN_FILTER] [MED_FILTER] [OSF_FILTER] [LIN_FILTER_CUSTOM] [HAMMING] [BLACKMAN] [CUSTOM_FILTER] [EXTEND] [ZERO] [TREND] [ADAPTIVE]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "The input 3D+time dataset.",
@@ -136,7 +131,7 @@
       "integer": true
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX].nii.gz",

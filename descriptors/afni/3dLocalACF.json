@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dLocalACF",
   "author": "AFNI Developers",
   "description": "Estimate the spatial AutoCorrelation Function (ACF) locally in a neighborhood around each voxel",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dLocalACF [PREFIX] [INPUT_FILE] [NEIGHBORHOOD] [MASK_FILE] [AUTO_MASK]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Input time series dataset",
@@ -54,7 +49,7 @@
       "name": "Auto Mask Flag"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX].nii.gz",

@@ -1,6 +1,5 @@
 {
-  "schema-version": "0.5",
-  "tool-version": "24.2.06",
+  "schema-version": "0.5+styx",
   "name": "3dGenFeatureDist",
   "description": "3dGenFeatureDist produces histogram volume (hives) from input data.",
   "command-line": "3dGenFeatureDist [FEATURES_STRING] [CLASS_STRING] [PREFIX] [OVERWRITE] [DEBUG_LEVEL] [OTHER] [NO_OTHER] [SAMP] [SIG] [HSPEC] [LABELTABLE] [SHOW_HISTOGRAMS]",
@@ -122,10 +121,6 @@
       "name": "Output Hive"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "author": "AFNI Developers",
   "url": "https://afni.nimh.nih.gov/"
 }

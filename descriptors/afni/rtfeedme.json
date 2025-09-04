@@ -1,5 +1,4 @@
 {
-  "tool-version": "24.2.06",
   "name": "rtfeedme",
   "description": "Test the real-time plugin by sending all the bricks in 'dataset' to AFNI.",
   "command-line": "rtfeedme [DATASETS] [HOST] [INTERVAL_MS] [SEND_3D] [BUFFER_MB] [VERBOSE] [SWAP_BYTES] [NZ_FAKE] [DRIVE_CMD] [NOTE] [YRANGE]",
@@ -103,11 +102,7 @@
       "name": "Y-range for motion estimation graphing"
     }
   ],
-  "schema-version": "0.5",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
+  "schema-version": "0.5+styx",
   "author": "AFNI Developers",
   "url": "https://afni.nimh.nih.gov/"
 }

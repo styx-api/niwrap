@@ -1,10 +1,9 @@
 {
-  "tool-version": "7.4.1",
   "name": "gtmseg",
   "author": "FreeSurfer Developers",
   "description": "Creates an anatomical segmentation for the geometric transfer matrix (GTM) used in PET partial volume correction.",
   "command-line": "gtmseg [SUBJECT] [OUTVOL] [USF] [SUBSEGWM] [KEEP_HYPO] [KEEP_CC] [DMAX] [CTX_ANNOT] [WM_ANNOT] [OUTPUT_USF] [HEAD] [SUBSEG_CBWM] [NO_PONS] [NO_VERMIS] [CTAB] [NO_SEG_STATS] [XCERSEG] [DEBUG]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "command-line-flag": "--s",
@@ -174,9 +173,5 @@
       "name": "Output Color Table"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "freesurfer/freesurfer:7.4.1"
-  },
   "url": "https://github.com/freesurfer/freesurfer"
 }

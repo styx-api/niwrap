@@ -1,14 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "3dTORTOISEtoHere",
   "author": "AFNI Developers",
   "description": "Convert standard TORTOISE DTs (diagonal-first format) to standard AFNI (lower triangular, row-wise) format.",
   "url": "https://afni.nimh.nih.gov/",
   "command-line": "3dTORTOISEtoHere [DT_TORT] [PREFIX] [SCALE_FACTOR] [FLIP_X] [FLIP_Y] [FLIP_Z]",
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "inputs": [
     {
       "description": "Diffusion tensor file with six bricks of DT components ordered in the TORTOISE manner (Dxx, Dyy, Dzz, Dxy, Dxz, Dyz).",
@@ -62,7 +57,7 @@
       "name": "Flip Z"
     }
   ],
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "output-files": [
     {
       "path-template": "[PREFIX].nii.gz",

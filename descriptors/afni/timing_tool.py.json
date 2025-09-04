@@ -1,10 +1,9 @@
 {
-  "tool-version": "24.2.06",
   "name": "timing_tool.py",
   "author": "AFNI Developers",
   "description": "Tool for manipulating and evaluating stimulus timing files",
   "command-line": "timing_tool.py [TIMING_FILE] [OUTPUT_FILE] [RUN_LENGTH] [TR] [OFFSET] [EXTEND_FILE] [SORT] [SCALE_DATA] [SHIFT_TO_RUN_OFFSET] [TIMING_TO_1D_FILE] [STIM_DURATION] [MULTI_TIMING_FILES] [MULTI_SHOW_ISI_STATS] [MULTI_SHOW_TIMING] [SHOW_TIMING] [MULTI_STIM_DURATION] [ROUND_TIMES_FRAC] [TRUNCATE_TIMES] [MULTI_TIMING_EVENT_LIST]",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "inputs": [
     {
       "id": "timing_file",
@@ -190,9 +189,5 @@
       "description": "Output 1D formatted stimulus data"
     }
   ],
-  "container-image": {
-    "type": "docker",
-    "image": "afni/afni_make_build:AFNI_24.2.06"
-  },
   "url": "https://afni.nimh.nih.gov/"
 }
