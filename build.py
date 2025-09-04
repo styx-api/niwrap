@@ -1,6 +1,7 @@
 """Run Styx to compile descriptors into wrappers & generate package metadata."""
 
 import json
+import sys
 import time
 from pathlib import Path
 from shutil import rmtree
@@ -235,18 +236,42 @@ def compile_distribution(
         file.write(dist_path)
         file_count += 1
 
-    # Add special files if needed
-    if dist_name == "json-schema":
-        (dist_path / ".nojekyll").touch()
-
     elapsed = time.time() - dist_start
     print(f"    → {file_count:>4} files ({elapsed:.1f}s)")
 
     return file_count
 
 
-def compile_all_distributions(stats: BuildStats):
-    """Compile all distributions with progress tracking."""
+def filter_distributions(requested_dists: list[str]) -> list[tuple[str, str, bool]]:
+    """Filter distributions based on command line arguments.
+    
+    Args:
+        requested_dists: List of distribution names requested
+        
+    Returns:
+        Filtered list of distribution configurations
+        
+    Raises:
+        ValueError: If any requested distribution is not available
+    """
+    if not requested_dists:
+        return DISTRIBUTIONS
+    
+    available_dists = {dist[0]: dist for dist in DISTRIBUTIONS}
+    invalid_dists = [d for d in requested_dists if d not in available_dists]
+    
+    if invalid_dists:
+        available = ", ".join(available_dists.keys())
+        raise ValueError(
+            f"Unknown distribution(s): {', '.join(invalid_dists)}. "
+            f"Available: {available}"
+        )
+    
+    return [available_dists[dist] for dist in requested_dists]
+
+
+def compile_all_distributions(stats: BuildStats, selected_distributions: list[tuple[str, str, bool]]):
+    """Compile selected distributions with progress tracking."""
     # Clean and create output directory
     rmtree(PATH_DIST_ROOT, ignore_errors=True)
     PATH_DIST_ROOT.mkdir(parents=True, exist_ok=True)
@@ -260,7 +285,7 @@ def compile_all_distributions(stats: BuildStats):
         items=[
             f"Packages: {stats.packages}",
             f"Descriptors: {stats.descriptors}",
-            f"Distributions: {len(DISTRIBUTIONS)}",
+            f"Distributions: {len(selected_distributions)}",
         ],
     )
 
@@ -269,8 +294,8 @@ def compile_all_distributions(stats: BuildStats):
     print("\n🔄 Generating distributions...")
     build_start = time.time()
 
-    for i, (dist_name, backend_name, needs_readme) in enumerate(DISTRIBUTIONS, 1):
-        print(f"\n  [{i}/{len(DISTRIBUTIONS)}] ", end="")
+    for i, (dist_name, backend_name, needs_readme) in enumerate(selected_distributions, 1):
+        print(f"\n  [{i}/{len(selected_distributions)}] ", end="")
         file_count = compile_distribution(
             dist_name, backend_name, needs_readme, project, stats
         )
@@ -288,23 +313,28 @@ def compile_all_distributions(stats: BuildStats):
     )
 
 
-def validate_build(stats: BuildStats):
+def validate_build(stats: BuildStats, selected_distributions: list[tuple[str, str, bool]]):
     """Validate the build output."""
     print("\n🔍 Validating...", end=" ", flush=True)
 
-    # Check Python distribution exists
-    path_dist_python = PATH_DIST_ROOT / "niwrap-python"
-    if not path_dist_python.exists():
-        raise ValueError("Python distribution not found")
+    # Check that at least one distribution was built
+    built_distributions = list(PATH_DIST_ROOT.glob("niwrap-*"))
+    if not built_distributions:
+        raise ValueError("No distributions were built")
 
-    # Check for generated Python files
-    python_files = [
-        f for f in path_dist_python.glob("**/*.py") if f.name != "__init__.py"
-    ]
-    if not python_files:
-        raise ValueError("No Python files generated")
+    # Validate each built distribution
+    total_files = 0
+    for dist_name, _, _ in selected_distributions:
+        dist_path = PATH_DIST_ROOT / f"niwrap-{dist_name}"
+        if not dist_path.exists():
+            raise ValueError(f"Distribution '{dist_name}' not found at {dist_path}")
+        
+        # Count files in this distribution
+        files = list(dist_path.glob("**/*"))
+        files = [f for f in files if f.is_file()]
+        total_files += len(files)
 
-    # Validate package structure
+    # Validate package structure (only if we have packages)
     for package_file, package_data in iter_packages():
         if not package_data.get("id"):
             raise ValueError(f"Package {package_file.name} missing 'id'")
@@ -315,7 +345,23 @@ def validate_build(stats: BuildStats):
         if not package_descriptors:
             raise ValueError(f"No descriptors for package {package_data['id']}")
 
-    print(f"✅ {len(python_files)} files from {stats.descriptors} descriptors")
+    print(f"✅ {total_files} files from {stats.descriptors} descriptors")
+
+
+def parse_args() -> list[str]:
+    """Parse command line arguments for distribution selection."""
+    if len(sys.argv) == 1:
+        return []  # No arguments, build all distributions
+    
+    # Handle help
+    if "--help" in sys.argv or "-h" in sys.argv:
+        available = [dist[0] for dist in DISTRIBUTIONS]
+        print(f"Usage: {sys.argv[0]} [distribution1] [distribution2] ...")
+        print(f"Available distributions: {', '.join(available)}")
+        print("If no distributions specified, all will be built.")
+        sys.exit(0)
+    
+    return sys.argv[1:]
 
 
 def main():
@@ -335,12 +381,27 @@ def main():
 
     print("🚀 NiWrap Build Process")
 
+    # Parse command line arguments
+    try:
+        requested_dists = parse_args()
+        selected_distributions = filter_distributions(requested_dists)
+        
+        if requested_dists:
+            dist_names = [dist[0] for dist in selected_distributions]
+            print(f"Building selected distributions: {', '.join(dist_names)}")
+        else:
+            print("Building all distributions")
+            
+    except ValueError as e:
+        print(f"❌ Error: {e}")
+        return 1
+
     stats = BuildStats()
     stats.start()
 
     try:
-        compile_all_distributions(stats)
-        validate_build(stats)
+        compile_all_distributions(stats, selected_distributions)
+        validate_build(stats, selected_distributions)
 
         print(f"\n✅ Build completed successfully in {stats.elapsed():.1f}s")
         return 0
@@ -354,6 +415,4 @@ def main():
 
 
 if __name__ == "__main__":
-    import sys
-
     sys.exit(main())
