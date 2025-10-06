@@ -42,7 +42,7 @@ jobs:
         uses: astral-sh/setup-uv@v6
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: '22'
           registry-url: 'https://registry.npmjs.org'
@@ -52,7 +52,7 @@ jobs:
 
       - name: Styx compile
         run: |
-          uv --directory styx run ../build.py ir-dump json-schema js
+          uv --directory styx run ../build.py ir-dump json-schema js python
 
       - name: Build npm package
         run: |
@@ -85,6 +85,14 @@ jobs:
             cp -r dist/niwrap-js/dist _site/js
           else
             echo "Warning: dist/niwrap-js/dist directory not found"
+            exit 1
+          fi
+          
+          # Copy the built Python symbolmaps to the Pages site
+          if [ -d "dist/niwrap-python/symbolmaps" ]; then
+            cp -r dist/niwrap-python/symbolmaps _site/python-symbolmaps
+          else
+            echo "Warning: dist/niwrap-python/symbolmaps directory not found"
             exit 1
           fi
           
