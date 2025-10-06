@@ -43,6 +43,12 @@ jobs:
           
           # Build each package using uv
           for pkg_dir in dist/niwrap-python/*/; do
+            # Skip symbolmaps directory
+            if [[ "$pkg_dir" == *"/symbolmaps/" ]]; then
+              echo "Skipping $pkg_dir"
+              continue
+            fi
+
             echo "Building package in $pkg_dir"
             cd "$pkg_dir"
             
