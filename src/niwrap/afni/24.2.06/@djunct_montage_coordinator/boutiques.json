@@ -1,0 +1,77 @@
+{
+  "name": "@djunct_montage_coordinator",
+  "author": "AFNI Developers",
+  "description": "Small program to calculate how to evenly space a certain number of slices within each view plane of a dataset.",
+  "command-line": "@djunct_montage_coordinator [INPUT_FILE] [MONTX] [MONTY] [OUT_IJK] [OUT_XYZ] [HELP] [VERSION]",
+  "inputs": [
+    {
+      "command-line-flag": "-inset",
+      "description": "Name of input dataset",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input File"
+    },
+    {
+      "command-line-flag": "-montx",
+      "description": "Montage dimension: number of panels along x-axis (i.e., number of cols)",
+      "value-key": "[MONTX]",
+      "type": "Number",
+      "optional": false,
+      "id": "montx",
+      "name": "Montage Dimension X"
+    },
+    {
+      "command-line-flag": "-monty",
+      "description": "Montage dimension: number of panels along y-axis (i.e., number of rows)",
+      "value-key": "[MONTY]",
+      "type": "Number",
+      "optional": false,
+      "id": "monty",
+      "name": "Montage Dimension Y"
+    },
+    {
+      "description": "Make program output 'I J K' values.",
+      "command-line-flag": "-out_ijk",
+      "value-key": "[OUT_IJK]",
+      "type": "Flag",
+      "id": "out_ijk",
+      "name": "Output IJK"
+    },
+    {
+      "description": "Make program output 'X Y Z' values.",
+      "command-line-flag": "-out_xyz",
+      "value-key": "[OUT_XYZ]",
+      "type": "Flag",
+      "id": "out_xyz",
+      "name": "Output XYZ"
+    },
+    {
+      "description": "See helpfile.",
+      "command-line-flag": "-help",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help"
+    },
+    {
+      "description": "See version number.",
+      "command-line-flag": "-ver",
+      "value-key": "[VERSION]",
+      "type": "Flag",
+      "id": "version",
+      "name": "Version"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "output.txt",
+      "description": "Output coordinates (IJK or XYZ) for the montage setup.",
+      "id": "output_coords",
+      "name": "Output Coordinates"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

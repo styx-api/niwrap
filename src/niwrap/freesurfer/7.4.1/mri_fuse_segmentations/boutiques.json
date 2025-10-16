@@ -1,0 +1,83 @@
+{
+  "name": "mri_fuse_segmentations",
+  "description": "Fuse a set of segmentations (asegs) into an initial estimate of a longitudinal one.",
+  "command-line": "mri_fuse_segmentations [ASEGS] [NOCC_ASEGS] [NORM_VOLUMES] [TRANSFORMS] [SIGMA] [INPUT_FILE] [OUTPUT]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "-a",
+      "description": "Path to aseg.mgz files, one per TP",
+      "value-key": "[ASEGS]",
+      "type": "File",
+      "optional": false,
+      "list": true,
+      "id": "asegs",
+      "name": "Aseg files"
+    },
+    {
+      "command-line-flag": "-c",
+      "description": "Path to aseg.auto_noCCseg.mgz files without CC labels, one per TP",
+      "value-key": "[NOCC_ASEGS]",
+      "type": "File",
+      "optional": false,
+      "list": true,
+      "id": "nocc_asegs",
+      "name": "No CC Aseg files"
+    },
+    {
+      "command-line-flag": "-n",
+      "description": "Path to norm.mgz files, one per TP",
+      "value-key": "[NORM_VOLUMES]",
+      "type": "File",
+      "optional": false,
+      "list": true,
+      "id": "norm_volumes",
+      "name": "Norm volumes"
+    },
+    {
+      "command-line-flag": "-t",
+      "description": "Transform files from each TP to the input norm.mgz, can be LTA, M3Z or identity.nofile",
+      "value-key": "[TRANSFORMS]",
+      "type": "File",
+      "optional": true,
+      "list": true,
+      "id": "transforms",
+      "name": "Transforms"
+    },
+    {
+      "command-line-flag": "-s",
+      "description": "Cross-time sigma (default 3.0)",
+      "value-key": "[SIGMA]",
+      "type": "Number",
+      "optional": true,
+      "id": "sigma",
+      "name": "Cross-time sigma"
+    },
+    {
+      "description": "Input norm.mgz file",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input file"
+    },
+    {
+      "type": "String",
+      "value-key": "[OUTPUT]",
+      "description": "Resulting fused segmentation as aseg.fused.mgz file",
+      "optional": false,
+      "id": "output_file",
+      "name": "Output fused segmentation file"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT]",
+      "description": "Resulting fused segmentation as aseg.fused.mgz file",
+      "id": "output_file",
+      "name": "Output fused segmentation file"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

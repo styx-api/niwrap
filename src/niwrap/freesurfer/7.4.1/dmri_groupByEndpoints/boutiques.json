@@ -1,0 +1,37 @@
+{
+  "name": "dmri_groupByEndpoints",
+  "author": "FreeSurfer Developers",
+  "description": "A tool to group streamlines by their endpoints using diffusion MRI data.",
+  "command-line": "dmri_groupByEndpoints [STREAMLINE_FILE] [IMAGE_FILE] [OUTPUT_DIRECTORY]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "-s",
+      "description": "The file containing streamline data.",
+      "value-key": "[STREAMLINE_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "streamline_file",
+      "name": "Streamline File"
+    },
+    {
+      "command-line-flag": "-i",
+      "description": "The image file to be used in grouping.",
+      "value-key": "[IMAGE_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "image_file",
+      "name": "Image File"
+    },
+    {
+      "command-line-flag": "-d",
+      "description": "The directory where output will be saved.",
+      "value-key": "[OUTPUT_DIRECTORY]",
+      "type": "String",
+      "optional": false,
+      "id": "output_directory",
+      "name": "Output Directory"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

@@ -1,0 +1,97 @@
+{
+  "name": "@AfniEnv",
+  "author": "AFNI Developers",
+  "description": "Script to set or unset an AFNI environment variable in your .afnirc file",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "@AfniEnv [SET_FLAG] [UNSET_FLAG] [GET_FLAG] [HELP_FLAG] [HELP_WEB_FLAG] [HELP_WEB_FLAG_ALIAS] [HELP_VIEW_FLAG] [HELP_VIEW_FLAG_ALIAS] [ALL_OPTS_FLAG] [HELP_FIND_FLAG]",
+  "inputs": [
+    {
+      "command-line-flag": "-set",
+      "description": "Set environment variable NAME to value VALUE",
+      "value-key": "[SET_FLAG]",
+      "type": "String",
+      "list": true,
+      "max-list-entries": 2,
+      "min-list-entries": 2,
+      "optional": true,
+      "id": "set_flag",
+      "name": "Set Environment Variable"
+    },
+    {
+      "command-line-flag": "-unset",
+      "description": "Unset environment variable NAME",
+      "value-key": "[UNSET_FLAG]",
+      "type": "String",
+      "optional": true,
+      "id": "unset_flag",
+      "name": "Unset Environment Variable"
+    },
+    {
+      "command-line-flag": "-get",
+      "description": "Get the value of environment variable NAME",
+      "value-key": "[GET_FLAG]",
+      "type": "String",
+      "optional": true,
+      "id": "get_flag",
+      "name": "Get Environment Variable"
+    },
+    {
+      "command-line-flag": "-help",
+      "description": "Display the help message for @AfniEnv script",
+      "value-key": "[HELP_FLAG]",
+      "type": "Flag",
+      "id": "help_flag",
+      "name": "Help Message"
+    },
+    {
+      "command-line-flag": "-h_web",
+      "description": "Open webpage with help for this program",
+      "value-key": "[HELP_WEB_FLAG]",
+      "type": "Flag",
+      "id": "help_web_flag",
+      "name": "Help Webpage"
+    },
+    {
+      "command-line-flag": "-hweb",
+      "description": "Same as -h_web",
+      "value-key": "[HELP_WEB_FLAG_ALIAS]",
+      "type": "Flag",
+      "id": "help_web_flag_alias",
+      "name": "Help Webpage Alias"
+    },
+    {
+      "command-line-flag": "-h_view",
+      "description": "Open -help output in a GUI editor",
+      "value-key": "[HELP_VIEW_FLAG]",
+      "type": "Flag",
+      "id": "help_view_flag",
+      "name": "Help GUI View"
+    },
+    {
+      "command-line-flag": "-hview",
+      "description": "Same as -h_view",
+      "value-key": "[HELP_VIEW_FLAG_ALIAS]",
+      "type": "Flag",
+      "id": "help_view_flag_alias",
+      "name": "Help GUI View Alias"
+    },
+    {
+      "command-line-flag": "-all_opts",
+      "description": "List all of the options for this script",
+      "value-key": "[ALL_OPTS_FLAG]",
+      "type": "Flag",
+      "id": "all_opts_flag",
+      "name": "List All Options"
+    },
+    {
+      "command-line-flag": "-h_find",
+      "description": "Search for lines containing WORD in -help output. Search is approximate.",
+      "value-key": "[HELP_FIND_FLAG]",
+      "type": "String",
+      "optional": true,
+      "id": "help_find_flag",
+      "name": "Help Find"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

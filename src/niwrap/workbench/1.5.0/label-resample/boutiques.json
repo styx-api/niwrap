@@ -1,0 +1,160 @@
+{
+  "name": "label-resample",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -label-resample [LABEL_IN] [CURRENT_SPHERE] [NEW_SPHERE] [METHOD] [LABEL_OUT] [AREA_SURFS] [AREA_METRICS] [OPT_CURRENT_ROI_ROI_METRIC] [OPT_VALID_ROI_OUT_ROI_OUT] [OPT_LARGEST] [OPT_BYPASS_SPHERE_CHECK]",
+  "description": "Resample a label file to a different mesh.\n\nResamples a label file, given two spherical surfaces that are in register.  If ADAP_BARY_AREA is used, exactly one of -area-surfs or -area-metrics must be specified.\n\nThe ADAP_BARY_AREA method is recommended for label data, because it should be better at resolving vertices that are near multiple labels, or in case of downsampling.  Midthickness surfaces are recommended for the vertex areas for most data.\n\nThe -largest option results in nearest vertex behavior when used with BARYCENTRIC, as it uses the value of the source vertex that has the largest weight.\n\nWhen -largest is not specified, the vertex weights are summed according to which label they correspond to, and the label with the largest sum is used.\n\nThe <method> argument must be one of the following:\n\nADAP_BARY_AREA\nBARYCENTRIC\n",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "label_in",
+      "name": "label_in",
+      "description": "the label file to resample",
+      "optional": false,
+      "value-key": "[LABEL_IN]",
+      "type": "File"
+    },
+    {
+      "id": "current_sphere",
+      "name": "current_sphere",
+      "description": "a sphere surface with the mesh that the label file is currently on",
+      "optional": false,
+      "value-key": "[CURRENT_SPHERE]",
+      "type": "File"
+    },
+    {
+      "id": "new_sphere",
+      "name": "new_sphere",
+      "description": "a sphere surface that is in register with <current-sphere> and has the desired output mesh",
+      "optional": false,
+      "value-key": "[NEW_SPHERE]",
+      "type": "File"
+    },
+    {
+      "id": "method",
+      "name": "method",
+      "description": "the method name",
+      "optional": false,
+      "value-key": "[METHOD]",
+      "type": "String"
+    },
+    {
+      "id": "label_out",
+      "name": "label_out",
+      "type": "String",
+      "description": "the output label file",
+      "optional": false,
+      "value-key": "[LABEL_OUT]"
+    },
+    {
+      "id": "area_surfs",
+      "name": "area_surfs",
+      "description": "specify surfaces to do vertex area correction based on",
+      "type": {
+        "id": "area_surfs",
+        "name": "area_surfs",
+        "description": "specify surfaces to do vertex area correction based on",
+        "command-line": "-area-surfs [CURRENT_AREA] [NEW_AREA]",
+        "inputs": [
+          {
+            "id": "current_area",
+            "name": "current_area",
+            "description": "a relevant anatomical surface with <current-sphere> mesh",
+            "optional": false,
+            "value-key": "[CURRENT_AREA]",
+            "type": "File"
+          },
+          {
+            "id": "new_area",
+            "name": "new_area",
+            "description": "a relevant anatomical surface with <new-sphere> mesh",
+            "optional": false,
+            "value-key": "[NEW_AREA]",
+            "type": "File"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[AREA_SURFS]"
+    },
+    {
+      "id": "area_metrics",
+      "name": "area_metrics",
+      "description": "specify vertex area metrics to do area correction based on",
+      "type": {
+        "id": "area_metrics",
+        "name": "area_metrics",
+        "description": "specify vertex area metrics to do area correction based on",
+        "command-line": "-area-metrics [CURRENT_AREA] [NEW_AREA]",
+        "inputs": [
+          {
+            "id": "current_area",
+            "name": "current_area",
+            "description": "a metric file with vertex areas for <current-sphere> mesh",
+            "optional": false,
+            "value-key": "[CURRENT_AREA]",
+            "type": "File"
+          },
+          {
+            "id": "new_area",
+            "name": "new_area",
+            "description": "a metric file with vertex areas for <new-sphere> mesh",
+            "optional": false,
+            "value-key": "[NEW_AREA]",
+            "type": "File"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[AREA_METRICS]"
+    },
+    {
+      "id": "opt_current_roi_roi_metric",
+      "name": "opt_current_roi_roi_metric",
+      "command-line-flag": "-current-roi",
+      "description": "use an input roi on the current mesh to exclude non-data vertices: the roi, as a metric file",
+      "optional": true,
+      "value-key": "[OPT_CURRENT_ROI_ROI_METRIC]",
+      "type": "File"
+    },
+    {
+      "id": "opt_valid_roi_out_roi_out",
+      "name": "opt_valid_roi_out_roi_out",
+      "command-line-flag": "-valid-roi-out",
+      "description": "output the ROI of vertices that got data from valid source vertices: the output roi as a metric",
+      "optional": true,
+      "value-key": "[OPT_VALID_ROI_OUT_ROI_OUT]",
+      "type": "String"
+    },
+    {
+      "id": "opt_largest",
+      "name": "opt_largest",
+      "command-line-flag": "-largest",
+      "description": "use only the label of the vertex with the largest weight",
+      "type": "Flag",
+      "value-key": "[OPT_LARGEST]"
+    },
+    {
+      "id": "opt_bypass_sphere_check",
+      "name": "opt_bypass_sphere_check",
+      "command-line-flag": "-bypass-sphere-check",
+      "description": "ADVANCED: allow the current and new 'spheres' to have arbitrary shape as long as they follow the same contour",
+      "type": "Flag",
+      "value-key": "[OPT_BYPASS_SPHERE_CHECK]"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "label_out",
+      "name": "label_out",
+      "path-template": "[LABEL_OUT]",
+      "description": "the output label file"
+    },
+    {
+      "id": "opt_valid_roi_out_roi_out",
+      "name": "opt_valid_roi_out_roi_out",
+      "path-template": "[OPT_VALID_ROI_OUT_ROI_OUT]",
+      "description": "output the ROI of vertices that got data from valid source vertices: the output roi as a metric"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

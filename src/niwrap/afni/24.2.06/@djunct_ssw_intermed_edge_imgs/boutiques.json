@@ -1,0 +1,123 @@
+{
+  "name": "@djunct_ssw_intermed_edge_imgs",
+  "author": "AFNI Developers",
+  "description": "Helper script to generate intermediate edge images for SSW-related processing.",
+  "command-line": "@djunct_ssw_intermed_edge_imgs [PREFIX] [ULAY] [OLAY] [BOX_FOCUS_SLICES] [MONTGAP] [CBAR] [ULAY_RANGE] [MONTX] [MONTY] [HELP_VIEW] [HELP] [VERSION] [NO_CLEAN]",
+  "inputs": [
+    {
+      "description": "Prefix for generated output files",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "prefix",
+      "name": "Output Prefix",
+      "command-line-flag": "-prefix"
+    },
+    {
+      "description": "Underlay dataset",
+      "value-key": "[ULAY]",
+      "type": "File",
+      "optional": false,
+      "id": "ulay",
+      "name": "Underlay File",
+      "command-line-flag": "-ulay"
+    },
+    {
+      "description": "Overlay dataset",
+      "value-key": "[OLAY]",
+      "type": "File",
+      "optional": false,
+      "id": "olay",
+      "name": "Overlay File",
+      "command-line-flag": "-olay"
+    },
+    {
+      "description": "Slices of interest for focus box",
+      "value-key": "[BOX_FOCUS_SLICES]",
+      "type": "String",
+      "optional": true,
+      "id": "box_focus_slices",
+      "name": "Box Focus Slices",
+      "command-line-flag": "-box_focus_slices"
+    },
+    {
+      "description": "Gap between montage slices",
+      "value-key": "[MONTGAP]",
+      "type": "String",
+      "optional": true,
+      "id": "montgap",
+      "name": "Montage Gap",
+      "command-line-flag": "-montgap"
+    },
+    {
+      "description": "Color bar specification for AFNI",
+      "value-key": "[CBAR]",
+      "type": "String",
+      "optional": true,
+      "id": "cbar",
+      "name": "Color Bar",
+      "command-line-flag": "-cbar"
+    },
+    {
+      "description": "Range for underlay data mapping",
+      "value-key": "[ULAY_RANGE]",
+      "type": "String",
+      "optional": true,
+      "id": "ulay_range",
+      "name": "Underlay Range",
+      "command-line-flag": "-ulay_range"
+    },
+    {
+      "description": "Number of slices along x dimension in montage",
+      "value-key": "[MONTX]",
+      "type": "String",
+      "optional": true,
+      "id": "montx",
+      "name": "Montage X",
+      "command-line-flag": "-montx"
+    },
+    {
+      "description": "Number of slices along y dimension in montage",
+      "value-key": "[MONTY]",
+      "type": "String",
+      "optional": true,
+      "id": "monty",
+      "name": "Montage Y",
+      "command-line-flag": "-monty"
+    },
+    {
+      "description": "View help file in viewer",
+      "value-key": "[HELP_VIEW]",
+      "type": "Flag",
+      "id": "help_view",
+      "name": "Help View",
+      "command-line-flag": "-hview"
+    },
+    {
+      "description": "Displays help information",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help",
+      "command-line-flag": "-help"
+    },
+    {
+      "description": "Displays version information",
+      "value-key": "[VERSION]",
+      "type": "Flag",
+      "id": "version",
+      "name": "Version",
+      "command-line-flag": "-ver"
+    },
+    {
+      "description": "Don't clean up intermediate files",
+      "value-key": "[NO_CLEAN]",
+      "type": "Flag",
+      "id": "no_clean",
+      "name": "No Clean",
+      "command-line-flag": "-no_clean"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

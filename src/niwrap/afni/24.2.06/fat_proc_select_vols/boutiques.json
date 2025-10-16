@@ -1,0 +1,88 @@
+{
+  "name": "fat_proc_select_vols",
+  "author": "AFNI Developers",
+  "description": "Tool for building a selector string for AFNI subbricks and/or 1D text files",
+  "command-line": "fat_proc_select_vols [DWI_INPUT] [IMG_INPUT] [PREFIX] [IN_BADS] [APPLY_TO_VOLS] [DO_MOVIE] [WORKDIR] [NO_CMD_OUT]",
+  "inputs": [
+    {
+      "id": "dwi_input",
+      "name": "DWI Input",
+      "type": "File",
+      "description": "Input DWI dataset",
+      "value-key": "[DWI_INPUT]",
+      "optional": false,
+      "command-line-flag": "-in_dwi"
+    },
+    {
+      "id": "img_input",
+      "name": "Image Input",
+      "type": "File",
+      "description": "2D image of the DWI dataset",
+      "value-key": "[IMG_INPUT]",
+      "optional": false,
+      "command-line-flag": "-in_img"
+    },
+    {
+      "id": "prefix",
+      "name": "Output Prefix",
+      "type": "String",
+      "description": "Output prefix for files",
+      "value-key": "[PREFIX]",
+      "optional": false,
+      "command-line-flag": "-prefix"
+    },
+    {
+      "id": "in_bads",
+      "name": "Input Bads",
+      "type": "File",
+      "description": "A single column file of integers representing bad volumes indices (optional)",
+      "value-key": "[IN_BADS]",
+      "optional": true,
+      "command-line-flag": "-in_bads"
+    },
+    {
+      "id": "apply_to_vols",
+      "name": "Apply To Vols",
+      "type": "Flag",
+      "description": "Apply the created selection of good volumes to the DWI dataset",
+      "value-key": "[APPLY_TO_VOLS]",
+      "command-line-flag": "-apply_to_vols"
+    },
+    {
+      "id": "do_movie",
+      "name": "Do Movie",
+      "type": "String",
+      "description": "Output a movie of the newly created dataset. Only 'AGIF' or 'MPEG' arguments can be used.",
+      "value-key": "[DO_MOVIE]",
+      "optional": true,
+      "command-line-flag": "-do_movie"
+    },
+    {
+      "id": "workdir",
+      "name": "Working Directory",
+      "type": "String",
+      "description": "Specify a working directory",
+      "value-key": "[WORKDIR]",
+      "optional": true,
+      "command-line-flag": "-workdir"
+    },
+    {
+      "id": "no_cmd_out",
+      "name": "No Command Output",
+      "type": "Flag",
+      "description": "Don't save the command line call of this program and the location where it was run",
+      "value-key": "[NO_CMD_OUT]",
+      "command-line-flag": "-no_cmd_out"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "output_selector_string",
+      "name": "Output Selector String",
+      "description": "Text file with AFNI-usable selector string",
+      "path-template": "[PREFIX]_bads.txt"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

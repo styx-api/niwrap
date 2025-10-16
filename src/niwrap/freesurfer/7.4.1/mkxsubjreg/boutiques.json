@@ -1,0 +1,80 @@
+{
+  "name": "mkxsubjreg",
+  "description": "Creates a new registration matrix that maps from the functional volume of the source subject to the orig of the target subject through the talairach transform.",
+  "command-line": "mkxsubjreg [SRCREG] [TARGREG] [TARGSUBJ] [XFM] [SD] [FVOL] [HELP] [VERSION]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "srcreg",
+      "name": "Source Registration",
+      "type": "File",
+      "description": "Path to the source registration file (srcreg.dat)",
+      "value-key": "[SRCREG]",
+      "optional": false,
+      "command-line-flag": "--srcreg"
+    },
+    {
+      "id": "targreg",
+      "name": "Target Registration",
+      "type": "File",
+      "description": "Path to the target registration file (targreg.dat)",
+      "value-key": "[TARGREG]",
+      "optional": false,
+      "command-line-flag": "--targreg"
+    },
+    {
+      "id": "targsubj",
+      "name": "Target Subject",
+      "type": "String",
+      "description": "Target subject ID; default is talairach",
+      "value-key": "[TARGSUBJ]",
+      "optional": true,
+      "command-line-flag": "--targsubj"
+    },
+    {
+      "id": "xfm",
+      "name": "Transform Name",
+      "type": "String",
+      "description": "XFM file name relative to transforms",
+      "value-key": "[XFM]",
+      "optional": true,
+      "command-line-flag": "--xfm"
+    },
+    {
+      "id": "sd",
+      "name": "Subjects Directory",
+      "type": "String",
+      "description": "Directory containing subject data; default is env SUBJECTS_DIR",
+      "value-key": "[SD]",
+      "optional": true,
+      "command-line-flag": "--sd"
+    },
+    {
+      "id": "fvol",
+      "name": "Functional Volume",
+      "type": "File",
+      "description": "Path to example functional volume",
+      "value-key": "[FVOL]",
+      "optional": true,
+      "command-line-flag": "--fvol"
+    },
+    {
+      "id": "help",
+      "name": "Help Flag",
+      "type": "Flag",
+      "description": "Display help information",
+      "value-key": "[HELP]",
+      "command-line-flag": "--help"
+    },
+    {
+      "id": "version",
+      "name": "Version Flag",
+      "type": "Flag",
+      "description": "Display version information",
+      "value-key": "[VERSION]",
+      "command-line-flag": "--version"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

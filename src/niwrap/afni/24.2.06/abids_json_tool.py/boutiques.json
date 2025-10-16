@@ -1,0 +1,122 @@
+{
+  "name": "abids_json_tool.py",
+  "author": "AFNI Developers",
+  "description": "This script helps to manipulate json files in various ways.",
+  "command-line": "abids_json_tool.py [INPUT_FILE] [PREFIX] [TXT2JSON] [JSON2TXT] [ADD_JSON] [DEL_JSON] [FORCE_ADD] [OVERWRITE] [HELP] [DELIMITER_MAJOR] [DELIMITER_MINOR] [LITERAL_KEYS] [VALUES_STAY_STR]",
+  "inputs": [
+    {
+      "description": "One file to convert. Enter NULL with -add_json to create new json file.",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input file",
+      "command-line-flag": "-input"
+    },
+    {
+      "description": "Output file name.",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "prefix",
+      "name": "Prefix",
+      "command-line-flag": "-prefix"
+    },
+    {
+      "command-line-flag": "-txt2json",
+      "description": "Convert from ':' separated text file to json formatted file.",
+      "value-key": "[TXT2JSON]",
+      "type": "Flag",
+      "id": "txt2json",
+      "name": "TXT to JSON"
+    },
+    {
+      "command-line-flag": "-json2txt",
+      "description": "Convert from json formatted file to ':' separated text file.",
+      "value-key": "[JSON2TXT]",
+      "type": "Flag",
+      "id": "json2txt",
+      "name": "JSON to TXT"
+    },
+    {
+      "command-line-flag": "-add_json",
+      "description": "Add an attribute to the end of the specified json file.",
+      "value-key": "[ADD_JSON]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "add_json",
+      "name": "Add JSON",
+      "min-list-entries": 1
+    },
+    {
+      "command-line-flag": "-del_json",
+      "description": "Remove attribute (KEY) from the -input json file.",
+      "value-key": "[DEL_JSON]",
+      "type": "String",
+      "optional": true,
+      "id": "del_json",
+      "name": "Delete JSON"
+    },
+    {
+      "command-line-flag": "-f",
+      "description": "Use with -add_json to overwrite an existing attribute in the specified json file.",
+      "value-key": "[FORCE_ADD]",
+      "type": "Flag",
+      "id": "force_add",
+      "name": "Force add"
+    },
+    {
+      "command-line-flag": "-overwrite",
+      "description": "Use caution as this will overwrite the -prefix file if it exists!!",
+      "value-key": "[OVERWRITE]",
+      "type": "Flag",
+      "id": "overwrite",
+      "name": "Overwrite"
+    },
+    {
+      "command-line-flag": "-help",
+      "description": "Show this help and exit.",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help"
+    },
+    {
+      "command-line-flag": "-delimiter_major",
+      "description": "Specify the new (major) delimiter to separate keys and values when using '-txt2json' opt.",
+      "value-key": "[DELIMITER_MAJOR]",
+      "type": "String",
+      "optional": true,
+      "id": "delimiter_major",
+      "name": "Major Delimiter"
+    },
+    {
+      "command-line-flag": "-delimiter_minor",
+      "description": "Specify the new (minor) delimiter to separate value items when using '-txt2json' opt.",
+      "value-key": "[DELIMITER_MINOR]",
+      "type": "String",
+      "optional": true,
+      "id": "delimiter_minor",
+      "name": "Minor Delimiter"
+    },
+    {
+      "command-line-flag": "-literal_keys",
+      "description": "Do not replace spaces with '_', nor parentheses and brackets with ''.",
+      "value-key": "[LITERAL_KEYS]",
+      "type": "Flag",
+      "id": "literal_keys",
+      "name": "Literal Keys"
+    },
+    {
+      "command-line-flag": "-values_stay_str",
+      "description": "Each numeric or str item gets saved as a str; otherwise, guess at int and float.",
+      "value-key": "[VALUES_STAY_STR]",
+      "type": "Flag",
+      "id": "values_stay_str",
+      "name": "Values Stay String"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

@@ -1,0 +1,132 @@
+{
+  "name": "afni_open",
+  "author": "AFNI Developers",
+  "description": "A program to open various AFNI/SUMA files.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "afni_open [FILES] [METHOD] [EDITOR] [DOWNLOADER] [EXAMINEXMAT] [BROWSER] [README] [AFNIWEB] [GLOBAL_HELP] [GOPTS_HELP] [HELP] [MINI_HELP] [EXTREME_HELP] [H_VIEW] [H_WEB]",
+  "inputs": [
+    {
+      "description": "Input file(s) to be opened.",
+      "value-key": "[FILES]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "files",
+      "name": "Input Files"
+    },
+    {
+      "command-line-flag": "-w",
+      "description": "Method to open files (editor, downloader, browser, afni, suma, 1dplot, ExamineXmat, iviewer, afniweb, readme).",
+      "value-key": "[METHOD]",
+      "type": "String",
+      "optional": true,
+      "id": "method",
+      "name": "Open Method"
+    },
+    {
+      "command-line-flag": "-e",
+      "description": "Same as -w editor.",
+      "value-key": "[EDITOR]",
+      "type": "Flag",
+      "id": "editor",
+      "name": "Editor Flag"
+    },
+    {
+      "command-line-flag": "-d",
+      "description": "Same as -w downloader.",
+      "value-key": "[DOWNLOADER]",
+      "type": "Flag",
+      "id": "downloader",
+      "name": "Downloader Flag"
+    },
+    {
+      "command-line-flag": "-x",
+      "description": "Same as -w ExamineXmat.",
+      "value-key": "[EXAMINEXMAT]",
+      "type": "Flag",
+      "id": "examinexmat",
+      "name": "ExamineXmat Flag"
+    },
+    {
+      "command-line-flag": "-b",
+      "description": "Same as -w browser.",
+      "value-key": "[BROWSER]",
+      "type": "Flag",
+      "id": "browser",
+      "name": "Browser Flag"
+    },
+    {
+      "command-line-flag": "-r",
+      "description": "Same as -w readme.",
+      "value-key": "[README]",
+      "type": "Flag",
+      "id": "readme",
+      "name": "Readme Flag"
+    },
+    {
+      "command-line-flag": "-aw",
+      "description": "Same as -w afniweb.",
+      "value-key": "[AFNIWEB]",
+      "type": "Flag",
+      "id": "afniweb",
+      "name": "Afniweb Flag"
+    },
+    {
+      "command-line-flag": "-global_help",
+      "description": "Show help for global options.",
+      "value-key": "[GLOBAL_HELP]",
+      "type": "Flag",
+      "id": "global_help",
+      "name": "Global Help Flag"
+    },
+    {
+      "command-line-flag": "-gopts_help",
+      "description": "Show help for global options.",
+      "value-key": "[GOPTS_HELP]",
+      "type": "Flag",
+      "id": "gopts_help",
+      "name": "Gopts Help Flag"
+    },
+    {
+      "command-line-flag": "-help",
+      "description": "The entire help output.",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help Flag"
+    },
+    {
+      "command-line-flag": "-h",
+      "description": "Mini help.",
+      "value-key": "[MINI_HELP]",
+      "type": "Flag",
+      "id": "mini_help",
+      "name": "Mini Help Flag"
+    },
+    {
+      "command-line-flag": "-HELP",
+      "description": "Extreme help.",
+      "value-key": "[EXTREME_HELP]",
+      "type": "Flag",
+      "id": "extreme_help",
+      "name": "Extreme Help Flag"
+    },
+    {
+      "command-line-flag": "-h_view",
+      "description": "Open help in text editor.",
+      "value-key": "[H_VIEW]",
+      "type": "Flag",
+      "id": "h_view",
+      "name": "View Help in Editor Flag"
+    },
+    {
+      "command-line-flag": "-h_web",
+      "description": "Open help in web browser.",
+      "value-key": "[H_WEB]",
+      "type": "Flag",
+      "id": "h_web",
+      "name": "View Help in Browser Flag"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

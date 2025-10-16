@@ -1,0 +1,226 @@
+{
+  "name": "ConvertDset",
+  "author": "AFNI Developers",
+  "description": "Converts a surface dataset from one format to another.",
+  "command-line": "ConvertDset [OUTPUT_TYPE] [INPUT_DATASET] [INPUT_TYPE] [OUTPUT_PREFIX] [DSET_LABELS] [ADD_NODE_INDEX] [NODE_INDEX_FILE] [NODE_SELECT_FILE] [PREPEND_NODE_INDEX] [PAD_TO_NODE] [LABELIZE] [GRAPHIZE] [GRAPH_NODELIST] [GRAPH_FULL_NODELIST] [GRAPH_NAMED_NODELIST] [GRAPH_XYZ_LPI] [GRAPH_EDGELIST] [ONEGRAPH] [MULTIGRAPH] [SPLIT] [NO_HISTORY]",
+  "inputs": [
+    {
+      "id": "output_type",
+      "name": "Output Type",
+      "type": "String",
+      "command-line-flag": "-o_",
+      "list": true,
+      "description": "Type of output datasets",
+      "value-choices": [
+        "niml_asc",
+        "niml_bi",
+        "1D",
+        "1Dp",
+        "1Dpt",
+        "gii",
+        "gii_asc",
+        "gii_b64",
+        "gii_b64gz",
+        "1D_stderr",
+        "1D_stdout",
+        "niml_stderr",
+        "niml_stdout",
+        "1Dp_stdout",
+        "1Dp_stderr",
+        "1Dpt_stdout",
+        "1Dpt_stderr"
+      ],
+      "optional": false,
+      "value-key": "[OUTPUT_TYPE]"
+    },
+    {
+      "id": "input_dataset",
+      "name": "Input Dataset",
+      "type": "File",
+      "command-line-flag": "-input",
+      "description": "Input dataset to be converted",
+      "optional": false,
+      "value-key": "[INPUT_DATASET]"
+    },
+    {
+      "id": "input_type",
+      "name": "Input Type",
+      "type": "String",
+      "command-line-flag": "-i_",
+      "description": "Type of input datasets",
+      "value-choices": [
+        "niml",
+        "1D",
+        "dx"
+      ],
+      "optional": true,
+      "value-key": "[INPUT_TYPE]"
+    },
+    {
+      "id": "output_prefix",
+      "name": "Output Prefix",
+      "type": "String",
+      "command-line-flag": "-prefix",
+      "description": "Output prefix for dataset",
+      "optional": true,
+      "value-key": "[OUTPUT_PREFIX]"
+    },
+    {
+      "id": "dset_labels",
+      "name": "Dataset Labels",
+      "type": "String",
+      "command-line-flag": "-dset_labels",
+      "description": "Label the columns (sub-bricks) of the output dataset",
+      "optional": true,
+      "value-key": "[DSET_LABELS]"
+    },
+    {
+      "id": "add_node_index",
+      "name": "Add Node Index",
+      "type": "Flag",
+      "command-line-flag": "-add_node_index",
+      "description": "Add a node index element if one does not exist in the input dataset",
+      "value-key": "[ADD_NODE_INDEX]"
+    },
+    {
+      "id": "node_index_file",
+      "name": "Node Index File",
+      "type": "File",
+      "command-line-flag": "-node_index_1D",
+      "description": "File containing node indices",
+      "optional": true,
+      "value-key": "[NODE_INDEX_FILE]"
+    },
+    {
+      "id": "node_select_file",
+      "name": "Node Select File",
+      "type": "File",
+      "command-line-flag": "-node_select_1D",
+      "description": "File specifying the nodes to keep in the output",
+      "optional": true,
+      "value-key": "[NODE_SELECT_FILE]"
+    },
+    {
+      "id": "prepend_node_index",
+      "name": "Prepend Node Index",
+      "type": "Flag",
+      "command-line-flag": "-prepend_node_index_1D",
+      "description": "Add a node index column to the data",
+      "value-key": "[PREPEND_NODE_INDEX]"
+    },
+    {
+      "id": "pad_to_node",
+      "name": "Pad to Node",
+      "type": "String",
+      "command-line-flag": "-pad_to_node",
+      "description": "Output a full dataset from node 0 to MAX_INDEX",
+      "optional": true,
+      "value-key": "[PAD_TO_NODE]"
+    },
+    {
+      "id": "labelize",
+      "name": "Labelize",
+      "type": "File",
+      "command-line-flag": "-labelize",
+      "description": "Turn the dataset into a labeled set per the colormap in CMAP",
+      "optional": true,
+      "value-key": "[LABELIZE]"
+    },
+    {
+      "id": "graphize",
+      "name": "Graphize",
+      "type": "Flag",
+      "command-line-flag": "-graphize",
+      "description": "Turn the dataset into a SUMA graph dataset",
+      "value-key": "[GRAPHIZE]"
+    },
+    {
+      "id": "graph_nodelist",
+      "name": "Graph Node List",
+      "type": "String",
+      "command-line-flag": "-graph_nodelist_1D",
+      "description": "Two files specifying the indices and the coordinates of the graph's nodes",
+      "optional": true,
+      "value-key": "[GRAPH_NODELIST]"
+    },
+    {
+      "id": "graph_full_nodelist",
+      "name": "Graph Full Node List",
+      "type": "File",
+      "command-line-flag": "-graph_full_nodelist_1D",
+      "description": "Similar to -graph_nodelist_1D but without need for NODEINDLIST.1D",
+      "optional": true,
+      "value-key": "[GRAPH_FULL_NODELIST]"
+    },
+    {
+      "id": "graph_named_nodelist",
+      "name": "Graph Named Node List",
+      "type": "String",
+      "command-line-flag": "-graph_named_nodelist_txt",
+      "description": "Two files specifying graph node indices, string labels, and their coordinates",
+      "optional": true,
+      "value-key": "[GRAPH_NAMED_NODELIST]"
+    },
+    {
+      "id": "graph_xyz_lpi",
+      "name": "Graph XYZ LPI",
+      "type": "Flag",
+      "command-line-flag": "-graph_XYZ_LPI",
+      "description": "Coordinates in NodeList.1D are in LPI instead of RAI",
+      "value-key": "[GRAPH_XYZ_LPI]"
+    },
+    {
+      "id": "graph_edgelist",
+      "name": "Graph Edge List",
+      "type": "File",
+      "command-line-flag": "-graph_edgelist_1D",
+      "description": "Indices of graph nodes defining edge",
+      "optional": true,
+      "value-key": "[GRAPH_EDGELIST]"
+    },
+    {
+      "id": "onegraph",
+      "name": "Onegraph",
+      "type": "Flag",
+      "command-line-flag": "-onegraph",
+      "description": "Expect input dataset to be one square matrix defining the graph (default)",
+      "value-key": "[ONEGRAPH]"
+    },
+    {
+      "id": "multigraph",
+      "name": "Multigraph",
+      "type": "Flag",
+      "command-line-flag": "-multigraph",
+      "description": "Expect each column in input dataset to define an entire graph",
+      "value-key": "[MULTIGRAPH]"
+    },
+    {
+      "id": "split",
+      "name": "Split",
+      "type": "Number",
+      "command-line-flag": "-split",
+      "description": "Split a multi-column dataset into about N output datasets",
+      "integer": true,
+      "optional": true,
+      "value-key": "[SPLIT]"
+    },
+    {
+      "id": "no_history",
+      "name": "No History",
+      "type": "Flag",
+      "command-line-flag": "-no_history",
+      "description": "Do not include a history element in the output",
+      "value-key": "[NO_HISTORY]"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_PREFIX]",
+      "description": "Converted dataset output",
+      "id": "converted_dataset",
+      "name": "Converted Dataset"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

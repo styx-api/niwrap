@@ -1,0 +1,178 @@
+{
+  "name": "talsegprob",
+  "author": "FreeSurfer Developers",
+  "description": "Tool to create a binary probability volume from aseg.mgz based on segmentation numbers, resliced to talirach/MNI305/fsaverage space.",
+  "command-line": "talsegprob [SUBJECTS_LIST] [FSGD_FILE] [SEGMENTATION_NUMBER] [SECOND_SEGMENTATION_NUMBER] [HIPPO_FLAG] [LEFT_HIPPO_FLAG] [RIGHT_HIPPO_FLAG] [SEGMENTATION_FILE] [PROBABILITY_OUTPUT] [VOTE_OUTPUT] [CONCAT_OUTPUT] [XFORM_FILE] [SUBJECTS_DIR] [TMPDIR] [NOCLEANUP_FLAG] [VERSION_FLAG] [ECHO_FLAG]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--subjects",
+      "description": "List of subjects to include in the analysis.",
+      "value-key": "[SUBJECTS_LIST]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "subjects_list",
+      "name": "Subjects List"
+    },
+    {
+      "command-line-flag": "--fsgd",
+      "description": "FSGD file to get subject list.",
+      "value-key": "[FSGD_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "fsgd_file",
+      "name": "FSGD File"
+    },
+    {
+      "command-line-flag": "--seg",
+      "description": "Segmentation number.",
+      "value-key": "[SEGMENTATION_NUMBER]",
+      "type": "Number",
+      "optional": true,
+      "id": "segmentation_number",
+      "name": "Segmentation Number"
+    },
+    {
+      "command-line-flag": "<--seg",
+      "description": "Second segmentation number.",
+      "value-key": "[SECOND_SEGMENTATION_NUMBER]",
+      "type": "Number",
+      "optional": true,
+      "id": "second_segmentation_number",
+      "name": "Second Segmentation Number"
+    },
+    {
+      "command-line-flag": "--hippo",
+      "description": "Use segmentation numbers 17 and 53.",
+      "value-key": "[HIPPO_FLAG]",
+      "type": "Flag",
+      "id": "hippo_flag",
+      "name": "Hippocampus Flag"
+    },
+    {
+      "command-line-flag": "--left-hippo",
+      "description": "Use segmentation number 17.",
+      "value-key": "[LEFT_HIPPO_FLAG]",
+      "type": "Flag",
+      "id": "left_hippo_flag",
+      "name": "Left Hippocampus Flag"
+    },
+    {
+      "command-line-flag": "--right-hippo",
+      "description": "Use segmentation number 53.",
+      "value-key": "[RIGHT_HIPPO_FLAG]",
+      "type": "Flag",
+      "id": "right_hippo_flag",
+      "name": "Right Hippocampus Flag"
+    },
+    {
+      "command-line-flag": "--segmentation",
+      "description": "Use subject/mri/segfile.mgz instead of aseg.",
+      "value-key": "[SEGMENTATION_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "segmentation_file",
+      "name": "Segmentation File"
+    },
+    {
+      "command-line-flag": "--p",
+      "description": "Probability output file name.",
+      "value-key": "[PROBABILITY_OUTPUT]",
+      "type": "String",
+      "optional": true,
+      "id": "probability_output",
+      "name": "Probability Output"
+    },
+    {
+      "command-line-flag": "--vote",
+      "description": "Vote output file name.",
+      "value-key": "[VOTE_OUTPUT]",
+      "type": "String",
+      "optional": true,
+      "id": "vote_output",
+      "name": "Vote Output"
+    },
+    {
+      "command-line-flag": "--c",
+      "description": "Concatenated output file name.",
+      "value-key": "[CONCAT_OUTPUT]",
+      "type": "String",
+      "optional": true,
+      "id": "concat_output",
+      "name": "Concatenated Output"
+    },
+    {
+      "command-line-flag": "--xform",
+      "description": "Transformation file to use (default is talairach.xfm).",
+      "value-key": "[XFORM_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "xform_file",
+      "name": "Transformation File"
+    },
+    {
+      "command-line-flag": "--sdir",
+      "description": "SUBJECTS_DIR to use instead of the one in the environment.",
+      "value-key": "[SUBJECTS_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "subjects_dir",
+      "name": "Subjects Directory"
+    },
+    {
+      "command-line-flag": "--tmpdir",
+      "description": "Temporary directory (implies --nocleanup).",
+      "value-key": "[TMPDIR]",
+      "type": "String",
+      "optional": true,
+      "id": "tmpdir",
+      "name": "Temporary Directory"
+    },
+    {
+      "command-line-flag": "--nocleanup",
+      "description": "Do not delete temporary directory.",
+      "value-key": "[NOCLEANUP_FLAG]",
+      "type": "Flag",
+      "id": "nocleanup_flag",
+      "name": "No Cleanup Flag"
+    },
+    {
+      "command-line-flag": "--version",
+      "description": "Display script version information.",
+      "value-key": "[VERSION_FLAG]",
+      "type": "Flag",
+      "id": "version_flag",
+      "name": "Version Flag"
+    },
+    {
+      "command-line-flag": "--echo",
+      "description": "Enable command echo, for debug.",
+      "value-key": "[ECHO_FLAG]",
+      "type": "Flag",
+      "id": "echo_flag",
+      "name": "Echo Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[PROBABILITY_OUTPUT]",
+      "description": "Probability output file.",
+      "id": "probability_output_file",
+      "name": "Probability Output File"
+    },
+    {
+      "path-template": "[VOTE_OUTPUT]",
+      "description": "Vote output file.",
+      "id": "vote_output_file",
+      "name": "Vote Output File"
+    },
+    {
+      "path-template": "[CONCAT_OUTPUT]",
+      "description": "Concatenated output file.",
+      "id": "concat_output_file",
+      "name": "Concatenated Output File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

@@ -1,0 +1,114 @@
+{
+  "name": "surf_proj",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Projects data onto a surface mesh using specified parameters.",
+  "command-line": "surf_proj [DATA] [SURFACE] [OUTPUT_FILE] [SURFACE_REFERENCE] [TRANSFORM] [MESHSPACE] [STEP_SIZE] [DIRECTION] [OPERATION] [SURFACE_OUTPUT]",
+  "inputs": [
+    {
+      "description": "Data to project onto surface",
+      "value-key": "[DATA]",
+      "type": "File",
+      "optional": false,
+      "id": "data",
+      "name": "Data file",
+      "command-line-flag": "-data"
+    },
+    {
+      "description": "Surface file",
+      "value-key": "[SURFACE]",
+      "type": "File",
+      "optional": false,
+      "id": "surface",
+      "name": "Surface file",
+      "command-line-flag": "-surf"
+    },
+    {
+      "description": "Output file",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_file",
+      "name": "Output file",
+      "command-line-flag": "-out"
+    },
+    {
+      "command-line-flag": "--meshref",
+      "description": "Surface volume reference (default=same as data)",
+      "value-key": "[SURFACE_REFERENCE]",
+      "type": "File",
+      "optional": true,
+      "id": "surface_reference",
+      "name": "Surface volume reference"
+    },
+    {
+      "command-line-flag": "--xfm",
+      "description": "Data to surface transform (default=Identity)",
+      "value-key": "[TRANSFORM]",
+      "type": "File",
+      "optional": true,
+      "id": "transform",
+      "name": "Transform file"
+    },
+    {
+      "command-line-flag": "--meshspace",
+      "description": "Mesh space (default='caret')",
+      "value-key": "[MESHSPACE]",
+      "type": "String",
+      "optional": true,
+      "id": "meshspace",
+      "name": "Mesh space"
+    },
+    {
+      "command-line-flag": "--step",
+      "description": "Average over step (mm - default=1)",
+      "value-key": "[STEP_SIZE]",
+      "type": "Number",
+      "optional": true,
+      "id": "step_size",
+      "name": "Step size"
+    },
+    {
+      "command-line-flag": "--direction",
+      "description": "If >0 goes towards brain (default=0 i.e. both directions)",
+      "value-key": "[DIRECTION]",
+      "type": "Number",
+      "optional": true,
+      "id": "direction",
+      "name": "Direction"
+    },
+    {
+      "command-line-flag": "--operation",
+      "description": "What to do with values: 'mean' (default), 'max', 'median', 'last'",
+      "value-key": "[OPERATION]",
+      "type": "String",
+      "optional": true,
+      "id": "operation",
+      "name": "Operation"
+    },
+    {
+      "command-line-flag": "--surfout",
+      "description": "Output surface file, not ASCII matrix (valid only for scalars)",
+      "value-key": "[SURFACE_OUTPUT]",
+      "type": "String",
+      "optional": true,
+      "id": "surface_output",
+      "name": "Surface output file"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILE]",
+      "description": "Output of the projection",
+      "id": "projected_output",
+      "name": "Projected data output"
+    },
+    {
+      "path-template": "[SURFACE_OUTPUT]",
+      "description": "Output surface file",
+      "id": "output_surface",
+      "name": "Output surface file"
+    }
+  ],
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

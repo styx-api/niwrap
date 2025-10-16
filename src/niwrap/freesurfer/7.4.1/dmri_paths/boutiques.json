@@ -1,0 +1,331 @@
+{
+  "name": "dmri_paths",
+  "command-line": "dmri_paths [INDIR] [OUTDIR] [DWI] [GRAD] [BVAL] [MASK] [BPDIR] [NTR] [FMIN] [BASEREG] [BASEMASK] [ROI1] [ROI2] [ROIMESH1] [ROIMESH2] [ROIREF1] [ROIREF2] [PRIOR] [NPRIOR] [NSET] [LPRIOR] [LSET] [SEG] [TPRIOR] [CPRIOR] [REG] [REGNL] [INIT] [NB] [NS] [NK] [NU] [SDP] [DEBUG] [CHECKOPTS] [VERSION]",
+  "description": "Tool for diffusion MRI path analysis.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "indir",
+      "name": "Input Subject Directory",
+      "description": "Input subject directory (optional), specify multiple for longitudinal data.",
+      "value-key": "[INDIR]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "--indir"
+    },
+    {
+      "id": "outdir",
+      "name": "Output Directory",
+      "description": "Output directory (one per path).",
+      "value-key": "[OUTDIR]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "--outdir"
+    },
+    {
+      "id": "dwi",
+      "name": "DWI Volume Series",
+      "description": "DWI volume series.",
+      "value-key": "[DWI]",
+      "type": "File",
+      "optional": true,
+      "command-line-flag": "--dwi"
+    },
+    {
+      "id": "grad",
+      "name": "Diffusion Gradients",
+      "description": "Text file of diffusion gradients.",
+      "value-key": "[GRAD]",
+      "type": "File",
+      "optional": true,
+      "command-line-flag": "--grad"
+    },
+    {
+      "id": "bval",
+      "name": "Diffusion b-values",
+      "description": "Text file of diffusion b-values.",
+      "value-key": "[BVAL]",
+      "type": "File",
+      "optional": true,
+      "command-line-flag": "--bval"
+    },
+    {
+      "id": "mask",
+      "name": "Mask Volume",
+      "description": "Mask volume.",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": true,
+      "command-line-flag": "--mask"
+    },
+    {
+      "id": "bpdir",
+      "name": "BEDPOST Directory",
+      "description": "BEDPOST directory.",
+      "value-key": "[BPDIR]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "--bpdir"
+    },
+    {
+      "id": "ntr",
+      "name": "Max Number of Tracts per Voxel",
+      "description": "Max number of tracts per voxel (default 1).",
+      "value-key": "[NTR]",
+      "type": "Number",
+      "optional": true,
+      "command-line-flag": "--ntr"
+    },
+    {
+      "id": "fmin",
+      "name": "Tract Volume Fraction Threshold",
+      "description": "Tract volume fraction threshold (default 0).",
+      "value-key": "[FMIN]",
+      "type": "Number",
+      "optional": true,
+      "command-line-flag": "--fmin"
+    },
+    {
+      "id": "basereg",
+      "name": "Base-to-DWI Registration",
+      "description": "Base-to-DWI registration, needed for longitudinal data only (.mat, as many as input directories).",
+      "value-key": "[BASEREG]",
+      "type": "File",
+      "optional": true,
+      "command-line-flag": "--basereg"
+    },
+    {
+      "id": "basemask",
+      "name": "Base Template Mask Volume",
+      "description": "Base template mask volume.",
+      "value-key": "[BASEMASK]",
+      "type": "File",
+      "optional": true,
+      "command-line-flag": "--basemask"
+    },
+    {
+      "id": "roi1",
+      "name": "End ROI 1",
+      "description": "End ROI 1 (volume or label, one per path).",
+      "value-key": "[ROI1]",
+      "type": "File",
+      "optional": true,
+      "command-line-flag": "--roi1"
+    },
+    {
+      "id": "roi2",
+      "name": "End ROI 2",
+      "description": "End ROI 2 (volume or label, one per path).",
+      "value-key": "[ROI2]",
+      "type": "File",
+      "optional": true,
+      "command-line-flag": "--roi2"
+    },
+    {
+      "id": "roimesh1",
+      "name": "Mesh for End ROI 1",
+      "description": "Mesh for end ROI 1 (for label ROIs).",
+      "value-key": "[ROIMESH1]",
+      "type": "File",
+      "optional": true,
+      "command-line-flag": "--roimesh1"
+    },
+    {
+      "id": "roimesh2",
+      "name": "Mesh for End ROI 2",
+      "description": "Mesh for end ROI 2 (for label ROIs).",
+      "value-key": "[ROIMESH2]",
+      "type": "File",
+      "optional": true,
+      "command-line-flag": "--roimesh2"
+    },
+    {
+      "id": "roiref1",
+      "name": "Reference Volume for End ROI 1",
+      "description": "Reference volume for end ROI 1 (for label ROIs).",
+      "value-key": "[ROIREF1]",
+      "type": "File",
+      "optional": true,
+      "command-line-flag": "--roiref1"
+    },
+    {
+      "id": "roiref2",
+      "name": "Reference Volume for End ROI 2",
+      "description": "Reference volume for end ROI 2 (for label ROIs).",
+      "value-key": "[ROIREF2]",
+      "type": "File",
+      "optional": true,
+      "command-line-flag": "--roiref2"
+    },
+    {
+      "id": "prior",
+      "name": "Spatial Path Priors",
+      "description": "Spatial path priors (negative log-likelihoods off and on the path, one pair per path).",
+      "value-key": "[PRIOR]",
+      "type": "File",
+      "optional": true,
+      "command-line-flag": "--prior"
+    },
+    {
+      "id": "nprior",
+      "name": "Near-neighbor Label Priors",
+      "description": "Near-neighbor label priors (negative log-likelihood and list of labels, one pair per path).",
+      "value-key": "[NPRIOR]",
+      "type": "File",
+      "optional": true,
+      "command-line-flag": "--nprior"
+    },
+    {
+      "id": "nset",
+      "name": "Subset of Near-neighbor Label Priors",
+      "description": "Subset of near-neighbor label priors (default all).",
+      "value-key": "[NSET]",
+      "type": "Number",
+      "optional": true,
+      "command-line-flag": "--nset"
+    },
+    {
+      "id": "lprior",
+      "name": "Local-neighbor Label Priors",
+      "description": "Local-neighbor label priors (negative log-likelihood and list of labels, one pair per path).",
+      "value-key": "[LPRIOR]",
+      "type": "File",
+      "optional": true,
+      "command-line-flag": "--lprior"
+    },
+    {
+      "id": "lset",
+      "name": "Subset of Local-neighbor Label Priors",
+      "description": "Subset of local-neighbor label priors (default all).",
+      "value-key": "[LSET]",
+      "type": "Number",
+      "optional": true,
+      "command-line-flag": "--lset"
+    },
+    {
+      "id": "seg",
+      "name": "Segmentation Map",
+      "description": "Segmentation map of test subject, specify multiple for longitudinal data.",
+      "value-key": "[SEG]",
+      "type": "File",
+      "optional": true,
+      "command-line-flag": "--seg"
+    },
+    {
+      "id": "tprior",
+      "name": "Path Tangent Vector Priors",
+      "description": "Path tangent vector priors (negative log-likelihood, one per path).",
+      "value-key": "[TPRIOR]",
+      "type": "File",
+      "optional": true,
+      "command-line-flag": "--tprior"
+    },
+    {
+      "id": "cprior",
+      "name": "Path Curvature Priors",
+      "description": "Path curvature priors (negative log-likelihood, one per path).",
+      "value-key": "[CPRIOR]",
+      "type": "File",
+      "optional": true,
+      "command-line-flag": "--cprior"
+    },
+    {
+      "id": "reg",
+      "name": "DWI-to-Atlas Affine Registration",
+      "description": "DWI-to-atlas affine registration (.mat).",
+      "value-key": "[REG]",
+      "type": "File",
+      "optional": true,
+      "command-line-flag": "--reg"
+    },
+    {
+      "id": "regnl",
+      "name": "DWI-to-Atlas Nonlinear Registration",
+      "description": "DWI-to-atlas nonlinear registration (.m3z).",
+      "value-key": "[REGNL]",
+      "type": "File",
+      "optional": true,
+      "command-line-flag": "--regnl"
+    },
+    {
+      "id": "init",
+      "name": "Initial Control Points",
+      "description": "Text file of initial control points (one per path).",
+      "value-key": "[INIT]",
+      "type": "File",
+      "optional": true,
+      "command-line-flag": "--init"
+    },
+    {
+      "id": "nb",
+      "name": "Number of Burn-in Samples",
+      "description": "Number of burn-in samples (default 5000).",
+      "value-key": "[NB]",
+      "type": "Number",
+      "optional": true,
+      "command-line-flag": "--nb"
+    },
+    {
+      "id": "ns",
+      "name": "Number of Post-burn-in Samples",
+      "description": "Number of post-burn-in samples (default 5000).",
+      "value-key": "[NS]",
+      "type": "Number",
+      "optional": true,
+      "command-line-flag": "--ns"
+    },
+    {
+      "id": "nk",
+      "name": "Sample Interval",
+      "description": "Keep every nk-th sample (default 10).",
+      "value-key": "[NK]",
+      "type": "Number",
+      "optional": true,
+      "command-line-flag": "--nk"
+    },
+    {
+      "id": "nu",
+      "name": "Proposal Update Interval",
+      "description": "Update proposal every nu-th sample (default 40).",
+      "value-key": "[NU]",
+      "type": "Number",
+      "optional": true,
+      "command-line-flag": "--nu"
+    },
+    {
+      "id": "sdp",
+      "name": "Initial Proposal SDs",
+      "description": "Text file with initial proposal standard deviations for control point perturbations.",
+      "value-key": "[SDP]",
+      "type": "File",
+      "optional": true,
+      "command-line-flag": "--sdp"
+    },
+    {
+      "id": "debug",
+      "name": "Debug Mode",
+      "description": "Turn on debugging.",
+      "value-key": "[DEBUG]",
+      "type": "Flag",
+      "command-line-flag": "--debug"
+    },
+    {
+      "id": "checkopts",
+      "name": "Check Options",
+      "description": "Don't run anything, just check options and exit.",
+      "value-key": "[CHECKOPTS]",
+      "type": "Flag",
+      "command-line-flag": "--checkopts"
+    },
+    {
+      "id": "version",
+      "name": "Print Version",
+      "description": "Print out version and exit.",
+      "value-key": "[VERSION]",
+      "type": "Flag",
+      "command-line-flag": "--version"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

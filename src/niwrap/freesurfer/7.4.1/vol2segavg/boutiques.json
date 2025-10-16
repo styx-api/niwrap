@@ -1,0 +1,148 @@
+{
+  "name": "vol2segavg",
+  "author": "FreeSurfer Developers",
+  "description": "Computes the average of a volume inside a given segment of a segmentation resampling the input volume to the segmentation space.",
+  "command-line": "vol2segavg [OUTPUT_FILE] [INPUT_VOLUME] [REGISTRATION] [SEGMENTATION_FILE] [APARC_ASEG_FLAG] [SUBJECT_ID] [SEGMENTATION_ID] [MULTIPLY_VALUE] [NO_BB_FLAG] [ERODE_VALUE] [DILATE_VALUE] [WM_FLAG] [VCSF_FLAG] [XCSF_FLAG] [REMOVE_MEAN_FLAG]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--o",
+      "description": "Output file, can be .txt or a binary (e.g., .nii, .mgh)",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_file",
+      "name": "Output file"
+    },
+    {
+      "command-line-flag": "--i",
+      "description": "Input volume file (e.g., vol.nii)",
+      "value-key": "[INPUT_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "input_volume",
+      "name": "Input volume"
+    },
+    {
+      "command-line-flag": "--reg",
+      "description": "Registration file, can be reg.dat or use --regheader",
+      "value-key": "[REGISTRATION]",
+      "type": "String",
+      "optional": false,
+      "id": "registration",
+      "name": "Registration file"
+    },
+    {
+      "command-line-flag": "--seg",
+      "description": "Segmentation file (e.g., seg.mgz)",
+      "value-key": "[SEGMENTATION_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "segmentation_file",
+      "name": "Segmentation file"
+    },
+    {
+      "command-line-flag": "--aparc+aseg",
+      "description": "Use aparc+aseg flag",
+      "value-key": "[APARC_ASEG_FLAG]",
+      "type": "Flag",
+      "id": "aparc_aseg_flag",
+      "name": "Aparc+aseg flag"
+    },
+    {
+      "command-line-flag": "--s",
+      "description": "Subject ID, may be needed if --reg not supplied",
+      "value-key": "[SUBJECT_ID]",
+      "type": "String",
+      "optional": true,
+      "id": "subject_id",
+      "name": "Subject ID"
+    },
+    {
+      "command-line-flag": "--segid",
+      "description": "Segmentation ID(s). Multiple IDs can be supplied.",
+      "value-key": "[SEGMENTATION_ID]",
+      "type": "Number",
+      "list": true,
+      "optional": true,
+      "id": "segmentation_id",
+      "name": "Segmentation ID"
+    },
+    {
+      "command-line-flag": "--mul",
+      "description": "Multiply input by MulVal",
+      "value-key": "[MULTIPLY_VALUE]",
+      "type": "Number",
+      "optional": true,
+      "id": "multiply_value",
+      "name": "Multiply value"
+    },
+    {
+      "command-line-flag": "--no-bb",
+      "description": "Do not use bounding box",
+      "value-key": "[NO_BB_FLAG]",
+      "type": "Flag",
+      "id": "no_bb_flag",
+      "name": "No bounding box flag"
+    },
+    {
+      "command-line-flag": "--erode",
+      "description": "Erode segmentation",
+      "value-key": "[ERODE_VALUE]",
+      "type": "Number",
+      "optional": true,
+      "id": "erode_value",
+      "name": "Erode value"
+    },
+    {
+      "command-line-flag": "--dilate",
+      "description": "Dilate segmentation",
+      "value-key": "[DILATE_VALUE]",
+      "type": "Number",
+      "optional": true,
+      "id": "dilate_value",
+      "name": "Dilate value"
+    },
+    {
+      "command-line-flag": "--wm",
+      "description": "Sets segid to 2, 41, 7, 46, 251, 252, 253, 254, 255, 77, 78, 79 and use aparc+aseg",
+      "value-key": "[WM_FLAG]",
+      "type": "Flag",
+      "id": "wm_flag",
+      "name": "White matter flag"
+    },
+    {
+      "command-line-flag": "--vcsf",
+      "description": "Sets segid to 4, 5, 43, 44, 31, 63 and use aparc+aseg",
+      "value-key": "[VCSF_FLAG]",
+      "type": "Flag",
+      "id": "vcsf_flag",
+      "name": "Ventral CSF flag"
+    },
+    {
+      "command-line-flag": "--xcsf",
+      "description": "Sets segid to 257 and use apas+head",
+      "value-key": "[XCSF_FLAG]",
+      "type": "Flag",
+      "id": "xcsf_flag",
+      "name": "Extended CSF flag"
+    },
+    {
+      "command-line-flag": "--remove-mean",
+      "description": "Remove mean from time course",
+      "value-key": "[REMOVE_MEAN_FLAG]",
+      "type": "Flag",
+      "id": "remove_mean_flag",
+      "name": "Remove mean flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILE]",
+      "description": "Output file containing the computed average",
+      "id": "output_file",
+      "name": "Output file"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

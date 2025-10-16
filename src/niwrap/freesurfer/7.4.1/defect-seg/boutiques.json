@@ -1,0 +1,115 @@
+{
+  "name": "defect-seg",
+  "description": "This program creates some files that allows the user to visualize and evaluate the surface defects that were automatically detected and fixed by the topology correction program.",
+  "command-line": "defect-seg [SUBJECT] [LH_ONLY] [RH_ONLY]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--s",
+      "description": "Subject identifier.",
+      "value-key": "[SUBJECT]",
+      "type": "String",
+      "optional": false,
+      "id": "subject",
+      "name": "Subject"
+    },
+    {
+      "command-line-flag": "--lh-only",
+      "description": "Only process the left hemisphere.",
+      "value-key": "[LH_ONLY]",
+      "type": "Flag",
+      "id": "lh_only",
+      "name": "Left Hemisphere Only Flag"
+    },
+    {
+      "command-line-flag": "--rh-only",
+      "description": "Only process the right hemisphere.",
+      "value-key": "[RH_ONLY]",
+      "type": "Flag",
+      "id": "rh_only",
+      "name": "Right Hemisphere Only Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "mri/surface.defects.mgz",
+      "description": "Surface defects volume.",
+      "id": "surface_defects",
+      "name": "Surface Defects"
+    },
+    {
+      "path-template": "scripts/lh.defects.summary",
+      "description": "Defects summary with ID and number of vertices for left hemisphere.",
+      "id": "lh_defects_summary",
+      "name": "Left Defects Summary"
+    },
+    {
+      "path-template": "surf/lh.defect_labels.fix.mgz",
+      "description": "Fixed defect labels on the left hemisphere surface.",
+      "id": "lh_defect_labels_fix",
+      "name": "Left Defect Labels Fix"
+    },
+    {
+      "path-template": "surf/lh.defect_labels.fix.bin.mgz",
+      "description": "Binary labels for fixed defects on the left hemisphere.",
+      "id": "lh_defect_labels_fix_bin",
+      "name": "Left Defect Labels Fix Binary"
+    },
+    {
+      "path-template": "label/lh.defects.nofix.annot",
+      "description": "Annotation file for defects without fixes on the left hemisphere.",
+      "id": "lh_defects_nofix_annot",
+      "name": "Left Defects No-Fix Annotation"
+    },
+    {
+      "path-template": "label/lh.defects.fix.annot",
+      "description": "Annotation file for defects with fixes on the left hemisphere.",
+      "id": "lh_defects_fix_annot",
+      "name": "Left Defects Fix Annotation"
+    },
+    {
+      "path-template": "stats/lh.defects.stats",
+      "description": "Statistics summary of defects indicating area and average thickness on the left hemisphere.",
+      "id": "lh_defects_stats",
+      "name": "Left Defects Stats"
+    },
+    {
+      "path-template": "scripts/rh.defects.summary",
+      "description": "Defects summary with ID and number of vertices for right hemisphere.",
+      "id": "rh_defects_summary",
+      "name": "Right Defects Summary"
+    },
+    {
+      "path-template": "surf/rh.defect_labels.fix.mgz",
+      "description": "Fixed defect labels on the Right hemisphere surface.",
+      "id": "rh_defect_labels_fix",
+      "name": "Right Defect Labels Fix"
+    },
+    {
+      "path-template": "surf/rh.defect_labels.fix.bin.mgz",
+      "description": "Binary labels for fixed defects on the right hemisphere.",
+      "id": "rh_defect_labels_fix_bin",
+      "name": "Right Defect Labels Fix Binary"
+    },
+    {
+      "path-template": "label/rh.defects.nofix.annot",
+      "description": "Annotation file for defects without fixes on the right hemisphere.",
+      "id": "rh_defects_nofix_annot",
+      "name": "Right Defects No-Fix Annotation"
+    },
+    {
+      "path-template": "label/rh.defects.fix.annot",
+      "description": "Annotation file for defects with fixes on the right hemisphere.",
+      "id": "rh_defects_fix_annot",
+      "name": "Right Defects Fix Annotation"
+    },
+    {
+      "path-template": "stats/rh.defects.stats",
+      "description": "Statistics summary of defects indicating area and average thickness on the right hemisphere.",
+      "id": "rh_defects_stats",
+      "name": "Right Defects Stats"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

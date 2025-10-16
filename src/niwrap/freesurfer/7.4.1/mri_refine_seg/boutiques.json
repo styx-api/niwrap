@@ -1,0 +1,44 @@
+{
+  "name": "mri_refine_seg",
+  "description": "Refines a messy segmentation by recoding stray voxels.",
+  "command-line": "mri_refine_seg [INPUT_SEGMENTATION] [OUTPUT_SEGMENTATION] [DEBUG]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "-i",
+      "description": "Input segmentation file.",
+      "value-key": "[INPUT_SEGMENTATION]",
+      "type": "File",
+      "optional": false,
+      "id": "input_segmentation",
+      "name": "Input Segmentation"
+    },
+    {
+      "command-line-flag": "-o",
+      "description": "Refined segmentation output name.",
+      "value-key": "[OUTPUT_SEGMENTATION]",
+      "type": "String",
+      "optional": false,
+      "id": "output_segmentation",
+      "name": "Output Segmentation"
+    },
+    {
+      "command-line-flag": "--debug",
+      "description": "Save the original segmentation, a mask of the refined voxels, and a pointset of the refined clusters to the output directory.",
+      "value-key": "[DEBUG]",
+      "type": "Flag",
+      "id": "debug",
+      "name": "Debug Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_SEGMENTATION]",
+      "description": "Refined segmentation output file.",
+      "id": "refined_output",
+      "name": "Refined Output Segmentation"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

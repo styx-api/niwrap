@@ -1,0 +1,27 @@
+{
+  "name": "@afni_refacer_make_master",
+  "description": "This script makes a new mask/shell dataset for use with @afni_refacer_run by averaging 'faces' (non-brain tissue) from input datasets.",
+  "author": "AFNI Developers",
+  "command-line": "@afni_refacer_make_master [INPUT_DATASETS]",
+  "inputs": [
+    {
+      "value-key": "[INPUT_DATASETS]",
+      "description": "List of T1-weighted datasets that have NOT been skull-stripped, defaced, or refaced.",
+      "type": "File",
+      "list": true,
+      "id": "input_datasets",
+      "name": "Input Datasets",
+      "optional": false
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "afni_refacer_shell.nii.gz",
+      "description": "Output dataset containing the average 'face' (non-brain tissue).",
+      "name": "Output Shell Dataset",
+      "id": "output_shell_dataset"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

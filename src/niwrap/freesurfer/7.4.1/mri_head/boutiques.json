@@ -1,0 +1,58 @@
+{
+  "name": "mri_head",
+  "command-line": "mri_head [IDENTIFY] [READ] [FILENAME] [HELP] [USAGE] [QUESTION_MARK_HELP]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "-identify",
+      "description": "Identify the MRI file",
+      "value-key": "[IDENTIFY]",
+      "type": "Flag",
+      "id": "identify",
+      "name": "Identify Flag"
+    },
+    {
+      "command-line-flag": "-read",
+      "description": "Read the MRI file",
+      "value-key": "[READ]",
+      "type": "Flag",
+      "id": "read",
+      "name": "Read Flag"
+    },
+    {
+      "description": "Filename for identification or reading",
+      "value-key": "[FILENAME]",
+      "type": "String",
+      "optional": true,
+      "id": "filename",
+      "name": "Filename"
+    },
+    {
+      "command-line-flag": "-h",
+      "description": "Display help information",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help Flag"
+    },
+    {
+      "command-line-flag": "-u",
+      "description": "Display usage information",
+      "value-key": "[USAGE]",
+      "type": "Flag",
+      "id": "usage",
+      "name": "Usage Flag"
+    },
+    {
+      "command-line-flag": "-?",
+      "description": "Display help or usage information",
+      "value-key": "[QUESTION_MARK_HELP]",
+      "type": "Flag",
+      "id": "question_mark_help",
+      "name": "Question Mark Help Flag"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "description": "No description",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

@@ -1,0 +1,34 @@
+{
+  "name": "surface-closest-vertex",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -surface-closest-vertex [SURFACE] [COORD_LIST_FILE] [VERTEX_LIST_OUT]",
+  "description": "Find closest surface vertex to coordinates.\n\nFor each coordinate XYZ triple, find the closest vertex in the surface, and output its vertex number into a text file.  The input file should only use whitespace to separate coordinates (spaces, newlines, tabs), for instance:\n\n20 30 25\n30 -20 10",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "surface",
+      "name": "surface",
+      "description": "the surface to use",
+      "optional": false,
+      "value-key": "[SURFACE]",
+      "type": "File"
+    },
+    {
+      "id": "coord_list_file",
+      "name": "coord_list_file",
+      "description": "text file with coordinates",
+      "optional": false,
+      "value-key": "[COORD_LIST_FILE]",
+      "type": "String"
+    },
+    {
+      "id": "vertex_list_out",
+      "name": "vertex_list_out",
+      "description": "output - the output text file with vertex numbers",
+      "optional": false,
+      "value-key": "[VERTEX_LIST_OUT]",
+      "type": "String"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

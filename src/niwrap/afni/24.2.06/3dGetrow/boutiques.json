@@ -1,0 +1,75 @@
+{
+  "name": "3dGetrow",
+  "author": "AFNI Developers",
+  "description": "Program to extract 1 row from a dataset and write it as a .1D file",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dGetrow [XROW] [YROW] [ZROW] [INPUT_FILE] [OUTPUT_FILE]",
+  "inputs": [
+    {
+      "command-line-flag": "-xrow",
+      "description": "Extract row along the x-direction at fixed y-index of j and fixed z-index of k",
+      "value-key": "[XROW]",
+      "type": "Number",
+      "integer": true,
+      "list": true,
+      "min-list-entries": 2,
+      "max-list-entries": 2,
+      "optional": true,
+      "id": "xrow",
+      "name": "X direction row extraction"
+    },
+    {
+      "command-line-flag": "-yrow",
+      "description": "Extract row along the y-direction at fixed x-index of i and fixed z-index of k",
+      "value-key": "[YROW]",
+      "type": "Number",
+      "integer": true,
+      "list": true,
+      "min-list-entries": 2,
+      "max-list-entries": 2,
+      "optional": true,
+      "id": "yrow",
+      "name": "Y direction row extraction"
+    },
+    {
+      "command-line-flag": "-zrow",
+      "description": "Extract row along the z-direction at fixed x-index of i and fixed y-index of j",
+      "value-key": "[ZROW]",
+      "type": "Number",
+      "integer": true,
+      "list": true,
+      "min-list-entries": 2,
+      "max-list-entries": 2,
+      "optional": true,
+      "id": "zrow",
+      "name": "Z direction row extraction"
+    },
+    {
+      "command-line-flag": "-input",
+      "description": "Read input from dataset 'ddd' (instead of putting dataset name at end of command line)",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "input_file",
+      "name": "Input File"
+    },
+    {
+      "command-line-flag": "-output",
+      "description": "Filename for output .1D ASCII file will be 'ff' (if 'ff' is '-', then output is to stdout, the default)",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "output_file",
+      "name": "Output File"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILE].1D",
+      "description": "Output .1D ASCII file",
+      "id": "out_file",
+      "name": "Output 1D file"
+    }
+  ]
+}

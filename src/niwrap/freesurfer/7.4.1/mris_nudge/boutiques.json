@@ -1,0 +1,60 @@
+{
+  "name": "mris_nudge",
+  "description": "A tool to nudge vertex positions on a surface using a volume.",
+  "command-line": "mris_nudge [INPUT_SURFACE] [INPUT_VOLUME] [VERTEX] [TARGET_VAL] [NBHD]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "input_surface",
+      "name": "Input Surface",
+      "description": "Input surface file for nudging",
+      "type": "File",
+      "value-key": "[INPUT_SURFACE]",
+      "optional": false
+    },
+    {
+      "id": "input_volume",
+      "name": "Input Volume",
+      "description": "Input volume file",
+      "type": "File",
+      "value-key": "[INPUT_VOLUME]",
+      "optional": false
+    },
+    {
+      "id": "vertex",
+      "name": "Vertex",
+      "description": "Vertex to nudge",
+      "type": "Number",
+      "value-key": "[VERTEX]",
+      "optional": false,
+      "integer": true
+    },
+    {
+      "id": "target_val",
+      "name": "Target Value",
+      "description": "Target value for nudging",
+      "type": "Number",
+      "value-key": "[TARGET_VAL]",
+      "optional": false
+    },
+    {
+      "id": "nbhd",
+      "name": "Neighborhood",
+      "description": "Neighborhood size for nudge operation",
+      "type": "Number",
+      "value-key": "[NBHD]",
+      "optional": false,
+      "integer": true
+    }
+  ],
+  "output-files": [
+    {
+      "id": "output_surface",
+      "name": "Output Surface",
+      "description": "Output surface file after nudging",
+      "path-template": "[OUTPUT_SURF]"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

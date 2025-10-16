@@ -1,0 +1,115 @@
+{
+  "name": "vecreg",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Vector Affine/NonLinear Transformation with Orientation Preservation",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "vecreg [INPUT_FILE] [OUTPUT_FILE] [REFERENCE_VOLUME] [TRANSFORM_FILE] [VERBOSE_FLAG] [HELP_FLAG] [SECONDARY_AFFINE] [SECONDARY_WARP] [INTERP_METHOD] [BRAIN_MASK] [REF_BRAIN_MASK]",
+  "inputs": [
+    {
+      "command-line-flag": "-i",
+      "description": "Filename for input vector or tensor field",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input File"
+    },
+    {
+      "command-line-flag": "-o",
+      "description": "Filename for output registered vector or tensor field",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_file",
+      "name": "Output File"
+    },
+    {
+      "command-line-flag": "-r",
+      "description": "Filename for reference (target) volume",
+      "value-key": "[REFERENCE_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "reference_volume",
+      "name": "Reference Volume"
+    },
+    {
+      "command-line-flag": "-t",
+      "description": "Filename for affine transformation matrix",
+      "value-key": "[TRANSFORM_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "transform_file",
+      "name": "Affine Transformation Matrix File"
+    },
+    {
+      "command-line-flag": "-v",
+      "description": "Switch on diagnostic messages",
+      "value-key": "[VERBOSE_FLAG]",
+      "type": "Flag",
+      "id": "verbose_flag",
+      "name": "Verbose Flag"
+    },
+    {
+      "command-line-flag": "-h",
+      "description": "Display help message",
+      "value-key": "[HELP_FLAG]",
+      "type": "Flag",
+      "id": "help_flag",
+      "name": "Help Flag"
+    },
+    {
+      "command-line-flag": "--rotmat",
+      "description": "Filename for secondary affine matrix; if set, this will be used for the rotation of the vector/tensor field",
+      "value-key": "[SECONDARY_AFFINE]",
+      "type": "File",
+      "optional": true,
+      "id": "secondary_affine",
+      "name": "Secondary Affine Matrix File"
+    },
+    {
+      "command-line-flag": "--rotwarp",
+      "description": "Filename for secondary warp field; if set, this will be used for the rotation of the vector/tensor field",
+      "value-key": "[SECONDARY_WARP]",
+      "type": "File",
+      "optional": true,
+      "id": "secondary_warp",
+      "name": "Secondary Warp Field"
+    },
+    {
+      "command-line-flag": "--interp",
+      "description": "Interpolation method (nearestneighbour, trilinear (default), sinc, or spline)",
+      "value-key": "[INTERP_METHOD]",
+      "type": "String",
+      "optional": true,
+      "id": "interp_method",
+      "name": "Interpolation Method"
+    },
+    {
+      "command-line-flag": "-m",
+      "description": "Brain mask in input space",
+      "value-key": "[BRAIN_MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "brain_mask",
+      "name": "Brain Mask"
+    },
+    {
+      "command-line-flag": "--refmask",
+      "description": "Brain mask in output space (useful for speed up of nonlinear registration)",
+      "value-key": "[REF_BRAIN_MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "ref_brain_mask",
+      "name": "Reference Brain Mask"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILE]",
+      "description": "Output file of registered vector or tensor field",
+      "id": "registered_output",
+      "name": "Registered Output"
+    }
+  ]
+}

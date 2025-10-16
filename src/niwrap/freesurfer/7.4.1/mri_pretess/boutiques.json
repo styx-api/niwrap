@@ -1,0 +1,94 @@
+{
+  "name": "mri_pretess",
+  "author": "FreeSurfer Developers",
+  "description": "Tool to modify WM segmentation so that all neighbors of WM voxels have a common face.",
+  "command-line": "mri_pretess [FILLEDVOL] [LABELSTRING] [NORMVOL] [NEWFILLEDVOL] [DEBUG_VOXEL] [NOCORNERS] [WRITE] [KEEP] [TEST]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input filled volume, usually wm.mgz",
+      "value-key": "[FILLEDVOL]",
+      "type": "File",
+      "optional": false,
+      "id": "filledvol",
+      "name": "Filled Volume"
+    },
+    {
+      "description": "Label string, usually wm",
+      "value-key": "[LABELSTRING]",
+      "type": "String",
+      "optional": false,
+      "id": "labelstring",
+      "name": "Label String"
+    },
+    {
+      "description": "Normalization volume, usually norm.mgz",
+      "value-key": "[NORMVOL]",
+      "type": "File",
+      "optional": false,
+      "id": "normvol",
+      "name": "Normalization Volume"
+    },
+    {
+      "description": "New filled volume output, usually wm.mgz",
+      "value-key": "[NEWFILLEDVOL]",
+      "type": "String",
+      "optional": false,
+      "id": "newfilledvol",
+      "name": "New Filled Volume"
+    },
+    {
+      "command-line-flag": "-debug_voxel",
+      "description": "Specify the voxel to debug with coordinates C R S",
+      "value-key": "[DEBUG_VOXEL]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 3,
+      "optional": true,
+      "id": "debug_voxel",
+      "min-list-entries": 3,
+      "name": "Debug Voxel Coordinates"
+    },
+    {
+      "command-line-flag": "-nocorners",
+      "description": "No removal of corner configurations in addition to edge ones",
+      "value-key": "[NOCORNERS]",
+      "type": "Flag",
+      "id": "nocorners",
+      "name": "No Corners Flag"
+    },
+    {
+      "command-line-flag": "-w",
+      "description": "Turn on diagnostic writing",
+      "value-key": "[WRITE]",
+      "type": "Flag",
+      "id": "write",
+      "name": "Write Flag"
+    },
+    {
+      "command-line-flag": "-keep",
+      "description": "Keep WM edits",
+      "value-key": "[KEEP]",
+      "type": "Flag",
+      "id": "keep",
+      "name": "Keep Edits Flag"
+    },
+    {
+      "command-line-flag": "-test",
+      "description": "Adds a voxel to test removal by mri_pretess, retained with -keep. Output not saved.",
+      "value-key": "[TEST]",
+      "type": "Flag",
+      "id": "test",
+      "name": "Test Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[NEWFILLEDVOL]",
+      "description": "Output new filled volume",
+      "id": "out_newfilledvol",
+      "name": "Output New Filled Volume"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

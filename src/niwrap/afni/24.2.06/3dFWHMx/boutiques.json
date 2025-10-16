@@ -1,0 +1,133 @@
+{
+  "name": "3dFWHMx",
+  "author": "AFNI Developers",
+  "description": "Compute Full Width at Half Maximum (FWHM) for FMRI datasets using AutoCorrelation Function (ACF)",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dFWHMx [MASK] [AUTOMASK] [DEMED] [UNIF] [DETREND] [DETPREFIX] [GEOM] [ARITH] [COMBINE] [OUT] [COMPAT] [ACF] [INFILE]",
+  "inputs": [
+    {
+      "description": "Input dataset",
+      "value-key": "[INFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "infile",
+      "name": "Input file"
+    },
+    {
+      "command-line-flag": "-mask",
+      "description": "Use only voxels that are nonzero in dataset 'mmm'",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "mask",
+      "name": "Mask file"
+    },
+    {
+      "command-line-flag": "-automask",
+      "description": "Compute a mask from THIS dataset",
+      "value-key": "[AUTOMASK]",
+      "type": "Flag",
+      "id": "automask",
+      "name": "Automask flag"
+    },
+    {
+      "command-line-flag": "-demed",
+      "description": "if the input dataset has more than one sub-brick then subtract the median of each voxel's time series before processing FWHM",
+      "value-key": "[DEMED]",
+      "type": "Flag",
+      "id": "demed",
+      "name": "Demethod flag"
+    },
+    {
+      "command-line-flag": "-unif",
+      "description": "Normalize each voxel's time series to have the same MAD before processing FWHM, implies -demed",
+      "value-key": "[UNIF]",
+      "type": "Flag",
+      "id": "unif",
+      "name": "Uniform normalization flag"
+    },
+    {
+      "command-line-flag": "-detrend",
+      "description": "Detrend to order 'q'. If q is not given, the program picks q=NT/30; -detrend disables -demed, and includes -unif",
+      "value-key": "[DETREND]",
+      "type": "Number",
+      "optional": true,
+      "id": "detrend",
+      "name": "Detrending order"
+    },
+    {
+      "command-line-flag": "-detprefix",
+      "description": "Save the detrended file into a dataset with prefix 'd'",
+      "value-key": "[DETPREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "detprefix",
+      "name": "Detrended file prefix"
+    },
+    {
+      "command-line-flag": "-geom",
+      "description": "Compute the final estimate as the geometric mean",
+      "value-key": "[GEOM]",
+      "type": "Flag",
+      "id": "geom",
+      "name": "Geometric mean flag"
+    },
+    {
+      "command-line-flag": "-arith",
+      "description": "Compute the final estimate as the arithmetic mean",
+      "value-key": "[ARITH]",
+      "type": "Flag",
+      "id": "arith",
+      "name": "Arithmetic mean flag"
+    },
+    {
+      "command-line-flag": "-combine",
+      "description": "Combine the final measurements along each axis into one result",
+      "value-key": "[COMBINE]",
+      "type": "Flag",
+      "id": "combine",
+      "name": "Combine flag"
+    },
+    {
+      "command-line-flag": "-out",
+      "description": "Write output to file 'ttt' (3 columns of numbers). If not given, the sub-brick outputs are not written. Use '-out -' to write to stdout, if desired",
+      "value-key": "[OUT]",
+      "type": "String",
+      "optional": true,
+      "id": "out",
+      "name": "Output file"
+    },
+    {
+      "command-line-flag": "-compat",
+      "description": "Be compatible with the older 3dFWHM",
+      "value-key": "[COMPAT]",
+      "type": "Flag",
+      "id": "compat",
+      "name": "Compatibility flag"
+    },
+    {
+      "command-line-flag": "-acf",
+      "description": "Compute the spatial autocorrelation of the data as a function of radius, then fit that to a model and output the model parameters",
+      "value-key": "[ACF]",
+      "type": "String",
+      "optional": true,
+      "id": "acf",
+      "name": "ACF parameter"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUT].1D",
+      "description": "Output file containing FWHM/ACF estimates",
+      "id": "out_file",
+      "name": "Output file"
+    },
+    {
+      "path-template": "[DETPREFIX].nii.gz",
+      "description": "Detrended dataset file",
+      "id": "detrended_dataset",
+      "name": "Detrended dataset"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "name": "LesionFilling",
+  "command-line": "LesionFilling [IMAGE_DIMENSION] [T1_IMAGE] [LESION_MASK] [OUTPUT_LESION_FILLED]",
+  "description": "A tool for filling lesions in T1 images using a mask.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "image_dimension",
+      "name": "Image Dimension",
+      "value-key": "[IMAGE_DIMENSION]",
+      "type": "Number",
+      "integer": true,
+      "optional": false,
+      "description": "Dimensionality of the image (e.g., 2, 3)"
+    },
+    {
+      "id": "t1_image",
+      "name": "T1 Image",
+      "value-key": "[T1_IMAGE]",
+      "type": "File",
+      "optional": false,
+      "description": "Path to the T1 image file."
+    },
+    {
+      "id": "lesion_mask",
+      "name": "Lesion Mask",
+      "value-key": "[LESION_MASK]",
+      "type": "File",
+      "optional": false,
+      "description": "Path to the lesion mask image file."
+    },
+    {
+      "id": "output_lesion_filled",
+      "name": "Output Lesion Filled",
+      "value-key": "[OUTPUT_LESION_FILLED]",
+      "type": "String",
+      "optional": false,
+      "description": "Path for the output file with lesions filled."
+    }
+  ],
+  "output-files": [
+    {
+      "id": "lesion_filled_output",
+      "name": "Lesion Filled Output",
+      "description": "Output image with filled lesions.",
+      "path-template": "[OUTPUT_LESION_FILLED]"
+    }
+  ],
+  "author": "ANTs Developers",
+  "url": "https://github.com/ANTsX/ANTs"
+}

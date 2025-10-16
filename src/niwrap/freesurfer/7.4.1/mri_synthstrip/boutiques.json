@@ -1,0 +1,85 @@
+{
+  "name": "mri_synthstrip",
+  "author": "FreeSurfer Developers",
+  "description": "Robust, universal skull-stripping for brain images of any type.",
+  "command-line": "mri_synthstrip [IMAGE] [[OUTPUT_IMAGE]] [[MASK]] [[GPU]] [[BORDER]] [[EXCLUDE_CSF]] [[MODEL_WEIGHTS]]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "-i",
+      "description": "Input image to skullstrip.",
+      "value-key": "[IMAGE]",
+      "type": "File",
+      "optional": false,
+      "id": "image",
+      "name": "Input image"
+    },
+    {
+      "command-line-flag": "-o",
+      "description": "Save stripped image to path.",
+      "value-key": "[OUTPUT_IMAGE]",
+      "type": "String",
+      "optional": true,
+      "id": "output_image",
+      "name": "Output image"
+    },
+    {
+      "command-line-flag": "-m",
+      "description": "Save binary brain mask to path.",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "mask",
+      "name": "Output brain mask"
+    },
+    {
+      "command-line-flag": "-g",
+      "description": "Use the GPU.",
+      "value-key": "[GPU]",
+      "type": "Flag",
+      "id": "gpu",
+      "name": "Use GPU"
+    },
+    {
+      "command-line-flag": "-b",
+      "description": "Mask border threshold in mm. Default is 1.",
+      "value-key": "[BORDER]",
+      "type": "Number",
+      "optional": true,
+      "id": "border",
+      "name": "Mask border threshold"
+    },
+    {
+      "command-line-flag": "--no-csf",
+      "description": "Exclude CSF from brain border.",
+      "value-key": "[EXCLUDE_CSF]",
+      "type": "Flag",
+      "id": "exclude_csf",
+      "name": "Exclude CSF"
+    },
+    {
+      "command-line-flag": "--model",
+      "description": "Alternative model weights.",
+      "value-key": "[MODEL_WEIGHTS]",
+      "type": "File",
+      "optional": true,
+      "id": "model_weights",
+      "name": "Model weights"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_IMAGE]",
+      "description": "Stripped brain image output.",
+      "id": "output_image_file",
+      "name": "Output image file"
+    },
+    {
+      "path-template": "[MASK]",
+      "description": "Binary brain mask output.",
+      "id": "output_mask_file",
+      "name": "Output mask file"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

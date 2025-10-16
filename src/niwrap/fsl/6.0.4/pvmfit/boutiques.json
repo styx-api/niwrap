@@ -1,0 +1,152 @@
+{
+  "name": "pvmfit",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Fits diffusion models to multishell DWI data",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "pvmfit [DATA_FILE] [MASK_FILE] [BVEC_FILE] [BVAL_FILE] [OUTPUT_BASENAME] [NUMBER_OF_FIBRES] [MODEL_TYPE] [FIT_ALL_MODELS] [CONSTRAINED_NONLINEAR] [CONSTRAINED_NONLINEAR_F] [GRID_SEARCH] [INCLUDE_NOISE_FLOOR] [SAVE_BIC] [VERBOSE] [HELP]",
+  "inputs": [
+    {
+      "description": "Data file",
+      "value-key": "[DATA_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "data_file",
+      "name": "Data file",
+      "command-line-flag": "-k"
+    },
+    {
+      "description": "Mask file",
+      "value-key": "[MASK_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "mask_file",
+      "name": "Mask file",
+      "command-line-flag": "-m"
+    },
+    {
+      "description": "B vectors file",
+      "value-key": "[BVEC_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "bvec_file",
+      "name": "B vectors file",
+      "command-line-flag": "-r"
+    },
+    {
+      "description": "B values file",
+      "value-key": "[BVAL_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "bval_file",
+      "name": "B values file",
+      "command-line-flag": "-b"
+    },
+    {
+      "command-line-flag": "-o",
+      "description": "Output basename - default='pvm'",
+      "value-key": "[OUTPUT_BASENAME]",
+      "type": "String",
+      "optional": true,
+      "id": "output_basename",
+      "name": "Output basename"
+    },
+    {
+      "command-line-flag": "-n",
+      "description": "Number of fibres to fit - default=1",
+      "value-key": "[NUMBER_OF_FIBRES]",
+      "type": "Number",
+      "optional": true,
+      "id": "number_of_fibres",
+      "name": "Number of fibres"
+    },
+    {
+      "command-line-flag": "--model",
+      "description": "Model type: 1 for Ball-Sticks (single-shell), 2 for Ball-Sticks (multi-shells), 4 for Ball-Binghams",
+      "value-key": "[MODEL_TYPE]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "model_type",
+      "name": "Model type"
+    },
+    {
+      "command-line-flag": "--all",
+      "description": "Fit all models from 1 up to N fibres and choose the best using BIC",
+      "value-key": "[FIT_ALL_MODELS]",
+      "type": "Flag",
+      "id": "fit_all_models",
+      "name": "Fit all models using BIC"
+    },
+    {
+      "command-line-flag": "--cnonlinear",
+      "description": "Model1: Apply constrained nonlinear optimization on the diffusivity, volume fractions and their sum",
+      "value-key": "[CONSTRAINED_NONLINEAR]",
+      "type": "Flag",
+      "id": "constrained_nonlinear",
+      "name": "Constrained nonlinear optimization"
+    },
+    {
+      "command-line-flag": "--cnonlinear_F",
+      "description": "Model1: Apply constrained nonlinear optimization on the diffusivity, volume fractions and their sum. Return n fanning angle estimates, using the Hessian of the cost function",
+      "value-key": "[CONSTRAINED_NONLINEAR_F]",
+      "type": "Flag",
+      "id": "constrained_nonlinear_f",
+      "name": "Constrained nonlinear optimization with fanning"
+    },
+    {
+      "command-line-flag": "--gridsearch",
+      "description": "Use grid search (on the fanning eigenvalues). Default=off",
+      "value-key": "[GRID_SEARCH]",
+      "type": "Flag",
+      "id": "grid_search",
+      "name": "Grid search"
+    },
+    {
+      "command-line-flag": "--f0",
+      "description": "Include noise floor parameter in the model",
+      "value-key": "[INCLUDE_NOISE_FLOOR]",
+      "type": "Flag",
+      "id": "include_noise_floor",
+      "name": "Include noise floor"
+    },
+    {
+      "command-line-flag": "--BIC",
+      "description": "Save BIC for certain models",
+      "value-key": "[SAVE_BIC]",
+      "type": "Flag",
+      "id": "save_bic",
+      "name": "Save BIC"
+    },
+    {
+      "command-line-flag": "-V",
+      "description": "Switch on diagnostic messages",
+      "value-key": "[VERBOSE]",
+      "type": "Flag",
+      "id": "verbose",
+      "name": "Verbose"
+    },
+    {
+      "command-line-flag": "-h",
+      "description": "Display help message",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_BASENAME].nii.gz",
+      "description": "Main output file",
+      "id": "output_file",
+      "name": "Output file"
+    },
+    {
+      "path-template": "[OUTPUT_BASENAME]_BIC.nii.gz",
+      "description": "Optional: Saved BIC (Bayesian Information Criterion) for certain models",
+      "id": "bic_file",
+      "name": "BIC file"
+    }
+  ]
+}

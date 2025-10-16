@@ -1,0 +1,58 @@
+{
+  "name": "mri_add_xform_to_header",
+  "author": "FreeSurfer Developers",
+  "description": "Program to add specified transformation to the volume header.",
+  "command-line": "mri_add_xform_to_header [XFM_FILE] [INPUT_VOLUME] [OUTPUT_VOLUME] [VERBOSE] [COPY_NAME]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Transformation file to be added to the volume header.",
+      "value-key": "[XFM_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "xfm_file",
+      "name": "XFM File"
+    },
+    {
+      "description": "Input volume to which the transformation is added.",
+      "value-key": "[INPUT_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "input_volume",
+      "name": "Input Volume"
+    },
+    {
+      "description": "Output volume with the transformation included.",
+      "value-key": "[OUTPUT_VOLUME]",
+      "type": "String",
+      "optional": false,
+      "id": "output_volume",
+      "name": "Output Volume"
+    },
+    {
+      "command-line-flag": "-v",
+      "description": "Enable verbose output for more detailed logging.",
+      "value-key": "[VERBOSE]",
+      "type": "Flag",
+      "id": "verbose",
+      "name": "Verbose Flag"
+    },
+    {
+      "command-line-flag": "-c",
+      "description": "Copy the name of the xfm file without loading it.",
+      "value-key": "[COPY_NAME]",
+      "type": "Flag",
+      "id": "copy_name",
+      "name": "Copy Name Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_VOLUME]",
+      "description": "Volume output with added transformation.",
+      "id": "output_volume_file",
+      "name": "Output Volume File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

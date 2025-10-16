@@ -1,0 +1,100 @@
+{
+  "name": "fslmerge",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "FSL tool to concatenate images in various dimensions",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "fslmerge [MERGE_TIME] [MERGE_X] [MERGE_Y] [MERGE_Z] [AUTO_CHOOSE] [MERGE_SET_TR] [OUTPUT_FILE] [INPUT_FILES] [VOLUME_NUMBER] [TR_VALUE]",
+  "inputs": [
+    {
+      "command-line-flag": "-t",
+      "description": "Concatenate images in time (4th dimension)",
+      "value-key": "[MERGE_TIME]",
+      "type": "Flag",
+      "id": "merge_time",
+      "name": "Merge in Time"
+    },
+    {
+      "command-line-flag": "-x",
+      "description": "Concatenate images in the x direction",
+      "value-key": "[MERGE_X]",
+      "type": "Flag",
+      "id": "merge_x",
+      "name": "Merge in X Direction"
+    },
+    {
+      "command-line-flag": "-y",
+      "description": "Concatenate images in the y direction",
+      "value-key": "[MERGE_Y]",
+      "type": "Flag",
+      "id": "merge_y",
+      "name": "Merge in Y Direction"
+    },
+    {
+      "command-line-flag": "-z",
+      "description": "Concatenate images in the z direction",
+      "value-key": "[MERGE_Z]",
+      "type": "Flag",
+      "id": "merge_z",
+      "name": "Merge in Z Direction"
+    },
+    {
+      "command-line-flag": "-a",
+      "description": "Auto-choose: single slices -> volume, volumes -> 4D (time series)",
+      "value-key": "[AUTO_CHOOSE]",
+      "type": "Flag",
+      "id": "auto_choose",
+      "name": "Auto-choose Merge"
+    },
+    {
+      "command-line-flag": "-tr",
+      "description": "Concatenate images in time and set the output image tr to the provided value",
+      "value-key": "[MERGE_SET_TR]",
+      "type": "Flag",
+      "id": "merge_set_tr",
+      "name": "Merge in Time with TR"
+    },
+    {
+      "description": "Output concatenated image file",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_file",
+      "name": "Output File"
+    },
+    {
+      "description": "Input image files to concatenate",
+      "value-key": "[INPUT_FILES]",
+      "type": "File",
+      "optional": false,
+      "id": "input_files",
+      "name": "Input Files",
+      "list": true
+    },
+    {
+      "command-line-flag": "-n",
+      "description": "Only use volume <N> from each input file (first volume is 0 not 1)",
+      "value-key": "[VOLUME_NUMBER]",
+      "type": "Number",
+      "optional": true,
+      "id": "volume_number",
+      "name": "Volume Number"
+    },
+    {
+      "description": "TR value in seconds, used with the -tr flag",
+      "value-key": "[TR_VALUE]",
+      "type": "Number",
+      "optional": true,
+      "id": "tr_value",
+      "name": "TR Value"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILE]",
+      "description": "Output concatenated image file",
+      "id": "out_file",
+      "name": "Output File"
+    }
+  ]
+}

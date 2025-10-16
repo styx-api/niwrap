@@ -1,0 +1,95 @@
+{
+  "name": "std2imgcoord",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Convert standard space coordinates to image space coordinates",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "std2imgcoord [FILENAME_COORDINATES] [STANDARD_IMAGE] [INPUT_IMAGE] [AFFINE_TRANSFORM] [WARP_FIELD] [PREWARP_AFFINE_TRANSFORM] [OUTPUT_MM] [OUTPUT_VOX] [VERBOSE] [MORE_VERBOSE]",
+  "inputs": [
+    {
+      "description": "Path to the filename containing coordinates or '-' to read from standard input",
+      "value-key": "[FILENAME_COORDINATES]",
+      "type": "File",
+      "optional": false,
+      "id": "filename_coordinates",
+      "name": "Coordinate file"
+    },
+    {
+      "command-line-flag": "-std",
+      "description": "Filename of standard image",
+      "value-key": "[STANDARD_IMAGE]",
+      "type": "File",
+      "optional": true,
+      "id": "standard_image",
+      "name": "Standard Image"
+    },
+    {
+      "command-line-flag": "-img",
+      "description": "Filename of input image",
+      "value-key": "[INPUT_IMAGE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_image",
+      "name": "Input Image"
+    },
+    {
+      "command-line-flag": "-xfm",
+      "description": "Filename of affine transform (e.g. example_func2standard.mat)",
+      "value-key": "[AFFINE_TRANSFORM]",
+      "type": "File",
+      "optional": true,
+      "id": "affine_transform",
+      "name": "Affine Transform"
+    },
+    {
+      "command-line-flag": "-warp",
+      "description": "Filename of warpfield (e.g. highres2standard_warp.nii.gz)",
+      "value-key": "[WARP_FIELD]",
+      "type": "File",
+      "optional": true,
+      "id": "warp_field",
+      "name": "Warp Field"
+    },
+    {
+      "command-line-flag": "-premat",
+      "description": "Filename of pre-warp affine transform (e.g. example_func2highres.mat). Defaults to identity matrix.",
+      "value-key": "[PREWARP_AFFINE_TRANSFORM]",
+      "type": "File",
+      "optional": true,
+      "id": "prewarp_affine_transform",
+      "name": "Pre-warp Affine Transform"
+    },
+    {
+      "command-line-flag": "-mm",
+      "description": "Outputs coordinates in mm (default)",
+      "value-key": "[OUTPUT_MM]",
+      "type": "Flag",
+      "id": "output_mm",
+      "name": "Output in mm"
+    },
+    {
+      "command-line-flag": "-vox",
+      "description": "Outputs coordinates in voxels",
+      "value-key": "[OUTPUT_VOX]",
+      "type": "Flag",
+      "id": "output_vox",
+      "name": "Output in voxels"
+    },
+    {
+      "command-line-flag": "-v",
+      "description": "Verbose output",
+      "value-key": "[VERBOSE]",
+      "type": "Flag",
+      "id": "verbose",
+      "name": "Verbose output"
+    },
+    {
+      "command-line-flag": "-verbose",
+      "description": "More verbose output",
+      "value-key": "[MORE_VERBOSE]",
+      "type": "Flag",
+      "id": "more_verbose",
+      "name": "More verbose output"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

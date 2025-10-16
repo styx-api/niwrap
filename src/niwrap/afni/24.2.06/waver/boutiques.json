@@ -1,0 +1,224 @@
+{
+  "name": "waver",
+  "author": "AFNI Developers",
+  "description": "Creates an ideal waveform timeseries file.",
+  "command-line": "waver [WAV] [GAM] [EXPR] [FILE_OPT] [DELAY_TIME] [RISE_TIME] [FALL_TIME] [UNDERSHOOT] [RESTORE_TIME] [GAMB] [GAMC] [GAMD] [PEAK] [DT] [TR] [XYOUT] [INPUT_FILE] [INLINE_DATA] [TSTIM_DATA] [WHEN_DATA] [NUMOUT] [VER_FLAG]",
+  "inputs": [
+    {
+      "description": "Sets waveform to Cox special [default]",
+      "command-line-flag": "-WAV",
+      "value-key": "[WAV]",
+      "type": "Flag",
+      "id": "wav",
+      "name": "Cox special waveform"
+    },
+    {
+      "description": "Sets waveform to form t^b * exp(-t/c) (cf. Mark Cohen)",
+      "command-line-flag": "-GAM",
+      "value-key": "[GAM]",
+      "type": "Flag",
+      "id": "gam",
+      "name": "Gamma waveform"
+    },
+    {
+      "description": "Sets waveform to the expression given, which should depend on the variable 't'.",
+      "command-line-flag": "-EXPR",
+      "value-key": "[EXPR]",
+      "type": "String",
+      "optional": true,
+      "id": "expr",
+      "name": "Expression for custom waveform"
+    },
+    {
+      "description": "Sets waveform to the values read from the file wname, which should be a single column .1D file. The dt value is the time step (in seconds) between lines in wname.",
+      "command-line-flag": "-FILE",
+      "value-key": "[FILE_OPT]",
+      "type": "String",
+      "optional": true,
+      "id": "file_opt",
+      "name": "File for waveform values"
+    },
+    {
+      "description": "Sets delay time to # seconds [2]",
+      "command-line-flag": "-delaytime",
+      "value-key": "[DELAY_TIME]",
+      "type": "Number",
+      "integer": false,
+      "optional": true,
+      "id": "delay_time",
+      "name": "Delay time"
+    },
+    {
+      "description": "Sets rise time to # seconds [4]",
+      "command-line-flag": "-risetime",
+      "value-key": "[RISE_TIME]",
+      "type": "Number",
+      "integer": false,
+      "optional": true,
+      "id": "rise_time",
+      "name": "Rise time"
+    },
+    {
+      "description": "Sets fall time to # seconds [6]",
+      "command-line-flag": "-falltime",
+      "value-key": "[FALL_TIME]",
+      "type": "Number",
+      "integer": false,
+      "optional": true,
+      "id": "fall_time",
+      "name": "Fall time"
+    },
+    {
+      "description": "Sets undershoot to # times the peak [0.2]",
+      "command-line-flag": "-undershoot",
+      "value-key": "[UNDERSHOOT]",
+      "type": "Number",
+      "integer": false,
+      "optional": true,
+      "id": "undershoot",
+      "name": "Undershoot"
+    },
+    {
+      "description": "Sets time to restore from undershoot [2]",
+      "command-line-flag": "-restoretime",
+      "value-key": "[RESTORE_TIME]",
+      "type": "Number",
+      "integer": false,
+      "optional": true,
+      "id": "restore_time",
+      "name": "Restore time"
+    },
+    {
+      "description": "Sets the parameter 'b' to # [8.6]",
+      "command-line-flag": "-gamb",
+      "value-key": "[GAMB]",
+      "type": "Number",
+      "integer": false,
+      "optional": true,
+      "id": "gamb",
+      "name": "Gamma parameter b"
+    },
+    {
+      "description": "Sets the parameter 'c' to # [0.547]",
+      "command-line-flag": "-gamc",
+      "value-key": "[GAMC]",
+      "type": "Number",
+      "integer": false,
+      "optional": true,
+      "id": "gamc",
+      "name": "Gamma parameter c"
+    },
+    {
+      "description": "Sets the delay time to # seconds [0.0]",
+      "command-line-flag": "-gamd",
+      "value-key": "[GAMD]",
+      "type": "Number",
+      "integer": false,
+      "optional": true,
+      "id": "gamd",
+      "name": "Gamma delay time"
+    },
+    {
+      "description": "Sets peak value to # [100]",
+      "command-line-flag": "-peak",
+      "value-key": "[PEAK]",
+      "type": "Number",
+      "integer": false,
+      "optional": true,
+      "id": "peak",
+      "name": "Peak value"
+    },
+    {
+      "description": "Sets time step of output AND input [0.1]",
+      "command-line-flag": "-dt",
+      "value-key": "[DT]",
+      "type": "Number",
+      "integer": false,
+      "optional": true,
+      "id": "dt",
+      "name": "Time step"
+    },
+    {
+      "description": "'-TR' is equivalent to '-dt'",
+      "command-line-flag": "-TR",
+      "value-key": "[TR]",
+      "type": "Number",
+      "integer": false,
+      "optional": true,
+      "id": "tr",
+      "name": "TR time step"
+    },
+    {
+      "description": "Output data in 2 columns: 1=time 2=waveform (useful for graphing) [default is 1 column=waveform]",
+      "command-line-flag": "-xyout",
+      "value-key": "[XYOUT]",
+      "type": "Flag",
+      "id": "xyout",
+      "name": "XY output flag"
+    },
+    {
+      "description": "Read timeseries from *.1D formatted 'infile'; convolve with waveform to produce output",
+      "command-line-flag": "-input",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "input_file",
+      "name": "Input file"
+    },
+    {
+      "description": "Read timeseries from command line DATA; convolve with waveform to produce output",
+      "command-line-flag": "-inline",
+      "value-key": "[INLINE_DATA]",
+      "type": "String",
+      "optional": true,
+      "id": "inline_data",
+      "name": "Inline input data"
+    },
+    {
+      "description": "Read discrete stimulation times from the command line and convolve the waveform with delta-functions at those times.",
+      "command-line-flag": "-tstim",
+      "value-key": "[TSTIM_DATA]",
+      "type": "String",
+      "optional": true,
+      "id": "tstim_data",
+      "name": "Tstim input data"
+    },
+    {
+      "description": "Read time blocks when stimulus is 'on' (=1) from the command line and convolve the waveform with with a zero-one input.",
+      "command-line-flag": "-when",
+      "value-key": "[WHEN_DATA]",
+      "type": "String",
+      "optional": true,
+      "id": "when_data",
+      "name": "When input data"
+    },
+    {
+      "description": "Output a timeseries with NN points; if this option is not given, then enough points are output to let the result tail back down to zero.",
+      "command-line-flag": "-numout",
+      "value-key": "[NUMOUT]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "numout",
+      "name": "Number of output points"
+    },
+    {
+      "description": "Output version information and exit.",
+      "command-line-flag": "-ver",
+      "value-key": "[VER_FLAG]",
+      "type": "Flag",
+      "id": "ver_flag",
+      "name": "Version flag"
+    }
+  ],
+  "output-files": [
+    {
+      "description": "The output filename for the result of the waveform.",
+      "id": "output_filename",
+      "name": "Output Filename",
+      "path-template": "output_filename"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

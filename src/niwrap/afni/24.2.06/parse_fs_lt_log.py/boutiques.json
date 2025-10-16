@@ -1,0 +1,54 @@
+{
+  "name": "parse_fs_lt_log.py",
+  "author": "AFNI Developers",
+  "description": "Parses FreeSurfer labeltable log file and retrieves labeltable indices.",
+  "command-line": "parse_fs_lt_log.py [LOGFILE] [LABELS] [SHOW_ORIG] [SHOW_ALL_ORIG] [VERBOSITY]",
+  "inputs": [
+    {
+      "description": "Specify rank log file.",
+      "value-key": "[LOGFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "logfile",
+      "name": "Log file",
+      "command-line-flag": "-logfile"
+    },
+    {
+      "command-line-flag": "-labels",
+      "description": "Specify a list of labels to search for.",
+      "value-key": "[LABELS]",
+      "type": "String",
+      "list": true,
+      "optional": false,
+      "id": "labels",
+      "name": "Labels"
+    },
+    {
+      "command-line-flag": "-show_orig",
+      "description": "Show original label indices.",
+      "value-key": "[SHOW_ORIG]",
+      "type": "Flag",
+      "id": "show_orig",
+      "name": "Show Original"
+    },
+    {
+      "command-line-flag": "-show_all_orig",
+      "description": "Show all original label indices.",
+      "value-key": "[SHOW_ALL_ORIG]",
+      "type": "Flag",
+      "id": "show_all_orig",
+      "name": "Show All Original"
+    },
+    {
+      "command-line-flag": "-verb",
+      "description": "Specify verbosity level.",
+      "value-key": "[VERBOSITY]",
+      "type": "Number",
+      "optional": true,
+      "id": "verbosity",
+      "name": "Verbosity"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

@@ -1,0 +1,102 @@
+{
+  "name": "mri_vol2surf",
+  "author": "FreeSurfer Developers",
+  "description": "This program resamples a volume onto a surface of a subject or the sphere. The output can be viewed on the surface (using tksurfer) or can be used for surface-based intersubject averaging.",
+  "command-line": "mri_vol2surf [INPUT_VOLUME] [REGISTRATION_FILE] [OUTPUT_PATH] [REFERENCE_VOLUME] [REGHEADER_SUBJECT] [MNI152REG_FLAG] [TARGET_SUBJECT] [HEMISPHERE] [SURFACE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--mov",
+      "description": "Path to input volume file",
+      "value-key": "[INPUT_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "input_volume",
+      "name": "Input Volume"
+    },
+    {
+      "command-line-flag": "--reg",
+      "description": "Registration file as computed by tkregister, spmregister, bbregister, etc.",
+      "value-key": "[REGISTRATION_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "registration_file",
+      "name": "Registration File"
+    },
+    {
+      "command-line-flag": "--o",
+      "description": "Output path for the resampled volume",
+      "value-key": "[OUTPUT_PATH]",
+      "type": "String",
+      "optional": false,
+      "id": "output_path",
+      "name": "Output Path"
+    },
+    {
+      "command-line-flag": "--ref",
+      "description": "Reference volume name, default is orig.mgz",
+      "value-key": "[REFERENCE_VOLUME]",
+      "type": "String",
+      "optional": true,
+      "id": "reference_volume",
+      "name": "Reference Volume"
+    },
+    {
+      "command-line-flag": "--regheader",
+      "description": "Compute registration from header information, aligning the current volume with the subject/mri/orig.mgz",
+      "value-key": "[REGHEADER_SUBJECT]",
+      "type": "String",
+      "optional": true,
+      "id": "regheader_subject",
+      "name": "Regheader Subject"
+    },
+    {
+      "command-line-flag": "--mni152reg",
+      "description": "Use MNI152 registration: $FREESURFER_HOME/average/mni152.register.dat",
+      "value-key": "[MNI152REG_FLAG]",
+      "type": "Flag",
+      "id": "mni152reg_flag",
+      "name": "MNI152 Registration"
+    },
+    {
+      "command-line-flag": "--trgsubject",
+      "description": "Target subject for resampling, can be a subject name or 'ico' for icosahedron",
+      "value-key": "[TARGET_SUBJECT]",
+      "type": "String",
+      "optional": true,
+      "id": "target_subject",
+      "name": "Target Subject"
+    },
+    {
+      "command-line-flag": "--hemi",
+      "description": "Hemisphere to process: lh = left hemisphere or rh = right hemisphere",
+      "value-key": "[HEMISPHERE]",
+      "type": "String",
+      "optional": true,
+      "id": "hemisphere",
+      "name": "Hemisphere",
+      "value-choices": [
+        "lh",
+        "rh"
+      ]
+    },
+    {
+      "command-line-flag": "--surf",
+      "description": "Target surface on which to resample, default is 'white'",
+      "value-key": "[SURFACE]",
+      "type": "String",
+      "optional": true,
+      "id": "surface",
+      "name": "Target Surface"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_PATH]",
+      "description": "Output file containing the resampled volume onto the surface",
+      "id": "resampled_volume_output",
+      "name": "Resampled Volume Output"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

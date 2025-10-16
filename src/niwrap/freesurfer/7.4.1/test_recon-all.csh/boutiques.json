@@ -1,0 +1,119 @@
+{
+  "name": "test_recon-all.csh",
+  "command-line": "test_recon-all.csh [REFERENCE_SUBJ_SOURCE_DIR] [REFERENCE_SUBJID] [TEST_SUBJECT_DEST_DIR] [TEST_SUBJID] [FREESURFER_HOME] [NORECON]",
+  "description": "Script for testing recon-all and other utilities with FreeSurfer.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "reference_subj_source_dir",
+      "name": "Reference Subject Source Directory",
+      "description": "Directory of the reference subject source.",
+      "type": "String",
+      "value-key": "[REFERENCE_SUBJ_SOURCE_DIR]",
+      "command-line-flag": "-rsd",
+      "optional": true
+    },
+    {
+      "id": "reference_subjid",
+      "name": "Reference Subject ID",
+      "description": "ID of the reference subject.",
+      "type": "String",
+      "value-key": "[REFERENCE_SUBJID]",
+      "command-line-flag": "-rs",
+      "optional": true
+    },
+    {
+      "id": "test_subject_dest_dir",
+      "name": "Test Subject Destination Directory",
+      "description": "Directory for the test subject destination.",
+      "type": "String",
+      "value-key": "[TEST_SUBJECT_DEST_DIR]",
+      "command-line-flag": "-tsd",
+      "optional": true
+    },
+    {
+      "id": "test_subjid",
+      "name": "Test Subject ID",
+      "description": "ID of the test subject.",
+      "type": "String",
+      "value-key": "[TEST_SUBJID]",
+      "command-line-flag": "-ts",
+      "optional": true
+    },
+    {
+      "id": "freesurfer_home",
+      "name": "FreeSurfer Home",
+      "description": "Path to the FreeSurfer installation directory.",
+      "type": "String",
+      "value-key": "[FREESURFER_HOME]",
+      "command-line-flag": "-fshome",
+      "optional": true
+    },
+    {
+      "id": "norecon",
+      "name": "No Recon Flag",
+      "description": "Flag to indicate that recon-all should not be run.",
+      "type": "Flag",
+      "value-key": "[NORECON]",
+      "command-line-flag": "-norecon"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "recon_all_output",
+      "name": "Recon-all Output",
+      "description": "Output from the recon-all utility.",
+      "path-template": "recon_all_output.txt"
+    },
+    {
+      "id": "mri_diff_output",
+      "name": "MRI Diff Output",
+      "description": "Output from the mri_diff utility.",
+      "path-template": "mri_diff_output.txt"
+    },
+    {
+      "id": "mri_compute_seg_overlap_output",
+      "name": "MRI Compute Segmentation Overlap Output",
+      "description": "Output from the mri_compute_seg_overlap utility.",
+      "path-template": "mri_compute_seg_overlap_output.txt"
+    },
+    {
+      "id": "mris_diff_output",
+      "name": "MRIS Diff Output",
+      "description": "Output from the mris_diff utility.",
+      "path-template": "mris_diff_output.txt"
+    },
+    {
+      "id": "mri_surf2surf_output",
+      "name": "MRI Surf2Surf Output",
+      "description": "Output from the mri_surf2surf utility.",
+      "path-template": "mri_surf2surf_output.txt"
+    },
+    {
+      "id": "mris_compute_parc_overlap_output",
+      "name": "MRIS Compute Parc Overlap Output",
+      "description": "Output from the mris_compute_parc_overlap utility.",
+      "path-template": "mris_compute_parc_overlap_output.txt"
+    },
+    {
+      "id": "diff_output",
+      "name": "Diff Output",
+      "description": "Output from the diff utility.",
+      "path-template": "diff_output.txt"
+    },
+    {
+      "id": "asegstatsdiff_output",
+      "name": "Asegstatsdiff Output",
+      "description": "Output from the asegstatsdiff utility.",
+      "path-template": "asegstatsdiff_output.txt"
+    },
+    {
+      "id": "aparcstatsdiff_output",
+      "name": "Aparcstatsdiff Output",
+      "description": "Output from the aparcstatsdiff utility.",
+      "path-template": "aparcstatsdiff_output.txt"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

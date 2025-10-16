@@ -1,0 +1,34 @@
+{
+  "name": "morph_kernel",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Tool to generate morphological kernels",
+  "command-line": "morph_kernel [CUBE_SIDE_LENGTH] [SPHERE_RADIUS]",
+  "inputs": [
+    {
+      "description": "Side length of the cube (e.g., 11)",
+      "value-key": "[CUBE_SIDE_LENGTH]",
+      "type": "Number",
+      "optional": false,
+      "id": "cube_side_length",
+      "name": "Cube side length"
+    },
+    {
+      "description": "Radius of the sphere (e.g., 5.5)",
+      "value-key": "[SPHERE_RADIUS]",
+      "type": "Number",
+      "optional": false,
+      "id": "sphere_radius",
+      "name": "Sphere radius"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "sphere[OUTPUT_PREFIX].ker",
+      "description": "Output morphological kernel file",
+      "id": "morph_kernel_output",
+      "name": "Output kernel file"
+    }
+  ],
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

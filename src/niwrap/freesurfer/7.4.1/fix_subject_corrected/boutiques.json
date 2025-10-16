@@ -1,0 +1,26 @@
+{
+  "name": "fix_subject_corrected",
+  "author": "FreeSurfer Developers",
+  "description": "Corrects subject data in FreeSurfer",
+  "command-line": "fix_subject_corrected [SUBJECT_DIRECTORY] [OUTPUT_DIRECTORY]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Path to the subject's directory",
+      "value-key": "[SUBJECT_DIRECTORY]",
+      "type": "String",
+      "optional": false,
+      "id": "subject_directory",
+      "name": "Subject Directory"
+    },
+    {
+      "description": "Path to the output directory",
+      "value-key": "[OUTPUT_DIRECTORY]",
+      "type": "String",
+      "optional": false,
+      "id": "output_directory",
+      "name": "Output Directory"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

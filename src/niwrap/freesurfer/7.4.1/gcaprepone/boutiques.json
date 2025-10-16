@@ -1,0 +1,62 @@
+{
+  "name": "gcaprepone",
+  "description": "Tool for preparing FreeSurfer subjects for use with group-wise template generation.",
+  "command-line": "gcaprepone [GCADIR] [SUBJECT] [INIT_SUBJECT] [SOURCE_SUBJECTS_DIR] [DONE_FILE] [NO_EMREG]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--o",
+      "description": "Directory to be the new SUBJECTS_DIR",
+      "value-key": "[GCADIR]",
+      "type": "String",
+      "optional": false,
+      "id": "gcadir",
+      "name": "GCA Directory"
+    },
+    {
+      "command-line-flag": "--s",
+      "description": "Subject for the process",
+      "value-key": "[SUBJECT]",
+      "type": "String",
+      "optional": false,
+      "id": "subject",
+      "name": "Subject"
+    },
+    {
+      "command-line-flag": "--init-subject",
+      "description": "Flag indicating the initial subject",
+      "value-key": "[INIT_SUBJECT]",
+      "type": "Flag",
+      "id": "init_subject",
+      "name": "Initial Subject Flag"
+    },
+    {
+      "command-line-flag": "--sd",
+      "description": "SUBJECTS_DIR for source data",
+      "value-key": "[SOURCE_SUBJECTS_DIR]",
+      "type": "String",
+      "optional": false,
+      "id": "source_subjects_dir",
+      "name": "Source SUBJECTS_DIR"
+    },
+    {
+      "command-line-flag": "--done",
+      "description": "File to indicate completion",
+      "value-key": "[DONE_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "done_file",
+      "name": "Done File"
+    },
+    {
+      "command-line-flag": "--no-emreg",
+      "description": "Flag to skip EM registration",
+      "value-key": "[NO_EMREG]",
+      "type": "Flag",
+      "id": "no_emreg",
+      "name": "No EMReg Flag"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

@@ -1,0 +1,144 @@
+{
+  "name": "mris_intensity_profile",
+  "description": "This program computes the intensity profile of the cortical ribbon and writes the resulting measurement into a 'curvature' file.",
+  "command-line": "mris_intensity_profile [SUBJECT_NAME] [HEMI] [VOLUME] [OUTPUT_FILE] [WRITE_SURF] [SDIR] [WHITE] [PIAL] [NORMALIZE_FLAG] [MEAN] [XFORM] [SRC] [DST] [INVERT_FLAG]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "subject_name",
+      "name": "Subject Name",
+      "type": "String",
+      "value-key": "[SUBJECT_NAME]",
+      "description": "Name of the subject.",
+      "optional": false
+    },
+    {
+      "id": "hemi",
+      "name": "Hemisphere",
+      "type": "String",
+      "value-key": "[HEMI]",
+      "description": "Hemisphere (e.g. lh or rh).",
+      "optional": false
+    },
+    {
+      "id": "volume",
+      "name": "Volume",
+      "type": "File",
+      "value-key": "[VOLUME]",
+      "description": "Volume file to be processed.",
+      "optional": false
+    },
+    {
+      "id": "output_file",
+      "name": "Output File",
+      "type": "String",
+      "value-key": "[OUTPUT_FILE]",
+      "description": "Output file where the measurement is saved.",
+      "optional": false
+    },
+    {
+      "command-line-flag": "-write_surf",
+      "id": "write_surf",
+      "name": "Write Surf",
+      "type": "String",
+      "value-key": "[WRITE_SURF]",
+      "description": "Write the variational pial surface target locations.",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-sdir",
+      "id": "sdir",
+      "name": "Subjects Directory",
+      "type": "String",
+      "value-key": "[SDIR]",
+      "description": "Specifies the SUBJECTS_DIR.",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-white",
+      "id": "white",
+      "name": "White Surface Filename",
+      "type": "String",
+      "value-key": "[WHITE]",
+      "description": "Specifies the WHITE surface filename.",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-pial",
+      "id": "pial",
+      "name": "Pial Surface Filename",
+      "type": "String",
+      "value-key": "[PIAL]",
+      "description": "Specifies the PIAL surface filename.",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-normalize",
+      "id": "normalize_flag",
+      "name": "Normalize Flag",
+      "type": "Flag",
+      "value-key": "[NORMALIZE_FLAG]",
+      "description": "Normalized sampling with respect to thickness."
+    },
+    {
+      "command-line-flag": "-mean",
+      "id": "mean",
+      "name": "Mean Profile Integral",
+      "type": "String",
+      "value-key": "[MEAN]",
+      "description": "Outputs the mean profile-integral to the specified file (output is in curv format).",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-xform",
+      "id": "xform",
+      "name": "Registration Xform",
+      "type": "File",
+      "value-key": "[XFORM]",
+      "description": "Specify the registration transformation that maps the T1 volume to the input volume to be sampled.",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-src",
+      "id": "src",
+      "name": "Source Volume",
+      "type": "File",
+      "value-key": "[SRC]",
+      "description": "Source volume used when computing the registration transformation.",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-dst",
+      "id": "dst",
+      "name": "Destination Volume",
+      "type": "File",
+      "value-key": "[DST]",
+      "description": "Destination volume used when computing the registration transformation.",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-invert",
+      "id": "invert_flag",
+      "name": "Invert Flag",
+      "type": "Flag",
+      "value-key": "[INVERT_FLAG]",
+      "description": "Apply the registration transformation inversely."
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILE]",
+      "description": "Curvature file with the intensity profile measurement.",
+      "id": "output_curvature_file",
+      "name": "Output Curvature File"
+    },
+    {
+      "path-template": "[MEAN]",
+      "description": "File with the mean profile-integral.",
+      "id": "output_mean_profile_integral",
+      "name": "Output Mean Profile Integral File"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

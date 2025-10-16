@@ -1,0 +1,67 @@
+{
+  "name": "gauss_4dfp",
+  "description": "Applies a Gaussian filter to 4dfp or conc input files.",
+  "command-line": "gauss_4dfp [INPUT_FILE] [F_HALF] [OUTPUT_ROOT] [ENDIAN_FLAG] [WRAP_FLAG] [DIFFERENTIATE_FLAG]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "input_file",
+      "name": "4dfp or conc input file",
+      "type": "String",
+      "value-key": "[INPUT_FILE]",
+      "description": "Input 4dfp or conc file to be processed.",
+      "optional": false
+    },
+    {
+      "id": "f_half",
+      "name": "Half frequency",
+      "type": "Number",
+      "value-key": "[F_HALF]",
+      "description": "Half frequency in 1/cm for the Gaussian filter application (f_half is the half frequency in 1/cm).",
+      "optional": false
+    },
+    {
+      "id": "output_root",
+      "name": "Output root name",
+      "type": "String",
+      "value-key": "[OUTPUT_ROOT]",
+      "description": "Root name for the output file. Default is <inroot>_g<10*f_half>.",
+      "optional": true
+    },
+    {
+      "id": "endian_flag",
+      "name": "Output endian",
+      "type": "String",
+      "value-key": "[ENDIAN_FLAG]",
+      "command-line-flag": "-@",
+      "description": "Specify output endian; 'b' for big or 'l' for little endian. Default is input endian.",
+      "optional": true
+    },
+    {
+      "id": "wrap_flag",
+      "name": "Wrap XY padding",
+      "type": "Flag",
+      "value-key": "[WRAP_FLAG]",
+      "command-line-flag": "-w",
+      "description": "Suppress x and y padding (wrap-around)."
+    },
+    {
+      "id": "differentiate_flag",
+      "name": "Differentiate",
+      "type": "Flag",
+      "value-key": "[DIFFERENTIATE_FLAG]",
+      "command-line-flag": "-d",
+      "description": "Apply differentiation."
+    }
+  ],
+  "output-files": [
+    {
+      "id": "output_file",
+      "name": "Output file",
+      "path-template": "[OUTPUT_ROOT].4dfp.ifh",
+      "description": "Output file in 4dfp format."
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

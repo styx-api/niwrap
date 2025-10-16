@@ -1,0 +1,21 @@
+{
+  "name": "1.1.0",
+  "container": "pyushkevich/itksnap:v3.8.2",
+  "apps": [
+    "c2d",
+    "c3d",
+    "c3d_affine_tool",
+    "c4d"
+  ],
+  "executables": {
+    "required": [
+      "c2d",
+      "c3d",
+      "c3d_affine_tool",
+      "c4d"
+    ],
+    "ignored": [
+      "c3d_gui"
+    ]
+  }
+}

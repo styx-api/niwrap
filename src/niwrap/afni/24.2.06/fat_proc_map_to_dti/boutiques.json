@@ -1,0 +1,121 @@
+{
+  "name": "fat_proc_map_to_dti",
+  "author": "AFNI Developers",
+  "description": "A program for mapping data sets into DWI space, suitable for aligning anatomical ROI maps or EPI data to a DWI reference volume.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "fat_proc_map_to_dti [SOURCE] [BASE] [PREFIX] [FOLLOWERS_NN] [FOLLOWERS_WSINC5] [FOLLOWERS_SURF] [FOLLOWERS_NDSET] [FOLLOWERS_SPEC] [MATRIX] [WORKDIR] [NO_CMD_OUT] [NO_CLEAN]",
+  "inputs": [
+    {
+      "description": "T1w volume file (source volume)",
+      "value-key": "[SOURCE]",
+      "type": "File",
+      "optional": false,
+      "id": "source",
+      "name": "Source file",
+      "command-line-flag": "-source"
+    },
+    {
+      "description": "DWI reference volume file",
+      "value-key": "[BASE]",
+      "type": "File",
+      "optional": false,
+      "id": "base",
+      "name": "Base file",
+      "command-line-flag": "-base"
+    },
+    {
+      "description": "Output prefix for files and snapshots",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "prefix",
+      "name": "Output prefix",
+      "command-line-flag": "-prefix"
+    },
+    {
+      "description": "Follower data sets with NN interpolation",
+      "value-key": "[FOLLOWERS_NN]",
+      "type": "File",
+      "list": true,
+      "optional": true,
+      "id": "followers_nn",
+      "name": "Followers NN",
+      "command-line-flag": "-followers_NN"
+    },
+    {
+      "description": "Follower data sets with wsinc5 interpolation",
+      "value-key": "[FOLLOWERS_WSINC5]",
+      "type": "File",
+      "list": true,
+      "optional": true,
+      "id": "followers_wsinc5",
+      "name": "Followers wsinc5",
+      "command-line-flag": "-followers_wsinc5"
+    },
+    {
+      "description": "Surface follower data sets",
+      "value-key": "[FOLLOWERS_SURF]",
+      "type": "File",
+      "list": true,
+      "optional": true,
+      "id": "followers_surf",
+      "name": "Followers surf",
+      "command-line-flag": "-followers_surf"
+    },
+    {
+      "description": "NIML follower data sets",
+      "value-key": "[FOLLOWERS_NDSET]",
+      "type": "File",
+      "list": true,
+      "optional": true,
+      "id": "followers_ndset",
+      "name": "Followers NIML dset",
+      "command-line-flag": "-followers_ndset"
+    },
+    {
+      "description": "Spec follower data sets",
+      "value-key": "[FOLLOWERS_SPEC]",
+      "type": "File",
+      "list": true,
+      "optional": true,
+      "id": "followers_spec",
+      "name": "Followers spec",
+      "command-line-flag": "-followers_spec"
+    },
+    {
+      "description": "Pre-made matrix file for transformation",
+      "value-key": "[MATRIX]",
+      "type": "File",
+      "optional": true,
+      "id": "matrix",
+      "name": "Matrix file",
+      "command-line-flag": "-matrix"
+    },
+    {
+      "description": "Specify a working directory",
+      "value-key": "[WORKDIR]",
+      "type": "String",
+      "optional": true,
+      "id": "workdir",
+      "name": "Working directory",
+      "command-line-flag": "-workdir"
+    },
+    {
+      "description": "Don't save the command line call of this program",
+      "value-key": "[NO_CMD_OUT]",
+      "type": "Flag",
+      "id": "no_cmd_out",
+      "name": "No command output flag",
+      "command-line-flag": "-no_cmd_out"
+    },
+    {
+      "description": "Do not delete temporary working directory",
+      "value-key": "[NO_CLEAN]",
+      "type": "Flag",
+      "id": "no_clean",
+      "name": "No clean flag",
+      "command-line-flag": "-no_clean"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

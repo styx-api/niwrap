@@ -1,0 +1,71 @@
+{
+  "name": "niml_feedme",
+  "author": "AFNI Developers",
+  "description": "Sends volumes from the dataset to AFNI via the NIML socket interface.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "niml_feedme [HOST] [INTERVAL] [VERBOSE] [ACCUM] [TARGET_DATASET] [DRIVE_CMDS] [DATASET]",
+  "inputs": [
+    {
+      "description": "Send data, via TCP/IP, to AFNI running on the computer system 'sname'. By default, uses the current system (localhost), if you don't use this option.",
+      "command-line-flag": "-host",
+      "value-key": "[HOST]",
+      "type": "String",
+      "optional": true,
+      "id": "host",
+      "name": "Host"
+    },
+    {
+      "description": "Tries to maintain an inter-transmit interval of 'ms' milliseconds. The default is 1000 msec per volume.",
+      "command-line-flag": "-dt",
+      "value-key": "[INTERVAL]",
+      "type": "Number",
+      "optional": true,
+      "id": "interval",
+      "name": "Inter-transmit Interval"
+    },
+    {
+      "description": "Be (very) talkative about actions.",
+      "command-line-flag": "-verb",
+      "value-key": "[VERBOSE]",
+      "type": "Flag",
+      "id": "verbose",
+      "name": "Verbose Flag"
+    },
+    {
+      "description": "Send sub-bricks so that they accumulate in AFNI. The default is to create only a 1 volume dataset inside AFNI, and each sub-brick just replaces that one volume when it is received.",
+      "command-line-flag": "-accum",
+      "value-key": "[ACCUM]",
+      "type": "Flag",
+      "id": "accum",
+      "name": "Accumulate Flag"
+    },
+    {
+      "description": "Change the dataset name transmitted to AFNI from 'niml_feedme' to 'nam'.",
+      "command-line-flag": "-target",
+      "value-key": "[TARGET_DATASET]",
+      "type": "String",
+      "optional": true,
+      "id": "target_dataset",
+      "name": "Target Dataset Name"
+    },
+    {
+      "description": "Send 'cmd' as a DRIVE_AFNI command. If cmd contains blanks, it must be in 'quotes'. Multiple -drive options may be used. These commands will be sent to AFNI just after the first volume is transmitted. See file README.driver for a list of commands.",
+      "command-line-flag": "-drive",
+      "value-key": "[DRIVE_CMDS]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "drive_cmds",
+      "name": "Drive AFNI Commands"
+    },
+    {
+      "description": "Input dataset to be sent to AFNI.",
+      "value-key": "[DATASET]",
+      "type": "File",
+      "optional": false,
+      "id": "dataset",
+      "name": "Input dataset"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

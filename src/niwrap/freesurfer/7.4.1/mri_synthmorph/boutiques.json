@@ -1,0 +1,146 @@
+{
+  "name": "mri_synthmorph",
+  "command-line": "mri_synthmorph [MOVING_IMAGE] [FIXED_IMAGE] [MOVED_OUTPUT] [TRANSFORM_OUTPUT] [HEADER_ONLY] [TRANSFORMATION_MODEL] [INIT_TRANSFORM] [THREADS] [GPU_FLAG] [SMOOTH] [EXTENT] [MODEL_WEIGHTS] [INSPECT_DIRECTORY]",
+  "description": "SynthMorph is a deep-learning tool for brain-specific MRI image registration without preprocessing.",
+  "author": "FreeSurfer Developers",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "moving_image",
+      "name": "Moving Image",
+      "type": "File",
+      "optional": false,
+      "description": "The moving input image, which will be registered to the fixed image.",
+      "value-key": "[MOVING_IMAGE]"
+    },
+    {
+      "id": "fixed_image",
+      "name": "Fixed Image",
+      "type": "File",
+      "optional": false,
+      "description": "The fixed input image, which is used as the reference for registration.",
+      "value-key": "[FIXED_IMAGE]"
+    },
+    {
+      "command-line-flag": "-o",
+      "id": "moved_output",
+      "name": "Moved Output Image",
+      "type": "String",
+      "optional": true,
+      "description": "The resulting image after registration.",
+      "value-key": "[MOVED_OUTPUT]"
+    },
+    {
+      "command-line-flag": "-t",
+      "id": "transform_output",
+      "name": "Output Transform",
+      "type": "File",
+      "optional": true,
+      "description": "Output transform file for registration. Can be a text file for linear or an image file for deformable registration.",
+      "value-key": "[TRANSFORM_OUTPUT]"
+    },
+    {
+      "command-line-flag": "-H",
+      "id": "header_only",
+      "name": "Header Only Flag",
+      "type": "Flag",
+      "description": "Adjust the voxel-to-world matrix instead of resampling. Linear registration only.",
+      "value-key": "[HEADER_ONLY]"
+    },
+    {
+      "command-line-flag": "-m",
+      "id": "transformation_model",
+      "name": "Transformation Model",
+      "type": "String",
+      "value-choices": [
+        "deform",
+        "affine",
+        "rigid"
+      ],
+      "optional": true,
+      "description": "Specifies the registration transformation model. Options include 'deform', 'affine', and 'rigid'.",
+      "value-key": "[TRANSFORMATION_MODEL]"
+    },
+    {
+      "command-line-flag": "-i",
+      "id": "init_transform",
+      "name": "Initial Transform",
+      "type": "File",
+      "optional": true,
+      "description": "Initial linear transform for registration.",
+      "value-key": "[INIT_TRANSFORM]"
+    },
+    {
+      "command-line-flag": "-j",
+      "id": "threads",
+      "name": "Number of Threads",
+      "type": "Number",
+      "optional": true,
+      "description": "Number of TensorFlow threads to utilize. Defaults to the number of cores.",
+      "value-key": "[THREADS]"
+    },
+    {
+      "command-line-flag": "-g",
+      "id": "gpu_flag",
+      "name": "Use GPU",
+      "type": "Flag",
+      "description": "Utilize the GPU specified by CUDA_VISIBLE_DEVICES or GPU 0 if unset or empty.",
+      "value-key": "[GPU_FLAG]"
+    },
+    {
+      "command-line-flag": "-s",
+      "id": "smooth",
+      "name": "Smoothness",
+      "type": "Number",
+      "optional": true,
+      "description": "Regularization parameter for deformable registration. Higher values indicate smoother displacement fields.",
+      "value-key": "[SMOOTH]"
+    },
+    {
+      "command-line-flag": "-e",
+      "id": "extent",
+      "name": "Extent",
+      "type": "Number",
+      "value-choices": [
+        192,
+        256
+      ],
+      "optional": true,
+      "description": "Isotropic extent of the registration space in unit voxels.",
+      "value-key": "[EXTENT]"
+    },
+    {
+      "command-line-flag": "-w",
+      "id": "model_weights",
+      "name": "Model Weights",
+      "type": "File",
+      "optional": true,
+      "description": "Alternative model weights as an H5 file.",
+      "value-key": "[MODEL_WEIGHTS]"
+    },
+    {
+      "command-line-flag": "--inspect",
+      "id": "inspect_directory",
+      "name": "Inspect Directory",
+      "type": "String",
+      "optional": true,
+      "description": "Save model inputs resampled into network space for inspection.",
+      "value-key": "[INSPECT_DIRECTORY]"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "moved_output_file",
+      "name": "Moved Output Image File",
+      "path-template": "[MOVED_OUTPUT]",
+      "description": "The registered output image file, resulting from the operation."
+    },
+    {
+      "id": "transform_output_file",
+      "name": "Transform Output File",
+      "path-template": "[TRANS_OUTPUT]",
+      "description": "Transform file resulting from registration."
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

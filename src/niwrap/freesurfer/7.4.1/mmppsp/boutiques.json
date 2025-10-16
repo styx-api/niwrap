@@ -1,0 +1,111 @@
+{
+  "name": "mmppsp",
+  "author": "FreeSurfer Developers",
+  "description": "MultiModal Posterior Probability Surface Placement",
+  "command-line": "mmppsp [SAMSEG_DIR] [OUTDIR] [LH_FLAG] [RH_FLAG] [LIKELIHOOD_FLAG] [POSTERIOR_FLAG] [FORCE_UPDATE_FLAG] [THREADS] [NO_INITSPHREG_FLAG] [STOP_AFTER] [WEXPANDDIST]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--samseg",
+      "description": "Directory containing Samseg output",
+      "value-key": "[SAMSEG_DIR]",
+      "type": "String",
+      "optional": false,
+      "id": "samseg_dir",
+      "name": "Samseg Directory"
+    },
+    {
+      "command-line-flag": "--o",
+      "description": "Output directory for the results",
+      "value-key": "[OUTDIR]",
+      "type": "String",
+      "optional": false,
+      "id": "outdir",
+      "name": "Output Directory"
+    },
+    {
+      "command-line-flag": "--lh",
+      "description": "Process left hemisphere",
+      "value-key": "[LH_FLAG]",
+      "type": "Flag",
+      "id": "lh_flag",
+      "name": "Left Hemisphere Flag"
+    },
+    {
+      "command-line-flag": "--rh",
+      "description": "Process right hemisphere",
+      "value-key": "[RH_FLAG]",
+      "type": "Flag",
+      "id": "rh_flag",
+      "name": "Right Hemisphere Flag"
+    },
+    {
+      "command-line-flag": "--likelihood",
+      "description": "Use likelihood for surface placement",
+      "value-key": "[LIKELIHOOD_FLAG]",
+      "type": "Flag",
+      "id": "likelihood_flag",
+      "name": "Likelihood Flag"
+    },
+    {
+      "command-line-flag": "--posterior",
+      "description": "Use posteriors instead of likelihood for surface placement",
+      "value-key": "[POSTERIOR_FLAG]",
+      "type": "Flag",
+      "id": "posterior_flag",
+      "name": "Posterior Flag"
+    },
+    {
+      "command-line-flag": "--force-update",
+      "description": "Force update the surface placement",
+      "value-key": "[FORCE_UPDATE_FLAG]",
+      "type": "Flag",
+      "id": "force_update_flag",
+      "name": "Force Update Flag"
+    },
+    {
+      "command-line-flag": "--threads",
+      "description": "Number of threads to use",
+      "value-key": "[THREADS]",
+      "type": "Number",
+      "optional": true,
+      "id": "threads",
+      "name": "Threads"
+    },
+    {
+      "command-line-flag": "--no-initsphreg",
+      "description": "Do not use talairach.lta to initialize rotation",
+      "value-key": "[NO_INITSPHREG_FLAG]",
+      "type": "Flag",
+      "id": "no_initsphreg_flag",
+      "name": "No Init Spherical Registration Flag"
+    },
+    {
+      "command-line-flag": "--stop-after",
+      "description": "Stop the processing after a specified step",
+      "value-key": "[STOP_AFTER]",
+      "type": "String",
+      "optional": true,
+      "id": "stop_after",
+      "name": "Stop After Step"
+    },
+    {
+      "command-line-flag": "--wexpanddist",
+      "description": "Distance to expand white surface to initialize pial (in mm)",
+      "value-key": "[WEXPANDDIST]",
+      "type": "Number",
+      "optional": true,
+      "id": "wexpanddist",
+      "name": "White Expansion Distance"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTDIR]/surf",
+      "description": "Output surface files",
+      "id": "output_surface",
+      "name": "Output Surface Files"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

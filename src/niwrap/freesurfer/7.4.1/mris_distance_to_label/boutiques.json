@@ -1,0 +1,26 @@
+{
+  "name": "mris_distance_to_label",
+  "author": "FreeSurfer Developers",
+  "description": "A tool for measuring the distance between vertices on a surface and a labeled region.",
+  "command-line": "mris_distance_to_label [HEMISPHERE] [SUBJECT_1]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Hemisphere to process (e.g., 'lh' for left hemisphere or 'rh' for right hemisphere)",
+      "value-key": "[HEMISPHERE]",
+      "type": "String",
+      "optional": false,
+      "id": "hemisphere",
+      "name": "Hemisphere"
+    },
+    {
+      "description": "Subject identifier or path to the subject directory",
+      "value-key": "[SUBJECT_1]",
+      "type": "String",
+      "optional": false,
+      "id": "subject_1",
+      "name": "Subject 1"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

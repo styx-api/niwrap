@@ -1,0 +1,230 @@
+{
+  "name": "afni",
+  "author": "AFNI Developers",
+  "description": "Tool for reading in sessions of 3D datasets and visualizing them",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "afni [SESSION_DIRECTORIES] [BYSUB] [ALL_DSETS] [PURGE] [POSFUNC] [RECURSIVE] [NO1D] [NOCSV] [NOTSV] [UNIQUE] [ORIENT] [NOPLUGINS] [SEEHIDDEN] [ALLOW_ALL_PLUGINS] [YESPLUGOUTS] [DEBUG_PLUGOUTS] [NOPLUGOUTS] [SKIP_AFNIRC] [LAYOUT] [NIML] [NP] [NPQ] [NPB] [COM] [COMSEP]",
+  "inputs": [
+    {
+      "description": "Input session directories containing the datasets",
+      "value-key": "[SESSION_DIRECTORIES]",
+      "type": "String",
+      "optional": true,
+      "id": "session_directories",
+      "name": "Session Directories"
+    },
+    {
+      "command-line-flag": "-bysub",
+      "description": "Gather all datasets corresponding to a single subject identifier",
+      "value-key": "[BYSUB]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "bysub",
+      "name": "By Subject"
+    },
+    {
+      "command-line-flag": "-all_dsets",
+      "description": "Read in all datasets from all listed folders together",
+      "value-key": "[ALL_DSETS]",
+      "type": "Flag",
+      "id": "all_dsets",
+      "name": "All datasets"
+    },
+    {
+      "command-line-flag": "-purge",
+      "description": "Conserve memory by purging unused datasets",
+      "value-key": "[PURGE]",
+      "type": "Flag",
+      "id": "purge",
+      "name": "Purge Unused Datasets"
+    },
+    {
+      "command-line-flag": "-posfunc",
+      "description": "Start up the color 'pbar' to use only positive function values",
+      "value-key": "[POSFUNC]",
+      "type": "Flag",
+      "id": "posfunc",
+      "name": "Positive Function Values"
+    },
+    {
+      "command-line-flag": "-R",
+      "description": "Recursively search each session_directory for more session subdirectories",
+      "value-key": "[RECURSIVE]",
+      "type": "Flag",
+      "id": "recursive",
+      "name": "Recursive Search"
+    },
+    {
+      "command-line-flag": "-no1D",
+      "description": "Tells AFNI not to read *.1D timeseries files",
+      "value-key": "[NO1D]",
+      "type": "Flag",
+      "id": "no1D",
+      "name": "No 1D timeseries"
+    },
+    {
+      "command-line-flag": "-nocsv",
+      "description": "Tells AFNI not to read *.csv files",
+      "value-key": "[NOCSV]",
+      "type": "Flag",
+      "id": "nocsv",
+      "name": "No CSV files"
+    },
+    {
+      "command-line-flag": "-notsv",
+      "description": "Tells AFNI not to read *.tsv files",
+      "value-key": "[NOTSV]",
+      "type": "Flag",
+      "id": "notsv",
+      "name": "No TSV files"
+    },
+    {
+      "command-line-flag": "-unique",
+      "description": "Create a unique set of colors for each AFNI controller window",
+      "value-key": "[UNIQUE]",
+      "type": "Flag",
+      "id": "unique",
+      "name": "Unique Colors"
+    },
+    {
+      "command-line-flag": "-orient",
+      "description": "Orientation code for displaying x-y-z coordinates",
+      "value-key": "[ORIENT]",
+      "type": "String",
+      "optional": true,
+      "id": "orient",
+      "name": "Orientation Code"
+    },
+    {
+      "command-line-flag": "-noplugins",
+      "description": "Do not load plugins",
+      "value-key": "[NOPLUGINS]",
+      "type": "Flag",
+      "id": "noplugins",
+      "name": "No Plugins"
+    },
+    {
+      "command-line-flag": "-seehidden",
+      "description": "Show hidden plugins",
+      "value-key": "[SEEHIDDEN]",
+      "type": "Flag",
+      "id": "seehidden",
+      "name": "Show Hidden Plugins"
+    },
+    {
+      "command-line-flag": "-DAFNI_ALLOW_ALL_PLUGINS=YES",
+      "description": "Do not hide plugins",
+      "value-key": "[ALLOW_ALL_PLUGINS]",
+      "type": "Flag",
+      "id": "allow_all_plugins",
+      "name": "Allow All Plugins"
+    },
+    {
+      "command-line-flag": "-yesplugouts",
+      "description": "Listen for plugouts",
+      "value-key": "[YESPLUGOUTS]",
+      "type": "Flag",
+      "id": "yesplugouts",
+      "name": "Enable Plugouts"
+    },
+    {
+      "command-line-flag": "-YESplugouts",
+      "description": "Plugout code prints lots of messages (for debugging)",
+      "value-key": "[DEBUG_PLUGOUTS]",
+      "type": "Flag",
+      "id": "debug_plugouts",
+      "name": "Debug Plugouts"
+    },
+    {
+      "command-line-flag": "-noplugouts",
+      "description": "Do not listen for plugouts",
+      "value-key": "[NOPLUGOUTS]",
+      "type": "Flag",
+      "id": "noplugouts",
+      "name": "Disable Plugouts"
+    },
+    {
+      "command-line-flag": "-skip_afnirc",
+      "description": "Do not read .afnirc file",
+      "value-key": "[SKIP_AFNIRC]",
+      "type": "Flag",
+      "id": "skip_afnirc",
+      "name": "Skip .afnirc"
+    },
+    {
+      "command-line-flag": "-layout",
+      "description": "Read initial windows layout from a file",
+      "value-key": "[LAYOUT]",
+      "type": "File",
+      "optional": true,
+      "id": "layout",
+      "name": "Layout file"
+    },
+    {
+      "command-line-flag": "-niml",
+      "description": "Turn on listening for NIML-formatted data from SUMA",
+      "value-key": "[NIML]",
+      "type": "Flag",
+      "id": "niml",
+      "name": "NIML Data"
+    },
+    {
+      "command-line-flag": "-np",
+      "description": "Provide a port offset for multiple instances",
+      "value-key": "[NP]",
+      "type": "Number",
+      "optional": true,
+      "id": "np",
+      "name": "Port Offset",
+      "integer": true
+    },
+    {
+      "command-line-flag": "-npq",
+      "description": "Like -np but quieter in case of errors",
+      "value-key": "[NPQ]",
+      "type": "Number",
+      "optional": true,
+      "id": "npq",
+      "name": "Port Offset Quiet",
+      "integer": true
+    },
+    {
+      "command-line-flag": "-npb",
+      "description": "Provide a block of port numbers",
+      "value-key": "[NPB]",
+      "type": "Number",
+      "optional": true,
+      "id": "npb",
+      "name": "Port Offset Block",
+      "integer": true
+    },
+    {
+      "command-line-flag": "-com",
+      "description": "Specify command strings to drive AFNI on startup",
+      "value-key": "[COM]",
+      "type": "String",
+      "optional": true,
+      "id": "com",
+      "name": "Command String"
+    },
+    {
+      "command-line-flag": "-comsep",
+      "description": "Character to use as a separator for commands",
+      "value-key": "[COMSEP]",
+      "type": "String",
+      "optional": true,
+      "id": "comsep",
+      "name": "Command Separator"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "output_session.nii.gz",
+      "description": "Output file for the session data",
+      "id": "session_output",
+      "name": "Session Output File"
+    }
+  ]
+}

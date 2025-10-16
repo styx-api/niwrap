@@ -1,0 +1,235 @@
+{
+  "name": "RetroTS.py",
+  "author": "AFNI Developers",
+  "description": "Creates slice-based regressors for regressing out components of heart rate, respiration, and respiration volume per time using independent data files or BIDS formatted files.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "RetroTS.py [RESP_FILE] [CARD_FILE] [PHYS_FS] [NUM_SLICES] [VOLUME_TR] [PHYS_FILE] [PHYS_JSON] [PREFIX] [RVT_SHIFTS] [RVT_OUT] [RESP_CUTOFF_FREQ] [CARDIAC_CUTOFF_FREQ] [CARDIAC_OUT] [RESPIRATION_OUT] [INTERP_STYLE] [FIR_ORDER] [QUIET] [DEMO] [SHOW_GRAPHS] [DEBUG] [SLICE_OFFSET] [SLICE_MAJOR] [SLICE_ORDER] [ZERO_PHASE_OFFSET] [LEGACY_TRANSFORM]",
+  "inputs": [
+    {
+      "command-line-flag": "-r",
+      "description": "Respiration data file",
+      "value-key": "[RESP_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "resp_file",
+      "name": "Respiration File"
+    },
+    {
+      "command-line-flag": "-c",
+      "description": "Cardiac data file",
+      "value-key": "[CARD_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "card_file",
+      "name": "Cardiac File"
+    },
+    {
+      "command-line-flag": "-p",
+      "description": "Physiological signal sampling frequency in Hz",
+      "value-key": "[PHYS_FS]",
+      "type": "Number",
+      "optional": true,
+      "id": "phys_fs",
+      "name": "Physiological Sampling Frequency"
+    },
+    {
+      "command-line-flag": "-n",
+      "description": "Number of slices",
+      "value-key": "[NUM_SLICES]",
+      "type": "Number",
+      "optional": false,
+      "id": "num_slices",
+      "name": "Number of Slices"
+    },
+    {
+      "command-line-flag": "-v",
+      "description": "Volume TR in seconds",
+      "value-key": "[VOLUME_TR]",
+      "type": "Number",
+      "optional": false,
+      "id": "volume_tr",
+      "name": "Volume TR"
+    },
+    {
+      "command-line-flag": "-phys_file",
+      "description": "BIDS formatted physio file in tab-separated format, can be gzipped",
+      "value-key": "[PHYS_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "phys_file",
+      "name": "BIDS Physio File"
+    },
+    {
+      "command-line-flag": "-phys_json",
+      "description": "BIDS formatted physio metadata json file. If not specified, the json corresponding to the phys_file will be loaded.",
+      "value-key": "[PHYS_JSON]",
+      "type": "File",
+      "optional": true,
+      "id": "phys_json",
+      "name": "BIDS Physio JSON"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Prefix of output file",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Output File Prefix"
+    },
+    {
+      "command-line-flag": "-rvt_shifts",
+      "description": "Vector of shifts in seconds of RVT signal. (default is [0:5:20])",
+      "value-key": "[RVT_SHIFTS]",
+      "type": "String",
+      "optional": true,
+      "id": "rvt_shifts",
+      "name": "RVT Shifts"
+    },
+    {
+      "command-line-flag": "-rvt_out",
+      "description": "Flag for writing RVT regressors (default is 1)",
+      "value-key": "[RVT_OUT]",
+      "type": "Flag",
+      "id": "rvt_out",
+      "name": "Write RVT Regressors Flag"
+    },
+    {
+      "command-line-flag": "-respiration_cutoff_frequency",
+      "description": "Cut-off frequency in Hz for respiratory lowpass filter (default 3 Hz)",
+      "value-key": "[RESP_CUTOFF_FREQ]",
+      "type": "Number",
+      "optional": true,
+      "id": "resp_cutoff_freq",
+      "name": "Respiratory Cut-off Frequency"
+    },
+    {
+      "command-line-flag": "-cardiac_cutoff_frequency",
+      "description": "Cut-off frequency in Hz for cardiac lowpass filter (default 3 Hz)",
+      "value-key": "[CARDIAC_CUTOFF_FREQ]",
+      "type": "Number",
+      "optional": true,
+      "id": "cardiac_cutoff_freq",
+      "name": "Cardiac Cut-off Frequency"
+    },
+    {
+      "command-line-flag": "-cardiac_out",
+      "description": "Flag for writing Cardiac regressors (default is 1)",
+      "value-key": "[CARDIAC_OUT]",
+      "type": "Flag",
+      "id": "cardiac_out",
+      "name": "Write Cardiac Regressors Flag"
+    },
+    {
+      "command-line-flag": "-respiration_out",
+      "description": "Flag for writing Respiratory regressors (default is 1)",
+      "value-key": "[RESPIRATION_OUT]",
+      "type": "Flag",
+      "id": "respiration_out",
+      "name": "Write Respiratory Regressors Flag"
+    },
+    {
+      "command-line-flag": "-interpolation_style",
+      "description": "Resampling kernel (default is 'linear')",
+      "value-key": "[INTERP_STYLE]",
+      "type": "String",
+      "optional": true,
+      "id": "interp_style",
+      "name": "Interpolation Style"
+    },
+    {
+      "command-line-flag": "-fir_order",
+      "description": "Order of FIR filter (default is 40)",
+      "value-key": "[FIR_ORDER]",
+      "type": "Number",
+      "optional": true,
+      "id": "fir_order",
+      "name": "FIR Filter Order"
+    },
+    {
+      "command-line-flag": "-quiet",
+      "description": "Show talkative progress as the program runs (default is 1)",
+      "value-key": "[QUIET]",
+      "type": "Flag",
+      "id": "quiet",
+      "name": "Quiet Mode"
+    },
+    {
+      "command-line-flag": "-demo",
+      "description": "Run demonstration of RetroTS (default is 0)",
+      "value-key": "[DEMO]",
+      "type": "Flag",
+      "id": "demo",
+      "name": "Demo Mode"
+    },
+    {
+      "command-line-flag": "-show_graphs",
+      "description": "Show graphs (default is unset; set with any parameter to view)",
+      "value-key": "[SHOW_GRAPHS]",
+      "type": "Flag",
+      "id": "show_graphs",
+      "name": "Show Graphs"
+    },
+    {
+      "command-line-flag": "-debug",
+      "description": "Drop into pdb upon an exception (default is False)",
+      "value-key": "[DEBUG]",
+      "type": "Flag",
+      "id": "debug",
+      "name": "Debug Flag"
+    },
+    {
+      "command-line-flag": "-slice_offset",
+      "description": "Vector of slice acquisition time offsets in seconds (default is equivalent of alt+z)",
+      "value-key": "[SLICE_OFFSET]",
+      "type": "String",
+      "optional": true,
+      "id": "slice_offset",
+      "name": "Slice Offset"
+    },
+    {
+      "command-line-flag": "-slice_major",
+      "description": "Unknown parameter (default is 1)",
+      "value-key": "[SLICE_MAJOR]",
+      "type": "Number",
+      "optional": true,
+      "id": "slice_major",
+      "name": "Slice Major"
+    },
+    {
+      "command-line-flag": "-slice_order",
+      "description": "Slice timing information in seconds. (default is alt+z)",
+      "value-key": "[SLICE_ORDER]",
+      "type": "String",
+      "optional": true,
+      "id": "slice_order",
+      "name": "Slice Order"
+    },
+    {
+      "command-line-flag": "-zero_phase_offset",
+      "description": "Zero phase offset flag",
+      "value-key": "[ZERO_PHASE_OFFSET]",
+      "type": "Flag",
+      "id": "zero_phase_offset",
+      "name": "Zero Phase Offset"
+    },
+    {
+      "command-line-flag": "-legacy_transform",
+      "description": "Specify the version of the original Matlab code's transformation (default is 0)",
+      "value-key": "[LEGACY_TRANSFORM]",
+      "type": "Number",
+      "optional": true,
+      "id": "legacy_transform",
+      "name": "Legacy Transform"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX].slibase.1D",
+      "description": "Output file containing respiratory and cardiac regressors",
+      "id": "output_file",
+      "name": "Output File"
+    }
+  ]
+}

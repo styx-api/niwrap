@@ -1,0 +1,27 @@
+{
+  "name": "proj_thresh",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "A tool to apply a threshold to either volumes or surfaces.",
+  "command-line": "proj_thresh [INPUT_PATHS] [THRESHOLD]",
+  "inputs": [
+    {
+      "description": "Paths to volume or surface files. Please use either volumes or surfaces but not both.",
+      "value-key": "[INPUT_PATHS]",
+      "type": "File",
+      "optional": false,
+      "list": true,
+      "id": "input_paths",
+      "name": "Input Paths"
+    },
+    {
+      "description": "Threshold value to be applied.",
+      "value-key": "[THRESHOLD]",
+      "type": "Number",
+      "optional": false,
+      "id": "threshold",
+      "name": "Threshold"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

@@ -1,0 +1,35 @@
+{
+  "name": "mri_motion_correct",
+  "author": "FreeSurfer Developers",
+  "description": "Tool for correcting motion in MRI scans",
+  "command-line": "mri_motion_correct [OUTFILE] [INFILES]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Output file where the corrected MRI image(s) will be stored.",
+      "value-key": "[OUTFILE]",
+      "type": "String",
+      "optional": false,
+      "id": "outfile",
+      "name": "Output file"
+    },
+    {
+      "description": "Input MRI image files to be corrected.",
+      "value-key": "[INFILES]",
+      "type": "File",
+      "optional": false,
+      "list": true,
+      "id": "infiles",
+      "name": "Input files"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTFILE]",
+      "description": "Corrected MRI image output file.",
+      "id": "corrected_outfile",
+      "name": "Corrected output file"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

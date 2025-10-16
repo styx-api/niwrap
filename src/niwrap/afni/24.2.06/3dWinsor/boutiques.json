@@ -1,0 +1,103 @@
+{
+  "name": "3dWinsor",
+  "author": "AFNI Developers",
+  "description": "Apply a 3D 'Winsorizing' filter to a short-valued dataset.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dWinsor [IRAD] [CBOT] [CTOP] [NREP] [KEEPZERO] [CLIP] [PREFIX] [MASK] [DATASET]",
+  "inputs": [
+    {
+      "description": "Include all points within 'distance' rr in the operation, where distance is defined as sqrt(i*i+j*j+k*k), and (i,j,k) are voxel index offsets.",
+      "command-line-flag": "-irad",
+      "value-key": "[IRAD]",
+      "type": "Number",
+      "optional": true,
+      "id": "irad",
+      "name": "Radius"
+    },
+    {
+      "description": "Set bottom clip index to bb.",
+      "command-line-flag": "-cbot",
+      "value-key": "[CBOT]",
+      "type": "Number",
+      "optional": true,
+      "id": "cbot",
+      "name": "Bottom clip index"
+    },
+    {
+      "description": "Set top clip index to tt.",
+      "command-line-flag": "-ctop",
+      "value-key": "[CTOP]",
+      "type": "Number",
+      "optional": true,
+      "id": "ctop",
+      "name": "Top clip index"
+    },
+    {
+      "description": "Repeat filter nn times. If nn < 0, means to repeat filter until less than abs(n) voxels change.",
+      "command-line-flag": "-nrep",
+      "value-key": "[NREP]",
+      "type": "Number",
+      "optional": true,
+      "id": "nrep",
+      "name": "Repeat filter"
+    },
+    {
+      "command-line-flag": "-keepzero",
+      "description": "Don't filter voxels that are zero.",
+      "value-key": "[KEEPZERO]",
+      "type": "Flag",
+      "id": "keepzero",
+      "name": "Keep zero voxels"
+    },
+    {
+      "description": "Set voxels at or below 'xx' to zero.",
+      "command-line-flag": "-clip",
+      "value-key": "[CLIP]",
+      "type": "Number",
+      "optional": true,
+      "id": "clip",
+      "name": "Clip value"
+    },
+    {
+      "description": "Use 'pp' as the prefix for the output dataset.",
+      "command-line-flag": "-prefix",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Output prefix"
+    },
+    {
+      "description": "Use 'mmm' as a mask dataset - voxels NOT in the mask won't be filtered.",
+      "command-line-flag": "-mask",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "mask",
+      "name": "Mask dataset"
+    },
+    {
+      "description": "Input dataset to apply the filter on.",
+      "value-key": "[DATASET]",
+      "type": "File",
+      "optional": false,
+      "id": "dataset",
+      "name": "Input dataset"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX].HEAD",
+      "description": "Output dataset with Winsorizing filter applied.",
+      "id": "outfile_head",
+      "name": "Output dataset HEAD"
+    },
+    {
+      "path-template": "[PREFIX].BRIK",
+      "description": "Output dataset with Winsorizing filter applied.",
+      "id": "outfile_brik",
+      "name": "Output dataset BRIK"
+    }
+  ]
+}

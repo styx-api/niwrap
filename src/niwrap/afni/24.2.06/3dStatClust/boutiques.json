@@ -1,0 +1,101 @@
+{
+  "name": "3dStatClust",
+  "author": "AFNI Developers",
+  "description": "Perform agglomerative hierarchical clustering for user specified parameter sub-bricks, for all voxels whose threshold statistic is above a user specified value.",
+  "command-line": "3dStatClust [PREFIX] [SESSION_DIR] [VERBOSE] [DIST_EUC] [DIST_IND] [DIST_COR] [THRESH] [NCLUST] [DATASETS]",
+  "inputs": [
+    {
+      "command-line-flag": "-prefix",
+      "description": "Use 'pname' for the output dataset prefix name.",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Output dataset prefix"
+    },
+    {
+      "command-line-flag": "-session",
+      "description": "Use 'dir' for the output dataset session directory.",
+      "value-key": "[SESSION_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "session_dir",
+      "name": "Session directory"
+    },
+    {
+      "command-line-flag": "-verb",
+      "description": "Print out verbose output as the program proceeds.",
+      "value-key": "[VERBOSE]",
+      "type": "Flag",
+      "id": "verbose",
+      "name": "Verbose output"
+    },
+    {
+      "command-line-flag": "-dist_euc",
+      "description": "Calculate Euclidean distance between parameters",
+      "value-key": "[DIST_EUC]",
+      "type": "Flag",
+      "id": "dist_euc",
+      "name": "Euclidean distance"
+    },
+    {
+      "command-line-flag": "-dist_ind",
+      "description": "Statistical distance for independent parameters",
+      "value-key": "[DIST_IND]",
+      "type": "Flag",
+      "id": "dist_ind",
+      "name": "Statistical distance for independent parameters"
+    },
+    {
+      "command-line-flag": "-dist_cor",
+      "description": "Statistical distance for correlated parameters",
+      "value-key": "[DIST_COR]",
+      "type": "Flag",
+      "id": "dist_cor",
+      "name": "Statistical distance for correlated parameters"
+    },
+    {
+      "command-line-flag": "-thresh",
+      "description": "Threshold statistic from file tname. Only voxels whose threshold statistic is greater than t in absolute value will be considered. If file tname contains more than 1 sub-brick, the threshold stat. sub-brick must be specified.",
+      "value-key": "[THRESH]",
+      "type": "String",
+      "optional": false,
+      "id": "thresh",
+      "name": "Threshold"
+    },
+    {
+      "command-line-flag": "-nclust",
+      "description": "Maximum number of clusters for output (= number of sub-bricks in output dataset).",
+      "value-key": "[NCLUST]",
+      "type": "Number",
+      "optional": false,
+      "id": "nclust",
+      "name": "Number of clusters"
+    },
+    {
+      "description": "Parameter datasets.",
+      "value-key": "[DATASETS]",
+      "type": "String",
+      "list": true,
+      "optional": false,
+      "id": "datasets",
+      "name": "Parameter datasets"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX]+orig.HEAD",
+      "description": "Output dataset header",
+      "id": "output_head",
+      "name": "Output HEAD file"
+    },
+    {
+      "path-template": "[PREFIX]+orig.BRIK",
+      "description": "Output dataset brick",
+      "id": "output_brick",
+      "name": "Output BRIK file"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

@@ -1,0 +1,85 @@
+{
+  "name": "qatools.py",
+  "author": "FreeSurfer Developers",
+  "description": "A tool to compute quality metrics from Freesurfer 6.0 analysis results.",
+  "command-line": "qatools.py [SUBJECTS_DIR] [OUTPUT_DIR] [SUBJECTS] [SCREENSHOTS] [FORNIX] [OUTLIER] [OUTLIER_TABLE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Subjects directory containing a set of Freesurfer 6.0 processed individual datasets.",
+      "value-key": "[SUBJECTS_DIR]",
+      "type": "String",
+      "optional": false,
+      "id": "subjects_dir",
+      "name": "Subjects Directory",
+      "command-line-flag": "--subjects_dir"
+    },
+    {
+      "description": "Output directory for the generated results.",
+      "value-key": "[OUTPUT_DIR]",
+      "type": "String",
+      "optional": false,
+      "id": "output_dir",
+      "name": "Output Directory",
+      "command-line-flag": "--output_dir"
+    },
+    {
+      "description": "List of subject IDs. If omitted, all suitable subdirectories within the subjects directory will be used.",
+      "value-key": "[SUBJECTS]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "subjects",
+      "name": "Subjects",
+      "command-line-flag": "--subjects"
+    },
+    {
+      "description": "Create screenshots of individual brains.",
+      "value-key": "[SCREENSHOTS]",
+      "type": "Flag",
+      "id": "screenshots",
+      "name": "Screenshots",
+      "command-line-flag": "--screenshots"
+    },
+    {
+      "description": "Check fornix segmentation.",
+      "value-key": "[FORNIX]",
+      "type": "Flag",
+      "id": "fornix",
+      "name": "Fornix Check",
+      "command-line-flag": "--fornix"
+    },
+    {
+      "description": "Run outlier detection.",
+      "value-key": "[OUTLIER]",
+      "type": "Flag",
+      "id": "outlier",
+      "name": "Outlier Detection",
+      "command-line-flag": "--outlier"
+    },
+    {
+      "description": "Specify normative values for outlier detection.",
+      "value-key": "[OUTLIER_TABLE]",
+      "type": "File",
+      "optional": true,
+      "id": "outlier_table",
+      "name": "Outlier Table",
+      "command-line-flag": "--outlier-table"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_DIR]/summary.csv",
+      "description": "Summary CSV file containing quality metrics.",
+      "id": "summary_csv",
+      "name": "Summary CSV File"
+    },
+    {
+      "path-template": "[OUTPUT_DIR]/screenshots/",
+      "description": "Directory containing screenshots of individual brains if screenshots option is selected.",
+      "id": "screenshots_output",
+      "name": "Screenshots Output"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

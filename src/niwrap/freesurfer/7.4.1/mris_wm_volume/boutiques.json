@@ -1,0 +1,61 @@
+{
+  "name": "mris_wm_volume",
+  "description": "Computes the volume of the enclosed hemisphere white matter surface, ignoring non-white matter voxels in the aseg.",
+  "command-line": "mris_wm_volume [SUBJECT] [HEMI] [SUBJECTS_DIR] [WHITESURFNAME] [ASEGNAME] [VERBOSE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "subject",
+      "name": "Subject",
+      "description": "Subject identifier",
+      "type": "String",
+      "value-key": "[SUBJECT]",
+      "optional": false
+    },
+    {
+      "id": "hemi",
+      "name": "Hemisphere",
+      "description": "Hemisphere to compute volume for (e.g., lh or rh)",
+      "type": "String",
+      "value-key": "[HEMI]",
+      "optional": false
+    },
+    {
+      "command-line-flag": "-SDIR",
+      "id": "subjects_dir",
+      "name": "Subjects directory",
+      "description": "The SUBJECTS_DIR where the subject data is stored",
+      "type": "String",
+      "value-key": "[SUBJECTS_DIR]",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-white",
+      "id": "whitesurfname",
+      "name": "White surface name",
+      "description": "Name of the white surface file",
+      "type": "String",
+      "value-key": "[WHITESURFNAME]",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-aseg",
+      "id": "asegname",
+      "name": "Aseg name",
+      "description": "Name of the aseg file",
+      "type": "String",
+      "value-key": "[ASEGNAME]",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-v",
+      "id": "verbose",
+      "name": "Verbose Flag",
+      "description": "Output more messages",
+      "type": "Flag",
+      "value-key": "[VERBOSE]"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

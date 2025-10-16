@@ -1,0 +1,522 @@
+{
+  "name": "1dplot",
+  "author": "AFNI Developers",
+  "description": "Graphs the columns of a *.1D time series file to the X11 screen, or to an image file (.jpg or .png).",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "1dplot [TSFILES] [INSTALL] [SEP] [ONE] [SEPSCL] [NOLINE] [BOX] [HIST] [NORM2] [NORMX] [NORM1] [DEMEAN] [X] [XL10] [DX] [XZERO] [NOPUSH] [IGNORE] [USE] [XLABEL] [YLABEL] [PLABEL] [TITLE] [WINTITLE] [NAKED] [ASPECT] [STDIN] [PS] [JPG] [JPEG] [PNG] [PNM] [PNGS] [JPGS] [JPEGS] [PNMS] [YTRAN] [XTRAN] [XAXIS] [YAXIS] [YNAMES] [VOLREG] [THICK] [DASHED] [SETENV] [CENSOR_RGB] [CENSOR] [CENSORTR] [CONCAT] [RBOX] [LINE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "tsfiles",
+      "name": "Time Series Files",
+      "description": "Input time series files (*.1D) to be plotted.",
+      "type": "File",
+      "optional": false,
+      "list": true,
+      "value-key": "[TSFILES]"
+    },
+    {
+      "command-line-flag": "-install",
+      "description": "Install a new X11 colormap.",
+      "value-key": "[INSTALL]",
+      "id": "install",
+      "name": "Install Colormap",
+      "type": "Flag"
+    },
+    {
+      "command-line-flag": "-sep",
+      "description": "Plot each column in a separate sub-graph.",
+      "id": "sep",
+      "value-key": "[SEP]",
+      "name": "Separate Sub-Graphs",
+      "type": "Flag"
+    },
+    {
+      "command-line-flag": "-one",
+      "description": "Plot all columns together in one big graph.",
+      "id": "one",
+      "value-key": "[ONE]",
+      "name": "One Big Graph",
+      "type": "Flag"
+    },
+    {
+      "command-line-flag": "-sepscl",
+      "description": "Plot each column in a separate sub-graph and allow each sub-graph to have a different y-scale. This option is meaningless with -one!",
+      "id": "sepscl",
+      "value-key": "[SEPSCL]",
+      "name": "Separate Sub-Graphs with different y-scale",
+      "type": "Flag"
+    },
+    {
+      "id": "noline",
+      "name": "No Connecting Lines",
+      "value-key": "[NOLINE]",
+      "description": "Don't plot the connecting lines.",
+      "optional": true,
+      "type": {
+        "id": "noline",
+        "command-line": "[LOWER_NOLINE] [UPPER_NOLINE]",
+        "inputs": [
+          {
+            "command-line-flag": "-noline",
+            "description": "Don't plot the connecting lines.",
+            "id": "noline",
+            "name": "No Connecting Lines",
+            "type": "Flag",
+            "optional": true,
+            "value-key": "[LOWER_NOLINE]"
+          },
+          {
+            "command-line-flag": "-NOLINE",
+            "description": "Same as -noline, but will not try to plot values outside the rectangular box that contains the graph axes.",
+            "id": "NOLINE",
+            "name": "No Connecting Lines with Axis Containment",
+            "type": "Flag",
+            "optional": true,
+            "value-key": "[UPPER_NOLINE]"
+          }
+        ]
+      }
+    },
+    {
+      "command-line-flag": "-box",
+      "description": "Plot a small 'box' at each data point.",
+      "id": "box",
+      "name": "Plot Boxes",
+      "type": "Flag",
+      "value-key": "[BOX]"
+    },
+    {
+      "command-line-flag": "-hist",
+      "description": "Plot graphs in histogram style (i.e., vertical boxes).",
+      "id": "hist",
+      "name": "Histogram Style",
+      "type": "Flag",
+      "value-key": "[HIST]"
+    },
+    {
+      "command-line-flag": "-norm2",
+      "description": "Independently scale each time series plotted to have L_2 norm = 1 (sum of squares).",
+      "id": "norm2",
+      "name": "L2 Norm Scaling",
+      "type": "Flag",
+      "value-key": "[NORM2]"
+    },
+    {
+      "command-line-flag": "-normx",
+      "description": "Independently scale each time series plotted to have max absolute value = 1 (L_infinity norm).",
+      "id": "normx",
+      "name": "Linfinity Norm Scaling",
+      "type": "Flag",
+      "value-key": "[NORMX]"
+    },
+    {
+      "command-line-flag": "-norm1",
+      "description": "Independently scale each time series plotted to have max sum of absolute values = 1 (L_1 norm).",
+      "id": "norm1",
+      "name": "L1 Norm Scaling",
+      "type": "Flag",
+      "value-key": "[NORM1]"
+    },
+    {
+      "command-line-flag": "-demean",
+      "description": "Remove the mean from each time series before normalizing.",
+      "id": "demean",
+      "name": "Demean Time Series",
+      "type": "Flag",
+      "value-key": "[DEMEAN]"
+    },
+    {
+      "command-line-flag": "-x",
+      "description": "Use for X axis the data in a specified .1D file.",
+      "id": "x",
+      "name": "X axis data",
+      "type": "File",
+      "optional": true,
+      "value-key": "[X]"
+    },
+    {
+      "command-line-flag": "-xl10",
+      "description": "Use log10 of the specified .1D file as the X axis.",
+      "id": "xl10",
+      "name": "Log10 X axis data",
+      "type": "File",
+      "optional": true,
+      "value-key": "[XL10]"
+    },
+    {
+      "command-line-flag": "-dx",
+      "description": "Spacing between points on the x-axis.",
+      "id": "dx",
+      "name": "X-axis spacing",
+      "type": "Number",
+      "optional": true,
+      "value-key": "[DX]"
+    },
+    {
+      "command-line-flag": "-xzero",
+      "description": "Initial x coordinate.",
+      "id": "xzero",
+      "name": "Initial X coordinate",
+      "type": "Number",
+      "optional": true,
+      "value-key": "[XZERO]"
+    },
+    {
+      "command-line-flag": "-nopush",
+      "description": "Don't 'push' axes ranges outwards.",
+      "id": "nopush",
+      "name": "No Axis Pushing",
+      "type": "Flag",
+      "value-key": "[NOPUSH]"
+    },
+    {
+      "command-line-flag": "-ignore",
+      "description": "Skip first 'nn' rows in the input file.",
+      "id": "ignore",
+      "name": "Ignore Initial Rows",
+      "type": "Number",
+      "optional": true,
+      "value-key": "[IGNORE]"
+    },
+    {
+      "command-line-flag": "-use",
+      "description": "Plot 'mm' points.",
+      "id": "use",
+      "name": "Use Specified Points",
+      "type": "Number",
+      "optional": true,
+      "value-key": "[USE]"
+    },
+    {
+      "command-line-flag": "-xlabel",
+      "description": "Put string 'aa' below the x-axis.",
+      "id": "xlabel",
+      "name": "X-axis Label",
+      "type": "String",
+      "optional": true,
+      "value-key": "[XLABEL]"
+    },
+    {
+      "command-line-flag": "-ylabel",
+      "description": "Put string 'aa' to the left of the y-axis.",
+      "id": "ylabel",
+      "name": "Y-axis Label",
+      "type": "String",
+      "optional": true,
+      "value-key": "[YLABEL]"
+    },
+    {
+      "command-line-flag": "-plabel",
+      "description": "Put string 'pp' atop the plot.",
+      "id": "plabel",
+      "name": "Plot Label",
+      "type": "String",
+      "optional": true,
+      "value-key": "[PLABEL]"
+    },
+    {
+      "command-line-flag": "-title",
+      "description": "Same as -plabel, but only works with -ps/-png/-jpg/-pnm options.",
+      "id": "title",
+      "name": "Plot Title",
+      "type": "String",
+      "optional": true,
+      "value-key": "[TITLE]"
+    },
+    {
+      "command-line-flag": "-wintitle",
+      "description": "Set string 'pp' as the title of the frame containing the plot.",
+      "id": "wintitle",
+      "name": "Window Title",
+      "type": "String",
+      "optional": true,
+      "value-key": "[WINTITLE]"
+    },
+    {
+      "command-line-flag": "-naked",
+      "description": "Do NOT plot axes or labels, just the graph(s).",
+      "id": "naked",
+      "name": "Naked Graph",
+      "type": "Flag",
+      "value-key": "[NAKED]"
+    },
+    {
+      "command-line-flag": "-aspect",
+      "description": "Set the width-to-height ratio of the plot region to 'A'.",
+      "id": "aspect",
+      "name": "Aspect Ratio",
+      "type": "Number",
+      "optional": true,
+      "value-key": "[ASPECT]"
+    },
+    {
+      "command-line-flag": "-stdin",
+      "description": "Don't read from tsfile; instead, read from stdin and plot it.",
+      "id": "stdin",
+      "name": "Read from Stdin",
+      "type": "Flag",
+      "value-key": "[STDIN]"
+    },
+    {
+      "command-line-flag": "-ps",
+      "description": "Don't draw plot in a window; instead, write it to stdout in PostScript format.",
+      "id": "ps",
+      "name": "PostScript Output",
+      "type": "Flag",
+      "value-key": "[PS]"
+    },
+    {
+      "command-line-flag": "-jpg",
+      "description": "Render plot to JPEG image and save to a file named 'fname'.",
+      "id": "jpg",
+      "name": "JPEG Output",
+      "type": "String",
+      "optional": true,
+      "value-key": "[JPG]"
+    },
+    {
+      "command-line-flag": "-jpeg",
+      "description": "Render plot to JPEG image and save to a file named 'fname'.",
+      "id": "jpeg",
+      "name": "JPEG Output",
+      "type": "String",
+      "optional": true,
+      "value-key": "[JPEG]"
+    },
+    {
+      "command-line-flag": "-png",
+      "description": "Render plot to PNG image and save to a file named 'fname'.",
+      "id": "png",
+      "name": "PNG Output",
+      "type": "String",
+      "optional": true,
+      "value-key": "[PNG]"
+    },
+    {
+      "command-line-flag": "-pnm",
+      "description": "Render plot to PNM image and save to a file named 'fname'.",
+      "id": "pnm",
+      "name": "PNM Output",
+      "type": "String",
+      "optional": true,
+      "value-key": "[PNM]"
+    },
+    {
+      "command-line-flag": "-pngs",
+      "description": "Render plot to PNG image of specified size and save to a file named 'fname'.",
+      "id": "pngs",
+      "name": "PNG Output with Size",
+      "type": "String",
+      "optional": true,
+      "value-key": "[PNGS]"
+    },
+    {
+      "command-line-flag": "-jpgs",
+      "description": "Render plot to JPEG image of specified size and save to a file named 'fname'.",
+      "id": "jpgs",
+      "name": "JPEG Output with Size",
+      "type": "String",
+      "optional": true,
+      "value-key": "[JPGS]"
+    },
+    {
+      "command-line-flag": "-jpegs",
+      "description": "Render plot to JPEG image of specified size and save to a file named 'fname'.",
+      "id": "jpegs",
+      "name": "JPEG Output with Size",
+      "type": "String",
+      "optional": true,
+      "value-key": "[JPEGS]"
+    },
+    {
+      "command-line-flag": "-pnms",
+      "description": "Render plot to PNM image of specified size and save to a file named 'fname'.",
+      "id": "pnms",
+      "name": "PNM Output with Size",
+      "type": "String",
+      "optional": true,
+      "value-key": "[PNMS]"
+    },
+    {
+      "command-line-flag": "-ytran",
+      "description": "Transform the data along the y-axis by applying the expression to each input value.",
+      "id": "ytran",
+      "name": "Y-axis Transformation",
+      "type": "String",
+      "optional": true,
+      "value-key": "[YTRAN]"
+    },
+    {
+      "command-line-flag": "-xtran",
+      "description": "Transform the data along the x-axis by applying the expression to each input value.",
+      "id": "xtran",
+      "name": "X-axis Transformation",
+      "type": "String",
+      "optional": true,
+      "value-key": "[XTRAN]"
+    },
+    {
+      "command-line-flag": "-xaxis",
+      "description": "Set the x-axis to run from value 'b' to value 't', with 'n' major divisions and 'm' minor tic marks per major division.",
+      "id": "xaxis",
+      "name": "X-axis Settings",
+      "type": "String",
+      "optional": true,
+      "value-key": "[XAXIS]"
+    },
+    {
+      "command-line-flag": "-yaxis",
+      "description": "Set the y-axis to run from value 'b' to value 't', with 'n' major divisions and 'm' minor tic marks per major division.",
+      "id": "yaxis",
+      "name": "Y-axis Settings",
+      "type": "String",
+      "optional": true,
+      "value-key": "[YAXIS]"
+    },
+    {
+      "command-line-flag": "-ynames",
+      "description": "Use the strings as labels to the right of the graphs, corresponding to each input column.",
+      "id": "ynames",
+      "name": "Y-axis Names",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "value-key": "[YNAMES]"
+    },
+    {
+      "command-line-flag": "-volreg",
+      "description": "Makes the 'ynames' be the same as the 6 labels used in plug_volreg for Roll, Pitch, Yaw, I-S, R-L, and A-P movements.",
+      "id": "volreg",
+      "name": "Volume Registration Names",
+      "type": "Flag",
+      "value-key": "[VOLREG]"
+    },
+    {
+      "id": "thick",
+      "name": "Increase Line Thickness",
+      "value-key": "[THICK]",
+      "description": "Increase the line thickness used for plotting.",
+      "optional": true,
+      "type": {
+        "id": "thick",
+        "command-line": "[LOWER_THICK] [UPPER_THICK]",
+        "inputs": [
+          {
+            "command-line-flag": "-thick",
+            "description": "Increase the line thickness used for plotting.",
+            "id": "thick",
+            "name": "Increase Line Thickness",
+            "type": "Flag",
+            "optional": true,
+            "value-key": "[LOWER_THICK]"
+          },
+          {
+            "command-line-flag": "-THICK",
+            "description": "Twice the power of '-thick' at no extra cost!",
+            "id": "THICK",
+            "name": "Double Line Thickness",
+            "type": "Flag",
+            "optional": true,
+            "value-key": "[UPPER_THICK]"
+          }
+        ]
+      }
+    },
+    {
+      "command-line-flag": "-dashed",
+      "description": "Plot dashed lines between data points using specified colon-separated list of dash values (1: solid, 2: longer dashes, 3: shorter dashes).",
+      "id": "dashed",
+      "name": "Dashed Lines",
+      "type": "String",
+      "optional": true,
+      "value-key": "[DASHED]"
+    },
+    {
+      "command-line-flag": "-D",
+      "description": "Set environment variable 'name' to 'val' for this run of the program only.",
+      "id": "setenv",
+      "name": "Set Environment Variable",
+      "type": "String",
+      "optional": true,
+      "value-key": "[SETENV]"
+    },
+    {
+      "command-line-flag": "-censor_RGB",
+      "description": "Set the color used for marking to a specified color.",
+      "id": "censor_RGB",
+      "name": "Censor Marking Color",
+      "type": "String",
+      "optional": true,
+      "value-key": "[CENSOR_RGB]"
+    },
+    {
+      "command-line-flag": "-censor",
+      "description": "Specify the filename of the censor .1D time series.",
+      "id": "censor",
+      "name": "Censor Time Series",
+      "type": "File",
+      "optional": true,
+      "value-key": "[CENSOR]"
+    },
+    {
+      "command-line-flag": "-CENSORTR",
+      "description": "Specify time indexes to be marked in the graph(s).",
+      "id": "CENSORTR",
+      "name": "Censor Time Indexes",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "value-key": "[CENSORTR]"
+    },
+    {
+      "command-line-flag": "-concat",
+      "description": "Specify the filename for the list of concatenated runs.",
+      "id": "concat",
+      "name": "Concatenated Runs",
+      "type": "File",
+      "optional": true,
+      "value-key": "[CONCAT]"
+    },
+    {
+      "id": "rbox",
+      "name": "Draw Rectangular Box",
+      "value-key": "[RBOX]",
+      "description": "Draw a rectangular box.",
+      "optional": true,
+      "type": {
+        "id": "rbox",
+        "command-line": "[LOWER_RBOX] [CAPITAL_RBOX]",
+        "inputs": [
+          {
+            "command-line-flag": "-rbox",
+            "description": "Draw a rectangular box with specified corners and colors.",
+            "id": "rbox",
+            "name": "Draw Rectangular Box",
+            "type": "String",
+            "optional": true,
+            "value-key": "[LOWER_RBOX]"
+          },
+          {
+            "command-line-flag": "-Rbox",
+            "description": "Draw a rectangular box with one extra horizontal line.",
+            "id": "Rbox",
+            "name": "Draw Rectangular Box with Line",
+            "type": "String",
+            "optional": true,
+            "value-key": "[CAPITAL_RBOX]"
+          }
+        ]
+      }
+    },
+    {
+      "command-line-flag": "-line",
+      "description": "Draw one line segment.",
+      "id": "line",
+      "name": "Draw Line Segment",
+      "type": "String",
+      "optional": true,
+      "value-key": "[LINE]"
+    }
+  ]
+}

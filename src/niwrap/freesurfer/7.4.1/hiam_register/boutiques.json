@@ -1,0 +1,42 @@
+{
+  "name": "hiam_register",
+  "description": "This program registers a surface with an average surface.",
+  "command-line": "hiam_register [INPUT_SURFACE] [AVERAGE_SURFACE] [OUTPUT_SURFACE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "input_surface",
+      "name": "Input Surface",
+      "type": "File",
+      "value-key": "[INPUT_SURFACE]",
+      "description": "The input surface to be registered.",
+      "optional": false
+    },
+    {
+      "id": "average_surface",
+      "name": "Average Surface",
+      "type": "File",
+      "value-key": "[AVERAGE_SURFACE]",
+      "description": "The average surface to register against.",
+      "optional": false
+    },
+    {
+      "id": "output_surface",
+      "name": "Output Surface",
+      "type": "String",
+      "value-key": "[OUTPUT_SURFACE]",
+      "description": "The path where the output registered surface will be saved.",
+      "optional": false
+    }
+  ],
+  "output-files": [
+    {
+      "id": "registered_surface",
+      "name": "Registered Surface",
+      "path-template": "[OUTPUT_SURFACE]",
+      "description": "The output surface after registration."
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

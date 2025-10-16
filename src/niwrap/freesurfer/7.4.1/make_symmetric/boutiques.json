@@ -1,0 +1,56 @@
+{
+  "name": "make_symmetric",
+  "author": "FreeSurfer Developers",
+  "description": "Registers an input image to its left/right reversed version using mri_robust_register in a half-way space and mirrors the selected hemisphere.",
+  "command-line": "make_symmetric [HEMI] [INPUT_FILE] [OUTPUT_FILE] [TRANSFORM_MAP]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "The hemisphere to mirror; accepted values are 'lh' for left hemisphere or 'rh' for right hemisphere.",
+      "value-key": "[HEMI]",
+      "type": "String",
+      "optional": false,
+      "id": "hemi",
+      "name": "Hemisphere"
+    },
+    {
+      "description": "Input image in .mgz format.",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input file"
+    },
+    {
+      "description": "Output image in .mgz format resulting from the symmetric processing.",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_file",
+      "name": "Output file"
+    },
+    {
+      "description": "Transformation map in .lta format mapping the input to the upright space.",
+      "value-key": "[TRANSFORM_MAP]",
+      "type": "String",
+      "optional": false,
+      "id": "transform_map",
+      "name": "Transform map file"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILE]",
+      "description": "Output image file after processing.",
+      "id": "processed_output",
+      "name": "Processed output file"
+    },
+    {
+      "path-template": "[TRANSFORM_MAP]",
+      "description": "Transformation map file mapping the input to the upright space.",
+      "id": "map_output",
+      "name": "Transform map output file"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

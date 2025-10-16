@@ -1,0 +1,10 @@
+{
+  "name": "extract_seg_waveform",
+  "source": {
+    "type": "boutiques",
+    "path": "boutiques.json"
+  },
+  "docs": {
+    "description": "This program extracts an average waveform from an input volume where the average is computed over the voxels in the given segmentation indices. The input volume is mapped to the space of the segmentation given the registration, and if a voxel shift map (VSM) is supplied, it is applied simultaneously as part of the transform."
+  }
+}

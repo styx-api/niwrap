@@ -1,0 +1,126 @@
+{
+  "name": "ConvertScalarImageToRGB",
+  "command-line": "ConvertScalarImageToRGB [IMAGE_DIMENSION] [INPUT_IMAGE] [OUTPUT_IMAGE] [MASK] [COLORMAP] [CUSTOM_COLORMAP_FILE] [MINIMUM_INPUT] [MAXIMUM_INPUT] [MINIMUM_RGB_OUTPUT] [MAXIMUM_RGB_OUTPUT] [VTK_LOOKUP_TABLE]",
+  "author": "ANTs Developers",
+  "description": "Converts a scalar image to an RGB image using specified parameters. Supports multiple colormap options and customization.",
+  "url": "https://github.com/ANTsX/ANTs",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "image_dimension",
+      "name": "Image Dimension",
+      "value-key": "[IMAGE_DIMENSION]",
+      "type": "Number",
+      "integer": true,
+      "optional": false,
+      "description": "The dimensionality of the image (e.g., 2D or 3D)."
+    },
+    {
+      "id": "input_image",
+      "name": "Input Image",
+      "value-key": "[INPUT_IMAGE]",
+      "type": "File",
+      "optional": false,
+      "description": "The input scalar image to be converted to RGB."
+    },
+    {
+      "id": "output_image",
+      "name": "Output Image",
+      "value-key": "[OUTPUT_IMAGE]",
+      "type": "String",
+      "optional": false,
+      "description": "The output RGB image file."
+    },
+    {
+      "id": "mask",
+      "name": "Mask",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": false,
+      "description": "The mask image to apply during conversion."
+    },
+    {
+      "id": "colormap",
+      "name": "Colormap",
+      "value-key": "[COLORMAP]",
+      "type": "String",
+      "optional": false,
+      "value-choices": [
+        "grey",
+        "red",
+        "green",
+        "blue",
+        "copper",
+        "jet",
+        "hsv",
+        "spring",
+        "summer",
+        "autumn",
+        "winter",
+        "hot",
+        "cool",
+        "overunder",
+        "custom"
+      ],
+      "description": "The colormap to use for RGB conversion."
+    },
+    {
+      "id": "custom_colormap_file",
+      "name": "Custom Colormap File",
+      "value-key": "[CUSTOM_COLORMAP_FILE]",
+      "type": "File",
+      "optional": true,
+      "description": "The file specifying the custom colormap (only used if colormap is 'custom')."
+    },
+    {
+      "id": "minimum_input",
+      "name": "Minimum Input",
+      "value-key": "[MINIMUM_INPUT]",
+      "type": "Number",
+      "optional": true,
+      "description": "The minimum input value for scaling."
+    },
+    {
+      "id": "maximum_input",
+      "name": "Maximum Input",
+      "value-key": "[MAXIMUM_INPUT]",
+      "type": "Number",
+      "optional": true,
+      "description": "The maximum input value for scaling."
+    },
+    {
+      "id": "minimum_rgb_output",
+      "name": "Minimum RGB Output",
+      "value-key": "[MINIMUM_RGB_OUTPUT]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "description": "The minimum output value for the RGB image. Defaults to 0."
+    },
+    {
+      "id": "maximum_rgb_output",
+      "name": "Maximum RGB Output",
+      "value-key": "[MAXIMUM_RGB_OUTPUT]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "description": "The maximum output value for the RGB image. Defaults to 255."
+    },
+    {
+      "id": "vtk_lookup_table",
+      "name": "VTK Lookup Table",
+      "value-key": "[VTK_LOOKUP_TABLE]",
+      "type": "String",
+      "optional": true,
+      "description": "The VTK lookup table to apply for additional customization."
+    }
+  ],
+  "output-files": [
+    {
+      "id": "output_rgb_image",
+      "name": "Output RGB Image",
+      "description": "The resulting RGB image after conversion.",
+      "path-template": "[OUTPUT_IMAGE]"
+    }
+  ]
+}

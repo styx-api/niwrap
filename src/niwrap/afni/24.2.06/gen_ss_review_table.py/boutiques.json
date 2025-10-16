@@ -1,0 +1,146 @@
+{
+  "name": "gen_ss_review_table.py",
+  "author": "AFNI Developers",
+  "description": "Generate a table from ss_review_basic output files",
+  "command-line": "gen_ss_review_table.py [INFILES] [WRITE_TABLE] [WRITE_OUTLIERS] [OVERWRITE] [EMPTY_IS_OUTLIER] [OUTLIER_SEP] [SEPARATOR] [SHOWLABS] [SHOW_INFILES] [SHOW_KEEPERS] [REPORT_OUTLIERS] [REPORT_OUTLIERS_FILL_STYLE] [SHOW_MISSING] [VERBOSITY]",
+  "inputs": [
+    {
+      "description": "Input ss_review_basic output text files to process",
+      "value-key": "[INFILES]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "infiles",
+      "name": "Input files"
+    },
+    {
+      "command-line-flag": "-write_table",
+      "description": "Write final table to the given file",
+      "value-key": "[WRITE_TABLE]",
+      "type": "File",
+      "optional": true,
+      "id": "write_table",
+      "name": "Write table file"
+    },
+    {
+      "command-line-flag": "-write_outliers",
+      "description": "Write outlier table to the given file",
+      "value-key": "[WRITE_OUTLIERS]",
+      "type": "File",
+      "optional": true,
+      "id": "write_outliers",
+      "name": "Write outliers file"
+    },
+    {
+      "command-line-flag": "-overwrite",
+      "description": "Overwrite the output -write_table, if it exists",
+      "value-key": "[OVERWRITE]",
+      "type": "Flag",
+      "id": "overwrite",
+      "name": "Overwrite flag"
+    },
+    {
+      "command-line-flag": "-empty_is_outlier",
+      "description": "Treat empty tests as outliers",
+      "value-key": "[EMPTY_IS_OUTLIER]",
+      "type": "Flag",
+      "id": "empty_is_outlier",
+      "name": "Empty is outlier flag"
+    },
+    {
+      "command-line-flag": "-outlier_sep",
+      "description": "Use SEP for the outlier table separator",
+      "value-key": "[OUTLIER_SEP]",
+      "type": "String",
+      "optional": true,
+      "id": "outlier_sep",
+      "name": "Outlier separator"
+    },
+    {
+      "command-line-flag": "-separator",
+      "description": "Use SEP for the label/vals separator (default = ':')",
+      "value-key": "[SEPARATOR]",
+      "type": "String",
+      "optional": true,
+      "id": "separator",
+      "name": "Separator"
+    },
+    {
+      "command-line-flag": "-showlabs",
+      "description": "Display counts of all labels found, with parents",
+      "value-key": "[SHOWLABS]",
+      "type": "Flag",
+      "id": "showlabs",
+      "name": "Show labels flag"
+    },
+    {
+      "command-line-flag": "-show_infiles",
+      "description": "Include input files in reviewtable result",
+      "value-key": "[SHOW_INFILES]",
+      "type": "Flag",
+      "id": "show_infiles",
+      "name": "Show input files flag"
+    },
+    {
+      "command-line-flag": "-show_keepers",
+      "description": "Show a table of subjects kept rather than dropped",
+      "value-key": "[SHOW_KEEPERS]",
+      "type": "Flag",
+      "id": "show_keepers",
+      "name": "Show keepers flag"
+    },
+    {
+      "command-line-flag": "-report_outliers",
+      "description": "Report outliers where the comparison holds",
+      "value-key": "[REPORT_OUTLIERS]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "report_outliers",
+      "name": "Report outliers"
+    },
+    {
+      "command-line-flag": "-report_outliers_fill_style",
+      "description": "How to fill non-outliers in the table",
+      "value-key": "[REPORT_OUTLIERS_FILL_STYLE]",
+      "type": "String",
+      "optional": true,
+      "id": "report_outliers_fill_style",
+      "name": "Report outliers fill style"
+    },
+    {
+      "command-line-flag": "-show_missing",
+      "description": "Display all missing keys",
+      "value-key": "[SHOW_MISSING]",
+      "type": "Flag",
+      "id": "show_missing",
+      "name": "Show missing keys flag"
+    },
+    {
+      "command-line-flag": "-verb",
+      "description": "Verbosity level",
+      "value-key": "[VERBOSITY]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "verbosity",
+      "name": "Verbosity level"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[WRITE_TABLE]",
+      "description": "Final table output file",
+      "id": "output_table",
+      "name": "Output Table File"
+    },
+    {
+      "path-template": "[WRITE_OUTLIERS]",
+      "description": "Outliers table output file",
+      "id": "output_outliers",
+      "name": "Output Outliers File"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

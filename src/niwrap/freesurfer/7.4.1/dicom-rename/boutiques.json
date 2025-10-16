@@ -1,0 +1,53 @@
+{
+  "name": "dicom-rename",
+  "description": "Copies dicom file(s) to new path with more meaningful names",
+  "schema-version": "0.5+styx",
+  "command-line": "dicom-rename [INPUT_FILES] [OUTPUT_BASE] [VERSION] [HELP]",
+  "inputs": [
+    {
+      "id": "input_files",
+      "name": "Input DICOM Files",
+      "type": "File",
+      "list": true,
+      "description": "Input DICOM files to be renamed.",
+      "optional": false,
+      "value-key": "[INPUT_FILES]",
+      "command-line-flag": "-rename"
+    },
+    {
+      "id": "output_base",
+      "name": "Output Base Name",
+      "type": "String",
+      "description": "Base name for output files that includes series and image numbers.",
+      "optional": false,
+      "command-line-flag": "--o",
+      "value-key": "[OUTPUT_BASE]"
+    },
+    {
+      "id": "version",
+      "name": "Version",
+      "type": "Flag",
+      "description": "Print version and exit.",
+      "command-line-flag": "--version",
+      "value-key": "[VERSION]"
+    },
+    {
+      "id": "help",
+      "name": "Help",
+      "type": "Flag",
+      "description": "Print help and exit.",
+      "command-line-flag": "--help",
+      "value-key": "[HELP]"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_BASE]-SSS-IIIII.dcm",
+      "description": "Renamed output DICOM file with series and image numbers.",
+      "id": "renamed_dicom",
+      "name": "Renamed DICOM File"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

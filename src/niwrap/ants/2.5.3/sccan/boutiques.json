@@ -1,0 +1,262 @@
+{
+  "name": "sccan",
+  "command-line": "sccan [OUTPUT] [N_PERMUTATIONS] [SMOOTHER] [ROW_SPARSENESS] [ITERATIONS] [N_EIGENVECTORS] [ROBUSTIFY] [COVERING] [USELONG] [L1] [PCLUSTERTHRESH] [QCLUSTERTHRESH] [RIDGE_CCA] [INITIALIZATION] [INITIALIZATION2] [MASK] [MASK2] [PARTIAL_SCCA_OPTION] [PRIOR_WEIGHT] [GET_SMALL] [VERBOSE] [IMAGESET_TO_MATRIX] [TIMESERIESIMAGE_TO_MATRIX] [VECTOR_TO_IMAGE] [IMAGESET_TO_PROJECTIONS] [SCCA] [SVD]",
+  "author": "ANTs Developers",
+  "description": "A tool for sparse statistical analysis on images : scca, pscca (with options), mscca. Can also convert an imagelist/mask pair to a binary matrix image.",
+  "url": "https://github.com/ANTsX/ANTs",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "output",
+      "name": "Output",
+      "value-key": "[OUTPUT]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "-o",
+      "description": "Output dependent on which option is called."
+    },
+    {
+      "id": "n_permutations",
+      "name": "Number of Permutations",
+      "value-key": "[N_PERMUTATIONS]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "command-line-flag": "-p",
+      "description": "Number of permutations to use in scca."
+    },
+    {
+      "id": "smoother",
+      "name": "Smoother",
+      "value-key": "[SMOOTHER]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "command-line-flag": "-s",
+      "description": "Smoothing function for variates."
+    },
+    {
+      "id": "row_sparseness",
+      "name": "Row Sparseness",
+      "value-key": "[ROW_SPARSENESS]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "command-line-flag": "-z",
+      "description": "Row sparseness - if (+) then keep values (+) otherwise allow +/- values --- always L1."
+    },
+    {
+      "id": "iterations",
+      "name": "Iterations",
+      "value-key": "[ITERATIONS]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "minimum": 20,
+      "command-line-flag": "-i",
+      "description": "Max iterations for scca optimization (min 20)."
+    },
+    {
+      "id": "n_eigenvectors",
+      "name": "Number of Eigenvectors",
+      "value-key": "[N_EIGENVECTORS]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "command-line-flag": "-n",
+      "description": "Number of eigenvectors to compute in scca/spca."
+    },
+    {
+      "id": "robustify",
+      "name": "Robustify",
+      "value-key": "[ROBUSTIFY]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "command-line-flag": "-r",
+      "description": "Rank-based scca."
+    },
+    {
+      "id": "covering",
+      "name": "Covering",
+      "value-key": "[COVERING]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "command-line-flag": "-c",
+      "description": "Try to make the decomposition cover the whole domain, if possible."
+    },
+    {
+      "id": "uselong",
+      "name": "Use Longitudinal Formulation",
+      "value-key": "[USELONG]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "command-line-flag": "-g",
+      "description": "Use longitudinal formulation (> 0) or not (<= 0)."
+    },
+    {
+      "id": "l1",
+      "name": "L1 Penalty",
+      "value-key": "[L1]",
+      "type": "Number",
+      "optional": true,
+      "command-line-flag": "-l",
+      "description": "Use l1 (> 0) or l0 (< 0) penalty, also sets gradient step size."
+    },
+    {
+      "id": "pclusterthresh",
+      "name": "P Cluster Threshold",
+      "value-key": "[PCLUSTERTHRESH]",
+      "type": "Number",
+      "optional": true,
+      "command-line-flag": "--PClusterThresh",
+      "description": "Cluster threshold on view P."
+    },
+    {
+      "id": "qclusterthresh",
+      "name": "Q Cluster Threshold",
+      "value-key": "[QCLUSTERTHRESH]",
+      "type": "Number",
+      "optional": true,
+      "command-line-flag": "--QClusterThresh",
+      "description": "Cluster threshold on view Q."
+    },
+    {
+      "id": "ridge_cca",
+      "name": "Ridge CCA",
+      "value-key": "[RIDGE_CCA]",
+      "type": "Number",
+      "optional": true,
+      "command-line-flag": "-e",
+      "description": "Ridge cca."
+    },
+    {
+      "id": "initialization",
+      "name": "Initialization",
+      "value-key": "[INITIALIZATION]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "--initialization",
+      "description": "Initialization file list for Eigenanatomy - must also pass mask option."
+    },
+    {
+      "id": "initialization2",
+      "name": "Initialization 2",
+      "value-key": "[INITIALIZATION2]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "--initialization2",
+      "description": "Initialization file list for SCCAN-Eigenanatomy - must also pass mask option."
+    },
+    {
+      "id": "mask",
+      "name": "Mask",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": true,
+      "command-line-flag": "--mask",
+      "description": "Mask file for Eigenanatomy initialization."
+    },
+    {
+      "id": "mask2",
+      "name": "Mask 2",
+      "value-key": "[MASK2]",
+      "type": "File",
+      "optional": true,
+      "command-line-flag": "--mask2",
+      "description": "Mask file for Eigenanatomy initialization 2."
+    },
+    {
+      "id": "partial_scca_option",
+      "name": "Partial SCCA Option",
+      "value-key": "[PARTIAL_SCCA_OPTION]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "--partial-scca-option",
+      "description": "Choices for pscca: PQ, PminusRQ, PQminusR, PminusRQminusR."
+    },
+    {
+      "id": "prior_weight",
+      "name": "Prior Weight",
+      "value-key": "[PRIOR_WEIGHT]",
+      "type": "Number",
+      "optional": true,
+      "command-line-flag": "--prior-weight",
+      "description": "Scalar value weight on prior between 0 (prior is weak) and 1 (prior is strong). Only engaged if initialization is used."
+    },
+    {
+      "id": "get_small",
+      "name": "Get Small",
+      "value-key": "[GET_SMALL]",
+      "type": "Number",
+      "optional": true,
+      "command-line-flag": "--get-small",
+      "description": "Find smallest eigenvectors."
+    },
+    {
+      "id": "verbose",
+      "name": "Verbose",
+      "value-key": "[VERBOSE]",
+      "type": "Number",
+      "optional": true,
+      "command-line-flag": "-v",
+      "description": "Set whether output is verbose."
+    },
+    {
+      "id": "imageset_to_matrix",
+      "name": "Imageset to Matrix",
+      "value-key": "[IMAGESET_TO_MATRIX]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "--imageset-to-matrix",
+      "description": "Takes a list of image files names (one per line) and converts it to a 2D matrix/image in binary or csv format."
+    },
+    {
+      "id": "timeseriesimage_to_matrix",
+      "name": "Timeseries Image to Matrix",
+      "value-key": "[TIMESERIESIMAGE_TO_MATRIX]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "--timeseriesimage-to-matrix",
+      "description": "Takes a timeseries (4D) image and converts it to a 2D matrix csv format."
+    },
+    {
+      "id": "vector_to_image",
+      "name": "Vector to Image",
+      "value-key": "[VECTOR_TO_IMAGE]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "--vector-to-image",
+      "description": "Converts the 1st column vector in a csv file back to an image."
+    },
+    {
+      "id": "imageset_to_projections",
+      "name": "Imageset to Projections",
+      "value-key": "[IMAGESET_TO_PROJECTIONS]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "--imageset-to-projections",
+      "description": "Takes a list of image and projection files names and writes them to a csv file."
+    },
+    {
+      "id": "scca",
+      "name": "SCCA",
+      "value-key": "[SCCA]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "--scca",
+      "description": "Matrix-based scca operations for 2 and 3 views."
+    },
+    {
+      "id": "svd",
+      "name": "SVD",
+      "value-key": "[SVD]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "--svd",
+      "description": "A sparse SVD implementation."
+    }
+  ]
+}

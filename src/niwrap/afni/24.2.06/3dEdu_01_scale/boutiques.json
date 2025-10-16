@@ -1,0 +1,48 @@
+{
+  "name": "3dEdu_01_scale",
+  "author": "AFNI Developers",
+  "description": "Educational program to create a new AFNI program. Scales and masks dataset volumes.",
+  "command-line": "3dEdu_01_scale [INPUT] [MASK] [MULT_FACTORS] [OPTION_FLAG]",
+  "inputs": [
+    {
+      "description": "Input dataset",
+      "value-key": "[INPUT]",
+      "type": "File",
+      "optional": false,
+      "id": "input",
+      "name": "Input dataset"
+    },
+    {
+      "description": "Mask dataset on same grid/data structure as the input dataset",
+      "command-line-flag": "-mask",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "mask",
+      "name": "Mask dataset"
+    },
+    {
+      "description": "Numerical factors for multiplying each voxel; each voxel is multiplied by both A and B",
+      "command-line-flag": "-mult_facs",
+      "value-key": "[MULT_FACTORS]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 2,
+      "min-list-entries": 2,
+      "optional": true,
+      "id": "mult_factors",
+      "name": "Multiplicative factors"
+    },
+    {
+      "description": "Option flag to do something",
+      "command-line-flag": "-some_opt",
+      "value-key": "[OPTION_FLAG]",
+      "type": "Flag",
+      "id": "option_flag",
+      "name": "Option flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [],
+  "url": "https://afni.nimh.nih.gov/"
+}

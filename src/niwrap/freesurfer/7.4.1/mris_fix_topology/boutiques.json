@@ -1,0 +1,230 @@
+{
+  "name": "mris_fix_topology",
+  "author": "FreeSurfer Developers",
+  "description": "Computes a mapping from the unit sphere onto the cortical surface, ensuring a topologically correct surface.",
+  "command-line": "mris_fix_topology [SUBJECT_NAME] [HEMISPHERE] [ORIG_NAME] [SPHERE_NAME] [INFLATED_NAME] [OUTPUT_NAME] [DEFECT_BASE_NAME] [WRITE_FIXED_INFLATED] [VERBOSE] [VERBOSE_LOW] [WARNINGS] [ERRORS] [MOVIES] [INTERSECT] [MAPPINGS] [CORRECT_DEFECT] [NITERS] [GENETIC] [OPTIMIZE] [RANDOM] [SEED] [DIAG] [MGZ] [SMOOTH] [DIAGNOSTIC_LEVEL] [THREADS]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Subject name",
+      "value-key": "[SUBJECT_NAME]",
+      "type": "String",
+      "optional": false,
+      "id": "subject_name",
+      "name": "Subject Name"
+    },
+    {
+      "description": "Hemisphere",
+      "value-key": "[HEMISPHERE]",
+      "type": "String",
+      "optional": false,
+      "id": "hemisphere",
+      "name": "Hemisphere"
+    },
+    {
+      "command-line-flag": "-orig",
+      "description": "Input orig name (default is orig.nofix)",
+      "value-key": "[ORIG_NAME]",
+      "type": "String",
+      "optional": true,
+      "id": "orig_name",
+      "name": "Orig Name"
+    },
+    {
+      "command-line-flag": "-sphere",
+      "description": "Sphere name (default is qsphere.nofix)",
+      "value-key": "[SPHERE_NAME]",
+      "type": "String",
+      "optional": true,
+      "id": "sphere_name",
+      "name": "Sphere Name"
+    },
+    {
+      "command-line-flag": "-inflated",
+      "description": "Inflated name (default is inflated.nofix)",
+      "value-key": "[INFLATED_NAME]",
+      "type": "String",
+      "optional": true,
+      "id": "inflated_name",
+      "name": "Inflated Name"
+    },
+    {
+      "command-line-flag": "-out",
+      "description": "Output name (default is orig)",
+      "value-key": "[OUTPUT_NAME]",
+      "type": "String",
+      "optional": true,
+      "id": "output_name",
+      "name": "Output Name"
+    },
+    {
+      "command-line-flag": "-defect",
+      "description": "Defect basename (default is defect)",
+      "value-key": "[DEFECT_BASE_NAME]",
+      "type": "String",
+      "optional": true,
+      "id": "defect_base_name",
+      "name": "Defect Base Name"
+    },
+    {
+      "command-line-flag": "-wi",
+      "description": "Write fixed inflated",
+      "value-key": "[WRITE_FIXED_INFLATED]",
+      "type": "Flag",
+      "id": "write_fixed_inflated",
+      "name": "Write Fixed Inflated Flag"
+    },
+    {
+      "command-line-flag": "-verbose",
+      "description": "Increase verbosity",
+      "value-key": "[VERBOSE]",
+      "type": "Flag",
+      "id": "verbose",
+      "name": "Verbose Flag"
+    },
+    {
+      "command-line-flag": "-verbose_low",
+      "description": "Low verbosity",
+      "value-key": "[VERBOSE_LOW]",
+      "type": "Flag",
+      "id": "verbose_low",
+      "name": "Verbose Low Flag"
+    },
+    {
+      "command-line-flag": "-warnings",
+      "description": "Show warnings",
+      "value-key": "[WARNINGS]",
+      "type": "Flag",
+      "id": "warnings",
+      "name": "Warnings Flag"
+    },
+    {
+      "command-line-flag": "-errors",
+      "description": "Show errors",
+      "value-key": "[ERRORS]",
+      "type": "Flag",
+      "id": "errors",
+      "name": "Errors Flag"
+    },
+    {
+      "command-line-flag": "-movies",
+      "description": "Generate movies",
+      "value-key": "[MOVIES]",
+      "type": "Flag",
+      "id": "movies",
+      "name": "Movies Flag"
+    },
+    {
+      "command-line-flag": "-intersect",
+      "description": "Check if the final surface self-intersects",
+      "value-key": "[INTERSECT]",
+      "type": "Flag",
+      "id": "intersect",
+      "name": "Intersect Flag"
+    },
+    {
+      "command-line-flag": "-mappings",
+      "description": "Generate several different mappings",
+      "value-key": "[MAPPINGS]",
+      "type": "Flag",
+      "id": "mappings",
+      "name": "Mappings Flag"
+    },
+    {
+      "command-line-flag": "-correct_defect",
+      "description": "Correct specific defect number",
+      "value-key": "[CORRECT_DEFECT]",
+      "type": "Number",
+      "optional": true,
+      "id": "correct_defect",
+      "name": "Correct Defect Number"
+    },
+    {
+      "command-line-flag": "-niters",
+      "description": "Number of iterations for genetic algorithm",
+      "value-key": "[NITERS]",
+      "type": "Number",
+      "optional": true,
+      "id": "niters",
+      "name": "Genetic Algorithm Iterations"
+    },
+    {
+      "command-line-flag": "-genetic",
+      "description": "Use genetic search",
+      "value-key": "[GENETIC]",
+      "type": "Flag",
+      "id": "genetic",
+      "name": "Genetic Search Flag"
+    },
+    {
+      "command-line-flag": "-optimize",
+      "description": "Optimize genetic search",
+      "value-key": "[OPTIMIZE]",
+      "type": "Flag",
+      "id": "optimize",
+      "name": "Optimize Genetic Search Flag"
+    },
+    {
+      "command-line-flag": "-random",
+      "description": "Use random search with specified iterations",
+      "value-key": "[RANDOM]",
+      "type": "Number",
+      "optional": true,
+      "id": "random",
+      "name": "Random Search Iterations"
+    },
+    {
+      "command-line-flag": "-seed",
+      "description": "Set random number generator seed",
+      "value-key": "[SEED]",
+      "type": "Number",
+      "optional": true,
+      "id": "seed",
+      "name": "Random Seed"
+    },
+    {
+      "command-line-flag": "-diag",
+      "description": "Sets DIAG_SAVE_DIAGS",
+      "value-key": "[DIAG]",
+      "type": "Flag",
+      "id": "diag",
+      "name": "Diagnostic Flag"
+    },
+    {
+      "command-line-flag": "-mgz",
+      "description": "Assume volumes are in mgz format",
+      "value-key": "[MGZ]",
+      "type": "Flag",
+      "id": "mgz",
+      "name": "MGZ Format Flag"
+    },
+    {
+      "command-line-flag": "-s",
+      "description": "Smooth corrected surface by N iterations",
+      "value-key": "[SMOOTH]",
+      "type": "Number",
+      "optional": true,
+      "id": "smooth",
+      "name": "Smoothing Iterations"
+    },
+    {
+      "command-line-flag": "-v",
+      "description": "Set diagnostic level",
+      "value-key": "[DIAGNOSTIC_LEVEL]",
+      "type": "Number",
+      "optional": true,
+      "id": "diagnostic_level",
+      "name": "Diagnostic Level"
+    },
+    {
+      "command-line-flag": "-threads",
+      "description": "Set number of OpenMP threads",
+      "value-key": "[THREADS]",
+      "type": "Number",
+      "optional": true,
+      "id": "threads",
+      "name": "Number of Threads"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

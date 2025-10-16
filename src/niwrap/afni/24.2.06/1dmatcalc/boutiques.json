@@ -1,0 +1,26 @@
+{
+  "name": "1dmatcalc",
+  "author": "AFNI Developers",
+  "description": "A tool to evaluate space-delimited RPN (Reverse Polish Notation) matrix-valued expressions",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "1dmatcalc [EXPRESSION]",
+  "inputs": [
+    {
+      "description": "Expression to evaluate the RPN matrix-valued operations",
+      "value-key": "[EXPRESSION]",
+      "type": "String",
+      "optional": true,
+      "id": "expression",
+      "name": "Expression"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILE]",
+      "description": "Output file resulting from the evaluated expression",
+      "id": "output_file",
+      "name": "Output File"
+    }
+  ]
+}

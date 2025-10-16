@@ -1,0 +1,153 @@
+{
+  "name": "mris_multimodal_surface_placement",
+  "command-line": "mris_multimodal_surface_placement [INPUT_SURFACE] [OUTPUT_SURFACE] [SPHERE_SURFACE] [NORMALS] [VALUES] [DEBUG_VERTEX] [STEP_SIZE] [NUMBER_OF_STEPS] [GRADIENT_SIGMA] [ASEG_APARC] [WHITE_SURFACE] [PROB_OF_CSF] [T1_IMAGE] [T2_IMAGE] [FLAIR_IMAGE] [MIN_MAX]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "input_surface",
+      "name": "Input Surface",
+      "type": "File",
+      "value-key": "[INPUT_SURFACE]",
+      "command-line-flag": "-i",
+      "description": "Input surface file",
+      "optional": false
+    },
+    {
+      "id": "output_surface",
+      "name": "Output Surface",
+      "type": "File",
+      "value-key": "[OUTPUT_SURFACE]",
+      "command-line-flag": "-o",
+      "description": "Output surface file",
+      "optional": false
+    },
+    {
+      "id": "sphere_surface",
+      "name": "Sphere Surface",
+      "type": "File",
+      "value-key": "[SPHERE_SURFACE]",
+      "command-line-flag": "-b",
+      "description": "Sphere surface file",
+      "optional": false
+    },
+    {
+      "id": "normals",
+      "name": "Normals VTK",
+      "type": "String",
+      "value-key": "[NORMALS]",
+      "command-line-flag": "-n",
+      "description": "Normals file in VTK format",
+      "optional": false
+    },
+    {
+      "id": "values",
+      "name": "Values VTK",
+      "type": "String",
+      "value-key": "[VALUES]",
+      "command-line-flag": "-v",
+      "description": "Values file in VTK format",
+      "optional": false
+    },
+    {
+      "id": "debug_vertex",
+      "name": "Debug Vertex",
+      "type": "Number",
+      "value-key": "[DEBUG_VERTEX]",
+      "command-line-flag": "-d",
+      "description": "Debug vertex index",
+      "optional": true
+    },
+    {
+      "id": "step_size",
+      "name": "Step Size",
+      "type": "Number",
+      "value-key": "[STEP_SIZE]",
+      "command-line-flag": "-s",
+      "description": "Step size",
+      "optional": false
+    },
+    {
+      "id": "number_of_steps",
+      "name": "Number of Steps",
+      "type": "Number",
+      "value-key": "[NUMBER_OF_STEPS]",
+      "command-line-flag": "-k",
+      "description": "Number of steps",
+      "optional": false
+    },
+    {
+      "id": "gradient_sigma",
+      "name": "Gradient Sigma",
+      "type": "Number",
+      "value-key": "[GRADIENT_SIGMA]",
+      "command-line-flag": "-g",
+      "description": "Gradient sigma value",
+      "optional": false
+    },
+    {
+      "id": "aseg_aparc",
+      "name": "ASEG APARC",
+      "type": "File",
+      "value-key": "[ASEG_APARC]",
+      "command-line-flag": "-a",
+      "description": "ASEG APARC image file",
+      "optional": false
+    },
+    {
+      "id": "white_surface",
+      "name": "White Surface",
+      "type": "File",
+      "value-key": "[WHITE_SURFACE]",
+      "command-line-flag": "-w",
+      "description": "White surface file",
+      "optional": false
+    },
+    {
+      "id": "prob_of_csf",
+      "name": "Probability of CSF",
+      "type": "Number",
+      "value-key": "[PROB_OF_CSF]",
+      "command-line-flag": "-p",
+      "description": "Probability of CSF",
+      "optional": false
+    },
+    {
+      "id": "t1_image",
+      "name": "T1 Image",
+      "type": "File",
+      "value-key": "[T1_IMAGE]",
+      "command-line-flag": "-t1",
+      "description": "T1-weighted image file",
+      "optional": false
+    },
+    {
+      "id": "t2_image",
+      "name": "T2 Image",
+      "type": "File",
+      "value-key": "[T2_IMAGE]",
+      "command-line-flag": "-t2",
+      "description": "T2-weighted image file",
+      "optional": false
+    },
+    {
+      "id": "flair_image",
+      "name": "FLAIR Image",
+      "type": "File",
+      "value-key": "[FLAIR_IMAGE]",
+      "command-line-flag": "-flair",
+      "description": "FLAIR image file",
+      "optional": false
+    },
+    {
+      "id": "min_max",
+      "name": "Min/Max Flag",
+      "type": "Flag",
+      "value-key": "[MIN_MAX]",
+      "command-line-flag": "-min/max",
+      "description": "Toggle between min or max operation"
+    }
+  ],
+  "description": "FreeSurfer command for multimodal surface placement",
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

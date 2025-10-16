@@ -1,0 +1,58 @@
+{
+  "name": "pointset2label",
+  "author": "FreeSurfer Developers",
+  "description": "Tool for applying waypoint labels to a volume.",
+  "command-line": "pointset2label [WAYPOINT_FILE] [INPUT_VOLUME] [LABEL_VALUE] [OUTPUT_VOLUME] [CLEAR_OPTION]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Path to the waypoint file.",
+      "value-key": "[WAYPOINT_FILE]",
+      "type": "File",
+      "optional": false,
+      "name": "Waypoint file",
+      "id": "waypoint_file"
+    },
+    {
+      "description": "Path to the input volume file.",
+      "value-key": "[INPUT_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "name": "Input volume",
+      "id": "input_volume"
+    },
+    {
+      "description": "Label value to apply at the waypoints.",
+      "value-key": "[LABEL_VALUE]",
+      "type": "Number",
+      "optional": false,
+      "name": "Label value",
+      "id": "label_value"
+    },
+    {
+      "description": "Path to the output volume label file.",
+      "value-key": "[OUTPUT_VOLUME]",
+      "type": "String",
+      "optional": false,
+      "name": "Output volume",
+      "id": "output_volume"
+    },
+    {
+      "command-line-flag": "-clear",
+      "description": "Clear the input volume before processing.",
+      "value-key": "[CLEAR_OPTION]",
+      "type": "Flag",
+      "name": "Clear option",
+      "id": "clear_option"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_VOLUME]",
+      "description": "Output volume label file with applied labels.",
+      "name": "Output label volume",
+      "id": "output_label_volume"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

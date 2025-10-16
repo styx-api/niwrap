@@ -1,0 +1,65 @@
+{
+  "name": "1dNLfit",
+  "author": "AFNI Developers",
+  "description": "Program to fit a model to a vector of data. The model is given by a symbolic expression, with parameters to be estimated.",
+  "command-line": "1dNLfit [EXPRESSION] [INDEPENDENT_VARIABLE] [PARAMETERS] [DEPENDENT_DATA] [METHOD]",
+  "inputs": [
+    {
+      "command-line-flag": "-expr",
+      "description": "The expression for the fit. It must contain one symbol from 'a' to 'z' which is marked as the independent variable by option '-indvar', and at least one more symbol which is a parameter to be estimated.",
+      "value-key": "[EXPRESSION]",
+      "type": "String",
+      "optional": false,
+      "id": "expression",
+      "name": "Fit Expression"
+    },
+    {
+      "command-line-flag": "-indvar",
+      "description": "Indicates which variable in '-expr' is the independent variable. All other symbols are parameters, which are either fixed (constants) or variables to be estimated. Read the values of the independent variable from 1D file.",
+      "value-key": "[INDEPENDENT_VARIABLE]",
+      "type": "String",
+      "optional": false,
+      "id": "independent_variable",
+      "name": "Independent Variable"
+    },
+    {
+      "command-line-flag": "-param",
+      "description": "Set fixed value or estimating range for a particular symbol. For a fixed value, it takes the form 'a=3.14'. For an estimated parameter, it takes the form 'q=-sqrt(2):sqrt(2)'. All symbols in '-expr' must have a corresponding '-param' option, EXCEPT for the '-indvar' symbol.",
+      "value-key": "[PARAMETERS]",
+      "type": "String",
+      "list": true,
+      "optional": false,
+      "id": "parameters",
+      "name": "Fit Parameters"
+    },
+    {
+      "command-line-flag": "-depdata",
+      "description": "Read the values of the dependent variable (to be fitted to '-expr') from 1D file. The file must have the same number of rows as the '-indvar' file.",
+      "value-key": "[DEPENDENT_DATA]",
+      "type": "File",
+      "optional": false,
+      "id": "dependent_data",
+      "name": "Dependent Data File"
+    },
+    {
+      "command-line-flag": "-meth",
+      "description": "Set the method for fitting: '1' for L1, '2' for L2 (default is L2).",
+      "value-key": "[METHOD]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "method",
+      "name": "Fit Method"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "stdout",
+      "description": "Results (fitted time series models) are written to stdout. Should be saved by '>' redirection.",
+      "id": "fit_results",
+      "name": "Fit Results"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

@@ -1,0 +1,34 @@
+{
+  "name": "gifti-convert",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -gifti-convert [GIFTI_ENCODING] [INPUT_GIFTI_FILE] [OUTPUT_GIFTI_FILE]",
+  "description": "Convert a gifti file to a different encoding.\n\nThe value of <gifti-encoding> must be one of the following:\n\nASCII\nBASE64_BINARY\nGZIP_BASE64_BINARY\nEXTERNAL_FILE_BINARY",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "gifti_encoding",
+      "name": "gifti_encoding",
+      "description": "what the output encoding should be",
+      "optional": false,
+      "value-key": "[GIFTI_ENCODING]",
+      "type": "String"
+    },
+    {
+      "id": "input_gifti_file",
+      "name": "input_gifti_file",
+      "description": "the input gifti file",
+      "optional": false,
+      "value-key": "[INPUT_GIFTI_FILE]",
+      "type": "String"
+    },
+    {
+      "id": "output_gifti_file",
+      "name": "output_gifti_file",
+      "description": "output - the output gifti file",
+      "optional": false,
+      "value-key": "[OUTPUT_GIFTI_FILE]",
+      "type": "String"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

@@ -1,0 +1,42 @@
+{
+  "name": "vno_match_check",
+  "author": "FreeSurfer Developers",
+  "description": "Checks that all surfaces and surface data files for a subject have the same number of vertices.",
+  "command-line": "vno_match_check [SUBJID] [DEBUG] [RIGHT_HEMI] [LEFT_HEMI]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Subject ID for which the vertex number check is performed",
+      "value-key": "[SUBJID]",
+      "type": "String",
+      "optional": false,
+      "id": "subjid",
+      "name": "Subject ID"
+    },
+    {
+      "command-line-flag": "debug",
+      "description": "Prints progress text",
+      "value-key": "[DEBUG]",
+      "type": "Flag",
+      "id": "debug",
+      "name": "Debug Flag"
+    },
+    {
+      "command-line-flag": "rh",
+      "description": "Checks only the right hemisphere",
+      "value-key": "[RIGHT_HEMI]",
+      "type": "Flag",
+      "id": "right_hemi",
+      "name": "Right Hemisphere Flag"
+    },
+    {
+      "command-line-flag": "lh",
+      "description": "Checks only the left hemisphere",
+      "value-key": "[LEFT_HEMI]",
+      "type": "Flag",
+      "id": "left_hemi",
+      "name": "Left Hemisphere Flag"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

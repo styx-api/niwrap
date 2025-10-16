@@ -1,0 +1,105 @@
+{
+  "name": "xcerebralseg",
+  "author": "FreeSurfer Developers",
+  "description": "Tool for labeling extracerebral structures including sulcal CSF, skull/bone, head soft tissue, and air inside the head, merged with aparc+aseg.mgz segmentation for a whole head segmentation.",
+  "command-line": "xcerebralseg [SUBJECT] [OUTPUT_VOLUME] [ATLAS] [MERGEVOL] [SOURCE_VOLUME] [NO_STATS] [SEG1_NAME] [NO_PONS] [NO_VERMIS] [THREADS]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--s",
+      "description": "Subject identifier (required)",
+      "value-key": "[SUBJECT]",
+      "type": "String",
+      "optional": false,
+      "id": "subject",
+      "name": "Subject ID"
+    },
+    {
+      "command-line-flag": "--o",
+      "description": "Output volume file (default: apas+head.mgz)",
+      "value-key": "[OUTPUT_VOLUME]",
+      "type": "String",
+      "optional": true,
+      "id": "output_volume",
+      "name": "Output Volume"
+    },
+    {
+      "command-line-flag": "--atlas",
+      "description": "Atlas file path (default: /usr/local/freesurfer/average/aseg+spmhead+vermis+pons.ixi.gca)",
+      "value-key": "[ATLAS]",
+      "type": "String",
+      "optional": true,
+      "id": "atlas",
+      "name": "Atlas"
+    },
+    {
+      "command-line-flag": "--m",
+      "description": "Merge with mergevol (default: aparc+aseg.mgz)",
+      "value-key": "[MERGEVOL]",
+      "type": "String",
+      "optional": true,
+      "id": "mergevol",
+      "name": "Merge Volume"
+    },
+    {
+      "command-line-flag": "--srcvol",
+      "description": "Source intensity volume (default: nu.mgz)",
+      "value-key": "[SOURCE_VOLUME]",
+      "type": "String",
+      "optional": true,
+      "id": "source_volume",
+      "name": "Source Volume"
+    },
+    {
+      "command-line-flag": "--no-stats",
+      "description": "Do not run mri_segstats",
+      "value-key": "[NO_STATS]",
+      "type": "Flag",
+      "id": "no_stats",
+      "name": "No Stats Flag"
+    },
+    {
+      "command-line-flag": "--seg1",
+      "description": "Full-head segmentation name (usually computed with mri_ca_label)",
+      "value-key": "[SEG1_NAME]",
+      "type": "String",
+      "optional": true,
+      "id": "seg1_name",
+      "name": "Segmentation 1 Name"
+    },
+    {
+      "command-line-flag": "--no-pons",
+      "description": "Exclude pons segmentation",
+      "value-key": "[NO_PONS]",
+      "type": "Flag",
+      "id": "no_pons",
+      "name": "No Pons Flag"
+    },
+    {
+      "command-line-flag": "--no-vermis",
+      "description": "Exclude vermis segmentation",
+      "value-key": "[NO_VERMIS]",
+      "type": "Flag",
+      "id": "no_vermis",
+      "name": "No Vermis Flag"
+    },
+    {
+      "command-line-flag": "--threads",
+      "description": "Set number of OPENMP threads",
+      "value-key": "[THREADS]",
+      "type": "Number",
+      "optional": true,
+      "id": "threads",
+      "name": "Threads"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "apas+head.mgz",
+      "description": "Output volume file for the whole head segmentation",
+      "id": "output_volume_file",
+      "name": "Output Volume File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

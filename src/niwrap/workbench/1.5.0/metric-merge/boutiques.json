@@ -1,0 +1,105 @@
+{
+  "name": "metric-merge",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -metric-merge [METRIC_OUT] [METRIC]",
+  "description": "Merge metric files into a new file.\n\nTakes one or more metric files and constructs a new metric file by concatenating columns from them.  The input metric files must have the same number of vertices and same structure.\n\nExample: wb_command -metric-merge out.func.gii -metric first.func.gii -column 1 -metric second.func.gii\n\nThis example would take the first column from first.func.gii, followed by all columns from second.func.gii, and write these columns to out.func.gii.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "metric_out",
+      "name": "metric_out",
+      "type": "String",
+      "description": "the output metric",
+      "optional": false,
+      "value-key": "[METRIC_OUT]"
+    },
+    {
+      "id": "metric",
+      "name": "metric",
+      "description": "specify an input metric",
+      "type": {
+        "id": "metric",
+        "name": "metric",
+        "description": "specify an input metric",
+        "command-line": "-metric [METRIC_IN] [COLUMN]",
+        "inputs": [
+          {
+            "id": "metric_in",
+            "name": "metric_in",
+            "description": "a metric file to use columns from",
+            "optional": false,
+            "value-key": "[METRIC_IN]",
+            "type": "File"
+          },
+          {
+            "id": "column",
+            "name": "column",
+            "description": "select a single column to use",
+            "type": {
+              "id": "column",
+              "name": "column",
+              "description": "select a single column to use",
+              "command-line": "-column [COLUMN] [UP_TO]",
+              "inputs": [
+                {
+                  "id": "column",
+                  "name": "column",
+                  "description": "the column number or name",
+                  "optional": false,
+                  "value-key": "[COLUMN]",
+                  "type": "String"
+                },
+                {
+                  "id": "up_to",
+                  "name": "up_to",
+                  "description": "use an inclusive range of columns",
+                  "type": {
+                    "id": "up_to",
+                    "name": "up_to",
+                    "description": "use an inclusive range of columns",
+                    "command-line": "-up-to [LAST_COLUMN] [OPT_REVERSE]",
+                    "inputs": [
+                      {
+                        "id": "last_column",
+                        "name": "last_column",
+                        "description": "the number or name of the last column to include",
+                        "optional": false,
+                        "value-key": "[LAST_COLUMN]",
+                        "type": "String"
+                      },
+                      {
+                        "id": "opt_reverse",
+                        "name": "opt_reverse",
+                        "command-line-flag": "-reverse",
+                        "description": "use the range in reverse order",
+                        "type": "Flag",
+                        "value-key": "[OPT_REVERSE]"
+                      }
+                    ]
+                  },
+                  "optional": true,
+                  "value-key": "[UP_TO]"
+                }
+              ]
+            },
+            "optional": true,
+            "value-key": "[COLUMN]",
+            "list": true
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[METRIC]",
+      "list": true
+    }
+  ],
+  "output-files": [
+    {
+      "id": "metric_out",
+      "name": "metric_out",
+      "path-template": "[METRIC_OUT]",
+      "description": "the output metric"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

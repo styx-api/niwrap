@@ -1,0 +1,92 @@
+{
+  "name": "cifti-reduce",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -cifti-reduce [CIFTI_IN] [OPERATION] [CIFTI_OUT] [OPT_DIRECTION_DIRECTION] [EXCLUDE_OUTLIERS] [OPT_ONLY_NUMERIC]",
+  "description": "Perform reduction operation on a cifti file.\n\nFor the specified direction (default ROW), perform a reduction operation along that direction.  The direction can be either an integer starting from 1, or the strings 'ROW' or 'COLUMN'.  The reduction operators are as follows:\n\nMAX: the maximum value\nMIN: the minimum value\nINDEXMAX: the 1-based index of the maximum value\nINDEXMIN: the 1-based index of the minimum value\nSUM: add all values\nPRODUCT: multiply all values\nMEAN: the mean of the data\nSTDEV: the standard deviation (N denominator)\nSAMPSTDEV: the sample standard deviation (N-1 denominator)\nVARIANCE: the variance of the data\nTSNR: mean divided by sample standard deviation (N-1 denominator)\nCOV: sample standard deviation (N-1 denominator) divided by mean\nL2NORM: square root of sum of squares\nMEDIAN: the median of the data\nMODE: the mode of the data\nCOUNT_NONZERO: the number of nonzero elements in the data\n",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "cifti_in",
+      "name": "cifti_in",
+      "description": "the cifti file to reduce",
+      "optional": false,
+      "value-key": "[CIFTI_IN]",
+      "type": "File"
+    },
+    {
+      "id": "operation",
+      "name": "operation",
+      "description": "the reduction operator to use",
+      "optional": false,
+      "value-key": "[OPERATION]",
+      "type": "String"
+    },
+    {
+      "id": "cifti_out",
+      "name": "cifti_out",
+      "type": "String",
+      "description": "the output cifti file",
+      "optional": false,
+      "value-key": "[CIFTI_OUT]"
+    },
+    {
+      "id": "opt_direction_direction",
+      "name": "opt_direction_direction",
+      "command-line-flag": "-direction",
+      "description": "specify what direction to reduce along: the direction (default ROW)",
+      "optional": true,
+      "value-key": "[OPT_DIRECTION_DIRECTION]",
+      "type": "String"
+    },
+    {
+      "id": "exclude_outliers",
+      "name": "exclude_outliers",
+      "description": "exclude non-numeric values and outliers by standard deviation",
+      "type": {
+        "id": "exclude_outliers",
+        "name": "exclude_outliers",
+        "description": "exclude non-numeric values and outliers by standard deviation",
+        "command-line": "-exclude-outliers [SIGMA_BELOW] [SIGMA_ABOVE]",
+        "inputs": [
+          {
+            "id": "sigma_below",
+            "name": "sigma_below",
+            "description": "number of standard deviations below the mean to include",
+            "optional": false,
+            "value-key": "[SIGMA_BELOW]",
+            "type": "Number",
+            "integer": false
+          },
+          {
+            "id": "sigma_above",
+            "name": "sigma_above",
+            "description": "number of standard deviations above the mean to include",
+            "optional": false,
+            "value-key": "[SIGMA_ABOVE]",
+            "type": "Number",
+            "integer": false
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[EXCLUDE_OUTLIERS]"
+    },
+    {
+      "id": "opt_only_numeric",
+      "name": "opt_only_numeric",
+      "command-line-flag": "-only-numeric",
+      "description": "exclude non-numeric values",
+      "type": "Flag",
+      "value-key": "[OPT_ONLY_NUMERIC]"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "cifti_out",
+      "name": "cifti_out",
+      "path-template": "[CIFTI_OUT]",
+      "description": "the output cifti file"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

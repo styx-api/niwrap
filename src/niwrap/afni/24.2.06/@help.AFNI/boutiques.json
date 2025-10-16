@@ -1,0 +1,59 @@
+{
+  "name": "@help.AFNI",
+  "author": "AFNI Developers",
+  "description": "A script to retrieve and search AFNI's help page for all programs",
+  "command-line": "@help.AFNI [MATCH] [LYNX] [VI] [LESS] [NEDIT] [NOVIEW]",
+  "inputs": [
+    {
+      "command-line-flag": "-match",
+      "description": "Looks for occurrence of each word in the list in the help file. For a match with multiple words, all the words must be on the same line of text in the help file.",
+      "value-key": "[MATCH]",
+      "type": "String",
+      "optional": true,
+      "id": "match",
+      "name": "Match word list"
+    },
+    {
+      "command-line-flag": "-lynx",
+      "description": "Set viewer to lynx",
+      "value-key": "[LYNX]",
+      "type": "Flag",
+      "id": "lynx",
+      "name": "Lynx viewer flag"
+    },
+    {
+      "command-line-flag": "-vi",
+      "description": "Set viewer to vi",
+      "value-key": "[VI]",
+      "type": "Flag",
+      "id": "vi",
+      "name": "Vi viewer flag"
+    },
+    {
+      "command-line-flag": "-less",
+      "description": "Set viewer to less (default)",
+      "value-key": "[LESS]",
+      "type": "Flag",
+      "id": "less",
+      "name": "Less viewer flag"
+    },
+    {
+      "command-line-flag": "-nedit",
+      "description": "Set viewer to nedit",
+      "value-key": "[NEDIT]",
+      "type": "Flag",
+      "id": "nedit",
+      "name": "Nedit viewer flag"
+    },
+    {
+      "command-line-flag": "-noview",
+      "description": "Set viewer to no view",
+      "value-key": "[NOVIEW]",
+      "type": "Flag",
+      "id": "noview",
+      "name": "No view flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

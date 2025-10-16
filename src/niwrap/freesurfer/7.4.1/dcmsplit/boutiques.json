@@ -1,0 +1,93 @@
+{
+  "name": "dcmsplit",
+  "author": "FreeSurfer Developers",
+  "description": "Splits DICOM files into separate folders based on a unique identifier (UID).",
+  "command-line": "dcmsplit [DCM_DIR] [OUT_DIR] [COPY] [LINK] [SPLIT_NAME] [SPLIT_UID] [SERIES_NO] [SERIES_PLUS] [DICOM_TAG] [STUDY_DESCRIPTION]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Directory containing the DICOM files",
+      "value-key": "[DCM_DIR]",
+      "type": "String",
+      "optional": false,
+      "id": "dcm_dir",
+      "name": "DICOM Directory",
+      "command-line-flag": "--dcm"
+    },
+    {
+      "description": "Output directory for split DICOM files",
+      "value-key": "[OUT_DIR]",
+      "type": "String",
+      "optional": false,
+      "id": "out_dir",
+      "name": "Output Directory",
+      "command-line-flag": "--o"
+    },
+    {
+      "command-line-flag": "--cp",
+      "description": "Copy files instead of creating symbolic links",
+      "value-key": "[COPY]",
+      "type": "Flag",
+      "id": "copy",
+      "name": "Copy Flag"
+    },
+    {
+      "command-line-flag": "--link",
+      "description": "Link files instead of copying (default behavior)",
+      "value-key": "[LINK]",
+      "type": "Flag",
+      "id": "link",
+      "name": "Link Flag"
+    },
+    {
+      "command-line-flag": "--name",
+      "description": "Split files by patient name instead of UID",
+      "value-key": "[SPLIT_NAME]",
+      "type": "Flag",
+      "id": "split_name",
+      "name": "Split by Name Flag"
+    },
+    {
+      "command-line-flag": "--uid",
+      "description": "Split files by Study UID instead of name (default behavior)",
+      "value-key": "[SPLIT_UID]",
+      "type": "Flag",
+      "id": "split_uid",
+      "name": "Split by UID Flag"
+    },
+    {
+      "command-line-flag": "--seriesno",
+      "description": "Split files by series number",
+      "value-key": "[SERIES_NO]",
+      "type": "Flag",
+      "id": "series_no",
+      "name": "Split by Series Number Flag"
+    },
+    {
+      "command-line-flag": "--series+",
+      "description": "Split files by series number and either name or UID",
+      "value-key": "[SERIES_PLUS]",
+      "type": "Flag",
+      "id": "series_plus",
+      "name": "Split by Series and Name/UID Flag"
+    },
+    {
+      "command-line-flag": "--t",
+      "description": "Split files by given DICOM tag (group element)",
+      "value-key": "[DICOM_TAG]",
+      "type": "String",
+      "optional": true,
+      "id": "dicom_tag",
+      "name": "DICOM Tag"
+    },
+    {
+      "command-line-flag": "--studyDes",
+      "description": "Split files by Study Description",
+      "value-key": "[STUDY_DESCRIPTION]",
+      "type": "Flag",
+      "id": "study_description",
+      "name": "Split by Study Description Flag"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

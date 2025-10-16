@@ -1,0 +1,45 @@
+{
+  "name": "connected_components",
+  "author": "FreeSurfer Developers",
+  "description": "A tool for identifying connected components in an image.",
+  "command-line": "connected_components [INPUT_IMAGE] [OUTPUT_IMAGE] [THRESHOLD]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input image file.",
+      "value-key": "[INPUT_IMAGE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_image",
+      "name": "Input Image"
+    },
+    {
+      "command-line-flag": "-o",
+      "description": "Output labeled connected components image.",
+      "value-key": "[OUTPUT_IMAGE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_image",
+      "name": "Output Image",
+      "default-value": "output_labelled_image"
+    },
+    {
+      "command-line-flag": "-t",
+      "description": "Threshold for binarizing the input image.",
+      "value-key": "[THRESHOLD]",
+      "type": "Number",
+      "optional": true,
+      "id": "threshold",
+      "name": "Threshold"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_IMAGE].nii.gz",
+      "description": "Labeled connected components image output file.",
+      "id": "output_labelled_image_file",
+      "name": "Output Labelled Image File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

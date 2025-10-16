@@ -1,0 +1,34 @@
+{
+  "name": "surface-flip-normals",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -surface-flip-normals [SURFACE] [SURFACE_OUT]",
+  "description": "Flip all tiles on a surface.\n\nFlips all triangles on a surface, resulting in surface normals being flipped the other direction (inward vs outward).  If you transform a surface with an affine that has negative determinant, or a warpfield that similarly flips the surface, you may end up with a surface that has normals pointing inwards, which may have display problems.  Using this command will solve that problem.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "surface",
+      "name": "surface",
+      "description": "the surface to flip the normals of",
+      "optional": false,
+      "value-key": "[SURFACE]",
+      "type": "File"
+    },
+    {
+      "id": "surface_out",
+      "name": "surface_out",
+      "type": "String",
+      "description": "the output surface",
+      "optional": false,
+      "value-key": "[SURFACE_OUT]"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "surface_out",
+      "name": "surface_out",
+      "path-template": "[SURFACE_OUT]",
+      "description": "the output surface"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

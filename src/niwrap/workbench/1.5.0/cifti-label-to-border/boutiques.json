@@ -1,0 +1,77 @@
+{
+  "name": "cifti-label-to-border",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -cifti-label-to-border [CIFTI_IN] [OPT_PLACEMENT_FRACTION] [OPT_COLUMN_COLUMN] [BORDER]",
+  "description": "Draw borders around cifti labels.\n\nFor each surface, takes the labels on the matching structure and draws borders around the labels.  Use -column to only draw borders around one label map.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "cifti_in",
+      "name": "cifti_in",
+      "description": "the input cifti dlabel file",
+      "optional": false,
+      "value-key": "[CIFTI_IN]",
+      "type": "File"
+    },
+    {
+      "id": "opt_placement_fraction",
+      "name": "opt_placement_fraction",
+      "command-line-flag": "-placement",
+      "description": "set how far along the edge border points are drawn: fraction along edge from inside vertex (default 0.33)",
+      "optional": true,
+      "value-key": "[OPT_PLACEMENT_FRACTION]",
+      "type": "Number",
+      "integer": false
+    },
+    {
+      "id": "opt_column_column",
+      "name": "opt_column_column",
+      "command-line-flag": "-column",
+      "description": "select a single column: the column number or name",
+      "optional": true,
+      "value-key": "[OPT_COLUMN_COLUMN]",
+      "type": "String"
+    },
+    {
+      "id": "border",
+      "name": "border",
+      "description": "specify output file for a surface structure",
+      "type": {
+        "id": "border",
+        "name": "border",
+        "description": "specify output file for a surface structure",
+        "command-line": "-border [SURFACE] [BORDER_OUT]",
+        "inputs": [
+          {
+            "id": "surface",
+            "name": "surface",
+            "description": "the surface to use for neighbor and structure information",
+            "optional": false,
+            "value-key": "[SURFACE]",
+            "type": "File"
+          },
+          {
+            "id": "border_out",
+            "name": "border_out",
+            "type": "String",
+            "description": "the output border file",
+            "optional": false,
+            "value-key": "[BORDER_OUT]"
+          }
+        ],
+        "output-files": [
+          {
+            "id": "border_out",
+            "name": "border_out",
+            "path-template": "[BORDER_OUT]",
+            "description": "the output border file"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[BORDER]",
+      "list": true
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

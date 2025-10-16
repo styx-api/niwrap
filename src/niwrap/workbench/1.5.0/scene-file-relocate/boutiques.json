@@ -1,0 +1,26 @@
+{
+  "name": "scene-file-relocate",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -scene-file-relocate [INPUT_SCENE] [OUTPUT_SCENE]",
+  "description": "Recreate scene file in new location.\n\nScene files contain internal relative paths, such that moving or copying a scene file will cause it to lose track of the files it refers to.  This command makes a modified copy of the scene file, changing the relative paths to refer to the new relative locations of the files.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "input_scene",
+      "name": "input_scene",
+      "description": "the scene file to use",
+      "optional": false,
+      "value-key": "[INPUT_SCENE]",
+      "type": "String"
+    },
+    {
+      "id": "output_scene",
+      "name": "output_scene",
+      "description": "output - the new scene file to create",
+      "optional": false,
+      "value-key": "[OUTPUT_SCENE]",
+      "type": "String"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

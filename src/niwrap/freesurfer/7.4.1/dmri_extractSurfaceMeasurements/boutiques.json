@@ -1,0 +1,128 @@
+{
+  "name": "dmri_extractSurfaceMeasurements",
+  "author": "FreeSurfer Developers",
+  "description": "A tool for extracting surface measurements from diffusion MRI data.",
+  "command-line": "dmri_extractSurfaceMeasurements [STREAMLINE_FILE] [LH_SURFACE_FILE] [LH_THICKNESS_OVERLAY] [LH_CURVATURE_OVERLAY] [RH_SURFACE_FILE] [RH_THICKNESS_OVERLAY] [RH_CURVATURE_OVERLAY] [OUTPUT_DIRECTORY] [REFERENCE_IMAGE] [REFERENCE_IMAGE_ANATOMICAL] [TRANSFORMATION] [ANNOTATION_FILE] [FA_OPTIONS]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "-i",
+      "description": "Streamline file in .trk format",
+      "value-key": "[STREAMLINE_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "streamline_file",
+      "name": "Streamline File"
+    },
+    {
+      "command-line-flag": "-sl",
+      "description": "Left hemisphere surface file",
+      "value-key": "[LH_SURFACE_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "lh_surface_file",
+      "name": "Left Hemisphere Surface File"
+    },
+    {
+      "command-line-flag": "-tl",
+      "description": "Left hemisphere thickness overlay file",
+      "value-key": "[LH_THICKNESS_OVERLAY]",
+      "type": "File",
+      "optional": false,
+      "id": "lh_thickness_overlay",
+      "name": "Left Hemisphere Thickness Overlay"
+    },
+    {
+      "command-line-flag": "-cl",
+      "description": "Left hemisphere curvature overlay file",
+      "value-key": "[LH_CURVATURE_OVERLAY]",
+      "type": "File",
+      "optional": false,
+      "id": "lh_curvature_overlay",
+      "name": "Left Hemisphere Curvature Overlay"
+    },
+    {
+      "command-line-flag": "-sr",
+      "description": "Right hemisphere surface file",
+      "value-key": "[RH_SURFACE_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "rh_surface_file",
+      "name": "Right Hemisphere Surface File"
+    },
+    {
+      "command-line-flag": "-tr",
+      "description": "Right hemisphere thickness overlay file",
+      "value-key": "[RH_THICKNESS_OVERLAY]",
+      "type": "File",
+      "optional": false,
+      "id": "rh_thickness_overlay",
+      "name": "Right Hemisphere Thickness Overlay"
+    },
+    {
+      "command-line-flag": "-cr",
+      "description": "Right hemisphere curvature overlay file",
+      "value-key": "[RH_CURVATURE_OVERLAY]",
+      "type": "File",
+      "optional": false,
+      "id": "rh_curvature_overlay",
+      "name": "Right Hemisphere Curvature Overlay"
+    },
+    {
+      "command-line-flag": "-o",
+      "description": "Output directory",
+      "value-key": "[OUTPUT_DIRECTORY]",
+      "type": "String",
+      "optional": false,
+      "id": "output_directory",
+      "name": "Output Directory"
+    },
+    {
+      "command-line-flag": "-rid",
+      "description": "Reference image for situations where FA is not used",
+      "value-key": "[REFERENCE_IMAGE]",
+      "type": "File",
+      "optional": true,
+      "id": "reference_image",
+      "name": "Reference Image"
+    },
+    {
+      "command-line-flag": "-ria",
+      "description": "Reference image for anatomical space when diffusion and anatomical spaces are not registered",
+      "value-key": "[REFERENCE_IMAGE_ANATOMICAL]",
+      "type": "File",
+      "optional": true,
+      "id": "reference_image_anatomical",
+      "name": "Reference Image for Anatomical Space"
+    },
+    {
+      "command-line-flag": "-t",
+      "description": "Transformation from diffusion to anatomical space",
+      "value-key": "[TRANSFORMATION]",
+      "type": "File",
+      "optional": true,
+      "id": "transformation",
+      "name": "Transformation File"
+    },
+    {
+      "command-line-flag": "-a",
+      "description": "Annotation file",
+      "value-key": "[ANNOTATION_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "annotation_file",
+      "name": "Annotation File"
+    },
+    {
+      "command-line-flag": "-fa",
+      "description": "FA options including the number of files and their respective paths",
+      "value-key": "[FA_OPTIONS]",
+      "type": "String",
+      "optional": true,
+      "id": "fa_options",
+      "name": "FA Options",
+      "list": true
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

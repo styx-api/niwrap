@@ -1,0 +1,80 @@
+{
+  "name": "unpackmincdir",
+  "description": "Tool for unpacking directories with MINC files.",
+  "command-line": "unpackmincdir [SOURCE_DIRECTORY] [TARGET_DIRECTORY] [SCAN_SEQUENCE_INFO] [FUNCTIONAL_SEQUENCE] [FUNCTIONAL_SUBDIRECTORY] [MINC_ONLY] [NO_COPY] [UMASK]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "-src",
+      "description": "Source directory containing the MINC files.",
+      "value-key": "[SOURCE_DIRECTORY]",
+      "type": "String",
+      "optional": false,
+      "id": "source_directory",
+      "name": "Source Directory"
+    },
+    {
+      "command-line-flag": "-targ",
+      "description": "Target directory to unpack the contents to.",
+      "value-key": "[TARGET_DIRECTORY]",
+      "type": "String",
+      "optional": false,
+      "id": "target_directory",
+      "name": "Target Directory"
+    },
+    {
+      "command-line-flag": "-scanseqinfo",
+      "description": "Scan sequence directives file, e.g., freesurfer_alpha/scanseq.info.",
+      "value-key": "[SCAN_SEQUENCE_INFO]",
+      "type": "String",
+      "optional": true,
+      "id": "scan_sequence_info",
+      "name": "Scan Sequence Info"
+    },
+    {
+      "command-line-flag": "-funcseq",
+      "description": "Use seqname for functionals (example: ep2d_fid_ts_20b2604).",
+      "value-key": "[FUNCTIONAL_SEQUENCE]",
+      "type": "String",
+      "optional": true,
+      "id": "functional_sequence",
+      "name": "Functional Sequence"
+    },
+    {
+      "command-line-flag": "-fsd",
+      "description": "Functional subdirectory, e.g., bold.",
+      "value-key": "[FUNCTIONAL_SUBDIRECTORY]",
+      "type": "String",
+      "optional": true,
+      "id": "functional_subdirectory",
+      "name": "Functional Subdirectory"
+    },
+    {
+      "command-line-flag": "-minconly",
+      "description": "Do not unpack into bshorts.",
+      "value-key": "[MINC_ONLY]",
+      "type": "Flag",
+      "id": "minc_only",
+      "name": "MINC Only Flag"
+    },
+    {
+      "command-line-flag": "-nocopy",
+      "description": "Create directories but do not copy/convert data.",
+      "value-key": "[NO_COPY]",
+      "type": "Flag",
+      "id": "no_copy",
+      "name": "No Copy Flag"
+    },
+    {
+      "command-line-flag": "-umask",
+      "description": "Unix file permission mask (default: 22).",
+      "value-key": "[UMASK]",
+      "type": "String",
+      "optional": true,
+      "id": "umask",
+      "name": "Umask"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

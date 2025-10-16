@@ -1,0 +1,96 @@
+{
+  "name": "AnatomicalAverage",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Tool to create an anatomical average of input brain images",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "AnatomicalAverage [OUTPUT_BASENAME] [INPUT_IMAGES] [STANDARD_IMAGE] [STANDARD_BRAIN_MASK] [NO_CROP_FLAG] [WORK_DIR] [BRAINSIZE] [NOCLEAN_FLAG] [VERBOSE_FLAG]",
+  "inputs": [
+    {
+      "description": "Output basename",
+      "value-key": "[OUTPUT_BASENAME]",
+      "type": "String",
+      "optional": false,
+      "id": "output_basename",
+      "command-line-flag": "-o",
+      "name": "Output Basename"
+    },
+    {
+      "description": "List of input images",
+      "value-key": "[INPUT_IMAGES]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "input_images",
+      "name": "Input Images"
+    },
+    {
+      "command-line-flag": "-s",
+      "description": "Standard image (default is MNI152_T1_2mm)",
+      "value-key": "[STANDARD_IMAGE]",
+      "type": "File",
+      "optional": true,
+      "id": "standard_image",
+      "name": "Standard Image"
+    },
+    {
+      "command-line-flag": "-m",
+      "description": "Standard brain mask (default is MNI152_T1_2mm_brain_mask_dil)",
+      "value-key": "[STANDARD_BRAIN_MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "standard_brain_mask",
+      "name": "Standard Brain Mask"
+    },
+    {
+      "command-line-flag": "-n",
+      "description": "Do not crop images",
+      "value-key": "[NO_CROP_FLAG]",
+      "type": "Flag",
+      "id": "no_crop_flag",
+      "name": "No Crop Flag"
+    },
+    {
+      "command-line-flag": "-w",
+      "description": "Local, temporary working directory (to be cleaned up - i.e. deleted)",
+      "value-key": "[WORK_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "work_dir",
+      "name": "Working Directory"
+    },
+    {
+      "command-line-flag": "-b",
+      "description": "Specify brainsize in mm for internal ROI (via robustfov)",
+      "value-key": "[BRAINSIZE]",
+      "type": "Number",
+      "optional": true,
+      "id": "brainsize",
+      "name": "Brainsize"
+    },
+    {
+      "command-line-flag": "--noclean",
+      "description": "Do not run the cleanup",
+      "value-key": "[NOCLEAN_FLAG]",
+      "type": "Flag",
+      "id": "noclean_flag",
+      "name": "No Cleanup Flag"
+    },
+    {
+      "command-line-flag": "-v",
+      "description": "Verbose output",
+      "value-key": "[VERBOSE_FLAG]",
+      "type": "Flag",
+      "id": "verbose_flag",
+      "name": "Verbose Flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_BASENAME]_avg.nii.gz",
+      "description": "Averaged anatomical image",
+      "id": "avg_output",
+      "name": "Averaged Image"
+    }
+  ]
+}

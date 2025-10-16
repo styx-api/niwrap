@@ -1,0 +1,128 @@
+{
+  "name": "fspalm",
+  "description": "Prepares and analyzes the output of mri_glmfit for Permutation Analysis of Linear Models (PALM) to correct for multiple comparisons.",
+  "author": "FreeSurfer Developers",
+  "command-line": "fspalm [GLMDIR] [CFT] [CWP] [ONETAIL] [TWOTAIL] [NAME] [ITERS] [MONLY] [PPONLY] [OCTAVE] [CENTROID] [2SPACES] [3SPACES] [PARGS]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "glmdir",
+      "name": "GLM directory",
+      "type": "String",
+      "value-key": "[GLMDIR]",
+      "description": "The mri_glmfit directory to prepare",
+      "optional": false,
+      "command-line-flag": "--glmdir"
+    },
+    {
+      "id": "cft",
+      "name": "Cluster forming threshold",
+      "type": "Number",
+      "value-key": "[CFT]",
+      "description": "Voxel-wise cluster forming threshold (CFT), -log10(p)",
+      "optional": false,
+      "command-line-flag": "--cft"
+    },
+    {
+      "id": "cwp",
+      "name": "Clusterwise p-value threshold",
+      "type": "Number",
+      "value-key": "[CWP]",
+      "description": "Clusterwise p-value threshold",
+      "optional": false,
+      "command-line-flag": "--cwp"
+    },
+    {
+      "id": "onetail",
+      "name": "One-tailed test",
+      "type": "Flag",
+      "value-key": "[ONETAIL]",
+      "description": "Perform a one-tailed test",
+      "command-line-flag": "--onetail"
+    },
+    {
+      "id": "twotail",
+      "name": "Two-tailed test",
+      "type": "Flag",
+      "value-key": "[TWOTAIL]",
+      "description": "Perform a two-tailed test. NOTE: changes CFT",
+      "command-line-flag": "--twotail"
+    },
+    {
+      "id": "name",
+      "name": "Name of palm subdirectory",
+      "type": "String",
+      "value-key": "[NAME]",
+      "description": "Name of palm subdirectory (default=\"palm\")",
+      "optional": true,
+      "command-line-flag": "--name"
+    },
+    {
+      "id": "iters",
+      "name": "Number of iterations",
+      "type": "Number",
+      "value-key": "[ITERS]",
+      "description": "Number of iterations",
+      "optional": true,
+      "command-line-flag": "--iters"
+    },
+    {
+      "id": "monly",
+      "name": "Matlab only",
+      "type": "Flag",
+      "value-key": "[MONLY]",
+      "description": "Only create matlab file, do not run",
+      "command-line-flag": "--monly"
+    },
+    {
+      "id": "pponly",
+      "name": "Post-processing only",
+      "type": "Flag",
+      "value-key": "[PPONLY]",
+      "description": "Only perform post-processing",
+      "command-line-flag": "--pponly"
+    },
+    {
+      "id": "octave",
+      "name": "Run with Octave",
+      "type": "Flag",
+      "value-key": "[OCTAVE]",
+      "description": "Run with octave, not matlab",
+      "command-line-flag": "--octave"
+    },
+    {
+      "id": "centroid",
+      "name": "Centroid flag",
+      "type": "Flag",
+      "value-key": "[CENTROID]",
+      "description": "Add --centroid flag to mri_surfcluster post-processing",
+      "command-line-flag": "--centroid"
+    },
+    {
+      "id": "2spaces",
+      "name": "Bonferroni correction for 2 spaces",
+      "type": "Flag",
+      "value-key": "[2SPACES]",
+      "description": "Bonferroni-correct for 2 spaces",
+      "command-line-flag": "--2spaces"
+    },
+    {
+      "id": "3spaces",
+      "name": "Bonferroni correction for 3 spaces",
+      "type": "Flag",
+      "value-key": "[3SPACES]",
+      "description": "Bonferroni-correct for 3 spaces",
+      "command-line-flag": "--3spaces"
+    },
+    {
+      "id": "pargs",
+      "name": "Additional palm arguments",
+      "type": "String",
+      "value-key": "[PARGS]",
+      "description": "Supply additional args to be passed to the palm function",
+      "optional": true,
+      "command-line-flag": "--pargs"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

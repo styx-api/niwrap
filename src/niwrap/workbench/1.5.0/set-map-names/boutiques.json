@@ -1,0 +1,69 @@
+{
+  "name": "set-map-names",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -set-map-names [DATA_FILE] [OPT_NAME_FILE_FILE] [OPT_FROM_DATA_FILE_FILE] [MAP]",
+  "description": "Set the name of one or more maps in a file.\n\nSets the name of one or more maps for metric, shape, label, volume, cifti scalar or cifti label files.  You must specify either -name-file, or -from-data-file, or at least one -map option.  The three option types are mutually exclusive.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "data_file",
+      "name": "data_file",
+      "description": "the file to set the map names of",
+      "optional": false,
+      "value-key": "[DATA_FILE]",
+      "type": "String"
+    },
+    {
+      "id": "opt_name_file_file",
+      "name": "opt_name_file_file",
+      "command-line-flag": "-name-file",
+      "description": "use a text file to replace all map names: text file containing map names, one per line",
+      "optional": true,
+      "value-key": "[OPT_NAME_FILE_FILE]",
+      "type": "String"
+    },
+    {
+      "id": "opt_from_data_file_file",
+      "name": "opt_from_data_file_file",
+      "command-line-flag": "-from-data-file",
+      "description": "use the map names from another data file: a data file with the same number of maps",
+      "optional": true,
+      "value-key": "[OPT_FROM_DATA_FILE_FILE]",
+      "type": "String"
+    },
+    {
+      "id": "map",
+      "name": "map",
+      "description": "specify a map to set the name of",
+      "type": {
+        "id": "map",
+        "name": "map",
+        "description": "specify a map to set the name of",
+        "command-line": "-map [INDEX] [NEW_NAME]",
+        "inputs": [
+          {
+            "id": "index",
+            "name": "index",
+            "description": "the map index to change the name of",
+            "optional": false,
+            "value-key": "[INDEX]",
+            "type": "Number",
+            "integer": true
+          },
+          {
+            "id": "new_name",
+            "name": "new_name",
+            "description": "the name to set for the map",
+            "optional": false,
+            "value-key": "[NEW_NAME]",
+            "type": "String"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[MAP]",
+      "list": true
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

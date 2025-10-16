@@ -1,0 +1,93 @@
+{
+  "name": "3dLSS",
+  "author": "AFNI Developers",
+  "description": "Least-Squares-Sum (LSS) estimation tool from a -stim_times_IM matrix for multivoxel pattern classification analyses.",
+  "command-line": "3dLSS [MATRIX] [INPUT] [NODATA] [MASK] [AUTOMASK] [PREFIX] [SAVE1D] [VERBOSE]",
+  "inputs": [
+    {
+      "value-key": "[MATRIX]",
+      "description": "Read the matrix 'mmm', which should have been output from 3dDeconvolve via the '-x1D' option. It should have included exactly one '-stim_times_IM' option.",
+      "type": "File",
+      "command-line-flag": "-matrix",
+      "optional": false,
+      "id": "matrix",
+      "name": "Matrix File"
+    },
+    {
+      "value-key": "[INPUT]",
+      "description": "Read time series dataset 'ddd'.",
+      "type": "File",
+      "command-line-flag": "-input",
+      "optional": true,
+      "id": "input",
+      "name": "Input Dataset"
+    },
+    {
+      "value-key": "[NODATA]",
+      "description": "Just compute the estimator matrix -- to be saved with '-save1D'.",
+      "type": "Flag",
+      "command-line-flag": "-nodata",
+      "id": "nodata",
+      "name": "No Data Flag"
+    },
+    {
+      "value-key": "[MASK]",
+      "description": "Dataset 'MMM' will be used as a mask for the input; voxels outside the mask will not be fit by the regression model.",
+      "type": "File",
+      "command-line-flag": "-mask",
+      "optional": true,
+      "id": "mask",
+      "name": "Mask File"
+    },
+    {
+      "description": "If you don't know what this does by now, please don't use this program.",
+      "type": "Flag",
+      "command-line-flag": "-automask",
+      "id": "automask",
+      "name": "Automask",
+      "value-key": "[AUTOMASK]"
+    },
+    {
+      "value-key": "[PREFIX]",
+      "description": "Prefix name for the output dataset; this dataset will contain ONLY the LSS estimates of the beta weights for the '-stim_times_IM' stimuli.",
+      "type": "String",
+      "command-line-flag": "-prefix",
+      "optional": true,
+      "id": "prefix",
+      "name": "Output Prefix"
+    },
+    {
+      "value-key": "[SAVE1D]",
+      "description": "Save the estimator vectors to a 1D formatted file named 'qqq'.",
+      "type": "String",
+      "command-line-flag": "-save1D",
+      "optional": true,
+      "id": "save1D",
+      "name": "Save Estimators File"
+    },
+    {
+      "description": "Write out progress reports.",
+      "type": "Flag",
+      "command-line-flag": "-verb",
+      "id": "verbose",
+      "name": "Verbose Flag",
+      "value-key": "[VERBOSE]"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "LSSout+orig.HEAD",
+      "description": "Output dataset containing the LSS estimates of the beta weights for the '-stim_times_IM' stimuli.",
+      "id": "outputDataset",
+      "name": "Output Dataset"
+    },
+    {
+      "path-template": "[SAVE1D]",
+      "description": "Estimator vectors saved in a 1D formatted file.",
+      "id": "save1D_output",
+      "name": "Estimator Vectors File"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

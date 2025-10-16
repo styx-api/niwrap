@@ -1,0 +1,179 @@
+{
+  "name": "5ttedit",
+  "description": "Manually set the partial volume fractions in an ACT five-tissue-type (5TT) image using mask images.\n\n\n\nReferences:\n\n",
+  "author": "MRTrix3 Developers",
+  "schema-version": "0.5+styx",
+  "command-line": "5ttedit [OPTIONS_CGM] [OPTIONS_SGM] [OPTIONS_WM] [OPTIONS_CSF] [OPTIONS_PATH] [OPTIONS_NONE] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION] [INPUT] [OUTPUT]",
+  "inputs": [
+    {
+      "id": "input",
+      "name": "input",
+      "value-key": "[INPUT]",
+      "description": "the 5TT image to be modified",
+      "type": "File",
+      "optional": false
+    },
+    {
+      "id": "output",
+      "name": "output",
+      "value-key": "[OUTPUT]",
+      "description": "the output modified 5TT image",
+      "type": "String",
+      "optional": false
+    },
+    {
+      "id": "cgm",
+      "name": "cgm",
+      "command-line-flag": "-cgm",
+      "value-key": "[OPTIONS_CGM]",
+      "description": "provide a mask of voxels that should be set to cortical grey matter",
+      "type": "File",
+      "optional": true
+    },
+    {
+      "id": "sgm",
+      "name": "sgm",
+      "command-line-flag": "-sgm",
+      "value-key": "[OPTIONS_SGM]",
+      "description": "provide a mask of voxels that should be set to sub-cortical grey matter",
+      "type": "File",
+      "optional": true
+    },
+    {
+      "id": "wm",
+      "name": "wm",
+      "command-line-flag": "-wm",
+      "value-key": "[OPTIONS_WM]",
+      "description": "provide a mask of voxels that should be set to white matter",
+      "type": "File",
+      "optional": true
+    },
+    {
+      "id": "csf",
+      "name": "csf",
+      "command-line-flag": "-csf",
+      "value-key": "[OPTIONS_CSF]",
+      "description": "provide a mask of voxels that should be set to CSF",
+      "type": "File",
+      "optional": true
+    },
+    {
+      "id": "path",
+      "name": "path",
+      "command-line-flag": "-path",
+      "value-key": "[OPTIONS_PATH]",
+      "description": "provide a mask of voxels that should be set to pathological tissue",
+      "type": "File",
+      "optional": true
+    },
+    {
+      "id": "none",
+      "name": "none",
+      "command-line-flag": "-none",
+      "value-key": "[OPTIONS_NONE]",
+      "description": "provide a mask of voxels that should be cleared (i.e. are non-brain); note that this will supersede all other provided masks",
+      "type": "File",
+      "optional": true
+    },
+    {
+      "id": "info",
+      "name": "info",
+      "command-line-flag": "-info",
+      "value-key": "[__STANDARD_OPTIONS_INFO]",
+      "description": "display information messages.",
+      "type": "Flag"
+    },
+    {
+      "id": "quiet",
+      "name": "quiet",
+      "command-line-flag": "-quiet",
+      "value-key": "[__STANDARD_OPTIONS_QUIET]",
+      "description": "do not display information messages or progress status; alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string.",
+      "type": "Flag"
+    },
+    {
+      "id": "debug",
+      "name": "debug",
+      "command-line-flag": "-debug",
+      "value-key": "[__STANDARD_OPTIONS_DEBUG]",
+      "description": "display debugging messages.",
+      "type": "Flag"
+    },
+    {
+      "id": "force",
+      "name": "force",
+      "command-line-flag": "-force",
+      "value-key": "[__STANDARD_OPTIONS_FORCE]",
+      "description": "force overwrite of output files (caution: using the same file as input and output might cause unexpected behaviour).",
+      "type": "Flag"
+    },
+    {
+      "id": "nthreads",
+      "name": "nthreads",
+      "command-line-flag": "-nthreads",
+      "value-key": "[__STANDARD_OPTIONS_NTHREADS]",
+      "description": "use this number of threads in multi-threaded applications (set to 0 to disable multi-threading).",
+      "type": "Number",
+      "optional": true,
+      "integer": true
+    },
+    {
+      "id": "config",
+      "name": "config",
+      "value-key": "[__STANDARD_OPTIONS_CONFIG]",
+      "description": "temporarily set the value of an MRtrix config file entry.",
+      "type": {
+        "id": "config",
+        "name": "config",
+        "description": "temporarily set the value of an MRtrix config file entry.",
+        "command-line": "-config [KEY] [VALUE]",
+        "inputs": [
+          {
+            "id": "key",
+            "name": "key",
+            "value-key": "[KEY]",
+            "description": "temporarily set the value of an MRtrix config file entry.",
+            "type": "String",
+            "optional": false
+          },
+          {
+            "id": "value",
+            "name": "value",
+            "value-key": "[VALUE]",
+            "description": "temporarily set the value of an MRtrix config file entry.",
+            "type": "String",
+            "optional": false
+          }
+        ],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "help",
+      "name": "help",
+      "command-line-flag": "-help",
+      "value-key": "[__STANDARD_OPTIONS_HELP]",
+      "description": "display this information page and exit.",
+      "type": "Flag"
+    },
+    {
+      "id": "version",
+      "name": "version",
+      "command-line-flag": "-version",
+      "value-key": "[__STANDARD_OPTIONS_VERSION]",
+      "description": "display version information and exit.",
+      "type": "Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "output",
+      "name": "output",
+      "path-template": "[OUTPUT]",
+      "description": "the output modified 5TT image"
+    }
+  ],
+  "url": "https://www.mrtrix.org/"
+}

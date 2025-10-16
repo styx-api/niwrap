@@ -1,0 +1,34 @@
+{
+  "name": "nsize",
+  "author": "AFNI Developers",
+  "description": "Zero pads an input image to the nearest larger NxN dimensions",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "nsize [IMAGE_IN] [IMAGE_OUT]",
+  "inputs": [
+    {
+      "description": "Input image file",
+      "value-key": "[IMAGE_IN]",
+      "type": "File",
+      "optional": false,
+      "id": "image_in",
+      "name": "Input Image"
+    },
+    {
+      "description": "Output padded image file",
+      "value-key": "[IMAGE_OUT]",
+      "type": "String",
+      "optional": false,
+      "id": "image_out",
+      "name": "Output Image"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[IMAGE_OUT]",
+      "description": "Zero padded output image file",
+      "id": "image_out_file",
+      "name": "Output Image File"
+    }
+  ]
+}

@@ -1,0 +1,251 @@
+{
+  "name": "fslstats",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "FSL tool for calculating statistics on image data",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "fslstats [INPUT_FILE] [INDEX_MASK] [LOWER_THRESHOLD] [UPPER_THRESHOLD] [ROBUST_INTENSITY_FLAG] [MINMAX_INTENSITY_FLAG] [VOXELS_VOLUME_FLAG] [NONZERO_VOXELS_VOLUME_FLAG] [MEAN_FLAG] [NONZERO_MEAN_FLAG] [STD_DEV_FLAG] [NONZERO_STD_DEV_FLAG] [SMALLEST_ROI_FLAG] [MAX_COORDS_FLAG] [MIN_COORDS_FLAG] [COG_MM_FLAG] [COG_VOXEL_FLAG] [PERCENTILE] [NONZERO_PERCENTILE] [ABSOLUTE_VALUES_FLAG] [NAN_AS_ZERO_FLAG] [MASK_IMAGE] [DIFFERENCE_IMAGE] [HIST_BINS] [HIST_BINS_MIN_MAX] [TIMESERIES_FLAG] [MEAN_ENTROPY_FLAG] [NONZERO_MEAN_ENTROPY_FLAG]",
+  "inputs": [
+    {
+      "description": "Input image file (e.g., image.nii.gz)",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input file"
+    },
+    {
+      "command-line-flag": "-k",
+      "description": "Generate separate n submasks from indexMask, for indexvalues 1..n where n is the maximum index value in indexMask, and generate statistics for each submask",
+      "value-key": "[INDEX_MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "index_mask",
+      "name": "Index mask"
+    },
+    {
+      "command-line-flag": "-l",
+      "description": "Set lower threshold",
+      "value-key": "[LOWER_THRESHOLD]",
+      "type": "Number",
+      "optional": true,
+      "id": "lower_threshold",
+      "name": "Lower threshold"
+    },
+    {
+      "command-line-flag": "-u",
+      "description": "Set upper threshold",
+      "value-key": "[UPPER_THRESHOLD]",
+      "type": "Number",
+      "optional": true,
+      "id": "upper_threshold",
+      "name": "Upper threshold"
+    },
+    {
+      "command-line-flag": "-r",
+      "description": "Output robust min and max intensity",
+      "value-key": "[ROBUST_INTENSITY_FLAG]",
+      "type": "Flag",
+      "id": "robust_intensity_flag",
+      "name": "Robust intensity flag"
+    },
+    {
+      "command-line-flag": "-R",
+      "description": "Output min and max intensity",
+      "value-key": "[MINMAX_INTENSITY_FLAG]",
+      "type": "Flag",
+      "id": "minmax_intensity_flag",
+      "name": "Min-max intensity flag"
+    },
+    {
+      "command-line-flag": "-v",
+      "description": "Output voxels and volume",
+      "value-key": "[VOXELS_VOLUME_FLAG]",
+      "type": "Flag",
+      "id": "voxels_volume_flag",
+      "name": "Voxels and volume flag"
+    },
+    {
+      "command-line-flag": "-V",
+      "description": "Output voxels and volume (for nonzero voxels)",
+      "value-key": "[NONZERO_VOXELS_VOLUME_FLAG]",
+      "type": "Flag",
+      "id": "nonzero_voxels_volume_flag",
+      "name": "Nonzero voxels and volume flag"
+    },
+    {
+      "command-line-flag": "-m",
+      "description": "Output mean",
+      "value-key": "[MEAN_FLAG]",
+      "type": "Flag",
+      "id": "mean_flag",
+      "name": "Mean flag"
+    },
+    {
+      "command-line-flag": "-M",
+      "description": "Output mean (for nonzero voxels)",
+      "value-key": "[NONZERO_MEAN_FLAG]",
+      "type": "Flag",
+      "id": "nonzero_mean_flag",
+      "name": "Nonzero mean flag"
+    },
+    {
+      "command-line-flag": "-s",
+      "description": "Output standard deviation",
+      "value-key": "[STD_DEV_FLAG]",
+      "type": "Flag",
+      "id": "std_dev_flag",
+      "name": "Standard deviation flag"
+    },
+    {
+      "command-line-flag": "-S",
+      "description": "Output standard deviation (for nonzero voxels)",
+      "value-key": "[NONZERO_STD_DEV_FLAG]",
+      "type": "Flag",
+      "id": "nonzero_std_dev_flag",
+      "name": "Nonzero standard deviation flag"
+    },
+    {
+      "command-line-flag": "-w",
+      "description": "Output smallest ROI containing nonzero voxels",
+      "value-key": "[SMALLEST_ROI_FLAG]",
+      "type": "Flag",
+      "id": "smallest_roi_flag",
+      "name": "Smallest ROI flag"
+    },
+    {
+      "command-line-flag": "-x",
+      "description": "Output coordinates of maximum voxel",
+      "value-key": "[MAX_COORDS_FLAG]",
+      "type": "Flag",
+      "id": "max_coords_flag",
+      "name": "Max coordinates flag"
+    },
+    {
+      "command-line-flag": "-X",
+      "description": "Output coordinates of minimum voxel",
+      "value-key": "[MIN_COORDS_FLAG]",
+      "type": "Flag",
+      "id": "min_coords_flag",
+      "name": "Min coordinates flag"
+    },
+    {
+      "command-line-flag": "-c",
+      "description": "Output center-of-gravity (cog) in mm coordinates",
+      "value-key": "[COG_MM_FLAG]",
+      "type": "Flag",
+      "id": "cog_mm_flag",
+      "name": "Center of gravity in mm flag"
+    },
+    {
+      "command-line-flag": "-C",
+      "description": "Output center-of-gravity (cog) in voxel coordinates",
+      "value-key": "[COG_VOXEL_FLAG]",
+      "type": "Flag",
+      "id": "cog_voxel_flag",
+      "name": "Center of gravity in voxel flag"
+    },
+    {
+      "command-line-flag": "-p",
+      "description": "Output nth percentile",
+      "value-key": "[PERCENTILE]",
+      "type": "Number",
+      "optional": true,
+      "id": "percentile",
+      "name": "Nth percentile"
+    },
+    {
+      "command-line-flag": "-P",
+      "description": "Output nth percentile (for nonzero voxels)",
+      "value-key": "[NONZERO_PERCENTILE]",
+      "type": "Number",
+      "optional": true,
+      "id": "nonzero_percentile",
+      "name": "Nth percentile for nonzero voxels"
+    },
+    {
+      "command-line-flag": "-a",
+      "description": "Use absolute values of all image intensities",
+      "value-key": "[ABSOLUTE_VALUES_FLAG]",
+      "type": "Flag",
+      "id": "absolute_values_flag",
+      "name": "Absolute values flag"
+    },
+    {
+      "command-line-flag": "-n",
+      "description": "Treat NaN or Inf as zero for subsequent stats",
+      "value-key": "[NAN_AS_ZERO_FLAG]",
+      "type": "Flag",
+      "id": "nan_as_zero_flag",
+      "name": "NaN as zero flag"
+    },
+    {
+      "command-line-flag": "-k",
+      "description": "Use the specified image for masking - overrides lower and upper thresholds",
+      "value-key": "[MASK_IMAGE]",
+      "type": "File",
+      "optional": true,
+      "id": "mask_image",
+      "name": "Mask image"
+    },
+    {
+      "command-line-flag": "-d",
+      "description": "Take the difference between the base image and the image specified here",
+      "value-key": "[DIFFERENCE_IMAGE]",
+      "type": "File",
+      "optional": true,
+      "id": "difference_image",
+      "name": "Difference image"
+    },
+    {
+      "command-line-flag": "-h",
+      "description": "Output a histogram for the thresholded/masked voxels only with specified number of bins",
+      "value-key": "[HIST_BINS]",
+      "type": "Number",
+      "optional": true,
+      "id": "hist_bins",
+      "name": "Histogram bins"
+    },
+    {
+      "command-line-flag": "-H",
+      "description": "Output a histogram for the thresholded/masked voxels only with specified number of bins and histogram limits of min and max",
+      "value-key": "[HIST_BINS_MIN_MAX]",
+      "type": "String",
+      "optional": true,
+      "id": "hist_bins_min_max",
+      "name": "Histogram bins with limits"
+    },
+    {
+      "command-line-flag": "-t",
+      "description": "Separate output line for each 3D volume of a 4D timeseries",
+      "value-key": "[TIMESERIES_FLAG]",
+      "type": "Flag",
+      "id": "timeseries_flag",
+      "name": "Timeseries flag"
+    },
+    {
+      "command-line-flag": "-e",
+      "description": "Output mean entropy; mean(-i*ln(i))",
+      "value-key": "[MEAN_ENTROPY_FLAG]",
+      "type": "Flag",
+      "id": "mean_entropy_flag",
+      "name": "Mean entropy flag"
+    },
+    {
+      "command-line-flag": "-E",
+      "description": "Output mean entropy (of nonzero voxels)",
+      "value-key": "[NONZERO_MEAN_ENTROPY_FLAG]",
+      "type": "Flag",
+      "id": "nonzero_mean_entropy_flag",
+      "name": "Nonzero mean entropy flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[INPUT_FILE]_stats.txt",
+      "description": "Statistics output file",
+      "id": "output_stats",
+      "name": "Output statistics"
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "name": "dmri_mergepaths",
+  "description": "A tool for merging diffusion MRI path data.",
+  "command-line": "dmri_mergepaths [INPUT_VOLUMES] [INPUT_DIRECTORY] [OUTPUT_VOLUME] [COLOR_TABLE] [THRESHOLD] [DEBUG] [CHECK_OPTS]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "value-key": "[INPUT_VOLUMES]",
+      "type": "File",
+      "list": true,
+      "description": "Input volume(s)",
+      "optional": false,
+      "id": "input_volumes",
+      "name": "Input Volumes"
+    },
+    {
+      "command-line-flag": "--indir",
+      "value-key": "[INPUT_DIRECTORY]",
+      "type": "String",
+      "description": "Input directory (optional). If specified, names of input files are relative to this",
+      "optional": true,
+      "id": "input_directory",
+      "name": "Input Directory"
+    },
+    {
+      "command-line-flag": "--out",
+      "value-key": "[OUTPUT_VOLUME]",
+      "type": "String",
+      "description": "Output volume",
+      "optional": false,
+      "id": "output_volume",
+      "name": "Output Volume"
+    },
+    {
+      "command-line-flag": "--ctab",
+      "value-key": "[COLOR_TABLE]",
+      "type": "File",
+      "description": "Color table file",
+      "optional": false,
+      "id": "color_table",
+      "name": "Color Table"
+    },
+    {
+      "command-line-flag": "--thresh",
+      "value-key": "[THRESHOLD]",
+      "type": "Number",
+      "description": "Lower threshold for display (0<=num<=1, as fraction of max)",
+      "minimum": 0,
+      "maximum": 1,
+      "optional": false,
+      "id": "threshold",
+      "name": "Threshold"
+    },
+    {
+      "command-line-flag": "--debug",
+      "value-key": "[DEBUG]",
+      "type": "Flag",
+      "description": "Turn on debugging",
+      "id": "debug",
+      "name": "Debug Flag"
+    },
+    {
+      "command-line-flag": "--checkopts",
+      "value-key": "[CHECK_OPTS]",
+      "type": "Flag",
+      "description": "Don't run anything, just check options and exit",
+      "id": "check_opts",
+      "name": "Check Options Flag"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

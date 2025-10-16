@@ -1,0 +1,172 @@
+{
+  "name": "dirgen",
+  "description": "Generate a set of uniformly distributed directions using a bipolar electrostatic repulsion model.\n\nDirections are distributed by analogy to an electrostatic repulsion system, with each direction corresponding to a single electrostatic charge (for -unipolar), or a pair of diametrically opposed charges (for the default bipolar case). The energy of the system is determined based on the Coulomb repulsion, which assumes the form 1/r^power, where r is the distance between any pair of charges, and p is the power assumed for the repulsion law (default: 1). The minimum energy state is obtained by gradient descent.\n\nReferences:\n\nJones, D.; Horsfield, M. & Simmons, A. Optimal strategies for measuring diffusion in anisotropic systems by magnetic resonance imaging. Magnetic Resonance in Medicine, 1999, 42: 515-525\n\nPapadakis, N. G.; Murrills, C. D.; Hall, L. D.; Huang, C. L.-H. & Adrian Carpenter, T. Minimal gradient encoding for robust estimation of diffusion anisotropy. Magnetic Resonance Imaging, 2000, 18: 671-679",
+  "author": "MRTrix3 Developers",
+  "schema-version": "0.5+styx",
+  "command-line": "dirgen [OPTIONS_POWER] [OPTIONS_NITER] [OPTIONS_RESTARTS] [OPTIONS_UNIPOLAR] [OPTIONS_CARTESIAN] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION] [NDIR] [DIRS]",
+  "inputs": [
+    {
+      "id": "ndir",
+      "name": "ndir",
+      "value-key": "[NDIR]",
+      "description": "the number of directions to generate.",
+      "type": "Number",
+      "optional": false,
+      "integer": true
+    },
+    {
+      "id": "dirs",
+      "name": "dirs",
+      "value-key": "[DIRS]",
+      "description": "the text file to write the directions to, as [ az el ] pairs.",
+      "type": "String",
+      "optional": false
+    },
+    {
+      "id": "power",
+      "name": "power",
+      "command-line-flag": "-power",
+      "value-key": "[OPTIONS_POWER]",
+      "description": "specify exponent to use for repulsion power law (default: 1). This must be a power of 2 (i.e. 1, 2, 4, 8, 16, ...).",
+      "type": "Number",
+      "optional": true,
+      "integer": true
+    },
+    {
+      "id": "niter",
+      "name": "niter",
+      "command-line-flag": "-niter",
+      "value-key": "[OPTIONS_NITER]",
+      "description": "specify the maximum number of iterations to perform (default: 10000).",
+      "type": "Number",
+      "optional": true,
+      "integer": true
+    },
+    {
+      "id": "restarts",
+      "name": "restarts",
+      "command-line-flag": "-restarts",
+      "value-key": "[OPTIONS_RESTARTS]",
+      "description": "specify the number of restarts to perform (default: 10).",
+      "type": "Number",
+      "optional": true,
+      "integer": true
+    },
+    {
+      "id": "unipolar",
+      "name": "unipolar",
+      "command-line-flag": "-unipolar",
+      "value-key": "[OPTIONS_UNIPOLAR]",
+      "description": "optimise assuming a unipolar electrostatic repulsion model rather than the bipolar model normally assumed in DWI",
+      "type": "Flag"
+    },
+    {
+      "id": "cartesian",
+      "name": "cartesian",
+      "command-line-flag": "-cartesian",
+      "value-key": "[OPTIONS_CARTESIAN]",
+      "description": "Output the directions in Cartesian coordinates [x y z] instead of [az el].",
+      "type": "Flag"
+    },
+    {
+      "id": "info",
+      "name": "info",
+      "command-line-flag": "-info",
+      "value-key": "[__STANDARD_OPTIONS_INFO]",
+      "description": "display information messages.",
+      "type": "Flag"
+    },
+    {
+      "id": "quiet",
+      "name": "quiet",
+      "command-line-flag": "-quiet",
+      "value-key": "[__STANDARD_OPTIONS_QUIET]",
+      "description": "do not display information messages or progress status; alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string.",
+      "type": "Flag"
+    },
+    {
+      "id": "debug",
+      "name": "debug",
+      "command-line-flag": "-debug",
+      "value-key": "[__STANDARD_OPTIONS_DEBUG]",
+      "description": "display debugging messages.",
+      "type": "Flag"
+    },
+    {
+      "id": "force",
+      "name": "force",
+      "command-line-flag": "-force",
+      "value-key": "[__STANDARD_OPTIONS_FORCE]",
+      "description": "force overwrite of output files (caution: using the same file as input and output might cause unexpected behaviour).",
+      "type": "Flag"
+    },
+    {
+      "id": "nthreads",
+      "name": "nthreads",
+      "command-line-flag": "-nthreads",
+      "value-key": "[__STANDARD_OPTIONS_NTHREADS]",
+      "description": "use this number of threads in multi-threaded applications (set to 0 to disable multi-threading).",
+      "type": "Number",
+      "optional": true,
+      "integer": true
+    },
+    {
+      "id": "config",
+      "name": "config",
+      "value-key": "[__STANDARD_OPTIONS_CONFIG]",
+      "description": "temporarily set the value of an MRtrix config file entry.",
+      "type": {
+        "id": "config",
+        "name": "config",
+        "description": "temporarily set the value of an MRtrix config file entry.",
+        "command-line": "-config [KEY] [VALUE]",
+        "inputs": [
+          {
+            "id": "key",
+            "name": "key",
+            "value-key": "[KEY]",
+            "description": "temporarily set the value of an MRtrix config file entry.",
+            "type": "String",
+            "optional": false
+          },
+          {
+            "id": "value",
+            "name": "value",
+            "value-key": "[VALUE]",
+            "description": "temporarily set the value of an MRtrix config file entry.",
+            "type": "String",
+            "optional": false
+          }
+        ],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "help",
+      "name": "help",
+      "command-line-flag": "-help",
+      "value-key": "[__STANDARD_OPTIONS_HELP]",
+      "description": "display this information page and exit.",
+      "type": "Flag"
+    },
+    {
+      "id": "version",
+      "name": "version",
+      "command-line-flag": "-version",
+      "value-key": "[__STANDARD_OPTIONS_VERSION]",
+      "description": "display version information and exit.",
+      "type": "Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "dirs",
+      "name": "dirs",
+      "path-template": "[DIRS]",
+      "description": "the text file to write the directions to, as [ az el ] pairs."
+    }
+  ],
+  "url": "https://www.mrtrix.org/"
+}

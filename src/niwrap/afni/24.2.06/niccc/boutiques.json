@@ -1,0 +1,124 @@
+{
+  "name": "niccc",
+  "author": "AFNI Developers",
+  "description": "A program for conducting certain NIML tests on input from streamspec and write the results to stderr",
+  "command-line": "niccc [STREAMSPEC] [DUPLICATE] [NODATA] [ATTRIBUTE] [MATCH] [FILE] [STRING] [STDOUT] [HASH] [QUIET] [FIND_ATTR] [SKIP_ATTR]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "A string defining a NIML stream",
+      "value-key": "[STREAMSPEC]",
+      "type": "String",
+      "optional": false,
+      "id": "streamspec",
+      "name": "Stream specification"
+    },
+    {
+      "command-line-flag": "-dup",
+      "description": "Duplicate the element before showing it. This is to test NI_duplicate function.",
+      "value-key": "[DUPLICATE]",
+      "type": "Flag",
+      "id": "duplicate",
+      "name": "Duplicate Flag"
+    },
+    {
+      "command-line-flag": "-nodata",
+      "description": "Show header parts only in output",
+      "value-key": "[NODATA]",
+      "type": "Flag",
+      "id": "nodata",
+      "name": "No Data Flag"
+    },
+    {
+      "command-line-flag": "-attribute",
+      "description": "Dump the value of attribute ATTR",
+      "value-key": "[ATTRIBUTE]",
+      "type": "String",
+      "optional": true,
+      "id": "attribute",
+      "name": "Attribute"
+    },
+    {
+      "command-line-flag": "-match",
+      "description": "Match attribute: If MATCH is exact, then attribute name is matched exactly. If MATCH is partial, then a match of all the characters in ATTR is enough.",
+      "value-key": "[MATCH]",
+      "type": "String",
+      "optional": true,
+      "id": "match",
+      "name": "Match"
+    },
+    {
+      "command-line-flag": "-f",
+      "description": "Streamspec is a filename.",
+      "value-key": "[FILE]",
+      "type": "Flag",
+      "id": "file",
+      "name": "File Flag"
+    },
+    {
+      "command-line-flag": "-s",
+      "description": "Streamspec is an element string like: '<T font=9 coords=\"2.3 23 2\"/>'",
+      "value-key": "[STRING]",
+      "type": "Flag",
+      "id": "string",
+      "name": "String Flag"
+    },
+    {
+      "command-line-flag": "-stdout",
+      "description": "Write elements to stdout, instead of stderr",
+      "value-key": "[STDOUT]",
+      "type": "Flag",
+      "id": "stdout",
+      "name": "Stdout Flag"
+    },
+    {
+      "command-line-flag": "-#",
+      "description": "Put the # at the beginning of lines with no data",
+      "value-key": "[HASH]",
+      "type": "Flag",
+      "id": "hash",
+      "name": "Hash Flag"
+    },
+    {
+      "command-line-flag": "-quiet",
+      "description": "Quiet stderr messages, and don't echo attribute name with -attribute option",
+      "value-key": "[QUIET]",
+      "type": "Flag",
+      "id": "quiet",
+      "name": "Quiet Flag"
+    },
+    {
+      "command-line-flag": "-find_nel_with_attr",
+      "description": "Only output elements that have an attribute ATTR of value ATTRVAL.",
+      "value-key": "[FIND_ATTR]",
+      "type": "String",
+      "optional": true,
+      "id": "find_attr",
+      "name": "Find Attribute",
+      "list": true,
+      "min-list-entries": 2,
+      "max-list-entries": 2
+    },
+    {
+      "command-line-flag": "-skip_nel_with_attr",
+      "description": "Do not output elements that have an attribute ATTR of value ATTRVAL.",
+      "value-key": "[SKIP_ATTR]",
+      "type": "String",
+      "optional": true,
+      "id": "skip_attr",
+      "name": "Skip Attribute",
+      "list": true,
+      "min-list-entries": 2,
+      "max-list-entries": 2
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "stderr",
+      "description": "Results output to stderr",
+      "id": "stderr_output",
+      "name": "Standard Error Output"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

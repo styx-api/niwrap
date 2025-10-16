@@ -1,0 +1,27 @@
+{
+  "name": "inflate_subject_new-lh",
+  "author": "FreeSurfer Developers",
+  "description": "Tool for inflating the left hemisphere of a subject in FreeSurfer.",
+  "command-line": "inflate_subject_new-lh [SUBJECT_DIR]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Directory of the subject's data in FreeSurfer",
+      "value-key": "[SUBJECT_DIR]",
+      "type": "String",
+      "optional": false,
+      "id": "subject_dir",
+      "name": "Subject Directory",
+      "command-line-flag": "-lh"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[SUBJECT_DIR]/surf/lh.inflated",
+      "description": "Inflated surface file for the left hemisphere",
+      "id": "inflated_surface",
+      "name": "Inflated Left Hemisphere Surface"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

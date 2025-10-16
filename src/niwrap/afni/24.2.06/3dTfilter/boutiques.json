@@ -1,0 +1,46 @@
+{
+  "name": "3dTfilter",
+  "author": "AFNI Developers",
+  "description": "3dTfilter filters the time series in each voxel according to the user-specified filter functions.",
+  "command-line": "3dTfilter [INPUTDATASET] [OUTPUTDATASET] [FILTERS]",
+  "inputs": [
+    {
+      "description": "Input dataset",
+      "value-key": "[INPUTDATASET]",
+      "type": "File",
+      "optional": false,
+      "id": "inputdataset",
+      "name": "Input File",
+      "command-line-flag": "-input"
+    },
+    {
+      "description": "Output dataset",
+      "value-key": "[OUTPUTDATASET]",
+      "type": "String",
+      "optional": false,
+      "id": "outputdataset",
+      "name": "Output File",
+      "command-line-flag": "-prefix"
+    },
+    {
+      "description": "Filter function(s) to apply",
+      "value-key": "[FILTERS]",
+      "type": "String",
+      "list": true,
+      "optional": false,
+      "id": "filters",
+      "name": "Filters",
+      "command-line-flag": "-filter"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUTDATASET]",
+      "description": "Filtered output dataset",
+      "id": "output_dataset",
+      "name": "Output Dataset"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

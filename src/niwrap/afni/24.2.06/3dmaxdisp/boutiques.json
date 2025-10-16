@@ -1,0 +1,44 @@
+{
+  "name": "3dmaxdisp",
+  "author": "AFNI Developers",
+  "description": "Reads in a 3D dataset and a DICOM-based affine matrix to output the average and maximum displacement applied to the edge voxels of the 3D dataset's automask.",
+  "command-line": "3dmaxdisp [INSET] [MATRIX] [VERBOSE]",
+  "inputs": [
+    {
+      "description": "Input dataset file used to form the mask over which displacements will be computed.",
+      "value-key": "[INSET]",
+      "type": "File",
+      "optional": false,
+      "id": "inset",
+      "name": "Input Dataset",
+      "command-line-flag": "-inset"
+    },
+    {
+      "description": "3x4 affine transformation matrix file applied to the coordinates of the voxels in the dataset mask.",
+      "value-key": "[MATRIX]",
+      "type": "File",
+      "optional": false,
+      "id": "matrix",
+      "name": "Transformation Matrix File",
+      "command-line-flag": "-matrix"
+    },
+    {
+      "description": "Print a few progress reports.",
+      "value-key": "[VERBOSE]",
+      "type": "Flag",
+      "id": "verbose",
+      "name": "Verbose Flag",
+      "command-line-flag": "-verb"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "stdout",
+      "description": "Results showing average and maximum displacements.",
+      "id": "displacement_output",
+      "name": "Displacement Output"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

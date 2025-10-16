@@ -1,0 +1,148 @@
+{
+  "name": "mri_3d_photo_recon",
+  "author": "FreeSurfer Developers",
+  "description": "Code for 3D photo reconstruction (Tregidgo, et al., MICCAI 2020)",
+  "command-line": "mri_3d_photo_recon [INPUT_PHOTO_DIR] [INPUT_SEGMENTATION_DIR] [SLICE_THICKNESS] [PHOTO_RESOLUTION] [OUTPUT_DIRECTORY] [REF_MASK] [REF_SURFACE] [REF_SOFT_MASK] [MESH_REORIENT_WITH_INDICES] [PHOTOS_POSTERIOR_SIDE] [ORDER_POSTERIOR_TO_ANTERIOR] [ALLOW_Z_STRETCH] [RIGID_ONLY_FOR_PHOTOS] [GPU_INDEX]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--input_photo_dir",
+      "description": "Directory with input photos (required)",
+      "value-key": "[INPUT_PHOTO_DIR]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "input_photo_dir",
+      "name": "Input Photo Directory"
+    },
+    {
+      "command-line-flag": "--input_segmentation_dir",
+      "description": "Directory with input slab masks / segmentations (required)",
+      "value-key": "[INPUT_SEGMENTATION_DIR]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "input_segmentation_dir",
+      "name": "Input Segmentation Directory"
+    },
+    {
+      "command-line-flag": "--slice_thickness",
+      "description": "Slice thickness in mm",
+      "value-key": "[SLICE_THICKNESS]",
+      "type": "Number",
+      "optional": false,
+      "id": "slice_thickness",
+      "name": "Slice Thickness"
+    },
+    {
+      "command-line-flag": "--photo_resolution",
+      "description": "Resolution of the photos in mm",
+      "value-key": "[PHOTO_RESOLUTION]",
+      "type": "Number",
+      "optional": false,
+      "id": "photo_resolution",
+      "name": "Photo Resolution"
+    },
+    {
+      "command-line-flag": "--output_directory",
+      "description": "Output directory with reconstructed photo volume and reference",
+      "value-key": "[OUTPUT_DIRECTORY]",
+      "type": "String",
+      "optional": false,
+      "id": "output_directory",
+      "name": "Output Directory"
+    },
+    {
+      "command-line-flag": "--ref_mask",
+      "description": "Reference binary mask",
+      "value-key": "[REF_MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "ref_mask",
+      "name": "Reference Mask"
+    },
+    {
+      "command-line-flag": "--ref_surface",
+      "description": "Reference surface file",
+      "value-key": "[REF_SURFACE]",
+      "type": "File",
+      "optional": true,
+      "id": "ref_surface",
+      "name": "Reference Surface"
+    },
+    {
+      "command-line-flag": "--ref_soft_mask",
+      "description": "Reference soft mask",
+      "value-key": "[REF_SOFT_MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "ref_soft_mask",
+      "name": "Reference Soft Mask"
+    },
+    {
+      "command-line-flag": "--mesh_reorient_with_indices",
+      "description": "Vertex indices of frontal pole, occipital pole, and top of central sulcus, separated with commas, for mesh alignment",
+      "value-key": "[MESH_REORIENT_WITH_INDICES]",
+      "type": "String",
+      "optional": true,
+      "id": "mesh_reorient_with_indices",
+      "name": "Mesh Reorient Indices"
+    },
+    {
+      "command-line-flag": "--photos_of_posterior_side",
+      "description": "Use when photos are taken of posterior side of slabs (default is anterior side)",
+      "value-key": "[PHOTOS_POSTERIOR_SIDE]",
+      "type": "Flag",
+      "id": "photos_posterior_side",
+      "name": "Photos Posterior Side Flag"
+    },
+    {
+      "command-line-flag": "--order_posterior_to_anterior",
+      "description": "Use when photos are ordered from posterior to anterior (default is anterior to posterior)",
+      "value-key": "[ORDER_POSTERIOR_TO_ANTERIOR]",
+      "type": "Flag",
+      "id": "order_posterior_to_anterior",
+      "name": "Order Posterior to Anterior Flag"
+    },
+    {
+      "command-line-flag": "--allow_z_stretch",
+      "description": "Use to adjust the slice thickness to best match the reference. You should probably *never* use this with soft references (ref_soft_mask)",
+      "value-key": "[ALLOW_Z_STRETCH]",
+      "type": "Flag",
+      "id": "allow_z_stretch",
+      "name": "Allow Z Stretch Flag"
+    },
+    {
+      "command-line-flag": "--rigid_only_for_photos",
+      "description": "Switch on if you want photos to deform only rigidly (not affine)",
+      "value-key": "[RIGID_ONLY_FOR_PHOTOS]",
+      "type": "Flag",
+      "id": "rigid_only_for_photos",
+      "name": "Rigid Only for Photos Flag"
+    },
+    {
+      "command-line-flag": "--gpu",
+      "description": "Index of GPU to use",
+      "value-key": "[GPU_INDEX]",
+      "type": "Number",
+      "optional": true,
+      "id": "gpu_index",
+      "name": "GPU Index"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_DIRECTORY]/reconstructed_volume.nii.gz",
+      "description": "Reconstructed photo volume output file",
+      "id": "reconstructed_volume",
+      "name": "Reconstructed Volume"
+    },
+    {
+      "path-template": "[OUTPUT_DIRECTORY]/reference_data.nii.gz",
+      "description": "Output reference data",
+      "id": "reference_data",
+      "name": "Reference Data"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

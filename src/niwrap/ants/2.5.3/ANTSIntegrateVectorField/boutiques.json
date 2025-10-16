@@ -1,0 +1,56 @@
+{
+  "name": "ANTSIntegrateVectorField",
+  "command-line": "ANTSIntegrateVectorField [VECTOR_FIELD_INPUT] [ROI_MASK_INPUT] [FIBERS_OUTPUT] [LENGTH_IMAGE_OUTPUT]",
+  "author": "ANTs Developers",
+  "description": "This tool integrates a vector field, where vectors are voxels, using a region of interest (ROI) mask. The ROI mask controls where the integration is performed and specifies the starting point region.",
+  "url": "https://github.com/ANTsX/ANTs",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "vector_field_input",
+      "name": "Vector Field Input",
+      "value-key": "[VECTOR_FIELD_INPUT]",
+      "type": "File",
+      "optional": false,
+      "description": "Input vector field image (e.g., VecImageIN.nii.gz), where vectors are voxels."
+    },
+    {
+      "id": "roi_mask_input",
+      "name": "ROI Mask Input",
+      "value-key": "[ROI_MASK_INPUT]",
+      "type": "File",
+      "optional": false,
+      "description": "Input ROI mask image (e.g., ROIMaskIN.nii.gz), an integer image controlling where the integration is performed."
+    },
+    {
+      "id": "fibers_output",
+      "name": "Fibers Output",
+      "value-key": "[FIBERS_OUTPUT]",
+      "type": "String",
+      "optional": false,
+      "description": "Output VTK text file for fibers (e.g., FibersOUT.vtk)."
+    },
+    {
+      "id": "length_image_output",
+      "name": "Length Image Output",
+      "value-key": "[LENGTH_IMAGE_OUTPUT]",
+      "type": "String",
+      "optional": false,
+      "description": "Output length image (e.g., LengthImageOUT.nii.gz)."
+    }
+  ],
+  "output-files": [
+    {
+      "id": "fibers_out_vtk",
+      "name": "Fibers Output",
+      "description": "The output is the fibers as a VTK text file.",
+      "path-template": "[FIBERS_OUTPUT]"
+    },
+    {
+      "id": "length_image_out_nii",
+      "name": "Length Image Output",
+      "description": "The output is the length image.",
+      "path-template": "[LENGTH_IMAGE_OUTPUT]"
+    }
+  ]
+}

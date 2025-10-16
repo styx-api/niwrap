@@ -1,0 +1,42 @@
+{
+  "name": "labels_intersect",
+  "author": "FreeSurfer Developers",
+  "description": "Tool to find the intersection of two label files",
+  "command-line": "labels_intersect [LABEL1] [LABEL2] [OUTPUTNAME]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "First input label file",
+      "value-key": "[LABEL1]",
+      "type": "File",
+      "optional": false,
+      "id": "label1",
+      "name": "Label 1"
+    },
+    {
+      "description": "Second input label file",
+      "value-key": "[LABEL2]",
+      "type": "File",
+      "optional": false,
+      "id": "label2",
+      "name": "Label 2"
+    },
+    {
+      "description": "Output label file name",
+      "value-key": "[OUTPUTNAME]",
+      "type": "String",
+      "optional": false,
+      "id": "outputname",
+      "name": "Output Name"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUTNAME]",
+      "description": "The resulting intersected label file",
+      "id": "output_label",
+      "name": "Output label file"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

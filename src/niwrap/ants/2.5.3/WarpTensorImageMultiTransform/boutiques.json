@@ -1,0 +1,99 @@
+{
+  "name": "WarpTensorImageMultiTransform",
+  "command-line": "WarpTensorImageMultiTransform [IMAGE_DIMENSION] [MOVING_IMAGE] [OUTPUT_IMAGE] [REFERENCE_IMAGE] [TIGHTEST_BOUNDING_BOX] [RESLICE_BY_HEADER] [USE_NEAREST_NEIGHBOR] [TRANSFORMS] [ANTS_PREFIX] [ANTS_PREFIX_INVERT]",
+  "description": "WarpTensorImageMultiTransform is used to apply transformations including affine and deformation fields to an image, supporting various interpolation techniques, image header reslicing, and compatibility with ANTS-generated transformations.",
+  "url": "https://github.com/ANTsX/ANTs",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "image_dimension",
+      "name": "Image Dimension",
+      "value-key": "[IMAGE_DIMENSION]",
+      "type": "Number",
+      "integer": true,
+      "description": "Dimensionality of the image (e.g., 2D or 3D)."
+    },
+    {
+      "id": "moving_image",
+      "name": "Moving Image",
+      "value-key": "[MOVING_IMAGE]",
+      "type": "File",
+      "description": "The moving image that will be transformed."
+    },
+    {
+      "id": "output_image",
+      "name": "Output Image",
+      "value-key": "[OUTPUT_IMAGE]",
+      "type": "String",
+      "description": "Path for saving the transformed output image."
+    },
+    {
+      "id": "reference_image",
+      "name": "Reference Image",
+      "value-key": "[REFERENCE_IMAGE]",
+      "type": "File",
+      "optional": true,
+      "command-line-flag": "-R",
+      "description": "Reference image for reslicing or defining the transformation domain."
+    },
+    {
+      "id": "tightest_bounding_box",
+      "name": "Tightest Bounding Box",
+      "value-key": "[TIGHTEST_BOUNDING_BOX]",
+      "type": "Flag",
+      "command-line-flag": "--tightest-bounding-box",
+      "description": "Compute the tightest bounding box using all affine transformations."
+    },
+    {
+      "id": "reslice_by_header",
+      "name": "Reslice by Header",
+      "value-key": "[RESLICE_BY_HEADER]",
+      "type": "Flag",
+      "command-line-flag": "--reslice-by-header",
+      "description": "Use the orientation matrix and origin encoded in the image file header for reslicing."
+    },
+    {
+      "id": "use_nearest_neighbor",
+      "name": "Use Nearest Neighbor Interpolation",
+      "value-key": "[USE_NEAREST_NEIGHBOR]",
+      "type": "Flag",
+      "command-line-flag": "--use-NN",
+      "description": "Use Nearest Neighbor Interpolator for the transformation."
+    },
+    {
+      "id": "transforms",
+      "name": "Transforms",
+      "value-key": "[TRANSFORMS]",
+      "type": "String",
+      "list": true,
+      "description": "List of transformations to apply, which can include deformation fields or affine transforms."
+    },
+    {
+      "id": "ants_prefix",
+      "name": "ANTS Prefix",
+      "value-key": "[ANTS_PREFIX]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "--ANTS-prefix",
+      "description": "Prefix for ANTS-generated deformation and affine transformation files."
+    },
+    {
+      "id": "ants_prefix_invert",
+      "name": "ANTS Prefix Invert",
+      "value-key": "[ANTS_PREFIX_INVERT]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "--ANTS-prefix-invert",
+      "description": "Prefix for inverting ANTS-generated affine and deformation transformations."
+    }
+  ],
+  "output-files": [
+    {
+      "id": "output_image_file",
+      "name": "Output Image File",
+      "path-template": "[OUTPUT_IMAGE]",
+      "description": "The resultant transformed output image."
+    }
+  ],
+  "author": "ANTs Developers"
+}

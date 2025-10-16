@@ -1,0 +1,280 @@
+{
+  "name": "first_utils",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Utilities for handling FIRST's input and output files",
+  "command-line": "first_utils [INPUT_FILE] [OUTPUT_NAME] [NORM_FACTORS] [REFERENCE_IMAGE] [EXTRA_PATH] [FLIRT_MATRICES] [USE_SCALE] [DICE_OVERLAP] [INPUT_MESH] [USE_NORM] [SURFACE_OUT] [THRESHOLD] [MESH_LABEL] [USE_BVARS] [USE_RECON_MNI] [VERTEX_ANALYSIS] [USE_RECON_NATIVE] [USE_RIGID_ALIGN] [DESIGN_MATRIX] [RECON_MESH_FROM_BVARS] [READ_BVARS] [MESH_TO_VOL] [CENTRE_ORIGIN] [SAVE_VERTICES] [VERBOSE] [USE_PCA_FILTER] [NUM_MODES] [SINGLE_BOUNDARY_CORR] [DO_MVGLM] [CONCAT_BVARS] [DEBUG_MODE] [HELP]",
+  "inputs": [
+    {
+      "description": "Filename of input image/mesh/bvars",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "command-line-flag": "-i",
+      "id": "input_file",
+      "name": "Input file"
+    },
+    {
+      "description": "Output name",
+      "value-key": "[OUTPUT_NAME]",
+      "type": "String",
+      "optional": false,
+      "command-line-flag": "-o",
+      "id": "output_name",
+      "name": "Output name"
+    },
+    {
+      "command-line-flag": "-g",
+      "description": "Filename of normalization factors",
+      "value-key": "[NORM_FACTORS]",
+      "type": "File",
+      "optional": true,
+      "id": "norm_factors",
+      "name": "Normalization factors"
+    },
+    {
+      "command-line-flag": "-r",
+      "description": "Filename of reference image",
+      "value-key": "[REFERENCE_IMAGE]",
+      "type": "File",
+      "optional": true,
+      "id": "reference_image",
+      "name": "Reference image"
+    },
+    {
+      "command-line-flag": "-a",
+      "description": "Specifies extra path to image in .bvars file",
+      "value-key": "[EXTRA_PATH]",
+      "type": "File",
+      "optional": true,
+      "id": "extra_path",
+      "name": "Extra path to image"
+    },
+    {
+      "command-line-flag": "-f",
+      "description": "Text file containing filenames of flirt matrices",
+      "value-key": "[FLIRT_MATRICES]",
+      "type": "File",
+      "optional": true,
+      "id": "flirt_matrices",
+      "name": "Flirt matrices"
+    },
+    {
+      "command-line-flag": "--useScale",
+      "description": "Do stats",
+      "value-key": "[USE_SCALE]",
+      "type": "Flag",
+      "id": "use_scale",
+      "name": "Use Scale"
+    },
+    {
+      "command-line-flag": "--overlap",
+      "description": "Calculates Dice overlap",
+      "value-key": "[DICE_OVERLAP]",
+      "type": "Flag",
+      "id": "dice_overlap",
+      "name": "Dice overlap"
+    },
+    {
+      "command-line-flag": "-m",
+      "description": "Filename of input mesh",
+      "value-key": "[INPUT_MESH]",
+      "type": "File",
+      "optional": true,
+      "id": "input_mesh",
+      "name": "Input mesh"
+    },
+    {
+      "command-line-flag": "--useNorm",
+      "description": "Normalize volumes measurements",
+      "value-key": "[USE_NORM]",
+      "type": "Flag",
+      "id": "use_norm",
+      "name": "Normalize volumes measurements"
+    },
+    {
+      "command-line-flag": "--surfaceout",
+      "description": "Output vertex analysis on the surface",
+      "value-key": "[SURFACE_OUT]",
+      "type": "Flag",
+      "id": "surface_out",
+      "name": "Surface output"
+    },
+    {
+      "command-line-flag": "-p",
+      "description": "Threshold for clean up",
+      "value-key": "[THRESHOLD]",
+      "type": "Number",
+      "optional": true,
+      "id": "threshold",
+      "name": "Threshold",
+      "minimum": 0
+    },
+    {
+      "command-line-flag": "-l",
+      "description": "Specifies the label used to fill the mesh",
+      "value-key": "[MESH_LABEL]",
+      "type": "String",
+      "optional": true,
+      "id": "mesh_label",
+      "name": "Mesh label"
+    },
+    {
+      "command-line-flag": "--usebvars",
+      "description": "Operate using the mode parameters output from FIRST",
+      "value-key": "[USE_BVARS]",
+      "type": "Flag",
+      "id": "use_bvars",
+      "name": "Use bvars"
+    },
+    {
+      "command-line-flag": "--useReconMNI",
+      "description": "Reconstruct meshes in MNI space",
+      "value-key": "[USE_RECON_MNI]",
+      "type": "Flag",
+      "id": "use_recon_mni",
+      "name": "Reconstruct in MNI space"
+    },
+    {
+      "command-line-flag": "--vertexAnalysis",
+      "description": "Perform vertex-wise stats from bvars",
+      "value-key": "[VERTEX_ANALYSIS]",
+      "type": "Flag",
+      "id": "vertex_analysis",
+      "name": "Vertex analysis"
+    },
+    {
+      "command-line-flag": "--useReconNative",
+      "description": "Reconstruct meshes in native space",
+      "value-key": "[USE_RECON_NATIVE]",
+      "type": "Flag",
+      "id": "use_recon_native",
+      "name": "Reconstruct in native space"
+    },
+    {
+      "command-line-flag": "--useRigidAlign",
+      "description": "Register meshes using 6 degree of freedom (7 if useScale is used)",
+      "value-key": "[USE_RIGID_ALIGN]",
+      "type": "Flag",
+      "id": "use_rigid_align",
+      "name": "Rigid alignment"
+    },
+    {
+      "command-line-flag": "-d",
+      "description": "Filename of fsl design matrix",
+      "value-key": "[DESIGN_MATRIX]",
+      "type": "File",
+      "optional": true,
+      "id": "design_matrix",
+      "name": "Design matrix"
+    },
+    {
+      "command-line-flag": "--reconMeshFromBvars",
+      "description": "Convert bvars to mesh",
+      "value-key": "[RECON_MESH_FROM_BVARS]",
+      "type": "Flag",
+      "id": "recon_mesh_from_bvars",
+      "name": "Reconstruct mesh from bvars"
+    },
+    {
+      "command-line-flag": "--readBvars",
+      "description": "Read bvars from binary format",
+      "value-key": "[READ_BVARS]",
+      "type": "Flag",
+      "id": "read_bvars",
+      "name": "Read bvars"
+    },
+    {
+      "command-line-flag": "--meshToVol",
+      "description": "Convert mesh to an image",
+      "value-key": "[MESH_TO_VOL]",
+      "type": "Flag",
+      "id": "mesh_to_vol",
+      "name": "Mesh to volume"
+    },
+    {
+      "command-line-flag": "--centreOrigin",
+      "description": "Places origin of mesh at the centre of the image",
+      "value-key": "[CENTRE_ORIGIN]",
+      "type": "Flag",
+      "id": "centre_origin",
+      "name": "Centre origin"
+    },
+    {
+      "command-line-flag": "--saveVertices",
+      "description": "Filename for saving matrix of vertex coords: (all x, then all y, then all z) by Nsubjects",
+      "value-key": "[SAVE_VERTICES]",
+      "type": "File",
+      "optional": true,
+      "id": "save_vertices",
+      "name": "Save vertices"
+    },
+    {
+      "command-line-flag": "-v",
+      "description": "Output F-stats to standard out",
+      "value-key": "[VERBOSE]",
+      "type": "Flag",
+      "id": "verbose",
+      "name": "Verbose"
+    },
+    {
+      "command-line-flag": "--usePCAfilter",
+      "description": "Smooths the surface by truncating the mode parameters",
+      "value-key": "[USE_PCA_FILTER]",
+      "type": "Flag",
+      "id": "use_pca_filter",
+      "name": "Use PCA filter"
+    },
+    {
+      "command-line-flag": "-n",
+      "description": "Number of modes to retain per structure",
+      "value-key": "[NUM_MODES]",
+      "type": "Number",
+      "optional": true,
+      "id": "num_modes",
+      "name": "Number of modes",
+      "minimum": 0
+    },
+    {
+      "command-line-flag": "--singleBoundaryCorr",
+      "description": "Correct boundary voxels of a single structure",
+      "value-key": "[SINGLE_BOUNDARY_CORR]",
+      "type": "Flag",
+      "id": "single_boundary_corr",
+      "name": "Single boundary correction"
+    },
+    {
+      "command-line-flag": "--doMVGLM",
+      "description": "Perform multivariate general linear model analysis",
+      "value-key": "[DO_MVGLM]",
+      "type": "Flag",
+      "id": "do_mvglm",
+      "name": "Do MVGLM"
+    },
+    {
+      "command-line-flag": "--concatBvars",
+      "description": "Concat bvars from binary format",
+      "value-key": "[CONCAT_BVARS]",
+      "type": "Flag",
+      "id": "concat_bvars",
+      "name": "Concat bvars"
+    },
+    {
+      "command-line-flag": "--debug",
+      "description": "Turn on debugging mode",
+      "value-key": "[DEBUG_MODE]",
+      "type": "Flag",
+      "id": "debug_mode",
+      "name": "Debug mode"
+    },
+    {
+      "command-line-flag": "-h",
+      "description": "Display help message",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

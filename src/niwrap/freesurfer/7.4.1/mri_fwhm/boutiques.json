@@ -1,0 +1,359 @@
+{
+  "name": "mri_fwhm",
+  "author": "FreeSurfer Developers",
+  "description": "FreeSurfer program to estimate the global Gaussian smoothness of a multi-frame, volume-based data set.",
+  "command-line": "mri_fwhm [INPUTVOL] [OUTPUTVOL] [SAVE_DETRENDED] [SAVE_UNMASKED] [SMOOTH_ONLY] [MASK] [MASK_THRESH] [AUTO_MASK] [NERODE] [MASK_INV] [OUT_MASK] [DETREND_MATRIX] [DETREND_ORDER] [SQUARE_INPUT] [SMOOTH_BY_FWHM] [SMOOTH_BY_GSTD] [MEDIAN_FILTER] [SMOOTH_TO_FWHM] [TO_FWHM_TOL] [TO_FWHM_NMAX] [TO_FWHM_FILE] [SUMMARY_FILE] [DAT_FILE] [FWHM_DAT_FILE] [FWHM_VOL_MEAN_FILE] [FWHM_VOL] [SYNTH] [SYNTH_FRAMES] [NFRAMES_MIN] [ISPM] [NSPM_ZERO_PADDING] [THREADS] [DEBUG] [CHECKOPTS] [VERSION]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--i",
+      "description": "Input volume file. Format must be something readable by mri_convert (e.g., mgh, mgz, img, nii, nii.gz).",
+      "value-key": "[INPUTVOL]",
+      "type": "File",
+      "optional": false,
+      "id": "inputvol",
+      "name": "Input Volume"
+    },
+    {
+      "command-line-flag": "--o",
+      "description": "Output volume file: save input after smoothing.",
+      "value-key": "[OUTPUTVOL]",
+      "type": "String",
+      "optional": false,
+      "id": "outputvol",
+      "name": "Output Volume"
+    },
+    {
+      "command-line-flag": "--save-detrended",
+      "description": "Save input after smoothing and detrending.",
+      "value-key": "[SAVE_DETRENDED]",
+      "type": "Flag",
+      "id": "save_detrended",
+      "name": "Save Detrended Flag"
+    },
+    {
+      "command-line-flag": "--save-unmasked",
+      "description": "Do not mask output volume.",
+      "value-key": "[SAVE_UNMASKED]",
+      "type": "Flag",
+      "id": "save_unmasked",
+      "name": "Save Unmasked Flag"
+    },
+    {
+      "command-line-flag": "--smooth-only",
+      "description": "Smooth and save, do not compute fwhm.",
+      "value-key": "[SMOOTH_ONLY]",
+      "type": "Flag",
+      "id": "smooth_only",
+      "name": "Smooth Only Flag"
+    },
+    {
+      "command-line-flag": "--mask",
+      "description": "Binary mask file.",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "mask",
+      "name": "Binary Mask"
+    },
+    {
+      "command-line-flag": "--mask-thresh",
+      "description": "Threshold for mask (default is 0.5).",
+      "value-key": "[MASK_THRESH]",
+      "type": "Number",
+      "optional": true,
+      "id": "mask_thresh",
+      "name": "Mask Threshold"
+    },
+    {
+      "command-line-flag": "--auto-mask",
+      "description": "Auto compute mask based on global mean threshold.",
+      "value-key": "[AUTO_MASK]",
+      "type": "Number",
+      "optional": true,
+      "id": "auto_mask",
+      "name": "Auto Mask"
+    },
+    {
+      "command-line-flag": "--nerode",
+      "description": "Erode mask n times prior to FWHM computation.",
+      "value-key": "[NERODE]",
+      "type": "Number",
+      "optional": true,
+      "id": "nerode",
+      "name": "Erode Mask Times"
+    },
+    {
+      "command-line-flag": "--mask-inv",
+      "description": "Invert mask.",
+      "value-key": "[MASK_INV]",
+      "type": "Flag",
+      "id": "mask_inv",
+      "name": "Mask Inversion Flag"
+    },
+    {
+      "command-line-flag": "--out-mask",
+      "description": "Save final mask to outmaskvol.",
+      "value-key": "[OUT_MASK]",
+      "type": "String",
+      "optional": true,
+      "id": "out_mask",
+      "name": "Output Mask"
+    },
+    {
+      "command-line-flag": "--X",
+      "description": "Detrending matrix file in MATLAB4 format.",
+      "value-key": "[DETREND_MATRIX]",
+      "type": "File",
+      "optional": true,
+      "id": "detrend_matrix",
+      "name": "Detrend Matrix"
+    },
+    {
+      "command-line-flag": "--detrend",
+      "description": "Polynomial detrending order (default 0).",
+      "value-key": "[DETREND_ORDER]",
+      "type": "Number",
+      "optional": true,
+      "id": "detrend_order",
+      "name": "Detrend Order"
+    },
+    {
+      "command-line-flag": "--sqr",
+      "description": "Compute square of input before smoothing.",
+      "value-key": "[SQUARE_INPUT]",
+      "type": "Flag",
+      "id": "square_input",
+      "name": "Square Input Flag"
+    },
+    {
+      "command-line-flag": "--fwhm",
+      "description": "Smooth BY fwhm before measuring.",
+      "value-key": "[SMOOTH_BY_FWHM]",
+      "type": "Number",
+      "optional": true,
+      "id": "smooth_by_fwhm",
+      "name": "Smooth by FWHM"
+    },
+    {
+      "command-line-flag": "--gstd",
+      "description": "Smooth using gstd (equivalent to --fwhm).",
+      "value-key": "[SMOOTH_BY_GSTD]",
+      "type": "Number",
+      "optional": true,
+      "id": "smooth_by_gstd",
+      "name": "Smooth by gstd"
+    },
+    {
+      "command-line-flag": "--median",
+      "description": "Perform median filtering instead of Gaussian.",
+      "value-key": "[MEDIAN_FILTER]",
+      "type": "Number",
+      "optional": true,
+      "id": "median_filter",
+      "name": "Median Filter Width"
+    },
+    {
+      "command-line-flag": "--to-fwhm",
+      "description": "Smooth TO this FWHM.",
+      "value-key": "[SMOOTH_TO_FWHM]",
+      "type": "Number",
+      "optional": true,
+      "id": "smooth_to_fwhm",
+      "name": "Smooth to FWHM"
+    },
+    {
+      "command-line-flag": "--to-fwhm-tol",
+      "description": "Tolerance for smoothing to FWHM (default 0.5mm).",
+      "value-key": "[TO_FWHM_TOL]",
+      "type": "Number",
+      "optional": true,
+      "id": "to_fwhm_tol",
+      "name": "To FWHM Tolerance"
+    },
+    {
+      "command-line-flag": "--to-fwhm-nmax",
+      "description": "Maximum iterations for smoothing to FWHM (default 20).",
+      "value-key": "[TO_FWHM_NMAX]",
+      "type": "Number",
+      "optional": true,
+      "id": "to_fwhm_nmax",
+      "name": "To FWHM Max Iterations"
+    },
+    {
+      "command-line-flag": "--to-fwhm-file",
+      "description": "Save smoothing to FWHM parameters to file.",
+      "value-key": "[TO_FWHM_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "to_fwhm_file",
+      "name": "To FWHM File"
+    },
+    {
+      "command-line-flag": "--sum",
+      "description": "Summary/log file.",
+      "value-key": "[SUMMARY_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "summary_file",
+      "name": "Summary File"
+    },
+    {
+      "command-line-flag": "--dat",
+      "description": "Prints only the final FWHM estimate into this file.",
+      "value-key": "[DAT_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "dat_file",
+      "name": "DAT File"
+    },
+    {
+      "command-line-flag": "--fwhmdat",
+      "description": "Compute and save the FWHM of each dimension.",
+      "value-key": "[FWHM_DAT_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "fwhm_dat_file",
+      "name": "FWHM DAT File"
+    },
+    {
+      "command-line-flag": "--fwhmvolmn",
+      "description": "Compute and save the FWHM of each dimension based on fwhmvol.",
+      "value-key": "[FWHM_VOL_MEAN_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "fwhm_vol_mean_file",
+      "name": "FWHM Volume Mean File"
+    },
+    {
+      "command-line-flag": "--fwhmvol",
+      "description": "Save FWHM volume.",
+      "value-key": "[FWHM_VOL]",
+      "type": "String",
+      "optional": true,
+      "id": "fwhm_vol",
+      "name": "FWHM Volume"
+    },
+    {
+      "command-line-flag": "--synth",
+      "description": "Synthesize input with white Gaussian noise.",
+      "value-key": "[SYNTH]",
+      "type": "Flag",
+      "id": "synth",
+      "name": "Synthesize Input Flag"
+    },
+    {
+      "command-line-flag": "--synth-frames",
+      "description": "Number of frames for synthesized input (default is 10).",
+      "value-key": "[SYNTH_FRAMES]",
+      "type": "Number",
+      "optional": true,
+      "id": "synth_frames",
+      "name": "Synthesize Frames"
+    },
+    {
+      "command-line-flag": "--nframesmin",
+      "description": "Require at least this many frames.",
+      "value-key": "[NFRAMES_MIN]",
+      "type": "Number",
+      "optional": true,
+      "id": "nframes_min",
+      "name": "Minimum Frames"
+    },
+    {
+      "command-line-flag": "--ispm",
+      "description": "Input is SPM-analyze.",
+      "value-key": "[ISPM]",
+      "type": "Flag",
+      "id": "ispm",
+      "name": "SPM Analyze Input Flag"
+    },
+    {
+      "command-line-flag": "--in_nspmzeropad",
+      "description": "Zero-padding for SPM-analyze.",
+      "value-key": "[NSPM_ZERO_PADDING]",
+      "type": "Number",
+      "optional": true,
+      "id": "nspm_zero_padding",
+      "name": "SPM Zero Padding"
+    },
+    {
+      "command-line-flag": "--nthreads",
+      "description": "Set OPEN MP threads.",
+      "value-key": "[THREADS]",
+      "type": "Number",
+      "optional": true,
+      "id": "threads",
+      "name": "Number of Threads"
+    },
+    {
+      "command-line-flag": "--debug",
+      "description": "Turn on debugging.",
+      "value-key": "[DEBUG]",
+      "type": "Flag",
+      "id": "debug",
+      "name": "Debug Flag"
+    },
+    {
+      "command-line-flag": "--checkopts",
+      "description": "Check options and exit without running.",
+      "value-key": "[CHECKOPTS]",
+      "type": "Flag",
+      "id": "checkopts",
+      "name": "Check Options Flag"
+    },
+    {
+      "command-line-flag": "--version",
+      "description": "Print version and exit.",
+      "value-key": "[VERSION]",
+      "type": "Flag",
+      "id": "version",
+      "name": "Version Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUTVOL]",
+      "description": "Output volume after smoothing.",
+      "id": "output_volume_file",
+      "name": "Output Volume File"
+    },
+    {
+      "path-template": "[OUT_MASK]",
+      "description": "Final mask volume.",
+      "id": "final_mask_output_file",
+      "name": "Final Mask Output File"
+    },
+    {
+      "path-template": "[SUMMARY_FILE]",
+      "description": "Summary log file.",
+      "id": "summary_log_file",
+      "name": "Summary Log File"
+    },
+    {
+      "path-template": "[DAT_FILE]",
+      "description": "Final FWHM estimate file.",
+      "id": "final_fwhm_estimate_file",
+      "name": "Final FWHM Estimate File"
+    },
+    {
+      "path-template": "[FWHM_DAT_FILE]",
+      "description": "File containing the FWHM of each dimension.",
+      "id": "fwhm_of_each_dimension_file",
+      "name": "FWHM of Each Dimension File"
+    },
+    {
+      "path-template": "[FWHM_VOL_MEAN_FILE]",
+      "description": "Mean FWHM from volume file.",
+      "id": "mean_fwhm_volume_file",
+      "name": "Mean FWHM Volume File"
+    },
+    {
+      "path-template": "[FWHM_VOL]",
+      "description": "FWHM volume file.",
+      "id": "fwhm_volume_file",
+      "name": "FWHM Volume File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

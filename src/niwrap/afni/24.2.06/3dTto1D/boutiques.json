@@ -1,0 +1,71 @@
+{
+  "name": "3dTto1D",
+  "author": "AFNI Developers",
+  "description": "Collapse a 4D time series to a 1D time series",
+  "command-line": "3dTto1D [INPUT_DATASET] [METHOD] [AUTOMASK] [MASK] [PREFIX] [VERBOSE]",
+  "inputs": [
+    {
+      "description": "Specify input dataset. This should be a set of 3D time series. If the input is in 1D format, a transpose operator will typically be required.",
+      "value-key": "[INPUT_DATASET]",
+      "type": "File",
+      "optional": false,
+      "id": "input_dataset",
+      "name": "Input Dataset",
+      "command-line-flag": "-input"
+    },
+    {
+      "command-line-flag": "-method",
+      "description": "Specify 4D to 1D conversion method. Methods include: enorm, dvars, srms, shift_srms, mdiff, smdiff, 4095_count, 4095_frac, 4095_warn.",
+      "value-key": "[METHOD]",
+      "type": "String",
+      "optional": false,
+      "id": "method",
+      "name": "Conversion Method"
+    },
+    {
+      "command-line-flag": "-automask",
+      "description": "Restrict computation to automask",
+      "value-key": "[AUTOMASK]",
+      "type": "Flag",
+      "id": "automask",
+      "name": "Automask Flag"
+    },
+    {
+      "command-line-flag": "-mask",
+      "description": "Restrict computation to given mask",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "mask",
+      "name": "Mask"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Specify output file. Default is stdout",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Output Prefix"
+    },
+    {
+      "command-line-flag": "-verb",
+      "description": "Specify verbose level. Default is 1",
+      "value-key": "[VERBOSE]",
+      "type": "Number",
+      "optional": true,
+      "id": "verbose",
+      "name": "Verbose Level"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX]",
+      "description": "Output 1D time series file",
+      "id": "output_file",
+      "name": "Output File"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

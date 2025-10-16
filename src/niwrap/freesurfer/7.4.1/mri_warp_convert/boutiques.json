@@ -1,0 +1,143 @@
+{
+  "name": "mri_warp_convert",
+  "author": "FreeSurfer Developers",
+  "description": "This program converts non-linear deformation field warp file formats.",
+  "command-line": "mri_warp_convert [INM3Z] [INFSL] [INLPS] [INITK] [INRAS] [INVOX] [OUTM3Z] [OUTFSL] [OUTLPS] [OUTITK] [OUTRAS] [OUTVOX] [INSRCGEOM] [DOWNSAMPLE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--inm3z",
+      "description": "Input M3Z warp",
+      "value-key": "[INM3Z]",
+      "type": "File",
+      "optional": true,
+      "id": "inm3z",
+      "name": "Input M3Z warp"
+    },
+    {
+      "command-line-flag": "--infsl",
+      "description": "Input FSL warp",
+      "value-key": "[INFSL]",
+      "type": "File",
+      "optional": true,
+      "id": "infsl",
+      "name": "Input FSL warp"
+    },
+    {
+      "command-line-flag": "--inlps",
+      "description": "Input LPS-to-LPS displacement field (e.g. ITK, ANTs)",
+      "value-key": "[INLPS]",
+      "type": "File",
+      "optional": true,
+      "id": "inlps",
+      "name": "Input LPS displacement field"
+    },
+    {
+      "command-line-flag": "--initk",
+      "description": "Input ITK LPS-to-LPS displacement field",
+      "value-key": "[INITK]",
+      "type": "File",
+      "optional": true,
+      "id": "initk",
+      "name": "Input ITK displacement field"
+    },
+    {
+      "command-line-flag": "--inras",
+      "description": "Input RAS-to-RAS displacement field (e.g. NiftyReg)",
+      "value-key": "[INRAS]",
+      "type": "File",
+      "optional": true,
+      "id": "inras",
+      "name": "Input RAS displacement field"
+    },
+    {
+      "command-line-flag": "--invox",
+      "description": "Input file with displacements in source-voxel space",
+      "value-key": "[INVOX]",
+      "type": "File",
+      "optional": true,
+      "id": "invox",
+      "name": "Input voxel displacement"
+    },
+    {
+      "command-line-flag": "--outm3z",
+      "description": "Output warp (M3Z Freesurfer format)",
+      "value-key": "[OUTM3Z]",
+      "type": "String",
+      "optional": true,
+      "id": "outm3z",
+      "name": "Output M3Z warp"
+    },
+    {
+      "command-line-flag": "--outfsl",
+      "description": "Output warp (FSL format)",
+      "value-key": "[OUTFSL]",
+      "type": "String",
+      "optional": true,
+      "id": "outfsl",
+      "name": "Output FSL warp"
+    },
+    {
+      "command-line-flag": "--outlps",
+      "description": "Output LPS-to-LPS displacement field (e.g. ITK, ANTs)",
+      "value-key": "[OUTLPS]",
+      "type": "String",
+      "optional": true,
+      "id": "outlps",
+      "name": "Output LPS displacement field"
+    },
+    {
+      "command-line-flag": "--outitk",
+      "description": "Output ITK LPS-to-LPS displacement field",
+      "value-key": "[OUTITK]",
+      "type": "String",
+      "optional": true,
+      "id": "outitk",
+      "name": "Output ITK displacement field"
+    },
+    {
+      "command-line-flag": "--outras",
+      "description": "Output RAS-to-RAS displacement field (e.g. NiftyReg)",
+      "value-key": "[OUTRAS]",
+      "type": "String",
+      "optional": true,
+      "id": "outras",
+      "name": "Output RAS displacement field"
+    },
+    {
+      "command-line-flag": "--outvox",
+      "description": "Output file with displacements in source-voxel space",
+      "value-key": "[OUTVOX]",
+      "type": "String",
+      "optional": true,
+      "id": "outvox",
+      "name": "Output voxel displacement"
+    },
+    {
+      "command-line-flag": "--insrcgeom",
+      "description": "Specify source image geometry (moving volume)",
+      "value-key": "[INSRCGEOM]",
+      "type": "File",
+      "optional": true,
+      "id": "insrcgeom",
+      "name": "Source image geometry"
+    },
+    {
+      "command-line-flag": "--downsample",
+      "description": "Downsample output M3Z to spacing of 2.",
+      "value-key": "[DOWNSAMPLE]",
+      "type": "Flag",
+      "id": "downsample",
+      "name": "Downsample flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTVOX]",
+      "description": "Converted output warp file",
+      "id": "outwarp",
+      "name": "Output warp file"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

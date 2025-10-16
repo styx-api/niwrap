@@ -1,0 +1,26 @@
+{
+  "name": "feat_model",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Generate design matrices for use by FEAT",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "feat_model [DESIGN_NAME_ROOT] [CONFOUND_MATRIX]",
+  "inputs": [
+    {
+      "description": "Design name root",
+      "value-key": "[DESIGN_NAME_ROOT]",
+      "type": "String",
+      "optional": false,
+      "id": "design_name_root",
+      "name": "Design Name Root"
+    },
+    {
+      "description": "Confound matrix text file",
+      "value-key": "[CONFOUND_MATRIX]",
+      "type": "File",
+      "optional": true,
+      "id": "confound_matrix",
+      "name": "Confound Matrix"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

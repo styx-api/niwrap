@@ -1,0 +1,58 @@
+{
+  "name": "applyMorph",
+  "description": "A tool for applying a morph to a volume using a template and a transform",
+  "command-line": "applyMorph [INPUTS] [TEMPLATE] [TRANSFORM] [ZLIB_BUFFER] [DBG_COORDS]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input files.",
+      "value-key": "[INPUTS]",
+      "type": "File",
+      "list": true,
+      "name": "Inputs",
+      "id": "inputs",
+      "optional": false
+    },
+    {
+      "command-line-flag": "--template",
+      "description": "Template volume.",
+      "value-key": "[TEMPLATE]",
+      "type": "File",
+      "name": "Template",
+      "id": "template",
+      "optional": false
+    },
+    {
+      "command-line-flag": "--transform",
+      "description": "Transform file.",
+      "value-key": "[TRANSFORM]",
+      "type": "File",
+      "name": "Transform",
+      "id": "transform",
+      "optional": false
+    },
+    {
+      "command-line-flag": "--zlib_buffer",
+      "description": "Zlib buffer pre-allocation multiplier.",
+      "value-key": "[ZLIB_BUFFER]",
+      "type": "Number",
+      "name": "Zlib Buffer Multiplier",
+      "id": "zlib_buffer",
+      "optional": true
+    },
+    {
+      "command-line-flag": "--dbg_coords",
+      "description": "Debugging coordinates.",
+      "value-key": "[DBG_COORDS]",
+      "type": "Number",
+      "list": true,
+      "min-list-entries": 3,
+      "max-list-entries": 3,
+      "name": "Debugging Coordinates",
+      "id": "dbg_coords",
+      "optional": true
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

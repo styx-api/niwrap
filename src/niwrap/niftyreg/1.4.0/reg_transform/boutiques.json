@@ -1,0 +1,307 @@
+{
+  "name": "reg_transform",
+  "author": "NiftyReg Developers",
+  "description": "Tool for performing various transformation operations on medical images including control point to deformation conversion, composition of transformations, and converting between deformation and displacement fields.",
+  "url": "http://cmictig.cs.ucl.ac.uk/wiki/index.php/NiftyReg",
+  "command-line": "reg_transform [REFERENCE_IMAGE] [CPP2DEF_INPUT] [CPP2DEF_OUTPUT] [COMP1_CPP2] [COMP1_CPP1] [COMP1_OUTPUT] [COMP2_CPP] [COMP2_DEF] [COMP2_OUTPUT] [COMP3_DEF2] [COMP3_DEF1] [COMP3_OUTPUT] [DEF2DISP_INPUT] [DEF2DISP_OUTPUT] [DISP2DEF_INPUT] [DISP2DEF_OUTPUT] [UPD_SFORM_IMAGE] [UPD_SFORM_AFFINE] [UPD_SFORM_OUTPUT] [AFF2DEF_AFFINE] [AFF2DEF_TARGET] [AFF2DEF_CPP_OR_DEF] [AFF2DEF_OUTPUT] [INV_AFFINE_INPUT] [INV_AFFINE_OUTPUT] [COMP_AFF_1ST] [COMP_AFF_2ND] [COMP_AFF_OUTPUT]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "reference_image",
+      "name": "Reference Image",
+      "type": "File",
+      "value-key": "[REFERENCE_IMAGE]",
+      "command-line-flag": "-ref",
+      "description": "Filename of the reference image",
+      "optional": false
+    },
+    {
+      "id": "cpp2def_input",
+      "name": "CPP to DEF Input",
+      "type": "File",
+      "value-key": "[CPP2DEF_INPUT]",
+      "command-line-flag": "-cpp2def",
+      "description": "Conversion from control point position to deformation field. Filename of input lattice of control point positions (CPP).",
+      "optional": true
+    },
+    {
+      "id": "cpp2def_output",
+      "name": "CPP to DEF Output",
+      "type": "String",
+      "value-key": "[CPP2DEF_OUTPUT]",
+      "description": "Filename of the output deformation field image (DEF).",
+      "optional": true
+    },
+    {
+      "id": "comp1_cpp2",
+      "name": "Second CPP for Composition 1",
+      "type": "File",
+      "value-key": "[COMP1_CPP2]",
+      "command-line-flag": "-comp1",
+      "description": "Composition of two lattices of control points. CPP2(CPP1(x)). Filename of lattice of control point that contains the second deformation (CPP2).",
+      "optional": true
+    },
+    {
+      "id": "comp1_cpp1",
+      "name": "First CPP for Composition 1",
+      "type": "File",
+      "value-key": "[COMP1_CPP1]",
+      "description": "Filename of lattice of control point that contains the initial deformation (CPP1).",
+      "optional": true
+    },
+    {
+      "id": "comp1_output",
+      "name": "Output for Composition 1",
+      "type": "String",
+      "value-key": "[COMP1_OUTPUT]",
+      "description": "Filename of the output deformation field.",
+      "optional": true
+    },
+    {
+      "id": "comp2_cpp",
+      "name": "CPP for Composition 2",
+      "type": "File",
+      "value-key": "[COMP2_CPP]",
+      "command-line-flag": "-comp2",
+      "description": "Composition of a deformation field with a lattice of control points. CPP(DEF(x)). Filename of lattice of control point that contains the second deformation (CPP).",
+      "optional": true
+    },
+    {
+      "id": "comp2_def",
+      "name": "DEF for Composition 2",
+      "type": "File",
+      "value-key": "[COMP2_DEF]",
+      "description": "Filename of the deformation field to be used as initial deformation (DEF).",
+      "optional": true
+    },
+    {
+      "id": "comp2_output",
+      "name": "Output for Composition 2",
+      "type": "String",
+      "value-key": "[COMP2_OUTPUT]",
+      "description": "Filename of the output deformation field.",
+      "optional": true
+    },
+    {
+      "id": "comp3_def2",
+      "name": "Second DEF for Composition 3",
+      "type": "File",
+      "value-key": "[COMP3_DEF2]",
+      "command-line-flag": "-comp3",
+      "description": "Composition of two deformation fields. DEF2(DEF1(x)). Filename of the second deformation field (DEF2).",
+      "optional": true
+    },
+    {
+      "id": "comp3_def1",
+      "name": "First DEF for Composition 3",
+      "type": "File",
+      "value-key": "[COMP3_DEF1]",
+      "description": "Filename of the first deformation field (DEF1).",
+      "optional": true
+    },
+    {
+      "id": "comp3_output",
+      "name": "Output for Composition 3",
+      "type": "String",
+      "value-key": "[COMP3_OUTPUT]",
+      "description": "Filename of the output deformation field.",
+      "optional": true
+    },
+    {
+      "id": "def2disp_input",
+      "name": "DEF to DISP Input",
+      "type": "File",
+      "value-key": "[DEF2DISP_INPUT]",
+      "command-line-flag": "-def2disp",
+      "description": "Convert a deformation field into a displacement field. Filename of deformation field x'=T(x).",
+      "optional": true
+    },
+    {
+      "id": "def2disp_output",
+      "name": "DEF to DISP Output",
+      "type": "String",
+      "value-key": "[DEF2DISP_OUTPUT]",
+      "description": "Filename of displacement field x'=x+T(x).",
+      "optional": true
+    },
+    {
+      "id": "disp2def_input",
+      "name": "DISP to DEF Input",
+      "type": "File",
+      "value-key": "[DISP2DEF_INPUT]",
+      "command-line-flag": "-disp2def",
+      "description": "Convert a displacement field into a deformation field. Filename of displacement field x'=x+T(x).",
+      "optional": true
+    },
+    {
+      "id": "disp2def_output",
+      "name": "DISP to DEF Output",
+      "type": "String",
+      "value-key": "[DISP2DEF_OUTPUT]",
+      "description": "Filename of deformation field x'=T(x).",
+      "optional": true
+    },
+    {
+      "id": "upd_sform_image",
+      "name": "Update Sform Image",
+      "type": "File",
+      "value-key": "[UPD_SFORM_IMAGE]",
+      "command-line-flag": "-updSform",
+      "description": "Update the sform of a floating (source) image using an affine transformation. Filename of image to be updated.",
+      "optional": true
+    },
+    {
+      "id": "upd_sform_affine",
+      "name": "Update Sform Affine",
+      "type": "File",
+      "value-key": "[UPD_SFORM_AFFINE]",
+      "description": "Affine transformation defined as Affine x Reference = Floating. Filename of affine transformation.",
+      "optional": true
+    },
+    {
+      "id": "upd_sform_output",
+      "name": "Update Sform Output",
+      "type": "String",
+      "value-key": "[UPD_SFORM_OUTPUT]",
+      "description": "Updated image filename.",
+      "optional": true
+    },
+    {
+      "id": "aff2def_affine",
+      "name": "Affine for Aff2Def",
+      "type": "File",
+      "value-key": "[AFF2DEF_AFFINE]",
+      "command-line-flag": "-aff2def",
+      "description": "Compose a non-rigid with an affine. Filename of affine transformation.",
+      "optional": true
+    },
+    {
+      "id": "aff2def_target",
+      "name": "Target for Aff2Def",
+      "type": "File",
+      "value-key": "[AFF2DEF_TARGET]",
+      "description": "Image used as a target for the non-rigid step.",
+      "optional": true
+    },
+    {
+      "id": "aff2def_cpp_or_def",
+      "name": "CPP or DEF for Aff2Def",
+      "type": "File",
+      "value-key": "[AFF2DEF_CPP_OR_DEF]",
+      "description": "Reference image (B). Filename of control point position or deformation field.",
+      "optional": true
+    },
+    {
+      "id": "aff2def_output",
+      "name": "Output for Aff2Def",
+      "type": "String",
+      "value-key": "[AFF2DEF_OUTPUT]",
+      "description": "Output deformation field filename.",
+      "optional": true
+    },
+    {
+      "id": "inv_affine_input",
+      "name": "Input Affine for Inversion",
+      "type": "File",
+      "value-key": "[INV_AFFINE_INPUT]",
+      "command-line-flag": "-invAffine",
+      "description": "Invert an affine transformation matrix. Filename of input affine matrix.",
+      "optional": true
+    },
+    {
+      "id": "inv_affine_output",
+      "name": "Output Affine for Inversion",
+      "type": "String",
+      "value-key": "[INV_AFFINE_OUTPUT]",
+      "description": "Filename of inverted affine matrix.",
+      "optional": true
+    },
+    {
+      "id": "comp_aff_1st",
+      "name": "First Affine for Composition",
+      "type": "File",
+      "value-key": "[COMP_AFF_1ST]",
+      "command-line-flag": "-compAff",
+      "description": "Compose two affine transformation matrices. Filename of first affine matrix.",
+      "optional": true
+    },
+    {
+      "id": "comp_aff_2nd",
+      "name": "Second Affine for Composition",
+      "type": "File",
+      "value-key": "[COMP_AFF_2ND]",
+      "description": "Filename of second affine matrix.",
+      "optional": true
+    },
+    {
+      "id": "comp_aff_output",
+      "name": "Output Affine for Composition",
+      "type": "String",
+      "value-key": "[COMP_AFF_OUTPUT]",
+      "description": "Filename of composed affine matrix result.",
+      "optional": true
+    }
+  ],
+  "output-files": [
+    {
+      "id": "cpp2def_output_file",
+      "name": "CPP to DEF Output File",
+      "path-template": "[CPP2DEF_OUTPUT]",
+      "description": "File containing the CPP to DEF converted deformation field."
+    },
+    {
+      "id": "comp1_output_file",
+      "name": "Composition 1 Output File",
+      "path-template": "[COMP1_OUTPUT]",
+      "description": "File containing the composed deformation field from two control point lattices."
+    },
+    {
+      "id": "comp2_output_file",
+      "name": "Composition 2 Output File",
+      "path-template": "[COMP2_OUTPUT]",
+      "description": "File containing the composed deformation field from a deformation field and a control point lattice."
+    },
+    {
+      "id": "comp3_output_file",
+      "name": "Composition 3 Output File",
+      "path-template": "[COMP3_OUTPUT]",
+      "description": "File containing the composed deformation field from two deformation fields."
+    },
+    {
+      "id": "def2disp_output_file",
+      "name": "DEF to DISP Output File",
+      "path-template": "[DEF2DISP_OUTPUT]",
+      "description": "File containing the converted displacement field from a deformation field."
+    },
+    {
+      "id": "disp2def_output_file",
+      "name": "DISP to DEF Output File",
+      "path-template": "[DISP2DEF_OUTPUT]",
+      "description": "File containing the converted deformation field from a displacement field."
+    },
+    {
+      "id": "upd_sform_output_file",
+      "name": "Update Sform Output File",
+      "path-template": "[UPD_SFORM_OUTPUT]",
+      "description": "File containing the updated image with modified sform."
+    },
+    {
+      "id": "aff2def_output_file",
+      "name": "AFF to DEF Output File",
+      "path-template": "[AFF2DEF_OUTPUT]",
+      "description": "File containing the composed deformation field from a non-rigid and an affine transformation."
+    },
+    {
+      "id": "inv_affine_output_file",
+      "name": "Inverted Affine Output File",
+      "path-template": "[INV_AFFINE_OUTPUT]",
+      "description": "File containing the inverted affine matrix."
+    },
+    {
+      "id": "comp_aff_output_file",
+      "name": "Composed Affine Output File",
+      "path-template": "[COMP_AFF_OUTPUT]",
+      "description": "File containing the composed affine matrix."
+    }
+  ]
+}

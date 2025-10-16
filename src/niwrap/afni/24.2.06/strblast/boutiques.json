@@ -1,0 +1,69 @@
+{
+  "name": "strblast",
+  "author": "AFNI Developers",
+  "description": "Finds exact copies of the target string in each of the input files, and replaces all characters with some junk string.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "strblast [TARGETSTRING] [INPUT_FILES] [NEW_CHAR] [NEW_STRING] [UNESCAPE] [QUIET] [HELP]",
+  "inputs": [
+    {
+      "description": "Target string to search for in the input files.",
+      "value-key": "[TARGETSTRING]",
+      "type": "String",
+      "optional": false,
+      "id": "targetstring",
+      "name": "Target String"
+    },
+    {
+      "description": "Input files to search for the target string.",
+      "value-key": "[INPUT_FILES]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "input_files",
+      "name": "Input Files"
+    },
+    {
+      "command-line-flag": "-new_char",
+      "description": "Replace TARGETSTRING with CHAR (repeated)",
+      "value-key": "[NEW_CHAR]",
+      "type": "String",
+      "optional": true,
+      "id": "new_char",
+      "name": "New Character"
+    },
+    {
+      "command-line-flag": "-new_string",
+      "description": "Replace TARGETSTRING with STRING",
+      "value-key": "[NEW_STRING]",
+      "type": "String",
+      "optional": true,
+      "id": "new_string",
+      "name": "New String"
+    },
+    {
+      "command-line-flag": "-unescape",
+      "description": "Parse TARGETSTRING for escaped characters (includes '\\t', '\\n', '\\r')",
+      "value-key": "[UNESCAPE]",
+      "type": "Flag",
+      "id": "unescape",
+      "name": "Unescape Flag"
+    },
+    {
+      "command-line-flag": "-quiet",
+      "description": "Do not report files with no strings found. Use -quiet -quiet to avoid any reporting.",
+      "value-key": "[QUIET]",
+      "type": "Flag",
+      "id": "quiet",
+      "name": "Quiet Flag"
+    },
+    {
+      "command-line-flag": "-help",
+      "description": "Show help message and exit.",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help Flag"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

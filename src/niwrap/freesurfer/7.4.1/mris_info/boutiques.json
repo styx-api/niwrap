@@ -1,0 +1,222 @@
+{
+  "name": "mris_info",
+  "author": "FreeSurfer Developers",
+  "description": "Prints out information about a surface file.",
+  "command-line": "mris_info [SURFACEFILE] [OUTFILE] [SUBJECT_HEMI_SURFNAME] [TALAIRACH_XFM_FLAG] [RESCALE_FLAG] [PATCHFILE] [VERTEX_NUMBER] [EXTENDED_VERTEX_NUMBER] [CURVFILE] [ANNOTFILE] [AREA_STATS_FLAG] [EDGE_STATS_ID] [EDGE_NUMBER] [VTXNO] [MATRIX_FORMAT] [QUALITY_STATS_FLAG] [INTERSECTIONS_FLAG] [MASK_FILE] [LABEL_FILE] [EDGE_FILE] [NOGIFTI_FLAG] [VERSION_FLAG] [HELP_FLAG]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "value-key": "[SURFACEFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "surfacefile",
+      "name": "Surface file",
+      "description": "Surface file to process"
+    },
+    {
+      "command-line-flag": "--o",
+      "value-key": "[OUTFILE]",
+      "type": "File",
+      "optional": true,
+      "id": "outfile",
+      "name": "Outfile",
+      "description": "Save some data to outfile"
+    },
+    {
+      "command-line-flag": "--s",
+      "value-key": "[SUBJECT_HEMI_SURFNAME]",
+      "type": "String",
+      "optional": true,
+      "id": "subject_hemi_surfname",
+      "name": "Subject hemi surfname",
+      "description": "Instead of surfacefile"
+    },
+    {
+      "command-line-flag": "--t",
+      "value-key": "[TALAIRACH_XFM_FLAG]",
+      "type": "Flag",
+      "id": "talairach_xfm_flag",
+      "name": "Talairach XFM flag",
+      "description": "Apply talairach xfm before reporting info"
+    },
+    {
+      "command-line-flag": "--r",
+      "value-key": "[RESCALE_FLAG]",
+      "type": "Flag",
+      "id": "rescale_flag",
+      "name": "Rescale flag",
+      "description": "Rescale group surface to match average metrics"
+    },
+    {
+      "command-line-flag": "--patch",
+      "value-key": "[PATCHFILE]",
+      "type": "File",
+      "optional": true,
+      "id": "patchfile",
+      "name": "Patch file",
+      "description": "Load patch before reporting"
+    },
+    {
+      "command-line-flag": "--v",
+      "value-key": "[VERTEX_NUMBER]",
+      "type": "Number",
+      "optional": true,
+      "id": "vertex_number",
+      "name": "Vertex number",
+      "description": "Print out vertex information for vertex vnum"
+    },
+    {
+      "command-line-flag": "--vx",
+      "value-key": "[EXTENDED_VERTEX_NUMBER]",
+      "type": "Number",
+      "optional": true,
+      "id": "extended_vertex_number",
+      "name": "Extended vertex number",
+      "description": "Print out extended vertex information for vertex vnum"
+    },
+    {
+      "command-line-flag": "--c",
+      "value-key": "[CURVFILE]",
+      "type": "File",
+      "optional": true,
+      "id": "curvfile",
+      "name": "Curvature file",
+      "description": "Check if curvature file vertices match surface vertices"
+    },
+    {
+      "command-line-flag": "--a",
+      "value-key": "[ANNOTFILE]",
+      "type": "File",
+      "optional": true,
+      "id": "annotfile",
+      "name": "Annotation file",
+      "description": "Check if annotation file vertices match surface vertices; dump colortable"
+    },
+    {
+      "command-line-flag": "--area-stats",
+      "value-key": "[AREA_STATS_FLAG]",
+      "type": "Flag",
+      "id": "area_stats_flag",
+      "name": "Area stats flag",
+      "description": "Compute stats on triangle area (n, mean, std, min, max)"
+    },
+    {
+      "command-line-flag": "--edge-stats",
+      "value-key": "[EDGE_STATS_ID]",
+      "type": "String",
+      "optional": true,
+      "id": "edge_stats_id",
+      "name": "Edge metric ID",
+      "description": "Compute stats on edge metric (n, mean, std, min, max); id=0=length, id=1=dot, id=2=angle, id<0= all"
+    },
+    {
+      "command-line-flag": "--ex",
+      "value-key": "[EDGE_NUMBER]",
+      "type": "Number",
+      "optional": true,
+      "id": "edge_number",
+      "name": "Edge number",
+      "description": "Print out extended information about edge"
+    },
+    {
+      "command-line-flag": "--v-matlab",
+      "value-key": "[VTXNO]",
+      "type": "String",
+      "optional": true,
+      "id": "vtxno",
+      "name": "Vertex number for Matlab",
+      "description": "Write Matlab file to plot vertex neighborhood"
+    },
+    {
+      "command-line-flag": "--mtx-fmt",
+      "value-key": "[MATRIX_FORMAT]",
+      "type": "String",
+      "optional": true,
+      "id": "matrix_format",
+      "name": "Matrix format",
+      "description": "Set format for matrix printing (e.g., %12.8f)"
+    },
+    {
+      "command-line-flag": "--quality",
+      "value-key": "[QUALITY_STATS_FLAG]",
+      "type": "Flag",
+      "id": "quality_stats_flag",
+      "name": "Quality stats flag",
+      "description": "Print out surface quality stats"
+    },
+    {
+      "command-line-flag": "--intersections",
+      "value-key": "[INTERSECTIONS_FLAG]",
+      "type": "Flag",
+      "id": "intersections_flag",
+      "name": "Intersections flag",
+      "description": "Print the number of vertices that belong to a face that intersects another face"
+    },
+    {
+      "command-line-flag": "--mask",
+      "value-key": "[MASK_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "mask_file",
+      "name": "Mask file",
+      "description": "Only compute edge and area stats using vertices in mask"
+    },
+    {
+      "command-line-flag": "--label",
+      "value-key": "[LABEL_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "label_file",
+      "name": "Label file",
+      "description": "Only compute edge and area stats using vertices in label"
+    },
+    {
+      "command-line-flag": "--edge-file",
+      "value-key": "[EDGE_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "edge_file",
+      "name": "Edge file",
+      "description": "Print edge info for all edges into file"
+    },
+    {
+      "command-line-flag": "--nogifti-disp-image",
+      "value-key": "[NOGIFTI_FLAG]",
+      "type": "Flag",
+      "id": "nogifti_flag",
+      "name": "No GIFTI display flag",
+      "description": "No dump of GIFTI struct, read .gii as surface instead"
+    },
+    {
+      "command-line-flag": "--version",
+      "value-key": "[VERSION_FLAG]",
+      "type": "Flag",
+      "id": "version_flag",
+      "name": "Version flag",
+      "description": "Print version and exits"
+    },
+    {
+      "command-line-flag": "--help",
+      "value-key": "[HELP_FLAG]",
+      "type": "Flag",
+      "id": "help_flag",
+      "name": "Help flag",
+      "description": "No clue what this does"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTFILE]",
+      "description": "Output file containing saved data",
+      "id": "output_file",
+      "name": "Output file"
+    },
+    {
+      "path-template": "[EDGE_FILE]",
+      "description": "File containing edge info",
+      "id": "output_edge_file",
+      "name": "Output edge file"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

@@ -1,0 +1,35 @@
+{
+  "name": "reg_average",
+  "author": "NiftyReg Developers",
+  "description": "Command line program to average either images or affine transformations",
+  "url": "http://cmictig.cs.ucl.ac.uk/wiki/index.php/NiftyReg",
+  "command-line": "reg_average [OUTPUT_FILE] [INPUT_FILES]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "output_file",
+      "name": "Output File",
+      "type": "String",
+      "value-key": "[OUTPUT_FILE]",
+      "description": "Filename of the output image or affine transformation",
+      "optional": false
+    },
+    {
+      "id": "input_files",
+      "name": "Input Files",
+      "type": "File",
+      "value-key": "[INPUT_FILES]",
+      "list": true,
+      "description": "Input file names (images or affine matrices) to be averaged",
+      "optional": false
+    }
+  ],
+  "output-files": [
+    {
+      "id": "output_file_location",
+      "name": "Output File Location",
+      "path-template": "[OUTPUT_FILE]",
+      "description": "The averaged output file (image or affine transformation)"
+    }
+  ]
+}

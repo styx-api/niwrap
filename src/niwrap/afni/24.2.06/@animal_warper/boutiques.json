@@ -1,0 +1,356 @@
+{
+  "name": "@animal_warper",
+  "author": "AFNI Developers",
+  "description": "Align a subject structural dataset to a template and perform several post-alignment operations",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "@animal_warper [INPUT_FILE] [BASE_TEMPLATE] [OUTPUT_DIR] [BRAINMASK] [ATLASES] [ATLAS_FOLLOWERS] [SEG_FOLLOWERS] [TEMPLATE_FOLLOWERS] [DSET_FOLLOWERS] [ROIDSET_FOLLOWERS] [INPUT_ABBREV] [BASE_ABBREV] [ATLAS_ABBREVS] [TEMPLATE_ABBREVS] [SEG_ABBREVS] [DSET_ABBREVS] [ROIDSET_ABBREVS] [ALIGN_CENTERS_METH] [AFF_MOVE_OPT] [COST] [MAXLEV] [NO_SURFACES] [FEATURE_SIZE] [SUPERSIZE] [INIT_SCALE] [MODE_SMOOTH_SIZE] [MODE_SMOOTH_REPLACEMENT_OFF] [CENTER_OUT] [ALIGN_TYPE] [EXTRA_QW_OPTS] [KEEP_TEMP] [VERSION] [OK_TO_EXIST] [ECHO]",
+  "inputs": [
+    {
+      "description": "input dataset to align to base template",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input File"
+    },
+    {
+      "description": "base dataset (template) to align with",
+      "value-key": "[BASE_TEMPLATE]",
+      "type": "File",
+      "optional": false,
+      "id": "base_template",
+      "name": "Base Template"
+    },
+    {
+      "description": "output directory where all processing will be performed",
+      "value-key": "[OUTPUT_DIR]",
+      "type": "String",
+      "optional": false,
+      "id": "output_dir",
+      "name": "Output Directory"
+    },
+    {
+      "description": "provide a brainmask in the base template space",
+      "value-key": "[BRAINMASK]",
+      "type": "File",
+      "optional": true,
+      "id": "brainmask",
+      "name": "Brainmask"
+    },
+    {
+      "description": "one or more atlas datasets in the base volume space",
+      "command-line-flag": "-atlas",
+      "value-key": "[ATLASES]",
+      "type": "File",
+      "list": true,
+      "optional": true,
+      "id": "atlases",
+      "name": "Atlas Datasets"
+    },
+    {
+      "description": "one or more atlas datasets in the base volume space",
+      "command-line-flag": "-atlas_followers",
+      "value-key": "[ATLAS_FOLLOWERS]",
+      "type": "File",
+      "list": true,
+      "optional": true,
+      "id": "atlas_followers",
+      "name": "Atlas Followers"
+    },
+    {
+      "description": "one or more segmentation datasets in the base volume space",
+      "command-line-flag": "-seg_followers",
+      "value-key": "[SEG_FOLLOWERS]",
+      "type": "File",
+      "list": true,
+      "optional": true,
+      "id": "seg_followers",
+      "name": "Segmentation Followers"
+    },
+    {
+      "description": "one or more datasets in the template volume space",
+      "command-line-flag": "-template_followers",
+      "value-key": "[TEMPLATE_FOLLOWERS]",
+      "type": "File",
+      "list": true,
+      "optional": true,
+      "id": "template_followers",
+      "name": "Template Followers"
+    },
+    {
+      "description": "one or more datasets in the input volume space",
+      "command-line-flag": "-dset_followers",
+      "value-key": "[DSET_FOLLOWERS]",
+      "type": "File",
+      "list": true,
+      "optional": true,
+      "id": "dset_followers",
+      "name": "Dataset Followers"
+    },
+    {
+      "description": "one or more (int-valued) datasets in the input volume space",
+      "command-line-flag": "-roidset_followers",
+      "value-key": "[ROIDSET_FOLLOWERS]",
+      "type": "File",
+      "list": true,
+      "optional": true,
+      "id": "roidset_followers",
+      "name": "ROIDSET Followers"
+    },
+    {
+      "description": "specify abbreviation for input dataset",
+      "command-line-flag": "-input_abbrev",
+      "value-key": "[INPUT_ABBREV]",
+      "type": "String",
+      "optional": true,
+      "id": "input_abbrev",
+      "name": "Input Abbreviation"
+    },
+    {
+      "description": "specify abbreviation for base dataset",
+      "command-line-flag": "-base_abbrev",
+      "value-key": "[BASE_ABBREV]",
+      "type": "String",
+      "optional": true,
+      "id": "base_abbrev",
+      "name": "Base Abbreviation"
+    },
+    {
+      "description": "specify an abbreviation for each atlas follower dataset",
+      "command-line-flag": "-atlas_abbrevs",
+      "value-key": "[ATLAS_ABBREVS]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "atlas_abbrevs",
+      "name": "Atlas Abbreviations"
+    },
+    {
+      "description": "specify an abbreviation for each template follower dataset",
+      "command-line-flag": "-template_abbrevs",
+      "value-key": "[TEMPLATE_ABBREVS]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "template_abbrevs",
+      "name": "Template Abbreviations"
+    },
+    {
+      "description": "specify an abbreviation for each segmentation follower dataset",
+      "command-line-flag": "-seg_abbrevs",
+      "value-key": "[SEG_ABBREVS]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "seg_abbrevs",
+      "name": "Segmentation Abbreviations"
+    },
+    {
+      "description": "specify an abbreviation for each dataset follower dataset",
+      "command-line-flag": "-dset_abbrevs",
+      "value-key": "[DSET_ABBREVS]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "dset_abbrevs",
+      "name": "Dataset Abbreviations"
+    },
+    {
+      "description": "specify an abbreviation for each ROI dataset follower dataset",
+      "command-line-flag": "-roidset_abbrevs",
+      "value-key": "[ROIDSET_ABBREVS]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "roidset_abbrevs",
+      "name": "ROI Dataset Abbreviations"
+    },
+    {
+      "description": "center alignment method to use",
+      "command-line-flag": "-align_centers_meth",
+      "value-key": "[ALIGN_CENTERS_METH]",
+      "type": "String",
+      "optional": true,
+      "id": "align_centers_meth",
+      "name": "Align Centers Method"
+    },
+    {
+      "description": "alignment movement options for affine alignment step",
+      "command-line-flag": "-aff_move_opt",
+      "value-key": "[AFF_MOVE_OPT]",
+      "type": "String",
+      "optional": true,
+      "id": "aff_move_opt",
+      "name": "Affine Move Options"
+    },
+    {
+      "description": "cost function for affine and nonlinear alignment",
+      "command-line-flag": "-cost",
+      "value-key": "[COST]",
+      "type": "String",
+      "optional": true,
+      "id": "cost",
+      "name": "Cost Function"
+    },
+    {
+      "description": "Max level for nonlinear warping. Final patch size is determined based on this value.",
+      "command-line-flag": "-maxlev",
+      "value-key": "[MAXLEV]",
+      "type": "Number",
+      "optional": true,
+      "id": "maxlev",
+      "name": "Maximum Level",
+      "maximum": 11,
+      "minimum": 0
+    },
+    {
+      "description": "Do not make surfaces for atlas regions in native space.",
+      "command-line-flag": "-no_surfaces",
+      "value-key": "[NO_SURFACES]",
+      "type": "Flag",
+      "id": "no_surfaces",
+      "name": "No Surfaces Flag"
+    },
+    {
+      "description": "Set feature size for affine alignment (in mm)",
+      "command-line-flag": "-feature_size",
+      "value-key": "[FEATURE_SIZE]",
+      "type": "Number",
+      "optional": true,
+      "id": "feature_size",
+      "name": "Feature Size"
+    },
+    {
+      "description": "Allow up to 50% size difference between subject and template",
+      "command-line-flag": "-supersize",
+      "value-key": "[SUPERSIZE]",
+      "type": "Flag",
+      "id": "supersize",
+      "name": "Supersize Flag"
+    },
+    {
+      "description": "Approximate length ratio of input to template for initial scaling",
+      "command-line-flag": "-init_scale",
+      "value-key": "[INIT_SCALE]",
+      "type": "Number",
+      "optional": true,
+      "id": "init_scale",
+      "name": "Initial Scale"
+    },
+    {
+      "description": "Modal smoothing kernel size in voxels",
+      "command-line-flag": "-mode_smooth_size",
+      "value-key": "[MODE_SMOOTH_SIZE]",
+      "type": "Number",
+      "optional": true,
+      "id": "mode_smooth_size",
+      "name": "Modal Smoothing Size"
+    },
+    {
+      "description": "Turn off replacement in modal smoothing",
+      "command-line-flag": "-mode_smooth_replacement_off",
+      "value-key": "[MODE_SMOOTH_REPLACEMENT_OFF]",
+      "type": "Flag",
+      "id": "mode_smooth_replacement_off",
+      "name": "Mode Smooth Replacement Off Flag"
+    },
+    {
+      "description": "Center native-space output to native original space or template space center-shifted",
+      "command-line-flag": "-center_out",
+      "value-key": "[CENTER_OUT]",
+      "type": "String",
+      "optional": true,
+      "id": "center_out",
+      "name": "Center Output"
+    },
+    {
+      "description": "Specify level of alignment",
+      "command-line-flag": "-align_type",
+      "value-key": "[ALIGN_TYPE]",
+      "type": "String",
+      "optional": true,
+      "id": "align_type",
+      "name": "Align Type"
+    },
+    {
+      "description": "Additional options to add to existing options for 3dQwarp",
+      "command-line-flag": "-extra_qw_opts",
+      "value-key": "[EXTRA_QW_OPTS]",
+      "type": "String",
+      "optional": true,
+      "id": "extra_qw_opts",
+      "name": "Additional 3dQwarp Options"
+    },
+    {
+      "description": "Keep temporary files including awpy directory and other intermediate datasets",
+      "command-line-flag": "-keep_temp",
+      "value-key": "[KEEP_TEMP]",
+      "type": "Flag",
+      "id": "keep_temp",
+      "name": "Keep Temporary Files Flag"
+    },
+    {
+      "description": "Display the program version",
+      "command-line-flag": "-ver",
+      "value-key": "[VERSION]",
+      "type": "Flag",
+      "id": "version",
+      "name": "Version Flag"
+    },
+    {
+      "description": "Reuse and do not overwrite existing datasets",
+      "command-line-flag": "-ok_to_exist",
+      "value-key": "[OK_TO_EXIST]",
+      "type": "Flag",
+      "id": "ok_to_exist",
+      "name": "OK to Exist Flag"
+    },
+    {
+      "description": "Copy all commands being run into the terminal",
+      "command-line-flag": "-echo",
+      "value-key": "[ECHO]",
+      "type": "Flag",
+      "id": "echo",
+      "name": "Echo Flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "aw_results/[INPUT_FILE]_warp2std.nii.gz",
+      "description": "input dataset nonlinearly warped to template",
+      "id": "warp2std",
+      "name": "Warp to Standard"
+    },
+    {
+      "path-template": "aw_results/init_qc_00.input+base.jpg",
+      "description": "initial QC image montage showing overlap of source and base dataset",
+      "id": "qc_image_initial",
+      "name": "QC Initial Image Overlap"
+    },
+    {
+      "path-template": "aw_results/init_qc_01.input_sh+base.jpg",
+      "description": "initial QC image montage after shifting centers of source and base dataset",
+      "id": "qc_image_initial_sh",
+      "name": "QC Initial Image Shift"
+    },
+    {
+      "path-template": "aw_results/DSET_FOLL.nii.gz",
+      "description": "copy(s) of -dset_followers mapped to template space",
+      "id": "dset_followers_out",
+      "name": "Dataset Followers Output"
+    },
+    {
+      "path-template": "aw_results/ROIDSET_FOLL.nii.gz",
+      "description": "copy(s) of -roidset_followers mapped to template space",
+      "id": "roidset_followers_out",
+      "name": "ROIDSET Followers Output"
+    },
+    {
+      "path-template": "aw_results/animal_outs.txt",
+      "description": "guide to data in output directory",
+      "id": "animal_outs_guide",
+      "name": "Animal Outputs Guide"
+    }
+  ]
+}

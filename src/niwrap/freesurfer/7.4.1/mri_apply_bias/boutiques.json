@@ -1,0 +1,42 @@
+{
+  "name": "mri_apply_bias",
+  "description": "A tool for applying a bias volume to an input volume to produce an output volume.",
+  "command-line": "mri_apply_bias [INPUT_VOLUME] [BIAS_VOLUME] [OUTPUT_VOLUME]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "input_volume",
+      "name": "Input Volume",
+      "description": "The input volume file",
+      "value-key": "[INPUT_VOLUME]",
+      "type": "File",
+      "optional": false
+    },
+    {
+      "id": "bias_volume",
+      "name": "Bias Volume",
+      "description": "The bias volume file",
+      "value-key": "[BIAS_VOLUME]",
+      "type": "File",
+      "optional": false
+    },
+    {
+      "id": "output_volume",
+      "name": "Output Volume",
+      "description": "The output volume file",
+      "value-key": "[OUTPUT_VOLUME]",
+      "type": "String",
+      "optional": false
+    }
+  ],
+  "output-files": [
+    {
+      "id": "output_volume_file",
+      "name": "Output Volume File",
+      "description": "Output volume after applying bias",
+      "path-template": "[OUTPUT_VOLUME]"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

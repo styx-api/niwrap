@@ -1,0 +1,95 @@
+{
+  "name": "long_stats_combine",
+  "author": "FreeSurfer Developers",
+  "description": "Adds columns from stats into longitudinal qdec table, using longitudinally processed results.",
+  "command-line": "long_stats_combine [QDEC] [STATS] [MEASURE] [SUBJECT_DIR] [OUTPUT_QDEC] [OUTPUT_STATS] [INPUT_STATS] [CROSS_SECTIONAL]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--qdec",
+      "description": "QDEC table file specifying the subjects and time points. File has first columns: fsid  fsid-base",
+      "value-key": "[QDEC]",
+      "type": "File",
+      "optional": false,
+      "id": "qdec",
+      "name": "QDEC Table File"
+    },
+    {
+      "command-line-flag": "--stats",
+      "description": "The stats file, e.g. aseg.stats or lh.aparc.stats",
+      "value-key": "[STATS]",
+      "type": "String",
+      "optional": false,
+      "id": "stats",
+      "name": "Stats File"
+    },
+    {
+      "command-line-flag": "--meas",
+      "description": "The stats measure (e.g. volume, thickness, mean, std)",
+      "value-key": "[MEASURE]",
+      "type": "String",
+      "optional": false,
+      "id": "measure",
+      "name": "Measure"
+    },
+    {
+      "command-line-flag": "--sd",
+      "description": "Full path to FreeSurfer subjects directory",
+      "value-key": "[SUBJECT_DIR]",
+      "type": "String",
+      "optional": false,
+      "id": "subject_dir",
+      "name": "Subject Directory"
+    },
+    {
+      "command-line-flag": "--outqdec",
+      "description": "File name of output long qdec table",
+      "value-key": "[OUTPUT_QDEC]",
+      "type": "String",
+      "optional": false,
+      "id": "output_qdec",
+      "name": "Output QDEC Table"
+    },
+    {
+      "command-line-flag": "--outstats",
+      "description": "File name to output stacked stats table (all subjects, all time points)",
+      "value-key": "[OUTPUT_STATS]",
+      "type": "String",
+      "optional": true,
+      "id": "output_stats",
+      "name": "Output Stats Table"
+    },
+    {
+      "command-line-flag": "--instats",
+      "description": "File name of stacked stats table (same order as qdec), instead of using --stats and --meas",
+      "value-key": "[INPUT_STATS]",
+      "type": "File",
+      "optional": true,
+      "id": "input_stats",
+      "name": "Input Stacked Stats Table"
+    },
+    {
+      "command-line-flag": "--cross",
+      "description": "Use cross sectional results (for testing only)",
+      "value-key": "[CROSS_SECTIONAL]",
+      "type": "Flag",
+      "id": "cross_sectional",
+      "name": "Cross Sectional Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_QDEC]",
+      "description": "Output long qdec table",
+      "id": "output_qdec_file",
+      "name": "Output QDEC Table File"
+    },
+    {
+      "path-template": "[OUTPUT_STATS]",
+      "description": "Stacked stats table for all subjects, all time points",
+      "id": "output_stacked_stats_file",
+      "name": "Output Stacked Stats Table"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

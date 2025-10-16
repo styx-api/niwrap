@@ -1,0 +1,460 @@
+{
+  "name": "mri_volcluster",
+  "description": "A tool for finding clusters in a volume, useful for analyzing MRI data.",
+  "command-line": "mri_volcluster [INPUT_FILE] [SUMMARY_FILE] [OUTPUT_VOLID] [OUTPUT_CLUSTER_NUM_VOLID] [CWSIG_VOLID] [POINTSET_FILE] [MIN_THRESHOLD] [MAX_THRESHOLD] [SIGN] [NO_ADJUST_FLAG] [MATCH_VALUE] [CWPVAL_THRESHOLD] [REGISTRATION_FILE] [MNI152REG_FLAG] [REGHEADER_SUBJECT] [FSAVERAGE_FLAG] [FRAME_NUMBER] [CSD_FILES] [CWSIG_MAP] [VWSIG_MAP] [MAX_CWPVAL_FILE] [CSDPDF_FILE] [CSDPDF_ONLY_FLAG] [FWHM_VALUE] [FWHM_FILE] [MIN_SIZE] [MIN_SIZE_VOX] [MIN_DISTANCE] [ALLOW_DIAG_FLAG] [BONFERRONI_NUMBER] [BONFERRONI_MAX_NUMBER] [SIG2P_MAX_FLAG] [GTE_FLAG] [MASK_VOLID] [MASK_TYPE] [MASK_FRAME] [MASK_THRESHOLD] [MASK_SIGN] [MASK_INVERT_FLAG] [OUT_MASK_VOLID] [OUT_MASK_TYPE] [LABEL_FILE] [NLABEL_CLUSTER] [LABEL_BASE] [SYNTH_FUNC] [DIAGNOSTIC_LEVEL] [FILL_PARAMS] [HELP_FLAG]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "input_file",
+      "name": "Input File",
+      "type": "File",
+      "value-key": "[INPUT_FILE]",
+      "description": "Source of volume values.",
+      "command-line-flag": "--in",
+      "optional": false
+    },
+    {
+      "id": "summary_file",
+      "name": "Summary File",
+      "type": "String",
+      "value-key": "[SUMMARY_FILE]",
+      "description": "Text summary file.",
+      "command-line-flag": "--sum",
+      "optional": true
+    },
+    {
+      "id": "output_volid",
+      "name": "Output VolID",
+      "type": "String",
+      "value-key": "[OUTPUT_VOLID]",
+      "description": "Output volume ID after clustering.",
+      "command-line-flag": "--out",
+      "optional": true
+    },
+    {
+      "id": "output_cluster_num_volid",
+      "name": "Output Cluster Number VolID",
+      "type": "String",
+      "value-key": "[OUTPUT_CLUSTER_NUM_VOLID]",
+      "description": "Output volume ID with cluster number values.",
+      "command-line-flag": "--ocn",
+      "optional": true
+    },
+    {
+      "id": "cwsig_volid",
+      "name": "Clusterwise Sig VolID",
+      "type": "String",
+      "value-key": "[CWSIG_VOLID]",
+      "description": "Volume ID for clusterwise significance.",
+      "command-line-flag": "--cwsig",
+      "optional": true
+    },
+    {
+      "id": "pointset_file",
+      "name": "Pointset File",
+      "type": "String",
+      "value-key": "[POINTSET_FILE]",
+      "description": "Create a freeview pointset of the clusters.",
+      "command-line-flag": "--pointset",
+      "optional": true
+    },
+    {
+      "id": "min_threshold",
+      "name": "Minimum Threshold",
+      "type": "Number",
+      "value-key": "[MIN_THRESHOLD]",
+      "description": "Minimum intensity threshold.",
+      "command-line-flag": "--thmin",
+      "optional": true
+    },
+    {
+      "id": "max_threshold",
+      "name": "Maximum Threshold",
+      "type": "Number",
+      "value-key": "[MAX_THRESHOLD]",
+      "description": "Maximum intensity threshold.",
+      "command-line-flag": "--thmax",
+      "optional": true
+    },
+    {
+      "id": "sign",
+      "name": "Sign",
+      "type": "String",
+      "value-key": "[SIGN]",
+      "description": "Sign for one-sided tests (<abs>, pos, neg).",
+      "command-line-flag": "--sign",
+      "optional": true
+    },
+    {
+      "id": "no_adjust_flag",
+      "name": "No Adjust Flag",
+      "type": "Flag",
+      "value-key": "[NO_ADJUST_FLAG]",
+      "description": "Do not adjust threshold for one-tailed tests.",
+      "command-line-flag": "--no-adjust"
+    },
+    {
+      "id": "match_value",
+      "name": "Match Value",
+      "type": "Number",
+      "value-key": "[MATCH_VALUE]",
+      "description": "Set thmin=matchval-0.5 and thmax=matchval+0.5.",
+      "command-line-flag": "--match",
+      "optional": true
+    },
+    {
+      "id": "cwpval_threshold",
+      "name": "CWP Value Threshold",
+      "type": "Number",
+      "value-key": "[CWPVAL_THRESHOLD]",
+      "description": "Require clusters to have cwp < threshold.",
+      "command-line-flag": "--cwpvalthresh",
+      "optional": true
+    },
+    {
+      "id": "registration_file",
+      "name": "Registration File",
+      "type": "File",
+      "value-key": "[REGISTRATION_FILE]",
+      "description": "For reporting Talairach coordinates.",
+      "command-line-flag": "--reg",
+      "optional": true
+    },
+    {
+      "id": "mni152reg_flag",
+      "name": "MNI152 Space Flag",
+      "type": "Flag",
+      "value-key": "[MNI152REG_FLAG]",
+      "description": "Input is in MNI152 space.",
+      "command-line-flag": "--mni152reg"
+    },
+    {
+      "id": "regheader_subject",
+      "name": "Regheader Subject",
+      "type": "String",
+      "value-key": "[REGHEADER_SUBJECT]",
+      "description": "Use header registration with subject.",
+      "command-line-flag": "--regheader",
+      "optional": true
+    },
+    {
+      "id": "fsaverage_flag",
+      "name": "FSaverage Space Flag",
+      "type": "Flag",
+      "value-key": "[FSAVERAGE_FLAG]",
+      "description": "Assume input is in fsaverage space.",
+      "command-line-flag": "--fsaverage"
+    },
+    {
+      "id": "frame_number",
+      "name": "Frame Number",
+      "type": "Number",
+      "value-key": "[FRAME_NUMBER]",
+      "description": "Perform cluster analysis on the nth frame (0-based).",
+      "command-line-flag": "--frame",
+      "optional": true
+    },
+    {
+      "id": "csd_files",
+      "name": "CSD Files",
+      "type": "File",
+      "list": true,
+      "value-key": "[CSD_FILES]",
+      "description": "Cluster simulation data files.",
+      "command-line-flag": "--csd",
+      "optional": true
+    },
+    {
+      "id": "cwsig_map",
+      "name": "CWSig Map",
+      "type": "String",
+      "value-key": "[CWSIG_MAP]",
+      "description": "Map of corrected cluster-wise significances.",
+      "command-line-flag": "--cwsig",
+      "optional": true
+    },
+    {
+      "id": "vwsig_map",
+      "name": "VWSig Map",
+      "type": "String",
+      "value-key": "[VWSIG_MAP]",
+      "description": "Map of corrected voxel-wise significances.",
+      "command-line-flag": "--vwsig",
+      "optional": true
+    },
+    {
+      "id": "max_cwpval_file",
+      "name": "Max CWPVal File",
+      "type": "String",
+      "value-key": "[MAX_CWPVAL_FILE]",
+      "description": "Save p-value of the largest cluster.",
+      "command-line-flag": "--maxcwpval",
+      "optional": true
+    },
+    {
+      "id": "csdpdf_file",
+      "name": "CSD PDF File",
+      "type": "String",
+      "value-key": "[CSDPDF_FILE]",
+      "description": "PDF/CDF of cluster and max significance.",
+      "command-line-flag": "--csdpdf",
+      "optional": true
+    },
+    {
+      "id": "csdpdf_only_flag",
+      "name": "CSD PDF Only Flag",
+      "type": "Flag",
+      "value-key": "[CSDPDF_ONLY_FLAG]",
+      "description": "Write CSD PDF file and exit.",
+      "command-line-flag": "--csdpdf-only"
+    },
+    {
+      "id": "fwhm_value",
+      "name": "FWHM Value",
+      "type": "Number",
+      "value-key": "[FWHM_VALUE]",
+      "description": "FWHM in mm^3, forces GRF analysis.",
+      "command-line-flag": "--fwhm",
+      "optional": true
+    },
+    {
+      "id": "fwhm_file",
+      "name": "FWHM File",
+      "type": "File",
+      "value-key": "[FWHM_FILE]",
+      "description": "Text file with FWHM in mm^3 for GRF.",
+      "command-line-flag": "--fwhmdat",
+      "optional": true
+    },
+    {
+      "id": "min_size",
+      "name": "Minimum Size",
+      "type": "Number",
+      "value-key": "[MIN_SIZE]",
+      "description": "Minimum volume (mm^3) for a cluster.",
+      "command-line-flag": "--minsize",
+      "optional": true
+    },
+    {
+      "id": "min_size_vox",
+      "name": "Minimum Size Voxels",
+      "type": "Number",
+      "value-key": "[MIN_SIZE_VOX]",
+      "description": "Minimum number of contiguous voxels for a cluster.",
+      "command-line-flag": "--minsizevox",
+      "optional": true
+    },
+    {
+      "id": "min_distance",
+      "name": "Minimum Distance",
+      "type": "Number",
+      "value-key": "[MIN_DISTANCE]",
+      "description": "Minimum distance between peak clusters.",
+      "command-line-flag": "--mindist",
+      "optional": true
+    },
+    {
+      "id": "allow_diag_flag",
+      "name": "Allow Diagonal Flag",
+      "type": "Flag",
+      "value-key": "[ALLOW_DIAG_FLAG]",
+      "description": "Allow diagonal adjacency for contiguity.",
+      "command-line-flag": "--allowdiag"
+    },
+    {
+      "id": "bonferroni_number",
+      "name": "Bonferroni Number",
+      "type": "Number",
+      "value-key": "[BONFERRONI_NUMBER]",
+      "description": "Bonferroni correction across spaces.",
+      "command-line-flag": "--bonferroni",
+      "optional": true
+    },
+    {
+      "id": "bonferroni_max_number",
+      "name": "Bonferroni Max Number",
+      "type": "Number",
+      "value-key": "[BONFERRONI_MAX_NUMBER]",
+      "description": "Bonferroni correction applied to maximum.",
+      "command-line-flag": "--bonferroni-max",
+      "optional": true
+    },
+    {
+      "id": "sig2p_max_flag",
+      "name": "Sig to P Max Flag",
+      "type": "Flag",
+      "value-key": "[SIG2P_MAX_FLAG]",
+      "description": "Convert maximum significance to p-value.",
+      "command-line-flag": "--sig2p-max"
+    },
+    {
+      "id": "gte_flag",
+      "name": "GTE Flag",
+      "type": "Flag",
+      "value-key": "[GTE_FLAG]",
+      "description": "Use >= when computing p-value from CSD.",
+      "command-line-flag": "--gte"
+    },
+    {
+      "id": "mask_volid",
+      "name": "Mask VolID",
+      "type": "File",
+      "value-key": "[MASK_VOLID]",
+      "description": "Mask volume ID.",
+      "command-line-flag": "--mask",
+      "optional": true
+    },
+    {
+      "id": "mask_type",
+      "name": "Mask Type",
+      "type": "String",
+      "value-key": "[MASK_TYPE]",
+      "description": "File type of mask volume.",
+      "command-line-flag": "--mask_type",
+      "optional": true
+    },
+    {
+      "id": "mask_frame",
+      "name": "Mask Frame",
+      "type": "Number",
+      "value-key": "[MASK_FRAME]",
+      "description": "Nth frame of mask to use.",
+      "command-line-flag": "--maskframe",
+      "optional": true
+    },
+    {
+      "id": "mask_threshold",
+      "name": "Mask Threshold",
+      "type": "Number",
+      "value-key": "[MASK_THRESHOLD]",
+      "description": "Upper threshold for the mask.",
+      "command-line-flag": "--maskthresh",
+      "optional": true
+    },
+    {
+      "id": "mask_sign",
+      "name": "Mask Sign",
+      "type": "String",
+      "value-key": "[MASK_SIGN]",
+      "description": "Sign in mask thresholding (<abs>, neg, pos).",
+      "command-line-flag": "--masksign",
+      "optional": true
+    },
+    {
+      "id": "mask_invert_flag",
+      "name": "Mask Invert Flag",
+      "type": "Flag",
+      "value-key": "[MASK_INVERT_FLAG]",
+      "description": "Invert mask after thresholding.",
+      "command-line-flag": "--maskinvert"
+    },
+    {
+      "id": "out_mask_volid",
+      "name": "Output Mask VolID",
+      "type": "String",
+      "value-key": "[OUT_MASK_VOLID]",
+      "description": "Path for final binary mask.",
+      "command-line-flag": "--outmask",
+      "optional": true
+    },
+    {
+      "id": "out_mask_type",
+      "name": "Output Mask Type",
+      "type": "String",
+      "value-key": "[OUT_MASK_TYPE]",
+      "description": "File type for output mask.",
+      "command-line-flag": "--outmask_type",
+      "optional": true
+    },
+    {
+      "id": "label_file",
+      "name": "Label File",
+      "type": "String",
+      "value-key": "[LABEL_FILE]",
+      "description": "File to save nth cluster as a label.",
+      "command-line-flag": "--label",
+      "optional": true
+    },
+    {
+      "id": "nlabel_cluster",
+      "name": "Nth Label Cluster",
+      "type": "Number",
+      "value-key": "[NLABEL_CLUSTER]",
+      "description": "Save the nth cluster as a label.",
+      "command-line-flag": "--nlabelcluster",
+      "optional": true
+    },
+    {
+      "id": "label_base",
+      "name": "Label Base",
+      "type": "String",
+      "value-key": "[LABEL_BASE]",
+      "description": "Base name for saving clusters as labels.",
+      "command-line-flag": "--labelbase",
+      "optional": true
+    },
+    {
+      "id": "synth_func",
+      "name": "Synthesis Function",
+      "type": "String",
+      "value-key": "[SYNTH_FUNC]",
+      "description": "Function for synthetic data (uniform, loguniform, gaussian).",
+      "command-line-flag": "--synth",
+      "optional": true
+    },
+    {
+      "id": "diagnostic_level",
+      "name": "Diagnostic Level",
+      "type": "Number",
+      "value-key": "[DIAGNOSTIC_LEVEL]",
+      "description": "Set diagnostic level.",
+      "command-line-flag": "--diag",
+      "optional": true
+    },
+    {
+      "id": "fill_params",
+      "name": "Fill Parameters",
+      "type": "String",
+      "value-key": "[FILL_PARAMS]",
+      "description": "Parameters for fill operation (invol outvol matchval).",
+      "command-line-flag": "--fill",
+      "optional": true
+    },
+    {
+      "id": "help_flag",
+      "name": "Help Flag",
+      "type": "Flag",
+      "value-key": "[HELP_FLAG]",
+      "description": "Display help message and exit.",
+      "command-line-flag": "--help"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_VOLID]",
+      "description": "Output volume after clustering.",
+      "id": "output_volume",
+      "name": "Output Volume"
+    },
+    {
+      "path-template": "[OUTPUT_CLUSTER_NUM_VOLID]",
+      "description": "Output cluster number volume.",
+      "id": "output_cluster_number_volume",
+      "name": "Output Cluster Number Volume"
+    },
+    {
+      "path-template": "[OUT_MASK_VOLID]",
+      "description": "Final binary mask output.",
+      "id": "output_binary_mask",
+      "name": "Output Binary Mask"
+    },
+    {
+      "path-template": "[LABEL_FILE]",
+      "description": "Saved cluster as label file.",
+      "id": "output_label_file",
+      "name": "Output Label File"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

@@ -1,0 +1,201 @@
+{
+  "name": "MakeColorMap",
+  "author": "AFNI Developers",
+  "description": "Utility for creating and modifying colormaps with various formats and fiducial points",
+  "command-line": "MakeColorMap [FIDUCIALS_NCOL] [FIDUCIALS] [NUM_COLORS] [STD_MAPNAME] [PALETTE_FILE] [CMAP_NAME] [FSCOLUT_LABELS] [FSCOLUT_FILE] [AFNI_HEX] [AFNI_HEX_COMPLETE] [SUMA_COLORMAP] [USER_COLUT_FILE] [SDSET] [SDSET_PREFIX] [FLIPUPDOWN] [SKIP_LAST] [SHOW_FSCOLUT] [HELP_FLAG] [HELP_FULL_FLAG] [FLIP_MAP_UPDSIDE_DOWN]",
+  "inputs": [
+    {
+      "command-line-flag": "-fn",
+      "description": "Fiducial colors and their indices in the color map are listed in file Fiducials_Ncol.",
+      "value-key": "[FIDUCIALS_NCOL]",
+      "type": "File",
+      "optional": true,
+      "id": "fiducials_ncol",
+      "name": "Fiducials Ncol"
+    },
+    {
+      "command-line-flag": "-f",
+      "description": "Fiducial colors are listed in an ascii file Fiducials.",
+      "value-key": "[FIDUCIALS]",
+      "type": "File",
+      "optional": true,
+      "id": "fiducials",
+      "name": "Fiducials"
+    },
+    {
+      "command-line-flag": "-nc",
+      "description": "Total number of colors in the color map.",
+      "value-key": "[NUM_COLORS]",
+      "type": "Number",
+      "optional": true,
+      "id": "num_colors",
+      "name": "Number of Colors"
+    },
+    {
+      "command-line-flag": "-std",
+      "description": "Returns one of SUMA's standard colormaps.",
+      "value-key": "[STD_MAPNAME]",
+      "type": "String",
+      "optional": true,
+      "id": "std_mapname",
+      "name": "Standard Map Name"
+    },
+    {
+      "command-line-flag": "-cmapdb",
+      "description": "Specify the palette file for colormap.",
+      "value-key": "[PALETTE_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "palette_file",
+      "name": "Palette File"
+    },
+    {
+      "command-line-flag": "-cmap",
+      "description": "Specify the colormap name.",
+      "value-key": "[CMAP_NAME]",
+      "type": "String",
+      "optional": true,
+      "id": "cmap_name",
+      "name": "Colormap Name"
+    },
+    {
+      "command-line-flag": "-fscolut",
+      "description": "Get AFNI/SUMA colormaps of FreeSurfer colors indexed between lbl0 and lbl1.",
+      "value-key": "[FSCOLUT_LABELS]",
+      "type": "Number",
+      "list": true,
+      "min-list-entries": 2,
+      "max-list-entries": 2,
+      "optional": true,
+      "id": "fscolut_labels",
+      "name": "FSColut Labels"
+    },
+    {
+      "command-line-flag": "-fscolutfile",
+      "description": "Use color LUT file FS_COL_LUT.",
+      "value-key": "[FSCOLUT_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "fscolut_file",
+      "name": "FSColut File"
+    },
+    {
+      "command-line-flag": "-ah",
+      "description": "Afni Hex format. Use this option if you want a color map formatted to fit in AFNI's .afnirc file",
+      "value-key": "[AFNI_HEX]",
+      "type": "String",
+      "optional": true,
+      "id": "afni_hex",
+      "name": "AFNI Hex Format"
+    },
+    {
+      "command-line-flag": "-ahc",
+      "description": "Afni Hex format, ready to go into pbardefs.h.",
+      "value-key": "[AFNI_HEX_COMPLETE]",
+      "type": "String",
+      "optional": true,
+      "id": "afni_hex_complete",
+      "name": "Complete AFNI Hex Format"
+    },
+    {
+      "command-line-flag": "-suma_cmap",
+      "description": "Write colormap in SUMA's format.",
+      "value-key": "[SUMA_COLORMAP]",
+      "type": "String",
+      "optional": true,
+      "id": "suma_colormap",
+      "name": "SUMA Colormap"
+    },
+    {
+      "command-line-flag": "-usercolutfile",
+      "description": "Provide a user's own color lookup file.",
+      "value-key": "[USER_COLUT_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "user_colut_file",
+      "name": "User Color LUT File"
+    },
+    {
+      "command-line-flag": "-sdset",
+      "description": "Add colormap to surface-based dataset DSET, making it a labeled dataset.",
+      "value-key": "[SDSET]",
+      "type": "File",
+      "optional": true,
+      "id": "sdset",
+      "name": "Surface-based Dataset"
+    },
+    {
+      "command-line-flag": "-sdset_prefix",
+      "description": "Prefix of dset for writing labeled version of DSET.",
+      "value-key": "[SDSET_PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "sdset_prefix",
+      "name": "Surface Dataset Prefix"
+    },
+    {
+      "command-line-flag": "-flipud",
+      "description": "Flip the map upside down.",
+      "value-key": "[FLIPUPDOWN]",
+      "type": "Flag",
+      "id": "flipupdown",
+      "name": "Flip Upside-down Flag"
+    },
+    {
+      "command-line-flag": "-sl",
+      "description": "If used, the last color in the Fiducial list is omitted.",
+      "value-key": "[SKIP_LAST]",
+      "type": "Flag",
+      "id": "skip_last",
+      "name": "Skip Last Color Flag"
+    },
+    {
+      "command-line-flag": "-show_fscolut",
+      "description": "Show all of the FreeSurfer LUT.",
+      "value-key": "[SHOW_FSCOLUT]",
+      "type": "Flag",
+      "id": "show_fscolut",
+      "name": "Show FSColut Flag"
+    },
+    {
+      "command-line-flag": "-h",
+      "description": "Displays the help message.",
+      "value-key": "[HELP_FLAG]",
+      "type": "Flag",
+      "id": "help_flag",
+      "name": "Help Flag"
+    },
+    {
+      "command-line-flag": "-help",
+      "description": "Displays the help message.",
+      "value-key": "[HELP_FULL_FLAG]",
+      "type": "Flag",
+      "id": "help_full_flag",
+      "name": "Full Help Flag"
+    },
+    {
+      "command-line-flag": "-flipud",
+      "description": "Flip the map upside down.",
+      "value-key": "[FLIP_MAP_UPDSIDE_DOWN]",
+      "type": "Flag",
+      "id": "flip_map_updside_down",
+      "name": "Flip Map Upside Down Flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[AFNI_HEX]_01",
+      "description": "Prefix for individual color values in AFNI Hex format.",
+      "id": "afni_hex_output_prefix",
+      "name": "AFNI Hex Output Prefix"
+    },
+    {
+      "path-template": "TestPalette.pal",
+      "description": "Example palette file output.",
+      "id": "palette_file_output",
+      "name": "Example Palette File"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

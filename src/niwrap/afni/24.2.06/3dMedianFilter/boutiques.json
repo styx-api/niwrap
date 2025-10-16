@@ -1,0 +1,75 @@
+{
+  "name": "3dMedianFilter",
+  "author": "AFNI Developers",
+  "description": "Computes the median in a spherical neighborhood around each point in the input to produce the output.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dMedianFilter [IRAD] [ITER] [VERBOSE] [PREFIX] [AUTOMASK] [DATASET]",
+  "inputs": [
+    {
+      "description": "Input dataset",
+      "value-key": "[DATASET]",
+      "type": "File",
+      "optional": false,
+      "id": "dataset",
+      "name": "Dataset"
+    },
+    {
+      "command-line-flag": "-irad",
+      "description": "Radius in voxels of spherical regions",
+      "value-key": "[IRAD]",
+      "type": "Number",
+      "optional": true,
+      "id": "irad",
+      "name": "Radius"
+    },
+    {
+      "command-line-flag": "-iter",
+      "description": "Iterate 'n' times [default=1]",
+      "value-key": "[ITER]",
+      "type": "Number",
+      "optional": true,
+      "id": "iter",
+      "name": "Iterations"
+    },
+    {
+      "command-line-flag": "-verb",
+      "description": "Be verbose during run",
+      "value-key": "[VERBOSE]",
+      "type": "Flag",
+      "id": "verbose",
+      "name": "Verbose flag"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Use 'pp' for prefix of output dataset",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Output Prefix"
+    },
+    {
+      "command-line-flag": "-automask",
+      "description": "Create a mask (a la 3dAutomask)",
+      "value-key": "[AUTOMASK]",
+      "type": "Flag",
+      "id": "automask",
+      "name": "Automask flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[PREFIX]+tlrc.BRIK",
+      "description": "Output dataset is stored in float format.",
+      "id": "output_brik",
+      "name": "Output BRIK file"
+    },
+    {
+      "path-template": "[PREFIX]+tlrc.HEAD",
+      "description": "Output dataset header file.",
+      "id": "output_head",
+      "name": "Output HEAD file"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

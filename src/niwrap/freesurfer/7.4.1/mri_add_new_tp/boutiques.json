@@ -1,0 +1,26 @@
+{
+  "name": "mri_add_new_tp",
+  "author": "FreeSurfer Developers",
+  "description": "Adds a new time point to the base/template without re-creating the base. Only the new time point needs to be run longitudinally.",
+  "command-line": "mri_add_new_tp [BASE_ID] [NEWTP_ID]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "The ID of the base template.",
+      "value-key": "[BASE_ID]",
+      "type": "String",
+      "optional": false,
+      "id": "base_id",
+      "name": "Base ID"
+    },
+    {
+      "description": "The ID of the new time point to be added.",
+      "value-key": "[NEWTP_ID]",
+      "type": "String",
+      "optional": false,
+      "id": "newtp_id",
+      "name": "New Time Point ID"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

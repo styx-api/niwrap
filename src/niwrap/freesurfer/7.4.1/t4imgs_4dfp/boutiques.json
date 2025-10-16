@@ -1,0 +1,125 @@
+{
+  "name": "t4imgs_4dfp",
+  "description": "Freesurfer tool for transforming images according to a specified T4 file.",
+  "command-line": "t4imgs_4dfp [SQRT_NORMALIZE] [CUBIC_SPLINE] [OUTPUT_NAN] [CONVERT_T4] [NEAREST_NEIGHBOR] [OUTPUT_111_SPACE] [OUTPUT_222_SPACE] [OUTPUT_333N_SPACE] [DUPLICATE_DIMENSIONS] [BIG_ENDIAN] [LITTLE_ENDIAN] [INPUT_IMAGES] [OUTPUT_IMAGE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input list of 4dfp images.",
+      "value-key": "[INPUT_IMAGES]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "input_images",
+      "name": "Input Images"
+    },
+    {
+      "description": "Output file name for the transformed image.",
+      "value-key": "[OUTPUT_IMAGE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_image",
+      "name": "Output Image"
+    },
+    {
+      "command-line-flag": "-z",
+      "description": "Normalize by sqrt(n) rather than n (for z images).",
+      "value-key": "[SQRT_NORMALIZE]",
+      "type": "Flag",
+      "id": "sqrt_normalize",
+      "name": "Sqrt Normalize Flag"
+    },
+    {
+      "command-line-flag": "-s",
+      "description": "Interpolate by 3D cubic spline (default is 3D linear).",
+      "value-key": "[CUBIC_SPLINE]",
+      "type": "Flag",
+      "id": "cubic_spline",
+      "name": "Cubic Spline Interpolation Flag"
+    },
+    {
+      "command-line-flag": "-N",
+      "description": "Output NaN (default 0.0) for undefined values.",
+      "value-key": "[OUTPUT_NAN]",
+      "type": "Flag",
+      "id": "output_nan",
+      "name": "Output NaN Flag"
+    },
+    {
+      "command-line-flag": "-B",
+      "description": "Internally convert to_711-2A_t4->to_711-2B_t4.",
+      "value-key": "[CONVERT_T4]",
+      "type": "Flag",
+      "id": "convert_t4",
+      "name": "Convert T4 Flag"
+    },
+    {
+      "command-line-flag": "-n",
+      "description": "Use nearest neighbor interpolation.",
+      "value-key": "[NEAREST_NEIGHBOR]",
+      "type": "Flag",
+      "id": "nearest_neighbor",
+      "name": "Nearest Neighbor Interpolation Flag"
+    },
+    {
+      "command-line-flag": "-O111",
+      "description": "Output in 111 space instead of default 333.0 space.",
+      "value-key": "[OUTPUT_111_SPACE]",
+      "type": "Flag",
+      "id": "output_111_space",
+      "name": "Output 111 Space Flag"
+    },
+    {
+      "command-line-flag": "-O222",
+      "description": "Output in 222 space instead of default 333.0 space.",
+      "value-key": "[OUTPUT_222_SPACE]",
+      "type": "Flag",
+      "id": "output_222_space",
+      "name": "Output 222 Space Flag"
+    },
+    {
+      "command-line-flag": "-O333.n",
+      "description": "Output in 333.n space (y shifted up by n pixels).",
+      "value-key": "[OUTPUT_333N_SPACE]",
+      "type": "String",
+      "optional": true,
+      "id": "output_333n_space",
+      "name": "Output 333.n Space"
+    },
+    {
+      "command-line-flag": "-O",
+      "description": "Duplicate dimensions of specified image.",
+      "value-key": "[DUPLICATE_DIMENSIONS]",
+      "type": "String",
+      "optional": true,
+      "id": "duplicate_dimensions",
+      "name": "Duplicate Dimensions Image"
+    },
+    {
+      "command-line-flag": "-@b",
+      "description": "Output in big endian format.",
+      "value-key": "[BIG_ENDIAN]",
+      "type": "Flag",
+      "id": "big_endian",
+      "name": "Big Endian Flag"
+    },
+    {
+      "command-line-flag": "-@l",
+      "description": "Output in little endian format.",
+      "value-key": "[LITTLE_ENDIAN]",
+      "type": "Flag",
+      "id": "little_endian",
+      "name": "Little Endian Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_IMAGE].4dfp.img",
+      "description": "Transformed 4dfp image as output.",
+      "id": "transformed_image",
+      "name": "Transformed Image File"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

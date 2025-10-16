@@ -1,0 +1,51 @@
+{
+  "name": "mris_fill",
+  "author": "FreeSurfer Developers",
+  "description": "A tool that floodfills the interior of a surface and writes the results into a volume of specified resolution.",
+  "command-line": "mris_fill [RESOLUTION] [CONFORM] [INPUT_SURFACE] [OUTPUT_VOLUME]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input surface file",
+      "value-key": "[INPUT_SURFACE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_surface",
+      "name": "Input Surface"
+    },
+    {
+      "description": "Output volume file",
+      "value-key": "[OUTPUT_VOLUME]",
+      "type": "String",
+      "optional": false,
+      "id": "output_volume",
+      "name": "Output Volume"
+    },
+    {
+      "command-line-flag": "-r",
+      "description": "Set the resolution of the output volume (default = 0.250 mm/voxel)",
+      "value-key": "[RESOLUTION]",
+      "type": "Number",
+      "optional": true,
+      "id": "resolution",
+      "name": "Resolution"
+    },
+    {
+      "command-line-flag": "-c",
+      "description": "Conform the volume before writing",
+      "value-key": "[CONFORM]",
+      "type": "Flag",
+      "id": "conform",
+      "name": "Conform Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_VOLUME]",
+      "description": "The resulting filled volume output.",
+      "id": "filled_volume",
+      "name": "Filled Volume"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

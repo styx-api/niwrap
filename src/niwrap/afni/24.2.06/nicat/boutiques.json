@@ -1,0 +1,43 @@
+{
+  "name": "nicat",
+  "author": "AFNI Developers",
+  "description": "Copies stdin to the NIML stream, which will be opened for writing.",
+  "command-line": "nicat [STREAM_SPEC] [REOPEN] [COPY_STREAM] [READ_ONLY]",
+  "inputs": [
+    {
+      "description": "Stream specification (e.g., tcp:localhost:4444)",
+      "value-key": "[STREAM_SPEC]",
+      "type": "String",
+      "optional": false,
+      "id": "stream_spec",
+      "name": "Stream specifier"
+    },
+    {
+      "command-line-flag": "-reopen",
+      "description": "Reopen the stream after connection to the stream specified by the given value.",
+      "value-key": "[REOPEN]",
+      "type": "String",
+      "optional": true,
+      "id": "reopen",
+      "name": "Reopen stream"
+    },
+    {
+      "command-line-flag": "-r",
+      "description": "Copy the stream to stdout instead; the 'streamspec' will be opened for reading.",
+      "value-key": "[COPY_STREAM]",
+      "type": "Flag",
+      "id": "copy_stream",
+      "name": "Copy stream to stdout"
+    },
+    {
+      "command-line-flag": "-R",
+      "description": "Read the stream but don't copy to stdout.",
+      "value-key": "[READ_ONLY]",
+      "type": "Flag",
+      "id": "read_only",
+      "name": "Read stream only"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

@@ -1,0 +1,18 @@
+{
+  "name": "fiducials_calibration",
+  "description": "A tool used for calibrating fiducials.",
+  "command-line": "fiducials_calibration [QT_PLUGIN_INSTALLATION]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "This application requires a functional Qt installation. If it fails to start, reinstalling the application might fix the problem.",
+      "value-key": "[QT_PLUGIN_INSTALLATION]",
+      "type": "String",
+      "optional": true,
+      "id": "qt_plugin_installation",
+      "name": "Qt Plugin Installation Hint"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

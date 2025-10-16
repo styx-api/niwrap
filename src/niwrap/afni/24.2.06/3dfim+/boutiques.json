@@ -1,0 +1,150 @@
+{
+  "name": "3dfim+",
+  "author": "AFNI Developers",
+  "description": "Program to calculate the cross-correlation of an ideal reference waveform with the measured FMRI time series for each voxel.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dfim+ [INFILE] [INPUT1DFILE] [MASKFILE] [FIRST_IMAGE] [LAST_IMAGE] [BASELINE_POLYNOMIAL] [THRESHOLD] [CDISP_VALUE] [ORT_FILE] [IDEAL_FILE] [OUTPUT_PARAMS] [OUTPUT_BUCKET]",
+  "inputs": [
+    {
+      "description": "Filename of input 3d+time dataset",
+      "value-key": "[INFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "infile",
+      "name": "Input file"
+    },
+    {
+      "command-line-flag": "-input1D",
+      "description": "Filename of single (fMRI) .1D time series",
+      "value-key": "[INPUT1DFILE]",
+      "type": "File",
+      "optional": true,
+      "id": "input1dfile",
+      "name": "Input 1D file"
+    },
+    {
+      "command-line-flag": "-mask",
+      "description": "Filename of 3d mask dataset",
+      "value-key": "[MASKFILE]",
+      "type": "File",
+      "optional": true,
+      "id": "maskfile",
+      "name": "Mask file"
+    },
+    {
+      "command-line-flag": "-nfirst",
+      "description": "Number of first dataset image to use in the cross-correlation procedure (default = 0)",
+      "value-key": "[FIRST_IMAGE]",
+      "type": "Number",
+      "optional": true,
+      "id": "first_image",
+      "name": "Number of first dataset image"
+    },
+    {
+      "command-line-flag": "-nlast",
+      "description": "Number of last dataset image to use in the cross-correlation procedure (default = last)",
+      "value-key": "[LAST_IMAGE]",
+      "type": "Number",
+      "optional": true,
+      "id": "last_image",
+      "name": "Number of last dataset image"
+    },
+    {
+      "command-line-flag": "-polort",
+      "description": "Degree of polynomial corresponding to the baseline model (default: 1). Use -1 for no baseline model.",
+      "value-key": "[BASELINE_POLYNOMIAL]",
+      "type": "Number",
+      "optional": true,
+      "id": "baseline_polynomial",
+      "name": "Degree of baseline polynomial"
+    },
+    {
+      "command-line-flag": "-fim_thr",
+      "description": "FIM internal mask threshold value (0 <= p <= 1) to get rid of low intensity voxels (default: 0.0999)",
+      "value-key": "[THRESHOLD]",
+      "type": "Number",
+      "maximum": 1,
+      "minimum": 0,
+      "integer": false,
+      "optional": true,
+      "id": "threshold",
+      "name": "Threshold value"
+    },
+    {
+      "command-line-flag": "-cdisp",
+      "description": "Write (to screen) results for voxels whose correlation stat. > cval (0 <= cval <= 1; default: disabled)",
+      "value-key": "[CDISP_VALUE]",
+      "type": "Number",
+      "maximum": 1,
+      "minimum": 0,
+      "integer": false,
+      "optional": true,
+      "id": "cdisp_value",
+      "name": "Correlation display value"
+    },
+    {
+      "command-line-flag": "-ort_file",
+      "description": "Input ort time series file name. Can be used multiple times.",
+      "value-key": "[ORT_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "ort_file",
+      "name": "Ort file"
+    },
+    {
+      "command-line-flag": "-ideal_file",
+      "description": "Input ideal time series file name. Can be used multiple times.",
+      "value-key": "[IDEAL_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "ideal_file",
+      "name": "Ideal file"
+    },
+    {
+      "command-line-flag": "-out",
+      "description": "Output the specified parameter. Can be used multiple times. Possible values are: 'Fit Coef', 'Best Index', '% Change', 'Baseline', 'Correlation', '% From Ave', 'Average', '% From Top', 'Topline', 'Sigma Resid', 'All', 'Spearman CC', 'Quadrant CC'.",
+      "value-key": "[OUTPUT_PARAMS]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "output_params",
+      "name": "Output parameters"
+    },
+    {
+      "command-line-flag": "-bucket",
+      "description": "Create one AFNI 'bucket' dataset containing the parameters of interest, as specified by the '-out' commands. The output 'bucket' dataset is written to a file with the prefix name bprefix.",
+      "value-key": "[OUTPUT_BUCKET]",
+      "type": "String",
+      "optional": true,
+      "id": "output_bucket",
+      "name": "Output bucket prefix"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_BUCKET]+tlrc.HEAD",
+      "description": "Output bucket dataset containing fit parameters, in TLRC space.",
+      "id": "outfile_tlrc_head",
+      "name": "Output bucket TLRC HEAD file"
+    },
+    {
+      "path-template": "[OUTPUT_BUCKET]+tlrc.BRIK",
+      "description": "Output bucket dataset containing fit parameters, in TLRC space.",
+      "id": "outfile_tlrc_brk",
+      "name": "Output bucket TLRC BRIK file"
+    },
+    {
+      "path-template": "[OUTPUT_BUCKET]+orig.HEAD",
+      "description": "Output bucket dataset containing fit parameters, in original space.",
+      "id": "outfile_orig_head",
+      "name": "Output bucket original HEAD file"
+    },
+    {
+      "path-template": "[OUTPUT_BUCKET]+orig.BRIK",
+      "description": "Output bucket dataset containing fit parameters, in original space.",
+      "id": "outfile_orig_brk",
+      "name": "Output bucket original BRIK file"
+    }
+  ]
+}

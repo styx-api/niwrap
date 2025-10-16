@@ -1,0 +1,96 @@
+{
+  "name": "metric-convert",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -metric-convert [TO_NIFTI] [FROM_NIFTI]",
+  "description": "Convert metric file to fake nifti.\n\nThe purpose of this command is to convert between metric files and nifti1 so that gifti-unaware programs can operate on the data.  You must specify exactly one of the options.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "to_nifti",
+      "name": "to_nifti",
+      "description": "convert metric to nifti",
+      "type": {
+        "id": "to_nifti",
+        "name": "to_nifti",
+        "description": "convert metric to nifti",
+        "command-line": "-to-nifti [METRIC_IN] [NIFTI_OUT]",
+        "inputs": [
+          {
+            "id": "metric_in",
+            "name": "metric_in",
+            "description": "the metric to convert",
+            "optional": false,
+            "value-key": "[METRIC_IN]",
+            "type": "File"
+          },
+          {
+            "id": "nifti_out",
+            "name": "nifti_out",
+            "type": "String",
+            "description": "the output nifti file",
+            "optional": false,
+            "value-key": "[NIFTI_OUT]"
+          }
+        ],
+        "output-files": [
+          {
+            "id": "nifti_out",
+            "name": "nifti_out",
+            "path-template": "[NIFTI_OUT]",
+            "description": "the output nifti file"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[TO_NIFTI]"
+    },
+    {
+      "id": "from_nifti",
+      "name": "from_nifti",
+      "description": "convert nifti to metric",
+      "type": {
+        "id": "from_nifti",
+        "name": "from_nifti",
+        "description": "convert nifti to metric",
+        "command-line": "-from-nifti [NIFTI_IN] [SURFACE_IN] [METRIC_OUT]",
+        "inputs": [
+          {
+            "id": "nifti_in",
+            "name": "nifti_in",
+            "description": "the nifti file to convert",
+            "optional": false,
+            "value-key": "[NIFTI_IN]",
+            "type": "File"
+          },
+          {
+            "id": "surface_in",
+            "name": "surface_in",
+            "description": "surface file to use number of vertices and structure from",
+            "optional": false,
+            "value-key": "[SURFACE_IN]",
+            "type": "File"
+          },
+          {
+            "id": "metric_out",
+            "name": "metric_out",
+            "type": "String",
+            "description": "the output metric file",
+            "optional": false,
+            "value-key": "[METRIC_OUT]"
+          }
+        ],
+        "output-files": [
+          {
+            "id": "metric_out",
+            "name": "metric_out",
+            "path-template": "[METRIC_OUT]",
+            "description": "the output metric file"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[FROM_NIFTI]"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

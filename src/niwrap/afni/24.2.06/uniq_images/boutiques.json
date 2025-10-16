@@ -1,0 +1,27 @@
+{
+  "name": "uniq_images",
+  "author": "AFNI Developers",
+  "description": "Simple program to read in a list of image filenames, determine which files have unique images inside, and echo out only a list of the filenames with unique images.",
+  "command-line": "uniq_images [INPUT_FILES]",
+  "inputs": [
+    {
+      "description": "List of image filenames to be processed",
+      "value-key": "[INPUT_FILES]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "input_files",
+      "name": "Input files"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "unique_images_list.txt",
+      "description": "Generated list of filenames with unique images",
+      "id": "unique_files_list",
+      "name": "Unique images list"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

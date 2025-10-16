@@ -1,0 +1,62 @@
+{
+  "name": "3dnewid",
+  "author": "AFNI Developers",
+  "description": "Assigns a new ID code to a dataset, ensuring internal ID codes remain unique.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dnewid [DATASETS] [FUN] [FUN11] [INT] [HASH] [MD5]",
+  "inputs": [
+    {
+      "description": "Input datasets to assign new ID codes.",
+      "value-key": "[DATASETS]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "datasets",
+      "name": "Datasets"
+    },
+    {
+      "command-line-flag": "-fun",
+      "description": "Generate n randomly generated ID codes. If n is not present, 1 ID code is printed.",
+      "value-key": "[FUN]",
+      "type": "Number",
+      "optional": true,
+      "id": "fun",
+      "name": "Randomly generated ID codes"
+    },
+    {
+      "command-line-flag": "-fun11",
+      "description": "Generate an 11 character ID code for use in scripting",
+      "value-key": "[FUN11]",
+      "type": "Flag",
+      "id": "fun11",
+      "name": "11 character ID code flag"
+    },
+    {
+      "command-line-flag": "-int",
+      "description": "Generate a random positive integer between 1 million and 1 billion.",
+      "value-key": "[INT]",
+      "type": "Flag",
+      "id": "int",
+      "name": "Random positive integer flag"
+    },
+    {
+      "command-line-flag": "-hash",
+      "description": "Generate a unique hash code of the provided string. The same string produces the same hash code.",
+      "value-key": "[HASH]",
+      "type": "String",
+      "optional": true,
+      "id": "hash",
+      "name": "Hash code of string"
+    },
+    {
+      "command-line-flag": "-MD5",
+      "description": "Generate the MD5 hash of the provided string. Output should be the same as the -hash output without the prefix and without the + and / char substitutions.",
+      "value-key": "[MD5]",
+      "type": "String",
+      "optional": true,
+      "id": "MD5",
+      "name": "MD5 hash of string"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

@@ -1,0 +1,96 @@
+{
+  "name": "3dbucket",
+  "author": "AFNI Developers",
+  "description": "Concatenate sub-bricks from input datasets into one big bucket dataset.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dbucket [PREFIX] [OUTPUT] [SESSION] [GLUETO] [AGLUETO] [DRY] [VERBOSE] [FBUC] [ABUC] [INPUT_FILES]",
+  "inputs": [
+    {
+      "command-line-flag": "-prefix",
+      "description": "Use 'pname' for the output dataset prefix name.",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Prefix"
+    },
+    {
+      "command-line-flag": "-output",
+      "description": "Use 'pname' for the output dataset prefix name.",
+      "value-key": "[OUTPUT]",
+      "type": "String",
+      "optional": true,
+      "id": "output",
+      "name": "Output"
+    },
+    {
+      "command-line-flag": "-session",
+      "description": "Use 'dir' for the output dataset session directory. [default='./'=current working directory]",
+      "value-key": "[SESSION]",
+      "type": "String",
+      "optional": true,
+      "id": "session",
+      "name": "Session"
+    },
+    {
+      "command-line-flag": "-glueto",
+      "description": "Append bricks to the end of the 'fname' dataset.",
+      "value-key": "[GLUETO]",
+      "type": "String",
+      "optional": true,
+      "id": "glueto",
+      "name": "Glue to"
+    },
+    {
+      "command-line-flag": "-aglueto",
+      "description": "If fname dataset does not exist, create it (like -prefix). Otherwise append to fname (like -glueto).",
+      "value-key": "[AGLUETO]",
+      "type": "String",
+      "optional": true,
+      "id": "aglueto",
+      "name": "A-Glue to"
+    },
+    {
+      "command-line-flag": "-dry",
+      "description": "Execute a 'dry run'; only print out what would be done.",
+      "value-key": "[DRY]",
+      "type": "Flag",
+      "id": "dry",
+      "name": "Dry run"
+    },
+    {
+      "command-line-flag": "-verb",
+      "description": "Print out some verbose output as the program proceeds.",
+      "value-key": "[VERBOSE]",
+      "type": "Flag",
+      "id": "verbose",
+      "name": "Verbose"
+    },
+    {
+      "command-line-flag": "-fbuc",
+      "description": "Create a functional bucket.",
+      "value-key": "[FBUC]",
+      "type": "Flag",
+      "id": "fbuc",
+      "name": "Functional Bucket"
+    },
+    {
+      "command-line-flag": "-abuc",
+      "description": "Create an anatomical bucket. If neither of these options is given, the output type is determined from the first input type.",
+      "value-key": "[ABUC]",
+      "type": "Flag",
+      "id": "abuc",
+      "name": "Anatomical Bucket"
+    },
+    {
+      "description": "Input datasets with optional sub-brick selection.",
+      "value-key": "[INPUT_FILES]",
+      "type": "String",
+      "list": true,
+      "optional": false,
+      "id": "input_files",
+      "name": "Input Files"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

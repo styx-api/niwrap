@@ -1,0 +1,77 @@
+{
+  "name": "mris_label_area",
+  "description": "Compute the area of specific labels on a surface of a brain hemisphere in FreeSurfer.",
+  "command-line": "mris_label_area [PCT_FLAG] [LOG_FILE] [BRAIN_VOL] [SUBJECT_NAME] [HEMI] [SURF_NAME] [ANNOT_NAME] [LABELS]",
+  "inputs": [
+    {
+      "description": "Name of the subject",
+      "value-key": "[SUBJECT_NAME]",
+      "type": "String",
+      "optional": false,
+      "id": "subject_name",
+      "name": "Subject Name"
+    },
+    {
+      "description": "Hemisphere, typically 'lh' or 'rh'",
+      "value-key": "[HEMI]",
+      "type": "String",
+      "optional": false,
+      "id": "hemi",
+      "name": "Hemisphere"
+    },
+    {
+      "description": "Surface name",
+      "value-key": "[SURF_NAME]",
+      "type": "String",
+      "optional": false,
+      "id": "surf_name",
+      "name": "Surface Name"
+    },
+    {
+      "description": "Annotation name",
+      "value-key": "[ANNOT_NAME]",
+      "type": "String",
+      "optional": false,
+      "id": "annot_name",
+      "name": "Annotation Name"
+    },
+    {
+      "description": "Labels to calculate area for",
+      "value-key": "[LABELS]",
+      "type": "String",
+      "list": true,
+      "optional": false,
+      "id": "labels",
+      "name": "Labels"
+    },
+    {
+      "command-line-flag": "-p",
+      "description": "Compute brain area as a percentage of all brain labels",
+      "value-key": "[PCT_FLAG]",
+      "type": "Flag",
+      "id": "pct_flag",
+      "name": "Percentage Flag"
+    },
+    {
+      "command-line-flag": "-l",
+      "description": "Log results to file (use %d to include label number)",
+      "value-key": "[LOG_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "log_file",
+      "name": "Log File"
+    },
+    {
+      "command-line-flag": "-b",
+      "description": "Load brain volume and use it to normalize areas",
+      "value-key": "[BRAIN_VOL]",
+      "type": "String",
+      "optional": true,
+      "id": "brain_vol",
+      "name": "Brain Volume"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "schema-version": "0.5+styx",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

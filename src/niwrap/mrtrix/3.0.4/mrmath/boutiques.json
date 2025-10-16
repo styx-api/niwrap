@@ -1,0 +1,161 @@
+{
+  "name": "mrmath",
+  "description": "Compute summary statistic on image intensities either across images, or along a specified axis of a single image.\n\nSupported operations are:\n\nmean, median, sum, product, rms (root-mean-square value), norm (vector 2-norm), var (unbiased variance), std (unbiased standard deviation), min, max, absmax (maximum absolute value), magmax (value with maximum absolute value, preserving its sign).\n\nThis command is used to traverse either along an image axis, or across a set of input images, calculating some statistic from the values along each traversal. If you are seeking to instead perform mathematical calculations that are done independently for each voxel, pleaase see the 'mrcalc' command.\n\nReferences:\n\n",
+  "author": "MRTrix3 Developers",
+  "schema-version": "0.5+styx",
+  "command-line": "mrmath [OPTIONS_AXIS] [OPTIONS_KEEP_UNARY_AXES] [DATA_TYPE_OPTIONS_DATATYPE] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION] [INPUT] [OPERATION] [OUTPUT]",
+  "inputs": [
+    {
+      "id": "input",
+      "name": "input",
+      "value-key": "[INPUT]",
+      "description": "the input image(s).",
+      "type": "File",
+      "optional": false,
+      "list": true
+    },
+    {
+      "id": "operation",
+      "name": "operation",
+      "value-key": "[OPERATION]",
+      "description": "the operation to apply, one of: mean, median, sum, product, rms, norm, var, std, min, max, absmax, magmax.",
+      "type": "String",
+      "optional": false
+    },
+    {
+      "id": "output",
+      "name": "output",
+      "value-key": "[OUTPUT]",
+      "description": "the output image.",
+      "type": "String",
+      "optional": false
+    },
+    {
+      "id": "axis",
+      "name": "axis",
+      "command-line-flag": "-axis",
+      "value-key": "[OPTIONS_AXIS]",
+      "description": "perform operation along a specified axis of a single input image",
+      "type": "Number",
+      "optional": true,
+      "integer": true
+    },
+    {
+      "id": "keep_unary_axes",
+      "name": "keep_unary_axes",
+      "command-line-flag": "-keep_unary_axes",
+      "value-key": "[OPTIONS_KEEP_UNARY_AXES]",
+      "description": "Keep unary axes in input images prior to calculating the stats. The default is to wipe axes with single elements.",
+      "type": "Flag"
+    },
+    {
+      "id": "datatype",
+      "name": "datatype",
+      "command-line-flag": "-datatype",
+      "value-key": "[DATA_TYPE_OPTIONS_DATATYPE]",
+      "description": "specify output image data type. Valid choices are: float32, float32le, float32be, float64, float64le, float64be, int64, uint64, int64le, uint64le, int64be, uint64be, int32, uint32, int32le, uint32le, int32be, uint32be, int16, uint16, int16le, uint16le, int16be, uint16be, cfloat32, cfloat32le, cfloat32be, cfloat64, cfloat64le, cfloat64be, int8, uint8, bit.",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "info",
+      "name": "info",
+      "command-line-flag": "-info",
+      "value-key": "[__STANDARD_OPTIONS_INFO]",
+      "description": "display information messages.",
+      "type": "Flag"
+    },
+    {
+      "id": "quiet",
+      "name": "quiet",
+      "command-line-flag": "-quiet",
+      "value-key": "[__STANDARD_OPTIONS_QUIET]",
+      "description": "do not display information messages or progress status; alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string.",
+      "type": "Flag"
+    },
+    {
+      "id": "debug",
+      "name": "debug",
+      "command-line-flag": "-debug",
+      "value-key": "[__STANDARD_OPTIONS_DEBUG]",
+      "description": "display debugging messages.",
+      "type": "Flag"
+    },
+    {
+      "id": "force",
+      "name": "force",
+      "command-line-flag": "-force",
+      "value-key": "[__STANDARD_OPTIONS_FORCE]",
+      "description": "force overwrite of output files (caution: using the same file as input and output might cause unexpected behaviour).",
+      "type": "Flag"
+    },
+    {
+      "id": "nthreads",
+      "name": "nthreads",
+      "command-line-flag": "-nthreads",
+      "value-key": "[__STANDARD_OPTIONS_NTHREADS]",
+      "description": "use this number of threads in multi-threaded applications (set to 0 to disable multi-threading).",
+      "type": "Number",
+      "optional": true,
+      "integer": true
+    },
+    {
+      "id": "config",
+      "name": "config",
+      "value-key": "[__STANDARD_OPTIONS_CONFIG]",
+      "description": "temporarily set the value of an MRtrix config file entry.",
+      "type": {
+        "id": "config",
+        "name": "config",
+        "description": "temporarily set the value of an MRtrix config file entry.",
+        "command-line": "-config [KEY] [VALUE]",
+        "inputs": [
+          {
+            "id": "key",
+            "name": "key",
+            "value-key": "[KEY]",
+            "description": "temporarily set the value of an MRtrix config file entry.",
+            "type": "String",
+            "optional": false
+          },
+          {
+            "id": "value",
+            "name": "value",
+            "value-key": "[VALUE]",
+            "description": "temporarily set the value of an MRtrix config file entry.",
+            "type": "String",
+            "optional": false
+          }
+        ],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "help",
+      "name": "help",
+      "command-line-flag": "-help",
+      "value-key": "[__STANDARD_OPTIONS_HELP]",
+      "description": "display this information page and exit.",
+      "type": "Flag"
+    },
+    {
+      "id": "version",
+      "name": "version",
+      "command-line-flag": "-version",
+      "value-key": "[__STANDARD_OPTIONS_VERSION]",
+      "description": "display version information and exit.",
+      "type": "Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "output",
+      "name": "output",
+      "path-template": "[OUTPUT]",
+      "description": "the output image."
+    }
+  ],
+  "url": "https://www.mrtrix.org/"
+}

@@ -1,0 +1,86 @@
+{
+  "name": "map_TrackID",
+  "description": "Maps the track file (*.trk) output of 3dTrackID to another space using the 1Dmatrix_save info of 3dAllineate.",
+  "author": "AFNI Developers",
+  "command-line": "map_TrackID [PREFIX] [IN_TRK] [IN_MAP] [REFERENCE] [VERBOSE] [ORIG_ZERO] [LINE_ONLY_NUM] [ALREADY_INV]",
+  "inputs": [
+    {
+      "id": "prefix",
+      "name": "Output prefix",
+      "description": "Prefix for the output track file.",
+      "type": "String",
+      "value-key": "[PREFIX]",
+      "optional": false,
+      "command-line-flag": "-prefix"
+    },
+    {
+      "id": "in_trk",
+      "name": "Input track file",
+      "description": "The name of the *.trk file to be mapped.",
+      "type": "File",
+      "value-key": "[IN_TRK]",
+      "optional": false,
+      "command-line-flag": "-in_trk"
+    },
+    {
+      "id": "in_map",
+      "name": "Input map file",
+      "description": "Single line of matrix values for the transformation.",
+      "type": "File",
+      "value-key": "[IN_MAP]",
+      "optional": false,
+      "command-line-flag": "-in_map"
+    },
+    {
+      "id": "reference",
+      "name": "Reference file",
+      "description": "3D data set in the space to which the TRK file is being mapped.",
+      "type": "File",
+      "value-key": "[REFERENCE]",
+      "optional": false,
+      "command-line-flag": "-ref"
+    },
+    {
+      "id": "verbose",
+      "name": "Verbose output",
+      "description": "Verbose output.",
+      "type": "Flag",
+      "command-line-flag": "-verb",
+      "value-key": "[VERBOSE]"
+    },
+    {
+      "id": "orig_zero",
+      "name": "Zero origin",
+      "description": "Put (0,0,0) as the origin in the output *.trk file.",
+      "type": "Flag",
+      "command-line-flag": "-orig_zero",
+      "value-key": "[ORIG_ZERO]"
+    },
+    {
+      "id": "line_only_num",
+      "name": "Line only numbers",
+      "description": "If your 1D_MATR file is just 12 numbers in a row.",
+      "type": "Flag",
+      "command-line-flag": "-line_only_num",
+      "value-key": "[LINE_ONLY_NUM]"
+    },
+    {
+      "id": "already_inv",
+      "name": "Already inverted transformation",
+      "description": "If you have inverted the mapping or use another program than 3dAllineate.",
+      "type": "Flag",
+      "command-line-flag": "-already_inv",
+      "value-key": "[ALREADY_INV]"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "output_trk_file",
+      "name": "Output track file",
+      "path-template": "[PREFIX].trk",
+      "description": "Mapped track file to new space"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

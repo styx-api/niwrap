@@ -1,0 +1,131 @@
+{
+  "name": "1d_tool.py",
+  "author": "AFNI Developers",
+  "description": "A tool for manipulating and evaluating 1D files",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "1d_tool.py [INFILE] [WRITE] [SELECT_COLS] [SELECT_ROWS] [SELECT_GROUPS] [CENSOR_MOTION] [PAD_INTO_MANY_RUNS] [SET_NRUNS] [SET_RUN_LENGTHS] [SHOW_ROWS_COLS] [TRANSPOSE] [REVERSE] [SHOW_MAX_DISPLACE]",
+  "inputs": [
+    {
+      "description": "Input 1D file",
+      "value-key": "[INFILE]",
+      "command-line-flag": "-infile",
+      "type": "File",
+      "optional": false,
+      "id": "infile",
+      "name": "Input file"
+    },
+    {
+      "description": "Output file to write results",
+      "value-key": "[WRITE]",
+      "command-line-flag": "-write",
+      "type": "String",
+      "optional": true,
+      "id": "write",
+      "name": "Output file"
+    },
+    {
+      "description": "Select specific columns",
+      "value-key": "[SELECT_COLS]",
+      "command-line-flag": "-select_cols",
+      "type": "String",
+      "optional": true,
+      "id": "select_cols",
+      "name": "Select columns"
+    },
+    {
+      "description": "Select specific rows",
+      "value-key": "[SELECT_ROWS]",
+      "command-line-flag": "-select_rows",
+      "type": "String",
+      "optional": true,
+      "id": "select_rows",
+      "name": "Select rows"
+    },
+    {
+      "description": "Select columns by group numbers",
+      "value-key": "[SELECT_GROUPS]",
+      "command-line-flag": "-select_groups",
+      "type": "String",
+      "optional": true,
+      "id": "select_groups",
+      "name": "Select groups"
+    },
+    {
+      "description": "Generate a boolean censor file",
+      "value-key": "[CENSOR_MOTION]",
+      "command-line-flag": "-censor_motion",
+      "type": "Number",
+      "optional": true,
+      "id": "censor_motion",
+      "name": "Censor motion"
+    },
+    {
+      "description": "Pad a 1D file into many runs",
+      "value-key": "[PAD_INTO_MANY_RUNS]",
+      "command-line-flag": "-pad_into_many_runs",
+      "type": "String",
+      "optional": true,
+      "id": "pad_into_many_runs",
+      "name": "Pad into many runs"
+    },
+    {
+      "description": "Set number of runs",
+      "value-key": "[SET_NRUNS]",
+      "command-line-flag": "-set_nruns",
+      "type": "Number",
+      "optional": true,
+      "id": "set_nruns",
+      "name": "Set number of runs"
+    },
+    {
+      "description": "Set run lengths",
+      "value-key": "[SET_RUN_LENGTHS]",
+      "command-line-flag": "-set_run_lengths",
+      "type": "String",
+      "optional": true,
+      "id": "set_run_lengths",
+      "name": "Set run lengths"
+    },
+    {
+      "description": "Show the number of rows and columns",
+      "command-line-flag": "-show_rows_cols",
+      "type": "Flag",
+      "id": "show_rows_cols",
+      "name": "Show rows and columns",
+      "value-key": "[SHOW_ROWS_COLS]"
+    },
+    {
+      "description": "Transpose the input matrix",
+      "command-line-flag": "-transpose",
+      "type": "Flag",
+      "id": "transpose",
+      "name": "Transpose",
+      "value-key": "[TRANSPOSE]"
+    },
+    {
+      "description": "Reverse the data over time",
+      "command-line-flag": "-reverse",
+      "type": "Flag",
+      "id": "reverse",
+      "name": "Reverse",
+      "value-key": "[REVERSE]"
+    },
+    {
+      "description": "Show the maximum pairwise displacement",
+      "command-line-flag": "-show_max_displace",
+      "type": "Flag",
+      "id": "show_max_displace",
+      "name": "Show maximum displacement",
+      "value-key": "[SHOW_MAX_DISPLACE]"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[WRITE]",
+      "description": "Resulting 1D file",
+      "id": "outfile",
+      "name": "Output file"
+    }
+  ]
+}

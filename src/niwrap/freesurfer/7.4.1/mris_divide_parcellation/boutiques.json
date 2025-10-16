@@ -1,0 +1,76 @@
+{
+  "name": "mris_divide_parcellation",
+  "description": "Divides one or more parcellations into divisions perpendicular to the long axis of the label.",
+  "command-line": "mris_divide_parcellation [SUBJECT] [HEMI] [SOURCEANNOT] [SPLITFILE_OR_AREATHRESH] [OUTANNOT] [SCALE] [LABEL_NAME]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "subject",
+      "name": "Subject",
+      "type": "String",
+      "description": "The subject identifier.",
+      "value-key": "[SUBJECT]",
+      "optional": false
+    },
+    {
+      "id": "hemi",
+      "name": "Hemisphere",
+      "type": "String",
+      "description": "The hemisphere identifier, e.g., left (lh) or right (rh).",
+      "value-key": "[HEMI]",
+      "optional": false
+    },
+    {
+      "id": "sourceannot",
+      "name": "Source Annotation",
+      "type": "File",
+      "description": "The source annotation file.",
+      "value-key": "[SOURCEANNOT]",
+      "optional": false
+    },
+    {
+      "id": "splitfile_or_areathresh",
+      "name": "Splitfile or Area Threshold",
+      "type": "String",
+      "description": "Either a splitfile specifying divisions or an area threshold in mm^2.",
+      "value-key": "[SPLITFILE_OR_AREATHRESH]",
+      "optional": false
+    },
+    {
+      "id": "outannot",
+      "name": "Output Annotation",
+      "type": "String",
+      "description": "The output annotation file name.",
+      "value-key": "[OUTANNOT]",
+      "optional": false
+    },
+    {
+      "command-line-flag": "-scale",
+      "id": "scale",
+      "name": "Scale",
+      "type": "Number",
+      "description": "Specify offset scaling for rgb values (default=20).",
+      "value-key": "[SCALE]",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-l",
+      "id": "label_name",
+      "name": "Label Name",
+      "type": "String",
+      "description": "Only process the label <label name> (not implemented yet).",
+      "value-key": "[LABEL_NAME]",
+      "optional": true
+    }
+  ],
+  "output-files": [
+    {
+      "id": "outannot_file",
+      "name": "Output Annotation File",
+      "path-template": "[OUTANNOT]",
+      "description": "The resulting annotation file with divided labels."
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

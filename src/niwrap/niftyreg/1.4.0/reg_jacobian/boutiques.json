@@ -1,0 +1,93 @@
+{
+  "name": "reg_jacobian",
+  "author": "NiftyReg Developers",
+  "description": "Tool to compute the Jacobian determinant map from a deformation field or control point lattice.",
+  "url": "http://cmictig.cs.ucl.ac.uk/wiki/index.php/NiftyReg",
+  "command-line": "reg_jacobian [REFERENCE_IMAGE] [DEFORMATION_FIELD] [CONTROL_POINT_LATTICE] [OUTPUT_JACOBIAN] [OUTPUT_JACOBIAN_MATRIX] [OUTPUT_LOG_JACOBIAN] [AFFINE_MATRIX]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "reference_image",
+      "name": "Reference Image",
+      "type": "File",
+      "value-key": "[REFERENCE_IMAGE]",
+      "command-line-flag": "-ref",
+      "description": "Filename of the reference image",
+      "optional": false
+    },
+    {
+      "id": "deformation_field",
+      "name": "Deformation Field",
+      "type": "File",
+      "value-key": "[DEFORMATION_FIELD]",
+      "command-line-flag": "-def",
+      "description": "Filename of the deformation field (from reg_transform)",
+      "optional": true
+    },
+    {
+      "id": "control_point_lattice",
+      "name": "Control Point Lattice",
+      "type": "File",
+      "value-key": "[CONTROL_POINT_LATTICE]",
+      "command-line-flag": "-cpp",
+      "description": "Filename of the control point position lattice (from reg_f3d)",
+      "optional": true
+    },
+    {
+      "id": "output_jacobian",
+      "name": "Jacobian Determinant Map",
+      "type": "String",
+      "value-key": "[OUTPUT_JACOBIAN]",
+      "command-line-flag": "-jac",
+      "description": "Filename of the Jacobian determinant map",
+      "optional": true
+    },
+    {
+      "id": "output_jacobian_matrix",
+      "name": "Jacobian Matrix Map",
+      "type": "String",
+      "value-key": "[OUTPUT_JACOBIAN_MATRIX]",
+      "command-line-flag": "-jacM",
+      "description": "Filename of the Jacobian matrix map (9 or 4 values stored as a 5D nifti)",
+      "optional": true
+    },
+    {
+      "id": "output_log_jacobian",
+      "name": "Log of the Jacobian Determinant Map",
+      "type": "String",
+      "value-key": "[OUTPUT_LOG_JACOBIAN]",
+      "command-line-flag": "-jacL",
+      "description": "Filename of the Log of the Jacobian determinant map",
+      "optional": true
+    },
+    {
+      "id": "affine_matrix",
+      "name": "Affine Matrix",
+      "type": "File",
+      "value-key": "[AFFINE_MATRIX]",
+      "command-line-flag": "-aff",
+      "description": "Filename of the affine matrix to modulate the Jacobian determinant map",
+      "optional": true
+    }
+  ],
+  "output-files": [
+    {
+      "id": "output_jacobian_file",
+      "name": "Jacobian Determinant Map",
+      "path-template": "[OUTPUT_JACOBIAN]",
+      "description": "File containing the Jacobian determinant map"
+    },
+    {
+      "id": "output_jacobian_matrix_file",
+      "name": "Jacobian Matrix Map",
+      "path-template": "[OUTPUT_JACOBIAN_MATRIX]",
+      "description": "File containing the Jacobian matrix map"
+    },
+    {
+      "id": "output_log_jacobian_file",
+      "name": "Log of the Jacobian Determinant Map",
+      "path-template": "[OUTPUT_LOG_JACOBIAN]",
+      "description": "File containing the log of the Jacobian determinant map"
+    }
+  ]
+}

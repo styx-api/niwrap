@@ -1,0 +1,443 @@
+{
+  "name": "mris_preproc",
+  "author": "FreeSurfer Developers",
+  "description": "Script to prepare surface-based data for high-level analysis by resampling surface or volume source data to a common subject and concatenating them into one file.",
+  "command-line": "mris_preproc [OUTFILE] [TARGET_SUBJECT] [HEMI] [MEAS] [LABEL] [MEASDIR] [SUBJECTS] [FSGD] [SUBJECTLIST] [QDEC] [QDEC_LONG] [SURFMEASFILE] [VOLMEASFILE_REG] [PROJFRAC] [PROJFRAC_MAX] [PROJFRAC_AVG] [NO_MASK_NON_CORTEX] [SESSION_FILE] [DIR_FILE] [ANALYSIS] [CONTRAST] [CVAR_FLAG] [OFFSET_FLAG] [MAP] [ETIV_FLAG] [FWHM] [FWHM_SRC] [NITERS] [NITERS_SRC] [CORTEX_ONLY] [MGZ_FLAG] [NO_JAC_FLAG] [PAIRED_DIFF_FLAG] [CACHE_OUT] [CACHE_IN] [CACHE_OUT_ONLY] [NO_PRUNE_FLAG] [MEAN_FLAG] [STD_FLAG] [RESHAPE_FLAG] [SURFREG] [SUBJECTS_DIR] [SYNTH_FLAG] [TMPDIR] [NOCLEANUP_FLAG] [CLEANUP_FLAG] [LOG] [NOLOG_FLAG] [DEBUG_FLAG]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--out",
+      "description": "Save output here.",
+      "value-key": "[OUTFILE]",
+      "type": "String",
+      "optional": false,
+      "id": "outfile",
+      "name": "Output File"
+    },
+    {
+      "command-line-flag": "--target",
+      "description": "Subject to use as the common-space. All input data will be resampled to the surface of this subject.",
+      "value-key": "[TARGET_SUBJECT]",
+      "type": "String",
+      "optional": false,
+      "id": "target_subject",
+      "name": "Target Subject"
+    },
+    {
+      "command-line-flag": "--hemi",
+      "description": "Use hemisphere for source and target surfaces. Can be lh or rh.",
+      "value-key": "[HEMI]",
+      "type": "String",
+      "optional": false,
+      "id": "hemi",
+      "name": "Hemisphere"
+    },
+    {
+      "command-line-flag": "--meas",
+      "description": "Use subject/surf/hemi.surfmeasure as input. Implies --srcfmt curv.",
+      "value-key": "[MEAS]",
+      "type": "String",
+      "optional": true,
+      "id": "meas",
+      "name": "Surface Measure"
+    },
+    {
+      "command-line-flag": "--label",
+      "description": "Look in label/hemi.annotname.(annot,mgz) and use mapmethod nnf.",
+      "value-key": "[LABEL]",
+      "type": "String",
+      "optional": true,
+      "id": "label",
+      "name": "Label"
+    },
+    {
+      "command-line-flag": "--measdir",
+      "description": "Look in subdir instead of surf.",
+      "value-key": "[MEASDIR]",
+      "type": "String",
+      "optional": true,
+      "id": "measdir",
+      "name": "Measure Directory"
+    },
+    {
+      "command-line-flag": "--s",
+      "description": "Specify an input subject on the command-line. All subjects must be specified in this way.",
+      "value-key": "[SUBJECTS]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "subjects",
+      "name": "Subjects"
+    },
+    {
+      "command-line-flag": "--fsgd",
+      "description": "Specify the list of input subjects from the fsgd file.",
+      "value-key": "[FSGD]",
+      "type": "File",
+      "optional": true,
+      "id": "fsgd",
+      "name": "FSGD File"
+    },
+    {
+      "command-line-flag": "--f",
+      "description": "List all subjects separated by white space in subjlistfile.",
+      "value-key": "[SUBJECTLIST]",
+      "type": "File",
+      "optional": true,
+      "id": "subjectlist",
+      "name": "Subject List File"
+    },
+    {
+      "command-line-flag": "--qdec",
+      "description": "Specify list of subjects via qdec table file. Assumes the first column is the \"fsid\".",
+      "value-key": "[QDEC]",
+      "type": "File",
+      "optional": true,
+      "id": "qdec",
+      "name": "QDEC Table"
+    },
+    {
+      "command-line-flag": "--qdec-long",
+      "description": "Specify list of subjects via longitudinal qdec table file.",
+      "value-key": "[QDEC_LONG]",
+      "type": "File",
+      "optional": true,
+      "id": "qdec_long",
+      "name": "QDEC Longitudinal Table"
+    },
+    {
+      "command-line-flag": "--is",
+      "description": "Specify full path to input surface measure file.",
+      "value-key": "[SURFMEASFILE]",
+      "type": "File",
+      "list": true,
+      "optional": true,
+      "id": "surfmeasfile",
+      "name": "Surface Measure File"
+    },
+    {
+      "command-line-flag": "--iv",
+      "description": "Specify full path to a volume file and its registration matrix file.",
+      "value-key": "[VOLMEASFILE_REG]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "volmeasfile_reg",
+      "name": "Volume Measure and Registration Files"
+    },
+    {
+      "command-line-flag": "--projfrac",
+      "description": "When sampling a volume onto the surface, sample a fraction of the thickness along the surface normal.",
+      "value-key": "[PROJFRAC]",
+      "type": "Number",
+      "optional": true,
+      "id": "projfrac",
+      "name": "Projection Fraction"
+    },
+    {
+      "command-line-flag": "--projfrac-max",
+      "description": "When sampling a volume onto the surface, find max along projection for vol2surf.",
+      "value-key": "[PROJFRAC_MAX]",
+      "type": "Number",
+      "list": true,
+      "optional": true,
+      "min-list-entries": 3,
+      "max-list-entries": 3,
+      "id": "projfrac_max",
+      "name": "Projection Fraction Max"
+    },
+    {
+      "command-line-flag": "--projfrac-avg",
+      "description": "Compute average along projection for vol2surf.",
+      "value-key": "[PROJFRAC_AVG]",
+      "type": "Number",
+      "list": true,
+      "optional": true,
+      "min-list-entries": 3,
+      "max-list-entries": 3,
+      "id": "projfrac_avg",
+      "name": "Projection Fraction Average"
+    },
+    {
+      "command-line-flag": "--no-mask-non-cortex",
+      "description": "Do not mask out non-cortex in vol2surf.",
+      "value-key": "[NO_MASK_NON_CORTEX]",
+      "type": "Flag",
+      "id": "no_mask_non_cortex",
+      "name": "No Mask Non-Cortex Flag"
+    },
+    {
+      "command-line-flag": "--sf",
+      "description": "FS-FAST session file.",
+      "value-key": "[SESSION_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "session_file",
+      "name": "Session File"
+    },
+    {
+      "command-line-flag": "--df",
+      "description": "FS-FAST session directory file.",
+      "value-key": "[DIR_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "dir_file",
+      "name": "Directory File"
+    },
+    {
+      "command-line-flag": "--analysis",
+      "description": "FS-FAST analysis.",
+      "value-key": "[ANALYSIS]",
+      "type": "String",
+      "optional": true,
+      "id": "analysis",
+      "name": "Analysis"
+    },
+    {
+      "command-line-flag": "--contrast",
+      "description": "FS-FAST contrast.",
+      "value-key": "[CONTRAST]",
+      "type": "String",
+      "optional": true,
+      "id": "contrast",
+      "name": "Contrast"
+    },
+    {
+      "command-line-flag": "--cvar",
+      "description": "Use fsfast contrast variance (cesvar).",
+      "value-key": "[CVAR_FLAG]",
+      "type": "Flag",
+      "id": "cvar_flag",
+      "name": "CVar Flag"
+    },
+    {
+      "command-line-flag": "--offset",
+      "description": "Use fsfast mean offset (h-offset).",
+      "value-key": "[OFFSET_FLAG]",
+      "type": "Flag",
+      "id": "offset_flag",
+      "name": "Offset Flag"
+    },
+    {
+      "command-line-flag": "--map",
+      "description": "Use fsfast contrast/map.",
+      "value-key": "[MAP]",
+      "type": "String",
+      "optional": true,
+      "id": "map",
+      "name": "Map"
+    },
+    {
+      "command-line-flag": "--etiv",
+      "description": "Divide each subject's value by the Estimated Total Intra Cranial Volume as found in aseg.stats.",
+      "value-key": "[ETIV_FLAG]",
+      "type": "Flag",
+      "id": "etiv_flag",
+      "name": "ETIV Flag"
+    },
+    {
+      "command-line-flag": "--fwhm",
+      "description": "Smooth by fwhm mm on the target surface.",
+      "value-key": "[FWHM]",
+      "type": "Number",
+      "optional": true,
+      "id": "fwhm",
+      "name": "FWHM Smoothing"
+    },
+    {
+      "command-line-flag": "--fwhm-src",
+      "description": "Smooth by fwhm mm on the source surface.",
+      "value-key": "[FWHM_SRC]",
+      "type": "Number",
+      "optional": true,
+      "id": "fwhm_src",
+      "name": "FWHM Source Smoothing"
+    },
+    {
+      "command-line-flag": "--niters",
+      "description": "Smooth by niters on the target surface.",
+      "value-key": "[NITERS]",
+      "type": "Number",
+      "optional": true,
+      "id": "niters",
+      "name": "Number of Iterations Smoothing"
+    },
+    {
+      "command-line-flag": "--niters-src",
+      "description": "Smooth by niters on the source surface.",
+      "value-key": "[NITERS_SRC]",
+      "type": "Number",
+      "optional": true,
+      "id": "niters_src",
+      "name": "Source Smoothing Iterations"
+    },
+    {
+      "command-line-flag": "--cortex-only",
+      "description": "Exclude medial wall.",
+      "value-key": "[CORTEX_ONLY]",
+      "type": "Flag",
+      "id": "cortex_only",
+      "name": "Cortex Only Flag"
+    },
+    {
+      "command-line-flag": "--mgz",
+      "description": "Use mgz format internally.",
+      "value-key": "[MGZ_FLAG]",
+      "type": "Flag",
+      "id": "mgz_flag",
+      "name": "MGZ Format Flag"
+    },
+    {
+      "command-line-flag": "--no-jac",
+      "description": "Turn off jacobian correction.",
+      "value-key": "[NO_JAC_FLAG]",
+      "type": "Flag",
+      "id": "no_jac_flag",
+      "name": "No Jacobian Flag"
+    },
+    {
+      "command-line-flag": "--paired-diff",
+      "description": "Compute paired differences after concatenating all inputs together.",
+      "value-key": "[PAIRED_DIFF_FLAG]",
+      "type": "Flag",
+      "id": "paired_diff_flag",
+      "name": "Paired Difference Flag"
+    },
+    {
+      "command-line-flag": "--cache-out",
+      "description": "Cache the output in the specified cache file.",
+      "value-key": "[CACHE_OUT]",
+      "type": "String",
+      "optional": true,
+      "id": "cache_out",
+      "name": "Cache Output"
+    },
+    {
+      "command-line-flag": "--cache-in",
+      "description": "Use the pre-computed cached data from the specified cache file.",
+      "value-key": "[CACHE_IN]",
+      "type": "String",
+      "optional": true,
+      "id": "cache_in",
+      "name": "Cache Input"
+    },
+    {
+      "command-line-flag": "--cache-out-only",
+      "description": "Cache data without actually creating an output.",
+      "value-key": "[CACHE_OUT_ONLY]",
+      "type": "String",
+      "optional": true,
+      "id": "cache_out_only",
+      "name": "Cache Output Only"
+    },
+    {
+      "command-line-flag": "--no-prune",
+      "description": "Do not prune the inputs.",
+      "value-key": "[NO_PRUNE_FLAG]",
+      "type": "Flag",
+      "id": "no_prune_flag",
+      "name": "No Prune Flag"
+    },
+    {
+      "command-line-flag": "--mean",
+      "description": "Compute the mean of all inputs.",
+      "value-key": "[MEAN_FLAG]",
+      "type": "Flag",
+      "id": "mean_flag",
+      "name": "Mean Flag"
+    },
+    {
+      "command-line-flag": "--std",
+      "description": "Compute the standard deviation of all inputs.",
+      "value-key": "[STD_FLAG]",
+      "type": "Flag",
+      "id": "std_flag",
+      "name": "Standard Deviation Flag"
+    },
+    {
+      "command-line-flag": "--reshape",
+      "description": "Reshape spatial dimensions.",
+      "value-key": "[RESHAPE_FLAG]",
+      "type": "Flag",
+      "id": "reshape_flag",
+      "name": "Reshape Flag"
+    },
+    {
+      "command-line-flag": "--surfreg",
+      "description": "Use specified surface registration to the common space.",
+      "value-key": "[SURFREG]",
+      "type": "String",
+      "optional": true,
+      "id": "surfreg",
+      "name": "Surface Registration"
+    },
+    {
+      "command-line-flag": "--SUBJECTS_DIR",
+      "description": "Set SUBJECTS_DIR environment variable.",
+      "value-key": "[SUBJECTS_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "subjects_dir",
+      "name": "Subjects Directory"
+    },
+    {
+      "command-line-flag": "--synth",
+      "description": "Synthesize the input data with white gaussian noise.",
+      "value-key": "[SYNTH_FLAG]",
+      "type": "Flag",
+      "id": "synth_flag",
+      "name": "Synthesize Flag"
+    },
+    {
+      "command-line-flag": "--tmpdir",
+      "description": "Use specified temporary directory.",
+      "value-key": "[TMPDIR]",
+      "type": "String",
+      "optional": true,
+      "id": "tmpdir",
+      "name": "Temporary Directory"
+    },
+    {
+      "command-line-flag": "--nocleanup",
+      "description": "Do not delete temporary files.",
+      "value-key": "[NOCLEANUP_FLAG]",
+      "type": "Flag",
+      "id": "nocleanup_flag",
+      "name": "No Cleanup Flag"
+    },
+    {
+      "command-line-flag": "--cleanup",
+      "description": "Delete temporary files (default).",
+      "value-key": "[CLEANUP_FLAG]",
+      "type": "Flag",
+      "id": "cleanup_flag",
+      "name": "Cleanup Flag"
+    },
+    {
+      "command-line-flag": "--log",
+      "description": "Specify log file.",
+      "value-key": "[LOG]",
+      "type": "String",
+      "optional": true,
+      "id": "log",
+      "name": "Log File"
+    },
+    {
+      "command-line-flag": "--nolog",
+      "description": "Do not create a log file.",
+      "value-key": "[NOLOG_FLAG]",
+      "type": "Flag",
+      "id": "nolog_flag",
+      "name": "No Log Flag"
+    },
+    {
+      "command-line-flag": "--debug",
+      "description": "Enable debug mode.",
+      "value-key": "[DEBUG_FLAG]",
+      "type": "Flag",
+      "id": "debug_flag",
+      "name": "Debug Flag"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

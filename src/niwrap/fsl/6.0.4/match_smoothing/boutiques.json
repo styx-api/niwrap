@@ -1,0 +1,42 @@
+{
+  "name": "match_smoothing",
+  "description": "Computes the smoothing sigma needed to be applied to structural data to match a given functional data smoothing level.",
+  "command-line": "match_smoothing [EXAMPLE_FUNC] [FUNC_SMOOTHING_FWHM] [EXAMPLE_STRUCTURAL] [STANDARD_SPACE_RESOLUTION]",
+  "inputs": [
+    {
+      "description": "Path to the example functional image file.",
+      "value-key": "[EXAMPLE_FUNC]",
+      "type": "File",
+      "optional": false,
+      "id": "example_func",
+      "name": "Functional image file"
+    },
+    {
+      "description": "Full-width at half maximum (FWHM) of the smoothing kernel applied to the functional data, in millimeters.",
+      "value-key": "[FUNC_SMOOTHING_FWHM]",
+      "type": "Number",
+      "optional": false,
+      "id": "func_smoothing_FWHM",
+      "name": "Functional smoothing FWHM"
+    },
+    {
+      "description": "Path to the example structural image file.",
+      "value-key": "[EXAMPLE_STRUCTURAL]",
+      "type": "File",
+      "optional": false,
+      "id": "example_structural",
+      "name": "Structural image file"
+    },
+    {
+      "description": "Resolution of the standard space, in millimeters.",
+      "value-key": "[STANDARD_SPACE_RESOLUTION]",
+      "type": "Number",
+      "optional": false,
+      "id": "standard_space_resolution",
+      "name": "Standard space resolution"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

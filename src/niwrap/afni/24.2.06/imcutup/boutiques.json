@@ -1,0 +1,78 @@
+{
+  "name": "imcutup",
+  "author": "AFNI Developers",
+  "description": "Breaks up larger images into smaller image files of user-defined size.",
+  "command-line": "imcutup [PREFIX] [XYNUM] [YXNUM] [XYNUM_FORMAT] [YXNUM_FORMAT] [NX] [NY] [INPUT_FILE]",
+  "inputs": [
+    {
+      "description": "Number of pixels along the x-dimension for the smaller images.",
+      "value-key": "[NX]",
+      "type": "Number",
+      "integer": true,
+      "optional": false,
+      "id": "nx",
+      "name": "Nx (pixels)"
+    },
+    {
+      "description": "Number of pixels along the y-dimension for the smaller images.",
+      "value-key": "[NY]",
+      "type": "Number",
+      "integer": true,
+      "optional": false,
+      "id": "ny",
+      "name": "Ny (pixels)"
+    },
+    {
+      "description": "Input image filename. Must be a single 2D image.",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input file"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Prefix the output files with the provided string",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Prefix for output files"
+    },
+    {
+      "command-line-flag": "-xynum",
+      "description": "Number the output images in x-first, then y (default behavior)",
+      "value-key": "[XYNUM]",
+      "type": "Flag",
+      "id": "xynum",
+      "name": "X-first, then Y numbering"
+    },
+    {
+      "command-line-flag": "-yxnum",
+      "description": "Number the output images in y-first, then x",
+      "value-key": "[YXNUM]",
+      "type": "Flag",
+      "id": "yxnum",
+      "name": "Y-first, then X numbering"
+    },
+    {
+      "command-line-flag": "-x.ynum",
+      "description": "2D numbering in x.y format",
+      "value-key": "[XYNUM_FORMAT]",
+      "type": "Flag",
+      "id": "xynum_format",
+      "name": "2D numbering x.y format"
+    },
+    {
+      "command-line-flag": "-y.xnum",
+      "description": "2D numbering in y.x format",
+      "value-key": "[YXNUM_FORMAT]",
+      "type": "Flag",
+      "id": "yxnum_format",
+      "name": "2D numbering y.x format"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [],
+  "url": "https://afni.nimh.nih.gov/"
+}

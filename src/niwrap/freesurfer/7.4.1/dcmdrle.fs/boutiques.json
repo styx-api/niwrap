@@ -1,0 +1,277 @@
+{
+  "name": "dcmdrle.fs",
+  "author": "FreeSurfer Developers",
+  "description": "Decodes RLE-compressed DICOM files.",
+  "command-line": "dcmdrle.fs [INPUT_FILE] [OUTPUT_FILE] [HELP] [VERSION] [ARGUMENTS] [QUIET] [VERBOSE] [DEBUG] [LOG_LEVEL] [LOG_CONFIG] [READ_FILE] [READ_FILE_ONLY] [READ_DATASET] [UID_DEFAULT] [UID_ALWAYS] [BYTE_ORDER_DEFAULT] [BYTE_ORDER_REVERSE] [WRITE_FILE] [WRITE_DATASET] [WRITE_XFER_LITTLE] [WRITE_XFER_BIG] [WRITE_XFER_IMPLICIT] [ENABLE_NEW_VR] [DISABLE_NEW_VR] [GROUP_LENGTH_RECALC] [GROUP_LENGTH_CREATE] [GROUP_LENGTH_REMOVE] [LENGTH_EXPLICIT] [LENGTH_UNDEFINED] [PADDING_RETAIN] [PADDING_OFF] [PADDING_CREATE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "DICOM input filename to be converted.",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input DICOM file"
+    },
+    {
+      "description": "DICOM output filename.",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_file",
+      "name": "Output DICOM file"
+    },
+    {
+      "command-line-flag": "-h",
+      "description": "Print help text and exit.",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help flag"
+    },
+    {
+      "command-line-flag": "--version",
+      "description": "Print version information and exit.",
+      "value-key": "[VERSION]",
+      "type": "Flag",
+      "id": "version",
+      "name": "Version flag"
+    },
+    {
+      "command-line-flag": "--arguments",
+      "description": "Print expanded command line arguments.",
+      "value-key": "[ARGUMENTS]",
+      "type": "Flag",
+      "id": "arguments",
+      "name": "Arguments flag"
+    },
+    {
+      "command-line-flag": "-q",
+      "description": "Quiet mode, print no warnings and errors.",
+      "value-key": "[QUIET]",
+      "type": "Flag",
+      "id": "quiet",
+      "name": "Quiet flag"
+    },
+    {
+      "command-line-flag": "-v",
+      "description": "Verbose mode, print processing details.",
+      "value-key": "[VERBOSE]",
+      "type": "Flag",
+      "id": "verbose",
+      "name": "Verbose flag"
+    },
+    {
+      "command-line-flag": "-d",
+      "description": "Debug mode, print debug information.",
+      "value-key": "[DEBUG]",
+      "type": "Flag",
+      "id": "debug",
+      "name": "Debug flag"
+    },
+    {
+      "command-line-flag": "-ll",
+      "description": "Set logger level.",
+      "value-key": "[LOG_LEVEL]",
+      "type": "String",
+      "optional": true,
+      "id": "log_level",
+      "name": "Log Level"
+    },
+    {
+      "command-line-flag": "-lc",
+      "description": "Use config file for the logger.",
+      "value-key": "[LOG_CONFIG]",
+      "type": "File",
+      "optional": true,
+      "id": "log_config",
+      "name": "Log Config"
+    },
+    {
+      "command-line-flag": "+f",
+      "description": "Read file format or data set (default).",
+      "value-key": "[READ_FILE]",
+      "type": "Flag",
+      "id": "read_file",
+      "name": "Read file flag"
+    },
+    {
+      "command-line-flag": "+fo",
+      "description": "Read file format only.",
+      "value-key": "[READ_FILE_ONLY]",
+      "type": "Flag",
+      "id": "read_file_only",
+      "name": "Read file only flag"
+    },
+    {
+      "command-line-flag": "-f",
+      "description": "Read data set without file meta information.",
+      "value-key": "[READ_DATASET]",
+      "type": "Flag",
+      "id": "read_dataset",
+      "name": "Read dataset flag"
+    },
+    {
+      "command-line-flag": "+ud",
+      "description": "Keep same SOP Instance UID (default).",
+      "value-key": "[UID_DEFAULT]",
+      "type": "Flag",
+      "id": "uid_default",
+      "name": "UID default flag"
+    },
+    {
+      "command-line-flag": "+ua",
+      "description": "Always assign new UID.",
+      "value-key": "[UID_ALWAYS]",
+      "type": "Flag",
+      "id": "uid_always",
+      "name": "UID always flag"
+    },
+    {
+      "command-line-flag": "+bd",
+      "description": "Most significant byte first (default).",
+      "value-key": "[BYTE_ORDER_DEFAULT]",
+      "type": "Flag",
+      "id": "byte_order_default",
+      "name": "Byte order default flag"
+    },
+    {
+      "command-line-flag": "+br",
+      "description": "Least significant byte first.",
+      "value-key": "[BYTE_ORDER_REVERSE]",
+      "type": "Flag",
+      "id": "byte_order_reverse",
+      "name": "Byte order reverse flag"
+    },
+    {
+      "command-line-flag": "+F",
+      "description": "Write file format (default).",
+      "value-key": "[WRITE_FILE]",
+      "type": "Flag",
+      "id": "write_file",
+      "name": "Write file flag"
+    },
+    {
+      "command-line-flag": "-F",
+      "description": "Write data set without file meta information.",
+      "value-key": "[WRITE_DATASET]",
+      "type": "Flag",
+      "id": "write_dataset",
+      "name": "Write dataset flag"
+    },
+    {
+      "command-line-flag": "+te",
+      "description": "Write with explicit VR little endian (default).",
+      "value-key": "[WRITE_XFER_LITTLE]",
+      "type": "Flag",
+      "id": "write_xfer_little",
+      "name": "Write xfer little flag"
+    },
+    {
+      "command-line-flag": "+tb",
+      "description": "Write with explicit VR big endian TS.",
+      "value-key": "[WRITE_XFER_BIG]",
+      "type": "Flag",
+      "id": "write_xfer_big",
+      "name": "Write xfer big flag"
+    },
+    {
+      "command-line-flag": "+ti",
+      "description": "Write with implicit VR little endian TS.",
+      "value-key": "[WRITE_XFER_IMPLICIT]",
+      "type": "Flag",
+      "id": "write_xfer_implicit",
+      "name": "Write xfer implicit flag"
+    },
+    {
+      "command-line-flag": "+u",
+      "description": "Enable support for new VRs (UN/UT) (default).",
+      "value-key": "[ENABLE_NEW_VR]",
+      "type": "Flag",
+      "id": "enable_new_vr",
+      "name": "Enable new VR flag"
+    },
+    {
+      "command-line-flag": "-u",
+      "description": "Disable support for new VRs, convert to OB.",
+      "value-key": "[DISABLE_NEW_VR]",
+      "type": "Flag",
+      "id": "disable_new_vr",
+      "name": "Disable new VR flag"
+    },
+    {
+      "command-line-flag": "+g=",
+      "description": "Recalculate group lengths if present (default).",
+      "value-key": "[GROUP_LENGTH_RECALC]",
+      "type": "Flag",
+      "id": "group_length_recalc",
+      "name": "Group length recalc flag"
+    },
+    {
+      "command-line-flag": "+g",
+      "description": "Always write with group length elements.",
+      "value-key": "[GROUP_LENGTH_CREATE]",
+      "type": "Flag",
+      "id": "group_length_create",
+      "name": "Group length create flag"
+    },
+    {
+      "command-line-flag": "-g",
+      "description": "Always write without group length elements.",
+      "value-key": "[GROUP_LENGTH_REMOVE]",
+      "type": "Flag",
+      "id": "group_length_remove",
+      "name": "Group length remove flag"
+    },
+    {
+      "command-line-flag": "+e",
+      "description": "Write with explicit lengths (default).",
+      "value-key": "[LENGTH_EXPLICIT]",
+      "type": "Flag",
+      "id": "length_explicit",
+      "name": "Length explicit flag"
+    },
+    {
+      "command-line-flag": "-e",
+      "description": "Write with undefined lengths.",
+      "value-key": "[LENGTH_UNDEFINED]",
+      "type": "Flag",
+      "id": "length_undefined",
+      "name": "Length undefined flag"
+    },
+    {
+      "command-line-flag": "-p=",
+      "description": "Do not change padding.",
+      "value-key": "[PADDING_RETAIN]",
+      "type": "Flag",
+      "id": "padding_retain",
+      "name": "Padding retain flag"
+    },
+    {
+      "command-line-flag": "-p",
+      "description": "No padding (implicit if --write-dataset).",
+      "value-key": "[PADDING_OFF]",
+      "type": "Flag",
+      "id": "padding_off",
+      "name": "Padding off flag"
+    },
+    {
+      "command-line-flag": "+p",
+      "description": "Align file on multiple of file-pad bytes and items on multiple of item-pad bytes.",
+      "value-key": "[PADDING_CREATE]",
+      "type": "String",
+      "optional": true,
+      "id": "padding_create",
+      "name": "Padding create"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILE]",
+      "description": "Output DICOM file.",
+      "id": "output_file",
+      "name": "Output DICOM file"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

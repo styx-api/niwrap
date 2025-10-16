@@ -1,0 +1,42 @@
+{
+  "name": "fftest",
+  "author": "AFNI Developers",
+  "description": "A command line tool for testing purposes",
+  "command-line": "fftest [LENGTH] [NUM_TESTS] [VECTOR_SIZE] [QUIET_MODE]",
+  "inputs": [
+    {
+      "description": "Length of the test",
+      "value-key": "[LENGTH]",
+      "type": "Number",
+      "optional": false,
+      "id": "length",
+      "name": "Length"
+    },
+    {
+      "description": "Number of tests to run",
+      "value-key": "[NUM_TESTS]",
+      "type": "Number",
+      "optional": false,
+      "id": "num_tests",
+      "name": "Number of Tests"
+    },
+    {
+      "description": "Vector size for the test",
+      "value-key": "[VECTOR_SIZE]",
+      "type": "Number",
+      "optional": false,
+      "id": "vector_size",
+      "name": "Vector Size"
+    },
+    {
+      "command-line-flag": "-q",
+      "description": "Quiet mode",
+      "value-key": "[QUIET_MODE]",
+      "type": "Flag",
+      "id": "quiet_mode",
+      "name": "Quiet Mode"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

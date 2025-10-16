@@ -1,0 +1,14 @@
+{
+  "name": "foci-resample",
+  "source": {
+    "type": "boutiques",
+    "path": "boutiques.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-foci-resample"
+  ],
+  "docs": {
+    "description": "Project foci to a different surface.\n\nUnprojects foci from the <current-surf> for the structure, then projects them to <new-surf>.  If the foci have meaningful distances above or below the surface, use anatomical surfaces.  If the foci should be on the surface, use registered spheres and the options -discard-distance-from-surface and -restore-xyz."
+  }
+}

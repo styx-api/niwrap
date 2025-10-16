@@ -1,0 +1,51 @@
+{
+  "name": "mri_brain_volume",
+  "description": "Tool to calculate brain volume from MRI scans",
+  "command-line": "mri_brain_volume [INPUT_FILE] [OUTPUT_FILE] [FORCE_PARAM] [VERSION]",
+  "inputs": [
+    {
+      "description": "Input MRI file",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input file"
+    },
+    {
+      "description": "Output file for brain volume",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "output_file",
+      "name": "Output file"
+    },
+    {
+      "command-line-flag": "-forceParam",
+      "description": "Change pushout force (default 1.0)",
+      "value-key": "[FORCE_PARAM]",
+      "type": "Number",
+      "optional": true,
+      "id": "force_param",
+      "name": "Pushout force"
+    },
+    {
+      "command-line-flag": "--version",
+      "description": "Show the current version",
+      "value-key": "[VERSION]",
+      "type": "Flag",
+      "id": "version",
+      "name": "Version flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILE]",
+      "description": "Output file containing brain volume information",
+      "id": "output_volume_file",
+      "name": "Output volume file"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "schema-version": "0.5+styx",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

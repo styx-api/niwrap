@@ -1,0 +1,110 @@
+{
+  "name": "mris_ms_refine",
+  "author": "FreeSurfer Developers",
+  "description": "This program positions the tessellation of the cortical surface at the white matter surface, then the gray matter surface. It generates surface files for these surfaces as well as a 'curvature' file for the cortical thickness, and a surface file which approximates layer IV of the cortical sheet.",
+  "command-line": "mris_ms_refine [SUBJECT_NAME] [HEMISPHERE] [XFORM] [FLASH_FILES] [RESIDUALS] [OMIT_SELF_INTERSECTION] [CREATE_CURVATURE_FILES] [AVERAGE_CURVATURE] [WHITE_ONLY]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "The name of the subject",
+      "value-key": "[SUBJECT_NAME]",
+      "type": "String",
+      "optional": false,
+      "id": "subject_name",
+      "name": "Subject name"
+    },
+    {
+      "description": "The hemisphere to process ('lh' or 'rh')",
+      "value-key": "[HEMISPHERE]",
+      "type": "String",
+      "optional": false,
+      "id": "hemisphere",
+      "name": "Hemisphere"
+    },
+    {
+      "description": "The transform file",
+      "value-key": "[XFORM]",
+      "type": "File",
+      "optional": false,
+      "id": "xform",
+      "name": "Transform file"
+    },
+    {
+      "description": "Flash images",
+      "value-key": "[FLASH_FILES]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "flash_files",
+      "name": "Flash files"
+    },
+    {
+      "description": "Residuals file",
+      "value-key": "[RESIDUALS]",
+      "type": "File",
+      "optional": false,
+      "id": "residuals",
+      "name": "Residuals file"
+    },
+    {
+      "command-line-flag": "-q",
+      "description": "Omit self-intersection and only generate gray/white surface.",
+      "value-key": "[OMIT_SELF_INTERSECTION]",
+      "type": "Flag",
+      "id": "omit_self_intersection",
+      "name": "Omit self-intersection flag"
+    },
+    {
+      "command-line-flag": "-c",
+      "description": "Create curvature and area files from white matter surface.",
+      "value-key": "[CREATE_CURVATURE_FILES]",
+      "type": "Flag",
+      "id": "create_curvature_files",
+      "name": "Create curvature files flag"
+    },
+    {
+      "command-line-flag": "-a",
+      "description": "Average curvature values a specified number of times.",
+      "value-key": "[AVERAGE_CURVATURE]",
+      "type": "Number",
+      "optional": true,
+      "id": "average_curvature",
+      "name": "Average curvature values"
+    },
+    {
+      "command-line-flag": "-whiteonly",
+      "description": "Only generate white matter surface.",
+      "value-key": "[WHITE_ONLY]",
+      "type": "Flag",
+      "id": "white_only",
+      "name": "White only flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[SUBJECT_NAME]/[HEMISPHERE].white",
+      "description": "Generated white matter surface file",
+      "id": "white_surface",
+      "name": "White matter surface"
+    },
+    {
+      "path-template": "[SUBJECT_NAME]/[HEMISPHERE].pial",
+      "description": "Generated gray matter surface file",
+      "id": "pial_surface",
+      "name": "Pial surface"
+    },
+    {
+      "path-template": "[SUBJECT_NAME]/[HEMISPHERE].curv",
+      "description": "Curvature file for cortical thickness",
+      "id": "curvature_file",
+      "name": "Curvature file"
+    },
+    {
+      "path-template": "[SUBJECT_NAME]/[HEMISPHERE].layerIV",
+      "description": "Surface file approximating layer IV of the cortical sheet",
+      "id": "layerIV_surface",
+      "name": "Layer IV surface"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

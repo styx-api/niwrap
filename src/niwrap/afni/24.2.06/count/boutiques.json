@@ -1,0 +1,131 @@
+{
+  "name": "count",
+  "author": "AFNI Developers",
+  "description": "Numbered copies generator with custom format support and random sequence options",
+  "command-line": "count [BOT] [TOP] [STEP] [SEED] [SSEED] [COLUMN] [DIGITS] [FORM] [ROOT] [SEP] [SUFFIX] [SCALE] [COMMA] [SKIPNMODM]",
+  "inputs": [
+    {
+      "description": "Starting number or character",
+      "value-key": "[BOT]",
+      "type": "String",
+      "optional": false,
+      "id": "bot",
+      "name": "Beginning Value"
+    },
+    {
+      "description": "Ending number or character",
+      "value-key": "[TOP]",
+      "type": "String",
+      "optional": false,
+      "id": "top",
+      "name": "Ending Value"
+    },
+    {
+      "description": "Stride step or mode (integer step size, R#, S# or S)",
+      "value-key": "[STEP]",
+      "type": "String",
+      "optional": true,
+      "id": "step",
+      "name": "Step Increment"
+    },
+    {
+      "command-line-flag": "-seed",
+      "description": "Seed number for random number generator",
+      "value-key": "[SEED]",
+      "type": "Number",
+      "optional": true,
+      "id": "seed",
+      "name": "Seed Number"
+    },
+    {
+      "command-line-flag": "-sseed",
+      "description": "Seed string for random number generator",
+      "value-key": "[SSEED]",
+      "type": "String",
+      "optional": true,
+      "id": "sseed",
+      "name": "Seed String"
+    },
+    {
+      "command-line-flag": "-column",
+      "description": "Write output, one number per line",
+      "value-key": "[COLUMN]",
+      "type": "Flag",
+      "id": "column",
+      "name": "Column Output"
+    },
+    {
+      "command-line-flag": "-digits",
+      "description": "Number of digits to print",
+      "value-key": "[DIGITS]",
+      "type": "Number",
+      "optional": true,
+      "id": "digits",
+      "name": "Digit Count"
+    },
+    {
+      "command-line-flag": "-form",
+      "description": "Custom format string for printing the numbers",
+      "value-key": "[FORM]",
+      "type": "String",
+      "optional": true,
+      "id": "form",
+      "name": "Format String"
+    },
+    {
+      "command-line-flag": "-root",
+      "description": "String to print before the number",
+      "value-key": "[ROOT]",
+      "type": "String",
+      "optional": true,
+      "id": "root",
+      "name": "Prefix String"
+    },
+    {
+      "command-line-flag": "-sep",
+      "description": "Separator character between the numbers",
+      "value-key": "[SEP]",
+      "type": "String",
+      "optional": true,
+      "id": "sep",
+      "name": "Separator Character"
+    },
+    {
+      "command-line-flag": "-suffix",
+      "description": "String to print after the number",
+      "value-key": "[SUFFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "suffix",
+      "name": "Suffix String"
+    },
+    {
+      "command-line-flag": "-scale",
+      "description": "Scale factor to multiply each number",
+      "value-key": "[SCALE]",
+      "type": "Number",
+      "optional": true,
+      "id": "scale",
+      "name": "Scale Factor"
+    },
+    {
+      "command-line-flag": "-comma",
+      "description": "Put commas between the outputs",
+      "value-key": "[COMMA]",
+      "type": "Flag",
+      "id": "comma",
+      "name": "Comma Separator"
+    },
+    {
+      "command-line-flag": "-skipnmodm",
+      "description": "Skip numbers with modulus",
+      "value-key": "[SKIPNMODM]",
+      "type": "String",
+      "optional": true,
+      "id": "skipnmodm",
+      "name": "Skip Modulus"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

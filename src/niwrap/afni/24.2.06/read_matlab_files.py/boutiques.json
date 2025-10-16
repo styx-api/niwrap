@@ -1,0 +1,68 @@
+{
+  "name": "read_matlab_files.py",
+  "author": "AFNI Developers",
+  "description": "Describe or convert MATLAB files (.mat) to 1D format",
+  "command-line": "read_matlab_files.py [INFILES] [PREFIX] [OVERWRITE] [HELP] [HISTORY] [VERSION]",
+  "inputs": [
+    {
+      "description": "Input MATLAB files to be processed",
+      "value-key": "[INFILES]",
+      "type": "String",
+      "list": true,
+      "optional": false,
+      "id": "infiles",
+      "name": "Input files"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Prefix for output file names",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Output file prefix"
+    },
+    {
+      "command-line-flag": "-overwrite",
+      "description": "Overwrite any existing output files",
+      "value-key": "[OVERWRITE]",
+      "type": "Flag",
+      "id": "overwrite",
+      "name": "Overwrite flag"
+    },
+    {
+      "command-line-flag": "-help",
+      "description": "Show help message",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help flag"
+    },
+    {
+      "command-line-flag": "-hist",
+      "description": "Show revision history",
+      "value-key": "[HISTORY]",
+      "type": "Flag",
+      "id": "history",
+      "name": "History flag"
+    },
+    {
+      "command-line-flag": "-ver",
+      "description": "Show version number",
+      "value-key": "[VERSION]",
+      "type": "Flag",
+      "id": "version",
+      "name": "Version flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX].[INDEX].[KEY].1D",
+      "description": "Converted 1D format file",
+      "id": "converted_1d_file",
+      "name": "Converted 1D file"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

@@ -1,0 +1,10 @@
+{
+  "name": "shconv",
+  "source": {
+    "type": "boutiques",
+    "path": "boutiques.json"
+  },
+  "docs": {
+    "description": "Perform spherical convolution.\n\nProvided with matching pairs of response function and ODF images (containing SH coefficients), perform spherical convolution to provide the corresponding SH coefficients of the signal.\n\nIf multiple pairs of inputs are provided, their contributions will be summed into a single output.\n\nIf the responses are multi-shell (with one line of coefficients per shell), the output will be a 5-dimensional image, with the SH coefficients of the signal in each shell stored at different indices along the 5th dimension.\n\nThe spherical harmonic coefficients are stored according the conventions described the main documentation, which can be found at the following link: \nhttps://mrtrix.readthedocs.io/en/3.0.4/concepts/spherical_harmonics.html\n\nThe spherical harmonic coefficients are stored according the conventions described the main documentation, which can be found at the following link: \nhttps://mrtrix.readthedocs.io/en/3.0.4/concepts/spherical_harmonics.html\n\nReferences:\n\n"
+  }
+}

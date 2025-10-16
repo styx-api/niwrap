@@ -1,0 +1,306 @@
+{
+  "command-line": "long_mris_slopes [QDEC] [MEAS] [HEMI] [SD] [DO_AVG] [DO_RATE] [DO_PC1FIT] [DO_PC1] [DO_SPC] [DO_STACK] [DO_LABEL] [QCACHE] [RESID] [FWHM] [NOSMOOTH] [TIME] [GENERIC_TIME] [IN_LABEL] [JAC] [NAME_AVG] [NAME_RATE] [NAME_PC1FIT] [NAME_PC1] [NAME_SPC] [NAME_RESID] [OUT_STACK] [OUT_LABEL] [ISEC_LABELS] [STACK_AVG] [STACK_RATE] [STACK_PC1FIT] [STACK_PC1] [STACK_SPC] [STACK_RESID]",
+  "description": "Computes slope maps (e.g., of thickness) in a longitudinal study using FreeSurfer",
+  "inputs": [
+    {
+      "id": "qdec",
+      "name": "QDEC Table File",
+      "type": "File",
+      "value-key": "[QDEC]",
+      "optional": false,
+      "description": "(REQUIRED) QDEC table file specifying the subjects and time points",
+      "command-line-flag": "--qdec"
+    },
+    {
+      "id": "meas",
+      "name": "Measurement",
+      "type": "String",
+      "value-key": "[MEAS]",
+      "optional": false,
+      "description": "(REQUIRED) The surface input measure (e.g. thickness)",
+      "command-line-flag": "--meas"
+    },
+    {
+      "id": "hemi",
+      "name": "Hemisphere",
+      "type": "String",
+      "value-key": "[HEMI]",
+      "optional": false,
+      "description": "(REQUIRED) Run one hemisphere: lh or rh or both",
+      "command-line-flag": "--hemi"
+    },
+    {
+      "id": "sd",
+      "name": "Subjects Directory",
+      "type": "String",
+      "value-key": "[SD]",
+      "optional": false,
+      "description": "(REQUIRED) Full path to FreeSurfer subjects directory",
+      "command-line-flag": "--sd"
+    },
+    {
+      "id": "do_avg",
+      "name": "Compute Temporal Average",
+      "type": "Flag",
+      "value-key": "[DO_AVG]",
+      "description": "Compute and output the temporal average",
+      "command-line-flag": "--do-avg"
+    },
+    {
+      "id": "do_rate",
+      "name": "Compute Rate",
+      "type": "Flag",
+      "value-key": "[DO_RATE]",
+      "description": "Compute and output the rate",
+      "command-line-flag": "--do-rate"
+    },
+    {
+      "id": "do_pc1fit",
+      "name": "Compute Percent Change Fit",
+      "type": "Flag",
+      "value-key": "[DO_PC1FIT]",
+      "description": "Compute and output the percent change (w.r.t. tp1 from linear fit)",
+      "command-line-flag": "--do-pc1fit"
+    },
+    {
+      "id": "do_pc1",
+      "name": "Compute Percent Change",
+      "type": "Flag",
+      "value-key": "[DO_PC1]",
+      "description": "Compute and output the percent change (w.r.t. tp1)",
+      "command-line-flag": "--do-pc1"
+    },
+    {
+      "id": "do_spc",
+      "name": "Compute Symmetrized Percent Change",
+      "type": "Flag",
+      "value-key": "[DO_SPC]",
+      "description": "Compute and output the symmetrized percent change (w.r.t. temporal average)",
+      "command-line-flag": "--do-spc"
+    },
+    {
+      "id": "do_stack",
+      "name": "Save Stacked File",
+      "type": "Flag",
+      "value-key": "[DO_STACK]",
+      "description": "Save the stacked within subject file (time series)",
+      "command-line-flag": "--do-stack"
+    },
+    {
+      "id": "do_label",
+      "name": "Compute Intersected Cortex Label",
+      "type": "Flag",
+      "value-key": "[DO_LABEL]",
+      "description": "Compute and output intersected cortex label",
+      "command-line-flag": "--do-label"
+    },
+    {
+      "id": "qcache",
+      "name": "QCache Target",
+      "type": "String",
+      "value-key": "[QCACHE]",
+      "optional": true,
+      "description": "Create cache for QDEC (resample to subject <QCACHE>, e.g. fsaverage)",
+      "command-line-flag": "--qcache"
+    },
+    {
+      "id": "resid",
+      "name": "Residual Time Point",
+      "type": "String",
+      "value-key": "[RESID]",
+      "optional": true,
+      "description": "Residual time point (pass 1 for tp1 etc., pass 0 for average) to export",
+      "command-line-flag": "--resid"
+    },
+    {
+      "id": "fwhm",
+      "name": "Smoothing FWHM",
+      "type": "String",
+      "value-key": "[FWHM]",
+      "optional": true,
+      "description": "Smoothing at specific FWHM (required for percent change)",
+      "command-line-flag": "--fwhm"
+    },
+    {
+      "id": "nosmooth",
+      "name": "No Smoothing",
+      "type": "Flag",
+      "value-key": "[NOSMOOTH]",
+      "description": "Do not smooth the data",
+      "command-line-flag": "--nosmooth"
+    },
+    {
+      "id": "time",
+      "name": "Time Column Variable",
+      "type": "String",
+      "value-key": "[TIME]",
+      "optional": true,
+      "description": "Variable name for time column variable (e.g. age) in QDEC table",
+      "command-line-flag": "--time"
+    },
+    {
+      "id": "generic_time",
+      "name": "Generic Time Ordering",
+      "type": "Flag",
+      "value-key": "[GENERIC_TIME]",
+      "description": "Time points are ordered in QDEC file, assume time=1,2,3...",
+      "command-line-flag": "--generic-time"
+    },
+    {
+      "id": "in_label",
+      "name": "Input Label",
+      "type": "String",
+      "value-key": "[IN_LABEL]",
+      "optional": true,
+      "description": "Use pre-existing label for smoothing and to mask the output",
+      "command-line-flag": "--in-label"
+    },
+    {
+      "id": "jac",
+      "name": "Correct Jacobian",
+      "type": "Flag",
+      "value-key": "[JAC]",
+      "description": "Use this flag when mapping area or volume maps to correct Jacobian",
+      "command-line-flag": "--jac"
+    },
+    {
+      "id": "name_avg",
+      "name": "Filename for Temporal Average",
+      "type": "String",
+      "value-key": "[NAME_AVG]",
+      "optional": true,
+      "description": "Filename (without hemi ?h) to store temporal average",
+      "command-line-flag": "--name-avg"
+    },
+    {
+      "id": "name_rate",
+      "name": "Filename for Rate",
+      "type": "String",
+      "value-key": "[NAME_RATE]",
+      "optional": true,
+      "description": "Filename (without hemi ?h) to store rate",
+      "command-line-flag": "--name-rate"
+    },
+    {
+      "id": "name_pc1fit",
+      "name": "Filename for Percent Change Fit",
+      "type": "String",
+      "value-key": "[NAME_PC1FIT]",
+      "optional": true,
+      "description": "Filename (without hemi ?h) to store percent change fit",
+      "command-line-flag": "--name-pc1fit"
+    },
+    {
+      "id": "name_pc1",
+      "name": "Filename for Percent Change",
+      "type": "String",
+      "value-key": "[NAME_PC1]",
+      "optional": true,
+      "description": "Filename (without hemi ?h) to store percent change",
+      "command-line-flag": "--name-pc1"
+    },
+    {
+      "id": "name_spc",
+      "name": "Filename for Symmetrized Percent Change",
+      "type": "String",
+      "value-key": "[NAME_SPC]",
+      "optional": true,
+      "description": "Filename (without hemi ?h) to store symmetrized percent change",
+      "command-line-flag": "--name-spc"
+    },
+    {
+      "id": "name_resid",
+      "name": "Filename for Residual",
+      "type": "String",
+      "value-key": "[NAME_RESID]",
+      "optional": true,
+      "description": "Filename (without hemi ?h) to store residual",
+      "command-line-flag": "--name-resid"
+    },
+    {
+      "id": "out_stack",
+      "name": "Filename for Stacked Measure",
+      "type": "String",
+      "value-key": "[OUT_STACK]",
+      "optional": true,
+      "description": "Filename to store stacked measure file",
+      "command-line-flag": "--out-stack"
+    },
+    {
+      "id": "out_label",
+      "name": "Output Label Filename",
+      "type": "String",
+      "value-key": "[OUT_LABEL]",
+      "optional": true,
+      "description": "Filename to store within-subject intersected cortex labels",
+      "command-line-flag": "--out-label"
+    },
+    {
+      "id": "isec_labels",
+      "name": "Intersected Labels",
+      "type": "String",
+      "value-key": "[ISEC_LABELS]",
+      "optional": true,
+      "description": "Intersect labels on <qtarget> (usually cortex labels)",
+      "command-line-flag": "--isec-labels"
+    },
+    {
+      "id": "stack_avg",
+      "name": "Stacked Avg Maps",
+      "type": "String",
+      "value-key": "[STACK_AVG]",
+      "optional": true,
+      "description": "Output stacked avg maps on <qtarget>",
+      "command-line-flag": "--stack-avg"
+    },
+    {
+      "id": "stack_rate",
+      "name": "Stacked Rate Maps",
+      "type": "String",
+      "value-key": "[STACK_RATE]",
+      "optional": true,
+      "description": "Output stacked rate maps on <qtarget>",
+      "command-line-flag": "--stack-rate"
+    },
+    {
+      "id": "stack_pc1fit",
+      "name": "Stacked PC1FIT Maps",
+      "type": "String",
+      "value-key": "[STACK_PC1FIT]",
+      "optional": true,
+      "description": "Output stacked PC1FIT maps on <qtarget>",
+      "command-line-flag": "--stack-pc1fit"
+    },
+    {
+      "id": "stack_pc1",
+      "name": "Stacked PC1 Maps",
+      "type": "String",
+      "value-key": "[STACK_PC1]",
+      "optional": true,
+      "description": "Output stacked PC1 maps on <qtarget>",
+      "command-line-flag": "--stack-pc1"
+    },
+    {
+      "id": "stack_spc",
+      "name": "Stacked SPC Maps",
+      "type": "String",
+      "value-key": "[STACK_SPC]",
+      "optional": true,
+      "description": "Output stacked SPC maps on <qtarget>",
+      "command-line-flag": "--stack-spc"
+    },
+    {
+      "id": "stack_resid",
+      "name": "Stacked Residual Maps",
+      "type": "String",
+      "value-key": "[STACK_RESID]",
+      "optional": true,
+      "description": "Output stacked residual maps on <qtarget>",
+      "command-line-flag": "--stack-resid"
+    }
+  ],
+  "name": "long_mris_slopes",
+  "schema-version": "0.5+styx",
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

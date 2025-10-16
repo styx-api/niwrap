@@ -1,0 +1,68 @@
+{
+  "name": "fsl_prepare_fieldmap",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Prepares a fieldmap suitable for FEAT from SIEMENS data and saves output in rad/s format.",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "fsl_prepare_fieldmap [SCANNER] [PHASE_IMAGE] [MAGNITUDE_IMAGE] [OUT_IMAGE] [DELTA_TE] [NOCHECK_FLAG]",
+  "inputs": [
+    {
+      "description": "Scanner type (must be SIEMENS)",
+      "value-key": "[SCANNER]",
+      "type": "String",
+      "optional": false,
+      "id": "scanner",
+      "name": "Scanner"
+    },
+    {
+      "description": "Phase image file",
+      "value-key": "[PHASE_IMAGE]",
+      "type": "File",
+      "optional": false,
+      "id": "phase_image",
+      "name": "Phase image"
+    },
+    {
+      "description": "Magnitude image file (should be Brain Extracted)",
+      "value-key": "[MAGNITUDE_IMAGE]",
+      "type": "File",
+      "optional": false,
+      "id": "magnitude_image",
+      "name": "Magnitude image"
+    },
+    {
+      "description": "Output fieldmap image file",
+      "value-key": "[OUT_IMAGE]",
+      "type": "String",
+      "optional": false,
+      "id": "out_image",
+      "name": "Output image"
+    },
+    {
+      "description": "Echo time difference of the fieldmap sequence in milliseconds",
+      "value-key": "[DELTA_TE]",
+      "type": "Number",
+      "optional": false,
+      "id": "delta_te",
+      "name": "Delta TE",
+      "integer": false,
+      "minimum": 0
+    },
+    {
+      "command-line-flag": "--nocheck",
+      "description": "Suppress automatic sanity checking of image size/range/dimensions",
+      "value-key": "[NOCHECK_FLAG]",
+      "type": "Flag",
+      "id": "nocheck_flag",
+      "name": "No check flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUT_IMAGE].nii.gz",
+      "description": "The output fieldmap in rad/s format",
+      "id": "output_fieldmap",
+      "name": "Output Fieldmap"
+    }
+  ]
+}

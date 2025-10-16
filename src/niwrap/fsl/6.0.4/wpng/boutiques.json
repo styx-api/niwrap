@@ -1,0 +1,69 @@
+{
+  "name": "wpng",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Simple PGM/PPM/PAM to PNG Converter",
+  "command-line": "wpng [INPUT_FILE] [GAMMA] [BGCOLOR] [TEXT_FLAG] [TIME_FLAG] [INTERLACE_FLAG]",
+  "inputs": [
+    {
+      "description": "Input PNM file (binary PGM 'P5', PPM 'P6' or PAM 'P8')",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "input_file",
+      "name": "Input file"
+    },
+    {
+      "command-line-flag": "-gamma",
+      "description": "Transfer-function exponent (``gamma'') of the image in floating-point format (e.g., ``0.45455''). If image looks correct on given display system, image gamma is equal to inverse of display-system exponent, i.e., 1 / (LUT * CRT) (where LUT = lookup-table exponent and CRT = CRT exponent; first varies, second is usually 2.2, all are positive)",
+      "value-key": "[GAMMA]",
+      "type": "Number",
+      "optional": true,
+      "id": "gamma",
+      "integer": false,
+      "name": "Gamma"
+    },
+    {
+      "command-line-flag": "-bgcolor",
+      "description": "Desired background color for alpha-channel images, in 7-character hex RGB format (e.g., ``#ff7700'' for orange: same as HTML colors)",
+      "value-key": "[BGCOLOR]",
+      "type": "String",
+      "optional": true,
+      "id": "bgcolor",
+      "name": "Background color"
+    },
+    {
+      "command-line-flag": "-text",
+      "description": "Prompt interactively for text info (tEXt chunks)",
+      "value-key": "[TEXT_FLAG]",
+      "type": "Flag",
+      "id": "text_flag",
+      "name": "Text flag"
+    },
+    {
+      "command-line-flag": "-time",
+      "description": "Include a tIME chunk (last modification time)",
+      "value-key": "[TIME_FLAG]",
+      "type": "Flag",
+      "id": "time_flag",
+      "name": "Time flag"
+    },
+    {
+      "command-line-flag": "-interlace",
+      "description": "Write interlaced PNG image",
+      "value-key": "[INTERLACE_FLAG]",
+      "type": "Flag",
+      "id": "interlace_flag",
+      "name": "Interlace flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[INPUT_FILE_BASE_NAME].png",
+      "description": "Converted PNG file",
+      "id": "output_file",
+      "name": "Output PNG file"
+    }
+  ],
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

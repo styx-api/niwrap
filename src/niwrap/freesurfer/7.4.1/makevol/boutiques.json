@@ -1,0 +1,93 @@
+{
+  "name": "makevol",
+  "author": "FreeSurfer Developers",
+  "description": "A tool to create a volume with given parameters.",
+  "command-line": "makevol [FILENAME] [WIDTH] [HEIGHT] [DEPTH] [SIZEX] [SIZEY] [SIZEZ] [SET_METHOD]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "-f",
+      "description": "Write volume to the given file name, implying type.",
+      "value-key": "[FILENAME]",
+      "type": "String",
+      "optional": true,
+      "id": "filename",
+      "name": "Filename"
+    },
+    {
+      "command-line-flag": "-x",
+      "description": "Use integer WIDTH as the x dimension.",
+      "value-key": "[WIDTH]",
+      "type": "Number",
+      "optional": true,
+      "id": "width",
+      "name": "Width",
+      "integer": true
+    },
+    {
+      "command-line-flag": "-y",
+      "description": "Use integer HEIGHT as the y dimension.",
+      "value-key": "[HEIGHT]",
+      "type": "Number",
+      "optional": true,
+      "id": "height",
+      "name": "Height",
+      "integer": true
+    },
+    {
+      "command-line-flag": "-z",
+      "description": "Use integer DEPTH as the z dimension.",
+      "value-key": "[DEPTH]",
+      "type": "Number",
+      "optional": true,
+      "id": "depth",
+      "name": "Depth",
+      "integer": true
+    },
+    {
+      "command-line-flag": "--sizex",
+      "description": "Use float SIZEX as the x resolution.",
+      "value-key": "[SIZEX]",
+      "type": "Number",
+      "optional": true,
+      "id": "sizex",
+      "name": "Size X"
+    },
+    {
+      "command-line-flag": "--sizey",
+      "description": "Use float SIZEY as the y resolution.",
+      "value-key": "[SIZEY]",
+      "type": "Number",
+      "optional": true,
+      "id": "sizey",
+      "name": "Size Y"
+    },
+    {
+      "command-line-flag": "--sizez",
+      "description": "Use float SIZEZ as the z resolution.",
+      "value-key": "[SIZEZ]",
+      "type": "Number",
+      "optional": true,
+      "id": "sizez",
+      "name": "Size Z"
+    },
+    {
+      "command-line-flag": "--set-method",
+      "description": "Use METHOD to fill the values. Methods: xyz, random, constant.",
+      "value-key": "[SET_METHOD]",
+      "type": "String",
+      "optional": true,
+      "id": "set_method",
+      "name": "Set Method"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[FILENAME]",
+      "description": "The created volume file.",
+      "id": "output_file",
+      "name": "Output File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

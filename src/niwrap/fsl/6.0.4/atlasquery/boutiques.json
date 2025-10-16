@@ -1,0 +1,61 @@
+{
+  "name": "atlasquery",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Structural lookup tool for FSL atlases.",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "atlasquery [DUMPATLASES_FLAG] [ATLAS] [COORD] [MASK] [VERBOSE_FLAG] [HELP_FLAG]",
+  "inputs": [
+    {
+      "command-line-flag": "--dumpatlases",
+      "description": "Dump a list of available atlases",
+      "value-key": "[DUMPATLASES_FLAG]",
+      "type": "Flag",
+      "id": "dumpatlases_flag",
+      "name": "Dump atlases flag"
+    },
+    {
+      "command-line-flag": "-a",
+      "description": "Name of atlas to use",
+      "value-key": "[ATLAS]",
+      "type": "String",
+      "optional": true,
+      "id": "atlas",
+      "name": "Atlas name"
+    },
+    {
+      "command-line-flag": "-c",
+      "description": "Coordinate to query in the format X,Y,Z",
+      "value-key": "[COORD]",
+      "type": "String",
+      "optional": true,
+      "id": "coord",
+      "name": "Coordinate"
+    },
+    {
+      "command-line-flag": "-m",
+      "description": "A mask image to use during structural lookups",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "mask",
+      "name": "Mask image"
+    },
+    {
+      "command-line-flag": "-V",
+      "description": "Switch on diagnostic messages",
+      "value-key": "[VERBOSE_FLAG]",
+      "type": "Flag",
+      "id": "verbose_flag",
+      "name": "Verbose flag"
+    },
+    {
+      "command-line-flag": "-h",
+      "description": "Show help message and exit",
+      "value-key": "[HELP_FLAG]",
+      "type": "Flag",
+      "id": "help_flag",
+      "name": "Help flag"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

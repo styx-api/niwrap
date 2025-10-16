@@ -1,0 +1,193 @@
+{
+  "name": "timing_tool.py",
+  "author": "AFNI Developers",
+  "description": "Tool for manipulating and evaluating stimulus timing files",
+  "command-line": "timing_tool.py [TIMING_FILE] [OUTPUT_FILE] [RUN_LENGTH] [TR] [OFFSET] [EXTEND_FILE] [SORT] [SCALE_DATA] [SHIFT_TO_RUN_OFFSET] [TIMING_TO_1D_FILE] [STIM_DURATION] [MULTI_TIMING_FILES] [MULTI_SHOW_ISI_STATS] [MULTI_SHOW_TIMING] [SHOW_TIMING] [MULTI_STIM_DURATION] [ROUND_TIMES_FRAC] [TRUNCATE_TIMES] [MULTI_TIMING_EVENT_LIST]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "timing_file",
+      "name": "Timing File",
+      "description": "Specify a stimulus timing file to load",
+      "command-line-flag": "-timing",
+      "value-key": "[TIMING_FILE]",
+      "type": "File",
+      "optional": true
+    },
+    {
+      "id": "output_file",
+      "name": "Output Timing File",
+      "description": "Specify the output timing file",
+      "command-line-flag": "-write_timing",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "run_length",
+      "name": "Run Duration",
+      "description": "Specify the run duration(s), in seconds",
+      "command-line-flag": "-run_len",
+      "value-key": "[RUN_LENGTH]",
+      "type": "Number",
+      "list": true,
+      "optional": true
+    },
+    {
+      "id": "tr",
+      "name": "Time Resolution",
+      "description": "Specify the time resolution in 1D output (in seconds)",
+      "command-line-flag": "-tr",
+      "value-key": "[TR]",
+      "type": "Number",
+      "optional": true
+    },
+    {
+      "id": "offset",
+      "name": "Add Offset",
+      "description": "Add OFFSET to every time in the main element",
+      "command-line-flag": "-add_offset",
+      "value-key": "[OFFSET]",
+      "type": "Number",
+      "optional": true
+    },
+    {
+      "id": "extend_file",
+      "name": "Extend File",
+      "description": "Extend timing rows with those in NEW_FILE",
+      "command-line-flag": "-extend",
+      "value-key": "[EXTEND_FILE]",
+      "type": "File",
+      "optional": true
+    },
+    {
+      "id": "sort",
+      "name": "Sort Times",
+      "description": "Sort the times, per row (run)",
+      "command-line-flag": "-sort",
+      "value-key": "[SORT]",
+      "type": "Flag"
+    },
+    {
+      "id": "scale_data",
+      "name": "Scale Data",
+      "description": "Multiply every stim time by SCALAR",
+      "command-line-flag": "-scale_data",
+      "value-key": "[SCALE_DATA]",
+      "type": "Number",
+      "optional": true
+    },
+    {
+      "id": "shift_to_run_offset",
+      "name": "Shift to Run Offset",
+      "description": "Shift times so first event is at start of run",
+      "command-line-flag": "-shift_to_run_offset",
+      "value-key": "[SHIFT_TO_RUN_OFFSET]",
+      "type": "Number",
+      "optional": true
+    },
+    {
+      "id": "timing_to_1D_file",
+      "name": "Convert to 1D File",
+      "description": "Convert stim_times format to stim_file",
+      "command-line-flag": "-timing_to_1D",
+      "value-key": "[TIMING_TO_1D_FILE]",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "stim_duration",
+      "name": "Stimulus Duration",
+      "description": "Specify the stimulus duration, in seconds",
+      "command-line-flag": "-stim_dur",
+      "value-key": "[STIM_DURATION]",
+      "type": "Number",
+      "optional": true
+    },
+    {
+      "id": "multi_timing_files",
+      "name": "Multiple Timing Files",
+      "description": "Specify multiple timing files to load",
+      "command-line-flag": "-multi_timing",
+      "value-key": "[MULTI_TIMING_FILES]",
+      "type": "File",
+      "list": true,
+      "optional": true
+    },
+    {
+      "id": "multi_show_isi_stats",
+      "name": "Show ISI Statistics",
+      "description": "Display timing and ISI statistics for the multiple timing files",
+      "command-line-flag": "-multi_show_isi_stats",
+      "value-key": "[MULTI_SHOW_ISI_STATS]",
+      "type": "Flag"
+    },
+    {
+      "id": "multi_show_timing",
+      "name": "Show Timing for Multiple Elements",
+      "description": "Display info on multiple timing elements",
+      "command-line-flag": "-multi_show_timing_ele",
+      "value-key": "[MULTI_SHOW_TIMING]",
+      "type": "Flag"
+    },
+    {
+      "id": "show_timing",
+      "name": "Show Timing for Single Element",
+      "description": "Display info on the main timing element",
+      "command-line-flag": "-show_timing_ele",
+      "value-key": "[SHOW_TIMING]",
+      "type": "Flag"
+    },
+    {
+      "id": "multi_stim_duration",
+      "name": "Multiple Stimulus Durations",
+      "description": "Specify stimulus duration(s), in seconds, for multiple timing elements",
+      "command-line-flag": "-multi_stim_dur",
+      "value-key": "[MULTI_STIM_DURATION]",
+      "type": "Number",
+      "list": true,
+      "optional": true
+    },
+    {
+      "id": "round_times_frac",
+      "name": "Round Times Fraction",
+      "description": "Round times to multiples of the TR (0.0 <= FRAC <= 1.0)",
+      "command-line-flag": "-round_times",
+      "value-key": "[ROUND_TIMES_FRAC]",
+      "type": "Number",
+      "optional": true
+    },
+    {
+      "id": "truncate_times",
+      "name": "Truncate Times",
+      "description": "Truncate times to multiples of the TR",
+      "command-line-flag": "-truncate_times",
+      "value-key": "[TRUNCATE_TIMES]",
+      "type": "Flag"
+    },
+    {
+      "id": "multi_timing_event_list",
+      "name": "Multiple Timing Event List",
+      "description": "Create an event list file from multiple timing files",
+      "command-line-flag": "-multi_timing_to_event_list",
+      "value-key": "[MULTI_TIMING_EVENT_LIST]",
+      "type": "String",
+      "optional": true
+    }
+  ],
+  "output-files": [
+    {
+      "id": "output_timing_file",
+      "name": "Output Timing File",
+      "path-template": "[OUTPUT_FILE]",
+      "description": "Output timing file as specified"
+    },
+    {
+      "id": "timing_to_1D_output",
+      "name": "1D Format Stimulus Output",
+      "path-template": "[TIMING_TO_1D_FILE]",
+      "description": "Output 1D formatted stimulus data"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

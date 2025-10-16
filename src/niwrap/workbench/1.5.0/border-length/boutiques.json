@@ -1,0 +1,51 @@
+{
+  "name": "border-length",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -border-length [BORDER] [SURFACE] [OPT_CORRECTED_AREAS_AREA_METRIC] [OPT_SEPARATE_PIECES] [OPT_HIDE_BORDER_NAME]",
+  "description": "Report length of borders.\n\nFor each border, print its length along the surface, in mm.  If a border has multiple parts, their lengths are summed before printing, unless -separate-pieces is specified.\n\nThe -corrected-areas option is intended for when the length is not meaningfully measurable on individual surfaces, it is only an approximate correction for the reduction in structure of a group average surface.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "border",
+      "name": "border",
+      "description": "the input border file",
+      "optional": false,
+      "value-key": "[BORDER]",
+      "type": "File"
+    },
+    {
+      "id": "surface",
+      "name": "surface",
+      "description": "the surface to measure the borders on",
+      "optional": false,
+      "value-key": "[SURFACE]",
+      "type": "File"
+    },
+    {
+      "id": "opt_corrected_areas_area_metric",
+      "name": "opt_corrected_areas_area_metric",
+      "command-line-flag": "-corrected-areas",
+      "description": "vertex areas to use instead of computing them from the surface: the corrected vertex areas, as a metric",
+      "optional": true,
+      "value-key": "[OPT_CORRECTED_AREAS_AREA_METRIC]",
+      "type": "File"
+    },
+    {
+      "id": "opt_separate_pieces",
+      "name": "opt_separate_pieces",
+      "command-line-flag": "-separate-pieces",
+      "description": "report lengths for multi-part borders as separate numbers",
+      "type": "Flag",
+      "value-key": "[OPT_SEPARATE_PIECES]"
+    },
+    {
+      "id": "opt_hide_border_name",
+      "name": "opt_hide_border_name",
+      "command-line-flag": "-hide-border-name",
+      "description": "don't print border name before each output",
+      "type": "Flag",
+      "value-key": "[OPT_HIDE_BORDER_NAME]"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

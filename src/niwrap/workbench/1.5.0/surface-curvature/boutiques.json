@@ -1,0 +1,50 @@
+{
+  "name": "surface-curvature",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -surface-curvature [SURFACE] [OPT_MEAN_MEAN_OUT] [OPT_GAUSS_GAUSS_OUT]",
+  "description": "Calculate curvature of surface.\n\nCompute the curvature of the surface, using the method from:\nInteractive Texture Mapping by J. Maillot, Yahia, and Verroust, 1993.\nACM-0-98791-601-8/93/008",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "surface",
+      "name": "surface",
+      "description": "the surface to compute the curvature of",
+      "optional": false,
+      "value-key": "[SURFACE]",
+      "type": "File"
+    },
+    {
+      "id": "opt_mean_mean_out",
+      "name": "opt_mean_mean_out",
+      "command-line-flag": "-mean",
+      "description": "output mean curvature: mean curvature metric",
+      "optional": true,
+      "value-key": "[OPT_MEAN_MEAN_OUT]",
+      "type": "String"
+    },
+    {
+      "id": "opt_gauss_gauss_out",
+      "name": "opt_gauss_gauss_out",
+      "command-line-flag": "-gauss",
+      "description": "output gaussian curvature: gaussian curvature metric",
+      "optional": true,
+      "value-key": "[OPT_GAUSS_GAUSS_OUT]",
+      "type": "String"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "opt_mean_mean_out",
+      "name": "opt_mean_mean_out",
+      "path-template": "[OPT_MEAN_MEAN_OUT]",
+      "description": "output mean curvature: mean curvature metric"
+    },
+    {
+      "id": "opt_gauss_gauss_out",
+      "name": "opt_gauss_gauss_out",
+      "path-template": "[OPT_GAUSS_GAUSS_OUT]",
+      "description": "output gaussian curvature: gaussian curvature metric"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

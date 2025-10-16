@@ -1,0 +1,200 @@
+{
+  "name": "reg-feat2anat",
+  "author": "FreeSurfer Developers",
+  "description": "Registers FSL-Feat example_func to FreeSurfer anatomical data.",
+  "command-line": "reg-feat2anat [FEAT_DIR] [SUBJECT_ID] [OVERWRITE_EXF2STD] [MANUAL] [MANXFM_TYPE] [DOF] [BINS] [COST] [MAX_ANGLE] [BET] [TITLE] [NO_BBR] [SPM] [NO_INORM] [FMOV] [DEBUG]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Directory in which to find example_func.",
+      "value-key": "[FEAT_DIR]",
+      "type": "String",
+      "optional": false,
+      "id": "feat_dir",
+      "name": "Feat directory",
+      "command-line-flag": "--feat"
+    },
+    {
+      "description": "FreeSurfer subject identifier as found in SUBJECTS_DIR.",
+      "value-key": "[SUBJECT_ID]",
+      "type": "String",
+      "optional": false,
+      "id": "subject_id",
+      "name": "Subject ID",
+      "command-line-flag": "--subject"
+    },
+    {
+      "description": "Replace Feat-generated example_func2standard.",
+      "value-key": "[OVERWRITE_EXF2STD]",
+      "type": "Flag",
+      "id": "overwrite_exf2std",
+      "name": "Overwrite example_func2standard flag",
+      "command-line-flag": "--overwrite-exf2std"
+    },
+    {
+      "description": "Interactively view/edit registration.",
+      "value-key": "[MANUAL]",
+      "type": "Flag",
+      "id": "manual",
+      "name": "Manual registration flag",
+      "command-line-flag": "--manual"
+    },
+    {
+      "description": "Interactively view/edit registration for xfm type. xfmtype can be: func2anat, std2anat, or func2std.",
+      "value-key": "[MANXFM_TYPE]",
+      "type": "String",
+      "optional": true,
+      "id": "manxfm_type",
+      "name": "Manual xfm type",
+      "command-line-flag": "--manxfm"
+    },
+    {
+      "description": "FLIRT degrees of freedom (default is 6).",
+      "value-key": "[DOF]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "dof",
+      "name": "Degrees of Freedom",
+      "command-line-flag": "--dof"
+    },
+    {
+      "description": "FLIRT number of bins (default is 256).",
+      "value-key": "[BINS]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "bins",
+      "name": "Bins",
+      "command-line-flag": "--bins"
+    },
+    {
+      "description": "FLIRT cost function (default is corratio).",
+      "value-key": "[COST]",
+      "type": "String",
+      "optional": true,
+      "id": "cost",
+      "name": "Cost function",
+      "command-line-flag": "--cost"
+    },
+    {
+      "description": "FLIRT maximum search angle (default is 90).",
+      "value-key": "[MAX_ANGLE]",
+      "type": "Number",
+      "integer": false,
+      "optional": true,
+      "id": "max_angle",
+      "name": "Maximum search angle",
+      "command-line-flag": "--maxangle"
+    },
+    {
+      "description": "Run betfunc on example_func (not with FSL 4.0).",
+      "value-key": "[BET]",
+      "type": "Flag",
+      "id": "bet",
+      "name": "Bet function flag",
+      "command-line-flag": "--bet"
+    },
+    {
+      "description": "Title for tkregister window.",
+      "value-key": "[TITLE]",
+      "type": "String",
+      "optional": true,
+      "id": "title",
+      "name": "Title for tkregister",
+      "command-line-flag": "--title"
+    },
+    {
+      "description": "Do not use boundary-based registration.",
+      "value-key": "[NO_BBR]",
+      "type": "Flag",
+      "id": "no_bbr",
+      "name": "No BBR flag",
+      "command-line-flag": "--no-bbr"
+    },
+    {
+      "description": "Use SPM instead of FLIRT, 6 dof only.",
+      "value-key": "[SPM]",
+      "type": "Flag",
+      "id": "spm",
+      "name": "SPM flag",
+      "command-line-flag": "--spm"
+    },
+    {
+      "description": "Do not inorm when running tkregister2.",
+      "value-key": "[NO_INORM]",
+      "type": "Flag",
+      "id": "no_inorm",
+      "name": "No inorm flag",
+      "command-line-flag": "--no-inorm"
+    },
+    {
+      "description": "fmov argument for tkregister2.",
+      "value-key": "[FMOV]",
+      "type": "String",
+      "optional": true,
+      "id": "fmov",
+      "name": "Fmov",
+      "command-line-flag": "--fmov"
+    },
+    {
+      "description": "Turn on debugging.",
+      "value-key": "[DEBUG]",
+      "type": "Flag",
+      "id": "debug",
+      "name": "Debug flag",
+      "command-line-flag": "--debug"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "featdir/reg/freesurfer/anat2std.register.dat",
+      "description": "Init FS reg from anat to FSL-standard",
+      "id": "anat2std_register",
+      "name": "Anat to standard registration"
+    },
+    {
+      "path-template": "featdir/reg/freesurfer/std2anat.fsl.mat",
+      "description": "Init FSL reg from FSL-standard to anat",
+      "id": "std2anat_fsl_mat",
+      "name": "Standard to anat matrix"
+    },
+    {
+      "path-template": "featdir/reg/freesurfer/exf2anat.init.fsl.mat",
+      "description": "Init FSL reg from example_func to anat",
+      "id": "exf2anat_init_fsl_mat",
+      "name": "Example func to anat init matrix"
+    },
+    {
+      "path-template": "featdir/reg/freesurfer/exf2anat.fsl.mat",
+      "description": "Final FSL reg from example_func to anat",
+      "id": "exf2anat_fsl_mat",
+      "name": "Example func to anat final matrix"
+    },
+    {
+      "path-template": "featdir/reg/freesurfer/anat2exf.register.dat",
+      "description": "Final FS reg from example_func to anat",
+      "id": "anat2exf_register",
+      "name": "Anat to example_func registration"
+    },
+    {
+      "path-template": "featdir/reg/freesurfer/register.dat",
+      "description": "Same as anat2exf.register.dat",
+      "id": "register_dat",
+      "name": "Register data file"
+    },
+    {
+      "path-template": "featdir/reg/freesurfer/example_func2standard.mat",
+      "description": "Replacement for feat-generated",
+      "id": "example_func2standard_mat",
+      "name": "Example func to standard matrix"
+    },
+    {
+      "path-template": "reg/freesurfer/reg-feat2anat.log",
+      "description": "Log file for registration",
+      "id": "log_file",
+      "name": "Log file"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

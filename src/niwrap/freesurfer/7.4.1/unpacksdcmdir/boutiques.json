@@ -1,0 +1,34 @@
+{
+  "name": "unpacksdcmdir",
+  "description": "A tool for unpacking SD card directories, typically used in neuroimaging workflows. It seems to have a dependency on Tcl, as indicated by the error messages.",
+  "command-line": "unpacksdcmdir [INPUT_DIRECTORY] [OUTPUT_DIRECTORY]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "The directory containing SD card data to be unpacked.",
+      "value-key": "[INPUT_DIRECTORY]",
+      "type": "String",
+      "optional": false,
+      "id": "input_directory",
+      "name": "Input Directory"
+    },
+    {
+      "description": "The output directory where unpacked data will be stored.",
+      "value-key": "[OUTPUT_DIRECTORY]",
+      "type": "String",
+      "optional": false,
+      "id": "output_directory",
+      "name": "Output Directory"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_DIRECTORY]/unpacked_data",
+      "description": "The directory that will contain the unpacked data.",
+      "id": "unpacked_data",
+      "name": "Unpacked Data"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

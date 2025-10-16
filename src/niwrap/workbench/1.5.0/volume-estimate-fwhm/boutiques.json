@@ -1,0 +1,59 @@
+{
+  "name": "volume-estimate-fwhm",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -volume-estimate-fwhm [VOLUME] [OPT_ROI_ROIVOL] [OPT_SUBVOLUME_SUBVOL] [WHOLE_FILE]",
+  "description": "Estimate fwhm smoothness of a volume.\n\nEstimates the smoothness of the input volume in X, Y, and Z directions separately, printing the estimates to standard output, in mm as FWHM.  If -subvolume or -whole-file are not specified, each subvolume is estimated and displayed separately.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "volume",
+      "name": "volume",
+      "description": "the input volume",
+      "optional": false,
+      "value-key": "[VOLUME]",
+      "type": "File"
+    },
+    {
+      "id": "opt_roi_roivol",
+      "name": "opt_roi_roivol",
+      "command-line-flag": "-roi",
+      "description": "use only data within an ROI: the volume to use as an ROI",
+      "optional": true,
+      "value-key": "[OPT_ROI_ROIVOL]",
+      "type": "File"
+    },
+    {
+      "id": "opt_subvolume_subvol",
+      "name": "opt_subvolume_subvol",
+      "command-line-flag": "-subvolume",
+      "description": "select a single subvolume to estimate smoothness of: the subvolume number or name",
+      "optional": true,
+      "value-key": "[OPT_SUBVOLUME_SUBVOL]",
+      "type": "String"
+    },
+    {
+      "id": "whole_file",
+      "name": "whole_file",
+      "description": "estimate for the whole file at once, not each subvolume separately",
+      "type": {
+        "id": "whole_file",
+        "name": "whole_file",
+        "description": "estimate for the whole file at once, not each subvolume separately",
+        "command-line": "-whole-file [OPT_DEMEAN]",
+        "inputs": [
+          {
+            "id": "opt_demean",
+            "name": "opt_demean",
+            "command-line-flag": "-demean",
+            "description": "subtract the mean image before estimating smoothness",
+            "type": "Flag",
+            "value-key": "[OPT_DEMEAN]"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[WHOLE_FILE]"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

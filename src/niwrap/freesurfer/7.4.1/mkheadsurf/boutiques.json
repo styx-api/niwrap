@@ -1,0 +1,248 @@
+{
+  "name": "mkheadsurf",
+  "author": "FreeSurfer Developers",
+  "description": "Segment and create a surface representation of the head for visualization and further processing",
+  "command-line": "mkheadsurf [INPUT_VOL] [OUTPUT_VOL] [OUTPUT_SURF] [SUBJECT_ID] [NSMOOTH] [NOSEGHEAD] [THRESH1] [THRESH2] [NHITSMIN] [NDILATE] [NERODE] [FILLVAL] [FHI] [NO_RESCALE] [NO_FILL_HOLES_ISLANDS] [OR_MASK] [TESSELLATION_METHOD] [INFLATE] [CURV] [SRCVOL] [HEADVOL] [HEADSURF] [SMHEADSURF] [HEMI] [SUBJECTS_DIR] [UMASK] [LOGFILE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "-i",
+      "description": "Input volume",
+      "value-key": "[INPUT_VOL]",
+      "type": "File",
+      "optional": false,
+      "id": "input_vol",
+      "name": "Input Volume"
+    },
+    {
+      "command-line-flag": "-o",
+      "description": "Output volume",
+      "value-key": "[OUTPUT_VOL]",
+      "type": "String",
+      "optional": false,
+      "id": "output_vol",
+      "name": "Output Volume"
+    },
+    {
+      "command-line-flag": "-surf",
+      "description": "Output surface",
+      "value-key": "[OUTPUT_SURF]",
+      "type": "String",
+      "optional": false,
+      "id": "output_surf",
+      "name": "Output Surface"
+    },
+    {
+      "command-line-flag": "-s",
+      "description": "Subject ID",
+      "value-key": "[SUBJECT_ID]",
+      "type": "String",
+      "optional": false,
+      "id": "subject_id",
+      "name": "Subject ID"
+    },
+    {
+      "command-line-flag": "-nsmooth",
+      "description": "Number of smoothing iterations (default 10)",
+      "value-key": "[NSMOOTH]",
+      "type": "Number",
+      "optional": true,
+      "id": "nsmooth",
+      "name": "Number of Smoothing Iterations"
+    },
+    {
+      "command-line-flag": "-noseghead",
+      "description": "Do not segment the head, only tessellate and smooth existing",
+      "value-key": "[NOSEGHEAD]",
+      "type": "Flag",
+      "id": "noseghead",
+      "name": "No Segment Head Flag"
+    },
+    {
+      "command-line-flag": "-thresh1",
+      "description": "Threshold 1 value (default 20)",
+      "value-key": "[THRESH1]",
+      "type": "Number",
+      "optional": true,
+      "id": "thresh1",
+      "name": "Threshold 1"
+    },
+    {
+      "command-line-flag": "-thresh2",
+      "description": "Threshold 2 value (default 20)",
+      "value-key": "[THRESH2]",
+      "type": "Number",
+      "optional": true,
+      "id": "thresh2",
+      "name": "Threshold 2"
+    },
+    {
+      "command-line-flag": "-nhitsmin",
+      "description": "Minimum number of hits (default 2)",
+      "value-key": "[NHITSMIN]",
+      "type": "Number",
+      "optional": true,
+      "id": "nhitsmin",
+      "name": "Minimum Hits"
+    },
+    {
+      "command-line-flag": "-ndilate",
+      "description": "Number of dilations (default 0)",
+      "value-key": "[NDILATE]",
+      "type": "Number",
+      "optional": true,
+      "id": "ndilate",
+      "name": "Number of Dilations"
+    },
+    {
+      "command-line-flag": "-nerode",
+      "description": "Number of erosions (default 0)",
+      "value-key": "[NERODE]",
+      "type": "Number",
+      "optional": true,
+      "id": "nerode",
+      "name": "Number of Erosions"
+    },
+    {
+      "command-line-flag": "-fillval",
+      "description": "Fill value (default 1)",
+      "value-key": "[FILLVAL]",
+      "type": "Number",
+      "optional": true,
+      "id": "fillval",
+      "name": "Fill Value"
+    },
+    {
+      "command-line-flag": "-fhi",
+      "description": "FHI for MRIchangeType; default is to use default in mri_seghead",
+      "value-key": "[FHI]",
+      "type": "Number",
+      "optional": true,
+      "id": "fhi",
+      "name": "FHI value"
+    },
+    {
+      "command-line-flag": "-no-rescale",
+      "description": "Do not rescale input when converting to uchar",
+      "value-key": "[NO_RESCALE]",
+      "type": "Flag",
+      "id": "no_rescale",
+      "name": "No Rescale Flag"
+    },
+    {
+      "command-line-flag": "-no-fill-holes-islands",
+      "description": "Do not fill holes and remove islands",
+      "value-key": "[NO_FILL_HOLES_ISLANDS]",
+      "type": "Flag",
+      "id": "no_fill_holes_islands",
+      "name": "No Fill Holes Islands Flag"
+    },
+    {
+      "command-line-flag": "-or-mask",
+      "description": "Include all voxels in ormask in the head seg",
+      "value-key": "[OR_MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "or_mask",
+      "name": "Or Mask"
+    },
+    {
+      "command-line-flag": "-tess",
+      "description": "Tessellation method using mri_tessellate or mri_mc (default is -mc)",
+      "value-key": "[TESSELLATION_METHOD]",
+      "type": "String",
+      "optional": true,
+      "id": "tessellation_method",
+      "name": "Tessellation Method"
+    },
+    {
+      "command-line-flag": "-inflate",
+      "description": "Inflate and compute sulc",
+      "value-key": "[INFLATE]",
+      "type": "Flag",
+      "id": "inflate",
+      "name": "Inflate Flag"
+    },
+    {
+      "command-line-flag": "-curv",
+      "description": "Compute curv with smoothing",
+      "value-key": "[CURV]",
+      "type": "Flag",
+      "id": "curv",
+      "name": "Curv Flag"
+    },
+    {
+      "command-line-flag": "-srcvol",
+      "description": "Source volume ID (default is T1)",
+      "value-key": "[SRCVOL]",
+      "type": "String",
+      "optional": true,
+      "id": "srcvol",
+      "name": "Source Volume ID"
+    },
+    {
+      "command-line-flag": "-headvol",
+      "description": "Head volume ID (default is seghead)",
+      "value-key": "[HEADVOL]",
+      "type": "String",
+      "optional": true,
+      "id": "headvol",
+      "name": "Head Volume ID"
+    },
+    {
+      "command-line-flag": "-headsurf",
+      "description": "Head surface ID (default is seghead)",
+      "value-key": "[HEADSURF]",
+      "type": "String",
+      "optional": true,
+      "id": "headsurf",
+      "name": "Head Surface ID"
+    },
+    {
+      "command-line-flag": "-smheadsurf",
+      "description": "Smoothed head surface ID (default is smseghead)",
+      "value-key": "[SMHEADSURF]",
+      "type": "String",
+      "optional": true,
+      "id": "smheadsurf",
+      "name": "Smoothed Head Surface ID"
+    },
+    {
+      "command-line-flag": "-hemi",
+      "description": "Hemisphere (default is lh)",
+      "value-key": "[HEMI]",
+      "type": "String",
+      "optional": true,
+      "id": "hemi",
+      "name": "Hemisphere"
+    },
+    {
+      "command-line-flag": "-sd",
+      "description": "Subjects directory (default is SUBJECTS_DIR)",
+      "value-key": "[SUBJECTS_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "subjects_dir",
+      "name": "Subjects Directory"
+    },
+    {
+      "command-line-flag": "-umask",
+      "description": "Umask setting (default is 2)",
+      "value-key": "[UMASK]",
+      "type": "Number",
+      "optional": true,
+      "id": "umask",
+      "name": "Umask"
+    },
+    {
+      "command-line-flag": "-log",
+      "description": "Log file",
+      "value-key": "[LOGFILE]",
+      "type": "String",
+      "optional": true,
+      "id": "logfile",
+      "name": "Log File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

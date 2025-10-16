@@ -1,0 +1,78 @@
+{
+  "name": "adjunct_suma_fs_roi_info",
+  "author": "AFNI Developers",
+  "description": "Script for making ROI stats for the SUMA/ directory created by @SUMA_Make_Spec_FS after running FreeSurfer's recon-all.",
+  "command-line": "adjunct_suma_fs_roi_info [SUBJECT_ID] [SUMA_DIRECTORY] [HELP] [HVIEW] [VERSION]",
+  "inputs": [
+    {
+      "description": "Subject ID",
+      "value-key": "[SUBJECT_ID]",
+      "command-line-flag": "-sid",
+      "type": "String",
+      "optional": false,
+      "id": "subject_id",
+      "name": "Subject ID"
+    },
+    {
+      "description": "SUMA directory output by AFNI's @SUMA_Make_Spec_FS",
+      "value-key": "[SUMA_DIRECTORY]",
+      "command-line-flag": "-suma_dir",
+      "type": "String",
+      "optional": false,
+      "id": "suma_directory",
+      "name": "SUMA Directory"
+    },
+    {
+      "description": "Show help",
+      "value-key": "[HELP]",
+      "command-line-flag": "-help",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help"
+    },
+    {
+      "description": "Show help in text editor",
+      "value-key": "[HVIEW]",
+      "command-line-flag": "-hview",
+      "type": "Flag",
+      "id": "hview",
+      "name": "Help View"
+    },
+    {
+      "description": "Show version",
+      "value-key": "[VERSION]",
+      "command-line-flag": "-ver",
+      "type": "Flag",
+      "id": "version",
+      "name": "Version"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "stats_fs_rois_2000_FT.1D",
+      "description": "Info for the '2000' parcellation.",
+      "id": "rois_2000_ft",
+      "name": "ROI Stats 2000"
+    },
+    {
+      "path-template": "stats_fs_rois_2009_FT.1D",
+      "description": "Info for the '2009' parcellation.",
+      "id": "rois_2009_ft",
+      "name": "ROI Stats 2009"
+    },
+    {
+      "path-template": "stats_fs_segs_2000_FT.1D",
+      "description": "Info for the '2000' parcellation brain mask and tissue/segmentations.",
+      "id": "segs_2000_ft",
+      "name": "Segmentations 2000"
+    },
+    {
+      "path-template": "stats_fs_segs_2009_FT.1D",
+      "description": "Info for the '2009' parcellation brain mask and tissue/segmentations.",
+      "id": "segs_2009_ft",
+      "name": "Segmentations 2009"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

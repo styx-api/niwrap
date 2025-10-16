@@ -1,0 +1,88 @@
+{
+  "name": "metric-rois-from-extrema",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -metric-rois-from-extrema [SURFACE] [METRIC] [LIMIT] [METRIC_OUT] [OPT_GAUSSIAN_SIGMA] [OPT_ROI_ROI_METRIC] [OPT_OVERLAP_LOGIC_METHOD] [OPT_COLUMN_COLUMN]",
+  "description": "Create metric roi maps from extrema maps.\n\nFor each nonzero value in each map, make a map with an ROI around that location.  If the -gaussian option is specified, then normalized gaussian kernels are output instead of ROIs.  The <method> argument to -overlap-logic must be one of ALLOW, CLOSEST, or EXCLUDE.  ALLOW is the default, and means that ROIs are treated independently and may overlap.  CLOSEST means that ROIs may not overlap, and that no ROI contains vertices that are closer to a different seed vertex.  EXCLUDE means that ROIs may not overlap, and that any vertex within range of more than one ROI does not belong to any ROI.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "surface",
+      "name": "surface",
+      "description": "the surface to use for geodesic distance",
+      "optional": false,
+      "value-key": "[SURFACE]",
+      "type": "File"
+    },
+    {
+      "id": "metric",
+      "name": "metric",
+      "description": "the input metric file",
+      "optional": false,
+      "value-key": "[METRIC]",
+      "type": "File"
+    },
+    {
+      "id": "limit",
+      "name": "limit",
+      "description": "geodesic distance limit from vertex, in mm",
+      "optional": false,
+      "value-key": "[LIMIT]",
+      "type": "Number",
+      "integer": false
+    },
+    {
+      "id": "metric_out",
+      "name": "metric_out",
+      "type": "String",
+      "description": "the output metric file",
+      "optional": false,
+      "value-key": "[METRIC_OUT]"
+    },
+    {
+      "id": "opt_gaussian_sigma",
+      "name": "opt_gaussian_sigma",
+      "command-line-flag": "-gaussian",
+      "description": "generate a gaussian kernel instead of a flat ROI: the sigma for the gaussian kernel, in mm",
+      "optional": true,
+      "value-key": "[OPT_GAUSSIAN_SIGMA]",
+      "type": "Number",
+      "integer": false
+    },
+    {
+      "id": "opt_roi_roi_metric",
+      "name": "opt_roi_roi_metric",
+      "command-line-flag": "-roi",
+      "description": "select a region of interest to use: the area to use, as a metric",
+      "optional": true,
+      "value-key": "[OPT_ROI_ROI_METRIC]",
+      "type": "File"
+    },
+    {
+      "id": "opt_overlap_logic_method",
+      "name": "opt_overlap_logic_method",
+      "command-line-flag": "-overlap-logic",
+      "description": "how to handle overlapping ROIs, default ALLOW: the method of resolving overlaps",
+      "optional": true,
+      "value-key": "[OPT_OVERLAP_LOGIC_METHOD]",
+      "type": "String"
+    },
+    {
+      "id": "opt_column_column",
+      "name": "opt_column_column",
+      "command-line-flag": "-column",
+      "description": "select a single input column to use: the column number or name",
+      "optional": true,
+      "value-key": "[OPT_COLUMN_COLUMN]",
+      "type": "String"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "metric_out",
+      "name": "metric_out",
+      "path-template": "[METRIC_OUT]",
+      "description": "the output metric file"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

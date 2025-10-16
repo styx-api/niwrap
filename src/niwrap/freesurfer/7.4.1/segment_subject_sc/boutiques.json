@@ -1,0 +1,53 @@
+{
+  "name": "segment_subject_sc",
+  "author": "FreeSurfer Developers",
+  "description": "Front-end for MINC's mritotal. Computes the Talairach transform for mapping the input volume to the MNI305 space.",
+  "command-line": "segment_subject_sc [INVOL] [OUTXFM] [LOG] [DEBUG]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input volume",
+      "value-key": "[INVOL]",
+      "type": "File",
+      "optional": false,
+      "id": "invol",
+      "name": "Input Volume",
+      "command-line-flag": "-i"
+    },
+    {
+      "description": "Output xfm file",
+      "value-key": "[OUTXFM]",
+      "type": "File",
+      "optional": false,
+      "id": "outxfm",
+      "name": "Output XFM File",
+      "command-line-flag": "-xfm"
+    },
+    {
+      "command-line-flag": "--log",
+      "description": "Log file. Default is outdir/talarach.log",
+      "value-key": "[LOG]",
+      "type": "String",
+      "optional": true,
+      "id": "log",
+      "name": "Log File"
+    },
+    {
+      "command-line-flag": "--debug",
+      "description": "Turn on debugging",
+      "value-key": "[DEBUG]",
+      "type": "Flag",
+      "id": "debug",
+      "name": "Debug Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTXFM]",
+      "description": "Output transform file (xfm)",
+      "id": "output_xfm_file",
+      "name": "Output XFM File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

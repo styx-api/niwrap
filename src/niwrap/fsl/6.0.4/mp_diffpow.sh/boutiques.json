@@ -1,0 +1,34 @@
+{
+  "name": "mp_diffpow.sh",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Generates a file with specific motion parameter calculations useful for accounting for 'spin history' effects and other variations not accounted for by motion correction.",
+  "command-line": "mp_diffpow.sh [REG_FILE] [DIFF_REG_FILE]",
+  "inputs": [
+    {
+      "description": "Input file containing registration parameters (e.g., regparam.dat)",
+      "value-key": "[REG_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "reg_file",
+      "name": "Registration parameter file"
+    },
+    {
+      "description": "Output file with differenced registration parameters (e.g., diffregparam.dat)",
+      "value-key": "[DIFF_REG_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "diff_reg_file",
+      "name": "Differenced registration parameter file"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[DIFF_REG_FILE]",
+      "description": "File containing squared motion parameters, temporal difference of motion parameters, and squared differenced values.",
+      "id": "outfile",
+      "name": "Output file"
+    }
+  ],
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

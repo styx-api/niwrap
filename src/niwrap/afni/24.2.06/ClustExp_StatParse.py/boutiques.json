@@ -1,0 +1,175 @@
+{
+  "name": "ClustExp_StatParse.py",
+  "description": "Parser for statistical data sets and subject data sets, generating several outputs for further analysis.",
+  "command-line": "ClustExp_StatParse.py [STATDSET] [MEANBRIK] [THRESHBRIK] [SUBJDSET] [SUBJTABLE] [MASTER] [PREFIX] [PVAL] [MINVOX] [ATLAS] [SESSION] [NOSHINY] [OVERWRITE]",
+  "schema-version": "0.5+styx",
+  "author": "AFNI Developers",
+  "inputs": [
+    {
+      "id": "statdset",
+      "name": "Statistics dataset",
+      "description": "Statistics dataset.",
+      "type": "File",
+      "value-key": "[STATDSET]",
+      "optional": false,
+      "command-line-flag": "-StatDSET"
+    },
+    {
+      "id": "meanbrik",
+      "name": "Mean subbrik",
+      "description": "Mean subbrik (integer >= 0).",
+      "type": "Number",
+      "value-key": "[MEANBRIK]",
+      "optional": false,
+      "command-line-flag": "-MeanBrik"
+    },
+    {
+      "id": "threshbrik",
+      "name": "Threshold subbrik",
+      "description": "Threshold subbrik. Might be the same as MeanBrik (integer >= 0).",
+      "type": "Number",
+      "value-key": "[THRESHBRIK]",
+      "optional": false,
+      "command-line-flag": "-ThreshBrik"
+    },
+    {
+      "id": "subjdset",
+      "name": "Labeled dataset with all subjects",
+      "description": "Labeled dataset with all subjects (from @ClustExp_CatLab).",
+      "type": "File",
+      "value-key": "[SUBJDSET]",
+      "optional": false,
+      "command-line-flag": "-SubjDSET"
+    },
+    {
+      "id": "subjtable",
+      "name": "Table with subject labels and input datasets",
+      "description": "Table with subject labels and input datasets.",
+      "type": "File",
+      "value-key": "[SUBJTABLE]",
+      "optional": false,
+      "command-line-flag": "-SubjTable"
+    },
+    {
+      "id": "master",
+      "name": "Master data set for underlay",
+      "description": "Master data set for underlay.",
+      "type": "File",
+      "value-key": "[MASTER]",
+      "optional": false,
+      "command-line-flag": "-master"
+    },
+    {
+      "id": "prefix",
+      "name": "Output Prefix",
+      "description": "Name for output (no path).",
+      "type": "String",
+      "value-key": "[PREFIX]",
+      "command-line-flag": "-prefix",
+      "optional": true
+    },
+    {
+      "id": "pval",
+      "name": "Uncorrected p value for thresholding",
+      "description": "Uncorrected p value for thresholding.",
+      "type": "Number",
+      "value-key": "[PVAL]",
+      "command-line-flag": "-p",
+      "optional": true
+    },
+    {
+      "id": "minvox",
+      "name": "Minimum voxels in cluster",
+      "description": "Minimum voxels in cluster.",
+      "type": "Number",
+      "value-key": "[MINVOX]",
+      "command-line-flag": "-MinVox",
+      "optional": true
+    },
+    {
+      "id": "atlas",
+      "name": "Atlas name for lookup",
+      "description": "Atlas name for lookup (list at: whereami -help).",
+      "type": "String",
+      "value-key": "[ATLAS]",
+      "command-line-flag": "-atlas",
+      "optional": true
+    },
+    {
+      "id": "session",
+      "name": "Output parent folder",
+      "description": "Output parent folder if you don't want the current working directory.",
+      "type": "String",
+      "value-key": "[SESSION]",
+      "command-line-flag": "-session",
+      "optional": true
+    },
+    {
+      "id": "noshiny",
+      "name": "Do not create shiny app",
+      "description": "Do not create shiny app.",
+      "type": "Flag",
+      "value-key": "[NOSHINY]",
+      "command-line-flag": "-NoShiny"
+    },
+    {
+      "id": "overwrite",
+      "name": "Remove previous folder with same PREFIX",
+      "description": "Remove previous folder with same PREFIX.",
+      "type": "Flag",
+      "value-key": "[OVERWRITE]",
+      "command-line-flag": "-overwrite"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "table_mean",
+      "name": "Table with all data extracted from all subjects",
+      "description": "Table with all data extracted from all subjects.",
+      "path-template": "[PREFIX]_p_uncor_[PVAL]_mean.csv"
+    },
+    {
+      "id": "group_table",
+      "name": "Table with information parsed from the statistics data set history.",
+      "description": "Table with information parsed from the statistics data set history.",
+      "path-template": "[PREFIX]_GroupTable.csv"
+    },
+    {
+      "id": "3dclust_output",
+      "name": "Output directly from 3dclust",
+      "description": "Output directly from 3dclust.",
+      "path-template": "[PREFIX]_p_uncor_[PVAL]_3dclust.1D"
+    },
+    {
+      "id": "clusters_output",
+      "name": "Cleaned up version of the whereami output",
+      "description": "Cleaned up version of the whereami output.",
+      "path-template": "[PREFIX]_p_uncor_[PVAL]_clusters.csv"
+    },
+    {
+      "id": "statinfo_output",
+      "name": "Summary info for the shiny app",
+      "description": "Summary info for the shiny app.",
+      "path-template": "[PREFIX]_StatInfo.csv"
+    },
+    {
+      "id": "thresholded_dataset",
+      "name": "A new data set from input statistics, thresholded at uncorrected p value.",
+      "description": "A new data set from input statistics, thresholded at uncorrected p value.",
+      "path-template": "[PREFIX]_p_uncor_[PVAL].nii.gz"
+    },
+    {
+      "id": "thresholded_mask_dataset",
+      "name": "Integer labeled mask of the thresholded image with cluster sizes at least as big as the -MinVox.",
+      "description": "Integer labeled mask of the thresholded image with cluster sizes at least as big as the -MinVox.",
+      "path-template": "[PREFIX]_p_uncor_[PVAL]_mask.nii.gz"
+    },
+    {
+      "id": "master_copy",
+      "name": "A NIfTI copy of the master file provided that may have been resampled",
+      "description": "A NIfTI copy of the master file provided that may have been resampled.",
+      "path-template": "[PREFIX]_master.nii.gz"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

@@ -1,0 +1,53 @@
+{
+  "name": "mri_cvs_data_copy",
+  "description": "Packs and copies files that are required for mri_cvs_register.",
+  "command-line": "mri_cvs_data_copy [SUBJID] [OLDDIR] [NEWDIR] [VERSION] [HELP]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Subject ID of the subject to be moved/registered.",
+      "value-key": "[SUBJID]",
+      "type": "String",
+      "command-line-flag": "--subjid",
+      "optional": false,
+      "id": "subjid",
+      "name": "Subject ID"
+    },
+    {
+      "description": "Directory where data (FS reconned output files for the subject) is currently located. Use full path.",
+      "value-key": "[OLDDIR]",
+      "type": "String",
+      "command-line-flag": "--olddir",
+      "optional": false,
+      "id": "olddir",
+      "name": "Old Directory"
+    },
+    {
+      "description": "Directory where data (FS reconned output files for the subject) should be moved to. Use full path.",
+      "value-key": "[NEWDIR]",
+      "type": "String",
+      "command-line-flag": "--newdir",
+      "optional": false,
+      "id": "newdir",
+      "name": "New Directory"
+    },
+    {
+      "command-line-flag": "--version",
+      "description": "Print version and exit.",
+      "value-key": "[VERSION]",
+      "type": "Flag",
+      "id": "version",
+      "name": "Version flag"
+    },
+    {
+      "command-line-flag": "--help",
+      "description": "Print help and exit.",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help flag"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

@@ -1,0 +1,59 @@
+{
+  "name": "@Spharm.examples",
+  "author": "AFNI Developers",
+  "description": "A script to demonstrate the usage of spherical harmonics decomposition with SUMA",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "@Spharm.examples [HELP_WEB] [HELP_WEB_ALIAS] [HELP_VIEW] [HELP_VIEW_ALIAS] [ALL_OPTS] [HELP_FIND]",
+  "inputs": [
+    {
+      "command-line-flag": "-h_web",
+      "description": "Open webpage with help for this program",
+      "value-key": "[HELP_WEB]",
+      "type": "Flag",
+      "id": "help_web",
+      "name": "Help Web Flag"
+    },
+    {
+      "command-line-flag": "-hweb",
+      "description": "Same as -h_web",
+      "value-key": "[HELP_WEB_ALIAS]",
+      "type": "Flag",
+      "id": "help_web_alias",
+      "name": "Help Web Alias Flag"
+    },
+    {
+      "command-line-flag": "-h_view",
+      "description": "Open -help output in a GUI editor",
+      "value-key": "[HELP_VIEW]",
+      "type": "Flag",
+      "id": "help_view",
+      "name": "Help View Flag"
+    },
+    {
+      "command-line-flag": "-hview",
+      "description": "Same as -h_view",
+      "value-key": "[HELP_VIEW_ALIAS]",
+      "type": "Flag",
+      "id": "help_view_alias",
+      "name": "Help View Alias Flag"
+    },
+    {
+      "command-line-flag": "-all_opts",
+      "description": "List all of the options for this script",
+      "value-key": "[ALL_OPTS]",
+      "type": "Flag",
+      "id": "all_opts",
+      "name": "All Options Flag"
+    },
+    {
+      "command-line-flag": "-h_find",
+      "description": "Search for lines containing WORD in -help output. Search is approximate.",
+      "value-key": "[HELP_FIND]",
+      "type": "String",
+      "optional": true,
+      "id": "help_find",
+      "name": "Help Find"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

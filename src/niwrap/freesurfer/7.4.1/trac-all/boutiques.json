@@ -1,0 +1,305 @@
+{
+  "name": "trac-all",
+  "author": "FreeSurfer Developers",
+  "description": "Reconstruct white-matter pathways using an atlas of the underlying anatomy.",
+  "command-line": "trac-all [CONFIG_FILE] [SUBJECT_NAME] [DICOM_FILE] [PRE_PROCESSING] [BEDPOST] [PATHWAY_RECONSTRUCTION] [ASSEMBLE_MEASURES] [IMAGE_CORRECTIONS] [NO_IMAGE_CORRECTIONS] [IMAGE_QUALITY_ASSESSMENT] [NO_IMAGE_QUALITY_ASSESSMENT] [INTRA_REGISTRATION] [NO_INTRA_REGISTRATION] [TENSOR_FIT] [NO_TENSOR_FIT] [INTER_REGISTRATION] [NO_INTER_REGISTRATION] [PATHWAY_PRIORS] [NO_PATHWAY_PRIORS] [INFANT_OPTIONS] [JOB_FILE] [LOG_FILE] [NO_APPEND_LOG] [CMD_FILE] [NO_IS_RUNNING] [SUBJECTS_DIRECTORY] [UMASK] [GROUP_ID] [ALLOW_CORE_DUMP] [DEBUG_MODE] [DONT_RUN] [ONLY_VERSIONS] [VERSION_INFO] [HELP]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "-c",
+      "description": "Configuration file to set analysis options (dmrirc file)",
+      "value-key": "[CONFIG_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "config_file",
+      "name": "Configuration File"
+    },
+    {
+      "command-line-flag": "-s",
+      "description": "Subject name (if not defined in dmrirc)",
+      "value-key": "[SUBJECT_NAME]",
+      "type": "String",
+      "optional": true,
+      "id": "subject_name",
+      "name": "Subject Name"
+    },
+    {
+      "command-line-flag": "-i",
+      "description": "Input DWI DICOM (if not defined in dmrirc)",
+      "value-key": "[DICOM_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "dicom_file",
+      "name": "DICOM File"
+    },
+    {
+      "command-line-flag": "-prep",
+      "description": "Perform pre-processing (step 1, all substeps)",
+      "value-key": "[PRE_PROCESSING]",
+      "type": "Flag",
+      "id": "pre_processing",
+      "name": "Pre-processing"
+    },
+    {
+      "command-line-flag": "-bedp",
+      "description": "Perform bedpost (step 2)",
+      "value-key": "[BEDPOST]",
+      "type": "Flag",
+      "id": "bedpost",
+      "name": "Bedpost"
+    },
+    {
+      "command-line-flag": "-path",
+      "description": "Perform pathway reconstruction (step 3)",
+      "value-key": "[PATHWAY_RECONSTRUCTION]",
+      "type": "Flag",
+      "id": "pathway_reconstruction",
+      "name": "Pathway Reconstruction"
+    },
+    {
+      "command-line-flag": "-stat",
+      "description": "Assemble pathway measures from multiple subjects (step 4)",
+      "value-key": "[ASSEMBLE_MEASURES]",
+      "type": "Flag",
+      "id": "assemble_measures",
+      "name": "Assemble Pathway Measures"
+    },
+    {
+      "command-line-flag": "-corr",
+      "description": "Perform image corrections (step 1.1)",
+      "value-key": "[IMAGE_CORRECTIONS]",
+      "type": "Flag",
+      "id": "image_corrections",
+      "name": "Image Corrections"
+    },
+    {
+      "command-line-flag": "-nocorr",
+      "description": "Skip image corrections (step 1.1)",
+      "value-key": "[NO_IMAGE_CORRECTIONS]",
+      "type": "Flag",
+      "id": "no_image_corrections",
+      "name": "No Image Corrections"
+    },
+    {
+      "command-line-flag": "-qa",
+      "description": "Perform image quality assessment (step 1.2)",
+      "value-key": "[IMAGE_QUALITY_ASSESSMENT]",
+      "type": "Flag",
+      "id": "image_quality_assessment",
+      "name": "Image Quality Assessment"
+    },
+    {
+      "command-line-flag": "-noqa",
+      "description": "Skip image quality assessment (step 1.2)",
+      "value-key": "[NO_IMAGE_QUALITY_ASSESSMENT]",
+      "type": "Flag",
+      "id": "no_image_quality_assessment",
+      "name": "No Image Quality Assessment"
+    },
+    {
+      "command-line-flag": "-intra",
+      "description": "Perform intra-subject registration (step 1.3)",
+      "value-key": "[INTRA_REGISTRATION]",
+      "type": "Flag",
+      "id": "intra_registration",
+      "name": "Intra-subject Registration"
+    },
+    {
+      "command-line-flag": "-nointra",
+      "description": "Skip intra-subject registration (step 1.3)",
+      "value-key": "[NO_INTRA_REGISTRATION]",
+      "type": "Flag",
+      "id": "no_intra_registration",
+      "name": "No Intra-subject Registration"
+    },
+    {
+      "command-line-flag": "-tensor",
+      "description": "Perform tensor fit (step 1.4)",
+      "value-key": "[TENSOR_FIT]",
+      "type": "Flag",
+      "id": "tensor_fit",
+      "name": "Tensor Fit"
+    },
+    {
+      "command-line-flag": "-notensor",
+      "description": "Skip tensor fit (step 1.4)",
+      "value-key": "[NO_TENSOR_FIT]",
+      "type": "Flag",
+      "id": "no_tensor_fit",
+      "name": "No Tensor Fit"
+    },
+    {
+      "command-line-flag": "-inter",
+      "description": "Perform inter-subject registration (step 1.5)",
+      "value-key": "[INTER_REGISTRATION]",
+      "type": "Flag",
+      "id": "inter_registration",
+      "name": "Inter-subject Registration"
+    },
+    {
+      "command-line-flag": "-nointer",
+      "description": "Skip inter-subject registration (step 1.5)",
+      "value-key": "[NO_INTER_REGISTRATION]",
+      "type": "Flag",
+      "id": "no_inter_registration",
+      "name": "No Inter-subject Registration"
+    },
+    {
+      "command-line-flag": "-prior",
+      "description": "Perform pathway priors (step 1.6)",
+      "value-key": "[PATHWAY_PRIORS]",
+      "type": "Flag",
+      "id": "pathway_priors",
+      "name": "Pathway Priors"
+    },
+    {
+      "command-line-flag": "-noprior",
+      "description": "Skip pathway priors (step 1.6)",
+      "value-key": "[NO_PATHWAY_PRIORS]",
+      "type": "Flag",
+      "id": "no_pathway_priors",
+      "name": "No Pathway Priors"
+    },
+    {
+      "command-line-flag": "-infant",
+      "description": "Use infant brain processing options",
+      "value-key": "[INFANT_OPTIONS]",
+      "type": "Flag",
+      "id": "infant_options",
+      "name": "Infant Brain Processing"
+    },
+    {
+      "command-line-flag": "-jobs",
+      "description": "Write a text file with command lines that can be run in parallel and do not run them",
+      "value-key": "[JOB_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "job_file",
+      "name": "Jobs File"
+    },
+    {
+      "command-line-flag": "-log",
+      "description": "Unique log file instead of the default scripts/trac-all.log",
+      "value-key": "[LOG_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "log_file",
+      "name": "Log File"
+    },
+    {
+      "command-line-flag": "-noappendlog",
+      "description": "Overwrite old log files instead of appending",
+      "value-key": "[NO_APPEND_LOG]",
+      "type": "Flag",
+      "id": "no_append_log",
+      "name": "No Append Log"
+    },
+    {
+      "command-line-flag": "-cmd",
+      "description": "Unique cmd file instead of the default scripts/trac-all.cmd",
+      "value-key": "[CMD_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "cmd_file",
+      "name": "Cmd File"
+    },
+    {
+      "command-line-flag": "-no-isrunning",
+      "description": "Do not check whether subjects are currently being processed",
+      "value-key": "[NO_IS_RUNNING]",
+      "type": "Flag",
+      "id": "no_is_running",
+      "name": "No Isrunning Check"
+    },
+    {
+      "command-line-flag": "-sd",
+      "description": "Specify subjects directory (default environment SUBJECTS_DIR)",
+      "value-key": "[SUBJECTS_DIRECTORY]",
+      "type": "String",
+      "optional": true,
+      "id": "subjects_directory",
+      "name": "Subjects Directory"
+    },
+    {
+      "command-line-flag": "-umask",
+      "description": "Set Unix file permission mask (default 002)",
+      "value-key": "[UMASK]",
+      "type": "String",
+      "optional": true,
+      "id": "umask",
+      "name": "Unix File Permission Mask"
+    },
+    {
+      "command-line-flag": "-grp",
+      "description": "Check that current group is alpha groupid",
+      "value-key": "[GROUP_ID]",
+      "type": "String",
+      "optional": true,
+      "id": "group_id",
+      "name": "Group ID"
+    },
+    {
+      "command-line-flag": "-allowcoredump",
+      "description": "Set coredump limit to unlimited",
+      "value-key": "[ALLOW_CORE_DUMP]",
+      "type": "Flag",
+      "id": "allow_core_dump",
+      "name": "Allow Core Dump"
+    },
+    {
+      "command-line-flag": "-debug",
+      "description": "Generate much more output",
+      "value-key": "[DEBUG_MODE]",
+      "type": "Flag",
+      "id": "debug_mode",
+      "name": "Debug Mode"
+    },
+    {
+      "command-line-flag": "-dontrun",
+      "description": "Do everything but execute each command",
+      "value-key": "[DONT_RUN]",
+      "type": "Flag",
+      "id": "dont_run",
+      "name": "Do Not Run"
+    },
+    {
+      "command-line-flag": "-onlyversions",
+      "description": "Print version of each binary and exit",
+      "value-key": "[ONLY_VERSIONS]",
+      "type": "Flag",
+      "id": "only_versions",
+      "name": "Only Versions"
+    },
+    {
+      "command-line-flag": "-version",
+      "description": "Print version of this script and exit",
+      "value-key": "[VERSION_INFO]",
+      "type": "Flag",
+      "id": "version_info",
+      "name": "Version Info"
+    },
+    {
+      "command-line-flag": "-help",
+      "description": "Print full contents of help",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "scripts/trac-all.log",
+      "description": "Default log file",
+      "id": "default_log",
+      "name": "Default Log File"
+    },
+    {
+      "path-template": "scripts/trac-all.cmd",
+      "description": "Default command file",
+      "id": "default_cmd",
+      "name": "Default Command File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

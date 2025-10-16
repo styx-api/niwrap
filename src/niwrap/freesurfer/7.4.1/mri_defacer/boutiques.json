@@ -1,0 +1,236 @@
+{
+  "name": "mri_defacer",
+  "author": "FreeSurfer Developers",
+  "description": "Tool for defacing MRI images to remove facial features",
+  "command-line": "mri_defacer [INPUT_VOLUME] [HEADMASK] [TEMPSURF] [TEMPLABEL] [WATERMARK] [DEFACED_VOLUME] [FACEMASK] [FILL_CONSTANTS] [EXCLUDE_MASK] [TEMPREG] [MINSURFPATH] [MAXSURFPATH] [DISTBOUNDS] [DISTOVERLAY] [DISTDAT] [STATSPATH] [OUTPUT_TEMPSURF] [APPLY_TO_VOLUME] [RIPPLE_CENTER] [APPLY_RIPPLE] [DIAGNOSTIC_LEVEL] [DEBUG] [CHECKOPTS] [VERSION]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input volume",
+      "value-key": "[INPUT_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "input_volume",
+      "name": "Input Volume",
+      "command-line-flag": "-i"
+    },
+    {
+      "description": "Head mask volume",
+      "value-key": "[HEADMASK]",
+      "type": "File",
+      "optional": false,
+      "id": "headmask",
+      "name": "Head Mask",
+      "command-line-flag": "-hm"
+    },
+    {
+      "description": "Template surface file",
+      "value-key": "[TEMPSURF]",
+      "type": "File",
+      "optional": false,
+      "id": "tempsurf",
+      "name": "Template Surface",
+      "command-line-flag": "-ts"
+    },
+    {
+      "command-line-flag": "--l",
+      "description": "Template label, specify one or multiple labels",
+      "value-key": "[TEMPLABEL]",
+      "type": "File",
+      "optional": true,
+      "list": true,
+      "id": "templabel",
+      "name": "Template Label"
+    },
+    {
+      "command-line-flag": "--w",
+      "description": "Watermark density",
+      "value-key": "[WATERMARK]",
+      "type": "Number",
+      "optional": true,
+      "id": "watermark",
+      "name": "Watermark Density"
+    },
+    {
+      "description": "Output defaced volume",
+      "value-key": "[DEFACED_VOLUME]",
+      "type": "String",
+      "optional": false,
+      "id": "defaced_volume",
+      "name": "Defaced Volume",
+      "command-line-flag": "-o"
+    },
+    {
+      "command-line-flag": "--m",
+      "description": "Face mask volume",
+      "value-key": "[FACEMASK]",
+      "type": "String",
+      "optional": true,
+      "id": "facemask",
+      "name": "Face Mask"
+    },
+    {
+      "command-line-flag": "--fill-const",
+      "description": "Constants for filling within/outside the mask",
+      "value-key": "[FILL_CONSTANTS]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 2,
+      "min-list-entries": 2,
+      "optional": true,
+      "id": "fill_constants",
+      "name": "Fill Constants"
+    },
+    {
+      "command-line-flag": "--xmask",
+      "description": "Mask to exclude from defacing",
+      "value-key": "[EXCLUDE_MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "exclude_mask",
+      "name": "Exclude Mask"
+    },
+    {
+      "command-line-flag": "--reg",
+      "description": "Registration file to apply to surface",
+      "value-key": "[TEMPREG]",
+      "type": "File",
+      "optional": true,
+      "id": "tempreg",
+      "name": "Registration File"
+    },
+    {
+      "command-line-flag": "--min",
+      "description": "Output minimum surface path",
+      "value-key": "[MINSURFPATH]",
+      "type": "String",
+      "optional": true,
+      "id": "minsurfpath",
+      "name": "Minimum Surface Path"
+    },
+    {
+      "command-line-flag": "--max",
+      "description": "Output maximum surface path",
+      "value-key": "[MAXSURFPATH]",
+      "type": "String",
+      "optional": true,
+      "id": "maxsurfpath",
+      "name": "Maximum Surface Path"
+    },
+    {
+      "command-line-flag": "--distbounds",
+      "description": "File with distance bounds for each label",
+      "value-key": "[DISTBOUNDS]",
+      "type": "File",
+      "optional": true,
+      "id": "distbounds",
+      "name": "Distance Bounds Path"
+    },
+    {
+      "command-line-flag": "--distoverlay",
+      "description": "Overlay file showing distance for each vertex",
+      "value-key": "[DISTOVERLAY]",
+      "type": "File",
+      "optional": true,
+      "id": "distoverlay",
+      "name": "Distance Overlay"
+    },
+    {
+      "command-line-flag": "--distdat",
+      "description": "File with distances for each vertex",
+      "value-key": "[DISTDAT]",
+      "type": "File",
+      "optional": true,
+      "id": "distdat",
+      "name": "Distance Data Path"
+    },
+    {
+      "command-line-flag": "--stats",
+      "description": "Statistics path for nxmask with means and modes",
+      "value-key": "[STATSPATH]",
+      "type": "File",
+      "optional": true,
+      "id": "statspath",
+      "name": "Statistics Path"
+    },
+    {
+      "command-line-flag": "--ots",
+      "description": "Output template surface after watermark/ripple",
+      "value-key": "[OUTPUT_TEMPSURF]",
+      "type": "File",
+      "optional": true,
+      "id": "output_tempsurf",
+      "name": "Output Template Surface"
+    },
+    {
+      "command-line-flag": "--apply",
+      "description": "Apply face mask and registration to another volume",
+      "value-key": "[APPLY_TO_VOLUME]",
+      "type": "String",
+      "list": true,
+      "max-list-entries": 4,
+      "min-list-entries": 4,
+      "optional": true,
+      "id": "apply_to_volume",
+      "name": "Apply to Volume"
+    },
+    {
+      "command-line-flag": "--ripple-center",
+      "description": "Center of ripple effect",
+      "value-key": "[RIPPLE_CENTER]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 3,
+      "min-list-entries": 3,
+      "optional": true,
+      "id": "ripple_center",
+      "name": "Ripple Center"
+    },
+    {
+      "command-line-flag": "--apply-ripple",
+      "description": "Apply ripple effect on surface",
+      "value-key": "[APPLY_RIPPLE]",
+      "type": "String",
+      "list": true,
+      "max-list-entries": 6,
+      "min-list-entries": 6,
+      "optional": true,
+      "id": "apply_ripple",
+      "name": "Apply Ripple"
+    },
+    {
+      "command-line-flag": "--gdiag",
+      "description": "Set diagnostic level",
+      "value-key": "[DIAGNOSTIC_LEVEL]",
+      "type": "Number",
+      "optional": true,
+      "id": "diagnostic_level",
+      "name": "Diagnostic Level"
+    },
+    {
+      "command-line-flag": "--debug",
+      "description": "Turn on debugging",
+      "value-key": "[DEBUG]",
+      "type": "Flag",
+      "id": "debug",
+      "name": "Debug Flag"
+    },
+    {
+      "command-line-flag": "--checkopts",
+      "description": "Check options and exit without executing",
+      "value-key": "[CHECKOPTS]",
+      "type": "Flag",
+      "id": "checkopts",
+      "name": "Check Options Flag"
+    },
+    {
+      "command-line-flag": "--version",
+      "description": "Print version and exit",
+      "value-key": "[VERSION]",
+      "type": "Flag",
+      "id": "version",
+      "name": "Version Flag"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

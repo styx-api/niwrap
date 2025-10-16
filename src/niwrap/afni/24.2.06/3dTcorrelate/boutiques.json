@@ -1,0 +1,153 @@
+{
+  "name": "3dTcorrelate",
+  "command-line": "3dTcorrelate [XSET] [YSET] [PEARSON] [SPEARMAN] [QUADRANT] [KTAUB] [COVARIANCE] [PARTIAL] [YCOEF] [FISHER] [POLORT] [ORT] [AUTOCLIP] [AUTOMASK] [ZCENSOR] [PREFIX]",
+  "author": "AFNI Developers",
+  "description": "3dTcorrelate. Computes the correlation coefficient between corresponding voxel time series in two input 3D+time datasets 'xset' and 'yset'.",
+  "url": "https://afni.nimh.nih.gov/",
+  "inputs": [
+    {
+      "id": "pearson",
+      "name": "Pearson",
+      "type": "Flag",
+      "value-key": "[PEARSON]",
+      "command-line-flag": "-pearson",
+      "description": "Correlation is the normal pearson correlation coefficient."
+    },
+    {
+      "id": "spearman",
+      "name": "Spearman",
+      "type": "Flag",
+      "value-key": "[SPEARMAN]",
+      "command-line-flag": "-spearman",
+      "description": "Correlation is the Spearman (rank) correlation coefficient."
+    },
+    {
+      "id": "quadrant",
+      "name": "Quadrant",
+      "type": "Flag",
+      "value-key": "[QUADRANT]",
+      "command-line-flag": "-quadrant",
+      "description": "Correlation is the quadrant coefficient."
+    },
+    {
+      "id": "ktaub",
+      "name": "KendallTau",
+      "type": "Flag",
+      "value-key": "[KTAUB]",
+      "command-line-flag": "-ktaub",
+      "description": "Correlation is Kendall's tau_b coefficient. For continuous or finely discretized data, tau_b and rank correlation are nearly equivalent."
+    },
+    {
+      "id": "covariance",
+      "name": "Covariance",
+      "type": "Flag",
+      "value-key": "[COVARIANCE]",
+      "command-line-flag": "-covariance",
+      "description": "Covariance instead of correlation. That would be Pearson correlation without scaling by the product of the standard deviations."
+    },
+    {
+      "id": "partial",
+      "name": "Partial",
+      "type": "File",
+      "value-key": "[PARTIAL]",
+      "command-line-flag": "-partial",
+      "description": "Partial Pearson's correlation of X & Y, adjusting for Z (the dataset provided here).",
+      "optional": true
+    },
+    {
+      "id": "ycoef",
+      "name": "Ycoef",
+      "type": "Flag",
+      "value-key": "[YCOEF]",
+      "command-line-flag": "-ycoef",
+      "description": "Least squares coefficient that best fits y(t) to x(t), after detrending. That is, if yd(t) is the detrended y(t) and xd(t) is the detrended x(t), then the ycoef value is from the OLSQ fit to xd(t) = ycoef & y(t) + error."
+    },
+    {
+      "id": "fisher",
+      "name": "Fisher",
+      "type": "Flag",
+      "value-key": "[FISHER]",
+      "command-line-flag": "-Fisher",
+      "description": "Apply the Fisher (inverse hyperbolic tangent) transformation to correlation results. Does not make sense with ktaub, covariance, or ycoef."
+    },
+    {
+      "id": "polort",
+      "name": "Polort",
+      "type": "Number",
+      "integer": true,
+      "value-key": "[POLORT]",
+      "command-line-flag": "-polort",
+      "description": "Remove polynomial trend of order m. Using m=-1 mean no detrending; this is only useful fro data that has been preprocessed.",
+      "maximum": 9,
+      "minimum": -1,
+      "optional": true
+    },
+    {
+      "id": "ort",
+      "name": "Ort",
+      "type": "File",
+      "value-key": "[ORT]",
+      "command-line-flag": "-ort",
+      "description": "A 1D file. Also detrend using the columbs of the 1D file provided here. Only one -ort option can be given, so if you would like to use more than one, create a temporary file using 1dcat.",
+      "optional": true
+    },
+    {
+      "id": "autoclip",
+      "name": "Autoclip",
+      "type": "Flag",
+      "value-key": "[AUTOCLIP]",
+      "command-line-flag": "-autoclip",
+      "description": "Clip off low-intensity regions in the two datasets, so that the correlation is only computed between high-intensity (presumably brain) voxels. The intensity level is determined the same way that 3dClipLevel works."
+    },
+    {
+      "id": "automask",
+      "name": "Automask",
+      "type": "Flag",
+      "value-key": "[AUTOMASK]",
+      "command-line-flag": "-automask",
+      "description": "Clip off low-intensity regions in the two datasets, so that the correlation is only computed between high-intensity (presumably brain) voxels. The intensity level is determined the same way that 3dClipLevel works."
+    },
+    {
+      "id": "zcensor",
+      "name": "Zcensor",
+      "type": "Flag",
+      "value-key": "[ZCENSOR]",
+      "command-line-flag": "-zcensor",
+      "description": "Omit (censor out) any time points where the xset volume is all zero OR where the yset volume is all zero (in mask). Please note that using -zcensor with any detrending is unlikely to be useful."
+    },
+    {
+      "id": "prefix",
+      "name": "Prefix",
+      "type": "String",
+      "value-key": "[PREFIX]",
+      "command-line-flag": "-prefix",
+      "description": "Save output into a dataset with this prefix.",
+      "optional": true
+    },
+    {
+      "id": "xset",
+      "name": "Xset",
+      "type": "File",
+      "value-key": "[XSET]",
+      "description": "Input xset.",
+      "optional": false
+    },
+    {
+      "id": "yset",
+      "name": "Yset",
+      "type": "File",
+      "value-key": "[YSET]",
+      "description": "Input yset.",
+      "optional": false
+    }
+  ],
+  "output-files": [
+    {
+      "name": "Out file",
+      "id": "out_file",
+      "description": "Output image file name.",
+      "path-template": "[PREFIX]"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

@@ -1,0 +1,50 @@
+{
+  "name": "mris_remove_variance",
+  "description": "This program removes the linear component of the variance accounted for by one curvature vector from another.",
+  "command-line": "mris_remove_variance [INPUT_SURFACE_FILE] [CURVATURE_FILE] [CURVATURE_FILE_TO_REMOVE] [OUTPUT_CURVATURE_FILE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "input_surface_file",
+      "name": "Input Surface File",
+      "type": "File",
+      "value-key": "[INPUT_SURFACE_FILE]",
+      "description": "The input surface file.",
+      "optional": false
+    },
+    {
+      "id": "curvature_file",
+      "name": "Curvature File",
+      "type": "File",
+      "value-key": "[CURVATURE_FILE]",
+      "description": "The curvature file.",
+      "optional": false
+    },
+    {
+      "id": "curvature_file_to_remove",
+      "name": "Curvature File to Remove",
+      "type": "File",
+      "value-key": "[CURVATURE_FILE_TO_REMOVE]",
+      "description": "The curvature file to remove from the input curvature.",
+      "optional": false
+    },
+    {
+      "id": "output_curvature_file",
+      "name": "Output Curvature File",
+      "type": "String",
+      "value-key": "[OUTPUT_CURVATURE_FILE]",
+      "description": "The output curvature file.",
+      "optional": false
+    }
+  ],
+  "output-files": [
+    {
+      "id": "resulting_curvature_file",
+      "name": "Resulting Curvature File",
+      "path-template": "[OUTPUT_CURVATURE_FILE]",
+      "description": "The resulting curvature file after removing variance."
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

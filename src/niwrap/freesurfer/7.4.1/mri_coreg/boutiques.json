@@ -1,0 +1,538 @@
+{
+  "name": "mri_coreg",
+  "author": "FreeSurfer Developers",
+  "description": "mri_coreg performs a linear registration between two volumes using the method compatible with spm_coreg.",
+  "command-line": "mri_coreg [MOVVOL] [REFVOL] [REG] [SUBJECT] [DOF] [ZSCALE] [XZTRANS_YROT] [XYTRANS_ZROT] [XYTRANS_ZROT_XYSCALE_XYSHEAR] [REF_MASKVOL] [NO_REF_MASK] [MOV_MASKVOL] [THREADS] [SUBJECTS_DIR] [REGDAT] [NO_COORD_DITHER] [NO_INTENSITY_DITHER] [SPATIAL_SCALES] [TRANS] [ROT] [SCALE] [SHEAR] [INIT_REG] [OUT_PARAM_FILE] [OUT_COST_FILE] [NO_CRAS0] [CENTROID] [RAS2RAS] [NITERSMAX] [FTOL] [LINMINTOL] [SEED] [SAT] [CONF_REF] [NO_BF] [BF_LIM] [BF_NSAMP] [NO_SMOOTH] [REF_FWHM] [MOV_OOB] [INIT_REG_SAVE] [INIT_REG_SAVE_ONLY] [MAT2PAR] [MAT2ROT] [PAR2MAT] [LRREV] [LANDMARKS] [RMS] [MOVOUT] [MOV_IDITHER] [DEBUG] [CHECKOPTS] [VERSION]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Source volume (mov)",
+      "value-key": "[MOVVOL]",
+      "type": "File",
+      "optional": false,
+      "id": "movvol",
+      "name": "Moving Volume",
+      "command-line-flag": "-mov"
+    },
+    {
+      "description": "Target volume (ref or targ)",
+      "value-key": "[REFVOL]",
+      "type": "File",
+      "optional": false,
+      "id": "refvol",
+      "name": "Reference Volume",
+      "command-line-flag": "-ref"
+    },
+    {
+      "description": "Output registration file",
+      "value-key": "[REG]",
+      "type": "String",
+      "optional": false,
+      "id": "reg",
+      "name": "Registration File",
+      "command-line-flag": "-reg"
+    },
+    {
+      "command-line-flag": "--s",
+      "description": "Subject ID, forces --ref-mask aparc+aseg.mgz",
+      "value-key": "[SUBJECT]",
+      "type": "String",
+      "optional": true,
+      "id": "subject",
+      "name": "Subject ID"
+    },
+    {
+      "command-line-flag": "--dof",
+      "description": "Degrees of freedom. Default is 6.",
+      "value-key": "[DOF]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "dof",
+      "name": "Degrees of Freedom"
+    },
+    {
+      "command-line-flag": "--zscale",
+      "description": "Enable 7 dof registration with scaling in Z.",
+      "value-key": "[ZSCALE]",
+      "type": "Flag",
+      "id": "zscale",
+      "name": "Z-scale flag"
+    },
+    {
+      "command-line-flag": "--xztrans+yrot",
+      "description": "For 2D images: uses shifts in x and z and rotation about y (no scale).",
+      "value-key": "[XZTRANS_YROT]",
+      "type": "Flag",
+      "id": "xztrans_yrot",
+      "name": "XZ Translation and Y Rotation flag"
+    },
+    {
+      "command-line-flag": "--xytrans+zrot",
+      "description": "For 2D images: uses shifts in x and y and rotation about z (no scale).",
+      "value-key": "[XYTRANS_ZROT]",
+      "type": "Flag",
+      "id": "xytrans_zrot",
+      "name": "XY Translation and Z Rotation flag"
+    },
+    {
+      "command-line-flag": "--xytrans+zrot+xyscale+xyshear",
+      "description": "For 2D images: uses shifts in x and y, rotation about z, scale in xy, and xy shear.",
+      "value-key": "[XYTRANS_ZROT_XYSCALE_XYSHEAR]",
+      "type": "Flag",
+      "id": "xytrans_zrot_xyscale_xyshear",
+      "name": "XY Trans, Z Rot, XY Scale, XY Shear flag"
+    },
+    {
+      "command-line-flag": "--ref-mask",
+      "description": "Mask reference volume with specified mask volume.",
+      "value-key": "[REF_MASKVOL]",
+      "type": "File",
+      "optional": true,
+      "id": "ref_maskvol",
+      "name": "Reference Mask Volume"
+    },
+    {
+      "command-line-flag": "--no-ref-mask",
+      "description": "Do not mask reference volume.",
+      "value-key": "[NO_REF_MASK]",
+      "type": "Flag",
+      "id": "no_ref_mask",
+      "name": "No Reference Mask flag"
+    },
+    {
+      "command-line-flag": "--mov-mask",
+      "description": "Mask moving volume with specified mask volume.",
+      "value-key": "[MOV_MASKVOL]",
+      "type": "File",
+      "optional": true,
+      "id": "mov_maskvol",
+      "name": "Moving Mask Volume"
+    },
+    {
+      "command-line-flag": "--threads",
+      "description": "Number of threads to use.",
+      "value-key": "[THREADS]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "threads",
+      "name": "Number of Threads"
+    },
+    {
+      "command-line-flag": "--sd",
+      "description": "Freesurfer SUBJECTS_DIR.",
+      "value-key": "[SUBJECTS_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "subjects_dir",
+      "name": "Subjects Directory"
+    },
+    {
+      "command-line-flag": "--regdat",
+      "description": "Specify registration data file.",
+      "value-key": "[REGDAT]",
+      "type": "String",
+      "optional": true,
+      "id": "regdat",
+      "name": "Registration Data File"
+    },
+    {
+      "command-line-flag": "--no-coord-dither",
+      "description": "Turn off coordinate dithering.",
+      "value-key": "[NO_COORD_DITHER]",
+      "type": "Flag",
+      "id": "no_coord_dither",
+      "name": "No Coordinate Dither flag"
+    },
+    {
+      "command-line-flag": "--no-intensity-dither",
+      "description": "Turn off intensity dithering.",
+      "value-key": "[NO_INTENSITY_DITHER]",
+      "type": "Flag",
+      "id": "no_intensity_dither",
+      "name": "No Intensity Dither flag"
+    },
+    {
+      "command-line-flag": "--sep",
+      "description": "Set spatial scales.",
+      "value-key": "[SPATIAL_SCALES]",
+      "type": "String",
+      "list": true,
+      "min-list-entries": 1,
+      "max-list-entries": 2,
+      "optional": true,
+      "id": "spatial_scales",
+      "name": "Spatial Scales"
+    },
+    {
+      "command-line-flag": "--trans",
+      "description": "Initial translation in mm.",
+      "value-key": "[TRANS]",
+      "type": "Number",
+      "list": true,
+      "min-list-entries": 3,
+      "max-list-entries": 3,
+      "optional": true,
+      "id": "trans",
+      "name": "Translation Vector"
+    },
+    {
+      "command-line-flag": "--rot",
+      "description": "Initial rotation in degrees.",
+      "value-key": "[ROT]",
+      "type": "Number",
+      "list": true,
+      "min-list-entries": 3,
+      "max-list-entries": 3,
+      "optional": true,
+      "id": "rot",
+      "name": "Rotation Vector"
+    },
+    {
+      "command-line-flag": "--scale",
+      "description": "Initial scale.",
+      "value-key": "[SCALE]",
+      "type": "Number",
+      "list": true,
+      "min-list-entries": 3,
+      "max-list-entries": 3,
+      "optional": true,
+      "id": "scale",
+      "name": "Scale Vector"
+    },
+    {
+      "command-line-flag": "--shear",
+      "description": "Initial shear.",
+      "value-key": "[SHEAR]",
+      "type": "Number",
+      "list": true,
+      "min-list-entries": 3,
+      "max-list-entries": 3,
+      "optional": true,
+      "id": "shear",
+      "name": "Shear Vector"
+    },
+    {
+      "command-line-flag": "--init-reg",
+      "description": "Initialize with given registration file.",
+      "value-key": "[INIT_REG]",
+      "type": "File",
+      "optional": true,
+      "id": "init_reg",
+      "name": "Initial Registration File"
+    },
+    {
+      "command-line-flag": "--params",
+      "description": "Save parameters in specified file.",
+      "value-key": "[OUT_PARAM_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "out_param_file",
+      "name": "Output Parameter File"
+    },
+    {
+      "command-line-flag": "--final-cost",
+      "description": "Save final cost value in specified file.",
+      "value-key": "[OUT_COST_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "out_cost_file",
+      "name": "Output Cost File"
+    },
+    {
+      "command-line-flag": "--no-cras0",
+      "description": "Do not set translation parameters to align centers of mov and ref.",
+      "value-key": "[NO_CRAS0]",
+      "type": "Flag",
+      "id": "no_cras0",
+      "name": "No CRAS0 flag"
+    },
+    {
+      "command-line-flag": "--centroid",
+      "description": "Initialize by aligning centroids of mov and ref.",
+      "value-key": "[CENTROID]",
+      "type": "Flag",
+      "id": "centroid",
+      "name": "Centroid flag"
+    },
+    {
+      "command-line-flag": "--ras2ras",
+      "description": "Save output LTA as RAS2RAS.",
+      "value-key": "[RAS2RAS]",
+      "type": "Flag",
+      "id": "ras2ras",
+      "name": "RAS2RAS flag"
+    },
+    {
+      "command-line-flag": "--nitersmax",
+      "description": "Set maximum number of iterations.",
+      "value-key": "[NITERSMAX]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "nitersmax",
+      "name": "Max Iterations"
+    },
+    {
+      "command-line-flag": "--ftol",
+      "description": "Set function tolerance.",
+      "value-key": "[FTOL]",
+      "type": "Number",
+      "optional": true,
+      "id": "ftol",
+      "name": "Function Tolerance"
+    },
+    {
+      "command-line-flag": "--linmintol",
+      "description": "Set line minimum tolerance.",
+      "value-key": "[LINMINTOL]",
+      "type": "Number",
+      "optional": true,
+      "id": "linmintol",
+      "name": "Line Min Tolerance"
+    },
+    {
+      "command-line-flag": "--seed",
+      "description": "Set random seed for dithering.",
+      "value-key": "[SEED]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "seed",
+      "name": "Random Seed"
+    },
+    {
+      "command-line-flag": "--sat",
+      "description": "Set saturation threshold.",
+      "value-key": "[SAT]",
+      "type": "Number",
+      "optional": true,
+      "id": "sat",
+      "name": "Saturation Threshold"
+    },
+    {
+      "command-line-flag": "--conf-ref",
+      "description": "Conform the reference without rescaling.",
+      "value-key": "[CONF_REF]",
+      "type": "Flag",
+      "id": "conf_ref",
+      "name": "Conform Reference flag"
+    },
+    {
+      "command-line-flag": "--no-bf",
+      "description": "Do not perform brute force search.",
+      "value-key": "[NO_BF]",
+      "type": "Flag",
+      "id": "no_bf",
+      "name": "No Brute Force flag"
+    },
+    {
+      "command-line-flag": "--bf-lim",
+      "description": "Set constraint limits for brute force search.",
+      "value-key": "[BF_LIM]",
+      "type": "Number",
+      "optional": true,
+      "id": "bf_lim",
+      "name": "Brute Force Limit"
+    },
+    {
+      "command-line-flag": "--bf-nsamp",
+      "description": "Set number of samples for brute force search.",
+      "value-key": "[BF_NSAMP]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "bf_nsamp",
+      "name": "Brute Force Samples"
+    },
+    {
+      "command-line-flag": "--no-smooth",
+      "description": "Do not apply smoothing to either ref or mov.",
+      "value-key": "[NO_SMOOTH]",
+      "type": "Flag",
+      "id": "no_smooth",
+      "name": "No Smoothing flag"
+    },
+    {
+      "command-line-flag": "--ref-fwhm",
+      "description": "Apply smoothing to ref with specified FWHM.",
+      "value-key": "[REF_FWHM]",
+      "type": "Number",
+      "optional": true,
+      "id": "ref_fwhm",
+      "name": "Reference FWHM"
+    },
+    {
+      "command-line-flag": "--mov-oob",
+      "description": "Count mov voxels that are out-of-bounds as 0.",
+      "value-key": "[MOV_OOB]",
+      "type": "Flag",
+      "id": "mov_oob",
+      "name": "Mov Out of Bounds flag"
+    },
+    {
+      "command-line-flag": "--init-reg-save",
+      "description": "Save initial registration.",
+      "value-key": "[INIT_REG_SAVE]",
+      "type": "File",
+      "optional": true,
+      "id": "init_reg_save",
+      "name": "Initial Registration Save"
+    },
+    {
+      "command-line-flag": "--init-reg-save-only",
+      "description": "Save initial registration and exit.",
+      "value-key": "[INIT_REG_SAVE_ONLY]",
+      "type": "File",
+      "optional": true,
+      "id": "init_reg_save_only",
+      "name": "Initial Registration Save Only"
+    },
+    {
+      "command-line-flag": "--mat2par",
+      "description": "Extract parameters out of registration.",
+      "value-key": "[MAT2PAR]",
+      "type": "File",
+      "optional": true,
+      "id": "mat2par",
+      "name": "Extract Parameters File"
+    },
+    {
+      "command-line-flag": "--mat2rot",
+      "description": "Convert registration to a pure rotation.",
+      "value-key": "[MAT2ROT]",
+      "type": "File",
+      "optional": true,
+      "id": "mat2rot",
+      "name": "Rotation Registration File"
+    },
+    {
+      "command-line-flag": "--par2mat",
+      "description": "Convert parameters to a registration.",
+      "value-key": "[PAR2MAT]",
+      "type": "String",
+      "optional": true,
+      "id": "par2mat",
+      "name": "Parameters to Matrix"
+    },
+    {
+      "command-line-flag": "--lrrev",
+      "description": "Approximate registration if you were to left-right reverse the pixels of the input image.",
+      "value-key": "[LRREV]",
+      "type": "File",
+      "optional": true,
+      "id": "lrrev",
+      "name": "Left-Right Reversal Registration"
+    },
+    {
+      "command-line-flag": "--landmarks",
+      "description": "Convert landmarks to a registration.",
+      "value-key": "[LANDMARKS]",
+      "type": "String",
+      "list": true,
+      "min-list-entries": 6,
+      "optional": true,
+      "id": "landmarks",
+      "name": "Landmark Registration"
+    },
+    {
+      "command-line-flag": "--rms",
+      "description": "Compute RMS difference between two registrations.",
+      "value-key": "[RMS]",
+      "type": "String",
+      "list": true,
+      "min-list-entries": 4,
+      "optional": true,
+      "id": "rms",
+      "name": "RMS Computation"
+    },
+    {
+      "command-line-flag": "--movout",
+      "description": "Save the mov after all preprocessing steps.",
+      "value-key": "[MOVOUT]",
+      "type": "File",
+      "optional": true,
+      "id": "movout",
+      "name": "Preprocessed Moving Volume"
+    },
+    {
+      "command-line-flag": "--mov-idither",
+      "description": "Save the mov intensity dither volume.",
+      "value-key": "[MOV_IDITHER]",
+      "type": "File",
+      "optional": true,
+      "id": "mov_idither",
+      "name": "Moving Intensity Dither Volume"
+    },
+    {
+      "command-line-flag": "--debug",
+      "description": "Enable debugging mode.",
+      "value-key": "[DEBUG]",
+      "type": "Flag",
+      "id": "debug",
+      "name": "Debug Flag"
+    },
+    {
+      "command-line-flag": "--checkopts",
+      "description": "Check options and exit without running.",
+      "value-key": "[CHECKOPTS]",
+      "type": "Flag",
+      "id": "checkopts",
+      "name": "Check Options Flag"
+    },
+    {
+      "command-line-flag": "--version",
+      "description": "Print out version and exit.",
+      "value-key": "[VERSION]",
+      "type": "Flag",
+      "id": "version",
+      "name": "Version Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[REG]",
+      "description": "Output registration (LTA format)",
+      "id": "out_registration",
+      "name": "Output Registration"
+    },
+    {
+      "path-template": "[OUT_PARAM_FILE]",
+      "description": "File with output parameters",
+      "id": "out_params",
+      "name": "Output Parameters"
+    },
+    {
+      "path-template": "[OUT_COST_FILE]",
+      "description": "Final cost value file",
+      "id": "out_cost",
+      "name": "Output Cost"
+    },
+    {
+      "path-template": "[INIT_REG_SAVE]",
+      "description": "Saved initial registration",
+      "id": "saved_init_reg",
+      "name": "Saved Initial Registration"
+    },
+    {
+      "path-template": "[INIT_REG_SAVE_ONLY]",
+      "description": "Saved initial registration (exit after save)",
+      "id": "saved_init_reg_only",
+      "name": "Saved Initial Registration Only"
+    },
+    {
+      "path-template": "[MOVOUT]",
+      "description": "Preprocessed moving volume",
+      "id": "movout_volume",
+      "name": "Preprocessed Mov Volume"
+    },
+    {
+      "path-template": "[MOV_IDITHER]",
+      "description": "Moving intensity dither volume",
+      "id": "mov_idither_volume",
+      "name": "Intensity Dither Volume"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

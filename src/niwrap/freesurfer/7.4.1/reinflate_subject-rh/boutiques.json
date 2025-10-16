@@ -1,0 +1,27 @@
+{
+  "name": "reinflate_subject-rh",
+  "description": "A tool for reinflating the cortical surfaces for a given subject in FreeSurfer, specifically for the right hemisphere.",
+  "author": "FreeSurfer Developers",
+  "command-line": "reinflate_subject-rh [SUBJECT_DIR] [ADDITIONAL_OPTIONS]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Directory of the subject within FreeSurfer environment",
+      "value-key": "[SUBJECT_DIR]",
+      "type": "String",
+      "optional": false,
+      "id": "subject_dir",
+      "name": "Subject Directory",
+      "command-line-flag": "-rh"
+    },
+    {
+      "description": "Additional options for the reinflate_subject-rh command",
+      "value-key": "[ADDITIONAL_OPTIONS]",
+      "type": "String",
+      "optional": true,
+      "id": "additional_options",
+      "name": "Additional Options"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

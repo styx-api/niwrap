@@ -1,0 +1,101 @@
+{
+  "name": "3dmaskSVD",
+  "author": "AFNI Developers",
+  "description": "Computes the principal singular vector of the time series vectors extracted from the input dataset over the input mask",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dmaskSVD [INPUT_DATASET] [VNORM] [SVAL] [MASK_FILE] [AUTOMASK] [POLORT] [BANDPASS] [ORT] [ALT_INPUT]",
+  "inputs": [
+    {
+      "description": "Input dataset",
+      "value-key": "[INPUT_DATASET]",
+      "type": "File",
+      "optional": false,
+      "id": "input_dataset",
+      "name": "Input dataset"
+    },
+    {
+      "command-line-flag": "-vnorm",
+      "description": "L2 normalize all time series before SVD",
+      "value-key": "[VNORM]",
+      "type": "Flag",
+      "id": "vnorm",
+      "name": "Normalize time series flag"
+    },
+    {
+      "command-line-flag": "-sval",
+      "description": "Output singular vectors 0 .. a (default a=0 = first one only)",
+      "value-key": "[SVAL]",
+      "type": "Number",
+      "optional": true,
+      "id": "sval",
+      "name": "Singular vector output"
+    },
+    {
+      "command-line-flag": "-mask",
+      "description": "Define the mask (default is entire dataset)",
+      "value-key": "[MASK_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "mask_file",
+      "name": "Mask file"
+    },
+    {
+      "command-line-flag": "-automask",
+      "description": "Automatic mask definition",
+      "value-key": "[AUTOMASK]",
+      "type": "Flag",
+      "id": "automask",
+      "name": "Automask flag"
+    },
+    {
+      "command-line-flag": "-polort",
+      "description": "Remove polynomial trend (default 0 if not specified)",
+      "value-key": "[POLORT]",
+      "type": "Number",
+      "optional": true,
+      "id": "polort",
+      "name": "Polynomial trend removal order"
+    },
+    {
+      "command-line-flag": "-bpass",
+      "description": "Bandpass filter (mutually exclusive with -polort)",
+      "value-key": "[BANDPASS]",
+      "type": "String",
+      "optional": true,
+      "list": true,
+      "id": "bandpass",
+      "name": "Bandpass filter",
+      "max-list-entries": 2,
+      "min-list-entries": 2
+    },
+    {
+      "command-line-flag": "-ort",
+      "description": "Time series to remove from the data before SVD-ization. You can give more than 1 '-ort' option. 'xx.1D' can contain more than 1 column.",
+      "value-key": "[ORT]",
+      "type": "File",
+      "optional": true,
+      "list": true,
+      "id": "ort",
+      "name": "Removing orthogonals time series",
+      "max-list-entries": 999
+    },
+    {
+      "command-line-flag": "-input",
+      "description": "Alternative way to give the input dataset name",
+      "value-key": "[ALT_INPUT]",
+      "type": "File",
+      "optional": true,
+      "id": "alt_input",
+      "name": "Alternative input dataset"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "description": "Singular vector output redirected to this file",
+      "id": "svd_output",
+      "name": "Singular vector output",
+      "path-template": "../stdout"
+    }
+  ]
+}

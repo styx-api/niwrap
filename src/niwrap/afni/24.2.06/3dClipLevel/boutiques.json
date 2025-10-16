@@ -1,0 +1,44 @@
+{
+  "name": "3dClipLevel",
+  "author": "AFNI Developers",
+  "description": "Estimates the value at which to clip the anatomical dataset so that background regions are set to zero.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dClipLevel [DATASET] [MFRAC] [DOALL] [GRAD]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input dataset (e.g. dataset.nii.gz)",
+      "value-key": "[DATASET]",
+      "type": "File",
+      "optional": false,
+      "id": "dataset",
+      "name": "Input dataset"
+    },
+    {
+      "command-line-flag": "-mfrac",
+      "description": "Use the number ff instead of 0.50 in the algorithm.",
+      "value-key": "[MFRAC]",
+      "type": "Number",
+      "optional": true,
+      "id": "mfrac",
+      "name": "Fractional value"
+    },
+    {
+      "command-line-flag": "-doall",
+      "description": "Apply the algorithm to each sub-brick separately.",
+      "value-key": "[DOALL]",
+      "type": "Flag",
+      "id": "doall",
+      "name": "Apply algorithm separately flag"
+    },
+    {
+      "command-line-flag": "-grad",
+      "description": "Compute a 'gradual' clip level as a function of voxel position and output to a dataset with the given prefix.",
+      "value-key": "[GRAD]",
+      "type": "String",
+      "optional": true,
+      "id": "grad",
+      "name": "Gradual clip level prefix"
+    }
+  ]
+}

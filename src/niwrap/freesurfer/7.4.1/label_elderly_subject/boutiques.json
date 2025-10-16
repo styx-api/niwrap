@@ -1,0 +1,50 @@
+{
+  "name": "label_elderly_subject",
+  "author": "FreeSurfer Developers",
+  "description": "Tool for labeling brain structures in MRI images of elderly subjects using Freesurfer.",
+  "command-line": "label_elderly_subject [NORM_VOLUME] [TRANSFORM_LTA] [CLASSIFIER_ARRAY] [ASEG_VOLUME]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Normalized input volume (e.g. norm.mgz)",
+      "id": "norm_volume",
+      "name": "Norm Volume",
+      "type": "File",
+      "value-key": "[NORM_VOLUME]",
+      "optional": false
+    },
+    {
+      "description": "Transformation file (e.g. talairach.lta)",
+      "id": "transform_lta",
+      "name": "Transform LTA",
+      "type": "File",
+      "value-key": "[TRANSFORM_LTA]",
+      "optional": false
+    },
+    {
+      "description": "Classifier array file (e.g. mixed.gca)",
+      "id": "classifier_array",
+      "name": "Classifier Array",
+      "type": "File",
+      "value-key": "[CLASSIFIER_ARRAY]",
+      "optional": true
+    },
+    {
+      "description": "Asegmentation volume file (e.g. aseg.mgz)",
+      "id": "aseg_volume",
+      "name": "Aseg Volume",
+      "type": "File",
+      "value-key": "[ASEG_VOLUME]",
+      "optional": false
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[ASEG_VOLUME]_labeled.mgz",
+      "description": "Labeled output volume",
+      "id": "labeled_volume",
+      "name": "Labeled Volume"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

@@ -1,0 +1,209 @@
+{
+  "name": "dmri_pathstats",
+  "description": "Compute path statistics for diffusion MRI data based on input .trk file and optional various measures.",
+  "command-line": "dmri_pathstats [INTRK] [ROIS] [INTRC] [MEAS] [MEASNAME] [DTBASE] [PATH] [SUBJ] [OUT] [OUTVOX] [MEDIAN] [ENDS] [REF] [PTHR] [FTHR] [DEBUG] [CHECKOPTS] [HELP] [VERSION]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "value-key": "[INTRK]",
+      "type": "File",
+      "description": "Input .trk file",
+      "optional": false,
+      "id": "intrk",
+      "name": "Input TRK file",
+      "command-line-flag": "--intrk"
+    },
+    {
+      "value-key": "[ROIS]",
+      "type": "File",
+      "description": "Input labeling ROIs for .trk file (optional)",
+      "optional": true,
+      "id": "rois",
+      "name": "ROIs file",
+      "command-line-flag": "--rois",
+      "list": true,
+      "min-list-entries": 0
+    },
+    {
+      "value-key": "[INTRC]",
+      "type": "File",
+      "description": "Input tracula directory",
+      "optional": false,
+      "id": "intrc",
+      "name": "Input tracula directory",
+      "command-line-flag": "--intrc"
+    },
+    {
+      "value-key": "[MEAS]",
+      "type": "File",
+      "description": "Input microstructural measure volume(s) (optional)",
+      "optional": true,
+      "id": "meas",
+      "name": "Microstructural measure volumes",
+      "command-line-flag": "--meas",
+      "list": true,
+      "min-list-entries": 0
+    },
+    {
+      "value-key": "[MEASNAME]",
+      "type": "String",
+      "description": "Name(s) of microstructural measure(s) (as many as volumes)",
+      "optional": true,
+      "id": "measname",
+      "name": "Measure names",
+      "command-line-flag": "--measname",
+      "list": true,
+      "min-list-entries": 0
+    },
+    {
+      "value-key": "[DTBASE]",
+      "type": "String",
+      "description": "Base name of input dtifit volumes (optional)",
+      "optional": true,
+      "id": "dtbase",
+      "name": "DTI base name",
+      "command-line-flag": "--dtbase"
+    },
+    {
+      "value-key": "[PATH]",
+      "type": "String",
+      "description": "Name of pathway (optional, written to output files)",
+      "optional": true,
+      "id": "path",
+      "name": "Pathway name",
+      "command-line-flag": "--path"
+    },
+    {
+      "value-key": "[SUBJ]",
+      "type": "String",
+      "description": "Name of subject (optional, written to output files)",
+      "optional": true,
+      "id": "subj",
+      "name": "Subject name",
+      "command-line-flag": "--subj"
+    },
+    {
+      "value-key": "[OUT]",
+      "type": "String",
+      "description": "Output text file for overall path measures",
+      "optional": true,
+      "id": "out",
+      "name": "Overall path measures file",
+      "command-line-flag": "--out"
+    },
+    {
+      "value-key": "[OUTVOX]",
+      "type": "String",
+      "description": "Output text file for voxel-by-voxel measures along path (optional)",
+      "optional": true,
+      "id": "outvox",
+      "name": "Voxel-by-voxel measures file",
+      "command-line-flag": "--outvox"
+    },
+    {
+      "value-key": "[MEDIAN]",
+      "type": "File",
+      "description": "Output .trk file of median streamline (optional)",
+      "optional": true,
+      "id": "median",
+      "name": "Median streamline file",
+      "command-line-flag": "--median"
+    },
+    {
+      "value-key": "[ENDS]",
+      "type": "String",
+      "description": "Base name of output volumes of streamline ends (optional)",
+      "optional": true,
+      "id": "ends",
+      "name": "Ends base name",
+      "command-line-flag": "--ends"
+    },
+    {
+      "value-key": "[REF]",
+      "type": "File",
+      "description": "Reference volume (needed only if using --ends without --dtbase)",
+      "optional": true,
+      "id": "ref",
+      "name": "Reference volume",
+      "command-line-flag": "--ref"
+    },
+    {
+      "value-key": "[PTHR]",
+      "type": "Number",
+      "description": "Lower threshold on path posterior distribution, as a portion of the maximum (range: 0-1, default: 0.2)",
+      "optional": true,
+      "id": "pthr",
+      "name": "Path posterior threshold",
+      "command-line-flag": "--pthr",
+      "minimum": 0,
+      "maximum": 1,
+      "integer": false
+    },
+    {
+      "value-key": "[FTHR]",
+      "type": "Number",
+      "description": "Lower threshold on FA (range: 0-1, default: no threshold)",
+      "optional": true,
+      "id": "fthr",
+      "name": "FA threshold",
+      "command-line-flag": "--fthr",
+      "minimum": 0,
+      "maximum": 1,
+      "integer": false
+    },
+    {
+      "value-key": "[DEBUG]",
+      "type": "Flag",
+      "description": "Turn on debugging",
+      "id": "debug",
+      "name": "Debug",
+      "command-line-flag": "--debug"
+    },
+    {
+      "value-key": "[CHECKOPTS]",
+      "type": "Flag",
+      "description": "Don't run anything, just check options and exit",
+      "id": "checkopts",
+      "name": "Check options flag",
+      "command-line-flag": "--checkopts"
+    },
+    {
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "description": "Print out information on how to use this program",
+      "id": "help",
+      "name": "Help",
+      "command-line-flag": "--help"
+    },
+    {
+      "value-key": "[VERSION]",
+      "type": "Flag",
+      "description": "Print out version and exit",
+      "id": "version",
+      "name": "Version",
+      "command-line-flag": "--version"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUT]",
+      "description": "Text file for overall path measures",
+      "id": "out_file",
+      "name": "Output file"
+    },
+    {
+      "path-template": "[OUTVOX]",
+      "description": "Text file for voxel-by-voxel measures along path",
+      "id": "out_vox_file",
+      "name": "Output voxel file"
+    },
+    {
+      "path-template": "[MEDIAN]",
+      "description": ".trk file of median streamline",
+      "id": "median_file",
+      "name": "Median file"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

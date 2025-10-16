@@ -1,0 +1,125 @@
+{
+  "name": "mris_pmake",
+  "description": "Calculates paths and related costs on FreeSurfer surfaces based on an edge cost and Dijkstra's algorithm.",
+  "command-line": "mris_pmake [OPTIONS_FILE] [WORKING_DIR] [LISTEN_MODE] [LISTEN_ON_PORT] [SUBJECT] [HEMISPHERE] [SURFACE0] [SURFACE1] [CURVE0] [CURVE1] [USE_ABS_CURVS] [MPM_PROG] [MPM_ARGS]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--optionsFile",
+      "description": "The main configuration file specifying the startup run-time behaviour.",
+      "value-key": "[OPTIONS_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "options_file",
+      "name": "Options File"
+    },
+    {
+      "command-line-flag": "--dir",
+      "description": "The working directory.",
+      "value-key": "[WORKING_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "working_dir",
+      "name": "Working Directory"
+    },
+    {
+      "command-line-flag": "--listen",
+      "description": "Start in LISTEN mode without calculating a path.",
+      "value-key": "[LISTEN_MODE]",
+      "type": "Flag",
+      "id": "listen_mode",
+      "name": "Listen Mode"
+    },
+    {
+      "command-line-flag": "--listenOnPort",
+      "description": "Create the server port on specified port and do nothing else.",
+      "value-key": "[LISTEN_ON_PORT]",
+      "type": "Number",
+      "optional": true,
+      "id": "listen_on_port",
+      "name": "Listen on Port"
+    },
+    {
+      "command-line-flag": "--subject",
+      "description": "Set the subject to <subj>.",
+      "value-key": "[SUBJECT]",
+      "type": "String",
+      "optional": false,
+      "id": "subject",
+      "name": "Subject"
+    },
+    {
+      "command-line-flag": "--hemi",
+      "description": "The hemisphere to process.",
+      "value-key": "[HEMISPHERE]",
+      "type": "String",
+      "optional": false,
+      "id": "hemisphere",
+      "name": "Hemisphere"
+    },
+    {
+      "command-line-flag": "--surface0",
+      "description": "The main mesh surface to read.",
+      "value-key": "[SURFACE0]",
+      "type": "String",
+      "optional": true,
+      "id": "surface0",
+      "name": "Surface0 File"
+    },
+    {
+      "command-line-flag": "--surface1",
+      "description": "The aux mesh surface to read.",
+      "value-key": "[SURFACE1]",
+      "type": "String",
+      "optional": true,
+      "id": "surface1",
+      "name": "Surface1 File"
+    },
+    {
+      "command-line-flag": "--curve0",
+      "description": "The main curvature function maps.",
+      "value-key": "[CURVE0]",
+      "type": "String",
+      "optional": true,
+      "id": "curve0",
+      "name": "Curve0 File"
+    },
+    {
+      "command-line-flag": "--curve1",
+      "description": "The aux curvature function maps.",
+      "value-key": "[CURVE1]",
+      "type": "String",
+      "optional": true,
+      "id": "curve1",
+      "name": "Curve1 File"
+    },
+    {
+      "command-line-flag": "--useAbsCurvs",
+      "description": "Use absolute values on each curvature map.",
+      "value-key": "[USE_ABS_CURVS]",
+      "type": "Flag",
+      "id": "use_abs_curvs",
+      "name": "Use Absolute Curvatures"
+    },
+    {
+      "command-line-flag": "--mpmProg",
+      "description": "The mpmProg to run.",
+      "value-key": "[MPM_PROG]",
+      "type": "String",
+      "optional": true,
+      "id": "mpm_prog",
+      "name": "MPM Prog"
+    },
+    {
+      "command-line-flag": "--mpmArgs",
+      "description": "Arguments for the specified mpmProg.",
+      "value-key": "[MPM_ARGS]",
+      "type": "String",
+      "optional": true,
+      "id": "mpm_args",
+      "name": "MPM Arguments"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

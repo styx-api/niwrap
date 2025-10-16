@@ -1,0 +1,61 @@
+{
+  "name": "3dLocalACF",
+  "author": "AFNI Developers",
+  "description": "Estimate the spatial AutoCorrelation Function (ACF) locally in a neighborhood around each voxel",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dLocalACF [PREFIX] [INPUT_FILE] [NEIGHBORHOOD] [MASK_FILE] [AUTO_MASK]",
+  "inputs": [
+    {
+      "description": "Input time series dataset",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input File"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Prefix for output dataset",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "prefix",
+      "name": "Output Prefix"
+    },
+    {
+      "command-line-flag": "-nbhd",
+      "description": "Neighborhood specification (e.g., SPHERE(25))",
+      "value-key": "[NEIGHBORHOOD]",
+      "type": "String",
+      "optional": true,
+      "id": "neighborhood",
+      "name": "Neighborhood"
+    },
+    {
+      "command-line-flag": "-mask",
+      "description": "Dataset to mask the analysis",
+      "value-key": "[MASK_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "mask_file",
+      "name": "Mask Dataset"
+    },
+    {
+      "command-line-flag": "-automask",
+      "description": "Automatically generate brain mask from input dataset",
+      "value-key": "[AUTO_MASK]",
+      "type": "Flag",
+      "id": "auto_mask",
+      "name": "Auto Mask Flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX].nii.gz",
+      "description": "Output dataset with ACF estimates",
+      "id": "output_file",
+      "name": "Output Dataset"
+    }
+  ]
+}

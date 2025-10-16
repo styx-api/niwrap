@@ -1,0 +1,211 @@
+{
+  "name": "1dDW_Grad_o_Mat++",
+  "author": "AFNI Developers",
+  "description": "Manipulation of diffusion-weighted (DW) gradient vector files, b-value files, and b- or g-matrices with various input and output configurations.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "1dDW_Grad_o_Mat++ [IN_ROW_VEC] [IN_COL_VEC] [IN_COL_MATA] [IN_COL_MATT] [FLIP_X] [FLIP_Y] [FLIP_Z] [NO_FLIP] [OUT_ROW_VEC] [OUT_COL_VEC] [OUT_COL_MATA] [OUT_COL_MATT] [IN_BVALS] [OUT_COL_BVAL] [OUT_ROW_BVAL_SEP] [OUT_COL_BVAL_SEP] [UNIT_MAG_OUT] [CHECK_ABS_MIN] [BREF_MEAN_TOP] [PUT_ZEROS_TOP] [BMAX_REF]",
+  "inputs": [
+    {
+      "command-line-flag": "-in_row_vec",
+      "description": "Input file of 3 rows of gradients (e.g., dcm2nii-format output)",
+      "value-key": "[IN_ROW_VEC]",
+      "type": "File",
+      "optional": false,
+      "id": "in_row_vec",
+      "name": "Input Row Vectors"
+    },
+    {
+      "command-line-flag": "-in_col_vec",
+      "description": "Input file of 3 columns of gradients",
+      "value-key": "[IN_COL_VEC]",
+      "type": "File",
+      "optional": false,
+      "id": "in_col_vec",
+      "name": "Input Column Vectors"
+    },
+    {
+      "command-line-flag": "-in_col_matA",
+      "description": "Input file of 6 columns of b- or g-matrix in 'A(FNI)' diagonal first format",
+      "value-key": "[IN_COL_MATA]",
+      "type": "File",
+      "optional": false,
+      "id": "in_col_matA",
+      "name": "Input Columns Matrix A"
+    },
+    {
+      "command-line-flag": "-in_col_matT",
+      "description": "Input file of 6 columns of b- or g-matrix in 'T(ORTOISE)' row first format",
+      "value-key": "[IN_COL_MATT]",
+      "type": "File",
+      "optional": false,
+      "id": "in_col_matT",
+      "name": "Input Columns Matrix T"
+    },
+    {
+      "command-line-flag": "-flip_x",
+      "description": "Change sign of first column of gradients (or of the x-component parts of the matrix)",
+      "value-key": "[FLIP_X]",
+      "type": "Flag",
+      "id": "flip_x",
+      "name": "Flip X"
+    },
+    {
+      "command-line-flag": "-flip_y",
+      "description": "Change sign of second column of gradients (or of the y-component parts of the matrix)",
+      "value-key": "[FLIP_Y]",
+      "type": "Flag",
+      "id": "flip_y",
+      "name": "Flip Y"
+    },
+    {
+      "command-line-flag": "-flip_z",
+      "description": "Change sign of third column of gradients (or of the z-component parts of the matrix)",
+      "value-key": "[FLIP_Z]",
+      "type": "Flag",
+      "id": "flip_z",
+      "name": "Flip Z"
+    },
+    {
+      "command-line-flag": "-no_flip",
+      "description": "Don't change any gradient/matrix signs (default behavior)",
+      "value-key": "[NO_FLIP]",
+      "type": "Flag",
+      "id": "no_flip",
+      "name": "No Flip"
+    },
+    {
+      "command-line-flag": "-out_row_vec",
+      "description": "Output file of 3 rows of gradients",
+      "value-key": "[OUT_ROW_VEC]",
+      "type": "String",
+      "optional": false,
+      "id": "out_row_vec",
+      "name": "Output Row Vectors"
+    },
+    {
+      "command-line-flag": "-out_col_vec",
+      "description": "Output file of 3 columns of gradients",
+      "value-key": "[OUT_COL_VEC]",
+      "type": "String",
+      "optional": false,
+      "id": "out_col_vec",
+      "name": "Output Column Vectors"
+    },
+    {
+      "command-line-flag": "-out_col_matA",
+      "description": "Output file of 6 columns of b- or g-matrix in 'A(FNI)' diagonal first format",
+      "value-key": "[OUT_COL_MATA]",
+      "type": "String",
+      "optional": false,
+      "id": "out_col_matA",
+      "name": "Output Columns Matrix A"
+    },
+    {
+      "command-line-flag": "-out_col_matT",
+      "description": "Output file of 6 columns of b- or g-matrix in 'T(ORTOISE)' row first format",
+      "value-key": "[OUT_COL_MATT]",
+      "type": "String",
+      "optional": false,
+      "id": "out_col_matT",
+      "name": "Output Columns Matrix T"
+    },
+    {
+      "command-line-flag": "-in_bvals",
+      "description": "BVAL_FILE is a file of b-values either in a single row or a single column",
+      "value-key": "[IN_BVALS]",
+      "type": "File",
+      "optional": true,
+      "id": "in_bvals",
+      "name": "Input B-Values"
+    },
+    {
+      "command-line-flag": "-out_col_bval",
+      "description": "Switch to put a column of the bvalues as the first column in the output data",
+      "value-key": "[OUT_COL_BVAL]",
+      "type": "Flag",
+      "id": "out_col_bval",
+      "name": "Output Column B-Values"
+    },
+    {
+      "command-line-flag": "-out_row_bval_sep",
+      "description": "Output a file of bvalues in a single row",
+      "value-key": "[OUT_ROW_BVAL_SEP]",
+      "type": "String",
+      "optional": true,
+      "id": "out_row_bval_sep",
+      "name": "Output Row B-Values File"
+    },
+    {
+      "command-line-flag": "-out_col_bval_sep",
+      "description": "Output a file of bvalues in a single column",
+      "value-key": "[OUT_COL_BVAL_SEP]",
+      "type": "String",
+      "optional": true,
+      "id": "out_col_bval_sep",
+      "name": "Output Column B-Values File"
+    },
+    {
+      "command-line-flag": "-unit_mag_out",
+      "description": "Switch to scale each vector/matrix from the INFILE to either unit or zero magnitude",
+      "value-key": "[UNIT_MAG_OUT]",
+      "type": "Flag",
+      "id": "unit_mag_out",
+      "name": "Unit Magnitude Output"
+    },
+    {
+      "command-line-flag": "-check_abs_min",
+      "description": "Specify the threshold to replace small negative diagonal elements with zero in the input matrix",
+      "value-key": "[CHECK_ABS_MIN]",
+      "type": "Number",
+      "optional": true,
+      "id": "check_abs_min",
+      "name": "Check Absolute Minimum"
+    },
+    {
+      "command-line-flag": "-bref_mean_top",
+      "description": "When averaging the reference 'b0' values, represent the mean of X values in the top row",
+      "value-key": "[BREF_MEAN_TOP]",
+      "type": "Flag",
+      "id": "bref_mean_top",
+      "name": "Reference Mean Top"
+    },
+    {
+      "command-line-flag": "-put_zeros_top",
+      "description": "Add a row at the top with all zeros in the output format",
+      "value-key": "[PUT_ZEROS_TOP]",
+      "type": "Flag",
+      "id": "put_zeros_top",
+      "name": "Put Zeros at Top"
+    },
+    {
+      "command-line-flag": "-bmax_ref",
+      "description": "THRESH is a scalar number below which b-values are considered zero or reference",
+      "value-key": "[BMAX_REF]",
+      "type": "Number",
+      "optional": true,
+      "id": "bmax_ref",
+      "name": "Maximum Reference B-Value Threshold"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUT_ROW_VEC]",
+      "description": "Output file of gradients or matrices",
+      "id": "outfile",
+      "name": "Output File"
+    },
+    {
+      "path-template": "[OUT_ROW_BVAL_SEP]",
+      "description": "Output b-values file in a single row",
+      "id": "out_row_bval_file",
+      "name": "Output Row B-Values File"
+    },
+    {
+      "path-template": "[OUT_ROW_BVAL_SEP]",
+      "description": "Output b-values file in a single column",
+      "id": "out_col_bval_file",
+      "name": "Output Column B-Values File"
+    }
+  ]
+}

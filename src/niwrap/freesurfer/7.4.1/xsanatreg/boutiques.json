@@ -1,0 +1,89 @@
+{
+  "name": "xsanatreg",
+  "description": "A tool for registering source and target COR volumes.",
+  "command-line": "xsanatreg [SRC_CORDIR] [TARG_CORDIR] [TRANSFORM_FILE] [TEMP_DIRECTORY] [SOURCE_MINC] [TARGET_MINC] [NO_CLEANUP] [VERSION] [UMASK]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "-src",
+      "description": "Directory of source COR volume",
+      "value-key": "[SRC_CORDIR]",
+      "type": "String",
+      "optional": false,
+      "id": "src_cordir",
+      "name": "Source COR directory"
+    },
+    {
+      "command-line-flag": "-targ",
+      "description": "Directory of target COR volume",
+      "value-key": "[TARG_CORDIR]",
+      "type": "String",
+      "optional": false,
+      "id": "targ_cordir",
+      "name": "Target COR directory"
+    },
+    {
+      "command-line-flag": "-xfm",
+      "description": "File in which to store the transformation",
+      "value-key": "[TRANSFORM_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "transform_file",
+      "name": "Transformation file"
+    },
+    {
+      "command-line-flag": "-tmpdir",
+      "description": "Directory for temporary storage, defaults to /tmp",
+      "value-key": "[TEMP_DIRECTORY]",
+      "type": "String",
+      "optional": true,
+      "id": "temp_directory",
+      "name": "Temporary storage directory"
+    },
+    {
+      "command-line-flag": "-srcminc",
+      "description": "File name for source minc, set automatically if not specified",
+      "value-key": "[SOURCE_MINC]",
+      "type": "String",
+      "optional": true,
+      "id": "source_minc",
+      "name": "Source minc file"
+    },
+    {
+      "command-line-flag": "-targminc",
+      "description": "File name for target minc, set automatically if not specified",
+      "value-key": "[TARGET_MINC]",
+      "type": "String",
+      "optional": true,
+      "id": "target_minc",
+      "name": "Target minc file"
+    },
+    {
+      "command-line-flag": "-nocleanup",
+      "description": "Do not delete temporary minc files",
+      "value-key": "[NO_CLEANUP]",
+      "type": "Flag",
+      "id": "no_cleanup",
+      "name": "No cleanup flag"
+    },
+    {
+      "command-line-flag": "-version",
+      "description": "Print version and exit",
+      "value-key": "[VERSION]",
+      "type": "Flag",
+      "id": "version",
+      "name": "Version flag"
+    },
+    {
+      "command-line-flag": "-umask",
+      "description": "Set file mode creation mask",
+      "value-key": "[UMASK]",
+      "type": "String",
+      "optional": true,
+      "id": "umask",
+      "name": "Umask option"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

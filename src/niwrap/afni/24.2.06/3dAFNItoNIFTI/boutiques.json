@@ -1,0 +1,83 @@
+{
+  "name": "3dAFNItoNIFTI",
+  "author": "AFNI Developers",
+  "description": "Converts an AFNI dataset to a NIfTI-1.1 file.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dAFNItoNIFTI [INPUT_DATASET] [PREFIX] [VERBOSE] [FORCE_FLOAT] [PURE] [DENOTE] [OLDID] [NEWID]",
+  "inputs": [
+    {
+      "description": "Input AFNI dataset",
+      "value-key": "[INPUT_DATASET]",
+      "type": "File",
+      "optional": false,
+      "id": "input_dataset",
+      "name": "Input Dataset"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Output NIfTI file prefix",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Prefix"
+    },
+    {
+      "command-line-flag": "-verb",
+      "description": "Print progress messages (increases verbosity if repeated)",
+      "value-key": "[VERBOSE]",
+      "type": "Flag",
+      "id": "verbose",
+      "name": "Verbose"
+    },
+    {
+      "command-line-flag": "-float",
+      "description": "Force the output dataset to be 32-bit floats",
+      "value-key": "[FORCE_FLOAT]",
+      "type": "Flag",
+      "id": "force_float",
+      "name": "Force Float"
+    },
+    {
+      "command-line-flag": "-pure",
+      "description": "Do not write an AFNI extension field into the output file",
+      "value-key": "[PURE]",
+      "type": "Flag",
+      "id": "pure",
+      "name": "Pure"
+    },
+    {
+      "command-line-flag": "-denote",
+      "description": "Remove text notes from AFNI extension field that might contain identifying information",
+      "value-key": "[DENOTE]",
+      "type": "Flag",
+      "id": "denote",
+      "name": "Denote"
+    },
+    {
+      "command-line-flag": "-oldid",
+      "description": "Retain the input dataset's AFNI ID code",
+      "value-key": "[OLDID]",
+      "type": "Flag",
+      "id": "oldid",
+      "name": "Old ID"
+    },
+    {
+      "command-line-flag": "-newid",
+      "description": "Assign a new AFNI ID code to the dataset (default action)",
+      "value-key": "[NEWID]",
+      "type": "Flag",
+      "id": "newid",
+      "name": "New ID"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX].nii",
+      "description": "Output NIfTI file.",
+      "id": "output_nifti",
+      "name": "Output NIfTI File"
+    }
+  ]
+}

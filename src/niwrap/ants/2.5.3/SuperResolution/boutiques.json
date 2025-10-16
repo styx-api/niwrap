@@ -1,0 +1,77 @@
+{
+  "name": "SuperResolution",
+  "command-line": "SuperResolution [IMAGE_DIMENSION] [OUTPUT_IMAGE] [DOMAIN_IMAGE] [GRADIENT_SIGMA] [MESH_SIZE] [NUMBER_OF_LEVELS] [INPUT_IMAGE_FILES]",
+  "description": "The SuperResolution tool enhances the spatial resolution of input images. The 'gradientSigma' parameter is used in calculating the gradient magnitude of the input images for weighting the voxel points during fitting. If a negative 'gradient' sigma is specified then no weighting is used.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "image_dimension",
+      "name": "Image Dimension",
+      "value-key": "[IMAGE_DIMENSION]",
+      "type": "Number",
+      "integer": true,
+      "optional": false,
+      "description": "Specifies the dimensionality of the input images (e.g., 2 for 2D images, 3 for 3D images)."
+    },
+    {
+      "id": "output_image",
+      "name": "Output Image",
+      "value-key": "[OUTPUT_IMAGE]",
+      "type": "String",
+      "optional": false,
+      "description": "The file path for the output super-resolved image."
+    },
+    {
+      "id": "domain_image",
+      "name": "Domain Image",
+      "value-key": "[DOMAIN_IMAGE]",
+      "type": "File",
+      "optional": false,
+      "description": "The domain image is used as the template space for the alignment of input images."
+    },
+    {
+      "id": "gradient_sigma",
+      "name": "Gradient Sigma",
+      "value-key": "[GRADIENT_SIGMA]",
+      "type": "Number",
+      "optional": false,
+      "description": "The sigma used for calculating the gradient magnitude of input images. If negative, no weighting is applied."
+    },
+    {
+      "id": "mesh_size",
+      "name": "Mesh Size",
+      "value-key": "[MESH_SIZE]",
+      "type": "Number",
+      "optional": false,
+      "description": "The size of the mesh used in fitting."
+    },
+    {
+      "id": "number_of_levels",
+      "name": "Number of Levels",
+      "value-key": "[NUMBER_OF_LEVELS]",
+      "type": "Number",
+      "integer": true,
+      "optional": false,
+      "description": "The number of resolution levels to process."
+    },
+    {
+      "id": "input_image_files",
+      "name": "Input Image Files",
+      "value-key": "[INPUT_IMAGE_FILES]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "description": "List of paths to input images to be processed for super resolution."
+    }
+  ],
+  "output-files": [
+    {
+      "id": "super_resolved_image",
+      "name": "Super Resolved Image",
+      "description": "The output super-resolved image file.",
+      "path-template": "[OUTPUT_IMAGE]"
+    }
+  ],
+  "author": "ANTs Developers",
+  "url": "https://github.com/ANTsX/ANTs"
+}

@@ -1,0 +1,34 @@
+{
+  "name": "label_subject",
+  "description": "A tool for labeling subject MRI data in FreeSurfer.",
+  "command-line": "label_subject [NU_FILE] [ORIG_DIR]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Path to the nu.mgz file. If not provided, defaults to nu.mgz.",
+      "value-key": "[NU_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "nu_file",
+      "name": "NU file"
+    },
+    {
+      "description": "The original MRI data directory. If the nu file is not found, it will search in the given directory.",
+      "value-key": "[ORIG_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "orig_dir",
+      "name": "Original MRI data directory"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "/tmp/nu.mnc",
+      "description": "Converted MNC file from the original MRI data",
+      "id": "converted_mnc",
+      "name": "Converted MNC file"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

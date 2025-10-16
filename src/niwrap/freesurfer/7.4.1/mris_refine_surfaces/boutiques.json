@@ -1,0 +1,90 @@
+{
+  "name": "mris_refine_surfaces",
+  "author": "FreeSurfer Developers",
+  "description": "Refines cortical surfaces around the region specified by the label file",
+  "command-line": "mris_refine_surfaces [SUBJECT_NAME] [HEMI] [HIRES_VOLUME] [LABEL_FILE] [LOW_TO_HIRES_XFM] [SDIR] [USE_MGZ] [SUFFIX]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "The name of the subject",
+      "value-key": "[SUBJECT_NAME]",
+      "type": "String",
+      "optional": false,
+      "id": "subject_name",
+      "name": "Subject name"
+    },
+    {
+      "description": "The hemisphere to process ('lh' for left hemisphere, 'rh' for right hemisphere)",
+      "value-key": "[HEMI]",
+      "type": "String",
+      "optional": false,
+      "id": "hemi",
+      "name": "Hemisphere"
+    },
+    {
+      "description": "The high-resolution volume filename",
+      "value-key": "[HIRES_VOLUME]",
+      "type": "String",
+      "optional": false,
+      "id": "hires_volume",
+      "name": "High-resolution volume"
+    },
+    {
+      "description": "The label file specifying the region to refine",
+      "value-key": "[LABEL_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "label_file",
+      "name": "Label file"
+    },
+    {
+      "description": "The optional low to high resolution transform file",
+      "value-key": "[LOW_TO_HIRES_XFM]",
+      "type": "String",
+      "optional": true,
+      "id": "low_to_hires_xfm",
+      "name": "Low-to-high resolution transform"
+    },
+    {
+      "command-line-flag": "-sdir",
+      "description": "Specify the SUBJECTS_DIR",
+      "value-key": "[SDIR]",
+      "type": "String",
+      "optional": true,
+      "id": "sdir",
+      "name": "Subjects directory"
+    },
+    {
+      "command-line-flag": "-mgz",
+      "description": "Use .mgz volumes",
+      "value-key": "[USE_MGZ]",
+      "type": "Flag",
+      "id": "use_mgz",
+      "name": "Use mgz volumes"
+    },
+    {
+      "command-line-flag": "-suffix",
+      "description": "Add specified suffix to the final surfaces",
+      "value-key": "[SUFFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "suffix",
+      "name": "Suffix for final surfaces"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "$(SUBJECTS_DIR)/[SUBJECT_NAME]/surf/[HEMI].pialhires",
+      "description": "Refined pial surface for the specified region",
+      "id": "pial_surface",
+      "name": "Pial surface"
+    },
+    {
+      "path-template": "$(SUBJECTS_DIR)/[SUBJECT_NAME]/surf/[HEMI].whitehires",
+      "description": "Refined white matter surface for the specified region",
+      "id": "white_surface",
+      "name": "White matter surface"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

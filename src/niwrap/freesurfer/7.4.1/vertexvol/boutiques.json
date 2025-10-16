@@ -1,0 +1,68 @@
+{
+  "name": "vertexvol",
+  "description": "Computes vertex-wise volume (and mid.area)",
+  "command-line": "vertexvol [SUBJECT] [LEFT_HEMISPHERE] [RIGHT_HEMISPHERE] [OUTPUT_FILE] [USE_TH3] [NO_TH3]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Subject identifier",
+      "value-key": "[SUBJECT]",
+      "command-line-flag": "--s",
+      "type": "String",
+      "optional": false,
+      "id": "subject",
+      "name": "Subject"
+    },
+    {
+      "description": "Select left hemisphere",
+      "value-key": "[LEFT_HEMISPHERE]",
+      "command-line-flag": "--lh",
+      "type": "Flag",
+      "id": "left_hemisphere",
+      "name": "Left Hemisphere"
+    },
+    {
+      "description": "Select right hemisphere",
+      "value-key": "[RIGHT_HEMISPHERE]",
+      "command-line-flag": "--rh",
+      "type": "Flag",
+      "id": "right_hemisphere",
+      "name": "Right Hemisphere"
+    },
+    {
+      "description": "Output file name, default is ?h.volume",
+      "value-key": "[OUTPUT_FILE]",
+      "command-line-flag": "--o",
+      "type": "String",
+      "optional": true,
+      "id": "output_file",
+      "name": "Output File"
+    },
+    {
+      "description": "Use TH3 method for computation",
+      "value-key": "[USE_TH3]",
+      "command-line-flag": "--th3",
+      "type": "Flag",
+      "id": "use_th3",
+      "name": "Use TH3"
+    },
+    {
+      "description": "Don't use TH3 method for computation",
+      "value-key": "[NO_TH3]",
+      "command-line-flag": "--no-th3",
+      "type": "Flag",
+      "id": "no_th3",
+      "name": "No TH3"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILE]",
+      "description": "Output file containing vertex-wise volume",
+      "id": "output_volume_file",
+      "name": "Output Volume File"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

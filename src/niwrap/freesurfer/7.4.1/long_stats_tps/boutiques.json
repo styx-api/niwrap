@@ -1,0 +1,89 @@
+{
+  "name": "long_stats_tps",
+  "description": "Stack results for individual time points based on longitudinal qdec table.",
+  "command-line": "long_stats_tps [QDEC_TABLE] [STATS_FILE] [MEASURE] [SUBJECTS_DIR] [TIME_POINT] [OUTPUT_FILE] [QCOLUMN] [CROSS_SECTIONAL]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--qdec",
+      "description": "qdec.table.dat file with first columns: fsid  fsid-base",
+      "value-key": "[QDEC_TABLE]",
+      "type": "File",
+      "optional": false,
+      "id": "qdec_table",
+      "name": "QDEC Table File"
+    },
+    {
+      "command-line-flag": "--stats",
+      "description": "Stats file without path: e.g. aseg.stats or lh.aparc.stats",
+      "value-key": "[STATS_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "stats_file",
+      "name": "Stats File"
+    },
+    {
+      "command-line-flag": "--meas",
+      "description": "Stats measure, e.g. volume, thickness, mean, std",
+      "value-key": "[MEASURE]",
+      "type": "String",
+      "optional": false,
+      "id": "measure",
+      "name": "Stats Measure"
+    },
+    {
+      "command-line-flag": "--sd",
+      "description": "Full path to FreeSurfer subjects directory",
+      "value-key": "[SUBJECTS_DIR]",
+      "type": "String",
+      "optional": false,
+      "id": "subjects_dir",
+      "name": "Subjects Directory"
+    },
+    {
+      "command-line-flag": "--tp",
+      "description": "Time point number",
+      "value-key": "[TIME_POINT]",
+      "type": "Number",
+      "optional": false,
+      "id": "time_point",
+      "name": "Time Point Number"
+    },
+    {
+      "command-line-flag": "--out",
+      "description": "File name of output",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_file",
+      "name": "Output File"
+    },
+    {
+      "command-line-flag": "--qcol",
+      "description": "Select a column from the qdec table itself (then --stats, --meas and --sd are not necessary)",
+      "value-key": "[QCOLUMN]",
+      "type": "String",
+      "optional": true,
+      "id": "qcolumn",
+      "name": "QDEC Table Column"
+    },
+    {
+      "command-line-flag": "--cross",
+      "description": "Use cross sectional results (for testing only)",
+      "value-key": "[CROSS_SECTIONAL]",
+      "type": "Flag",
+      "id": "cross_sectional",
+      "name": "Cross Sectional Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILE]",
+      "description": "File containing stacked results for individual time points.",
+      "id": "stacked_results",
+      "name": "Stacked Results File"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

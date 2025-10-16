@@ -1,0 +1,36 @@
+{
+  "name": "recon-all-exvivo",
+  "description": "A script to perform an ex vivo reconstruction with FreeSurfer.",
+  "command-line": "recon-all-exvivo [SUBJECT_ID] [HEMISPHERE] [NOCEREBELLUM]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Subject identifier",
+      "value-key": "[SUBJECT_ID]",
+      "type": "String",
+      "optional": false,
+      "id": "subject_id",
+      "name": "Subject ID",
+      "command-line-flag": "-s"
+    },
+    {
+      "command-line-flag": "-[lr]h",
+      "description": "Specify hemisphere: -lh for left, -rh for right hemisphere",
+      "value-key": "[HEMISPHERE]",
+      "type": "String",
+      "optional": true,
+      "id": "hemisphere",
+      "name": "Hemisphere"
+    },
+    {
+      "command-line-flag": "-nocerebellum",
+      "description": "Do not process cerebellum",
+      "value-key": "[NOCEREBELLUM]",
+      "type": "Flag",
+      "id": "nocerebellum",
+      "name": "No Cerebellum"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

@@ -1,0 +1,70 @@
+{
+  "name": "dmri_group",
+  "author": "FreeSurfer Developers",
+  "description": "A tool to process and analyze diffusion MRI group data.",
+  "command-line": "dmri_group [INPUT_LIST] [REFERENCE_VOLUME] [OUTPUT_BASE] [NO_INTERPOLATION] [SECTIONS_NUM] [DEBUG_MODE] [CHECK_OPTIONS]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--list",
+      "description": "Text file with list of individual inputs",
+      "value-key": "[INPUT_LIST]",
+      "type": "File",
+      "optional": false,
+      "id": "input_list",
+      "name": "Input List File"
+    },
+    {
+      "command-line-flag": "--ref",
+      "description": "Reference volume for output path",
+      "value-key": "[REFERENCE_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "reference_volume",
+      "name": "Reference Volume"
+    },
+    {
+      "command-line-flag": "--out",
+      "description": "Base name of output stats files",
+      "value-key": "[OUTPUT_BASE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_base",
+      "name": "Output Base Name"
+    },
+    {
+      "command-line-flag": "--nointerp",
+      "description": "Do not attempt to interpolate along-tract measures (Assume that subjects are sampled at equivalent positions)",
+      "value-key": "[NO_INTERPOLATION]",
+      "type": "Flag",
+      "id": "no_interpolation",
+      "name": "No Interpolation Flag"
+    },
+    {
+      "command-line-flag": "--sec",
+      "description": "Divide the pathway into a number of sections and output average measures for each section",
+      "value-key": "[SECTIONS_NUM]",
+      "type": "Number",
+      "optional": true,
+      "id": "sections_num",
+      "name": "Sections Number"
+    },
+    {
+      "command-line-flag": "--debug",
+      "description": "Turn on debugging",
+      "value-key": "[DEBUG_MODE]",
+      "type": "Flag",
+      "id": "debug_mode",
+      "name": "Debug Mode Flag"
+    },
+    {
+      "command-line-flag": "--checkopts",
+      "description": "Don't run anything, just check options and exit",
+      "value-key": "[CHECK_OPTIONS]",
+      "type": "Flag",
+      "id": "check_options",
+      "name": "Check Options Flag"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

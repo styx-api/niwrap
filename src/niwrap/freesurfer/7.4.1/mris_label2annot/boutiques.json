@@ -1,0 +1,142 @@
+{
+  "name": "mris_label2annot",
+  "author": "FreeSurfer Developers",
+  "description": "Converts a set of surface labels to an annotation file.",
+  "command-line": "mris_label2annot [SUBJECT] [HEMI] [CTABFILE] [ANNOTNAME] [INDEX_OFFSET] [LABEL_FILES] [ANNOT_PATH] [LABELDIR] [LDIR_DEFAULT] [NO_UNKNOWN] [THRESH] [MAXSTATWINNER] [SURF] [SUBJECTS_DIR]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "FreeSurfer subject",
+      "value-key": "[SUBJECT]",
+      "type": "String",
+      "optional": false,
+      "id": "subject",
+      "name": "Subject",
+      "command-line-flag": "-s"
+    },
+    {
+      "description": "Hemisphere (lh or rh)",
+      "value-key": "[HEMI]",
+      "type": "String",
+      "optional": false,
+      "id": "hemi",
+      "name": "Hemisphere",
+      "command-line-flag": "-h"
+    },
+    {
+      "description": "Colortable file (like FreeSurferColorLUT.txt)",
+      "value-key": "[CTABFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "ctabfile",
+      "name": "Colortable File",
+      "command-line-flag": "-ctab"
+    },
+    {
+      "description": "Output annotation name",
+      "value-key": "[ANNOTNAME]",
+      "type": "String",
+      "optional": false,
+      "id": "annotname",
+      "name": "Annotation Name",
+      "command-line-flag": "-a"
+    },
+    {
+      "command-line-flag": "--offset",
+      "description": "Add to label number to get CTAB index",
+      "value-key": "[INDEX_OFFSET]",
+      "type": "Number",
+      "optional": true,
+      "id": "index_offset",
+      "name": "Index Offset"
+    },
+    {
+      "command-line-flag": "--l",
+      "description": "Label file(s)",
+      "value-key": "[LABEL_FILES]",
+      "type": "File",
+      "list": true,
+      "optional": true,
+      "id": "label_files",
+      "name": "Label Files"
+    },
+    {
+      "command-line-flag": "--annot-path",
+      "description": "Full name/path of annotation file",
+      "value-key": "[ANNOT_PATH]",
+      "type": "String",
+      "optional": true,
+      "id": "annot_path",
+      "name": "Annotation File Path"
+    },
+    {
+      "command-line-flag": "--ldir",
+      "description": "Directory with label files when not using --l",
+      "value-key": "[LABELDIR]",
+      "type": "String",
+      "optional": true,
+      "id": "labeldir",
+      "name": "Label Directory"
+    },
+    {
+      "command-line-flag": "--ldir-default",
+      "description": "Use subject/labels as label directory",
+      "value-key": "[LDIR_DEFAULT]",
+      "type": "Flag",
+      "id": "ldir_default",
+      "name": "Use Default Label Directory"
+    },
+    {
+      "command-line-flag": "--no-unknown",
+      "description": "Do not map unhit labels to index 0",
+      "value-key": "[NO_UNKNOWN]",
+      "type": "Flag",
+      "id": "no_unknown",
+      "name": "No Unknown Labels"
+    },
+    {
+      "command-line-flag": "--thresh",
+      "description": "Threshold label by stats field",
+      "value-key": "[THRESH]",
+      "type": "Number",
+      "optional": true,
+      "id": "thresh",
+      "name": "Threshold"
+    },
+    {
+      "command-line-flag": "--maxstatwinner",
+      "description": "Keep label with highest 'stat' value",
+      "value-key": "[MAXSTATWINNER]",
+      "type": "Flag",
+      "id": "maxstatwinner",
+      "name": "Maximum Stat Winner"
+    },
+    {
+      "command-line-flag": "--surf",
+      "description": "Surface name, default is orig",
+      "value-key": "[SURF]",
+      "type": "String",
+      "optional": true,
+      "id": "surf",
+      "name": "Surface Name"
+    },
+    {
+      "command-line-flag": "--sd",
+      "description": "Subjects Directory",
+      "value-key": "[SUBJECTS_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "subjects_dir",
+      "name": "Subjects Directory"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[HEMI].[ANNOTNAME].annot",
+      "description": "Generated annotation file",
+      "id": "annot_file",
+      "name": "Annotation File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

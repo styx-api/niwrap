@@ -1,0 +1,292 @@
+{
+  "name": "mri_watershed",
+  "author": "FreeSurfer Developers",
+  "description": "A tool for stripping skull and other non-brain tissues to produce brain volume from T1 volume.",
+  "command-line": "mri_watershed [INPUT_VOLUME] [OUTPUT_VOLUME] [WEIGHT] [NO_WTA_FLAG] [PROBA_MERGING] [PREFLOODING_HEIGHT] [NO_SEEDPT_FLAG] [NO_TA_FLAG] [COPY_FLAG] [ATLAS_FLAG] [SURF_NAME] [USESURF_RAS_FLAG] [NO_T1_ANALYSIS_FLAG] [SHRINK_SURFACE_FLAG] [EXPAND_SURFACE_FLAG] [USE_WATERSHED_FLAG] [T1_VOLUME] [WAT_TEMP_FLAG] [FIRST_TEMP_FLAG] [SURF_DEBUG_FLAG] [BRAIN_SURF_NAME] [SHRINK_BRAIN_SURF] [SEED_POINT] [CENTER_BRAIN] [BRAIN_RADIUS] [WATERSHED_THRESHOLD] [NO_WATERSHED_ANALYSIS_FLAG] [LABEL_FLAG] [MANUAL_PARAMS] [XTHRESH] [MASK_FLAG]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input volume (e.g., T1 volume)",
+      "value-key": "[INPUT_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "input_volume",
+      "name": "Input Volume"
+    },
+    {
+      "description": "Output volume (e.g., skull stripped brain volume)",
+      "value-key": "[OUTPUT_VOLUME]",
+      "type": "String",
+      "optional": false,
+      "id": "output_volume",
+      "name": "Output Volume"
+    },
+    {
+      "command-line-flag": "-w",
+      "description": "Preweight the input image using atlas information",
+      "value-key": "[WEIGHT]",
+      "type": "Number",
+      "optional": true,
+      "id": "weight",
+      "name": "Weight"
+    },
+    {
+      "command-line-flag": "-no_wta",
+      "description": "Don't use the preweighting for the template deformation",
+      "value-key": "[NO_WTA_FLAG]",
+      "type": "Flag",
+      "id": "no_wta_flag",
+      "name": "No WTA Flag"
+    },
+    {
+      "command-line-flag": "-b",
+      "description": "Use the basins merging using atlas information",
+      "value-key": "[PROBA_MERGING]",
+      "type": "Number",
+      "optional": true,
+      "id": "proba_merging",
+      "name": "Proba Merging"
+    },
+    {
+      "command-line-flag": "-h",
+      "description": "Pre-size the preflooding height (in percent)",
+      "value-key": "[PREFLOODING_HEIGHT]",
+      "type": "Number",
+      "optional": true,
+      "id": "preflooding_height",
+      "name": "Preflooding Height"
+    },
+    {
+      "command-line-flag": "-no_seedpt",
+      "description": "Don't use seedpoints using atlas information",
+      "value-key": "[NO_SEEDPT_FLAG]",
+      "type": "Flag",
+      "id": "no_seedpt_flag",
+      "name": "No Seedpoint Flag"
+    },
+    {
+      "command-line-flag": "-no-ta",
+      "description": "Don't use template deformation using atlas information",
+      "value-key": "[NO_TA_FLAG]",
+      "type": "Flag",
+      "id": "no_ta_flag",
+      "name": "No TA Flag"
+    },
+    {
+      "command-line-flag": "-copy",
+      "description": "Just copy input to output, ignore other options",
+      "value-key": "[COPY_FLAG]",
+      "type": "Flag",
+      "id": "copy_flag",
+      "name": "Copy Flag"
+    },
+    {
+      "command-line-flag": "-atlas",
+      "description": "Use the atlas information to correct the segmentation",
+      "value-key": "[ATLAS_FLAG]",
+      "type": "Flag",
+      "id": "atlas_flag",
+      "name": "Atlas Flag"
+    },
+    {
+      "command-line-flag": "-surf",
+      "description": "Save the BEM surfaces; use consistent coordinates with tkmedit",
+      "value-key": "[SURF_NAME]",
+      "type": "String",
+      "optional": true,
+      "id": "surf_name",
+      "name": "Surface Name"
+    },
+    {
+      "command-line-flag": "-useSRAS",
+      "description": "Use the surface RAS coordinates for surfaces",
+      "value-key": "[USESURF_RAS_FLAG]",
+      "type": "Flag",
+      "id": "usesurf_ras_flag",
+      "name": "Use Surface RAS Flag"
+    },
+    {
+      "command-line-flag": "-noT1",
+      "description": "Don't do T1 analysis, useful when running out of memory",
+      "value-key": "[NO_T1_ANALYSIS_FLAG]",
+      "type": "Flag",
+      "id": "no_t1_analysis_flag",
+      "name": "No T1 Analysis Flag"
+    },
+    {
+      "command-line-flag": "-less",
+      "description": "Shrink the surface",
+      "value-key": "[SHRINK_SURFACE_FLAG]",
+      "type": "Flag",
+      "id": "shrink_surface_flag",
+      "name": "Shrink Surface Flag"
+    },
+    {
+      "command-line-flag": "-more",
+      "description": "Expand the surface",
+      "value-key": "[EXPAND_SURFACE_FLAG]",
+      "type": "Flag",
+      "id": "expand_surface_flag",
+      "name": "Expand Surface Flag"
+    },
+    {
+      "command-line-flag": "-wat",
+      "description": "Use only the watershed algorithm",
+      "value-key": "[USE_WATERSHED_FLAG]",
+      "type": "Flag",
+      "id": "use_watershed_flag",
+      "name": "Use Watershed Flag"
+    },
+    {
+      "command-line-flag": "-T1",
+      "description": "Specify T1 input volume",
+      "value-key": "[T1_VOLUME]",
+      "type": "File",
+      "optional": true,
+      "id": "t1_volume",
+      "name": "T1 Volume"
+    },
+    {
+      "command-line-flag": "-wat+temp",
+      "description": "Use watershed algorithm and first template smoothing",
+      "value-key": "[WAT_TEMP_FLAG]",
+      "type": "Flag",
+      "id": "wat_temp_flag",
+      "name": "Watershed and Template Flag"
+    },
+    {
+      "command-line-flag": "-first_temp",
+      "description": "Use only the first template smoothing + local matching",
+      "value-key": "[FIRST_TEMP_FLAG]",
+      "type": "Flag",
+      "id": "first_temp_flag",
+      "name": "First Template Flag"
+    },
+    {
+      "command-line-flag": "-surf_debug",
+      "description": "Visualize the surfaces onto the output volume",
+      "value-key": "[SURF_DEBUG_FLAG]",
+      "type": "Flag",
+      "id": "surf_debug_flag",
+      "name": "Surface Debug Flag"
+    },
+    {
+      "command-line-flag": "-brainsurf",
+      "description": "Save the brain surface",
+      "value-key": "[BRAIN_SURF_NAME]",
+      "type": "String",
+      "optional": true,
+      "id": "brain_surf_name",
+      "name": "Brain Surface Name"
+    },
+    {
+      "command-line-flag": "-shk_br_surf",
+      "description": "Save the brain surface shrank inward by a specified mm",
+      "value-key": "[SHRINK_BRAIN_SURF]",
+      "type": "String",
+      "optional": true,
+      "id": "shrink_brain_surf",
+      "name": "Shrink Brain Surface"
+    },
+    {
+      "command-line-flag": "-s",
+      "description": "Add a seed point as a 3D coordinate",
+      "value-key": "[SEED_POINT]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 3,
+      "min-list-entries": 3,
+      "optional": true,
+      "id": "seed_point",
+      "name": "Seed Point"
+    },
+    {
+      "command-line-flag": "-c",
+      "description": "Specify the center of the brain (voxel coordinates)",
+      "value-key": "[CENTER_BRAIN]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 3,
+      "min-list-entries": 3,
+      "optional": true,
+      "id": "center_brain",
+      "name": "Center Brain"
+    },
+    {
+      "command-line-flag": "-r",
+      "description": "Specify the radius of the brain (voxel units)",
+      "value-key": "[BRAIN_RADIUS]",
+      "type": "Number",
+      "optional": true,
+      "id": "brain_radius",
+      "name": "Brain Radius"
+    },
+    {
+      "command-line-flag": "-t",
+      "description": "Change the threshold in the watershed process",
+      "value-key": "[WATERSHED_THRESHOLD]",
+      "type": "Number",
+      "optional": true,
+      "id": "watershed_threshold",
+      "name": "Watershed Threshold"
+    },
+    {
+      "command-line-flag": "-n",
+      "description": "Don't use the watershed analysis process",
+      "value-key": "[NO_WATERSHED_ANALYSIS_FLAG]",
+      "type": "Flag",
+      "id": "no_watershed_analysis_flag",
+      "name": "No Watershed Analysis Flag"
+    },
+    {
+      "command-line-flag": "-LABEL",
+      "description": "Labelize the output volume into scalp, skull, csf, gray, and white matter",
+      "value-key": "[LABEL_FLAG]",
+      "type": "Flag",
+      "id": "label_flag",
+      "name": "Label Flag"
+    },
+    {
+      "command-line-flag": "-man",
+      "description": "Change parameters csf_max, transition intensity, and GM_intensity",
+      "value-key": "[MANUAL_PARAMS]",
+      "type": "Number",
+      "list": true,
+      "optional": true,
+      "id": "manual_params",
+      "name": "Manual Params"
+    },
+    {
+      "command-line-flag": "-xthresh",
+      "description": "Remove voxels whose intensity exceeds the specified threshold",
+      "value-key": "[XTHRESH]",
+      "type": "Number",
+      "optional": true,
+      "id": "xthresh",
+      "name": "X Threshold"
+    },
+    {
+      "command-line-flag": "-mask",
+      "description": "Mask a volume with the brain mask",
+      "value-key": "[MASK_FLAG]",
+      "type": "Flag",
+      "id": "mask_flag",
+      "name": "Mask Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_VOLUME]",
+      "description": "Skull stripped brain volume",
+      "id": "output_brain_vol",
+      "name": "Output Brain Volume"
+    },
+    {
+      "path-template": "[BRAIN_SURF_NAME]",
+      "description": "Saved brain surface when specified",
+      "id": "output_brain_surf",
+      "name": "Brain Surface File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

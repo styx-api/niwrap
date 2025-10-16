@@ -1,0 +1,158 @@
+{
+  "name": "CompareSurfaces",
+  "author": "AFNI Developers",
+  "description": "Calculates distance at each node in Surface 1 (S1) to Surface 2 (S2) along the local surface normal at each node in S1. Superseded by SurfToSurf.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "CompareSurfaces [SPEC_FILE] [HEMISPHERE] [VOLUME_PARENT_1] [VOLUME_PARENT_2] [FILE_PREFIX] [ONE_NODE] [NODE_RANGE] [NO_CONSISTENCY_CHECK] [NO_VOLREG] [NO_TRANSFORM] [SET_ENVIRONMENT_VARIABLE] [TRACE] [EXTREME_TRACE] [NO_MEMORY_TRACE] [YES_MEMORY_TRACE]",
+  "inputs": [
+    {
+      "command-line-flag": "-spec",
+      "description": "File containing surface specification.",
+      "value-key": "[SPEC_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "spec_file",
+      "name": "Spec file"
+    },
+    {
+      "command-line-flag": "-hemi",
+      "description": "Specify the hemisphere being processed (left or right).",
+      "value-key": "[HEMISPHERE]",
+      "type": "String",
+      "optional": false,
+      "id": "hemisphere",
+      "name": "Hemisphere",
+      "value-choices": [
+        "L",
+        "R"
+      ]
+    },
+    {
+      "command-line-flag": "-sv1",
+      "description": "Volume parent BRIK for first surface.",
+      "value-key": "[VOLUME_PARENT_1]",
+      "type": "File",
+      "optional": false,
+      "id": "volume_parent_1",
+      "name": "Volume Parent 1"
+    },
+    {
+      "command-line-flag": "-sv2",
+      "description": "Volume parent BRIK for second surface.",
+      "value-key": "[VOLUME_PARENT_2]",
+      "type": "File",
+      "optional": false,
+      "id": "volume_parent_2",
+      "name": "Volume Parent 2"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Prefix for distance and node color output files. Existing file will not be overwritten.",
+      "value-key": "[FILE_PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "file_prefix",
+      "name": "File prefix"
+    },
+    {
+      "command-line-flag": "-onenode",
+      "description": "Output results for node index only. This option is for debugging.",
+      "value-key": "[ONE_NODE]",
+      "type": "Number",
+      "optional": true,
+      "id": "one_node",
+      "name": "One node"
+    },
+    {
+      "command-line-flag": "-noderange",
+      "description": "Output results from node istart to node istop only. This option is for debugging.",
+      "value-key": "[NODE_RANGE]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 2,
+      "optional": true,
+      "id": "node_range",
+      "name": "Node range"
+    },
+    {
+      "command-line-flag": "-nocons",
+      "description": "Skip mesh orientation consistency check. This speeds up the start time so it is useful for debugging runs.",
+      "value-key": "[NO_CONSISTENCY_CHECK]",
+      "type": "Flag",
+      "id": "no_consistency_check",
+      "name": "No consistency check"
+    },
+    {
+      "command-line-flag": "-novolreg",
+      "description": "Ignore any Rotate, Volreg, Tagalign, or WarpDrive transformations present in the Surface Volume.",
+      "value-key": "[NO_VOLREG]",
+      "type": "Flag",
+      "id": "no_volreg",
+      "name": "No volume registration"
+    },
+    {
+      "command-line-flag": "-noxform",
+      "description": "Same as -novolreg.",
+      "value-key": "[NO_TRANSFORM]",
+      "type": "Flag",
+      "id": "no_transform",
+      "name": "No transform"
+    },
+    {
+      "command-line-flag": "-setenv",
+      "description": "Set environment variable ENVname to be ENVvalue. Quotes are necessary.",
+      "value-key": "[SET_ENVIRONMENT_VARIABLE]",
+      "type": "String",
+      "optional": true,
+      "id": "set_environment_variable",
+      "name": "Set environment variable"
+    },
+    {
+      "command-line-flag": "-trace",
+      "description": "Turns on In/Out debug and Memory tracing.",
+      "value-key": "[TRACE]",
+      "type": "Flag",
+      "id": "trace",
+      "name": "Trace"
+    },
+    {
+      "command-line-flag": "-TRACE",
+      "description": "Turns on extreme tracing.",
+      "value-key": "[EXTREME_TRACE]",
+      "type": "Flag",
+      "id": "extreme_trace",
+      "name": "Extreme trace"
+    },
+    {
+      "command-line-flag": "-nomall",
+      "description": "Turn off memory tracing.",
+      "value-key": "[NO_MEMORY_TRACE]",
+      "type": "Flag",
+      "id": "no_memory_trace",
+      "name": "No memory trace"
+    },
+    {
+      "command-line-flag": "-yesmall",
+      "description": "Turn on memory tracing (default).",
+      "value-key": "[YES_MEMORY_TRACE]",
+      "type": "Flag",
+      "id": "yes_memory_trace",
+      "name": "Yes memory trace"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[FILE_PREFIX]_distance.txt",
+      "description": "Distance output file.",
+      "id": "distance_output_file",
+      "name": "Distance output file"
+    },
+    {
+      "path-template": "[FILE_PREFIX]_color.txt",
+      "description": "Node color output file.",
+      "id": "color_output_file",
+      "name": "Color output file"
+    }
+  ]
+}

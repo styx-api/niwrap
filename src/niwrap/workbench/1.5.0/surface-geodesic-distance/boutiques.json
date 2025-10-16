@@ -1,0 +1,70 @@
+{
+  "name": "surface-geodesic-distance",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -surface-geodesic-distance [SURFACE] [VERTEX] [METRIC_OUT] [OPT_NAIVE] [OPT_LIMIT_LIMIT_MM] [OPT_CORRECTED_AREAS_AREA_METRIC]",
+  "description": "Compute geodesic distance from one vertex to the entire surface.\n\nUnless -limit is specified, computes the geodesic distance from the specified vertex to all others.  The result is output as a single column metric file, with a value of -1 for vertices that the distance was not computed for.\n\nThe -corrected-areas option should be used when the input is a group average surface - group average surfaces have significantly less surface area than individual surfaces do, and therefore distances measured on them would be smaller than measuring them on individual surfaces.  In this case, the input to this option should be a group average of the output of -surface-vertex-areas for each subject.\n\nIf -naive is not specified, the algorithm uses not just immediate neighbors, but also neighbors derived from crawling across pairs of triangles that share an edge.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "surface",
+      "name": "surface",
+      "description": "the surface to compute on",
+      "optional": false,
+      "value-key": "[SURFACE]",
+      "type": "File"
+    },
+    {
+      "id": "vertex",
+      "name": "vertex",
+      "description": "the vertex to compute geodesic distance from",
+      "optional": false,
+      "value-key": "[VERTEX]",
+      "type": "Number",
+      "integer": true
+    },
+    {
+      "id": "metric_out",
+      "name": "metric_out",
+      "type": "String",
+      "description": "the output metric",
+      "optional": false,
+      "value-key": "[METRIC_OUT]"
+    },
+    {
+      "id": "opt_naive",
+      "name": "opt_naive",
+      "command-line-flag": "-naive",
+      "description": "use only neighbors, don't crawl triangles (not recommended)",
+      "type": "Flag",
+      "value-key": "[OPT_NAIVE]"
+    },
+    {
+      "id": "opt_limit_limit_mm",
+      "name": "opt_limit_limit_mm",
+      "command-line-flag": "-limit",
+      "description": "stop at a certain distance: distance in mm to stop at",
+      "optional": true,
+      "value-key": "[OPT_LIMIT_LIMIT_MM]",
+      "type": "Number",
+      "integer": false
+    },
+    {
+      "id": "opt_corrected_areas_area_metric",
+      "name": "opt_corrected_areas_area_metric",
+      "command-line-flag": "-corrected-areas",
+      "description": "vertex areas to use instead of computing them from the surface: the corrected vertex areas, as a metric",
+      "optional": true,
+      "value-key": "[OPT_CORRECTED_AREAS_AREA_METRIC]",
+      "type": "File"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "metric_out",
+      "name": "metric_out",
+      "path-template": "[METRIC_OUT]",
+      "description": "the output metric"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

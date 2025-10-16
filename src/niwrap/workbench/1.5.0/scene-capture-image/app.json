@@ -1,0 +1,14 @@
+{
+  "name": "scene-capture-image",
+  "source": {
+    "type": "boutiques",
+    "path": "boutiques.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-scene-capture-image"
+  ],
+  "docs": {
+    "description": "Offscreen rendering of scene to an image file.\n\n----------------------------------------------------------------------\n\nRender content of browser windows displayed in a scene into image file(s).\n\nIf none of the \"-size\" options are specified, the default is \"-size-window\" (Output image is size of the window that was saved in the scene).\n\nFor the \"-size\" options that accept a width and/or height, the values default to number of pixels.  To express the width and/or height in physical units (inches, centimeters, etc.), use the \"-units\" option.  When physical units are used, the pixel width and height are derived using the physical width/height and the image resolution (see the \"-resolution\" option).\n\nNote that scenes created prior to version 1.2 (May 2016) do not contain information about the size of the window.  Therefore, one must use the \"-size-width-height\" option.\n\nExamples:\n\nGenerate an image of the second scene.  Width and height of image is width and height of window saved in the scene.  \n   wb_command -scene-capture-image myscene.scene 2 image2.jpg\n\nGenerate an image of the second scene with a margin around sides of the image. Width and height of image is width and height of window saved in the scene.  \n   wb_command -scene-capture-image myscene.scene 2 image2.jpg  -margin 10\n\nGenerate an image of the second scene that is 6 inches width with 300 pixels per inch.  The resulting width is 1800 pixels.  The resulting height of the image is a function of the width and the aspect ratio (height divided by width) of the window size saved in the scene.\n   wb_command -scene-capture-image myscene.scene 2 image21.jpg \\ \n   -size-width 6 -units INCHES -resolution 300 PIXELS_PER_INCH\n\nPrint information about the size of the output image for the second scene (no image file is created) using a width of 4.5 centimeters. \n   wb_command -scene-capture-image myscene.scene 2 test.jpg \\ \n   -size-width 4.5 -units CENTIMETERS -print-image-info\n\n\n\n\nNO OFF SCREEN RENDERERS AVAILABLE ON THIS SYSTEM.  COMMAND WILL FAIL !!!!\n\n\nERROR: -scene-capture-image is not available !\nA required library for this command, Mesa3D (software version of OpenGL), was not available when this software was created.  This command is not available for the Windows version of this software but should always be available in the Linux and MacOS versions.\n"
+  }
+}

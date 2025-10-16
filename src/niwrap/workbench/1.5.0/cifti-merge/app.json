@@ -1,0 +1,14 @@
+{
+  "name": "cifti-merge",
+  "source": {
+    "type": "boutiques",
+    "path": "boutiques.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-cifti-merge"
+  ],
+  "docs": {
+    "description": "Merge or split on series, scalar, or label dimensions.\n\nGiven input CIFTI files for which mappings along the selected direction are the same type, all either series, scalars, or labels, and the other dimensions are index-compatible, this command concatenates the data in the specified indices/ranges along the selected direction (by default, on typical 2D cifti, concatenate horizontally, so rows become longer).  The direction can be either an integer starting from 1, or the strings 'ROW' or 'COLUMN'.\n\nExample: wb_command -cifti-merge out.dtseries.nii -cifti first.dtseries.nii -index 1 -cifti second.dtseries.nii\n\nThis example would take the first column from first.dtseries.nii, followed by all columns from second.dtseries.nii, and write these columns to out.dtseries.nii.  "
+  }
+}

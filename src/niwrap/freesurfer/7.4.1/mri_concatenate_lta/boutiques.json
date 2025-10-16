@@ -1,0 +1,110 @@
+{
+  "name": "mri_concatenate_lta",
+  "description": "Concatenates two consecutive LTA transformations into one overall transformation, Out = LTA2*LTA1",
+  "command-line": "mri_concatenate_lta [LTA_1] [LTA_2] [LTA_FINAL] [TAL_SRC] [TAL_TEMPLATE] [INVERT1] [INVERT2] [INVERTOUT] [OUT_TYPE] [SUBJECT] [RMSDIFF_RADIUS] [RMSDIFF_OUTPUTFILE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "lta_1",
+      "name": "LTA 1 File",
+      "type": "File",
+      "value-key": "[LTA_1]",
+      "description": "File for LTA transformation that maps some src1 to dst1",
+      "optional": false
+    },
+    {
+      "id": "lta_2",
+      "name": "LTA 2 File",
+      "type": "File",
+      "value-key": "[LTA_2]",
+      "description": "File for LTA transformation that maps dst1 (src2) to dst2",
+      "optional": false
+    },
+    {
+      "id": "lta_final",
+      "name": "LTA Final File",
+      "type": "String",
+      "value-key": "[LTA_FINAL]",
+      "description": "File for the combined LTA maps: src1 to dst2 = LTA2*LTA1",
+      "optional": false
+    },
+    {
+      "id": "tal_src",
+      "name": "Talairach Source File",
+      "type": "File",
+      "command-line-flag": "-tal",
+      "value-key": "[TAL_SRC]",
+      "description": "Specify source (file1) for Talairach transformation",
+      "optional": true
+    },
+    {
+      "id": "tal_template",
+      "name": "Talairach Template File",
+      "type": "File",
+      "value-key": "[TAL_TEMPLATE]",
+      "description": "Specify template (file2) for Talairach transformation",
+      "optional": true
+    },
+    {
+      "id": "invert1",
+      "name": "Invert LTA 1 Flag",
+      "command-line-flag": "-invert1",
+      "value-key": "[INVERT1]",
+      "type": "Flag",
+      "description": "Invert LTA1 before applying it"
+    },
+    {
+      "id": "invert2",
+      "name": "Invert LTA 2 Flag",
+      "command-line-flag": "-invert2",
+      "value-key": "[INVERT2]",
+      "type": "Flag",
+      "description": "Invert LTA2 before applying it"
+    },
+    {
+      "id": "invertout",
+      "name": "Invert Output LTA Flag",
+      "command-line-flag": "-invertout",
+      "value-key": "[INVERTOUT]",
+      "type": "Flag",
+      "description": "Invert output LTA"
+    },
+    {
+      "id": "out_type",
+      "name": "Output Type",
+      "command-line-flag": "-out_type",
+      "value-key": "[OUT_TYPE]",
+      "type": "Number",
+      "description": "Set final LTA type: 0 for VOX2VOX (default), 1 for RAS2RAS",
+      "optional": true
+    },
+    {
+      "id": "subject",
+      "name": "Subject",
+      "command-line-flag": "-subject",
+      "value-key": "[SUBJECT]",
+      "type": "String",
+      "description": "Set subject in output LTA",
+      "optional": true
+    },
+    {
+      "id": "rmsdiff_radius",
+      "name": "RMS Diff Radius",
+      "command-line-flag": "-rmsdiff",
+      "value-key": "[RMSDIFF_RADIUS]",
+      "type": "Number",
+      "description": "Radius used for computing RMS diff between transforms",
+      "optional": true
+    },
+    {
+      "id": "rmsdiff_outputfile",
+      "name": "RMS Diff Output File",
+      "type": "String",
+      "value-key": "[RMSDIFF_OUTPUTFILE]",
+      "description": "Output file for RMS diff computation. Use 'nofile' to skip output",
+      "optional": true
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

@@ -1,0 +1,105 @@
+{
+  "name": "border-merge",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -border-merge [BORDER_FILE_OUT] [BORDER]",
+  "description": "Merge border files into a new file.\n\nTakes one or more border files and makes a new border file from the borders in them.\n\nExample: wb_command -border-merge out.border -border first.border -select 1 -border second.border\n\nThis example would take the first border from first.border, followed by all borders from second.border, and write these to out.border.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "border_file_out",
+      "name": "border_file_out",
+      "type": "String",
+      "description": "the output border file",
+      "optional": false,
+      "value-key": "[BORDER_FILE_OUT]"
+    },
+    {
+      "id": "border",
+      "name": "border",
+      "description": "specify an input border file",
+      "type": {
+        "id": "border",
+        "name": "border",
+        "description": "specify an input border file",
+        "command-line": "-border [BORDER_FILE_IN] [SELECT]",
+        "inputs": [
+          {
+            "id": "border_file_in",
+            "name": "border_file_in",
+            "description": "a border file to use borders from",
+            "optional": false,
+            "value-key": "[BORDER_FILE_IN]",
+            "type": "File"
+          },
+          {
+            "id": "select",
+            "name": "select",
+            "description": "select a single border to use",
+            "type": {
+              "id": "select",
+              "name": "select",
+              "description": "select a single border to use",
+              "command-line": "-select [BORDER] [UP_TO]",
+              "inputs": [
+                {
+                  "id": "border",
+                  "name": "border",
+                  "description": "the border number or name",
+                  "optional": false,
+                  "value-key": "[BORDER]",
+                  "type": "String"
+                },
+                {
+                  "id": "up_to",
+                  "name": "up_to",
+                  "description": "use an inclusive range of borders",
+                  "type": {
+                    "id": "up_to",
+                    "name": "up_to",
+                    "description": "use an inclusive range of borders",
+                    "command-line": "-up-to [LAST_BORDER] [OPT_REVERSE]",
+                    "inputs": [
+                      {
+                        "id": "last_border",
+                        "name": "last_border",
+                        "description": "the number or name of the last column to include",
+                        "optional": false,
+                        "value-key": "[LAST_BORDER]",
+                        "type": "String"
+                      },
+                      {
+                        "id": "opt_reverse",
+                        "name": "opt_reverse",
+                        "command-line-flag": "-reverse",
+                        "description": "use the range in reverse order",
+                        "type": "Flag",
+                        "value-key": "[OPT_REVERSE]"
+                      }
+                    ]
+                  },
+                  "optional": true,
+                  "value-key": "[UP_TO]"
+                }
+              ]
+            },
+            "optional": true,
+            "value-key": "[SELECT]",
+            "list": true
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[BORDER]",
+      "list": true
+    }
+  ],
+  "output-files": [
+    {
+      "id": "border_file_out",
+      "name": "border_file_out",
+      "path-template": "[BORDER_FILE_OUT]",
+      "description": "the output border file"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

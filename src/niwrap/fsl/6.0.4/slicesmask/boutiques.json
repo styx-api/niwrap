@@ -1,0 +1,42 @@
+{
+  "name": "slicesmask",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Tool for masking slices from an image using a mask",
+  "command-line": "slicesmask [IMAGE] [MASK] [OUTPUT]",
+  "inputs": [
+    {
+      "description": "Input image file",
+      "value-key": "[IMAGE]",
+      "type": "File",
+      "optional": false,
+      "id": "image",
+      "name": "Input Image"
+    },
+    {
+      "description": "Mask file",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": false,
+      "id": "mask",
+      "name": "Mask File"
+    },
+    {
+      "description": "Output file",
+      "value-key": "[OUTPUT]",
+      "type": "String",
+      "optional": false,
+      "id": "output",
+      "name": "Output File"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT]",
+      "description": "The output file resulting from applying the mask",
+      "id": "masked_output",
+      "name": "Masked Output File"
+    }
+  ],
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

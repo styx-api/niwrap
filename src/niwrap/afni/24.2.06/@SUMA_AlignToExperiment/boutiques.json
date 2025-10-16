@@ -1,0 +1,197 @@
+{
+  "name": "@SUMA_AlignToExperiment",
+  "author": "AFNI Developers",
+  "description": "Creates a version of Surface Anatomy that is registered to Experiment Anatomy.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "@SUMA_AlignToExperiment [EXP_ANAT] [SURF_ANAT] [DXYZ] [OUT_DXYZ] [WD] [AL] [AL_OPT] [OK_CHANGE_VIEW] [STRIP_SKULL] [SKULL_STRIP_OPT] [ALIGN_CENTERS] [INIT_XFORM] [EA_CLIP_BELOW] [PREFIX] [SURF_ANAT_FOLLOWERS] [FOLLOWERS_INTERP] [ATLAS_FOLLOWERS] [ECHO] [KEEP_TMP] [OVERWRITE_RESP]",
+  "inputs": [
+    {
+      "id": "exp_anat",
+      "name": "Experiment Anatomy",
+      "description": "Name of high resolution anatomical data set in register with experimental data.",
+      "type": "File",
+      "command-line-flag": "-exp_anat",
+      "value-key": "[EXP_ANAT]",
+      "optional": false
+    },
+    {
+      "id": "surf_anat",
+      "name": "Surface Anatomy",
+      "description": "Path and name of high resolution antomical data set used to create the surface.",
+      "type": "File",
+      "command-line-flag": "-surf_anat",
+      "value-key": "[SURF_ANAT]",
+      "optional": false
+    },
+    {
+      "id": "dxyz",
+      "name": "Resolution for Downsampling",
+      "description": "Optional parameter to downsample anatomical volumes to dxyz mm voxel resolution before registration.",
+      "type": "Number",
+      "command-line-flag": "-dxyz",
+      "value-key": "[DXYZ]",
+      "optional": true
+    },
+    {
+      "id": "out_dxyz",
+      "name": "Output Voxel Size",
+      "description": "Output the final aligned volume at a cubic voxelsize of DXYZmm.",
+      "type": "Number",
+      "command-line-flag": "-out_dxyz",
+      "value-key": "[OUT_DXYZ]",
+      "optional": true
+    },
+    {
+      "id": "wd",
+      "name": "Use 3dWarpDrive",
+      "description": "Use 3dWarpDrive's general affine transform (12 param) instead of 3dvolreg's 6 parameters.",
+      "type": "Flag",
+      "command-line-flag": "-wd",
+      "value-key": "[WD]"
+    },
+    {
+      "id": "al",
+      "name": "Use 3dAllineate",
+      "description": "Use 3dAllineate to do the 12 parameter alignment. Cost function is 'lpa'.",
+      "type": "Flag",
+      "command-line-flag": "-al",
+      "value-key": "[AL]"
+    },
+    {
+      "id": "al_opt",
+      "name": "Options for 3dAllineate",
+      "description": "Specify set of options to pass to 3dAllineate.",
+      "type": "String",
+      "command-line-flag": "-al_opt",
+      "value-key": "[AL_OPT]",
+      "optional": true
+    },
+    {
+      "id": "ok_change_view",
+      "name": "OK Change View",
+      "description": "Be quiet when view of registered volume is changed to match that of the Experiment_Anatomy.",
+      "type": "Flag",
+      "command-line-flag": "-ok_change_view",
+      "value-key": "[OK_CHANGE_VIEW]"
+    },
+    {
+      "id": "strip_skull",
+      "name": "Strip Skull",
+      "description": "Use 3dSkullStrip to remove non-brain tissue.",
+      "type": "String",
+      "command-line-flag": "-strip_skull",
+      "value-key": "[STRIP_SKULL]",
+      "optional": true
+    },
+    {
+      "id": "skull_strip_opt",
+      "name": "Options for 3dSkullStrip",
+      "description": "Pass the options to 3dSkullStrip.",
+      "type": "String",
+      "command-line-flag": "-skull_strip_opt",
+      "value-key": "[SKULL_STRIP_OPT]",
+      "optional": true
+    },
+    {
+      "id": "align_centers",
+      "name": "Align Centers",
+      "description": "Add an additional transformation to align the volume centers.",
+      "type": "Flag",
+      "command-line-flag": "-align_centers",
+      "value-key": "[ALIGN_CENTERS]"
+    },
+    {
+      "id": "init_xform",
+      "name": "Initial Transform",
+      "description": "Apply affine transform file to Surface_Anatomy before beginning registration.",
+      "type": "File",
+      "command-line-flag": "-init_xform",
+      "value-key": "[INIT_XFORM]",
+      "optional": true
+    },
+    {
+      "id": "EA_clip_below",
+      "name": "Clip Below",
+      "description": "Set slices below CLPmm in 'Experiment Anatomy' to zero.",
+      "type": "Number",
+      "command-line-flag": "-EA_clip_below",
+      "value-key": "[EA_CLIP_BELOW]",
+      "optional": true
+    },
+    {
+      "id": "prefix",
+      "name": "Prefix for Output",
+      "description": "Prefix for the output volume.",
+      "type": "String",
+      "command-line-flag": "-prefix",
+      "value-key": "[PREFIX]",
+      "optional": true
+    },
+    {
+      "id": "surf_anat_followers",
+      "name": "Surface Anatomy Followers",
+      "description": "Apply the same alignment transform to additional datasets.",
+      "type": "String",
+      "command-line-flag": "-surf_anat_followers",
+      "value-key": "[SURF_ANAT_FOLLOWERS]",
+      "optional": true
+    },
+    {
+      "id": "followers_interp",
+      "name": "Interpolation Mode",
+      "description": "Set the interpolation mode for the follower datasets.",
+      "type": "String",
+      "command-line-flag": "-followers_interp",
+      "value-key": "[FOLLOWERS_INTERP]",
+      "optional": true
+    },
+    {
+      "id": "atlas_followers",
+      "name": "Atlas Followers",
+      "description": "Automatically set the followers to be atlases in the directory of -surf_anat.",
+      "type": "Flag",
+      "command-line-flag": "-atlas_followers",
+      "value-key": "[ATLAS_FOLLOWERS]"
+    },
+    {
+      "id": "echo",
+      "name": "Echo Commands",
+      "description": "Echo all commands to terminal for debugging.",
+      "type": "Flag",
+      "command-line-flag": "-echo",
+      "value-key": "[ECHO]"
+    },
+    {
+      "id": "keep_tmp",
+      "name": "Keep Temporary Files",
+      "description": "Keep temporary files for debugging.",
+      "type": "Flag",
+      "command-line-flag": "-keep_tmp",
+      "value-key": "[KEEP_TMP]"
+    },
+    {
+      "id": "overwrite_resp",
+      "name": "Overwrite Response",
+      "description": "Answer 'overwrite' questions automatically.",
+      "type": "String",
+      "command-line-flag": "-overwrite_resp",
+      "value-key": "[OVERWRITE_RESP]",
+      "optional": true
+    }
+  ],
+  "output-files": [
+    {
+      "id": "aligned_volume",
+      "name": "Aligned Surface Anatomy",
+      "description": "Output volume after alignment.",
+      "path-template": "[PREFIX]_Alnd_Exp.nii.gz"
+    },
+    {
+      "id": "additional_followers",
+      "name": "Aligned Followers",
+      "description": "Output followers dataset after transforming.",
+      "path-template": "[PREFIX]_Alnd_Exp_Fdset.nii.gz"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

@@ -1,0 +1,35 @@
+{
+  "name": "imglob",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Tool for generating image lists with specific extensions.",
+  "command-line": "imglob [MULTIPLE_EXTENSIONS] [INPUT_LIST] [SINGLE_EXTENSION]",
+  "inputs": [
+    {
+      "description": "List of image names or file paths",
+      "value-key": "[INPUT_LIST]",
+      "type": "String",
+      "list": true,
+      "optional": false,
+      "id": "input_list",
+      "name": "Input List"
+    },
+    {
+      "command-line-flag": "-extension",
+      "description": "Output one image with full extension",
+      "value-key": "[SINGLE_EXTENSION]",
+      "type": "Flag",
+      "id": "single_extension",
+      "name": "Single Extension"
+    },
+    {
+      "command-line-flag": "-extensions",
+      "description": "Output list of images with full extensions",
+      "value-key": "[MULTIPLE_EXTENSIONS]",
+      "type": "Flag",
+      "id": "multiple_extensions",
+      "name": "Multiple Extensions"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

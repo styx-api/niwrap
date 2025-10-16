@@ -1,0 +1,119 @@
+{
+  "name": "mri_segment_thalamic_nuclei_dti_cnn",
+  "command-line": "mri_segment_thalamic_nuclei_dti_cnn [T1_IMAGES] [ASEG] [FA] [V1] [OUTPUT] [VOLUME_OUTPUT] [POSTERIORS_OUTPUT] [THREADS] [FORCE_CPU] [MODEL]",
+  "description": "Thalamic segmentation tool providing 0.7mm isotropic thalamus segmentation from registered T1, FA, and V1 volumes.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "t1_images",
+      "name": "T1 images",
+      "type": "File",
+      "optional": false,
+      "value-key": "[T1_IMAGES]",
+      "description": "Path to the T1 image(s) or folder containing images. These must be registered to the FAs in physical coordinates.",
+      "command-line-flag": "--t1"
+    },
+    {
+      "id": "aseg",
+      "name": "ASEG segmentation",
+      "type": "File",
+      "optional": true,
+      "value-key": "[ASEG]",
+      "description": "Path to the ASEG segmentation(s) or folder. These must be registered to the FAs in physical coordinates.",
+      "command-line-flag": "--aseg"
+    },
+    {
+      "id": "fa",
+      "name": "FA images",
+      "type": "File",
+      "optional": false,
+      "value-key": "[FA]",
+      "description": "Path to the FA image(s) or folder.",
+      "command-line-flag": "--fa"
+    },
+    {
+      "id": "v1",
+      "name": "V1 images",
+      "type": "File",
+      "optional": false,
+      "value-key": "[V1]",
+      "description": "Path to the V1 image(s) or folder.",
+      "command-line-flag": "--v1"
+    },
+    {
+      "id": "output",
+      "name": "Segmentation output",
+      "type": "String",
+      "optional": false,
+      "value-key": "[OUTPUT]",
+      "description": "Path to the segmentation output(s) or folder.",
+      "command-line-flag": "--o"
+    },
+    {
+      "id": "volume_output",
+      "name": "Volume output",
+      "type": "String",
+      "optional": true,
+      "value-key": "[VOLUME_OUTPUT]",
+      "description": "CSV file for volumes of all structures and subjects.",
+      "command-line-flag": "--vol"
+    },
+    {
+      "id": "posteriors_output",
+      "name": "Posteriors output",
+      "type": "String",
+      "optional": true,
+      "value-key": "[POSTERIORS_OUTPUT]",
+      "description": "Path to the posteriors output(s) or folder.",
+      "command-line-flag": "--post"
+    },
+    {
+      "id": "threads",
+      "name": "Number of threads",
+      "type": "Number",
+      "optional": true,
+      "value-key": "[THREADS]",
+      "description": "Number of cores to be used. Default is 1.",
+      "command-line-flag": "--threads"
+    },
+    {
+      "id": "force_cpu",
+      "name": "Force CPU",
+      "type": "Flag",
+      "value-key": "[FORCE_CPU]",
+      "description": "Enforce running with CPU rather than GPU.",
+      "command-line-flag": "--cpu"
+    },
+    {
+      "id": "model",
+      "name": "Model file",
+      "type": "File",
+      "optional": true,
+      "value-key": "[MODEL]",
+      "description": "Path to an alternative model file.",
+      "command-line-flag": "--model"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "segmentation_output",
+      "name": "Segmentation Output",
+      "path-template": "[OUTPUT]",
+      "description": "Path to the segmentation output."
+    },
+    {
+      "id": "volume_csv",
+      "name": "Volume CSV Output",
+      "path-template": "[VOLUME_OUTPUT]",
+      "description": "CSV file with volumes for all structures."
+    },
+    {
+      "id": "posteriors",
+      "name": "Posteriors Output",
+      "path-template": "[POSTERIORS_OUTPUT]",
+      "description": "Path to the posteriors output."
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

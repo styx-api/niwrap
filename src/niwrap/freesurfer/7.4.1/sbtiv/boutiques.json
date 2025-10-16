@@ -1,0 +1,44 @@
+{
+  "name": "sbtiv",
+  "description": "Tool to calculate the total intracranial volume of a subject by summing individual volumes computed by samseg.",
+  "command-line": "sbtiv [INPUT_FILE] [OUTPUT_FILE] [LABELS_FILE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Volume stats input file.",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input File"
+    },
+    {
+      "command-line-flag": "-o",
+      "description": "Intracranial stats output file.",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "output_file",
+      "name": "Output File"
+    },
+    {
+      "command-line-flag": "-l",
+      "description": "File containing a list of intracranial structure labelnames to include in the calculation",
+      "value-key": "[LABELS_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "labels_file",
+      "name": "Labels File"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILE]",
+      "description": "Intracranial stats output file.",
+      "id": "out_file",
+      "name": "Output File"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

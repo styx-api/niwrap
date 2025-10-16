@@ -1,0 +1,284 @@
+{
+  "name": "tkregisterfv",
+  "description": "A script that runs freeview with arguments like tkregister, focusing on LTA files.",
+  "command-line": "tkregisterfv [MOV] [TARG] [REG] [SUBJECT] [FSTARG] [SD] [SEG] [ASEG_FLAG] [APARC_ASEG_FLAG] [OPACITY] [SURFS_FLAG] [PIAL_SURFS_FLAG] [ALL_SURFS_FLAG] [NO_SURFS_FLAG] [LH_ONLY_FLAG] [RH_ONLY_FLAG] [SURF] [AUX_S] [PLANE] [NO_CONFIG_FLAG] [MOV2] [REG2] [MOV3] [REG3] [HEAT_FLAG] [REGHEADER_FLAG] [PARAMS] [FLIP_X_FLAG] [FLIP_Y_FLAG] [FLIP_Z_FLAG] [FSTAL] [AUX]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "mov",
+      "name": "Moving Volume",
+      "type": "File",
+      "description": "Moving image volume",
+      "optional": true,
+      "command-line-flag": "--mov",
+      "value-key": "[MOV]"
+    },
+    {
+      "id": "targ",
+      "name": "Target Volume",
+      "type": "File",
+      "description": "Target image volume",
+      "optional": true,
+      "command-line-flag": "--targ",
+      "value-key": "[TARG]"
+    },
+    {
+      "id": "reg",
+      "name": "Registration File",
+      "type": "File",
+      "description": "LTA registration file",
+      "optional": false,
+      "command-line-flag": "--reg",
+      "value-key": "[REG]"
+    },
+    {
+      "id": "subject",
+      "name": "Subject Identifier",
+      "type": "String",
+      "description": "Subject identifier for FreeSurfer directories",
+      "optional": true,
+      "command-line-flag": "--s",
+      "value-key": "[SUBJECT]"
+    },
+    {
+      "id": "fstarg",
+      "name": "FSTarget Volume",
+      "type": "File",
+      "description": "Freesurfer target volume instead of orig.mgz",
+      "optional": true,
+      "command-line-flag": "--fstarg",
+      "value-key": "[FSTARG]"
+    },
+    {
+      "id": "sd",
+      "name": "Subjects Directory",
+      "type": "String",
+      "description": "FreeSurfer SUBJECTS_DIR environment variable",
+      "optional": true,
+      "command-line-flag": "--sd",
+      "value-key": "[SD]"
+    },
+    {
+      "id": "seg",
+      "name": "Segmentation Volume",
+      "type": "File",
+      "description": "Segmentation volume to load",
+      "optional": true,
+      "command-line-flag": "--seg",
+      "value-key": "[SEG]"
+    },
+    {
+      "id": "aseg_flag",
+      "name": "Load Aseg",
+      "type": "Flag",
+      "description": "Load aseg.mgz as segmentation volume",
+      "command-line-flag": "--aseg",
+      "value-key": "[ASEG_FLAG]"
+    },
+    {
+      "id": "aparc_aseg_flag",
+      "name": "Load Aparc+Aseg",
+      "type": "Flag",
+      "description": "Load aparc+aseg.mgz as segmentation volume",
+      "command-line-flag": "--aparc+aseg",
+      "value-key": "[APARC_ASEG_FLAG]"
+    },
+    {
+      "id": "opacity",
+      "name": "Segmentation Opacity",
+      "type": "Number",
+      "description": "Set segmentation volume opacity",
+      "optional": true,
+      "command-line-flag": "--opacity",
+      "value-key": "[OPACITY]"
+    },
+    {
+      "id": "surfs_flag",
+      "name": "Load WM Surfaces",
+      "type": "Flag",
+      "description": "Load left and right hemisphere white matter surfaces",
+      "command-line-flag": "--surfs",
+      "value-key": "[SURFS_FLAG]"
+    },
+    {
+      "id": "pial_surfs_flag",
+      "name": "Load Pial Surfaces",
+      "type": "Flag",
+      "description": "Load pial surfaces instead of white matter surfaces",
+      "command-line-flag": "--pial-surfs",
+      "value-key": "[PIAL_SURFS_FLAG]"
+    },
+    {
+      "id": "all_surfs_flag",
+      "name": "Load All Surfaces",
+      "type": "Flag",
+      "description": "Load both pial and white matter surfaces",
+      "command-line-flag": "--all-surfs",
+      "value-key": "[ALL_SURFS_FLAG]"
+    },
+    {
+      "id": "no_surfs_flag",
+      "name": "No Surfaces",
+      "type": "Flag",
+      "description": "Do not load any surfaces",
+      "command-line-flag": "--no-surfs",
+      "value-key": "[NO_SURFS_FLAG]"
+    },
+    {
+      "id": "lh_only_flag",
+      "name": "Left Hemisphere Only",
+      "type": "Flag",
+      "description": "Load only left hemisphere surface",
+      "command-line-flag": "--lh-only",
+      "value-key": "[LH_ONLY_FLAG]"
+    },
+    {
+      "id": "rh_only_flag",
+      "name": "Right Hemisphere Only",
+      "type": "Flag",
+      "description": "Load only right hemisphere surface",
+      "command-line-flag": "--rh-only",
+      "value-key": "[RH_ONLY_FLAG]"
+    },
+    {
+      "id": "surf",
+      "name": "Load Explicit Surface",
+      "type": "File",
+      "description": "Explicit path to surface to load",
+      "optional": true,
+      "command-line-flag": "--surf",
+      "value-key": "[SURF]"
+    },
+    {
+      "id": "aux_s",
+      "name": "Auxiliary Surface",
+      "type": "File",
+      "description": "Explicit path to auxiliary surface to load",
+      "optional": true,
+      "command-line-flag": "--aux-surf",
+      "value-key": "[AUX_S]"
+    },
+    {
+      "id": "plane",
+      "name": "Plane",
+      "type": "String",
+      "description": "Plane view: cor, sag, ax",
+      "optional": true,
+      "command-line-flag": "--plane",
+      "value-key": "[PLANE]"
+    },
+    {
+      "id": "no_config_flag",
+      "name": "No Configuration Window",
+      "type": "Flag",
+      "description": "Do not automatically raise transform config window",
+      "command-line-flag": "--no-config",
+      "value-key": "[NO_CONFIG_FLAG]"
+    },
+    {
+      "id": "mov2",
+      "name": "Second Moving Volume",
+      "type": "File",
+      "description": "Provide a second moving image volume",
+      "optional": true,
+      "command-line-flag": "--mov2",
+      "value-key": "[MOV2]"
+    },
+    {
+      "id": "reg2",
+      "name": "Second Registration File",
+      "type": "File",
+      "description": "Provide a second registration file",
+      "optional": true,
+      "command-line-flag": "--reg2",
+      "value-key": "[REG2]"
+    },
+    {
+      "id": "mov3",
+      "name": "Third Moving Volume",
+      "type": "File",
+      "description": "Provide a third moving image volume",
+      "optional": true,
+      "command-line-flag": "--mov3",
+      "value-key": "[MOV3]"
+    },
+    {
+      "id": "reg3",
+      "name": "Third Registration File",
+      "type": "File",
+      "description": "Provide a third registration file",
+      "optional": true,
+      "command-line-flag": "--reg3",
+      "value-key": "[REG3]"
+    },
+    {
+      "id": "heat_flag",
+      "name": "Use Heat Map",
+      "type": "Flag",
+      "description": "Use heat map color tables for all volumes",
+      "command-line-flag": "--heat",
+      "value-key": "[HEAT_FLAG]"
+    },
+    {
+      "id": "regheader_flag",
+      "name": "Regheader",
+      "type": "Flag",
+      "description": "Create registration file assuming the two volumes share a RAS",
+      "command-line-flag": "--regheader",
+      "value-key": "[REGHEADER_FLAG]"
+    },
+    {
+      "id": "params",
+      "name": "Affine Matrix Parameters",
+      "type": "Number",
+      "list": true,
+      "description": "Affine matrix parameters: translations in mm, rotations in degrees",
+      "optional": true,
+      "command-line-flag": "--params",
+      "value-key": "[PARAMS]"
+    },
+    {
+      "id": "flip_x_flag",
+      "name": "Flip X-Axis",
+      "type": "Flag",
+      "description": "Regheader with rx=180",
+      "command-line-flag": "--flip-x",
+      "value-key": "[FLIP_X_FLAG]"
+    },
+    {
+      "id": "flip_y_flag",
+      "name": "Flip Y-Axis",
+      "type": "Flag",
+      "description": "Regheader with ry=180",
+      "command-line-flag": "--flip-y",
+      "value-key": "[FLIP_Y_FLAG]"
+    },
+    {
+      "id": "flip_z_flag",
+      "name": "Flip Z-Axis",
+      "type": "Flag",
+      "description": "Regheader with rz=180",
+      "command-line-flag": "--flip-z",
+      "value-key": "[FLIP_Z_FLAG]"
+    },
+    {
+      "id": "fstal",
+      "name": "FSTalairach",
+      "type": "Flag",
+      "description": "Modify the talairach.xfm with subject",
+      "command-line-flag": "--fstal",
+      "value-key": "[FSTAL]"
+    },
+    {
+      "id": "aux",
+      "name": "Auxiliary Volume",
+      "type": "File",
+      "description": "Load auxiliary volumes with registration",
+      "optional": true,
+      "command-line-flag": "--aux",
+      "value-key": "[AUX]"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

@@ -1,0 +1,103 @@
+{
+  "name": "slow_surf_clustsim.py",
+  "author": "AFNI Developers",
+  "description": "Generate a tcsh script to run clustsim on surface",
+  "command-line": "slow_surf_clustsim.py [ON_SURFACE] [SAVE_SCRIPT] [PRINT_SCRIPT] [UVAR] [VERBOSITY] [HELP] [HIST] [SHOW_DEFAULT_CVARS] [SHOW_DEFAULT_UVARS] [SHOW_VALID_OPTS] [VERSION]",
+  "inputs": [
+    {
+      "command-line-flag": "-on_surface",
+      "description": "Start from noise on the surface (so no volume data is involved)",
+      "value-key": "[ON_SURFACE]",
+      "type": "String",
+      "optional": true,
+      "id": "on_surface",
+      "name": "On Surface"
+    },
+    {
+      "command-line-flag": "-save_script",
+      "description": "Save script to given file",
+      "value-key": "[SAVE_SCRIPT]",
+      "type": "String",
+      "optional": true,
+      "id": "save_script",
+      "name": "Save Script"
+    },
+    {
+      "command-line-flag": "-print_script",
+      "description": "Print script to terminal",
+      "value-key": "[PRINT_SCRIPT]",
+      "type": "Flag",
+      "id": "print_script",
+      "name": "Print Script"
+    },
+    {
+      "command-line-flag": "-uvar",
+      "description": "Set the user variable (use -show_default_uvars to see user vars). Example usage: -uvar spec_file sb23_lh_141_std.spec -uvar surf_vol sb23_SurfVol_aligned+orig",
+      "value-key": "[UVAR]",
+      "type": "String",
+      "optional": true,
+      "id": "uvar",
+      "name": "User Variable",
+      "list": true
+    },
+    {
+      "command-line-flag": "-verb",
+      "description": "Set the verbosity level",
+      "value-key": "[VERBOSITY]",
+      "type": "Number",
+      "optional": true,
+      "id": "verbosity",
+      "name": "Verbosity Level"
+    },
+    {
+      "command-line-flag": "-help",
+      "description": "Show this help",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help Flag"
+    },
+    {
+      "command-line-flag": "-hist",
+      "description": "Show module history",
+      "value-key": "[HIST]",
+      "type": "Flag",
+      "id": "hist",
+      "name": "History Flag"
+    },
+    {
+      "command-line-flag": "-show_default_cvars",
+      "description": "List default control variables",
+      "value-key": "[SHOW_DEFAULT_CVARS]",
+      "type": "Flag",
+      "id": "show_default_cvars",
+      "name": "Show Default Control Variables Flag"
+    },
+    {
+      "command-line-flag": "-show_default_uvars",
+      "description": "List default user variables",
+      "value-key": "[SHOW_DEFAULT_UVARS]",
+      "type": "Flag",
+      "id": "show_default_uvars",
+      "name": "Show Default User Variables Flag"
+    },
+    {
+      "command-line-flag": "-show_valid_opts",
+      "description": "List valid options",
+      "value-key": "[SHOW_VALID_OPTS]",
+      "type": "Flag",
+      "id": "show_valid_opts",
+      "name": "Show Valid Options Flag"
+    },
+    {
+      "command-line-flag": "-ver",
+      "description": "Show current version",
+      "value-key": "[VERSION]",
+      "type": "Flag",
+      "id": "version",
+      "name": "Version Flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

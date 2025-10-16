@@ -1,0 +1,42 @@
+{
+  "name": "mri_dct_align_binary",
+  "author": "FreeSurfer Developers",
+  "description": "A binary tool for aligning MRI images using DCT.",
+  "command-line": "mri_dct_align_binary [SOURCE_IMAGE] [DESTINATION_IMAGE] [OUTPUT_TRANSFORMATION]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Source image for alignment",
+      "value-key": "[SOURCE_IMAGE]",
+      "type": "File",
+      "optional": false,
+      "id": "source_image",
+      "name": "Source Image"
+    },
+    {
+      "description": "Destination image for alignment",
+      "value-key": "[DESTINATION_IMAGE]",
+      "type": "File",
+      "optional": false,
+      "id": "destination_image",
+      "name": "Destination Image"
+    },
+    {
+      "description": "Output transformation file",
+      "value-key": "[OUTPUT_TRANSFORMATION]",
+      "type": "String",
+      "optional": false,
+      "id": "output_transformation",
+      "name": "Output Transformation"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_TRANSFORMATION]",
+      "description": "The resulting transformation from the alignment",
+      "id": "output_transformation_file",
+      "name": "Output Transformation File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

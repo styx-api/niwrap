@@ -1,0 +1,35 @@
+{
+  "name": "surface-create-sphere",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -surface-create-sphere [NUM_VERTICES] [SPHERE_OUT]",
+  "description": "Generate a sphere with consistent vertex areas.\n\nGenerates a sphere by regularly dividing the triangles of an icosahedron, to come as close to the desired number of vertices as possible, and modifying it to have very similar vertex areas for all vertices.  To generate a pair of vertex-matched left and right spheres, use this command, then -surface-flip-lr to generate the other sphere, then -set-structure on each.  For example:\n\n$ wb_command -surface-create-sphere 6000 Sphere.6k.R.surf.gii\n$ wb_command -surface-flip-lr Sphere.6k.R.surf.gii Sphere.6k.L.surf.gii\n$ wb_command -set-structure Sphere.6k.R.surf.gii CORTEX_RIGHT\n$ wb_command -set-structure Sphere.6k.L.surf.gii CORTEX_LEFT",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "num_vertices",
+      "name": "num_vertices",
+      "description": "desired number of vertices",
+      "optional": false,
+      "value-key": "[NUM_VERTICES]",
+      "type": "Number",
+      "integer": true
+    },
+    {
+      "id": "sphere_out",
+      "name": "sphere_out",
+      "type": "String",
+      "description": "the output sphere",
+      "optional": false,
+      "value-key": "[SPHERE_OUT]"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "sphere_out",
+      "name": "sphere_out",
+      "path-template": "[SPHERE_OUT]",
+      "description": "the output sphere"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

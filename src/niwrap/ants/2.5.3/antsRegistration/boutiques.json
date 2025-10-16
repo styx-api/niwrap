@@ -1,0 +1,1608 @@
+{
+  "name": "antsRegistration",
+  "command-line": "antsRegistration [DIMENSIONALITY] [OUTPUT] [SAVE_STATE] [RESTORE_STATE] [WRITE_COMPOSITE_TRANSFORM] [PRINT_SIMILARITY_MEASURE_INTERVAL] [WRITE_INTERVAL_VOLUMES] [COLLAPSE_OUTPUT_TRANSFORMS] [INITIALIZE_TRANSFORMS_PER_STAGE] [INTERPOLATION] [RESTRICT_DEFORMATION] [INITIAL_FIXED_TRANSFORM] [INITIAL_MOVING_TRANSFORM] [STAGES] [WINSORIZE_IMAGE_INTENSITIES] [MASKS] [MINC] [RANDOM_SEED] [VERBOSE] [FLOAT]",
+  "author": "ANTs Developers",
+  "description": "This program is a user-level registration application meant to utilize classes in ITK v4.0 and later. The user can specify any number of \"stages\" where a stage consists of a transform; an image metric; and iterations, shrink factors, and smoothing sigmas for each level. Note that explicitly setting the dimensionality, metric, transform, output, convergence, shrink-factors, and smoothing-sigmas parameters is mandatory.",
+  "url": "https://github.com/ANTsX/ANTs",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "dimensionality",
+      "name": "Dimensionality",
+      "value-key": "[DIMENSIONALITY]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [
+        2,
+        3,
+        4
+      ],
+      "command-line-flag": "--dimensionality",
+      "description": "This option forces the image to be treated as a specified-dimensional image. If not specified, we try to infer the dimensionality from the input image."
+    },
+    {
+      "id": "output",
+      "name": "Output transform prefix",
+      "value-key": "[OUTPUT]",
+      "command-line-flag": "-o",
+      "type": "String",
+      "optional": true,
+      "description": "Specify the output transform prefix (output format is .nii.gz ). Optionally, one can choose to warp the moving image to the fixed space and, if the inverse transform exists, one can also output the warped fixed image. Note that only the images specified in the first metric call are warped. Use antsApplyTransforms to warp other images using the resultant transform(s). When a composite transform is not specified, linear transforms are specified with a '.mat' suffix and displacement fields with a 'Warp.nii.gz' suffix (and 'InverseWarp.nii.gz', when applicable. In addition, for velocity-based transforms, the full velocity field is written to file ('VelocityField.nii.gz') as long as the collapse transforms flag is turned off ('-z 0')."
+    },
+    {
+      "id": "save_state",
+      "name": "Save state",
+      "value-key": "[SAVE_STATE]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "-j",
+      "description": " Specify the output file for the current state of the registration. The state file is written to an hdf5 composite file. It is specially usefull if we want to save the current state of a SyN registration to the disk, so we can load and restore that later to continue the next registration process directly started from the last saved state. The output file of this flag is the same as the write-composite-transform, unless the last transform is a SyN transform. In that case, the inverse displacement field of the SyN transform is also added to the output composite transform. Again notice that this file cannot be treated as a transform, and restore-state option must be used to load the written file by this flag."
+    },
+    {
+      "id": "restore_state",
+      "name": "Restore state",
+      "value-key": "[RESTORE_STATE]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "-k",
+      "description": "Specify the initial state of the registration which get immediately used to directly initialize the registration process. The flag is mutually exclusive with other intialization flags.If this flag is used, none of the initial-moving-transform and initial-fixed-transform cannot be used."
+    },
+    {
+      "id": "write_composite_transform",
+      "name": "Write composite transform",
+      "value-key": "[WRITE_COMPOSITE_TRANSFORM]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "command-line-flag": "-a",
+      "description": "Boolean specifying whether or not the composite transform (and its inverse, if it exists) should be written to an hdf5 composite file. This is false by default so that only the transform for each stage is written to file."
+    },
+    {
+      "id": "print_similarity_measure_interval",
+      "name": "Print similarity measure interval",
+      "value-key": "[PRINT_SIMILARITY_MEASURE_INTERVAL]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "command-line-flag": "-p",
+      "description": "Prints out the CC similarity metric measure between the full-size input fixed and the transformed moving images at each iteration a value of 0 (the default) indicates that the full scale computation should not take placeany value greater than 0 represents the interval of full scale metric computation."
+    },
+    {
+      "id": "write_interval_volumes",
+      "name": "Write interval volumes",
+      "value-key": "[WRITE_INTERVAL_VOLUMES]",
+      "type": "Number",
+      "integer": true,
+      "minimum": 0,
+      "optional": true,
+      "command-line-flag": "--write-interval-volumes",
+      "description": "Writes out the output volume at each iteration. It helps to present the registration process as a short movie a value of 0 (the default) indicates that this option should not take placeany value greater than 0 represents the interval between the iterations which outputs are written to the disk."
+    },
+    {
+      "id": "collapse_output_transforms",
+      "name": "Collapse output transforms",
+      "value-key": "[COLLAPSE_OUTPUT_TRANSFORMS]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [
+        1,
+        0
+      ],
+      "command-line-flag": "--collapse-output-transforms",
+      "description": "Collapse output transforms. Specifically, enabling this option combines all adjacent transforms where possible. All adjacent linear transforms are written to disk in the form of an itk affine transform (called xxxGenericAffine.mat).\nSimilarly, all adjacent displacement field transforms are combined when written to disk (e.g. xxxWarp.nii.gz and xxxInverseWarp.nii.gz (if available)). Also, an output composite transform including the collapsed transforms is written to the disk (called outputCollapsed(Inverse)Composite)."
+    },
+    {
+      "id": "initialize_transforms_per_stage",
+      "name": "Initialize transforms per stage",
+      "value-key": "[INITIALIZE_TRANSFORMS_PER_STAGE]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [
+        1,
+        0
+      ],
+      "command-line-flag": "-i",
+      "description": "Initialize linear transforms from the previous stage. By enabling this option, the current linear stage transform is directly intialized from the previous stage's linear transform; this allows multiple linear stages to be run where each stage directly updates the estimated linear transform from the previous stage. (e.g. Translation -> Rigid -> Affine)."
+    },
+    {
+      "id": "interpolation",
+      "name": "Interpolation",
+      "value-key": "[INTERPOLATION]",
+      "type": "String",
+      "optional": true,
+      "value-choices": [
+        "Linear",
+        "NearestNeighbor",
+        "MultiLabel",
+        "Gaussian",
+        "BSpline",
+        "CosineWindowedSinc",
+        "WelchWindowedSinc",
+        "HammingWindowedSinc",
+        "LanczosWindowedSinc",
+        "GenericLabel"
+      ],
+      "command-line-flag": "--interpolation",
+      "description": "Several interpolation options are available in ITK. These have all been made available. Currently the interpolator choice is only used to warp (and possibly inverse warp) the final output image(s)."
+    },
+    {
+      "id": "restrict_deformation",
+      "name": "Restrict deformation",
+      "value-key": "[RESTRICT_DEFORMATION]",
+      "type": "Number",
+      "integer": true,
+      "list": true,
+      "list-separator": "x",
+      "min-list-entries": 3,
+      "max-list-entries": 6,
+      "value-choices": [
+        0,
+        1
+      ],
+      "optional": true,
+      "command-line-flag": "-g",
+      "description": "This option allows the user to restrict the optimization of the displacement field, translation, rigid or affine transform on a per-component basis. For example, if one wants to limit the deformation or rotation of 3-D volume to the first two dimensions, this is possible by specifying a weight vector of '1x1x0' for a deformation field or '1x1x0x1x1x0' for a rigid transformation. Low-dimensional restriction only works if there are no preceding transformations.All stages up to and including the desired stage must have this option specified,even if they should not be restricted (in which case specify 1x1x1...)"
+    },
+    {
+      "id": "initial_fixed_transform",
+      "name": "Initial fixed transform",
+      "value-key": "[INITIAL_FIXED_TRANSFORM]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "-q",
+      "description": "Specify the initial fixed transform(s) which get immediately incorporated into the composite transform. The order of the transforms is stack-esque in that the last transform specified on the command line is the first to be applied. In addition to initialization with ITK transforms, the user can perform an initial translation alignment by specifying the fixed and moving images and selecting an initialization feature. These features include using the geometric center of the images (=0), the image intensities (=1), or the origin of the images (=2)."
+    },
+    {
+      "id": "initial_moving_transform",
+      "name": "Initial moving transform",
+      "value-key": "[INITIAL_MOVING_TRANSFORM]",
+      "type": [
+        {
+          "id": "initial_moving_transform",
+          "name": "Initial moving transform",
+          "command-line": "[INITIAL_MOVING_TRANSFORM]",
+          "inputs": [
+            {
+              "id": "initial_moving_transform",
+              "name": "Initial moving transform",
+              "type": "File",
+              "optional": false,
+              "value-key": "[INITIAL_MOVING_TRANSFORM]"
+            }
+          ]
+        },
+        {
+          "id": "initial_moving_transform_use_inverse",
+          "name": "Initial moving transform",
+          "command-line": "[[INITIAL_MOVING_TRANSFORM][USE_INVERSE]]",
+          "inputs": [
+            {
+              "id": "initial_moving_transform",
+              "name": "Initial moving transform",
+              "type": "File",
+              "optional": false,
+              "value-key": "[INITIAL_MOVING_TRANSFORM]"
+            },
+            {
+              "id": "use_inverse",
+              "name": "Use inverse",
+              "value-key": "[USE_INVERSE]",
+              "type": "Number",
+              "integer": true,
+              "optional": true,
+              "value-choices": [
+                0,
+                1
+              ],
+              "command-line-flag": ",",
+              "command-line-flag-separator": "",
+              "description": "Use the inverse of the initial moving transform."
+            }
+          ]
+        },
+        {
+          "id": "initial_moving_transform_initialization_feature",
+          "name": "Initial moving transform",
+          "command-line": "[[FIXED_IMAGE],[MOVING_IMAGE],[INITIALIZATION_FEATURE]]",
+          "inputs": [
+            {
+              "id": "fixed_image",
+              "name": "Fixed image",
+              "value-key": "[FIXED_IMAGE]",
+              "type": "File",
+              "optional": false
+            },
+            {
+              "id": "moving_image",
+              "name": "Moving image",
+              "value-key": "[MOVING_IMAGE]",
+              "type": "File",
+              "optional": false
+            },
+            {
+              "id": "initialization_feature",
+              "name": "Initialization feature",
+              "value-key": "[INITIALIZATION_FEATURE]",
+              "type": "Number",
+              "integer": true,
+              "optional": false,
+              "description": "Initialization feature. 0: Geometric center of images, 1: Image intensities, 2: Origin of images",
+              "value-choices": [
+                0,
+                1,
+                2
+              ]
+            }
+          ]
+        }
+      ],
+      "optional": true,
+      "command-line-flag": "--initial-moving-transform",
+      "description": "Specify the initial moving transform(s) which get immediately incorporated into the composite transform. The order of the transforms is stack-esque in that the last transform specified on the command line is the first to be applied. In addition to initialization with ITK transforms, the user can perform an initial translation alignment by specifying the fixed and moving images and selecting an initialization feature. These features include using the geometric center of the images (=0), the image intensities (=1), or the origin of the images (=2)."
+    },
+    {
+      "id": "stages",
+      "name": "Stages",
+      "value-key": "[STAGES]",
+      "description": "Stages of the registration process.",
+      "optional": false,
+      "list": true,
+      "type": {
+        "id": "stage",
+        "description": "Stage of the registration process.",
+        "command-line": "[TRANSFORM] [METRIC] [CONVERGENCE] [SMOOTHING_SIGMAS] [SHRINK_FACTORS] [USE_HISTOGRAM_MATCHING]",
+        "inputs": [
+          {
+            "id": "transform",
+            "name": "Transform",
+            "value-key": "[TRANSFORM]",
+            "command-line-flag": "--transform",
+            "description": "Several transform options are available. The gradientStep or learningRate characterizes the gradient descent optimization and is scaled appropriately for each transform using the shift scales estimator. Subsequent parameters are transform-specific and can be determined from the usage. For the B-spline transforms one can also specify the smoothing in terms of spline distance (i.e. knot spacing).",
+            "type": [
+              {
+                "id": "transform_rigid",
+                "name": "Rigid",
+                "command-line": "Rigid[[GRADIENT_STEP]]",
+                "inputs": [
+                  {
+                    "id": "gradient_step",
+                    "name": "Gradient step",
+                    "value-key": "[GRADIENT_STEP]",
+                    "type": "Number",
+                    "optional": false
+                  }
+                ]
+              },
+              {
+                "id": "transform_affine",
+                "name": "Affine",
+                "command-line": "Affine[[GRADIENT_STEP]]",
+                "inputs": [
+                  {
+                    "id": "gradient_step",
+                    "name": "Gradient step",
+                    "value-key": "[GRADIENT_STEP]",
+                    "type": "Number",
+                    "optional": false
+                  }
+                ]
+              },
+              {
+                "id": "transform_composite_affine",
+                "name": "Composite affine",
+                "command-line": "CompositeAffine[[GRADIENT_STEP]]",
+                "inputs": [
+                  {
+                    "id": "gradient_step",
+                    "name": "Gradient step",
+                    "value-key": "[GRADIENT_STEP]",
+                    "type": "Number",
+                    "optional": false
+                  }
+                ]
+              },
+              {
+                "id": "transform_similarity",
+                "name": "Similarity",
+                "command-line": "Similarity[[GRADIENT_STEP]]",
+                "inputs": [
+                  {
+                    "id": "gradient_step",
+                    "name": "Gradient step",
+                    "value-key": "[GRADIENT_STEP]",
+                    "type": "Number",
+                    "optional": false
+                  }
+                ]
+              },
+              {
+                "id": "transform_translation",
+                "name": "Translation",
+                "command-line": "Translation[[GRADIENT_STEP]]",
+                "inputs": [
+                  {
+                    "id": "gradient_step",
+                    "name": "Gradient step",
+                    "value-key": "[GRADIENT_STEP]",
+                    "type": "Number",
+                    "optional": false
+                  }
+                ]
+              },
+              {
+                "id": "transform_bspline",
+                "name": "BSpline",
+                "command-line": "BSpline[[GRADIENT_STEP],[MESH_SIZE_AT_BASE_LEVEL]]",
+                "inputs": [
+                  {
+                    "id": "gradient_step",
+                    "name": "Gradient step",
+                    "value-key": "[GRADIENT_STEP]",
+                    "type": "Number",
+                    "optional": false
+                  },
+                  {
+                    "id": "mesh_size_at_base_level",
+                    "name": "Mesh size at base level",
+                    "value-key": "[MESH_SIZE_AT_BASE_LEVEL]",
+                    "type": "Number",
+                    "optional": false
+                  }
+                ]
+              },
+              {
+                "id": "transform_gaussian_displacement_field",
+                "name": "Gaussian displacement field",
+                "command-line": "GaussianDisplacementField[[GRADIENT_STEP],[UPDATE_FIELD_VARIANCE_IN_VOXEL_SPACE],[TOTAL_FIELD_VARIANCE_IN_VOXEL_SPACE]]",
+                "inputs": [
+                  {
+                    "id": "gradient_step",
+                    "name": "Gradient step",
+                    "value-key": "[GRADIENT_STEP]",
+                    "type": "Number",
+                    "optional": false
+                  },
+                  {
+                    "id": "update_field_variance_in_voxel_space",
+                    "name": "Update field variance in voxel space",
+                    "value-key": "[UPDATE_FIELD_VARIANCE_IN_VOXEL_SPACE]",
+                    "type": "Number",
+                    "optional": false
+                  },
+                  {
+                    "id": "total_field_variance_in_voxel_space",
+                    "name": "Total field variance in voxel space",
+                    "value-key": "[TOTAL_FIELD_VARIANCE_IN_VOXEL_SPACE]",
+                    "type": "Number",
+                    "optional": false
+                  }
+                ]
+              },
+              {
+                "id": "transform_bspline_displacement_field",
+                "name": "BSpline displacement field",
+                "command-line": "BSplineDisplacementField[[GRADIENT_STEP],[UPDATE_FIELD_MESH_SIZE_AT_BASE_LEVEL][TOTAL_FIELD_MESH_SIZE_AT_BASE_LEVEL][SPLINE_ORDER]]",
+                "inputs": [
+                  {
+                    "id": "gradient_step",
+                    "name": "Gradient step",
+                    "value-key": "[GRADIENT_STEP]",
+                    "type": "Number",
+                    "optional": false
+                  },
+                  {
+                    "id": "update_field_mesh_size_at_base_level",
+                    "name": "Update field mesh size at base level",
+                    "value-key": "[UPDATE_FIELD_MESH_SIZE_AT_BASE_LEVEL]",
+                    "type": "Number",
+                    "optional": false
+                  },
+                  {
+                    "id": "total_field_mesh_size_at_base_level",
+                    "name": "Total field mesh size at base level",
+                    "value-key": "[TOTAL_FIELD_MESH_SIZE_AT_BASE_LEVEL]",
+                    "type": "Number",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "optional": true
+                  },
+                  {
+                    "id": "spline_order",
+                    "name": "Spline order",
+                    "value-key": "[SPLINE_ORDER]",
+                    "type": "Number",
+                    "optional": true
+                  }
+                ]
+              },
+              {
+                "id": "transform_time_varying_velocity_field",
+                "name": "Time varying velocity field",
+                "command-line": "TimeVaryingVelocityField[[GRADIENT_STEP],[NUMBER_OF_TIME_INDICES],[UPDATE_FIELD_VARIANCE_IN_VOXEL_SPACE],[UPDATE_FIELD_TIME_VARIANCE],[TOTAL_FIELD_VARIANCE_IN_VOXEL_SPACE],[TOTAL_FIELD_TIME_VARIANCE]]",
+                "inputs": [
+                  {
+                    "id": "gradient_step",
+                    "name": "Gradient step",
+                    "value-key": "[GRADIENT_STEP]",
+                    "type": "Number",
+                    "optional": false
+                  },
+                  {
+                    "id": "number_of_time_indices",
+                    "name": "Number of time indices",
+                    "value-key": "[NUMBER_OF_TIME_INDICES]",
+                    "type": "Number",
+                    "optional": false
+                  },
+                  {
+                    "id": "update_field_variance_in_voxel_space",
+                    "name": "Update field variance in voxel space",
+                    "value-key": "[UPDATE_FIELD_VARIANCE_IN_VOXEL_SPACE]",
+                    "type": "Number",
+                    "optional": false
+                  },
+                  {
+                    "id": "update_field_time_variance",
+                    "name": "Update field time variance",
+                    "value-key": "[UPDATE_FIELD_TIME_VARIANCE]",
+                    "type": "Number",
+                    "optional": false
+                  },
+                  {
+                    "id": "total_field_variance_in_voxel_space",
+                    "name": "Total field variance in voxel space",
+                    "value-key": "[TOTAL_FIELD_VARIANCE_IN_VOXEL_SPACE]",
+                    "type": "Number",
+                    "optional": false
+                  },
+                  {
+                    "id": "total_field_time_variance",
+                    "name": "Total field time variance",
+                    "value-key": "[TOTAL_FIELD_TIME_VARIANCE]",
+                    "type": "Number",
+                    "optional": false
+                  }
+                ]
+              },
+              {
+                "id": "transform_time_varying_bspline_velocity_field",
+                "name": "Time varying B-spline velocity field",
+                "command-line": "TimeVaryingBSplineVelocityField[[GRADIENT_STEP],[VELOCITY_FIELD_MESH_SIZE][NUMBER_OF_TIME_POINT_SAMPLES][SPLINE_ORDER]]",
+                "inputs": [
+                  {
+                    "id": "gradient_step",
+                    "name": "Gradient step",
+                    "value-key": "[GRADIENT_STEP]",
+                    "type": "Number",
+                    "optional": false
+                  },
+                  {
+                    "id": "velocity_field_mesh_size",
+                    "name": "Velocity field mesh size",
+                    "value-key": "[VELOCITY_FIELD_MESH_SIZE]",
+                    "type": "Number",
+                    "optional": false
+                  },
+                  {
+                    "id": "number_of_time_point_samples",
+                    "name": "Number of time point samples",
+                    "value-key": "[NUMBER_OF_TIME_POINT_SAMPLES]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "Number",
+                    "optional": true
+                  },
+                  {
+                    "id": "spline_order",
+                    "name": "Spline order",
+                    "value-key": "[SPLINE_ORDER]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "Number",
+                    "optional": true
+                  }
+                ]
+              },
+              {
+                "id": "transform_syn",
+                "name": "SyN",
+                "command-line": "SyN[[GRADIENT_STEP][UPDATE_FIELD_VARIANCE_IN_VOXEL_SPACE][TOTAL_FIELD_VARIANCE_IN_VOXEL_SPACE]]",
+                "inputs": [
+                  {
+                    "id": "gradient_step",
+                    "name": "Gradient step",
+                    "value-key": "[GRADIENT_STEP]",
+                    "type": "Number",
+                    "optional": false
+                  },
+                  {
+                    "id": "update_field_variance_in_voxel_space",
+                    "name": "Update field variance in voxel space",
+                    "value-key": "[UPDATE_FIELD_VARIANCE_IN_VOXEL_SPACE]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "Number",
+                    "optional": false
+                  },
+                  {
+                    "id": "total_field_variance_in_voxel_space",
+                    "name": "Total field variance in voxel space",
+                    "value-key": "[TOTAL_FIELD_VARIANCE_IN_VOXEL_SPACE]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "Number",
+                    "optional": false
+                  }
+                ]
+              },
+              {
+                "id": "transform_bspline_syn",
+                "name": "B-spline SyN",
+                "command-line": "BSplineSyN[[GRADIENT_STEP],[UPDATE_FIELD_MESH_SIZE_AT_BASE_LEVEL][TOTAL_FIELD_MESH_SIZE_AT_BASE_LEVEL][SPLINE_ORDER]]",
+                "inputs": [
+                  {
+                    "id": "gradient_step",
+                    "name": "Gradient step",
+                    "value-key": "[GRADIENT_STEP]",
+                    "type": "Number",
+                    "optional": false
+                  },
+                  {
+                    "id": "update_field_mesh_size_at_base_level",
+                    "name": "Update field mesh size at base level",
+                    "value-key": "[UPDATE_FIELD_MESH_SIZE_AT_BASE_LEVEL]",
+                    "type": "Number",
+                    "optional": false
+                  },
+                  {
+                    "id": "total_field_mesh_size_at_base_level",
+                    "name": "Total field mesh size at base level",
+                    "value-key": "[TOTAL_FIELD_MESH_SIZE_AT_BASE_LEVEL]",
+                    "type": "Number",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "optional": true
+                  },
+                  {
+                    "id": "spline_order",
+                    "name": "Spline order",
+                    "value-key": "[SPLINE_ORDER]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "Number",
+                    "optional": true
+                  }
+                ]
+              },
+              {
+                "id": "transform_exponential",
+                "name": "Exponential",
+                "command-line": "Exponential[[GRADIENT_STEP],[UPDATE_FIELD_VARIANCE_IN_VOXEL_SPACE],[VELOCITY_FIELD_VARIANCE_IN_VOXEL_SPACE][NUMBER_OF_INTEGRATION_STEPS]]",
+                "inputs": [
+                  {
+                    "id": "gradient_step",
+                    "name": "Gradient step",
+                    "value-key": "[GRADIENT_STEP]",
+                    "type": "Number",
+                    "optional": false
+                  },
+                  {
+                    "id": "update_field_variance_in_voxel_space",
+                    "name": "Update field variance in voxel space",
+                    "value-key": "[UPDATE_FIELD_VARIANCE_IN_VOXEL_SPACE]",
+                    "type": "Number",
+                    "optional": false
+                  },
+                  {
+                    "id": "velocity_field_variance_in_voxel_space",
+                    "name": "Velocity field variance in voxel space",
+                    "value-key": "[VELOCITY_FIELD_VARIANCE_IN_VOXEL_SPACE]",
+                    "type": "Number",
+                    "optional": false
+                  },
+                  {
+                    "id": "number_of_integration_steps",
+                    "name": "Number of integration steps",
+                    "value-key": "[NUMBER_OF_INTEGRATION_STEPS]",
+                    "type": "Number",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "optional": false
+                  }
+                ]
+              },
+              {
+                "id": "transform_bspline_exponential",
+                "name": "B-spline exponential",
+                "command-line": "BSplineExponential[[GRADIENT_STEP],[UPDATE_FIELD_MESH_SIZE_AT_BASE_LEVEL][VELOCITY_FIELD_MESH_SIZE_AT_BASE_LEVEL][NUMBER_OF_INTEGRATION_STEPS][SPLINE_ORDER]]",
+                "inputs": [
+                  {
+                    "id": "gradient_step",
+                    "name": "Gradient step",
+                    "value-key": "[GRADIENT_STEP]",
+                    "type": "Number",
+                    "optional": false
+                  },
+                  {
+                    "id": "update_field_mesh_size_at_base_level",
+                    "name": "Update field mesh size at base level",
+                    "value-key": "[UPDATE_FIELD_MESH_SIZE_AT_BASE_LEVEL]",
+                    "type": "Number",
+                    "optional": false
+                  },
+                  {
+                    "id": "velocity_field_mesh_size_at_base_level",
+                    "name": "Velocity field mesh size at base level",
+                    "value-key": "[VELOCITY_FIELD_MESH_SIZE_AT_BASE_LEVEL]",
+                    "type": "Number",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "optional": true
+                  },
+                  {
+                    "id": "number_of_integration_steps",
+                    "name": "Number of integration steps",
+                    "value-key": "[NUMBER_OF_INTEGRATION_STEPS]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "Number",
+                    "optional": true
+                  },
+                  {
+                    "id": "spline_order",
+                    "name": "Spline order",
+                    "value-key": "[SPLINE_ORDER]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "Number",
+                    "optional": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "metric",
+            "name": "Metric",
+            "description": "These image metrics are available--- CC: ANTS neighborhood cross correlation, MI: Mutual information, Demons: (Thirion), MeanSquares, and GC: Global Correlation. The \"metricWeight\" variable is used to modulate the per stage weighting of the metrics. The metrics can also employ a sampling strategy defined by a sampling percentage. The sampling strategy defaults to 'None' (aka a dense sampling of one sample per voxel), otherwise it defines a point set over which to optimize the metric. The point set can be on a regular lattice or a random lattice of points slightly perturbed to minimize aliasing artifacts. samplingPercentage defines the fraction of points to select from the domain. useGradientFilter specifies whether a smoothingfilter is applied when estimating the metric gradient.In addition, three point set metrics are available: Euclidean (ICP), Point-set expectation (PSE), and Jensen-Havrda-Charvet-Tsallis (JHCT).",
+            "value-key": "[METRIC]",
+            "command-line-flag": "--metric",
+            "type": [
+              {
+                "id": "metric_ants_neighbourhood_cross_correlation",
+                "name": "ANTS neighbourhood cross correlation",
+                "command-line": "CC[[FIXED_IMAGE],[MOVING_IMAGE],[METRIC_WEIGHT],[RADIUS][SAMPLING_STRATEGY][SAMPLING_PERCENTAGE][USE_GRADIENT_FILTER]]",
+                "inputs": [
+                  {
+                    "id": "fixed_image",
+                    "name": "Fixed image",
+                    "value-key": "[FIXED_IMAGE]",
+                    "type": "String",
+                    "optional": false
+                  },
+                  {
+                    "id": "moving_image",
+                    "name": "Moving image",
+                    "value-key": "[MOVING_IMAGE]",
+                    "type": "String",
+                    "optional": false
+                  },
+                  {
+                    "id": "metric_weight",
+                    "name": "Metric weight",
+                    "value-key": "[METRIC_WEIGHT]",
+                    "type": "Number",
+                    "optional": false
+                  },
+                  {
+                    "id": "radius",
+                    "name": "Radius",
+                    "value-key": "[RADIUS]",
+                    "type": "Number",
+                    "optional": true
+                  },
+                  {
+                    "id": "sampling_strategy",
+                    "name": "Sampling strategy",
+                    "value-key": "[SAMPLING_STRATEGY]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "String",
+                    "optional": true,
+                    "value-choices": [
+                      "None",
+                      "Regular",
+                      "Random"
+                    ]
+                  },
+                  {
+                    "id": "sampling_percentage",
+                    "name": "Sampling percentage",
+                    "value-key": "[SAMPLING_PERCENTAGE]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "Number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "optional": true
+                  },
+                  {
+                    "id": "use_gradient_filter",
+                    "name": "Use gradient filter",
+                    "value-key": "[USE_GRADIENT_FILTER]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "String",
+                    "optional": true,
+                    "value-choices": [
+                      "true",
+                      "false"
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "metric_mutual_information",
+                "name": "Mutual information",
+                "command-line": "MI[[FIXED_IMAGE],[MOVING_IMAGE],[METRIC_WEIGHT],[NUMBER_OF_BINS][SAMPLING_STRATEGY][SAMPLING_PERCENTAGE][USE_GRADIENT_FILTER]]",
+                "inputs": [
+                  {
+                    "id": "fixed_image",
+                    "name": "Fixed image",
+                    "value-key": "[FIXED_IMAGE]",
+                    "type": "String",
+                    "optional": false
+                  },
+                  {
+                    "id": "moving_image",
+                    "name": "Moving image",
+                    "value-key": "[MOVING_IMAGE]",
+                    "type": "String",
+                    "optional": false
+                  },
+                  {
+                    "id": "metric_weight",
+                    "name": "Metric weight",
+                    "value-key": "[METRIC_WEIGHT]",
+                    "type": "Number",
+                    "optional": false
+                  },
+                  {
+                    "id": "number_of_bins",
+                    "name": "Number of bins",
+                    "value-key": "[NUMBER_OF_BINS]",
+                    "type": "Number",
+                    "optional": true
+                  },
+                  {
+                    "id": "sampling_strategy",
+                    "name": "Sampling strategy",
+                    "value-key": "[SAMPLING_STRATEGY]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "String",
+                    "optional": true,
+                    "value-choices": [
+                      "None",
+                      "Regular",
+                      "Random"
+                    ]
+                  },
+                  {
+                    "id": "sampling_percentage",
+                    "name": "Sampling percentage",
+                    "value-key": "[SAMPLING_PERCENTAGE]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "Number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "optional": true
+                  },
+                  {
+                    "id": "use_gradient_filter",
+                    "name": "Use gradient filter",
+                    "value-key": "[USE_GRADIENT_FILTER]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "String",
+                    "optional": true,
+                    "value-choices": [
+                      "true",
+                      "false"
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "metric_mattes",
+                "name": "Mattes",
+                "command-line": "Mattes[[FIXED_IMAGE],[MOVING_IMAGE],[METRIC_WEIGHT],[NUMBER_OF_BINS][SAMPLING_STRATEGY][SAMPLING_PERCENTAGE][USE_GRADIENT_FILTER]]",
+                "inputs": [
+                  {
+                    "id": "fixed_image",
+                    "name": "Fixed image",
+                    "value-key": "[FIXED_IMAGE]",
+                    "type": "String",
+                    "optional": false
+                  },
+                  {
+                    "id": "moving_image",
+                    "name": "Moving image",
+                    "value-key": "[MOVING_IMAGE]",
+                    "type": "String",
+                    "optional": false
+                  },
+                  {
+                    "id": "metric_weight",
+                    "name": "Metric weight",
+                    "value-key": "[METRIC_WEIGHT]",
+                    "type": "Number",
+                    "optional": false
+                  },
+                  {
+                    "id": "number_of_bins",
+                    "name": "Number of bins",
+                    "value-key": "[NUMBER_OF_BINS]",
+                    "type": "Number",
+                    "optional": true
+                  },
+                  {
+                    "id": "sampling_strategy",
+                    "name": "Sampling strategy",
+                    "value-key": "[SAMPLING_STRATEGY]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "String",
+                    "optional": true,
+                    "value-choices": [
+                      "None",
+                      "Regular",
+                      "Random"
+                    ]
+                  },
+                  {
+                    "id": "sampling_percentage",
+                    "name": "Sampling percentage",
+                    "value-key": "[SAMPLING_PERCENTAGE]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "Number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "optional": true
+                  },
+                  {
+                    "id": "use_gradient_filter",
+                    "name": "Use gradient filter",
+                    "value-key": "[USE_GRADIENT_FILTER]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "String",
+                    "optional": true,
+                    "value-choices": [
+                      "true",
+                      "false"
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "metric_mean_squares",
+                "name": "Mean squares",
+                "command-line": "MeanSquares[[FIXED_IMAGE],[MOVING_IMAGE],[METRIC_WEIGHT],[RADIUS][SAMPLING_STRATEGY][SAMPLING_PERCENTAGE][USE_GRADIENT_FILTER]]",
+                "inputs": [
+                  {
+                    "id": "fixed_image",
+                    "name": "Fixed image",
+                    "value-key": "[FIXED_IMAGE]",
+                    "type": "String",
+                    "optional": false
+                  },
+                  {
+                    "id": "moving_image",
+                    "name": "Moving image",
+                    "value-key": "[MOVING_IMAGE]",
+                    "type": "String",
+                    "optional": false
+                  },
+                  {
+                    "id": "metric_weight",
+                    "name": "Metric weight",
+                    "value-key": "[METRIC_WEIGHT]",
+                    "type": "Number",
+                    "optional": false
+                  },
+                  {
+                    "id": "radius",
+                    "name": "Radius",
+                    "value-key": "[RADIUS]",
+                    "type": "Number",
+                    "optional": true
+                  },
+                  {
+                    "id": "sampling_strategy",
+                    "name": "Sampling strategy",
+                    "value-key": "[SAMPLING_STRATEGY]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "String",
+                    "optional": true,
+                    "value-choices": [
+                      "None",
+                      "Regular",
+                      "Random"
+                    ]
+                  },
+                  {
+                    "id": "sampling_percentage",
+                    "name": "Sampling percentage",
+                    "value-key": "[SAMPLING_PERCENTAGE]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "Number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "optional": true
+                  },
+                  {
+                    "id": "use_gradient_filter",
+                    "name": "Use gradient filter",
+                    "value-key": "[USE_GRADIENT_FILTER]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "String",
+                    "optional": true,
+                    "value-choices": [
+                      "true",
+                      "false"
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "metric_demons",
+                "name": "Demons",
+                "command-line": "Demons[[FIXED_IMAGE],[MOVING_IMAGE],[METRIC_WEIGHT],[NUMBER_OF_BINS][SAMPLING_STRATEGY][SAMPLING_PERCENTAGE][USE_GRADIENT_FILTER]]",
+                "inputs": [
+                  {
+                    "id": "fixed_image",
+                    "name": "Fixed image",
+                    "value-key": "[FIXED_IMAGE]",
+                    "type": "String",
+                    "optional": false
+                  },
+                  {
+                    "id": "moving_image",
+                    "name": "Moving image",
+                    "value-key": "[MOVING_IMAGE]",
+                    "type": "String",
+                    "optional": false
+                  },
+                  {
+                    "id": "metric_weight",
+                    "name": "Metric weight",
+                    "value-key": "[METRIC_WEIGHT]",
+                    "type": "Number",
+                    "optional": false
+                  },
+                  {
+                    "id": "number_of_bins",
+                    "name": "Number of bins",
+                    "value-key": "[NUMBER_OF_BINS]",
+                    "type": "Number",
+                    "optional": true
+                  },
+                  {
+                    "id": "sampling_strategy",
+                    "name": "Sampling strategy",
+                    "value-key": "[SAMPLING_STRATEGY]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "String",
+                    "optional": true,
+                    "value-choices": [
+                      "None",
+                      "Regular",
+                      "Random"
+                    ]
+                  },
+                  {
+                    "id": "sampling_percentage",
+                    "name": "Sampling percentage",
+                    "value-key": "[SAMPLING_PERCENTAGE]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "Number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "optional": true
+                  },
+                  {
+                    "id": "use_gradient_filter",
+                    "name": "Use gradient filter",
+                    "value-key": "[USE_GRADIENT_FILTER]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "String",
+                    "optional": true,
+                    "value-choices": [
+                      "true",
+                      "false"
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "metric_global_correlation",
+                "name": "Global correlation",
+                "command-line": "GC[[FIXED_IMAGE],[MOVING_IMAGE],[METRIC_WEIGHT],[RADIUS][SAMPLING_STRATEGY][SAMPLING_PERCENTAGE][USE_GRADIENT_FILTER]]",
+                "inputs": [
+                  {
+                    "id": "fixed_image",
+                    "name": "Fixed image",
+                    "value-key": "[FIXED_IMAGE]",
+                    "type": "String",
+                    "optional": false
+                  },
+                  {
+                    "id": "moving_image",
+                    "name": "Moving image",
+                    "value-key": "[MOVING_IMAGE]",
+                    "type": "String",
+                    "optional": false
+                  },
+                  {
+                    "id": "metric_weight",
+                    "name": "Metric weight",
+                    "value-key": "[METRIC_WEIGHT]",
+                    "type": "Number",
+                    "optional": false
+                  },
+                  {
+                    "id": "radius",
+                    "name": "Radius",
+                    "value-key": "[RADIUS]",
+                    "type": "Number",
+                    "optional": true
+                  },
+                  {
+                    "id": "sampling_strategy",
+                    "name": "Sampling strategy",
+                    "value-key": "[SAMPLING_STRATEGY]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "String",
+                    "optional": true,
+                    "value-choices": [
+                      "None",
+                      "Regular",
+                      "Random"
+                    ]
+                  },
+                  {
+                    "id": "sampling_percentage",
+                    "name": "Sampling percentage",
+                    "value-key": "[SAMPLING_PERCENTAGE]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "Number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "optional": true
+                  },
+                  {
+                    "id": "use_gradient_filter",
+                    "name": "Use gradient filter",
+                    "value-key": "[USE_GRADIENT_FILTER]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "String",
+                    "optional": true,
+                    "value-choices": [
+                      "true",
+                      "false"
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "metric_euclidean_icp",
+                "name": "Euclidean (ICP)",
+                "command-line": "ICP[[FIXED_POINT_SET],[MOVING_POINT_SET],[METRIC_WEIGHT][SAMPLING_PERCENTAGE][BOUNDARY_POINTS_ONLY]]",
+                "inputs": [
+                  {
+                    "id": "fixed_point_set",
+                    "name": "Fixed point set",
+                    "value-key": "[FIXED_POINT_SET]",
+                    "type": "String",
+                    "optional": false
+                  },
+                  {
+                    "id": "moving_point_set",
+                    "name": "Moving point set",
+                    "value-key": "[MOVING_POINT_SET]",
+                    "type": "String",
+                    "optional": false
+                  },
+                  {
+                    "id": "metric_weight",
+                    "name": "Metric weight",
+                    "value-key": "[METRIC_WEIGHT]",
+                    "type": "Number",
+                    "optional": false
+                  },
+                  {
+                    "id": "sampling_percentage",
+                    "name": "Sampling percentage",
+                    "value-key": "[SAMPLING_PERCENTAGE]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "Number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "optional": true
+                  },
+                  {
+                    "id": "boundary_points_only",
+                    "name": "Boundary points only",
+                    "value-key": "[BOUNDARY_POINTS_ONLY]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "String",
+                    "optional": true,
+                    "value-choices": [
+                      "0"
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "metric_point_set_expectation",
+                "name": "Point-set expectation (PSE)",
+                "command-line": "PSE[[FIXED_IMAGE],[MOVING_IMAGE],[METRIC_WEIGHT],[POINT_SET_SIGMA][SAMPLING_STRATEGY][SAMPLING_PERCENTAGE][USE_GRADIENT_FILTER]]",
+                "inputs": [
+                  {
+                    "id": "fixed_point_set",
+                    "name": "Fixed point set",
+                    "value-key": "[FIXED_POINT_SET]",
+                    "type": "String",
+                    "optional": false
+                  },
+                  {
+                    "id": "moving_point_set",
+                    "name": "Moving point set",
+                    "value-key": "[MOVING_POINT_SET]",
+                    "type": "String",
+                    "optional": false
+                  },
+                  {
+                    "id": "metric_weight",
+                    "name": "Metric weight",
+                    "value-key": "[METRIC_WEIGHT]",
+                    "type": "Number",
+                    "optional": false
+                  },
+                  {
+                    "id": "sampling_percentage",
+                    "name": "Sampling percentage",
+                    "value-key": "[SAMPLING_PERCENTAGE]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "Number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "optional": true
+                  },
+                  {
+                    "id": "boundary_points_only",
+                    "name": "Boundary points only",
+                    "value-key": "[BOUNDARY_POINTS_ONLY]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "String",
+                    "optional": true,
+                    "value-choices": [
+                      "0"
+                    ]
+                  },
+                  {
+                    "id": "point_set_sigma",
+                    "name": "Point set sigma",
+                    "value-key": "[POINT_SET_SIGMA]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "Number",
+                    "optional": true
+                  },
+                  {
+                    "id": "k_neighborhood",
+                    "name": "K neighborhood",
+                    "value-key": "[K_NEIGHBORHOOD]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "Number",
+                    "optional": true
+                  }
+                ]
+              },
+              {
+                "id": "metric_jensen_havrda_charvet_tsallis",
+                "name": "Jensen-Havrda-Charvet-Tsallis (JHCT)",
+                "command-line": "JHCT[[FIXED_POINT_SET],[MOVING_POINT_SET],[METRIC_WEIGHT][SAMPLING_PERCENTAGE][BOUNDARY_POINTS_ONLY][POINT_SET_SIGMA][K_NEIGHBORHOOD]]",
+                "inputs": [
+                  {
+                    "id": "fixed_point_set",
+                    "name": "Fixed point set",
+                    "value-key": "[FIXED_POINT_SET]",
+                    "type": "String",
+                    "optional": false
+                  },
+                  {
+                    "id": "moving_point_set",
+                    "name": "Moving point set",
+                    "value-key": "[MOVING_POINT_SET]",
+                    "type": "String",
+                    "optional": false
+                  },
+                  {
+                    "id": "metric_weight",
+                    "name": "Metric weight",
+                    "value-key": "[METRIC_WEIGHT]",
+                    "type": "Number",
+                    "optional": false
+                  },
+                  {
+                    "id": "sampling_percentage",
+                    "name": "Sampling percentage",
+                    "value-key": "[SAMPLING_PERCENTAGE]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "Number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "optional": true
+                  },
+                  {
+                    "id": "boundary_points_only",
+                    "name": "Boundary points only",
+                    "value-key": "[BOUNDARY_POINTS_ONLY]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "String",
+                    "optional": true,
+                    "value-choices": [
+                      "0"
+                    ]
+                  },
+                  {
+                    "id": "point_set_sigma",
+                    "name": "Point set sigma",
+                    "value-key": "[POINT_SET_SIGMA]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "Number",
+                    "optional": true
+                  },
+                  {
+                    "id": "k_neighborhood",
+                    "name": "K neighborhood",
+                    "value-key": "[K_NEIGHBORHOOD]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "Number",
+                    "optional": true
+                  }
+                ]
+              },
+              {
+                "id": "metric_igdm",
+                "name": "IGDM",
+                "command-line": "IGDM[",
+                "inputs": [
+                  {
+                    "id": "fixed_image",
+                    "name": "Fixed image",
+                    "value-key": "[FIXED_IMAGE]",
+                    "type": "String",
+                    "optional": false
+                  },
+                  {
+                    "id": "moving_image",
+                    "name": "Moving image",
+                    "value-key": "[MOVING_IMAGE]",
+                    "type": "String",
+                    "optional": false
+                  },
+                  {
+                    "id": "metric_weight",
+                    "name": "Metric weight",
+                    "value-key": "[METRIC_WEIGHT]",
+                    "type": "Number",
+                    "optional": false
+                  },
+                  {
+                    "id": "fixed_mask",
+                    "name": "Fixed mask",
+                    "value-key": "[FIXED_MASK]",
+                    "type": "String",
+                    "optional": false
+                  },
+                  {
+                    "id": "moving_mask",
+                    "name": "Moving mask",
+                    "value-key": "[MOVING_MASK]",
+                    "type": "String",
+                    "optional": false
+                  },
+                  {
+                    "id": "neighborhood_radius",
+                    "name": "Neighborhood radius",
+                    "value-key": "[NEIGHBORHOOD_RADIUS]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "String",
+                    "optional": true
+                  },
+                  {
+                    "id": "intensity_sigma",
+                    "name": "Intensity sigma",
+                    "value-key": "[INTENSITY_SIGMA]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "Number",
+                    "optional": true
+                  },
+                  {
+                    "id": "distance_sigma",
+                    "name": "Distance sigma",
+                    "value-key": "[DISTANCE_SIGMA]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "Number",
+                    "optional": true
+                  },
+                  {
+                    "id": "k_neighborhood",
+                    "name": "K neighborhood",
+                    "value-key": "[K_NEIGHBORHOOD]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "Number",
+                    "optional": true
+                  },
+                  {
+                    "id": "gradient_sigma",
+                    "name": "Gradient sigma",
+                    "value-key": "[GRADIENT_SIGMA]",
+                    "command-line-flag": ",",
+                    "command-line-flag-separator": "",
+                    "type": "Number",
+                    "optional": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "convergence",
+            "name": "Convergence",
+            "value-key": "[CONVERGENCE]",
+            "command-line-flag": "--convergence",
+            "description": "Convergence is determined from the number of iterations per level and is determined by fitting a line to the normalized energy profile of the last N iterations (where N is specified by the window size) and determining the slope which is then compared with the convergence threshold. ",
+            "type": {
+              "id": "convergence",
+              "command-line": "[[CONVERGENCE][CONVERGENCE_THRESHOLD][CONVERGENCE_WINDOW_SIZE]]",
+              "inputs": [
+                {
+                  "id": "convergence",
+                  "name": "Convergence",
+                  "value-key": "[CONVERGENCE]",
+                  "type": "String",
+                  "optional": false
+                },
+                {
+                  "id": "convergence_threshold",
+                  "name": "Convergence threshold",
+                  "value-key": "[CONVERGENCE_THRESHOLD]",
+                  "command-line-flag": ",",
+                  "command-line-flag-separator": "",
+                  "type": "Number",
+                  "optional": false
+                },
+                {
+                  "id": "convergence_window_size",
+                  "name": "Convergence window size",
+                  "value-key": "[CONVERGENCE_WINDOW_SIZE]",
+                  "command-line-flag": ",",
+                  "command-line-flag-separator": "",
+                  "type": "Number",
+                  "integer": true,
+                  "optional": false
+                }
+              ]
+            }
+          },
+          {
+            "id": "smoothing_sigmas",
+            "name": "Smoothing sigmas",
+            "value-key": "[SMOOTHING_SIGMAS]",
+            "command-line-flag": "--smoothing-sigmas",
+            "description": "Specify the sigma of gaussian smoothing at each level. Units are given in terms of voxels ('vox') or physical spacing ('mm'). Example usage is '4x2x1mm' and '4x2x1vox' where no units implies voxel spacing.",
+            "type": "String"
+          },
+          {
+            "id": "shrink_factors",
+            "name": "Shrink factors",
+            "description": "Specify the shrink factor for the virtual domain (typically the fixed image) at each level.",
+            "value-key": "[SHRINK_FACTORS]",
+            "command-line-flag": "--shrink-factors",
+            "type": "String"
+          },
+          {
+            "id": "use_histogram_matching",
+            "name": "Use histogram matching",
+            "value-key": "[USE_HISTOGRAM_MATCHING]",
+            "type": "Number",
+            "integer": true,
+            "optional": true,
+            "value-choices": [
+              0,
+              1
+            ],
+            "command-line-flag": "--use-histogram-matching",
+            "description": "Use histogram matching."
+          }
+        ]
+      }
+    },
+    {
+      "id": "winsorize_image_intensities",
+      "name": "Winsorize image intensities",
+      "value-key": "[WINSORIZE_IMAGE_INTENSITIES]",
+      "command-line-flag": "--winsorize-image-intensities",
+      "type": {
+        "id": "winsorize_image_intensities",
+        "command-line": "[[LOWER_QUANTILE][UPPER_QUANTILE]]",
+        "inputs": [
+          {
+            "id": "lower_quantile",
+            "name": "Lower quantile",
+            "value-key": "[LOWER_QUANTILE]",
+            "type": "Number",
+            "optional": false
+          },
+          {
+            "id": "upper_quantile",
+            "name": "Upper quantile",
+            "value-key": "[UPPER_QUANTILE]",
+            "type": "Number",
+            "optional": false
+          }
+        ]
+      },
+      "optional": true,
+      "description": "Winsorize data based on specified quantiles."
+    },
+    {
+      "id": "masks",
+      "name": "Masks",
+      "value-key": "[MASKS]",
+      "command-line-flag": "--masks",
+      "description": "Image masks to limit voxels considered by the metric. Two options are allowed for mask specification: 1) Either the user specifies a single mask to be used for all stages or 2) the user specifies a mask for each stage. With the latter one can select to which stages masks are applied by supplying valid file names. If the file does not exist, a mask will not be used for that stage. Note that we handle the fixed and moving masks separately to enforce this constraint.",
+      "type": {
+        "id": "masks",
+        "command-line": "[[FIXED_MASK][MOVING_MASK]]",
+        "inputs": [
+          {
+            "id": "fixed_mask",
+            "name": "Fixed mask",
+            "value-key": "[FIXED_MASK]",
+            "type": "String",
+            "optional": true
+          },
+          {
+            "id": "moving_mask",
+            "name": "Moving mask",
+            "value-key": "[MOVING_MASK]",
+            "type": "String",
+            "optional": true
+          }
+        ]
+      },
+      "optional": true
+    },
+    {
+      "id": "minc",
+      "name": "MINC",
+      "value-key": "[MINC]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "command-line-flag": "--minc",
+      "description": "Use MINC file formats for transformations."
+    },
+    {
+      "id": "random_seed",
+      "name": "Random seed",
+      "value-key": "[RANDOM_SEED]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "minimum": 1,
+      "command-line-flag": "--random-seed",
+      "description": "Random seed."
+    },
+    {
+      "id": "verbose",
+      "name": "Verbose",
+      "value-key": "[VERBOSE]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "command-line-flag": "-v",
+      "description": "Verbose output."
+    },
+    {
+      "id": "float",
+      "name": "Float",
+      "value-key": "[FLOAT]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "command-line-flag": "--float",
+      "description": "Use 'float' instead of 'double' for computations."
+    }
+  ],
+  "output-files": [
+    {
+      "id": "generic_affine",
+      "name": "Generic affine",
+      "description": "The output is the generic affine transformation matrix.",
+      "path-template": "[OUTPUT]0GenericAffine.mat"
+    },
+    {
+      "id": "inverse_warped",
+      "name": "Inverse warped",
+      "description": "The output is the warped fixed image.",
+      "path-template": "[OUTPUT]InverseWarped.nii.gz"
+    },
+    {
+      "id": "inverse_warp",
+      "name": "Inverse warp",
+      "description": "The output is the inverse warp field.",
+      "path-template": "[OUTPUT]1InverseWarp.nii.gz"
+    },
+    {
+      "id": "warped",
+      "name": "Warped",
+      "description": "The output is the warped moving image.",
+      "path-template": "[OUTPUT]Warped.nii.gz"
+    },
+    {
+      "id": "warp",
+      "name": "Warp",
+      "description": "The output is the warp field.",
+      "path-template": "[OUTPUT]1Warp.nii.gz"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "name": "1dBandpass",
+  "author": "AFNI Developers",
+  "description": "Bandpass filtering of time series data in AFNI *.1D files",
+  "command-line": "1dBandpass [FBOT] [FTOP] [INFILE] [TIMESTEP] [ORTFILE] [NODETREND] [NORM]",
+  "inputs": [
+    {
+      "description": "Lowest frequency in the passband, in Hz (must be greater than or equal to 0)",
+      "value-key": "[FBOT]",
+      "type": "Number",
+      "optional": false,
+      "minimum": 0,
+      "id": "fbot",
+      "name": "Lowest Frequency"
+    },
+    {
+      "description": "Highest frequency in the passband, in Hz (must be greater than FBOT)",
+      "value-key": "[FTOP]",
+      "type": "Number",
+      "optional": false,
+      "id": "ftop",
+      "name": "Highest Frequency"
+    },
+    {
+      "description": "Input AFNI *.1D file; each column is processed",
+      "value-key": "[INFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "infile",
+      "name": "Input File"
+    },
+    {
+      "command-line-flag": "-dt",
+      "description": "Set time step to 'dd' sec (default is 1.0)",
+      "value-key": "[TIMESTEP]",
+      "type": "Number",
+      "optional": true,
+      "id": "timestep",
+      "name": "Time Step"
+    },
+    {
+      "command-line-flag": "-ort",
+      "description": "Also orthogonalize input to columns in specified *.1D file (only one '-ort' option is allowed)",
+      "value-key": "[ORTFILE]",
+      "type": "File",
+      "optional": true,
+      "id": "ortfile",
+      "name": "Orthogonalize File"
+    },
+    {
+      "command-line-flag": "-nodetrend",
+      "description": "Skip the quadratic detrending of the input",
+      "value-key": "[NODETREND]",
+      "type": "Flag",
+      "id": "nodetrend",
+      "name": "No Detrending"
+    },
+    {
+      "command-line-flag": "-norm",
+      "description": "Make output time series have L2 norm = 1",
+      "value-key": "[NORM]",
+      "type": "Flag",
+      "id": "norm",
+      "name": "Normalize"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

@@ -1,0 +1,162 @@
+{
+  "name": "mri_label_volume",
+  "author": "FreeSurfer Developers",
+  "description": "A tool to compute volumes of labeled voxels within MRI images, often used in conjunction with FreeSurfer processed data.",
+  "command-line": "mri_label_volume [VOLUME] [LABELS] [PARTIAL_VOLUME_EFFECTS] [INTRACRANIAL_VOLUME] [SPREADSHEET_SUBJECT] [NON_ZERO_VOXELS] [REPLACE_LABEL_IN] [REPLACE_LABEL_OUT] [BRAIN_VOLUME] [PERCENTAGE] [LOG_RESULTS] [ATLAS_TRANSFORM_FILE] [ATLAS_SCALEFACTOR] [ETIV_TRANSFORM_FILE] [ETIV_SCALEFACTOR] [ETIV_SUBJECT]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Volume file (e.g., volume.mgz) to analyze",
+      "value-key": "[VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "volume",
+      "name": "Volume File"
+    },
+    {
+      "description": "Labels to compute volume for",
+      "value-key": "[LABELS]",
+      "type": "String",
+      "list": true,
+      "optional": false,
+      "id": "labels",
+      "name": "Labels"
+    },
+    {
+      "command-line-flag": "-pv",
+      "description": "Compute partial volume effects using intensity volume",
+      "value-key": "[PARTIAL_VOLUME_EFFECTS]",
+      "type": "File",
+      "optional": true,
+      "id": "partial_volume_effects",
+      "name": "Partial Volume Effects File"
+    },
+    {
+      "command-line-flag": "-icv",
+      "description": "Normalize by the intracranial volume in provided file",
+      "value-key": "[INTRACRANIAL_VOLUME]",
+      "type": "File",
+      "optional": true,
+      "id": "intracranial_volume",
+      "name": "Intracranial Volume File"
+    },
+    {
+      "command-line-flag": "-s",
+      "description": "Output in spreadsheet mode, including subject name",
+      "value-key": "[SPREADSHEET_SUBJECT]",
+      "type": "String",
+      "optional": true,
+      "id": "spreadsheet_subject",
+      "name": "Spreadsheet Subject"
+    },
+    {
+      "command-line-flag": "-a",
+      "description": "Compute volume of all non-zero voxels (e.g. for computing brain volume)",
+      "value-key": "[NON_ZERO_VOXELS]",
+      "type": "Flag",
+      "id": "non_zero_voxels",
+      "name": "Non-Zero Voxels Flag"
+    },
+    {
+      "command-line-flag": "-t",
+      "description": "Replace label <in> with label <out>.",
+      "value-key": "[REPLACE_LABEL_IN]",
+      "type": "String",
+      "optional": true,
+      "id": "replace_label_in",
+      "name": "Replace Label Input"
+    },
+    {
+      "description": "Label to replace with",
+      "value-key": "[REPLACE_LABEL_OUT]",
+      "type": "String",
+      "optional": true,
+      "id": "replace_label_out",
+      "name": "Replace Label Output"
+    },
+    {
+      "command-line-flag": "-b",
+      "description": "Compute the brain volume from provided brain volume file and normalize by it",
+      "value-key": "[BRAIN_VOLUME]",
+      "type": "File",
+      "optional": true,
+      "id": "brain_volume",
+      "name": "Brain Volume File"
+    },
+    {
+      "command-line-flag": "-p",
+      "description": "Compute volume as a percentage of all non-zero labels",
+      "value-key": "[PERCENTAGE]",
+      "type": "Flag",
+      "id": "percentage",
+      "name": "Percentage Flag"
+    },
+    {
+      "command-line-flag": "-l",
+      "description": "Log results to provided file",
+      "value-key": "[LOG_RESULTS]",
+      "type": "File",
+      "optional": true,
+      "id": "log_results",
+      "name": "Log Results File"
+    },
+    {
+      "command-line-flag": "-atlas_icv",
+      "description": "Specify LTA or XFM atlas transform file and scale factor to use for ICV correction",
+      "value-key": "[ATLAS_TRANSFORM_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "atlas_transform_file",
+      "name": "Atlas Transform File"
+    },
+    {
+      "description": "Scale factor for ICV correction",
+      "value-key": "[ATLAS_SCALEFACTOR]",
+      "type": "Number",
+      "optional": true,
+      "id": "atlas_scalefactor",
+      "name": "Atlas Scale Factor"
+    },
+    {
+      "command-line-flag": "-eTIV",
+      "description": "Same as -atlas_icv",
+      "value-key": "[ETIV_TRANSFORM_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "etiv_transform_file",
+      "name": "eTIV Transform File"
+    },
+    {
+      "description": "eTIV scale factor",
+      "value-key": "[ETIV_SCALEFACTOR]",
+      "type": "Number",
+      "optional": true,
+      "id": "etiv_scalefactor",
+      "name": "eTIV Scale Factor"
+    },
+    {
+      "command-line-flag": "-eTIV_matdat",
+      "description": "Same as -eTIV, and generate MATLAB data appending subject to structure",
+      "value-key": "[ETIV_SUBJECT]",
+      "type": "String",
+      "optional": true,
+      "id": "etiv_subject",
+      "name": "eTIV Subject"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "volume_label_results.txt",
+      "description": "Computed volume results.",
+      "id": "output_volume_results",
+      "name": "Output Volume Results File"
+    },
+    {
+      "path-template": "volume_log.txt",
+      "description": "Log file if -l option is used.",
+      "id": "output_log_results",
+      "name": "Output Log Results File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

@@ -1,0 +1,27 @@
+{
+  "name": "long_create_base_sigma",
+  "description": "Performs a joint normalization and atlas renormalization at a specific sigma smoothing level. This is usually done as part of the base stream but can be performed to add files for a different sigma level to an existing base.",
+  "command-line": "long_create_base_sigma [BASE_ID] [SIGMA]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Subject ID of the base",
+      "value-key": "[BASE_ID]",
+      "type": "String",
+      "optional": false,
+      "id": "base_id",
+      "name": "Base ID"
+    },
+    {
+      "description": "Integer value of sigma smoothing (usually 2..6)",
+      "value-key": "[SIGMA]",
+      "type": "Number",
+      "integer": true,
+      "optional": false,
+      "id": "sigma",
+      "name": "Sigma"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

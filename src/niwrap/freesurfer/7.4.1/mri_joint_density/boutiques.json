@@ -1,0 +1,42 @@
+{
+  "name": "mri_joint_density",
+  "command-line": "mri_joint_density [VOL1] [VOL2] [OUTPUT_DENSITY_FILE]",
+  "schema-version": "0.5+styx",
+  "description": "Tool for computing joint density from two volumes",
+  "inputs": [
+    {
+      "description": "First input volume",
+      "id": "vol1",
+      "name": "Volume 1",
+      "type": "File",
+      "value-key": "[VOL1]",
+      "optional": false
+    },
+    {
+      "description": "Second input volume",
+      "id": "vol2",
+      "name": "Volume 2",
+      "type": "File",
+      "value-key": "[VOL2]",
+      "optional": false
+    },
+    {
+      "description": "Output joint density file",
+      "id": "output_density_file",
+      "name": "Output Density File",
+      "type": "String",
+      "value-key": "[OUTPUT_DENSITY_FILE]",
+      "optional": false
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_DENSITY_FILE]",
+      "description": "Output file containing the computed joint density",
+      "id": "output_file",
+      "name": "Computed Joint Density"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

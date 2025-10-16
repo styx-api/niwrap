@@ -1,0 +1,79 @@
+{
+  "name": "mri_segcentroids",
+  "description": "Computes the center of mass for individual structures in a segmentation.",
+  "command-line": "mri_segcentroids [INPUT_SEGMENTATION] [OUTPUT_FILE] [POINTSET_FLAG] [REGISTRATION_FILE] [WEIGHTS_FILE] [LUT_FILE] [DEFAULT_LUT_FLAG]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "input_segmentation",
+      "name": "Input Segmentation",
+      "type": "File",
+      "value-key": "[INPUT_SEGMENTATION]",
+      "optional": false,
+      "command-line-flag": "--i",
+      "description": "Input segmentation volume file."
+    },
+    {
+      "id": "output_file",
+      "name": "Output Text File",
+      "type": "String",
+      "value-key": "[OUTPUT_FILE]",
+      "optional": false,
+      "command-line-flag": "--o",
+      "description": "Output text file for centroids."
+    },
+    {
+      "id": "pointset_flag",
+      "name": "Pointset Flag",
+      "type": "Flag",
+      "value-key": "[POINTSET_FLAG]",
+      "command-line-flag": "--p",
+      "description": "Save centroids as a Freeview pointset (json)."
+    },
+    {
+      "id": "registration_file",
+      "name": "Linear Registration File",
+      "type": "File",
+      "value-key": "[REGISTRATION_FILE]",
+      "optional": true,
+      "command-line-flag": "--reg",
+      "description": "Apply a linear registration (lta)."
+    },
+    {
+      "id": "weights_file",
+      "name": "Voxel Weights File",
+      "type": "File",
+      "value-key": "[WEIGHTS_FILE]",
+      "optional": true,
+      "command-line-flag": "--weights",
+      "description": "Compute weighted centroids with provided voxel weights."
+    },
+    {
+      "id": "lut_file",
+      "name": "Label Lookup Table File",
+      "type": "File",
+      "value-key": "[LUT_FILE]",
+      "optional": true,
+      "command-line-flag": "--ctab",
+      "description": "Specify label lookup table."
+    },
+    {
+      "id": "default_lut_flag",
+      "name": "Default LUT Flag",
+      "type": "Flag",
+      "value-key": "[DEFAULT_LUT_FLAG]",
+      "command-line-flag": "--ctab-default",
+      "description": "Use default FreeSurferColorLUT.txt for lookup table."
+    }
+  ],
+  "output-files": [
+    {
+      "id": "output_centroids",
+      "name": "Output Centroids File",
+      "path-template": "[OUTPUT_FILE]",
+      "description": "Output text file containing the centroids."
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

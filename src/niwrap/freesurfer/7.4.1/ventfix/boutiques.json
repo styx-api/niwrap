@@ -1,0 +1,35 @@
+{
+  "name": "ventfix",
+  "author": "FreeSurfer Developers",
+  "description": "Tool for fixing ventricles in MRI scans",
+  "command-line": "ventfix [SUBJECT_DIR] [OPTION1]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Path to the subject's directory containing MRI scans.",
+      "value-key": "[SUBJECT_DIR]",
+      "type": "String",
+      "optional": false,
+      "id": "subject_dir",
+      "name": "Subject Directory"
+    },
+    {
+      "command-line-flag": "--option1",
+      "description": "Description of option 1",
+      "value-key": "[OPTION1]",
+      "type": "String",
+      "optional": true,
+      "id": "option1",
+      "name": "Option 1"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[SUBJECT_DIR]/fixed_ventricles.nii.gz",
+      "description": "Output image with fixed ventricles",
+      "id": "fixed_ventricles",
+      "name": "Fixed Ventricles Image"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

@@ -1,0 +1,42 @@
+{
+  "name": "quantifyThalamicNuclei.sh",
+  "author": "FreeSurfer Developers",
+  "description": "Command-line tool to quantify thalamic nuclei using FreeSurfer.",
+  "command-line": "quantifyThalamicNuclei.sh [OUTPUT_FILE] [ANALYSIS_ID] [SUBJECTS_DIRECTORY]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Output file for the results.",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_file",
+      "name": "Output File"
+    },
+    {
+      "description": "Analysis ID for specificity.",
+      "value-key": "[ANALYSIS_ID]",
+      "type": "String",
+      "optional": false,
+      "id": "analysis_id",
+      "name": "Analysis ID"
+    },
+    {
+      "description": "Directory containing subject data.",
+      "value-key": "[SUBJECTS_DIRECTORY]",
+      "type": "String",
+      "optional": true,
+      "id": "subjects_directory",
+      "name": "Subjects Directory"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILE]",
+      "description": "The output file containing quantified thalamic nuclei results.",
+      "id": "results_file",
+      "name": "Results File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

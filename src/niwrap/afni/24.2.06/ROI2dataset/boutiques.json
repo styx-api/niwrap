@@ -1,0 +1,107 @@
+{
+  "name": "ROI2dataset",
+  "author": "AFNI Developers",
+  "description": "Transforms a series of ROI files to a node dataset",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "ROI2dataset [PREFIX] [INPUT_ROIS] [KEEP_SEPARATE] [NODELIST] [NODELIST_NODUPS] [NODELIST_WITH_ROIVAL] [LABEL_DSET] [OUTPUT_FORMAT] [DOMAIN_PARENT_ID] [PAD_TO_NODE] [PAD_LABEL]",
+  "inputs": [
+    {
+      "description": "Prefix of output dataset.",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "prefix",
+      "name": "Prefix",
+      "command-line-flag": "-prefix"
+    },
+    {
+      "description": "ROI files to turn into a data set (space-separated list). This parameter MUST be the last one on command line.",
+      "value-key": "[INPUT_ROIS]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "input_rois",
+      "name": "Input ROI files"
+    },
+    {
+      "command-line-flag": "-keep_separate",
+      "description": "Output one column (sub-brick) for each ROI value.",
+      "value-key": "[KEEP_SEPARATE]",
+      "type": "Flag",
+      "id": "keep_separate",
+      "name": "Keep separate flag"
+    },
+    {
+      "command-line-flag": "-nodelist",
+      "description": "Prefix for a set of .1D files that contain a list of node indices in the order they appear in an ROI.",
+      "value-key": "[NODELIST]",
+      "type": "String",
+      "optional": true,
+      "id": "nodelist",
+      "name": "Nodelist"
+    },
+    {
+      "command-line-flag": "-nodelist.nodups",
+      "description": "Prefix for a set of .1D files that contain a list of node indices in the order they appear in an ROI, with duplicate nodes removed.",
+      "value-key": "[NODELIST_NODUPS]",
+      "type": "String",
+      "optional": true,
+      "id": "nodelist_nodups",
+      "name": "Nodelist without duplicates"
+    },
+    {
+      "command-line-flag": "-nodelist_with_ROIval",
+      "description": "Also add the ROI value as a second column in .1D files output by -nodelist.",
+      "value-key": "[NODELIST_WITH_ROIVAL]",
+      "type": "Flag",
+      "id": "nodelist_with_roival",
+      "name": "Nodelist with ROI value"
+    },
+    {
+      "command-line-flag": "-label_dset",
+      "description": "Write a label dataset instead of a simple dataset. Sets output format to NIML.",
+      "value-key": "[LABEL_DSET]",
+      "type": "String",
+      "optional": true,
+      "id": "label_dset",
+      "name": "Label dataset"
+    },
+    {
+      "command-line-flag": "-of",
+      "description": "Output format of dataset. One of: ni_bi, ni_as, 1D",
+      "value-key": "[OUTPUT_FORMAT]",
+      "type": "String",
+      "optional": true,
+      "id": "output_format",
+      "name": "Output format"
+    },
+    {
+      "command-line-flag": "-dom_par_id",
+      "description": "Idcode of domain parent. Only ROIs with the same domain parent are included in the output.",
+      "value-key": "[DOMAIN_PARENT_ID]",
+      "type": "String",
+      "optional": true,
+      "id": "domain_parent_id",
+      "name": "Domain parent ID"
+    },
+    {
+      "command-line-flag": "-pad_to_node",
+      "description": "Output a full dataset from node 0 to node max_index (total of max_index + 1 nodes).",
+      "value-key": "[PAD_TO_NODE]",
+      "type": "Number",
+      "optional": true,
+      "id": "pad_to_node",
+      "name": "Pad to node"
+    },
+    {
+      "command-line-flag": "-pad_label",
+      "description": "Use padding_label (an integer) to label nodes not part of any ROI. Default is 0.",
+      "value-key": "[PAD_LABEL]",
+      "type": "Number",
+      "optional": true,
+      "id": "pad_label",
+      "name": "Pad label"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

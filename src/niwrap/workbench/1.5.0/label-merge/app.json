@@ -1,0 +1,14 @@
+{
+  "name": "label-merge",
+  "source": {
+    "type": "boutiques",
+    "path": "boutiques.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-label-merge"
+  ],
+  "docs": {
+    "description": "Merge label files into a new file.\n\nTakes one or more label files and constructs a new label file by concatenating columns from them.  The input files must have the same number of vertices and the same structure.\n\nExample: wb_command -label-merge out.label.gii -label first.label.gii -column 1 -label second.label.gii\n\nThis example would take the first column from first.label.gii and all subvolumes from second.label.gii, and write these to out.label.gii."
+  }
+}

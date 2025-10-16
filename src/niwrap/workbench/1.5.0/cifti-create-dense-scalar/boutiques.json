@@ -1,0 +1,162 @@
+{
+  "name": "cifti-create-dense-scalar",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -cifti-create-dense-scalar [CIFTI_OUT] [VOLUME] [LEFT_METRIC] [RIGHT_METRIC] [CEREBELLUM_METRIC] [OPT_NAME_FILE_FILE]",
+  "description": "Create a cifti dense scalar file.\n\nAll input files must have the same number of columns/subvolumes.  Only the specified components will be in the output cifti file.  Map names will be taken from one of the input files.  At least one component must be specified.\n\nSee -volume-label-import and -volume-help for format details of label volume files.  The structure-label-volume should have some of the label names from this list, all other label names will be ignored:\n\nCORTEX_LEFT\nCORTEX_RIGHT\nCEREBELLUM\nACCUMBENS_LEFT\nACCUMBENS_RIGHT\nALL_GREY_MATTER\nALL_WHITE_MATTER\nAMYGDALA_LEFT\nAMYGDALA_RIGHT\nBRAIN_STEM\nCAUDATE_LEFT\nCAUDATE_RIGHT\nCEREBELLAR_WHITE_MATTER_LEFT\nCEREBELLAR_WHITE_MATTER_RIGHT\nCEREBELLUM_LEFT\nCEREBELLUM_RIGHT\nCEREBRAL_WHITE_MATTER_LEFT\nCEREBRAL_WHITE_MATTER_RIGHT\nCORTEX\nDIENCEPHALON_VENTRAL_LEFT\nDIENCEPHALON_VENTRAL_RIGHT\nHIPPOCAMPUS_LEFT\nHIPPOCAMPUS_RIGHT\nINVALID\nOTHER\nOTHER_GREY_MATTER\nOTHER_WHITE_MATTER\nPALLIDUM_LEFT\nPALLIDUM_RIGHT\nPUTAMEN_LEFT\nPUTAMEN_RIGHT\nTHALAMUS_LEFT\nTHALAMUS_RIGHT",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "cifti_out",
+      "name": "cifti_out",
+      "type": "String",
+      "description": "the output cifti file",
+      "optional": false,
+      "value-key": "[CIFTI_OUT]"
+    },
+    {
+      "id": "volume",
+      "name": "volume",
+      "description": "volume component",
+      "type": {
+        "id": "volume",
+        "name": "volume",
+        "description": "volume component",
+        "command-line": "-volume [VOLUME_DATA] [STRUCTURE_LABEL_VOLUME]",
+        "inputs": [
+          {
+            "id": "volume_data",
+            "name": "volume_data",
+            "description": "volume file containing all voxel data for all volume structures",
+            "optional": false,
+            "value-key": "[VOLUME_DATA]",
+            "type": "File"
+          },
+          {
+            "id": "structure_label_volume",
+            "name": "structure_label_volume",
+            "description": "label volume file containing labels for cifti structures",
+            "optional": false,
+            "value-key": "[STRUCTURE_LABEL_VOLUME]",
+            "type": "File"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[VOLUME]"
+    },
+    {
+      "id": "left_metric",
+      "name": "left_metric",
+      "description": "metric for left surface",
+      "type": {
+        "id": "left_metric",
+        "name": "left_metric",
+        "description": "metric for left surface",
+        "command-line": "-left-metric [METRIC] [OPT_ROI_LEFT_ROI_METRIC]",
+        "inputs": [
+          {
+            "id": "metric",
+            "name": "metric",
+            "description": "the metric file",
+            "optional": false,
+            "value-key": "[METRIC]",
+            "type": "File"
+          },
+          {
+            "id": "opt_roi_left_roi_metric",
+            "name": "opt_roi_left_roi_metric",
+            "command-line-flag": "-roi-left",
+            "description": "roi of vertices to use from left surface: the ROI as a metric file",
+            "optional": true,
+            "value-key": "[OPT_ROI_LEFT_ROI_METRIC]",
+            "type": "File"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[LEFT_METRIC]"
+    },
+    {
+      "id": "right_metric",
+      "name": "right_metric",
+      "description": "metric for right surface",
+      "type": {
+        "id": "right_metric",
+        "name": "right_metric",
+        "description": "metric for right surface",
+        "command-line": "-right-metric [METRIC] [OPT_ROI_RIGHT_ROI_METRIC]",
+        "inputs": [
+          {
+            "id": "metric",
+            "name": "metric",
+            "description": "the metric file",
+            "optional": false,
+            "value-key": "[METRIC]",
+            "type": "File"
+          },
+          {
+            "id": "opt_roi_right_roi_metric",
+            "name": "opt_roi_right_roi_metric",
+            "command-line-flag": "-roi-right",
+            "description": "roi of vertices to use from right surface: the ROI as a metric file",
+            "optional": true,
+            "value-key": "[OPT_ROI_RIGHT_ROI_METRIC]",
+            "type": "File"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[RIGHT_METRIC]"
+    },
+    {
+      "id": "cerebellum_metric",
+      "name": "cerebellum_metric",
+      "description": "metric for the cerebellum",
+      "type": {
+        "id": "cerebellum_metric",
+        "name": "cerebellum_metric",
+        "description": "metric for the cerebellum",
+        "command-line": "-cerebellum-metric [METRIC] [OPT_ROI_CEREBELLUM_ROI_METRIC]",
+        "inputs": [
+          {
+            "id": "metric",
+            "name": "metric",
+            "description": "the metric file",
+            "optional": false,
+            "value-key": "[METRIC]",
+            "type": "File"
+          },
+          {
+            "id": "opt_roi_cerebellum_roi_metric",
+            "name": "opt_roi_cerebellum_roi_metric",
+            "command-line-flag": "-roi-cerebellum",
+            "description": "roi of vertices to use from right surface: the ROI as a metric file",
+            "optional": true,
+            "value-key": "[OPT_ROI_CEREBELLUM_ROI_METRIC]",
+            "type": "File"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[CEREBELLUM_METRIC]"
+    },
+    {
+      "id": "opt_name_file_file",
+      "name": "opt_name_file_file",
+      "command-line-flag": "-name-file",
+      "description": "use a text file to set all map names: text file containing map names, one per line",
+      "optional": true,
+      "value-key": "[OPT_NAME_FILE_FILE]",
+      "type": "String"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "cifti_out",
+      "name": "cifti_out",
+      "path-template": "[CIFTI_OUT]",
+      "description": "the output cifti file"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

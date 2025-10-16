@@ -1,0 +1,19 @@
+{
+  "name": "gcainit",
+  "description": "Initializes the GCA for brain processing tasks.",
+  "command-line": "gcainit [GCADIR]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--g",
+      "description": "Output directory of gcaprep",
+      "value-key": "[GCADIR]",
+      "type": "String",
+      "optional": false,
+      "id": "gcadir",
+      "name": "GCA Directory"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

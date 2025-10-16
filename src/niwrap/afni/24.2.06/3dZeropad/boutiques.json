@@ -1,0 +1,156 @@
+{
+  "name": "3dZeropad",
+  "author": "AFNI Developers",
+  "description": "Adds planes of zeros to a dataset (i.e., pads it out). Negative 'add' count means to cut a dataset down in size.",
+  "command-line": "3dZeropad [DATASET] [I] [S] [A] [P] [L] [R] [Z] [RL] [AP] [IS] [PAD2EVEN] [MM_FLAG] [MASTER_DATASET] [PREFIX]",
+  "inputs": [
+    {
+      "description": "Input dataset",
+      "value-key": "[DATASET]",
+      "type": "File",
+      "optional": false,
+      "id": "dataset",
+      "name": "Input dataset"
+    },
+    {
+      "command-line-flag": "-I",
+      "description": "Adds 'n' planes of zero at the Inferior edge",
+      "value-key": "[I]",
+      "type": "Number",
+      "optional": true,
+      "id": "I",
+      "name": "Inferior padding"
+    },
+    {
+      "command-line-flag": "-S",
+      "description": "Adds 'n' planes of zero at the Superior edge",
+      "value-key": "[S]",
+      "type": "Number",
+      "optional": true,
+      "id": "S",
+      "name": "Superior padding"
+    },
+    {
+      "command-line-flag": "-A",
+      "description": "Adds 'n' planes of zero at the Anterior edge",
+      "value-key": "[A]",
+      "type": "Number",
+      "optional": true,
+      "id": "A",
+      "name": "Anterior padding"
+    },
+    {
+      "command-line-flag": "-P",
+      "description": "Adds 'n' planes of zero at the Posterior edge",
+      "value-key": "[P]",
+      "type": "Number",
+      "optional": true,
+      "id": "P",
+      "name": "Posterior padding"
+    },
+    {
+      "command-line-flag": "-L",
+      "description": "Adds 'n' planes of zero at the Left edge",
+      "value-key": "[L]",
+      "type": "Number",
+      "optional": true,
+      "id": "L",
+      "name": "Left padding"
+    },
+    {
+      "command-line-flag": "-R",
+      "description": "Adds 'n' planes of zero at the Right edge",
+      "value-key": "[R]",
+      "type": "Number",
+      "optional": true,
+      "id": "R",
+      "name": "Right padding"
+    },
+    {
+      "command-line-flag": "-z",
+      "description": "Adds 'n' planes of zeros on EACH of the dataset z-axis (slice-direction) faces",
+      "value-key": "[Z]",
+      "type": "Number",
+      "optional": true,
+      "id": "z",
+      "name": "z-axis padding"
+    },
+    {
+      "command-line-flag": "-RL",
+      "description": "Add/cut planes symmetrically to make the resulting volume have 'a' slices in the Right/Left direction",
+      "value-key": "[RL]",
+      "type": "Number",
+      "optional": true,
+      "id": "RL",
+      "name": "Right/Left symmetric padding"
+    },
+    {
+      "command-line-flag": "-AP",
+      "description": "Add/cut planes symmetrically to make the resulting volume have 'b' slices in the Anterior/Posterior direction",
+      "value-key": "[AP]",
+      "type": "Number",
+      "optional": true,
+      "id": "AP",
+      "name": "Anterior/Posterior symmetric padding"
+    },
+    {
+      "command-line-flag": "-IS",
+      "description": "Add/cut planes symmetrically to make the resulting volume have 'c' slices in the Inferior/Superior direction",
+      "value-key": "[IS]",
+      "type": "Number",
+      "optional": true,
+      "id": "IS",
+      "name": "Inferior/Superior symmetric padding"
+    },
+    {
+      "command-line-flag": "-pad2evens",
+      "description": "Add 0 or 1 plane in each of the R/A/S directions, giving each axis an even number of slices",
+      "value-key": "[PAD2EVEN]",
+      "type": "Flag",
+      "id": "pad2even",
+      "name": "Pad to evens"
+    },
+    {
+      "command-line-flag": "-mm",
+      "description": "Pad counts 'n' are in mm instead of slices.",
+      "value-key": "[MM_FLAG]",
+      "type": "Flag",
+      "id": "mm_flag",
+      "name": "Padding in mm"
+    },
+    {
+      "command-line-flag": "-master",
+      "description": "Match the volume described in dataset 'mset'. 'mset' must have the same orientation and grid spacing as dataset to be padded.",
+      "value-key": "[MASTER_DATASET]",
+      "type": "File",
+      "optional": true,
+      "id": "master_dataset",
+      "name": "Master dataset"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Write result into dataset with prefix 'ppp'. Default is 'zeropad'.",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Output prefix"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX]+orig.BRIK",
+      "description": "Output dataset (BRIK format)",
+      "id": "output_dataset_brik",
+      "name": "Output dataset BRIK"
+    },
+    {
+      "path-template": "[PREFIX]+orig.HEAD",
+      "description": "Output dataset (HEAD format)",
+      "id": "output_dataset_head",
+      "name": "Output dataset HEAD"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

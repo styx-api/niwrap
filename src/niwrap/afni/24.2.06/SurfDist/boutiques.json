@@ -1,0 +1,85 @@
+{
+  "name": "SurfDist",
+  "author": "AFNI Developers",
+  "description": "Calculate shortest distance between node pairs on a surface mesh.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "SurfDist [SURFACE] [NODEPAIRS] [NODE_PATH_DO] [EUCLIDEAN] [EUCLIDIAN] [GRAPH] [FROM_NODE] [TO_NODES]",
+  "inputs": [
+    {
+      "description": "Surface on which distances are computed.",
+      "value-key": "[SURFACE]",
+      "type": "File",
+      "optional": false,
+      "id": "surface",
+      "name": "Surface"
+    },
+    {
+      "description": "Specify node pairs for distance computation.",
+      "value-key": "[NODEPAIRS]",
+      "type": "File",
+      "optional": false,
+      "id": "nodepairs",
+      "name": "Node pairs"
+    },
+    {
+      "command-line-flag": "-node_path_do",
+      "description": "Output the shortest path between each node pair as a SUMA Displayable object.",
+      "value-key": "[NODE_PATH_DO]",
+      "type": "String",
+      "optional": true,
+      "id": "node_path_do",
+      "name": "Node path display object"
+    },
+    {
+      "command-line-flag": "-Euclidean",
+      "description": "Calculate Euclidean distance, rather than graph distance.",
+      "value-key": "[EUCLIDEAN]",
+      "type": "Flag",
+      "id": "euclidean",
+      "name": "Euclidean distance flag"
+    },
+    {
+      "command-line-flag": "-Euclidian",
+      "description": "Synonym for '-Euclidean'.",
+      "value-key": "[EUCLIDIAN]",
+      "type": "Flag",
+      "id": "euclidian",
+      "name": "Euclidian distance flag"
+    },
+    {
+      "command-line-flag": "-graph",
+      "description": "Calculate distance along the mesh (default).",
+      "value-key": "[GRAPH]",
+      "type": "Flag",
+      "id": "graph",
+      "name": "Graph distance flag"
+    },
+    {
+      "command-line-flag": "-from_node",
+      "description": "Specify one starting node for pair calculation.",
+      "value-key": "[FROM_NODE]",
+      "type": "String",
+      "optional": true,
+      "id": "from_node",
+      "name": "From node"
+    },
+    {
+      "command-line-flag": "-input",
+      "description": "Specify nodes used for pair calculation when using -from_node.",
+      "value-key": "[TO_NODES]",
+      "type": "File",
+      "optional": true,
+      "id": "to_nodes",
+      "name": "To nodes"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "example.1D",
+      "description": "File containing the distances between nodes",
+      "id": "distances",
+      "name": "Distances file"
+    }
+  ]
+}

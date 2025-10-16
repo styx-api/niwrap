@@ -1,0 +1,59 @@
+{
+  "name": "label_subject_flash",
+  "author": "FreeSurfer Developers",
+  "description": "A tool for labeling brain structures in an MRI dataset using FLASH sequences and the FreeSurfer software",
+  "command-line": "label_subject_flash [TISSUE_PARAMS] [NORM_VOLUME] [TRANSFORM_FILE] [CLASSIFIER_ARRAY] [ASEG_OUTPUT]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Path to the tissue parameter file for FLASH sequences.",
+      "value-key": "[TISSUE_PARAMS]",
+      "type": "File",
+      "optional": false,
+      "id": "tissue_params",
+      "name": "Tissue Parameters File",
+      "command-line-flag": "-flash"
+    },
+    {
+      "description": "Path to the normalized T1 volume.",
+      "value-key": "[NORM_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "norm_volume",
+      "name": "Normalized Volume File"
+    },
+    {
+      "description": "Talairach linear transform file.",
+      "value-key": "[TRANSFORM_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "transform_file",
+      "name": "Transform File"
+    },
+    {
+      "description": "Path to the classifier array in GCA format.",
+      "value-key": "[CLASSIFIER_ARRAY]",
+      "type": "File",
+      "optional": false,
+      "id": "classifier_array",
+      "name": "Classifier Array File"
+    },
+    {
+      "description": "Output path for the automatic segmentation (aseg) file.",
+      "value-key": "[ASEG_OUTPUT]",
+      "type": "String",
+      "optional": false,
+      "id": "aseg_output",
+      "name": "Aseg Output"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[ASEG_OUTPUT]",
+      "description": "Automatic segmentation (aseg) output file",
+      "id": "aseg_outfile",
+      "name": "Aseg Output File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

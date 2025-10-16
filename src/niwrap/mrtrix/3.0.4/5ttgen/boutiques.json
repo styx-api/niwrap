@@ -1,0 +1,359 @@
+{
+  "name": "5ttgen",
+  "description": "Generate a 5TT image suitable for ACT.\n\n5ttgen acts as a 'master' script for generating a five-tissue-type (5TT) segmented tissue image suitable for use in Anatomically-Constrained Tractography (ACT). A range of different algorithms are available for completing this task. When using this script, the name of the algorithm to be used must appear as the first argument on the command-line after '5ttgen'. The subsequent compulsory arguments and options available depend on the particular algorithm being invoked.\nEach algorithm available also has its own help page, including necessary references; e.g. to see the help page of the 'fsl' algorithm, type '5ttgen fsl'.",
+  "author": "MRTrix3 Developers",
+  "schema-version": "0.5+styx",
+  "command-line": "5ttgen [ALGORITHM] [NOCROP] [SGM_AMYG_HIPP] [OPTIONS_NOCLEANUP] [OPTIONS_SCRATCH] [OPTIONS_CONTINUE] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION]",
+  "inputs": [
+    {
+      "id": "algorithm",
+      "name": "algorithm",
+      "value-key": "[ALGORITHM]",
+      "description": "Select the algorithm to be used to complete the script operation; additional details and options become available once an algorithm is nominated. Options are: freesurfer, fsl, gif, hsvs",
+      "type": [
+        {
+          "id": "freesurfer",
+          "name": "freesurfer",
+          "description": "Generate the 5TT image based on a FreeSurfer parcellation image",
+          "command-line": "freesurfer [INPUT] [OUTPUT] [OPTIONS_LUT]",
+          "inputs": [
+            {
+              "id": "input",
+              "name": "input",
+              "value-key": "[INPUT]",
+              "description": "The input FreeSurfer parcellation image (any image containing 'aseg' in its name)",
+              "type": "File",
+              "optional": false
+            },
+            {
+              "id": "output",
+              "name": "output",
+              "value-key": "[OUTPUT]",
+              "description": "The output 5TT image",
+              "type": "String",
+              "optional": false
+            },
+            {
+              "id": "lut",
+              "name": "lut",
+              "command-line-flag": "-lut",
+              "value-key": "[OPTIONS_LUT]",
+              "description": "Manually provide path to the lookup table on which the input parcellation image is based (e.g. FreeSurferColorLUT.txt)",
+              "type": "File",
+              "optional": true
+            }
+          ],
+          "output-files": [
+            {
+              "id": "output",
+              "name": "output",
+              "path-template": "[OUTPUT]",
+              "description": "The output 5TT image"
+            }
+          ]
+        },
+        {
+          "id": "fsl",
+          "name": "fsl",
+          "description": "Use FSL commands to generate the 5TT image based on a T1-weighted image",
+          "command-line": "fsl [INPUT] [OUTPUT] [OPTIONS_T2] [OPTIONS_MASK] [OPTIONS_PREMASKED]",
+          "inputs": [
+            {
+              "id": "input",
+              "name": "input",
+              "value-key": "[INPUT]",
+              "description": "The input T1-weighted image",
+              "type": "File",
+              "optional": false
+            },
+            {
+              "id": "output",
+              "name": "output",
+              "value-key": "[OUTPUT]",
+              "description": "The output 5TT image",
+              "type": "String",
+              "optional": false
+            },
+            {
+              "id": "t2",
+              "name": "t2",
+              "command-line-flag": "-t2",
+              "value-key": "[OPTIONS_T2]",
+              "description": "Provide a T2-weighted image in addition to the default T1-weighted image; this will be used as a second input to FSL FAST",
+              "type": "File",
+              "optional": true
+            },
+            {
+              "id": "mask",
+              "name": "mask",
+              "command-line-flag": "-mask",
+              "value-key": "[OPTIONS_MASK]",
+              "description": "Manually provide a brain mask, rather than deriving one in the script",
+              "type": "File",
+              "optional": true
+            },
+            {
+              "id": "premasked",
+              "name": "premasked",
+              "command-line-flag": "-premasked",
+              "value-key": "[OPTIONS_PREMASKED]",
+              "description": "Indicate that brain masking has already been applied to the input image",
+              "type": "Flag"
+            }
+          ],
+          "output-files": [
+            {
+              "id": "output",
+              "name": "output",
+              "path-template": "[OUTPUT]",
+              "description": "The output 5TT image"
+            }
+          ]
+        },
+        {
+          "id": "gif",
+          "name": "gif",
+          "description": "Generate the 5TT image based on a Geodesic Information Flow (GIF) segmentation image",
+          "command-line": "gif [INPUT] [OUTPUT]",
+          "inputs": [
+            {
+              "id": "input",
+              "name": "input",
+              "value-key": "[INPUT]",
+              "description": "The input Geodesic Information Flow (GIF) segmentation image",
+              "type": "File",
+              "optional": false
+            },
+            {
+              "id": "output",
+              "name": "output",
+              "value-key": "[OUTPUT]",
+              "description": "The output 5TT image",
+              "type": "String",
+              "optional": false
+            }
+          ],
+          "output-files": [
+            {
+              "id": "output",
+              "name": "output",
+              "path-template": "[OUTPUT]",
+              "description": "The output 5TT image"
+            }
+          ]
+        },
+        {
+          "id": "hsvs",
+          "name": "hsvs",
+          "description": "Generate a 5TT image based on Hybrid Surface and Volume Segmentation (HSVS), using FreeSurfer and FSL tools",
+          "command-line": "hsvs [INPUT] [OUTPUT] [OPTIONS_TEMPLATE] [OPTIONS_HIPPOCAMPI] [OPTIONS_THALAMI] [OPTIONS_WHITE_STEM]",
+          "inputs": [
+            {
+              "id": "input",
+              "name": "input",
+              "value-key": "[INPUT]",
+              "description": "The input FreeSurfer subject directory",
+              "type": "File",
+              "optional": false
+            },
+            {
+              "id": "output",
+              "name": "output",
+              "value-key": "[OUTPUT]",
+              "description": "The output 5TT image",
+              "type": "String",
+              "optional": false
+            },
+            {
+              "id": "template",
+              "name": "template",
+              "command-line-flag": "-template",
+              "value-key": "[OPTIONS_TEMPLATE]",
+              "description": "Provide an image that will form the template for the generated 5TT image",
+              "type": "File",
+              "optional": true
+            },
+            {
+              "id": "hippocampi",
+              "name": "hippocampi",
+              "command-line-flag": "-hippocampi",
+              "value-key": "[OPTIONS_HIPPOCAMPI]",
+              "description": "Select method to be used for hippocampi (& amygdalae) segmentation; options are: subfields,first,aseg",
+              "value-choices": [
+                "subfields",
+                "first",
+                "aseg"
+              ],
+              "type": "String",
+              "optional": true
+            },
+            {
+              "id": "thalami",
+              "name": "thalami",
+              "command-line-flag": "-thalami",
+              "value-key": "[OPTIONS_THALAMI]",
+              "description": "Select method to be used for thalamic segmentation; options are: nuclei,first,aseg",
+              "value-choices": [
+                "nuclei",
+                "first",
+                "aseg"
+              ],
+              "type": "String",
+              "optional": true
+            },
+            {
+              "id": "white_stem",
+              "name": "white_stem",
+              "command-line-flag": "-white_stem",
+              "value-key": "[OPTIONS_WHITE_STEM]",
+              "description": "Classify the brainstem as white matter",
+              "type": "Flag"
+            }
+          ],
+          "output-files": [
+            {
+              "id": "output",
+              "name": "output",
+              "path-template": "[OUTPUT]",
+              "description": "The output 5TT image"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nocrop",
+      "name": "nocrop",
+      "value-key": "[NOCROP]",
+      "command-line-flag": "-nocrop",
+      "description": "Do NOT crop the resulting 5TT image to reduce its size (keep the same dimensions as the input image)",
+      "type": "Flag"
+    },
+    {
+      "id": "sgm_amyg_hipp",
+      "name": "sgm_amyg_hipp",
+      "command-line-flag": "-sgm_amyg_hipp",
+      "value-key": "[SGM_AMYG_HIPP]",
+      "description": "Represent the amygdalae and hippocampi as sub-cortical grey matter in the 5TT image",
+      "type": "Flag"
+    },
+    {
+      "id": "nocleanup",
+      "name": "nocleanup",
+      "command-line-flag": "-nocleanup",
+      "value-key": "[OPTIONS_NOCLEANUP]",
+      "description": "do not delete intermediate files during script execution, and do not delete scratch directory at script completion.",
+      "type": "Flag"
+    },
+    {
+      "id": "scratch",
+      "name": "scratch",
+      "command-line-flag": "-scratch",
+      "value-key": "[OPTIONS_SCRATCH]",
+      "description": "manually specify the path in which to generate the scratch directory.",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "continue",
+      "name": "continue",
+      "command-line-flag": "-continue",
+      "value-key": "[OPTIONS_CONTINUE]",
+      "description": "continue the script from a previous execution; must provide the scratch directory path, and the name of the last successfully-generated file.",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "info",
+      "name": "info",
+      "command-line-flag": "-info",
+      "value-key": "[__STANDARD_OPTIONS_INFO]",
+      "description": "display information messages.",
+      "type": "Flag"
+    },
+    {
+      "id": "quiet",
+      "name": "quiet",
+      "command-line-flag": "-quiet",
+      "value-key": "[__STANDARD_OPTIONS_QUIET]",
+      "description": "do not display information messages or progress status; alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string.",
+      "type": "Flag"
+    },
+    {
+      "id": "debug",
+      "name": "debug",
+      "command-line-flag": "-debug",
+      "value-key": "[__STANDARD_OPTIONS_DEBUG]",
+      "description": "display debugging messages.",
+      "type": "Flag"
+    },
+    {
+      "id": "force",
+      "name": "force",
+      "command-line-flag": "-force",
+      "value-key": "[__STANDARD_OPTIONS_FORCE]",
+      "description": "force overwrite of output files (caution: using the same file as input and output might cause unexpected behaviour).",
+      "type": "Flag"
+    },
+    {
+      "id": "nthreads",
+      "name": "nthreads",
+      "command-line-flag": "-nthreads",
+      "value-key": "[__STANDARD_OPTIONS_NTHREADS]",
+      "description": "use this number of threads in multi-threaded applications (set to 0 to disable multi-threading).",
+      "type": "Number",
+      "optional": true,
+      "integer": true
+    },
+    {
+      "id": "config",
+      "name": "config",
+      "value-key": "[__STANDARD_OPTIONS_CONFIG]",
+      "description": "temporarily set the value of an MRtrix config file entry.",
+      "type": {
+        "id": "config",
+        "name": "config",
+        "description": "temporarily set the value of an MRtrix config file entry.",
+        "command-line": "-config [KEY] [VALUE]",
+        "inputs": [
+          {
+            "id": "key",
+            "name": "key",
+            "value-key": "[KEY]",
+            "description": "temporarily set the value of an MRtrix config file entry.",
+            "type": "String",
+            "optional": false
+          },
+          {
+            "id": "value",
+            "name": "value",
+            "value-key": "[VALUE]",
+            "description": "temporarily set the value of an MRtrix config file entry.",
+            "type": "String",
+            "optional": false
+          }
+        ],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "help",
+      "name": "help",
+      "command-line-flag": "-help",
+      "value-key": "[__STANDARD_OPTIONS_HELP]",
+      "description": "display this information page and exit.",
+      "type": "Flag"
+    },
+    {
+      "id": "version",
+      "name": "version",
+      "command-line-flag": "-version",
+      "value-key": "[__STANDARD_OPTIONS_VERSION]",
+      "description": "display version information and exit.",
+      "type": "Flag"
+    }
+  ],
+  "url": "https://www.mrtrix.org/"
+}

@@ -1,0 +1,201 @@
+{
+  "name": "gen_ss_review_scripts.py",
+  "author": "AFNI Developers",
+  "description": "Generate single subject analysis review scripts",
+  "command-line": "gen_ss_review_scripts.py [SUBJECT_ID] [RM_TRS] [NUM_STIM] [MB_LEVEL] [SLICE_PATTERN] [MOTION_DSET] [OUTLIER_DSET] [ENORM_DSET] [MOT_LIMIT] [OUT_LIMIT] [XMAT_REGRESS] [XMAT_UNCENSORED] [STATS_DSET] [FINAL_ANAT] [FINAL_VIEW] [PREFIX] [VERBOSITY] [UVARS_JSON] [INIT_UVARS_JSON]",
+  "inputs": [
+    {
+      "description": "Subject ID",
+      "value-key": "[SUBJECT_ID]",
+      "command-line-flag": "-subj",
+      "type": "String",
+      "optional": true,
+      "id": "subject_id",
+      "name": "Subject ID"
+    },
+    {
+      "description": "Number of TRs removed per run",
+      "value-key": "[RM_TRS]",
+      "command-line-flag": "-rm_trs",
+      "type": "Number",
+      "optional": true,
+      "id": "rm_trs",
+      "name": "Number of TRs removed"
+    },
+    {
+      "description": "Number of main stimulus classes",
+      "value-key": "[NUM_STIM]",
+      "command-line-flag": "-num_stim",
+      "type": "Number",
+      "optional": true,
+      "id": "num_stim",
+      "name": "Number of stimuli"
+    },
+    {
+      "description": "Multiband slice acquisition level (>= 1)",
+      "value-key": "[MB_LEVEL]",
+      "command-line-flag": "-mb_level",
+      "type": "Number",
+      "optional": true,
+      "id": "mb_level",
+      "name": "Multiband level"
+    },
+    {
+      "description": "Slice timing pattern",
+      "value-key": "[SLICE_PATTERN]",
+      "command-line-flag": "-slice_pattern",
+      "type": "String",
+      "optional": true,
+      "id": "slice_pattern",
+      "name": "Slice timing pattern"
+    },
+    {
+      "description": "Motion parameters dataset",
+      "value-key": "[MOTION_DSET]",
+      "command-line-flag": "-motion_dset",
+      "type": "File",
+      "optional": true,
+      "id": "motion_dset",
+      "name": "Motion dataset"
+    },
+    {
+      "description": "Outlier fraction time series dataset",
+      "value-key": "[OUTLIER_DSET]",
+      "command-line-flag": "-outlier_dset",
+      "type": "File",
+      "optional": true,
+      "id": "outlier_dset",
+      "name": "Outlier fraction dataset"
+    },
+    {
+      "description": "Euclidean norm of motion parameters dataset",
+      "value-key": "[ENORM_DSET]",
+      "command-line-flag": "-enorm_dset",
+      "type": "File",
+      "optional": true,
+      "id": "enorm_dset",
+      "name": "Enorm dataset"
+    },
+    {
+      "description": "Motion limit",
+      "value-key": "[MOT_LIMIT]",
+      "command-line-flag": "-mot_limit",
+      "type": "Number",
+      "optional": true,
+      "id": "mot_limit",
+      "name": "Motion limit"
+    },
+    {
+      "description": "Outlier fraction limit",
+      "value-key": "[OUT_LIMIT]",
+      "command-line-flag": "-out_limit",
+      "type": "Number",
+      "optional": true,
+      "id": "out_limit",
+      "name": "Outlier limit"
+    },
+    {
+      "description": "X-matrix file used in regression",
+      "value-key": "[XMAT_REGRESS]",
+      "command-line-flag": "-xmat_regress",
+      "type": "File",
+      "optional": true,
+      "id": "xmat_regress",
+      "name": "X matrix file"
+    },
+    {
+      "description": "Un-censored X-matrix file",
+      "value-key": "[XMAT_UNCENSORED]",
+      "command-line-flag": "-xmat_uncensored",
+      "type": "File",
+      "optional": true,
+      "id": "xmat_uncensored",
+      "name": "Uncensored X matrix file"
+    },
+    {
+      "description": "Output from 3dDeconvolve",
+      "value-key": "[STATS_DSET]",
+      "command-line-flag": "-stats_dset",
+      "type": "File",
+      "optional": true,
+      "id": "stats_dset",
+      "name": "Stats dataset"
+    },
+    {
+      "description": "Final anatomical dataset",
+      "value-key": "[FINAL_ANAT]",
+      "command-line-flag": "-final_anat",
+      "type": "File",
+      "optional": true,
+      "id": "final_anat",
+      "name": "Final anatomical dataset"
+    },
+    {
+      "description": "Final view of data (e.g. 'orig' or 'tlrc')",
+      "value-key": "[FINAL_VIEW]",
+      "command-line-flag": "-final_view",
+      "type": "String",
+      "optional": true,
+      "id": "final_view",
+      "name": "Final view"
+    },
+    {
+      "description": "Set the prefix for script names",
+      "value-key": "[PREFIX]",
+      "command-line-flag": "-prefix",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Output prefix"
+    },
+    {
+      "description": "Set the verbosity level",
+      "value-key": "[VERBOSITY]",
+      "command-line-flag": "-verb",
+      "type": "Number",
+      "optional": true,
+      "id": "verbosity",
+      "name": "Verbosity level"
+    },
+    {
+      "description": "Write JSON file of user variables dict",
+      "value-key": "[UVARS_JSON]",
+      "command-line-flag": "-write_uvars_json",
+      "type": "File",
+      "optional": true,
+      "id": "uvars_json",
+      "name": "Uvars JSON file"
+    },
+    {
+      "description": "Initialize user variables from the given JSON file",
+      "value-key": "[INIT_UVARS_JSON]",
+      "command-line-flag": "-init_uvars_json",
+      "type": "File",
+      "optional": true,
+      "id": "init_uvars_json",
+      "name": "Initialize uvars JSON file"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "./@ss_review_basic",
+      "description": "Basic review script output",
+      "id": "basic_review",
+      "name": "Basic review script output"
+    },
+    {
+      "path-template": "./@ss_review_driver",
+      "description": "Driver review script output",
+      "id": "driver_review",
+      "name": "Driver review script output"
+    },
+    {
+      "path-template": "./@ss_review_driver_commands",
+      "description": "Driver commands script output",
+      "id": "driver_commands",
+      "name": "Driver commands script output"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

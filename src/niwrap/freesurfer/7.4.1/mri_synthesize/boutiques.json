@@ -1,0 +1,74 @@
+{
+  "name": "mri_synthesize",
+  "author": "FreeSurfer Developers",
+  "description": "This program synthesizes a FLASH acquisition based on previously computed T1/PD maps.",
+  "command-line": "mri_synthesize [TR] [ALPHA] [TE] [T1_VOLUME] [PD_VOLUME] [OUTPUT_VOLUME] [FIXED_WEIGHT]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Repetition time (TR) for the synthesis.",
+      "value-key": "[TR]",
+      "type": "Number",
+      "optional": false,
+      "id": "tr",
+      "name": "TR"
+    },
+    {
+      "description": "Flip angle (alpha) in degrees.",
+      "value-key": "[ALPHA]",
+      "type": "Number",
+      "optional": false,
+      "id": "alpha",
+      "name": "Alpha (degrees)"
+    },
+    {
+      "description": "Echo time (TE) for the synthesis.",
+      "value-key": "[TE]",
+      "type": "Number",
+      "optional": false,
+      "id": "te",
+      "name": "TE"
+    },
+    {
+      "description": "Path to the T1 volume.",
+      "value-key": "[T1_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "t1_volume",
+      "name": "T1 Volume"
+    },
+    {
+      "description": "Path to the PD volume.",
+      "value-key": "[PD_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "pd_volume",
+      "name": "PD Volume"
+    },
+    {
+      "description": "Path for the output volume.",
+      "value-key": "[OUTPUT_VOLUME]",
+      "type": "String",
+      "optional": false,
+      "id": "output_volume",
+      "name": "Output Volume"
+    },
+    {
+      "command-line-flag": "-w",
+      "description": "Use a fixed weighting to generate an output volume with optimal gray/white contrast.",
+      "value-key": "[FIXED_WEIGHT]",
+      "type": "Flag",
+      "id": "fixed_weight",
+      "name": "Fixed Weight Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_VOLUME]",
+      "description": "The synthesized FLASH acquisition output volume.",
+      "id": "synthesized_output",
+      "name": "Synthesized Output Volume"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

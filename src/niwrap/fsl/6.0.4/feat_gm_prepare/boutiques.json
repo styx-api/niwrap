@@ -1,0 +1,27 @@
+{
+  "name": "feat_gm_prepare",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Prepare 4D grey matter files for higher-level analysis in FEAT.",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "feat_gm_prepare [GM_OUTPUT] [FEAT_DIRS_LIST]",
+  "inputs": [
+    {
+      "description": "4D grey matter output file",
+      "value-key": "[GM_OUTPUT]",
+      "type": "String",
+      "optional": false,
+      "id": "gm_output",
+      "name": "4D-GM-output"
+    },
+    {
+      "description": "List of first-level FEAT output directories",
+      "value-key": "[FEAT_DIRS_LIST]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "feat_dirs_list",
+      "name": "List of FEAT output directories"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

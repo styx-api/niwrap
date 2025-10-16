@@ -1,0 +1,42 @@
+{
+  "name": "surface-set-coordinates",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -surface-set-coordinates [SURFACE_IN] [COORD_METRIC] [SURFACE_OUT]",
+  "description": "Modify coordinates of a surface.\n\nTakes the topology from an existing surface file, and uses values from a metric file as coordinates to construct a new surface file.\n\nSee -surface-coordinates-to-metric for how to get surface coordinates as a metric file, such that you can then modify them via metric commands, etc.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "surface_in",
+      "name": "surface_in",
+      "description": "the surface to use for the topology",
+      "optional": false,
+      "value-key": "[SURFACE_IN]",
+      "type": "File"
+    },
+    {
+      "id": "coord_metric",
+      "name": "coord_metric",
+      "description": "the new coordinates, as a 3-column metric file",
+      "optional": false,
+      "value-key": "[COORD_METRIC]",
+      "type": "File"
+    },
+    {
+      "id": "surface_out",
+      "name": "surface_out",
+      "type": "String",
+      "description": "the new surface",
+      "optional": false,
+      "value-key": "[SURFACE_OUT]"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "surface_out",
+      "name": "surface_out",
+      "path-template": "[SURFACE_OUT]",
+      "description": "the new surface"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

@@ -1,0 +1,50 @@
+{
+  "name": "3dZcutup",
+  "author": "AFNI Developers",
+  "description": "Cut slices off a dataset in its z-direction and write a new dataset",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dZcutup [KEEP_SLICES] [PREFIX] [DATASET]",
+  "inputs": [
+    {
+      "description": "The input dataset (e.g., epi07+orig). You can use a sub-brick selector on the input dataset.",
+      "value-key": "[DATASET]",
+      "type": "File",
+      "optional": false,
+      "id": "dataset",
+      "name": "Input Dataset"
+    },
+    {
+      "command-line-flag": "-keep",
+      "description": "Keep slices numbered 'b' through 't', inclusive. This is a mandatory option. Slice numbers start at 0.",
+      "value-key": "[KEEP_SLICES]",
+      "type": "String",
+      "optional": false,
+      "id": "keep_slices",
+      "name": "Keep Slices"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Write result into dataset with the given prefix [default = 'zcutup']",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Output Prefix"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX]+orig.HEAD",
+      "description": "The output dataset HEAD file",
+      "id": "output_head",
+      "name": "Output HEAD File"
+    },
+    {
+      "path-template": "[PREFIX]+orig.BRIK",
+      "description": "The output dataset BRIK file",
+      "id": "output_brik",
+      "name": "Output BRIK File"
+    }
+  ]
+}

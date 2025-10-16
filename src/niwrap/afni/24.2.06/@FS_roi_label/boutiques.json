@@ -1,0 +1,90 @@
+{
+  "name": "@FS_roi_label",
+  "author": "AFNI Developers",
+  "description": "Tool to get labels associated with FreeSurfer's parcellation and annotation files.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "@FS_roi_label [LABEL_INT] [LAB_FLAG] [RANK_INT] [RANKMAP_FILE] [NAME] [LABELTABLE_FILE] [SURF_ANNOT_CMAP] [SLAB_INT] [SNAME_NAME]",
+  "inputs": [
+    {
+      "description": "Integer labeled area in FreeSurfer's parcellation.",
+      "value-key": "[LABEL_INT]",
+      "type": "Number",
+      "optional": true,
+      "id": "label_int",
+      "name": "Label integer"
+    },
+    {
+      "command-line-flag": "-lab",
+      "description": "Return the name of an integer labeled area in FreeSurfer's parcellation.",
+      "value-key": "[LAB_FLAG]",
+      "type": "Number",
+      "optional": true,
+      "id": "lab_flag",
+      "name": "Label flag"
+    },
+    {
+      "command-line-flag": "-rank",
+      "description": "Return the name of ranked integer labeled area from the output of 3dRank or 3dmerge -1rank.",
+      "value-key": "[RANK_INT]",
+      "type": "Number",
+      "optional": true,
+      "id": "rank_int",
+      "name": "Rank integer"
+    },
+    {
+      "command-line-flag": "-rankmap",
+      "description": "Path to the rank map file.",
+      "value-key": "[RANKMAP_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "rankmap_file",
+      "name": "Rank map file"
+    },
+    {
+      "command-line-flag": "-name",
+      "description": "Return entries matching NAME (case insensitive, partial match) from FreeSurfer's FreeSurferColorLUT.txt.",
+      "value-key": "[NAME]",
+      "type": "String",
+      "optional": true,
+      "id": "name",
+      "name": "Name"
+    },
+    {
+      "command-line-flag": "-labeltable",
+      "description": "Path to the label table file.",
+      "value-key": "[LABELTABLE_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "labeltable_file",
+      "name": "Label table file"
+    },
+    {
+      "command-line-flag": "-surf_annot_cmap",
+      "description": "CMAP file output by FSread_annot's -roi_1D option.",
+      "value-key": "[SURF_ANNOT_CMAP]",
+      "type": "File",
+      "optional": true,
+      "id": "surf_annot_cmap",
+      "name": "Surface annotation CMAP"
+    },
+    {
+      "command-line-flag": "-slab",
+      "description": "Return the name of an integer labeled area in FreeSurfer's surface-based annotation.",
+      "value-key": "[SLAB_INT]",
+      "type": "Number",
+      "optional": true,
+      "id": "slab_int",
+      "name": "Surface label integer"
+    },
+    {
+      "command-line-flag": "-sname",
+      "description": "Return the entries matching NAME (case insensitive, partial match) from the CMAP file.",
+      "value-key": "[SNAME_NAME]",
+      "type": "String",
+      "optional": true,
+      "id": "sname_name",
+      "name": "Surface name"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

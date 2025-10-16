@@ -1,0 +1,104 @@
+{
+  "name": "mri_motion_correct2",
+  "author": "FreeSurfer Developers",
+  "description": "Aligns and averages two or more volumes using minctracc for alignment and mincresample and mincaverage for resampling.",
+  "command-line": "mri_motion_correct2 [OUTPUT_SPEC] [INPUT_FILES] [TARGET] [WILD] [TMP_DIR] [NOCLEANUP] [UMASK] [CM] [VERSION] [DEBUG]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "-o",
+      "description": "Output file or directory (for COR format)",
+      "value-key": "[OUTPUT_SPEC]",
+      "type": "String",
+      "optional": false,
+      "id": "output_spec",
+      "name": "Output Specification"
+    },
+    {
+      "command-line-flag": "-i",
+      "description": "Input volume files, specified multiple times for multiple files",
+      "value-key": "[INPUT_FILES]",
+      "type": "File",
+      "optional": false,
+      "list": true,
+      "id": "input_files",
+      "name": "Input Files"
+    },
+    {
+      "command-line-flag": "-t",
+      "description": "Use the specified target instead of the first input file",
+      "value-key": "[TARGET]",
+      "type": "File",
+      "optional": true,
+      "id": "target",
+      "name": "Target File"
+    },
+    {
+      "command-line-flag": "-wild",
+      "description": "Assume unmatched arguments are input files",
+      "value-key": "[WILD]",
+      "type": "Flag",
+      "id": "wild",
+      "name": "Wild Flag"
+    },
+    {
+      "command-line-flag": "-tmpdir",
+      "description": "Directory for temporary files",
+      "value-key": "[TMP_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "tmp_dir",
+      "name": "Temporary Directory"
+    },
+    {
+      "command-line-flag": "-nocleanup",
+      "description": "Do not delete temporary files",
+      "value-key": "[NOCLEANUP]",
+      "type": "Flag",
+      "id": "nocleanup",
+      "name": "No Cleanup Flag"
+    },
+    {
+      "command-line-flag": "-umask",
+      "description": "Set UNIX file permission mask",
+      "value-key": "[UMASK]",
+      "type": "String",
+      "optional": true,
+      "id": "umask",
+      "name": "UMask"
+    },
+    {
+      "command-line-flag": "-cm",
+      "description": "Make COR volumes conform to minimum voxel size",
+      "value-key": "[CM]",
+      "type": "Flag",
+      "id": "cm",
+      "name": "Conform to Min Voxel Size Flag"
+    },
+    {
+      "command-line-flag": "-version",
+      "description": "Print version information and exit",
+      "value-key": "[VERSION]",
+      "type": "Flag",
+      "id": "version",
+      "name": "Version Flag"
+    },
+    {
+      "command-line-flag": "-debug",
+      "description": "Print detailed debug information to screen",
+      "value-key": "[DEBUG]",
+      "type": "Flag",
+      "id": "debug",
+      "name": "Debug Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_SPEC]",
+      "description": "The aligned and averaged output file or directory",
+      "id": "output_file",
+      "name": "Output File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

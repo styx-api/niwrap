@@ -1,0 +1,77 @@
+{
+  "name": "mris_compute_overlap",
+  "description": "Tool to compute the overlap between two or more labels on a cortical surface.",
+  "command-line": "mris_compute_overlap [SUBJECT] [HEMI] [SURFACE] [ANNOTATION] [LABELS] [PERCENTAGE] [LOG_FILE] [BRAIN_VOLUME]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Subject name",
+      "value-key": "[SUBJECT]",
+      "type": "String",
+      "optional": false,
+      "id": "subject",
+      "name": "Subject Name"
+    },
+    {
+      "description": "Hemisphere (e.g. lh or rh)",
+      "value-key": "[HEMI]",
+      "type": "String",
+      "optional": false,
+      "id": "hemi",
+      "name": "Hemisphere"
+    },
+    {
+      "description": "Surface name",
+      "value-key": "[SURFACE]",
+      "type": "String",
+      "optional": false,
+      "id": "surface",
+      "name": "Surface Name"
+    },
+    {
+      "description": "Annotation name",
+      "value-key": "[ANNOTATION]",
+      "type": "String",
+      "optional": false,
+      "id": "annotation",
+      "name": "Annotation Name"
+    },
+    {
+      "description": "Labels to compute overlap for",
+      "value-key": "[LABELS]",
+      "type": "String",
+      "list": true,
+      "optional": false,
+      "id": "labels",
+      "name": "Labels"
+    },
+    {
+      "command-line-flag": "-p",
+      "description": "Compute brain area as a percentage of all brain labels",
+      "value-key": "[PERCENTAGE]",
+      "type": "Flag",
+      "id": "percentage",
+      "name": "Percentage Flag"
+    },
+    {
+      "command-line-flag": "-l",
+      "description": "Log results to file, where %d will include label number",
+      "value-key": "[LOG_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "log_file",
+      "name": "Log File"
+    },
+    {
+      "command-line-flag": "-b",
+      "description": "Load brain volume and use it to normalize areas",
+      "value-key": "[BRAIN_VOLUME]",
+      "type": "File",
+      "optional": true,
+      "id": "brain_volume",
+      "name": "Brain Volume"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

@@ -1,0 +1,28 @@
+{
+  "name": "1dAstrip",
+  "author": "AFNI Developers",
+  "description": "Strips non-numeric characters from a file",
+  "command-line": "1dAstrip [INFILE]",
+  "inputs": [
+    {
+      "description": "Input file from which non-numeric characters will be stripped.",
+      "value-key": "[INFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "infile",
+      "name": "Input File",
+      "command-line-flag": "<",
+      "command-line-flag-separator": " "
+    }
+  ],
+  "output-files": [
+    {
+      "description": "Output file with only numeric characters.",
+      "path-template": "[OUTPUT_FILE]",
+      "id": "outfile",
+      "name": "Output File"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

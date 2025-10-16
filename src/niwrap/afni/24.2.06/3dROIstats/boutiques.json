@@ -1,0 +1,133 @@
+{
+  "name": "3dROIstats",
+  "command-line": "3dROIstats [IN_FILE] [MASK] [DEBUG] [FORMAT1D] [FORMAT1DR] [MASK_F2SHORT] [MASK_FILE] [NOBRIKLAB] [NOMEANOUT] [NUM_ROI] [QUIET] [ROISEL] [STAT] [ZEROFILL]",
+  "author": "AFNI Developers",
+  "description": "Display statistics over masked regions",
+  "url": "https://afni.nimh.nih.gov/",
+  "inputs": [
+    {
+      "id": "debug",
+      "name": "Debug",
+      "type": "Flag",
+      "value-key": "[DEBUG]",
+      "command-line-flag": "-debug",
+      "description": "Print debug information."
+    },
+    {
+      "id": "format1D",
+      "name": "Format1d",
+      "type": "Flag",
+      "value-key": "[FORMAT1D]",
+      "command-line-flag": "-1Dformat",
+      "description": "Output results in a 1d format that includes commented labels."
+    },
+    {
+      "id": "format1DR",
+      "name": "Format1dr",
+      "type": "Flag",
+      "value-key": "[FORMAT1DR]",
+      "command-line-flag": "-1DRformat",
+      "description": "Output results in a 1d format that includes uncommented labels. may not work optimally with typical 1d functions, but is useful for r functions."
+    },
+    {
+      "id": "in_file",
+      "name": "In file",
+      "type": "File",
+      "value-key": "[IN_FILE]",
+      "description": "Input dataset.",
+      "optional": false
+    },
+    {
+      "id": "mask",
+      "name": "Mask",
+      "type": "File",
+      "value-key": "[MASK]",
+      "command-line-flag": "-mask",
+      "description": "Input mask.",
+      "optional": true
+    },
+    {
+      "id": "mask_f2short",
+      "name": "Mask f2short",
+      "type": "Flag",
+      "value-key": "[MASK_F2SHORT]",
+      "command-line-flag": "-mask_f2short",
+      "description": "Tells the program to convert a float mask to short integers, by simple rounding."
+    },
+    {
+      "id": "mask_file",
+      "name": "Mask file",
+      "type": "File",
+      "value-key": "[MASK_FILE]",
+      "command-line-flag": "-mask",
+      "description": "Input mask.",
+      "optional": true
+    },
+    {
+      "id": "nobriklab",
+      "name": "Nobriklab",
+      "type": "Flag",
+      "value-key": "[NOBRIKLAB]",
+      "command-line-flag": "-nobriklab",
+      "description": "Do not print the sub-brick label next to its index."
+    },
+    {
+      "id": "nomeanout",
+      "name": "Nomeanout",
+      "type": "Flag",
+      "value-key": "[NOMEANOUT]",
+      "command-line-flag": "-nomeanout",
+      "description": "Do not include the (zero-inclusive) mean among computed stats."
+    },
+    {
+      "id": "num_roi",
+      "name": "Num roi",
+      "type": "Number",
+      "integer": true,
+      "value-key": "[NUM_ROI]",
+      "command-line-flag": "-numroi",
+      "description": "Forces the assumption that the mask dataset's rois are denoted by 1 to n inclusive.  normally, the program figures out the rois on its own.  this option is useful if a) you are certain that the mask dataset has no values outside the range [0 n], b) there may be some rois missing between [1 n] in the mask data-set and c) you want those columns in the output any-way so the output lines up with the output from other invocations of 3droistats.",
+      "optional": true
+    },
+    {
+      "id": "quiet",
+      "name": "Quiet",
+      "type": "Flag",
+      "value-key": "[QUIET]",
+      "command-line-flag": "-quiet",
+      "description": "Execute quietly."
+    },
+    {
+      "id": "roisel",
+      "name": "Roisel",
+      "type": "File",
+      "value-key": "[ROISEL]",
+      "command-line-flag": "-roisel",
+      "description": "Only considers rois denoted by values found in the specified file. note that the order of the rois as specified in the file is not preserved. so an sel.1d of '2 8 20' produces the same output as '8 20 2'.",
+      "optional": true
+    },
+    {
+      "id": "stat",
+      "name": "Stat",
+      "type": "File",
+      "list": true,
+      "value-key": "[STAT]",
+      "description": "A list of items which are 'mean' or 'sum' or 'voxels' or 'minmax' or 'sigma' or 'median' or 'mode' or 'summary' or 'zerominmax' or 'zerosigma' or 'zeromedian' or 'zeromode'. Statistics to compute. options include: * mean       =   compute the mean using only non_zero voxels.                  implies the opposite for the mean computed                  by default. * median     =   compute the median of nonzero voxels * mode       =   compute the mode of nonzero voxels.                  (integral valued sets only) * minmax     =   compute the min/max of nonzero voxels * sum        =   compute the sum using only nonzero voxels. * voxels     =   compute the number of nonzero voxels * sigma      =   compute the standard deviation of nonzero                  voxelsstatistics that include zero-valued voxels: * zerominmax =   compute the min/max of all voxels. * zerosigma  =   compute the standard deviation of all                  voxels. * zeromedian =   compute the median of all voxels. * zeromode   =   compute the mode of all voxels. * summary    =   only output a summary line with the grand                  mean across all briks in the input dataset.                  this option cannot be used with nomeanout.more that one option can be specified.",
+      "optional": true
+    },
+    {
+      "id": "zerofill",
+      "name": "Zerofill",
+      "type": "String",
+      "value-key": "[ZEROFILL]",
+      "command-line-flag": "-zerofill",
+      "description": "For roi labels not found, use the provided string instead of a '0' in the output file. only active if `num_roi` is enabled.",
+      "optional": true
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "stdout-output": {
+    "id": "stats",
+    "description": "There will be one line of output for every sub-brick of every input dataset. Across each line will be every statistic for every mask value. For instance, if there 3 mask values (1,2,3), then the columns Mean_1, Mean_2 and Mean_3 will refer to the means across each mask value, respectively. If 4 statistics are requested, then there will be 12 stats displayed on each line (4 for each mask region), besides the file and sub-brick number."
+  }
+}

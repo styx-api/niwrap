@@ -1,0 +1,58 @@
+{
+  "name": "imstat",
+  "author": "AFNI Developers",
+  "description": "Calculation of statistics of one or more images",
+  "command-line": "imstat [NO_LABEL] [QUIET] [PIXSTAT_PREFIX] [IMAGE_FILES]",
+  "inputs": [
+    {
+      "command-line-flag": "-nolabel",
+      "description": "Don't write labels on each file's summary line",
+      "value-key": "[NO_LABEL]",
+      "type": "Flag",
+      "id": "no_label",
+      "name": "No Label Flag"
+    },
+    {
+      "command-line-flag": "-quiet",
+      "description": "Don't print statistics for each file",
+      "value-key": "[QUIET]",
+      "type": "Flag",
+      "id": "quiet",
+      "name": "Quiet Flag"
+    },
+    {
+      "command-line-flag": "-pixstat",
+      "description": "If more than one image file is given, then 'prefix.mean' and 'prefix.sdev' will be written as the pixel-wise statistics images of the whole collection. These images will be in the 'flim' floating point format. [This option only works on 2D images!]",
+      "value-key": "[PIXSTAT_PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "pixstat_prefix",
+      "name": "Pixel-wise Statistics Prefix"
+    },
+    {
+      "description": "Input image file(s)",
+      "value-key": "[IMAGE_FILES]",
+      "type": "File",
+      "optional": false,
+      "list": true,
+      "id": "image_files",
+      "name": "Image Files"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PIXSTAT_PREFIX].mean",
+      "description": "Mean of pixel-wise statistics for the collection of 2D images",
+      "id": "mean_output",
+      "name": "Mean Output File"
+    },
+    {
+      "path-template": "[PIXSTAT_PREFIX].sdev",
+      "description": "Standard deviation of pixel-wise statistics for the collection of 2D images",
+      "id": "sdev_output",
+      "name": "Standard Deviation Output File"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

@@ -1,0 +1,35 @@
+{
+  "name": "prewhiten",
+  "command-line": "prewhiten [FEAT_DIRECTORY] [OUTPUT_DIRECTORY]",
+  "description": "Prewhitening tool for FEAT directories",
+  "inputs": [
+    {
+      "description": "Input FEAT directory",
+      "value-key": "[FEAT_DIRECTORY]",
+      "type": "String",
+      "optional": false,
+      "id": "feat_directory",
+      "name": "FEAT directory"
+    },
+    {
+      "command-line-flag": "-o",
+      "description": "Change output directory from default of input FEAT directory",
+      "value-key": "[OUTPUT_DIRECTORY]",
+      "type": "String",
+      "optional": true,
+      "id": "output_directory",
+      "name": "Output Directory"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_DIRECTORY]",
+      "description": "Specified output directory containing generated output files.",
+      "id": "output_directory",
+      "name": "Output Directory"
+    }
+  ],
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

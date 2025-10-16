@@ -1,0 +1,108 @@
+{
+  "name": "mri_path2label",
+  "description": "Converts a path file to a label or a label file to a path file.",
+  "command-line": "mri_path2label [INPUT_FILE] [OUTPUT_FILE] [SINGLE] [PATH_TO_LABEL] [LABEL_TO_PATH] [CONNECT] [FILL] [CONFILLX] [CONFILL] [SOURCE_FILE] [DEST_FILE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input file, either a path or label file.",
+      "value-key": "[INPUT_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input File"
+    },
+    {
+      "description": "Output file, either a path or label file.",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_file",
+      "name": "Output File"
+    },
+    {
+      "command-line-flag": "--single",
+      "description": "Only convert a single path, and do not use sentinel values.",
+      "value-key": "[SINGLE]",
+      "type": "Flag",
+      "id": "single",
+      "name": "Single Path Flag"
+    },
+    {
+      "command-line-flag": "--path2label",
+      "description": "Treat input as a path and output a label.",
+      "value-key": "[PATH_TO_LABEL]",
+      "type": "Flag",
+      "id": "path_to_label",
+      "name": "Path to Label Flag"
+    },
+    {
+      "command-line-flag": "--label2path",
+      "description": "Treat input as a label and output a path.",
+      "value-key": "[LABEL_TO_PATH]",
+      "type": "Flag",
+      "id": "label_to_path",
+      "name": "Label to Path Flag"
+    },
+    {
+      "command-line-flag": "--connect",
+      "description": "Connect path; input and output must be paths; requires subject and hemi.",
+      "value-key": "[CONNECT]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "connect",
+      "name": "Connect Flag"
+    },
+    {
+      "command-line-flag": "--fill",
+      "description": "Fill already closed, connected path; input must be a path, output must be a label; requires subject, hemi, and seedvtx.",
+      "value-key": "[FILL]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "fill",
+      "name": "Fill Flag"
+    },
+    {
+      "command-line-flag": "--confillx",
+      "description": "Connect and fill path; input must be a path, output must be a label; requires surface_fname and seedvtx.",
+      "value-key": "[CONFILLX]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "confillx",
+      "name": "Confillx Flag"
+    },
+    {
+      "command-line-flag": "--confill",
+      "description": "Connect and fill path; input must be a path, output must be a label; requires subject, hemi, and seedvtx.",
+      "value-key": "[CONFILL]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "confill",
+      "name": "Confill Flag"
+    },
+    {
+      "command-line-flag": "--i",
+      "description": "The path file, if path2label.",
+      "value-key": "[SOURCE_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "source_file",
+      "name": "Source File Flag"
+    },
+    {
+      "command-line-flag": "--o",
+      "description": "The label file, if path2label.",
+      "value-key": "[DEST_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "dest_file",
+      "name": "Destination File Flag"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

@@ -1,0 +1,32 @@
+{
+  "name": "@ShowDynamicRange",
+  "author": "AFNI Developers",
+  "description": "The script checks the dynamic range of the time series data at locations inside the brain.",
+  "command-line": "@ShowDynamicRange [INFILE]",
+  "inputs": [
+    {
+      "description": "Input EPI time series dataset (e.g. epi.nii.gz)",
+      "value-key": "[INFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "infile",
+      "name": "Input file"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[INFILE]_minpercchange.nii.gz",
+      "description": "Dataset showing the percent signal change that an increment of 1 digitized value in the time series corresponds to.",
+      "id": "minpercchange_file",
+      "name": "Percent signal change dataset"
+    },
+    {
+      "path-template": "[INFILE].range.nii.gz",
+      "description": "Dataset showing the number of discrete levels used to represent the time series.",
+      "id": "range_file",
+      "name": "Dynamic range dataset"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

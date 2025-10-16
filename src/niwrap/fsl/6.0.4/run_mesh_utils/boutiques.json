@@ -1,0 +1,162 @@
+{
+  "name": "run_mesh_utils",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "A tool for various mesh operations as part of FSL.",
+  "command-line": "run_mesh_utils [BASE_MESH] [OUTPUT_IMAGE] [INPUT_IMAGE] [SECOND_INPUT_IMAGE] [WEIGHTING_IMAGE_FORCE] [DO_UNCENTRE_MODEL] [DO_SUBTRACT_CONSTANT_FROM_SCALARS] [DO_VERTEX_SCALARS_TO_IMAGE_VOLUME] [BASE_MESH2] [USE_SC2] [FLIRT_MATRIX] [DO_MESH_REG] [THRESHOLD] [DEGREES_OF_FREEDOM] [INVERSE] [VERBOSE] [HELP]",
+  "inputs": [
+    {
+      "description": "Filename of base mesh",
+      "value-key": "[BASE_MESH]",
+      "type": "File",
+      "optional": false,
+      "id": "base_mesh",
+      "name": "Base Mesh"
+    },
+    {
+      "command-line-flag": "-o",
+      "description": "Filename of output image",
+      "value-key": "[OUTPUT_IMAGE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_image",
+      "name": "Output Image"
+    },
+    {
+      "command-line-flag": "-i",
+      "description": "Filename of input image",
+      "value-key": "[INPUT_IMAGE]",
+      "type": "File",
+      "optional": true,
+      "id": "input_image",
+      "name": "Input Image"
+    },
+    {
+      "command-line-flag": "-j",
+      "description": "Filename of second input image",
+      "value-key": "[SECOND_INPUT_IMAGE]",
+      "type": "File",
+      "optional": true,
+      "id": "second_input_image",
+      "name": "Second Input Image"
+    },
+    {
+      "command-line-flag": "-p",
+      "description": "Weighting image force",
+      "value-key": "[WEIGHTING_IMAGE_FORCE]",
+      "type": "File",
+      "optional": true,
+      "id": "weighting_image_force",
+      "name": "Weighting Image Force"
+    },
+    {
+      "command-line-flag": "--doUnCentreModel",
+      "description": "Do UnCentre Model",
+      "value-key": "[DO_UNCENTRE_MODEL]",
+      "type": "Flag",
+      "id": "do_uncentre_model",
+      "name": "Do UnCentre Model"
+    },
+    {
+      "command-line-flag": "--doSubtractConstantFromScalars",
+      "description": "Do Subtract Constant From Scalars",
+      "value-key": "[DO_SUBTRACT_CONSTANT_FROM_SCALARS]",
+      "type": "Flag",
+      "id": "do_subtract_constant_from_scalars",
+      "name": "Do Subtract Constant From Scalars"
+    },
+    {
+      "command-line-flag": "--doVertexScalarsToImageVolume",
+      "description": "Do Vertex Scalars To Image Volume",
+      "value-key": "[DO_VERTEX_SCALARS_TO_IMAGE_VOLUME]",
+      "type": "Flag",
+      "id": "do_vertex_scalars_to_image_volume",
+      "name": "Do Vertex Scalars To Image Volume"
+    },
+    {
+      "command-line-flag": "-n",
+      "description": "Filename of base mesh2",
+      "value-key": "[BASE_MESH2]",
+      "type": "File",
+      "optional": true,
+      "id": "base_mesh2",
+      "name": "Base Mesh 2"
+    },
+    {
+      "command-line-flag": "--useSc2",
+      "description": "Use SC2",
+      "value-key": "[USE_SC2]",
+      "type": "Flag",
+      "id": "use_sc2",
+      "name": "Use SC2"
+    },
+    {
+      "command-line-flag": "-f",
+      "description": "Filename of flirt matrix",
+      "value-key": "[FLIRT_MATRIX]",
+      "type": "File",
+      "optional": true,
+      "id": "flirt_matrix",
+      "name": "Flirt Matrix"
+    },
+    {
+      "command-line-flag": "--doMeshReg",
+      "description": "Do Mesh Registration",
+      "value-key": "[DO_MESH_REG]",
+      "type": "Flag",
+      "id": "do_mesh_reg",
+      "name": "Do Mesh Registration"
+    },
+    {
+      "command-line-flag": "-t",
+      "description": "Threshold",
+      "value-key": "[THRESHOLD]",
+      "type": "Number",
+      "optional": true,
+      "id": "threshold",
+      "name": "Threshold"
+    },
+    {
+      "command-line-flag": "-a",
+      "description": "Degrees of freedom",
+      "value-key": "[DEGREES_OF_FREEDOM]",
+      "type": "Number",
+      "optional": true,
+      "id": "degrees_of_freedom",
+      "name": "Degrees of Freedom"
+    },
+    {
+      "command-line-flag": "--inverse",
+      "description": "Inverse Operation",
+      "value-key": "[INVERSE]",
+      "type": "Flag",
+      "id": "inverse",
+      "name": "Inverse Operation"
+    },
+    {
+      "command-line-flag": "-v",
+      "description": "Switch on diagnostic messages",
+      "value-key": "[VERBOSE]",
+      "type": "Flag",
+      "id": "verbose",
+      "name": "Verbose"
+    },
+    {
+      "command-line-flag": "-h",
+      "description": "Display help message",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_IMAGE]",
+      "description": "Output image file",
+      "id": "output_image_file",
+      "name": "Output Image File"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

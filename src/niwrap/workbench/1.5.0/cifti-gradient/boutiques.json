@@ -1,0 +1,189 @@
+{
+  "name": "cifti-gradient",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -cifti-gradient [CIFTI] [DIRECTION] [CIFTI_OUT] [LEFT_SURFACE] [RIGHT_SURFACE] [CEREBELLUM_SURFACE] [OPT_SURFACE_PRESMOOTH_SURFACE_KERNEL] [OPT_VOLUME_PRESMOOTH_VOLUME_KERNEL] [OPT_PRESMOOTH_FWHM] [OPT_AVERAGE_OUTPUT] [OPT_VECTORS_VECTORS_OUT]",
+  "description": "Take gradient of a cifti file.\n\nPerforms gradient calculation on each component of the cifti file, and optionally averages the resulting gradients.  The -vectors and -average-output options may not be used together.  You must specify a surface for each surface structure in the cifti file.  The COLUMN direction should be faster, and is the direction that works on dtseries.  For dconn, you probably want ROW, unless you are using -average-output.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "cifti",
+      "name": "cifti",
+      "description": "the input cifti",
+      "optional": false,
+      "value-key": "[CIFTI]",
+      "type": "File"
+    },
+    {
+      "id": "direction",
+      "name": "direction",
+      "description": "which dimension to take the gradient along, ROW or COLUMN",
+      "optional": false,
+      "value-key": "[DIRECTION]",
+      "type": "String"
+    },
+    {
+      "id": "cifti_out",
+      "name": "cifti_out",
+      "type": "String",
+      "description": "the output cifti",
+      "optional": false,
+      "value-key": "[CIFTI_OUT]"
+    },
+    {
+      "id": "left_surface",
+      "name": "left_surface",
+      "description": "specify the left surface to use",
+      "type": {
+        "id": "left_surface",
+        "name": "left_surface",
+        "description": "specify the left surface to use",
+        "command-line": "-left-surface [SURFACE] [OPT_LEFT_CORRECTED_AREAS_AREA_METRIC]",
+        "inputs": [
+          {
+            "id": "surface",
+            "name": "surface",
+            "description": "the left surface file",
+            "optional": false,
+            "value-key": "[SURFACE]",
+            "type": "File"
+          },
+          {
+            "id": "opt_left_corrected_areas_area_metric",
+            "name": "opt_left_corrected_areas_area_metric",
+            "command-line-flag": "-left-corrected-areas",
+            "description": "vertex areas to use instead of computing them from the left surface: the corrected vertex areas, as a metric",
+            "optional": true,
+            "value-key": "[OPT_LEFT_CORRECTED_AREAS_AREA_METRIC]",
+            "type": "File"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[LEFT_SURFACE]"
+    },
+    {
+      "id": "right_surface",
+      "name": "right_surface",
+      "description": "specify the right surface to use",
+      "type": {
+        "id": "right_surface",
+        "name": "right_surface",
+        "description": "specify the right surface to use",
+        "command-line": "-right-surface [SURFACE] [OPT_RIGHT_CORRECTED_AREAS_AREA_METRIC]",
+        "inputs": [
+          {
+            "id": "surface",
+            "name": "surface",
+            "description": "the right surface file",
+            "optional": false,
+            "value-key": "[SURFACE]",
+            "type": "File"
+          },
+          {
+            "id": "opt_right_corrected_areas_area_metric",
+            "name": "opt_right_corrected_areas_area_metric",
+            "command-line-flag": "-right-corrected-areas",
+            "description": "vertex areas to use instead of computing them from the right surface: the corrected vertex areas, as a metric",
+            "optional": true,
+            "value-key": "[OPT_RIGHT_CORRECTED_AREAS_AREA_METRIC]",
+            "type": "File"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[RIGHT_SURFACE]"
+    },
+    {
+      "id": "cerebellum_surface",
+      "name": "cerebellum_surface",
+      "description": "specify the cerebellum surface to use",
+      "type": {
+        "id": "cerebellum_surface",
+        "name": "cerebellum_surface",
+        "description": "specify the cerebellum surface to use",
+        "command-line": "-cerebellum-surface [SURFACE] [OPT_CEREBELLUM_CORRECTED_AREAS_AREA_METRIC]",
+        "inputs": [
+          {
+            "id": "surface",
+            "name": "surface",
+            "description": "the cerebellum surface file",
+            "optional": false,
+            "value-key": "[SURFACE]",
+            "type": "File"
+          },
+          {
+            "id": "opt_cerebellum_corrected_areas_area_metric",
+            "name": "opt_cerebellum_corrected_areas_area_metric",
+            "command-line-flag": "-cerebellum-corrected-areas",
+            "description": "vertex areas to use instead of computing them from the cerebellum surface: the corrected vertex areas, as a metric",
+            "optional": true,
+            "value-key": "[OPT_CEREBELLUM_CORRECTED_AREAS_AREA_METRIC]",
+            "type": "File"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[CEREBELLUM_SURFACE]"
+    },
+    {
+      "id": "opt_surface_presmooth_surface_kernel",
+      "name": "opt_surface_presmooth_surface_kernel",
+      "command-line-flag": "-surface-presmooth",
+      "description": "smooth on the surface before computing the gradient: the size of the gaussian surface smoothing kernel in mm, as sigma by default",
+      "optional": true,
+      "value-key": "[OPT_SURFACE_PRESMOOTH_SURFACE_KERNEL]",
+      "type": "Number",
+      "integer": false
+    },
+    {
+      "id": "opt_volume_presmooth_volume_kernel",
+      "name": "opt_volume_presmooth_volume_kernel",
+      "command-line-flag": "-volume-presmooth",
+      "description": "smooth on the surface before computing the gradient: the size of the gaussian volume smoothing kernel in mm, as sigma by default",
+      "optional": true,
+      "value-key": "[OPT_VOLUME_PRESMOOTH_VOLUME_KERNEL]",
+      "type": "Number",
+      "integer": false
+    },
+    {
+      "id": "opt_presmooth_fwhm",
+      "name": "opt_presmooth_fwhm",
+      "command-line-flag": "-presmooth-fwhm",
+      "description": "smoothing kernel sizes are FWHM, not sigma",
+      "type": "Flag",
+      "value-key": "[OPT_PRESMOOTH_FWHM]"
+    },
+    {
+      "id": "opt_average_output",
+      "name": "opt_average_output",
+      "command-line-flag": "-average-output",
+      "description": "output the average of the gradient magnitude maps instead of each gradient map separately",
+      "type": "Flag",
+      "value-key": "[OPT_AVERAGE_OUTPUT]"
+    },
+    {
+      "id": "opt_vectors_vectors_out",
+      "name": "opt_vectors_vectors_out",
+      "command-line-flag": "-vectors",
+      "description": "output gradient vectors: the vectors, as a dscalar file",
+      "optional": true,
+      "value-key": "[OPT_VECTORS_VECTORS_OUT]",
+      "type": "String"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "cifti_out",
+      "name": "cifti_out",
+      "path-template": "[CIFTI_OUT]",
+      "description": "the output cifti"
+    },
+    {
+      "id": "opt_vectors_vectors_out",
+      "name": "opt_vectors_vectors_out",
+      "path-template": "[OPT_VECTORS_VECTORS_OUT]",
+      "description": "output gradient vectors: the vectors, as a dscalar file"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

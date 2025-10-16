@@ -1,0 +1,108 @@
+{
+  "name": "convert-matrix4-to-matrix2",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -convert-matrix4-to-matrix2 [MATRIX4_WBSPARSE] [COUNTS_OUT] [OPT_DISTANCES_DISTANCE_OUT] [INDIVIDUAL_FIBERS]",
+  "description": "Generates a matrix2 cifti from matrix4 wbsparse.\n\nThis command makes a cifti file from the fiber counts in a matrix4 wbsparse file, and optionally a second cifti file from the distances.  Note that while the total count is stored exactly, the per-fiber counts are stored as approximate fractions, so the output of -individual-fibers will contain nonintegers.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "matrix4_wbsparse",
+      "name": "matrix4_wbsparse",
+      "description": "a wbsparse matrix4 file",
+      "optional": false,
+      "value-key": "[MATRIX4_WBSPARSE]",
+      "type": "String"
+    },
+    {
+      "id": "counts_out",
+      "name": "counts_out",
+      "type": "String",
+      "description": "the total fiber counts, as a cifti file",
+      "optional": false,
+      "value-key": "[COUNTS_OUT]"
+    },
+    {
+      "id": "opt_distances_distance_out",
+      "name": "opt_distances_distance_out",
+      "command-line-flag": "-distances",
+      "description": "output average trajectory distance: the distances, as a cifti file",
+      "optional": true,
+      "value-key": "[OPT_DISTANCES_DISTANCE_OUT]",
+      "type": "String"
+    },
+    {
+      "id": "individual_fibers",
+      "name": "individual_fibers",
+      "description": "output files for each fiber direction",
+      "type": {
+        "id": "individual_fibers",
+        "name": "individual_fibers",
+        "description": "output files for each fiber direction",
+        "command-line": "-individual-fibers [FIBER_1] [FIBER_2] [FIBER_3]",
+        "inputs": [
+          {
+            "id": "fiber_1",
+            "name": "fiber_1",
+            "type": "String",
+            "description": "output file for first fiber",
+            "optional": false,
+            "value-key": "[FIBER_1]"
+          },
+          {
+            "id": "fiber_2",
+            "name": "fiber_2",
+            "type": "String",
+            "description": "output file for second fiber",
+            "optional": false,
+            "value-key": "[FIBER_2]"
+          },
+          {
+            "id": "fiber_3",
+            "name": "fiber_3",
+            "type": "String",
+            "description": "output file for third fiber",
+            "optional": false,
+            "value-key": "[FIBER_3]"
+          }
+        ],
+        "output-files": [
+          {
+            "id": "fiber_1",
+            "name": "fiber_1",
+            "path-template": "[FIBER_1]",
+            "description": "output file for first fiber"
+          },
+          {
+            "id": "fiber_2",
+            "name": "fiber_2",
+            "path-template": "[FIBER_2]",
+            "description": "output file for second fiber"
+          },
+          {
+            "id": "fiber_3",
+            "name": "fiber_3",
+            "path-template": "[FIBER_3]",
+            "description": "output file for third fiber"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[INDIVIDUAL_FIBERS]"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "counts_out",
+      "name": "counts_out",
+      "path-template": "[COUNTS_OUT]",
+      "description": "the total fiber counts, as a cifti file"
+    },
+    {
+      "id": "opt_distances_distance_out",
+      "name": "opt_distances_distance_out",
+      "path-template": "[OPT_DISTANCES_DISTANCE_OUT]",
+      "description": "output average trajectory distance: the distances, as a cifti file"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

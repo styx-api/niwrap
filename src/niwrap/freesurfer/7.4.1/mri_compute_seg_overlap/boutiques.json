@@ -1,0 +1,94 @@
+{
+  "name": "mri_compute_seg_overlap",
+  "author": "FreeSurfer Developers",
+  "description": "Compute coefficients of overlap between segmentation volumes.",
+  "command-line": "mri_compute_seg_overlap [SEGVOL1] [SEGVOL2] [LOG_FILE] [MEAN_LOG_FILE] [STD_LOG_FILE] [OVERALL_LOG_FLAG] [EXCLUDE_CORTEX_FLAG] [EXCLUDE_WM_FLAG] [ALL_LABELS_FLAG] [DICE_PARAMS]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "First segmentation volume.",
+      "value-key": "[SEGVOL1]",
+      "type": "File",
+      "optional": false,
+      "id": "segvol1",
+      "name": "Segmentation Volume 1"
+    },
+    {
+      "description": "Second segmentation volume.",
+      "value-key": "[SEGVOL2]",
+      "type": "File",
+      "optional": false,
+      "id": "segvol2",
+      "name": "Segmentation Volume 2"
+    },
+    {
+      "command-line-flag": "-log",
+      "description": "Log file for individual Dice coefficients for 12 structure pairs, plus mean, std, and 'overall'.",
+      "value-key": "[LOG_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "log_file",
+      "name": "Log File"
+    },
+    {
+      "command-line-flag": "-mlog",
+      "description": "Log file for mean Dice.",
+      "value-key": "[MEAN_LOG_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "mean_log_file",
+      "name": "Mean Log File"
+    },
+    {
+      "command-line-flag": "-slog",
+      "description": "Log file for std Dice.",
+      "value-key": "[STD_LOG_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "std_log_file",
+      "name": "Std Log File"
+    },
+    {
+      "command-line-flag": "-olog",
+      "description": "Log file for 'overall' Dice (mean excluding wm, gm, and accumbens).",
+      "value-key": "[OVERALL_LOG_FLAG]",
+      "type": "Flag",
+      "id": "overall_log_flag",
+      "name": "Overall Log Flag"
+    },
+    {
+      "command-line-flag": "-cortex",
+      "description": "Exclude cerebral cortex labels from all calculation. (0/1 flag, if nonzero)",
+      "value-key": "[EXCLUDE_CORTEX_FLAG]",
+      "type": "Flag",
+      "id": "exclude_cortex_flag",
+      "name": "Exclude Cortex Flag"
+    },
+    {
+      "command-line-flag": "-wm",
+      "description": "Exclude cerebral white matter labels from all calculation. (0/1 flag, if nonzero)",
+      "value-key": "[EXCLUDE_WM_FLAG]",
+      "type": "Flag",
+      "id": "exclude_wm_flag",
+      "name": "Exclude White Matter Flag"
+    },
+    {
+      "command-line-flag": "-all_labels",
+      "description": "Check all labels, not just the predefined main structures.",
+      "value-key": "[ALL_LABELS_FLAG]",
+      "type": "Flag",
+      "id": "all_labels_flag",
+      "name": "All Labels Flag"
+    },
+    {
+      "command-line-flag": "-dice",
+      "description": "Standalone way to compute Dice coefficients, using seg1, seg2, ctab, ReportEmpty01, ExcludeId, datfile, and tablefile as additional parameters.",
+      "value-key": "[DICE_PARAMS]",
+      "type": "String",
+      "optional": true,
+      "id": "dice_params",
+      "name": "Dice Params"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

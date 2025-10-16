@@ -1,0 +1,10 @@
+{
+  "name": "vectorstats",
+  "source": {
+    "type": "boutiques",
+    "path": "boutiques.json"
+  },
+  "docs": {
+    "description": "Statistical testing of vector data using non-parametric permutation testing.\n\nThis command can be used to perform permutation testing of any form of data. The data for each input subject must be stored in a text file, with one value per row. The data for each row across subjects will be tested independently, i.e. there is no statistical enhancement that occurs between the data; however family-wise error control will be used.\n\nIn some software packages, a column of ones is automatically added to the GLM design matrix; the purpose of this column is to estimate the \"global intercept\", which is the predicted value of the observed variable if all explanatory variables were to be zero. However there are rare situations where including such a column would not be appropriate for a particular experimental design. Hence, in MRtrix3 statistical inference commands, it is up to the user to determine whether or not this column of ones should be included in their design matrix, and add it explicitly if necessary. The contrast matrix must also reflect the presence of this additional column.\n\nReferences:\n\n"
+  }
+}

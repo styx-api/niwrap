@@ -1,0 +1,42 @@
+{
+  "name": "gifti-label-add-prefix",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -gifti-label-add-prefix [LABEL_IN] [PREFIX] [LABEL_OUT]",
+  "description": "Add prefix to all label names in a gifti label file.\n\nFor each label other than '???', prepend <prefix> to the label name.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "label_in",
+      "name": "label_in",
+      "description": "the input label file",
+      "optional": false,
+      "value-key": "[LABEL_IN]",
+      "type": "File"
+    },
+    {
+      "id": "prefix",
+      "name": "prefix",
+      "description": "the prefix string to add",
+      "optional": false,
+      "value-key": "[PREFIX]",
+      "type": "String"
+    },
+    {
+      "id": "label_out",
+      "name": "label_out",
+      "type": "String",
+      "description": "the output label file",
+      "optional": false,
+      "value-key": "[LABEL_OUT]"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "label_out",
+      "name": "label_out",
+      "path-template": "[LABEL_OUT]",
+      "description": "the output label file"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

@@ -1,0 +1,146 @@
+{
+  "name": "first",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "A command-line tool for segmenting subcortical structures in MRI images using models and transformations.",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "first [INPUT_FILE] [OUTPUT_NAME] [INPUT_MODEL] [FLIRT_MATRIX] [VERBOSE] [HELP] [INPUT_MODEL2] [NMODES] [INTREF] [MULTI_IMAGE_INPUT] [BINARY_SURFACE_OUTPUT] [BMAP_NAME] [BVARS] [SHCOND] [LOADBVARS]",
+  "inputs": [
+    {
+      "command-line-flag": "-i",
+      "description": "Filename of input image to be segmented.",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input image file"
+    },
+    {
+      "command-line-flag": "-k",
+      "description": "Output name",
+      "value-key": "[OUTPUT_NAME]",
+      "type": "String",
+      "optional": false,
+      "id": "output_name",
+      "name": "Output name"
+    },
+    {
+      "command-line-flag": "-m",
+      "description": "Filename of input model (the structure to be segmented).",
+      "value-key": "[INPUT_MODEL]",
+      "type": "File",
+      "optional": false,
+      "id": "input_model",
+      "name": "Input model file"
+    },
+    {
+      "command-line-flag": "-l",
+      "description": "Filename of flirt matrix that transform input image to MNI space (output of first_flirt).",
+      "value-key": "[FLIRT_MATRIX]",
+      "type": "File",
+      "optional": false,
+      "id": "flirt_matrix",
+      "name": "Flirt matrix file"
+    },
+    {
+      "command-line-flag": "-v",
+      "description": "Switch on diagnostic messages",
+      "value-key": "[VERBOSE]",
+      "type": "Flag",
+      "id": "verbose",
+      "name": "Verbose flag"
+    },
+    {
+      "command-line-flag": "-h",
+      "description": "Display help message",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help flag"
+    },
+    {
+      "command-line-flag": "-p",
+      "description": "Filename of second input model (the structure to be segmented).",
+      "value-key": "[INPUT_MODEL2]",
+      "type": "File",
+      "optional": true,
+      "id": "input_model2",
+      "name": "Second input model file"
+    },
+    {
+      "command-line-flag": "-n",
+      "description": "Specifies number of modes used.",
+      "value-key": "[NMODES]",
+      "type": "Number",
+      "optional": true,
+      "id": "nmodes",
+      "name": "Number of modes"
+    },
+    {
+      "command-line-flag": "--intref",
+      "description": "Use structure specified by modelname2 as intensity reference",
+      "value-key": "[INTREF]",
+      "type": "Flag",
+      "id": "intref",
+      "name": "Intensity reference flag"
+    },
+    {
+      "command-line-flag": "--multiImageInput",
+      "description": "Use structure specified by modelname2 as intensity reference",
+      "value-key": "[MULTI_IMAGE_INPUT]",
+      "type": "Flag",
+      "id": "multi_image_input",
+      "name": "Multi-image input flag"
+    },
+    {
+      "command-line-flag": "--binarySurfaceOutput",
+      "description": "Use structure specified by modelname2 as intensity reference",
+      "value-key": "[BINARY_SURFACE_OUTPUT]",
+      "type": "Flag",
+      "id": "binary_surface_output",
+      "name": "Binary surface output flag"
+    },
+    {
+      "command-line-flag": "-b",
+      "description": "Filename of conditional mapping matrix",
+      "value-key": "[BMAP_NAME]",
+      "type": "File",
+      "optional": true,
+      "id": "bmap_name",
+      "name": "Conditional mapping matrix file"
+    },
+    {
+      "command-line-flag": "-o",
+      "description": "Initialize using bvars from a previous segmentation. When using with --shcond specifies the shape of the structure we are conditioning on.",
+      "value-key": "[BVARS]",
+      "type": "File",
+      "optional": true,
+      "id": "bvars",
+      "name": "Bvars file"
+    },
+    {
+      "command-line-flag": "--shcond",
+      "description": "Use conditional shape probability",
+      "value-key": "[SHCOND]",
+      "type": "Flag",
+      "id": "shcond",
+      "name": "Shape conditioning flag"
+    },
+    {
+      "command-line-flag": "--loadbvars",
+      "description": "Load initial parameter estimates from a previous segmentation.",
+      "value-key": "[LOADBVARS]",
+      "type": "Flag",
+      "id": "loadbvars",
+      "name": "Load bvars flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_NAME]_seg.nii.gz",
+      "description": "Segmented output image",
+      "id": "segmented_output_image",
+      "name": "Segmented output image file"
+    }
+  ]
+}

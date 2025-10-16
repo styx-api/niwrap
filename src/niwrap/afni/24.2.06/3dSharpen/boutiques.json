@@ -1,0 +1,47 @@
+{
+  "name": "3dSharpen",
+  "author": "AFNI Developers",
+  "description": "Applies a simple 3D sharpening filter to the positive values in the #0 volume of the input dataset, and writes out a new dataset.",
+  "command-line": "3dSharpen [SHARPENING_FACTOR] [INPUT_DATASET] [OUTPUT_PREFIX]",
+  "inputs": [
+    {
+      "description": "Input dataset (e.g., input.nii.gz)",
+      "value-key": "[INPUT_DATASET]",
+      "type": "File",
+      "optional": false,
+      "id": "input_dataset",
+      "name": "Input dataset"
+    },
+    {
+      "command-line-flag": "-phi",
+      "description": "Sharpening factor, between 0.1 and 0.9 (inclusive). Larger values mean more sharpening.",
+      "value-key": "[SHARPENING_FACTOR]",
+      "type": "Number",
+      "maximum": 0.9,
+      "minimum": 0.1,
+      "integer": false,
+      "optional": true,
+      "id": "sharpening_factor",
+      "name": "Sharpening factor"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Name of the output dataset (e.g., output.nii.gz) which will be in floating point format.",
+      "value-key": "[OUTPUT_PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "output_prefix",
+      "name": "Output prefix"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_PREFIX].nii.gz",
+      "description": "Sharpened output dataset.",
+      "id": "output_dataset",
+      "name": "Output dataset"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

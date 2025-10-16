@@ -1,0 +1,59 @@
+{
+  "name": "1dTsort",
+  "author": "AFNI Developers",
+  "description": "Sorts each column of the input 1D file and writes result to stdout.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "1dTsort [INC_ORDER] [DEC_ORDER] [TRANSPOSE] [COLUMN] [IMODE] [INFILE]",
+  "inputs": [
+    {
+      "description": "Input 1D file to be sorted.",
+      "value-key": "[INFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "infile",
+      "name": "Input file"
+    },
+    {
+      "command-line-flag": "-inc",
+      "description": "Sort into increasing order [default]",
+      "value-key": "[INC_ORDER]",
+      "type": "Flag",
+      "id": "inc_order",
+      "name": "Increase Order Flag"
+    },
+    {
+      "command-line-flag": "-dec",
+      "description": "Sort into decreasing order",
+      "value-key": "[DEC_ORDER]",
+      "type": "Flag",
+      "id": "dec_order",
+      "name": "Decrease Order Flag"
+    },
+    {
+      "command-line-flag": "-flip",
+      "description": "Transpose the file before output.",
+      "value-key": "[TRANSPOSE]",
+      "type": "Flag",
+      "id": "transpose",
+      "name": "Transpose Flag"
+    },
+    {
+      "command-line-flag": "-col",
+      "description": "Sort only on column #j (counting starts at 0), and carry the rest of the columns with it.",
+      "value-key": "[COLUMN]",
+      "type": "Number",
+      "optional": true,
+      "id": "column",
+      "name": "Column Number"
+    },
+    {
+      "command-line-flag": "-imode",
+      "description": "Typecast all values to integers, return the mode in the input then exit. No sorting results are returned.",
+      "value-key": "[IMODE]",
+      "type": "Flag",
+      "id": "imode",
+      "name": "Integer Mode Flag"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

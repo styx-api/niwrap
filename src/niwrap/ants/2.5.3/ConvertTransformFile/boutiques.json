@@ -1,0 +1,67 @@
+{
+  "name": "ConvertTransformFile",
+  "command-line": "ConvertTransformFile [DIMENSIONS] [INPUT_TRANSFORM_FILE] [OUTPUT_TRANSFORM_FILE] [MATRIX] [HOMOGENEOUS_MATRIX] [RAS] [CONVERT_TO_AFFINE_TYPE]",
+  "author": "ANTs Developers",
+  "description": "Utility to read in a transform file (presumed to be in binary format) and output it in various formats. Default output is legacy human-readable text format. Without any options, the output filename extension must be .txt or .tfm to signify a text-formatted transform file.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "dimensions",
+      "name": "Dimensions",
+      "value-key": "[DIMENSIONS]",
+      "type": "Number",
+      "integer": true,
+      "description": "Dimensionality of the transform file.",
+      "optional": false
+    },
+    {
+      "id": "input_transform_file",
+      "name": "Input Transform File",
+      "value-key": "[INPUT_TRANSFORM_FILE]",
+      "type": "File",
+      "description": "Path to the input transform file.",
+      "optional": false
+    },
+    {
+      "id": "output_transform_file",
+      "name": "Output Transform File",
+      "value-key": "[OUTPUT_TRANSFORM_FILE]",
+      "type": "String",
+      "description": "Path for the output transform file.",
+      "optional": false
+    },
+    {
+      "id": "matrix",
+      "name": "Matrix",
+      "value-key": "[MATRIX]",
+      "type": "Flag",
+      "command-line-flag": "--matrix",
+      "description": "Output only the transform matrix to a text file, one row per line with space-delimited values. Only works for specific transform types."
+    },
+    {
+      "id": "homogeneous_matrix",
+      "name": "Homogeneous Matrix",
+      "value-key": "[HOMOGENEOUS_MATRIX]",
+      "type": "Flag",
+      "command-line-flag": "--homogeneousMatrix",
+      "description": "Output an N+1 square homogeneous matrix from the transform matrix and offset. Only works for specific transform types."
+    },
+    {
+      "id": "RAS",
+      "name": "RAS Coordinate System",
+      "value-key": "[RAS]",
+      "type": "Flag",
+      "command-line-flag": "--RAS",
+      "description": "Convert the output into the RAS coordinate system if combined with 'matrix' or 'homogeneousMatrix'."
+    },
+    {
+      "id": "convert_to_affine_type",
+      "name": "Convert to Affine Type",
+      "value-key": "[CONVERT_TO_AFFINE_TYPE]",
+      "type": "Flag",
+      "command-line-flag": "--convertToAffineType",
+      "description": "Convert the input transform type to AffineTransform and output again as a binary transform file."
+    }
+  ],
+  "url": "https://github.com/ANTsX/ANTs"
+}

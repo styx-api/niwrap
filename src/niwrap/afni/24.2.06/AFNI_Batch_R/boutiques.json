@@ -1,0 +1,50 @@
+{
+  "name": "AFNI_Batch_R",
+  "author": "AFNI Developers",
+  "description": "Batch mode for executing R scripts in the AFNI environment",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "AFNI_Batch_R R CMD BATCH [NO_RESTORE] [SAVE_WORKSPACE] [NO_READLINE] [VANILLA_MODE] [HELP]",
+  "inputs": [
+    {
+      "command-line-flag": "--no-restore",
+      "description": "Do not restore anything in the R workspace at startup",
+      "value-key": "[NO_RESTORE]",
+      "type": "Flag",
+      "id": "no_restore",
+      "name": "No Restore Workspace"
+    },
+    {
+      "command-line-flag": "--save",
+      "description": "Save the workspace at the end of the script execution",
+      "value-key": "[SAVE_WORKSPACE]",
+      "type": "Flag",
+      "id": "save_workspace",
+      "name": "Save Workspace"
+    },
+    {
+      "command-line-flag": "--no-readline",
+      "description": "Disable reading input from the command line",
+      "value-key": "[NO_READLINE]",
+      "type": "Flag",
+      "id": "no_readline",
+      "name": "No Readline"
+    },
+    {
+      "command-line-flag": "--vanilla",
+      "description": "Run R without saving the workspace at the end, restoring anything, reading the site file, or acting on startup files",
+      "value-key": "[VANILLA_MODE]",
+      "type": "Flag",
+      "id": "vanilla_mode",
+      "name": "Vanilla Mode"
+    },
+    {
+      "command-line-flag": "-help",
+      "description": "Display this help message and exit",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

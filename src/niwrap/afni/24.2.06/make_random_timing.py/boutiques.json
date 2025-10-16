@@ -1,0 +1,251 @@
+{
+  "name": "make_random_timing.py",
+  "author": "AFNI Developers",
+  "description": "Create random stimulus timing files for use with AFNI 3dDeconvolve.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "make_random_timing.py [NUM_RUNS] [RUN_TIME] [NUM_STIM] [NUM_REPS] [PREFIX] [STIM_DUR] [ACROSS_RUNS] [MAX_CONSEC] [MAX_REST] [MIN_REST] [NOT_FIRST] [NOT_LAST] [OFFSET] [ORDERED_STIMULI] [PRE_STIM_REST] [POST_STIM_REST] [SAVE_3DD_CMD] [SEED] [STIM_LABELS] [T_DIGITS] [T_GRAN] [TR] [TR_LOCKED] [VERB] [SHOW_TIMING_STATS]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Set the number of runs.",
+      "command-line-flag": "-num_runs",
+      "value-key": "[NUM_RUNS]",
+      "type": "Number",
+      "optional": false,
+      "minimum": 1,
+      "id": "num_runs",
+      "name": "Number of Runs"
+    },
+    {
+      "description": "Set the total time per run (in seconds).",
+      "command-line-flag": "-run_time",
+      "value-key": "[RUN_TIME]",
+      "type": "Number",
+      "optional": false,
+      "list": true,
+      "min-list-entries": 1,
+      "id": "run_time",
+      "name": "Run Time (seconds)"
+    },
+    {
+      "description": "Set the number of stimulus classes.",
+      "command-line-flag": "-num_stim",
+      "value-key": "[NUM_STIM]",
+      "type": "Number",
+      "optional": false,
+      "minimum": 1,
+      "id": "num_stim",
+      "name": "Number of Stimulus Classes"
+    },
+    {
+      "description": "Set the number of repetitions per class (or across runs).",
+      "command-line-flag": "-num_reps",
+      "value-key": "[NUM_REPS]",
+      "type": "Number",
+      "optional": false,
+      "list": true,
+      "min-list-entries": 1,
+      "id": "num_reps",
+      "name": "Number of Repetitions"
+    },
+    {
+      "description": "Set the prefix for output filenames.",
+      "command-line-flag": "-prefix",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "prefix",
+      "name": "Output Filename Prefix"
+    },
+    {
+      "description": "Set the duration for a single stimulus (in seconds).",
+      "command-line-flag": "-stim_dur",
+      "value-key": "[STIM_DUR]",
+      "type": "Number",
+      "optional": true,
+      "list": true,
+      "min-list-entries": 1,
+      "id": "stim_dur",
+      "name": "Stimulus Duration"
+    },
+    {
+      "description": "Distribute stimuli across all runs at once.",
+      "command-line-flag": "-across_runs",
+      "type": "Flag",
+      "id": "across_runs",
+      "name": "Distribute Stimuli Across Runs",
+      "value-key": "[ACROSS_RUNS]"
+    },
+    {
+      "description": "Specify maximum consecutive stimuli per class.",
+      "command-line-flag": "-max_consec",
+      "value-key": "[MAX_CONSEC]",
+      "type": "Number",
+      "optional": true,
+      "list": true,
+      "min-list-entries": 1,
+      "id": "max_consec",
+      "name": "Maximum Consecutive Stimuli"
+    },
+    {
+      "description": "Specify maximum rest between stimuli.",
+      "command-line-flag": "-max_rest",
+      "value-key": "[MAX_REST]",
+      "type": "Number",
+      "optional": true,
+      "id": "max_rest",
+      "name": "Maximum Rest"
+    },
+    {
+      "description": "Specify extra rest after each stimulus.",
+      "command-line-flag": "-min_rest",
+      "value-key": "[MIN_REST]",
+      "type": "Number",
+      "optional": true,
+      "id": "min_rest",
+      "name": "Minimum Rest"
+    },
+    {
+      "description": "Specify classes that should not start a run.",
+      "command-line-flag": "-not_first",
+      "value-key": "[NOT_FIRST]",
+      "type": "String",
+      "optional": true,
+      "list": true,
+      "min-list-entries": 1,
+      "id": "not_first",
+      "name": "Classes Not to Start a Run"
+    },
+    {
+      "description": "Specify classes that should not end a run.",
+      "command-line-flag": "-not_last",
+      "value-key": "[NOT_LAST]",
+      "type": "String",
+      "optional": true,
+      "list": true,
+      "min-list-entries": 1,
+      "id": "not_last",
+      "name": "Classes Not to End a Run"
+    },
+    {
+      "description": "Specify an offset to add to every stim time.",
+      "command-line-flag": "-offset",
+      "value-key": "[OFFSET]",
+      "type": "Number",
+      "optional": true,
+      "id": "offset",
+      "name": "Time Offset"
+    },
+    {
+      "description": "Specify a partial ordering of stimuli.",
+      "command-line-flag": "-ordered_stimuli",
+      "value-key": "[ORDERED_STIMULI]",
+      "type": "String",
+      "optional": true,
+      "list": true,
+      "min-list-entries": 1,
+      "id": "ordered_stimuli",
+      "name": "Ordered Stimuli"
+    },
+    {
+      "description": "Specify minimum rest period to start each run.",
+      "command-line-flag": "-pre_stim_rest",
+      "value-key": "[PRE_STIM_REST]",
+      "type": "Number",
+      "optional": true,
+      "id": "pre_stim_rest",
+      "name": "Pre-Stimulus Rest"
+    },
+    {
+      "description": "Specify minimum rest period to end each run.",
+      "command-line-flag": "-post_stim_rest",
+      "value-key": "[POST_STIM_REST]",
+      "type": "Number",
+      "optional": true,
+      "id": "post_stim_rest",
+      "name": "Post-Stimulus Rest"
+    },
+    {
+      "description": "Save a 3dDeconvolve -nodata example.",
+      "command-line-flag": "-save_3dd_cmd",
+      "value-key": "[SAVE_3DD_CMD]",
+      "type": "String",
+      "optional": true,
+      "id": "save_3dd_cmd",
+      "name": "Save 3dDeconvolve Command"
+    },
+    {
+      "description": "Specify a seed for random number generation.",
+      "command-line-flag": "-seed",
+      "value-key": "[SEED]",
+      "type": "Number",
+      "optional": true,
+      "id": "seed",
+      "name": "Random Seed"
+    },
+    {
+      "description": "Specify labels for the stimulus classes.",
+      "command-line-flag": "-stim_labels",
+      "value-key": "[STIM_LABELS]",
+      "type": "String",
+      "optional": true,
+      "list": true,
+      "min-list-entries": 1,
+      "id": "stim_labels",
+      "name": "Stimulus Labels"
+    },
+    {
+      "description": "Set the number of decimal places for times.",
+      "command-line-flag": "-t_digits",
+      "value-key": "[T_DIGITS]",
+      "type": "Number",
+      "optional": true,
+      "id": "t_digits",
+      "name": "Decimal Places for Times"
+    },
+    {
+      "description": "Set the time granularity.",
+      "command-line-flag": "-t_gran",
+      "value-key": "[T_GRAN]",
+      "type": "Number",
+      "optional": true,
+      "id": "t_gran",
+      "name": "Time Granularity"
+    },
+    {
+      "description": "Set the scanner TR.",
+      "command-line-flag": "-tr",
+      "value-key": "[TR]",
+      "type": "Number",
+      "optional": true,
+      "id": "tr",
+      "name": "Scanner TR"
+    },
+    {
+      "description": "Make stimuli timing locked to the accompanying TR.",
+      "command-line-flag": "-tr_locked",
+      "type": "Flag",
+      "id": "tr_locked",
+      "name": "TR-Locked",
+      "value-key": "[TR_LOCKED]"
+    },
+    {
+      "description": "Set the verbose level.",
+      "command-line-flag": "-verb",
+      "value-key": "[VERB]",
+      "type": "Number",
+      "optional": true,
+      "id": "verb",
+      "name": "Verbose Level"
+    },
+    {
+      "description": "Show statistics from the timing.",
+      "command-line-flag": "-show_timing_stats",
+      "type": "Flag",
+      "id": "show_timing_stats",
+      "name": "Show Timing Statistics",
+      "value-key": "[SHOW_TIMING_STATS]"
+    }
+  ],
+  "output-files": []
+}

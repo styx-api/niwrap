@@ -1,0 +1,571 @@
+{
+  "name": "mris_register",
+  "author": "FreeSurfer Developers",
+  "description": "This program registers a surface to an average surface template.",
+  "command-line": "mris_register [SURF_FNAME] [TARGET] [OUT_FNAME] [ONE_FLAG] [ADDFRAME] [ANNOT_NAME] [CURVATURE_FNAME] [CANONICAL_NAME] [INFLATED] [INFLATED_NAME] [LABEL_FILE] [ORIG_NAME] [OVERLAY_VALUES] [OVERLAY_DIR] [STARTING_REG_FNAME] [JACOBIAN_FNAME] [N_AVERAGES] [ADAPTIVE] [L_AREA] [L_CORR] [CURVATURE_FLAG] [L_DIST] [DT_VALUE] [DT_DECREASE] [DT_INCREASE] [L_EXTERNAL] [ERROR_RATIO] [INITIAL_FLAG] [L_LAPLACIAN] [LINE_MIN] [MOMENTUM] [MAX_DEGREES] [MEDIAN] [MIN_DEGREES] [MULTI_SCALE] [N_ITERATIONS] [N_ANGLES] [NEIGHBORHOOD_SIZE] [L_NLAREA] [NO_CURV] [NO_NORMALIZATION] [NO_ROTATION] [NO_SULC] [NUM_SURFACES] [OVERLAY_CORR] [MAX_PASSES] [L_PAREA] [REMOVE_NEGATIVE] [REVERSE] [ROTATE_VALUES] [REGISTRATION_FILE] [SCALE] [SEARCH_FLAG] [SPRING_VALUE] [TOLERANCE] [TOPOLOGY_FLAG] [VNUM] [VSMOOTH] [WRITE_ITERATIONS] [GDIAG_NO] [VECTOR_FLAG] [THREADS] [VERSION_FLAG]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Surface to register, often {hemi}.sphere",
+      "value-key": "[SURF_FNAME]",
+      "type": "File",
+      "optional": false,
+      "id": "surf_fname",
+      "name": "Surface file name"
+    },
+    {
+      "description": "The data to register to. A template file for average surface or a single-subject's surface.",
+      "value-key": "[TARGET]",
+      "type": "File",
+      "optional": false,
+      "id": "target",
+      "name": "Target"
+    },
+    {
+      "description": "Output surface file to capture registration. Example: {hemi}.sphere.reg",
+      "value-key": "[OUT_FNAME]",
+      "type": "String",
+      "optional": false,
+      "id": "out_fname",
+      "name": "Output file name"
+    },
+    {
+      "command-line-flag": "-1",
+      "description": "Treats target argument as a single subject's surface not a template file.",
+      "value-key": "[ONE_FLAG]",
+      "type": "Flag",
+      "id": "one_flag",
+      "name": "Single subject target"
+    },
+    {
+      "command-line-flag": "-addframe",
+      "description": "Add field with location in the atlas.",
+      "value-key": "[ADDFRAME]",
+      "type": "String",
+      "optional": true,
+      "id": "addframe",
+      "name": "Add frame values"
+    },
+    {
+      "command-line-flag": "-annot",
+      "description": "Zeroes medial wall using annotation.",
+      "value-key": "[ANNOT_NAME]",
+      "type": "String",
+      "optional": true,
+      "id": "annot_name",
+      "name": "Annotation"
+    },
+    {
+      "command-line-flag": "-C",
+      "description": "Curvature file name.",
+      "value-key": "[CURVATURE_FNAME]",
+      "type": "File",
+      "optional": true,
+      "id": "curvature_fname",
+      "name": "Curvature file"
+    },
+    {
+      "command-line-flag": "-canon",
+      "description": "Use surface for canonical properties.",
+      "value-key": "[CANONICAL_NAME]",
+      "type": "String",
+      "optional": true,
+      "id": "canonical_name",
+      "name": "Canonical name"
+    },
+    {
+      "command-line-flag": "-inflated",
+      "description": "Use inflated surface for initial alignment.",
+      "value-key": "[INFLATED]",
+      "type": "Flag",
+      "id": "inflated",
+      "name": "Inflated initial alignment flag"
+    },
+    {
+      "command-line-flag": "-infname",
+      "description": "Uses this name for inflated surface for initial alignment.",
+      "value-key": "[INFLATED_NAME]",
+      "type": "String",
+      "optional": true,
+      "id": "inflated_name",
+      "name": "Inflated surface name"
+    },
+    {
+      "command-line-flag": "-L",
+      "description": "Specify a manual label to align with atlas label.",
+      "value-key": "[LABEL_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "label_file",
+      "name": "Label file"
+    },
+    {
+      "command-line-flag": "-O",
+      "description": "Use this for original properties.",
+      "value-key": "[ORIG_NAME]",
+      "type": "String",
+      "optional": true,
+      "id": "orig_name",
+      "name": "Original name"
+    },
+    {
+      "command-line-flag": "-overlay",
+      "description": "Adds a variable to the atlas from overlay file, smoothing it specified number of times.",
+      "value-key": "[OVERLAY_VALUES]",
+      "type": "String",
+      "optional": true,
+      "id": "overlay_values",
+      "name": "Overlay values"
+    },
+    {
+      "command-line-flag": "-overlay-dir",
+      "description": "Changes overlay path.",
+      "value-key": "[OVERLAY_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "overlay_dir",
+      "name": "Overlay directory"
+    },
+    {
+      "command-line-flag": "-sreg",
+      "description": "Start registration with coordinates from file.",
+      "value-key": "[STARTING_REG_FNAME]",
+      "type": "File",
+      "optional": true,
+      "id": "starting_reg_fname",
+      "name": "Starting registration file"
+    },
+    {
+      "command-line-flag": "-jacobian",
+      "description": "Write out jacobian of mapping to the specified file.",
+      "value-key": "[JACOBIAN_FNAME]",
+      "type": "String",
+      "optional": true,
+      "id": "jacobian_fname",
+      "name": "Jacobian output file"
+    },
+    {
+      "command-line-flag": "-A",
+      "description": "Set the number of averages.",
+      "value-key": "[N_AVERAGES]",
+      "type": "Number",
+      "optional": true,
+      "id": "n_averages",
+      "name": "Number of averages"
+    },
+    {
+      "command-line-flag": "-adaptive",
+      "description": "Use adaptive time step integration.",
+      "value-key": "[ADAPTIVE]",
+      "type": "Flag",
+      "id": "adaptive",
+      "name": "Adaptive flag"
+    },
+    {
+      "command-line-flag": "-area",
+      "description": "Sets l_area parameter.",
+      "value-key": "[L_AREA]",
+      "type": "Number",
+      "optional": true,
+      "id": "l_area",
+      "name": "Area"
+    },
+    {
+      "command-line-flag": "-corr",
+      "description": "Sets the l_corr parameter.",
+      "value-key": "[L_CORR]",
+      "type": "Number",
+      "optional": true,
+      "id": "l_corr",
+      "name": "Correlation"
+    },
+    {
+      "command-line-flag": "-curv",
+      "description": "Use smoothwm curvature for final alignment.",
+      "value-key": "[CURVATURE_FLAG]",
+      "type": "Flag",
+      "id": "curvature_flag",
+      "name": "Curvature flag"
+    },
+    {
+      "command-line-flag": "-dist",
+      "description": "Specify distance term.",
+      "value-key": "[L_DIST]",
+      "type": "Number",
+      "optional": true,
+      "id": "l_dist",
+      "name": "Distance term"
+    },
+    {
+      "command-line-flag": "-dt",
+      "description": "Sets momentum with specified dt.",
+      "value-key": "[DT_VALUE]",
+      "type": "Number",
+      "optional": true,
+      "id": "dt_value",
+      "name": "Time step"
+    },
+    {
+      "command-line-flag": "-dt_dec",
+      "description": "Set decrease for dt.",
+      "value-key": "[DT_DECREASE]",
+      "type": "Number",
+      "optional": true,
+      "id": "dt_decrease",
+      "name": "Dt decrease"
+    },
+    {
+      "command-line-flag": "-dt_inc",
+      "description": "Set increase for dt.",
+      "value-key": "[DT_INCREASE]",
+      "type": "Number",
+      "optional": true,
+      "id": "dt_increase",
+      "name": "Dt increase"
+    },
+    {
+      "command-line-flag": "-E",
+      "description": "Sets l_external parameter.",
+      "value-key": "[L_EXTERNAL]",
+      "type": "Number",
+      "optional": true,
+      "id": "l_external",
+      "name": "External parameter"
+    },
+    {
+      "command-line-flag": "-error_ratio",
+      "description": "Sets error ratio.",
+      "value-key": "[ERROR_RATIO]",
+      "type": "Number",
+      "optional": true,
+      "id": "error_ratio",
+      "name": "Error ratio"
+    },
+    {
+      "command-line-flag": "-init",
+      "description": "Use initial registration.",
+      "value-key": "[INITIAL_FLAG]",
+      "type": "Flag",
+      "id": "initial_flag",
+      "name": "Initial flag"
+    },
+    {
+      "command-line-flag": "-lap",
+      "description": "Sets l_laplacian.",
+      "value-key": "[L_LAPLACIAN]",
+      "type": "Number",
+      "optional": true,
+      "id": "l_laplacian",
+      "name": "Laplacian"
+    },
+    {
+      "command-line-flag": "-lm",
+      "description": "Integrate using line minimization.",
+      "value-key": "[LINE_MIN]",
+      "type": "Flag",
+      "id": "line_min",
+      "name": "Line minimization flag"
+    },
+    {
+      "command-line-flag": "-M",
+      "description": "Chooses integration_type = INTEGRATE_MOMENTUM and sets momentum value.",
+      "value-key": "[MOMENTUM]",
+      "type": "Number",
+      "optional": true,
+      "id": "momentum",
+      "name": "Momentum"
+    },
+    {
+      "command-line-flag": "-max_degrees",
+      "description": "Set max angle for search.",
+      "value-key": "[MAX_DEGREES]",
+      "type": "Number",
+      "optional": true,
+      "id": "max_degrees",
+      "name": "Max degrees"
+    },
+    {
+      "command-line-flag": "-median",
+      "description": "Uses median normalization (instead of mean).",
+      "value-key": "[MEDIAN]",
+      "type": "Flag",
+      "id": "median",
+      "name": "Median normalization flag"
+    },
+    {
+      "command-line-flag": "-min_degrees",
+      "description": "Set min angle for search.",
+      "value-key": "[MIN_DEGREES]",
+      "type": "Number",
+      "optional": true,
+      "id": "min_degrees",
+      "name": "Min degrees"
+    },
+    {
+      "command-line-flag": "-multi_scale",
+      "description": "Use multi_scale scales for morphing.",
+      "value-key": "[MULTI_SCALE]",
+      "type": "Number",
+      "optional": true,
+      "id": "multi_scale",
+      "name": "Multi scale"
+    },
+    {
+      "command-line-flag": "-N",
+      "description": "Sets number of iterations.",
+      "value-key": "[N_ITERATIONS]",
+      "type": "Number",
+      "optional": true,
+      "id": "n_iterations",
+      "name": "Number of iterations"
+    },
+    {
+      "command-line-flag": "-nangles",
+      "description": "Set number of angles/search per scale.",
+      "value-key": "[N_ANGLES]",
+      "type": "Number",
+      "optional": true,
+      "id": "n_angles",
+      "name": "Number of angles per scale"
+    },
+    {
+      "command-line-flag": "-nbrs",
+      "description": "Use neighborhood size specified.",
+      "value-key": "[NEIGHBORHOOD_SIZE]",
+      "type": "Number",
+      "optional": true,
+      "id": "neighborhood_size",
+      "name": "Neighborhood size"
+    },
+    {
+      "command-line-flag": "-nlarea",
+      "description": "Sets l_nlarea parameter.",
+      "value-key": "[L_NLAREA]",
+      "type": "Number",
+      "optional": true,
+      "id": "l_nlarea",
+      "name": "NL Area"
+    },
+    {
+      "command-line-flag": "-nocurv",
+      "description": "Do not use smoothwm curvature for final alignment.",
+      "value-key": "[NO_CURV]",
+      "type": "Flag",
+      "id": "no_curv",
+      "name": "No curvature flag"
+    },
+    {
+      "command-line-flag": "-nonorm",
+      "description": "Disables normalization.",
+      "value-key": "[NO_NORMALIZATION]",
+      "type": "Flag",
+      "id": "no_normalization",
+      "name": "No normalization flag"
+    },
+    {
+      "command-line-flag": "-norot",
+      "description": "Disables initial rigid alignment.",
+      "value-key": "[NO_ROTATION]",
+      "type": "Flag",
+      "id": "no_rotation",
+      "name": "No rotation flag"
+    },
+    {
+      "command-line-flag": "-nosulc",
+      "description": "Disables initial sulc alignment.",
+      "value-key": "[NO_SULC]",
+      "type": "Flag",
+      "id": "no_sulc",
+      "name": "No sulc alignment flag"
+    },
+    {
+      "command-line-flag": "-nsurfaces",
+      "description": "Use specified number of surfaces/curvatures for alignment.",
+      "value-key": "[NUM_SURFACES]",
+      "type": "Number",
+      "optional": true,
+      "id": "num_surfaces",
+      "name": "Number of surfaces"
+    },
+    {
+      "command-line-flag": "-ocorr",
+      "description": "Sets overlay correlation coefficient.",
+      "value-key": "[OVERLAY_CORR]",
+      "type": "Number",
+      "optional": true,
+      "id": "overlay_corr",
+      "name": "Overlay correlation"
+    },
+    {
+      "command-line-flag": "-P",
+      "description": "Limit unfolding to specified passes.",
+      "value-key": "[MAX_PASSES]",
+      "type": "Number",
+      "optional": true,
+      "id": "max_passes",
+      "name": "Max passes"
+    },
+    {
+      "command-line-flag": "-parea",
+      "description": "Sets l_parea parameter.",
+      "value-key": "[L_PAREA]",
+      "type": "Number",
+      "optional": true,
+      "id": "l_parea",
+      "name": "P Area"
+    },
+    {
+      "command-line-flag": "-remove_negative",
+      "description": "Remove negative triangles with iterative smoothing if non-zero.",
+      "value-key": "[REMOVE_NEGATIVE]",
+      "type": "Number",
+      "optional": true,
+      "id": "remove_negative",
+      "name": "Remove negative"
+    },
+    {
+      "command-line-flag": "-reverse",
+      "description": "Mirror image reverse brain before morphing.",
+      "value-key": "[REVERSE]",
+      "type": "Flag",
+      "id": "reverse",
+      "name": "Reverse flag"
+    },
+    {
+      "command-line-flag": "-rotate",
+      "description": "Rotates brain by specified angles.",
+      "value-key": "[ROTATE_VALUES]",
+      "type": "String",
+      "optional": true,
+      "id": "rotate_values",
+      "name": "Rotation values"
+    },
+    {
+      "command-line-flag": "-reg",
+      "description": "Extract rotational components from registration file.",
+      "value-key": "[REGISTRATION_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "registration_file",
+      "name": "Registration file"
+    },
+    {
+      "command-line-flag": "-S",
+      "description": "Scales distances by the specified value.",
+      "value-key": "[SCALE]",
+      "type": "Number",
+      "optional": true,
+      "id": "scale",
+      "name": "Scale"
+    },
+    {
+      "command-line-flag": "-search",
+      "description": "Integrate with binary search line minimization.",
+      "value-key": "[SEARCH_FLAG]",
+      "type": "Flag",
+      "id": "search_flag",
+      "name": "Search flag"
+    },
+    {
+      "command-line-flag": "-spring",
+      "description": "Sets the spring parameter.",
+      "value-key": "[SPRING_VALUE]",
+      "type": "Number",
+      "optional": true,
+      "id": "spring_value",
+      "name": "Spring"
+    },
+    {
+      "command-line-flag": "-tol",
+      "description": "Specifies tolerance.",
+      "value-key": "[TOLERANCE]",
+      "type": "Number",
+      "optional": true,
+      "id": "tolerance",
+      "name": "Tolerance"
+    },
+    {
+      "command-line-flag": "-topology",
+      "description": "Preserves the topology of positive area triangles.",
+      "value-key": "[TOPOLOGY_FLAG]",
+      "type": "Flag",
+      "id": "topology_flag",
+      "name": "Topology flag"
+    },
+    {
+      "command-line-flag": "-vnum",
+      "description": "Set neighborhood parameters.",
+      "value-key": "[VNUM]",
+      "type": "String",
+      "optional": true,
+      "id": "vnum",
+      "name": "Vnum distance values"
+    },
+    {
+      "command-line-flag": "-vsmooth",
+      "description": "Use space/time varying smoothness weighting.",
+      "value-key": "[VSMOOTH]",
+      "type": "Flag",
+      "id": "vsmooth",
+      "name": "Smoothness flag"
+    },
+    {
+      "command-line-flag": "-W",
+      "description": "Set number of write iterations.",
+      "value-key": "[WRITE_ITERATIONS]",
+      "type": "Number",
+      "optional": true,
+      "id": "write_iterations",
+      "name": "Write iterations"
+    },
+    {
+      "command-line-flag": "-V",
+      "description": "Supplies a vertex number for diagnostics.",
+      "value-key": "[GDIAG_NO]",
+      "type": "Number",
+      "optional": true,
+      "id": "gdiag_no",
+      "name": "Vertex number"
+    },
+    {
+      "command-line-flag": "-vector",
+      "description": "Prints help for Multiframe mode, listing field names and numbers.",
+      "value-key": "[VECTOR_FLAG]",
+      "type": "Flag",
+      "id": "vector_flag",
+      "name": "Vector flag"
+    },
+    {
+      "command-line-flag": "-threads",
+      "description": "Set number of OMP threads.",
+      "value-key": "[THREADS]",
+      "type": "Number",
+      "optional": true,
+      "id": "threads",
+      "name": "OMP threads"
+    },
+    {
+      "command-line-flag": "--version",
+      "description": "Print the version number.",
+      "value-key": "[VERSION_FLAG]",
+      "type": "Flag",
+      "id": "version_flag",
+      "name": "Version flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUT_FNAME]",
+      "description": "Output surface file after registration.",
+      "id": "output_surface_file",
+      "name": "Output surface file"
+    },
+    {
+      "path-template": "[JACOBIAN_FNAME]",
+      "description": "Jacobian output file if specified.",
+      "id": "jacobian_output",
+      "name": "Jacobian output file"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

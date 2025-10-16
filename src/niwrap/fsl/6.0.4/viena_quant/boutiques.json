@@ -1,0 +1,42 @@
+{
+  "name": "viena_quant",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Automated brain ventricle quantification tool",
+  "command-line": "viena_quant [INPUT1] [INPUT2] [VENTRICLE_MASK]",
+  "inputs": [
+    {
+      "description": "Input image 1 (e.g. img1.nii.gz)",
+      "value-key": "[INPUT1]",
+      "type": "File",
+      "optional": false,
+      "id": "input1",
+      "name": "Input image 1"
+    },
+    {
+      "description": "Input image 2 (e.g. img2.nii.gz)",
+      "value-key": "[INPUT2]",
+      "type": "File",
+      "optional": false,
+      "id": "input2",
+      "name": "Input image 2"
+    },
+    {
+      "description": "Ventricle mask (e.g. mask.nii.gz)",
+      "value-key": "[VENTRICLE_MASK]",
+      "type": "File",
+      "optional": false,
+      "id": "ventricle_mask",
+      "name": "Ventricle mask"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "output_quantification.nii.gz",
+      "description": "Output quantification result",
+      "id": "output_quantification",
+      "name": "Output quantification result"
+    }
+  ],
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

@@ -1,0 +1,203 @@
+{
+  "name": "afni_history",
+  "author": "AFNI Developers",
+  "description": "Show AFNI updates per user, dates, or levels.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "afni_history [VERB_LEVEL] [CHECK_DATE] [HELP] [HISTORY] [LIST_AUTHORS] [LIST_TYPES] [VERSION] [AUTHOR] [LEVEL] [MIN_LEVEL] [PROGRAM] [PAST_ENTRIES] [PAST_DAYS] [PAST_MONTHS] [PAST_YEARS] [TYPE] [HTML] [DLINE] [REVERSE] [SHOW_FIELD] [SHOW_FIELD_NAMES]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "-verb",
+      "description": "Request verbose output (LEVEL is from 0-6)",
+      "value-key": "[VERB_LEVEL]",
+      "type": "Number",
+      "optional": true,
+      "integer": true,
+      "maximum": 6,
+      "minimum": 0,
+      "id": "verb_level",
+      "name": "Verbosity Level"
+    },
+    {
+      "command-line-flag": "-check_date",
+      "description": "Check history against given date. If most recent afni_history is older than the passed date, the distribution version might be considered out of date.",
+      "value-key": "[CHECK_DATE]",
+      "type": "String",
+      "optional": true,
+      "id": "check_date",
+      "name": "Check Date"
+    },
+    {
+      "command-line-flag": "-help",
+      "description": "Show help information",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help Flag"
+    },
+    {
+      "command-line-flag": "-hist",
+      "description": "Show this program's history",
+      "value-key": "[HISTORY]",
+      "type": "Flag",
+      "id": "history",
+      "name": "History Flag"
+    },
+    {
+      "command-line-flag": "-list_authors",
+      "description": "Show the list of valid authors",
+      "value-key": "[LIST_AUTHORS]",
+      "type": "Flag",
+      "id": "list_authors",
+      "name": "List Authors Flag"
+    },
+    {
+      "command-line-flag": "-list_types",
+      "description": "Show the list of valid change types",
+      "value-key": "[LIST_TYPES]",
+      "type": "Flag",
+      "id": "list_types",
+      "name": "List Types Flag"
+    },
+    {
+      "command-line-flag": "-ver",
+      "description": "Show this program's version",
+      "value-key": "[VERSION]",
+      "type": "Flag",
+      "id": "version",
+      "name": "Version Flag"
+    },
+    {
+      "command-line-flag": "-author",
+      "description": "Restrict output to the given author",
+      "value-key": "[AUTHOR]",
+      "type": "String",
+      "optional": true,
+      "id": "author",
+      "name": "Author"
+    },
+    {
+      "command-line-flag": "-level",
+      "description": "Restrict output to the given level",
+      "value-key": "[LEVEL]",
+      "type": "Number",
+      "optional": true,
+      "integer": true,
+      "maximum": 5,
+      "minimum": 1,
+      "id": "level",
+      "name": "Level"
+    },
+    {
+      "command-line-flag": "-min_level",
+      "description": "Restrict output to at least level LEVEL",
+      "value-key": "[MIN_LEVEL]",
+      "type": "Number",
+      "optional": true,
+      "integer": true,
+      "maximum": 5,
+      "minimum": 1,
+      "id": "min_level",
+      "name": "Minimum Level"
+    },
+    {
+      "command-line-flag": "-program",
+      "description": "Restrict output to the given program",
+      "value-key": "[PROGRAM]",
+      "type": "String",
+      "optional": true,
+      "id": "program",
+      "name": "Program"
+    },
+    {
+      "command-line-flag": "-past_entries",
+      "description": "Restrict output to final ENTRIES entries",
+      "value-key": "[PAST_ENTRIES]",
+      "type": "Number",
+      "optional": true,
+      "integer": true,
+      "id": "past_entries",
+      "name": "Past Entries"
+    },
+    {
+      "command-line-flag": "-past_days",
+      "description": "Restrict output to the past DAYS days",
+      "value-key": "[PAST_DAYS]",
+      "type": "Number",
+      "optional": true,
+      "integer": true,
+      "id": "past_days",
+      "name": "Past Days"
+    },
+    {
+      "command-line-flag": "-past_months",
+      "description": "Restrict output to the past MONTHS months",
+      "value-key": "[PAST_MONTHS]",
+      "type": "Number",
+      "optional": true,
+      "integer": true,
+      "id": "past_months",
+      "name": "Past Months"
+    },
+    {
+      "command-line-flag": "-past_years",
+      "description": "Restrict output to the past YEARS years",
+      "value-key": "[PAST_YEARS]",
+      "type": "Number",
+      "optional": true,
+      "integer": true,
+      "id": "past_years",
+      "name": "Past Years"
+    },
+    {
+      "command-line-flag": "-type",
+      "description": "Restrict output to the given TYPE (TYPE = 0..5, or strings 'NEW_PROG', etc.)",
+      "value-key": "[TYPE]",
+      "type": "String",
+      "optional": true,
+      "id": "type",
+      "name": "Type"
+    },
+    {
+      "command-line-flag": "-html",
+      "description": "Add HTML formatting",
+      "value-key": "[HTML]",
+      "type": "Flag",
+      "id": "html",
+      "name": "HTML Flag"
+    },
+    {
+      "command-line-flag": "-dline",
+      "description": "Put a divider line between dates",
+      "value-key": "[DLINE]",
+      "type": "Flag",
+      "id": "dline",
+      "name": "Divider Line Flag"
+    },
+    {
+      "command-line-flag": "-reverse",
+      "description": "Reverse the sorting order (sort is by date, author, level, program)",
+      "value-key": "[REVERSE]",
+      "type": "Flag",
+      "id": "reverse",
+      "name": "Reverse Sorting Order Flag"
+    },
+    {
+      "command-line-flag": "-show_field",
+      "description": "Restrict entry output to field FIELD. Valid FIELDs include: all, firstline, day, month, year, date, author, program, level, type, desc, verbtext.",
+      "value-key": "[SHOW_FIELD]",
+      "type": "String",
+      "optional": true,
+      "id": "show_field",
+      "name": "Show Field"
+    },
+    {
+      "command-line-flag": "-show_field_names",
+      "description": "List valid FIELD names for -show_field",
+      "value-key": "[SHOW_FIELD_NAMES]",
+      "type": "Flag",
+      "id": "show_field_names",
+      "name": "Show Field Names Flag"
+    }
+  ]
+}

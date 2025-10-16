@@ -1,0 +1,277 @@
+{
+  "name": "DriveSuma",
+  "author": "AFNI Developers",
+  "description": "A program to drive suma from the command line.",
+  "command-line": "DriveSuma [COMMAND] [SURF_LABEL] [SURFACE_FILE] [SURF_STATE] [SURF_WINDING] [COORDINATES] [AUTORECORD] [BACKGROUND_COLOR] [VIEW_FILE] [DO_FILE] [DO_DRAW_MASK] [FIXED_DO] [MOBILE_DO] [KEY_PRESS] [VIEWER] [ANIM_DUP] [SAVE_AS] [SAVE_INDEX] [SAVE_RANGE] [SAVE_LAST] [SAVE_LAST_N] [SAVE_ALL] [ECHO_EDU] [ECHO_NEL_STDOUT] [ECHO_NEL_STDERR] [EXAMPLES] [HELP] [H] [HELP_NIDO] [C_DEMO] [VIEWER_CONT]",
+  "inputs": [
+    {
+      "description": "Command to be sent to SUMA.",
+      "value-key": "[COMMAND]",
+      "type": "String",
+      "id": "command",
+      "name": "Command",
+      "optional": false
+    },
+    {
+      "command-line-flag": "-surf_label",
+      "description": "A label (identifier) to assign to the surface",
+      "value-key": "[SURF_LABEL]",
+      "type": "String",
+      "id": "surf_label",
+      "name": "Surface Label",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-i_TYPE",
+      "description": "Name of surface file",
+      "value-key": "[SURFACE_FILE]",
+      "type": "File",
+      "id": "surface_file",
+      "name": "Surface File",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-surf_state",
+      "description": "Name the state of that surface",
+      "value-key": "[SURF_STATE]",
+      "type": "String",
+      "id": "surf_state",
+      "name": "Surface State",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-surf_winding",
+      "description": "Winding of triangles (ccw or cw)",
+      "value-key": "[SURF_WINDING]",
+      "type": "String",
+      "id": "surf_winding",
+      "name": "Surface Winding",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-xyz_1D",
+      "description": "A 1D formatted file containing new coordinates for nodes",
+      "value-key": "[COORDINATES]",
+      "type": "File",
+      "id": "coordinates",
+      "name": "Coordinates File",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-autorecord",
+      "description": "Set the autorecord prefix",
+      "value-key": "[AUTORECORD]",
+      "type": "String",
+      "id": "autorecord",
+      "name": "Autorecord Prefix",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-bkg_col",
+      "description": "Set the background color (R G B)",
+      "value-key": "[BACKGROUND_COLOR]",
+      "type": "String",
+      "id": "background_color",
+      "name": "Background Color",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-load_view",
+      "description": "Load a previously saved view file",
+      "value-key": "[VIEW_FILE]",
+      "type": "File",
+      "id": "view_file",
+      "name": "View File",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-load_do",
+      "description": "Load a displayable object file",
+      "value-key": "[DO_FILE]",
+      "type": "File",
+      "id": "do_file",
+      "name": "Displayable Object File",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-do_draw_mask",
+      "description": "Restrict where DO node-based objects are displayed",
+      "value-key": "[DO_DRAW_MASK]",
+      "type": "String",
+      "id": "do_draw_mask",
+      "name": "DO Draw Mask",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-fixed_do",
+      "description": "Load a fixed coordinate type NIML DO",
+      "value-key": "[FIXED_DO]",
+      "type": "String",
+      "id": "fixed_do",
+      "name": "Fixed DO",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-mobile_do",
+      "description": "Mobile version of fixed_do",
+      "value-key": "[MOBILE_DO]",
+      "type": "String",
+      "id": "mobile_do",
+      "name": "Mobile DO",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-key",
+      "description": "Act as if a key press was applied in the viewer",
+      "value-key": "[KEY_PRESS]",
+      "type": "String",
+      "id": "key_press",
+      "name": "Key Press",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-viewer",
+      "description": "Specify which viewer should be acted upon",
+      "value-key": "[VIEWER]",
+      "type": "String",
+      "id": "viewer",
+      "name": "Viewer",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-anim_dup",
+      "description": "Save DUP copies of each frame into movie",
+      "value-key": "[ANIM_DUP]",
+      "type": "Number",
+      "id": "anim_dup",
+      "name": "Animation Duplication",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-save_as",
+      "description": "Save image(s) in recorder in specified format",
+      "value-key": "[SAVE_AS]",
+      "type": "String",
+      "id": "save_as",
+      "name": "Save As",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-save_index",
+      "description": "Save one image indexed IND",
+      "value-key": "[SAVE_INDEX]",
+      "type": "Number",
+      "id": "save_index",
+      "name": "Save Index",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-save_range",
+      "description": "Save images from FROM to TO",
+      "value-key": "[SAVE_RANGE]",
+      "type": "String",
+      "id": "save_range",
+      "name": "Save Range",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-save_last",
+      "description": "Save last image",
+      "value-key": "[SAVE_LAST]",
+      "type": "Flag",
+      "id": "save_last",
+      "name": "Save Last"
+    },
+    {
+      "command-line-flag": "-save_last_n",
+      "description": "Save last N images",
+      "value-key": "[SAVE_LAST_N]",
+      "type": "Number",
+      "id": "save_last_n",
+      "name": "Save Last N",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-save_all",
+      "description": "Save all images",
+      "value-key": "[SAVE_ALL]",
+      "type": "Flag",
+      "id": "save_all",
+      "name": "Save All"
+    },
+    {
+      "command-line-flag": "-echo_edu",
+      "description": "Echoes the entire command line for edification purposes",
+      "value-key": "[ECHO_EDU]",
+      "type": "Flag",
+      "id": "echo_edu",
+      "name": "Echo Edu"
+    },
+    {
+      "command-line-flag": "-echo_nel_stdout",
+      "description": "Spit out the NIML object being sent to SUMA to stdout",
+      "value-key": "[ECHO_NEL_STDOUT]",
+      "type": "Flag",
+      "id": "echo_nel_stdout",
+      "name": "Echo NEL to STDOUT"
+    },
+    {
+      "command-line-flag": "-echo_nel_stderr",
+      "description": "Spit out the NIML object being sent to SUMA to stderr",
+      "value-key": "[ECHO_NEL_STDERR]",
+      "type": "Flag",
+      "id": "echo_nel_stderr",
+      "name": "Echo NEL to STDERR"
+    },
+    {
+      "command-line-flag": "-examples",
+      "description": "Show all the sample commands and exit",
+      "value-key": "[EXAMPLES]",
+      "type": "Flag",
+      "id": "examples",
+      "name": "Show Examples"
+    },
+    {
+      "command-line-flag": "-help",
+      "description": "Show the help in detail",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help"
+    },
+    {
+      "command-line-flag": "-h",
+      "description": "Show help with slightly less detail",
+      "value-key": "[H]",
+      "type": "Flag",
+      "id": "h",
+      "name": "Short Help"
+    },
+    {
+      "command-line-flag": "-help_nido",
+      "description": "Show the help for NIML Displayable Objects and exit",
+      "value-key": "[HELP_NIDO]",
+      "type": "Flag",
+      "id": "help_nido",
+      "name": "NIDO Help"
+    },
+    {
+      "command-line-flag": "-C_demo",
+      "description": "Execute a preset number of commands to illustrate how one can communicate with SUMA from one's own C code",
+      "value-key": "[C_DEMO]",
+      "type": "Flag",
+      "id": "c_demo",
+      "name": "C Demo"
+    },
+    {
+      "command-line-flag": "-com viewer_cont",
+      "description": "Apply settings to viewer or viewer controller",
+      "value-key": "[VIEWER_CONT]",
+      "type": "Flag",
+      "id": "viewer_cont",
+      "name": "Viewer Controller"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

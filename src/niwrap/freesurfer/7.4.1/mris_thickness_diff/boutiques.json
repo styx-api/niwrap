@@ -1,0 +1,138 @@
+{
+  "name": "mris_thickness_diff",
+  "author": "FreeSurfer Developers",
+  "description": "Computes the difference of two surface data sets defined on two surface meshes.",
+  "command-line": "mris_thickness_diff [SRC_TYPE] [TRG_TYPE] [OUT_FILE] [OUT_RESAMPLED] [NSMOOTH] [REGISTER] [XFORM] [INVERT] [SRC_VOLUME] [DST_VOLUME] [ABS] [LOG_FILE] [SUBJECT_NAME]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input surface data format (curv, paint or w)",
+      "value-key": "[SRC_TYPE]",
+      "command-line-flag": "-src_type",
+      "type": "String",
+      "optional": true,
+      "id": "src_type",
+      "name": "Source type"
+    },
+    {
+      "description": "Output format (paint or w)",
+      "value-key": "[TRG_TYPE]",
+      "command-line-flag": "-trg_type",
+      "type": "String",
+      "optional": true,
+      "id": "trg_type",
+      "name": "Target type"
+    },
+    {
+      "description": "Output file name",
+      "value-key": "[OUT_FILE]",
+      "command-line-flag": "-out",
+      "type": "String",
+      "optional": false,
+      "id": "out_file",
+      "name": "Output file"
+    },
+    {
+      "description": "Output resampled thickness",
+      "value-key": "[OUT_RESAMPLED]",
+      "command-line-flag": "-out_resampled",
+      "type": "String",
+      "optional": true,
+      "id": "out_resampled",
+      "name": "Output resampled thickness file"
+    },
+    {
+      "description": "Number of smoothing steps",
+      "value-key": "[NSMOOTH]",
+      "command-line-flag": "-nsmooth",
+      "type": "Number",
+      "optional": true,
+      "id": "nsmooth",
+      "name": "Number of smoothing steps"
+    },
+    {
+      "description": "Perform ICP rigid registration",
+      "value-key": "[REGISTER]",
+      "command-line-flag": "-register",
+      "type": "Flag",
+      "id": "register",
+      "name": "Register surfaces"
+    },
+    {
+      "description": "Apply LTA transform to align input surface1 to surface2",
+      "value-key": "[XFORM]",
+      "command-line-flag": "-xform",
+      "type": "File",
+      "optional": true,
+      "id": "xform",
+      "name": "Transform file"
+    },
+    {
+      "description": "Reversely apply -xform",
+      "value-key": "[INVERT]",
+      "command-line-flag": "-invert",
+      "type": "Flag",
+      "id": "invert",
+      "name": "Invert transform"
+    },
+    {
+      "description": "Source volume for -xform",
+      "value-key": "[SRC_VOLUME]",
+      "command-line-flag": "-src",
+      "type": "File",
+      "optional": true,
+      "id": "src_volume",
+      "name": "Source volume"
+    },
+    {
+      "description": "Target volume for -xform",
+      "value-key": "[DST_VOLUME]",
+      "command-line-flag": "-dst",
+      "type": "File",
+      "optional": true,
+      "id": "dst_volume",
+      "name": "Destination volume"
+    },
+    {
+      "description": "Compute the std of abs-thickness-diff",
+      "value-key": "[ABS]",
+      "command-line-flag": "-abs",
+      "type": "Flag",
+      "id": "abs",
+      "name": "Absolute difference"
+    },
+    {
+      "description": "Log file name",
+      "value-key": "[LOG_FILE]",
+      "command-line-flag": "-L",
+      "type": "File",
+      "optional": true,
+      "id": "log_file",
+      "name": "Log file"
+    },
+    {
+      "description": "Subject name (to be recorded in logfile)",
+      "value-key": "[SUBJECT_NAME]",
+      "command-line-flag": "-S",
+      "type": "String",
+      "optional": true,
+      "id": "subject_name",
+      "name": "Subject name"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUT_FILE]",
+      "description": "Output file with the difference mapped onto the surface",
+      "id": "output_difference",
+      "name": "Output difference file"
+    },
+    {
+      "path-template": "[OUT_RESAMPLED]",
+      "description": "Resampled output thickness file",
+      "id": "output_resampled",
+      "name": "Output resampled thickness"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

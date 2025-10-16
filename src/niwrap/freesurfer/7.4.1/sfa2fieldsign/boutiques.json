@@ -1,0 +1,153 @@
+{
+  "name": "sfa2fieldsign",
+  "author": "FreeSurfer Developers",
+  "description": "Computes fieldsign map from sfa-sess output. Masks the angle volumes and samples them to the surface.",
+  "command-line": "sfa2fieldsign [SFADIR] [REGISTER_DAT] [THRESHOLD] [FWHM] [PROJ_FRAC] [OCCIP] [PATCH] [OSD] [LH] [RH]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--sfa",
+      "description": "Output directory of sfa-sess",
+      "value-key": "[SFADIR]",
+      "type": "String",
+      "optional": false,
+      "id": "sfadir",
+      "name": "SFA Directory"
+    },
+    {
+      "command-line-flag": "--reg",
+      "description": "Registration file",
+      "value-key": "[REGISTER_DAT]",
+      "type": "String",
+      "optional": false,
+      "id": "register_dat",
+      "name": "Register File"
+    },
+    {
+      "command-line-flag": "--thresh",
+      "description": "Sigthresh threshold (Default: 2)",
+      "value-key": "[THRESHOLD]",
+      "type": "Number",
+      "optional": true,
+      "id": "threshold",
+      "name": "Threshold"
+    },
+    {
+      "command-line-flag": "--fwhm",
+      "description": "Full width at half maximum (FWHM) (Default: 10mm)",
+      "value-key": "[FWHM]",
+      "type": "Number",
+      "optional": true,
+      "id": "fwhm",
+      "name": "FWHM"
+    },
+    {
+      "command-line-flag": "--proj-frac",
+      "description": "Projection fraction (Default: 0.5)",
+      "value-key": "[PROJ_FRAC]",
+      "type": "Number",
+      "optional": true,
+      "id": "proj_frac",
+      "name": "Projection Fraction"
+    },
+    {
+      "command-line-flag": "--occip",
+      "description": "Use rh.occip.patch.flat",
+      "value-key": "[OCCIP]",
+      "type": "Flag",
+      "id": "occip",
+      "name": "Occipital Patch Flag"
+    },
+    {
+      "command-line-flag": "--patch",
+      "description": "Use specific patch (?)h.patch",
+      "value-key": "[PATCH]",
+      "type": "String",
+      "optional": true,
+      "id": "patch",
+      "name": "Patch"
+    },
+    {
+      "command-line-flag": "--osd",
+      "description": "Directory under SFA to put output (Default: fieldsign)",
+      "value-key": "[OSD]",
+      "type": "String",
+      "optional": true,
+      "id": "osd",
+      "name": "Output Subdirectory"
+    },
+    {
+      "command-line-flag": "--lh",
+      "description": "Process left hemisphere only",
+      "value-key": "[LH]",
+      "type": "Flag",
+      "id": "lh",
+      "name": "Left Hemisphere Flag"
+    },
+    {
+      "command-line-flag": "--rh",
+      "description": "Process right hemisphere only",
+      "value-key": "[RH]",
+      "type": "Flag",
+      "id": "rh",
+      "name": "Right Hemisphere Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[SFADIR]/[OSD]/fsig.bin.nii",
+      "description": "Intersection of polar and eccentricity thresholded fieldsigns",
+      "id": "fsig_bin",
+      "name": "FSIG Bin"
+    },
+    {
+      "path-template": "[SFADIR]/[OSD]/eccen.masked.nii",
+      "description": "Eccentricity angle (rad) volume masked by fieldsign bin",
+      "id": "eccen_masked",
+      "name": "Eccentricity Masked"
+    },
+    {
+      "path-template": "[SFADIR]/[OSD]/polar.masked.nii",
+      "description": "Polar angle (rad) volume masked by fieldsign bin",
+      "id": "polar_masked",
+      "name": "Polar Masked"
+    },
+    {
+      "path-template": "[SFADIR]/[OSD]/lh.eccen.masked.mgh",
+      "description": "Masked eccentricity angle sampled on the left hemisphere surface",
+      "id": "left_eccen_masked_mgh",
+      "name": "Left Eccentricity Masked MGH"
+    },
+    {
+      "path-template": "[SFADIR]/[OSD]/lh.polar.masked.mgh",
+      "description": "Masked polar angle sampled on the left hemisphere surface",
+      "id": "left_polar_masked_mgh",
+      "name": "Left Polar Masked MGH"
+    },
+    {
+      "path-template": "[SFADIR]/[OSD]/lh.fieldsign.masked.mgh",
+      "description": "Masked fieldsign map on left hemispehre",
+      "id": "left_fieldsign_masked_mgh",
+      "name": "Left Fieldsign Masked MGH"
+    },
+    {
+      "path-template": "[SFADIR]/[OSD]/rh.eccen.masked.mgh",
+      "description": "Masked eccentricity angle sampled on the right hemisphere surface",
+      "id": "right_eccen_masked_mgh",
+      "name": "Right Eccentricity Masked MGH"
+    },
+    {
+      "path-template": "[SFADIR]/[OSD]/rh.polar.masked.mgh",
+      "description": "Masked polar angle sampled on the right hemisphere surface",
+      "id": "right_polar_masked_mgh",
+      "name": "Right Polar Masked MGH"
+    },
+    {
+      "path-template": "[SFADIR]/[OSD]/rh.fieldsign.masked.mgh",
+      "description": "Masked fieldsign map on the right hemisphere",
+      "id": "right_fieldsign_masked_mgh",
+      "name": "Right fieldsign Masked MGH"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

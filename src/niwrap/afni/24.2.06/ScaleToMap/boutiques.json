@@ -1,0 +1,285 @@
+{
+  "name": "ScaleToMap",
+  "author": "AFNI Developers",
+  "description": "Tool to scale values to a color map",
+  "command-line": "ScaleToMap [INPUT_FILE] [ICOL] [VCOL] [CMAP] [CMAPFILE] [CMAPDB] [FRF] [CLP] [PERC_CLP] [APR] [ANR] [INTERP] [NOINTERP] [DIRECT] [MSK_ZERO] [MSK] [MSK_COL] [NOMSK_COL] [BR] [HELP] [VERBOSE] [SHOWMAP] [SHOWDB] [NOVOLREG] [NOXFORM] [SETENV] [TRACE] [NOMALL] [YESMALL]",
+  "inputs": [
+    {
+      "description": "Input file in 1D formatted ascii containing node values",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input File"
+    },
+    {
+      "description": "Index of node index column (-1 if node index is implicit)",
+      "value-key": "[ICOL]",
+      "type": "Number",
+      "optional": false,
+      "id": "icol",
+      "name": "Index Column"
+    },
+    {
+      "description": "Index of node value column",
+      "value-key": "[VCOL]",
+      "type": "Number",
+      "optional": false,
+      "id": "vcol",
+      "name": "Value Column"
+    },
+    {
+      "command-line-flag": "-cmap",
+      "description": "Choose one of the standard colormaps available with SUMA",
+      "value-key": "[CMAP]",
+      "type": "String",
+      "optional": true,
+      "id": "cmap",
+      "name": "Color Map"
+    },
+    {
+      "command-line-flag": "-cmapfile",
+      "description": "Read color map from a Mapfile",
+      "value-key": "[CMAPFILE]",
+      "type": "File",
+      "optional": true,
+      "id": "cmapfile",
+      "name": "Color Map File"
+    },
+    {
+      "command-line-flag": "-cmapdb",
+      "description": "Read color maps from an AFNI .pal file",
+      "value-key": "[CMAPDB]",
+      "type": "File",
+      "optional": true,
+      "id": "cmapdb",
+      "name": "Color Map Database File"
+    },
+    {
+      "command-line-flag": "-frf",
+      "description": "Indicate that the first row in the file is the first color",
+      "type": "Flag",
+      "id": "frf",
+      "name": "First Row First",
+      "value-key": "[FRF]"
+    },
+    {
+      "command-line-flag": "-clp",
+      "description": "Clip values in IntVect to specified range",
+      "value-key": "[CLP]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 2,
+      "optional": true,
+      "id": "clp",
+      "name": "Clip Values"
+    },
+    {
+      "command-line-flag": "-perc_clp",
+      "description": "Percentile clip values in IntVect to specified range",
+      "value-key": "[PERC_CLP]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 2,
+      "optional": true,
+      "id": "perc_clp",
+      "name": "Percentile Clip Values"
+    },
+    {
+      "command-line-flag": "-apr",
+      "description": "Clip values in IntVect to [0 range]",
+      "value-key": "[APR]",
+      "type": "Number",
+      "optional": true,
+      "id": "apr",
+      "name": "Auto-Positive Range"
+    },
+    {
+      "command-line-flag": "-anr",
+      "description": "Clip values in IntVect to [-range range]",
+      "value-key": "[ANR]",
+      "type": "Number",
+      "optional": true,
+      "id": "anr",
+      "name": "Auto-Negative Range"
+    },
+    {
+      "command-line-flag": "-interp",
+      "description": "Use color interpolation between colors in colormap (default)",
+      "type": "Flag",
+      "id": "interp",
+      "name": "Interpolation",
+      "value-key": "[INTERP]"
+    },
+    {
+      "command-line-flag": "-nointerp",
+      "description": "Turn off color interpolation within the colormap",
+      "type": "Flag",
+      "id": "nointerp",
+      "name": "No Interpolation",
+      "value-key": "[NOINTERP]"
+    },
+    {
+      "command-line-flag": "-direct",
+      "description": "Directly map values to index of color in colormap",
+      "type": "Flag",
+      "id": "direct",
+      "name": "Direct Mapping",
+      "value-key": "[DIRECT]"
+    },
+    {
+      "command-line-flag": "-msk_zero",
+      "description": "Mask values that are 0",
+      "type": "Flag",
+      "id": "msk_zero",
+      "name": "Mask Zero",
+      "value-key": "[MSK_ZERO]"
+    },
+    {
+      "command-line-flag": "-msk",
+      "description": "Mask values in vcol between specified range",
+      "value-key": "[MSK]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 2,
+      "optional": true,
+      "id": "msk",
+      "name": "Mask Range"
+    },
+    {
+      "command-line-flag": "-msk_col",
+      "description": "Set color of masked voxels",
+      "value-key": "[MSK_COL]",
+      "type": "Number",
+      "list": true,
+      "min-list-entries": 3,
+      "max-list-entries": 3,
+      "optional": true,
+      "id": "msk_col",
+      "name": "Mask Color"
+    },
+    {
+      "command-line-flag": "-nomsk_col",
+      "description": "Do not output nodes that got masked",
+      "type": "Flag",
+      "id": "nomsk_col",
+      "name": "No Mask Color",
+      "value-key": "[NOMSK_COL]"
+    },
+    {
+      "command-line-flag": "-br",
+      "description": "Apply a brightness factor to colormap and mask color",
+      "value-key": "[BR]",
+      "type": "Number",
+      "optional": true,
+      "id": "br",
+      "name": "Brightness Factor"
+    },
+    {
+      "command-line-flag": "-h",
+      "description": "Display help message",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help",
+      "value-key": "[HELP]"
+    },
+    {
+      "command-line-flag": "-verb",
+      "description": "Verbose mode",
+      "type": "Flag",
+      "id": "verbose",
+      "name": "Verbose",
+      "value-key": "[VERBOSE]"
+    },
+    {
+      "command-line-flag": "-showmap",
+      "description": "Print colormap to screen and quit",
+      "type": "Flag",
+      "id": "showmap",
+      "name": "Show Color Map",
+      "value-key": "[SHOWMAP]"
+    },
+    {
+      "command-line-flag": "-showdb",
+      "description": "Print colors and colormaps of AFNI along with any loaded from Palfile",
+      "type": "Flag",
+      "id": "showdb",
+      "name": "Show Color Database",
+      "value-key": "[SHOWDB]"
+    },
+    {
+      "command-line-flag": "-novolreg",
+      "description": "Ignore any Rotate, Volreg, Tagalign, or WarpDrive transformations present in the Surface Volume",
+      "type": "Flag",
+      "id": "novolreg",
+      "name": "No Volume Registration",
+      "value-key": "[NOVOLREG]"
+    },
+    {
+      "command-line-flag": "-noxform",
+      "description": "Same as -novolreg",
+      "type": "Flag",
+      "id": "noxform",
+      "name": "No Transformations",
+      "value-key": "[NOXFORM]"
+    },
+    {
+      "command-line-flag": "-setenv",
+      "description": "Set environment variable ENVname to ENVvalue. Quotes are necessary",
+      "value-key": "[SETENV]",
+      "type": "String",
+      "optional": true,
+      "id": "setenv",
+      "name": "Set Environment Variable"
+    },
+    {
+      "id": "trace",
+      "name": "Trace Debugging",
+      "description": "Turns on In/Out debug and Memory tracing. It's recommended to redirect stdout to a file when using this option.",
+      "value-key": "[TRACE]",
+      "optional": true,
+      "type": {
+        "id": "trace",
+        "command-line": "[TRACE] [EXTREME_TRACE]",
+        "inputs": [
+          {
+            "command-line-flag": "-trace",
+            "description": "Turns on In/Out debug and Memory tracing. It's recommended to redirect stdout to a file when using this option.",
+            "value-key": "[TRACE]",
+            "type": "Flag",
+            "optional": true,
+            "id": "trace",
+            "name": "Trace Debugging"
+          },
+          {
+            "command-line-flag": "-TRACE",
+            "description": "Turns on extreme tracing.",
+            "value-key": "[EXTREME_TRACE]",
+            "type": "Flag",
+            "optional": true,
+            "id": "TRACE",
+            "name": "Extreme Tracing"
+          }
+        ]
+      }
+    },
+    {
+      "command-line-flag": "-nomall",
+      "description": "Turn off memory tracing",
+      "type": "Flag",
+      "id": "nomall",
+      "name": "No Memory Trace",
+      "value-key": "[NOMALL]"
+    },
+    {
+      "command-line-flag": "-yesmall",
+      "description": "Turn on memory tracing (default)",
+      "type": "Flag",
+      "id": "yesmall",
+      "name": "Memory Trace",
+      "value-key": "[YESMALL]"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

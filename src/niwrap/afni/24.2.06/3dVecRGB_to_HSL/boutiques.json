@@ -1,0 +1,54 @@
+{
+  "name": "3dVecRGB_to_HSL",
+  "author": "AFNI Developers",
+  "description": "Convert a 3-brick RGB (red, green, blue) data set to an HSL (hue, saturation, luminance) one.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dVecRGB_to_HSL [PREFIX] [IN_VEC] [MASK] [IN_SCAL]",
+  "inputs": [
+    {
+      "description": "Output file name part.",
+      "value-key": "[PREFIX]",
+      "command-line-flag": "-prefix",
+      "type": "String",
+      "optional": false,
+      "id": "prefix",
+      "name": "Prefix"
+    },
+    {
+      "description": "Input RGB vector file of three bricks, presumably each having values in the interval [0,1].",
+      "value-key": "[IN_VEC]",
+      "command-line-flag": "-in_vec",
+      "type": "File",
+      "optional": false,
+      "id": "in_vec",
+      "name": "Input RGB Vector File"
+    },
+    {
+      "description": "Whole brain mask within which to calculate things. Otherwise, data should be masked already.",
+      "command-line-flag": "-mask",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "mask",
+      "name": "Mask File"
+    },
+    {
+      "description": "Scalar file (single brick) which will be appended to the output file, mainly aimed at loading in an FA data set for tract volume coloration.",
+      "command-line-flag": "-in_scal",
+      "value-key": "[IN_SCAL]",
+      "type": "File",
+      "optional": true,
+      "id": "in_scal",
+      "name": "Input Scalar File"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX]_HSL.HEAD",
+      "description": "Output HSL dataset",
+      "id": "output_hsl_dataset",
+      "name": "Output HSL Dataset"
+    }
+  ]
+}

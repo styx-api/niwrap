@@ -1,0 +1,72 @@
+{
+  "name": "suma_change_spec",
+  "author": "AFNI Developers",
+  "description": "This program changes SUMA's surface specification (Spec) files.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "suma_change_spec [INPUT] [STATE] [DOMAINPARENT] [OUTPUT] [REMOVE] [ANATOMICAL]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "SUMA Spec file to change",
+      "value-key": "[INPUT]",
+      "type": "File",
+      "optional": false,
+      "id": "input",
+      "name": "Input Spec file"
+    },
+    {
+      "description": "State within the Spec file to change",
+      "value-key": "[STATE]",
+      "type": "String",
+      "optional": false,
+      "id": "state",
+      "name": "State"
+    },
+    {
+      "description": "New Domain Parent for the state within the Spec file",
+      "value-key": "[DOMAINPARENT]",
+      "type": "String",
+      "optional": true,
+      "id": "domainparent",
+      "name": "Domain Parent"
+    },
+    {
+      "description": "Name to which the new Spec file will be temporarily written",
+      "value-key": "[OUTPUT]",
+      "type": "String",
+      "optional": true,
+      "id": "output",
+      "name": "Output Spec file"
+    },
+    {
+      "command-line-flag": "-remove",
+      "description": "Remove the automatically created backup",
+      "value-key": "[REMOVE]",
+      "type": "Flag",
+      "id": "remove",
+      "name": "Remove Backup"
+    },
+    {
+      "command-line-flag": "-anatomical",
+      "description": "Add 'Anatomical = Y' to the selected SurfaceState",
+      "value-key": "[ANATOMICAL]",
+      "type": "Flag",
+      "id": "anatomical",
+      "name": "Anatomical Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT]",
+      "description": "New Spec file",
+      "id": "output_spec",
+      "name": "Output Spec file"
+    },
+    {
+      "path-template": "[INPUT].bkp",
+      "description": "Backup of the original Spec file",
+      "id": "backup_spec",
+      "name": "Backup Spec file"
+    }
+  ]
+}

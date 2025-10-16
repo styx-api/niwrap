@@ -1,0 +1,175 @@
+{
+  "name": "gcatrain",
+  "description": "GCA training tool for building a GCA from a group of manually labeled subjects.",
+  "command-line": "gcatrain [GCADIR] [SUBJECTLISTFILE] [INIT_SUBJECT_TRANSFORM] [SEG_FILE] [SOURCE_SUBJECTS_DIR] [NUM_ITERS] [NUM_THREADS] [EXCLUDE_FILE] [EXCLUDE_SUBJECT] [SYMMETRIC_ATLAS] [COLOR_TABLE] [NO_SUBMIT] [MAIL_FLAG] [NO_STRICT] [GCAREG_ITERS] [PREP_ONLY] [NU10_FLAG] [NU12_FLAG] [NO_EMREG]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--g",
+      "description": "Directory for the new SUBJECTS_DIR.",
+      "value-key": "[GCADIR]",
+      "type": "String",
+      "optional": false,
+      "id": "gcadir",
+      "name": "GCA Directory"
+    },
+    {
+      "command-line-flag": "--f",
+      "description": "The list of subjects to include.",
+      "value-key": "[SUBJECTLISTFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "subjectlistfile",
+      "name": "Subject List File"
+    },
+    {
+      "command-line-flag": "--init",
+      "description": "Initialization subject and its talairach transform.",
+      "value-key": "[INIT_SUBJECT_TRANSFORM]",
+      "type": "String",
+      "list": true,
+      "max-list-entries": 2,
+      "min-list-entries": 2,
+      "optional": false,
+      "id": "init_subject_transform",
+      "name": "Initialization Subject and Transform"
+    },
+    {
+      "command-line-flag": "--seg",
+      "description": "Segmentation file (e.g. seg_edited.mgz).",
+      "value-key": "[SEG_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "seg_file",
+      "name": "Segmentation File"
+    },
+    {
+      "command-line-flag": "--sd",
+      "description": "Source SUBJECTS_DIR for data.",
+      "value-key": "[SOURCE_SUBJECTS_DIR]",
+      "type": "String",
+      "optional": false,
+      "id": "source_subjects_dir",
+      "name": "Source Subjects Directory"
+    },
+    {
+      "command-line-flag": "--niters",
+      "description": "Number of iterations.",
+      "value-key": "[NUM_ITERS]",
+      "type": "Number",
+      "optional": true,
+      "id": "num_iters",
+      "name": "Number of Iterations"
+    },
+    {
+      "command-line-flag": "--nthreads",
+      "description": "Number of threads to use.",
+      "value-key": "[NUM_THREADS]",
+      "type": "Number",
+      "optional": true,
+      "id": "num_threads",
+      "name": "Number of Threads"
+    },
+    {
+      "command-line-flag": "--x",
+      "description": "File listing subjects to exclude, useful for jackknifing.",
+      "value-key": "[EXCLUDE_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "exclude_file",
+      "name": "Exclude File"
+    },
+    {
+      "command-line-flag": "--xs",
+      "description": "Exclude a single subject, useful for jackknifing.",
+      "value-key": "[EXCLUDE_SUBJECT]",
+      "type": "String",
+      "optional": true,
+      "id": "exclude_subject",
+      "name": "Exclude Subject"
+    },
+    {
+      "command-line-flag": "--sym",
+      "description": "Create a symmetric atlas.",
+      "value-key": "[SYMMETRIC_ATLAS]",
+      "type": "Flag",
+      "id": "symmetric_atlas",
+      "name": "Symmetric Atlas Flag"
+    },
+    {
+      "command-line-flag": "--ctab",
+      "description": "Colortable for segmentation labels (not needed).",
+      "value-key": "[COLOR_TABLE]",
+      "type": "File",
+      "optional": true,
+      "id": "color_table",
+      "name": "Colortable"
+    },
+    {
+      "command-line-flag": "--no-submit",
+      "description": "Run serially without pbsubmit.",
+      "value-key": "[NO_SUBMIT]",
+      "type": "Flag",
+      "id": "no_submit",
+      "name": "No Submit Flag"
+    },
+    {
+      "command-line-flag": "--pb-m",
+      "description": "Mail to user when jobs are pbsubmitted or finished.",
+      "value-key": "[MAIL_FLAG]",
+      "type": "Flag",
+      "id": "mail_flag",
+      "name": "Mail Flag"
+    },
+    {
+      "command-line-flag": "--no-strict",
+      "description": "Do not require FS build stamps to match across iterations.",
+      "value-key": "[NO_STRICT]",
+      "type": "Flag",
+      "id": "no_strict",
+      "name": "No Strict Flag"
+    },
+    {
+      "command-line-flag": "--gcareg-iters",
+      "description": "Set to 1 for testing.",
+      "value-key": "[GCAREG_ITERS]",
+      "type": "Flag",
+      "id": "gcareg_iters",
+      "name": "GCA Registration Iters Flag"
+    },
+    {
+      "command-line-flag": "--prep-only",
+      "description": "Execute preparation steps only.",
+      "value-key": "[PREP_ONLY]",
+      "type": "Flag",
+      "id": "prep_only",
+      "name": "Prep Only Flag"
+    },
+    {
+      "command-line-flag": "--nu10",
+      "description": "Run with nu10 settings.",
+      "value-key": "[NU10_FLAG]",
+      "type": "Flag",
+      "id": "nu10_flag",
+      "name": "NU10 Flag"
+    },
+    {
+      "command-line-flag": "--nu12",
+      "description": "Run with nu12 settings (default).",
+      "value-key": "[NU12_FLAG]",
+      "type": "Flag",
+      "id": "nu12_flag",
+      "name": "NU12 Flag"
+    },
+    {
+      "command-line-flag": "--no-emreg",
+      "description": "Do not use mri_em_register.",
+      "value-key": "[NO_EMREG]",
+      "type": "Flag",
+      "id": "no_emreg",
+      "name": "No EM Register Flag"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

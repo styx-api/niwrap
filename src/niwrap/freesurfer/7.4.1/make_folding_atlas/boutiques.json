@@ -1,0 +1,182 @@
+{
+  "name": "make_folding_atlas",
+  "author": "FreeSurfer Developers",
+  "description": "Script to iteratively create a cortical folding atlas.",
+  "command-line": "make_folding_atlas [SUBJLISTFILE] [FSGDFILE] [SUBJECTS] [OUTPUT_BASE] [MAX_ITERATIONS] [XHEMI] [INIT_SURF_REG] [INIT_SUBJECT] [NO_ANNOT_TEMPLATE] [LEFT_HEMISPHERE] [RIGHT_HEMISPHERE] [LHRH] [ICO_ORDER] [NO_VOL_ON_LAST] [VOL] [INIT] [SHORT_SLEEP] [NO_TEMPLATE_ONLY] [THREADS] [SLURM_ACCOUNT]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--f",
+      "description": "Subject list file.",
+      "value-key": "[SUBJLISTFILE]",
+      "type": "File",
+      "optional": true,
+      "id": "subjlistfile",
+      "name": "Subject list file"
+    },
+    {
+      "command-line-flag": "--fsgd",
+      "description": "FS Gradient Design file.",
+      "value-key": "[FSGDFILE]",
+      "type": "File",
+      "optional": true,
+      "id": "fsgdfile",
+      "name": "FSGD file"
+    },
+    {
+      "command-line-flag": "--s",
+      "description": "Subjects to be included.",
+      "value-key": "[SUBJECTS]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "subjects",
+      "name": "Subjects"
+    },
+    {
+      "command-line-flag": "--b",
+      "description": "Output base; the subject will be named based on this.",
+      "value-key": "[OUTPUT_BASE]",
+      "type": "String",
+      "optional": true,
+      "id": "output_base",
+      "name": "Output base"
+    },
+    {
+      "command-line-flag": "--nmax",
+      "description": "Maximum number of iterations.",
+      "value-key": "[MAX_ITERATIONS]",
+      "type": "Number",
+      "optional": true,
+      "id": "max_iterations",
+      "name": "Maximum iterations"
+    },
+    {
+      "command-line-flag": "--xhemi",
+      "description": "Do xhemi (sets hemilist to lh only, use --lhrh after if both are wanted).",
+      "value-key": "[XHEMI]",
+      "type": "Flag",
+      "id": "xhemi",
+      "name": "Xhemi flag"
+    },
+    {
+      "command-line-flag": "--init-surf-reg",
+      "description": "Registration used to make template on first iteration (default sphere.reg).",
+      "value-key": "[INIT_SURF_REG]",
+      "type": "String",
+      "optional": true,
+      "id": "init_surf_reg",
+      "name": "Initial surface registration"
+    },
+    {
+      "command-line-flag": "--init-subject",
+      "description": "Create first atlas from subject instead of all subjects.",
+      "value-key": "[INIT_SUBJECT]",
+      "type": "String",
+      "optional": true,
+      "id": "init_subject",
+      "name": "Initial subject"
+    },
+    {
+      "command-line-flag": "--no-annot-template",
+      "description": "Disable annotation template (good for monkeys).",
+      "value-key": "[NO_ANNOT_TEMPLATE]",
+      "type": "Flag",
+      "id": "no_annot_template",
+      "name": "No annotation template flag"
+    },
+    {
+      "command-line-flag": "--lh",
+      "description": "Process left hemisphere.",
+      "value-key": "[LEFT_HEMISPHERE]",
+      "type": "Flag",
+      "id": "left_hemisphere",
+      "name": "Left hemisphere flag"
+    },
+    {
+      "command-line-flag": "--rh",
+      "description": "Process right hemisphere.",
+      "value-key": "[RIGHT_HEMISPHERE]",
+      "type": "Flag",
+      "id": "right_hemisphere",
+      "name": "Right hemisphere flag"
+    },
+    {
+      "command-line-flag": "--lhrh",
+      "description": "Process both left and right hemispheres (default).",
+      "value-key": "[LHRH]",
+      "type": "Flag",
+      "id": "lhrh",
+      "name": "Both hemispheres flag"
+    },
+    {
+      "command-line-flag": "--ico",
+      "description": "Icosahedron order; default is 7.",
+      "value-key": "[ICO_ORDER]",
+      "type": "Number",
+      "optional": true,
+      "id": "ico_order",
+      "name": "Icosahedron order"
+    },
+    {
+      "command-line-flag": "--no-vol-on-last",
+      "description": "Do not run make_average_volume on the last iteration.",
+      "value-key": "[NO_VOL_ON_LAST]",
+      "type": "Flag",
+      "id": "no_vol_on_last",
+      "name": "No volume on last iteration flag"
+    },
+    {
+      "command-line-flag": "--vol",
+      "description": "Run make_average_volume on each iteration.",
+      "value-key": "[VOL]",
+      "type": "Flag",
+      "id": "vol",
+      "name": "Volume each iteration flag"
+    },
+    {
+      "command-line-flag": "--init",
+      "description": "Use previous iteration registration to initialize mris_register/surfreg.",
+      "value-key": "[INIT]",
+      "type": "Flag",
+      "id": "init",
+      "name": "Initialize from previous registration flag"
+    },
+    {
+      "command-line-flag": "--short-sleep",
+      "description": "Sleep for a shorter time before polling.",
+      "value-key": "[SHORT_SLEEP]",
+      "type": "Flag",
+      "id": "short_sleep",
+      "name": "Short sleep flag"
+    },
+    {
+      "command-line-flag": "--no-template-only",
+      "description": "Make average surface files even with a single hemi or --no-vol.",
+      "value-key": "[NO_TEMPLATE_ONLY]",
+      "type": "Flag",
+      "id": "no_template_only",
+      "name": "No template only flag"
+    },
+    {
+      "command-line-flag": "--threads",
+      "description": "Number of threads to use.",
+      "value-key": "[THREADS]",
+      "type": "Number",
+      "optional": true,
+      "id": "threads",
+      "name": "Number of threads"
+    },
+    {
+      "command-line-flag": "--account",
+      "description": "SLURM account or set FS_BATCH_ACCOUNT environment variable.",
+      "value-key": "[SLURM_ACCOUNT]",
+      "type": "String",
+      "optional": true,
+      "id": "slurm_account",
+      "name": "SLURM account"
+    }
+  ],
+  "output-files": [],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

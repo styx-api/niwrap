@@ -1,0 +1,59 @@
+{
+  "name": "label_subject_mixed",
+  "author": "FreeSurfer Developers",
+  "description": "Automatic labeling of brain regions using a Gaussian classifier array.",
+  "command-line": "label_subject_mixed [BRAIN_MASK] [NORM_VOLUME] [TRANSFORM] [GCA_FILE] [ASEG_OUTPUT]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Brain mask to be used for final labeling",
+      "value-key": "[BRAIN_MASK]",
+      "type": "File",
+      "optional": false,
+      "id": "brain_mask",
+      "name": "Brain Mask",
+      "command-line-flag": "-mask"
+    },
+    {
+      "description": "Normalized volume",
+      "value-key": "[NORM_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "norm_volume",
+      "name": "Normalized Volume"
+    },
+    {
+      "description": "Transform file in LTA format",
+      "value-key": "[TRANSFORM]",
+      "type": "File",
+      "optional": false,
+      "id": "transform",
+      "name": "Transform File"
+    },
+    {
+      "description": "Gaussian classifier array (GCA) file",
+      "value-key": "[GCA_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "gca_file",
+      "name": "GCA File"
+    },
+    {
+      "description": "Output aseg file",
+      "value-key": "[ASEG_OUTPUT]",
+      "type": "String",
+      "optional": false,
+      "id": "aseg_output",
+      "name": "Aseg Output"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[ASEG_OUTPUT]",
+      "description": "Labeled segmentation output",
+      "id": "output_aseg",
+      "name": "Output Aseg File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

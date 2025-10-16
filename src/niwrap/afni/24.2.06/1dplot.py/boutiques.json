@@ -1,0 +1,316 @@
+{
+  "name": "1dplot.py",
+  "author": "AFNI Developers",
+  "description": "This program is for making images to visualize columns of numbers from 1D text files. It uses Python, particularly matplotlib, to create plots.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "1dplot.py [INFILES] [PREFIX] [HELP] [BOXPLOT_ON] [BPLOT_VIEW] [MARGIN_OFF] [SCALE] [XFILE] [XVALS] [YAXIS] [YLABELS] [YLABELS_MAXLEN] [LEGEND_ON] [LEGEND_LABELS] [LEGEND_LOCS] [XLABEL] [TITLE] [REVERSE_ORDER] [SEPSCL] [ONE_GRAPH] [DPI] [FIGSIZE] [FONTSIZE] [FONTFAMILY] [FONTSTYLES] [COLORS] [PATCHES] [CENSOR_TRS] [CENSOR_FILES] [CENSOR_HLINE] [CENSOR_RGB] [BKGD_COLOR]",
+  "inputs": [
+    {
+      "description": "One or more file names of text files. Each column in this file will be treated as a separate time series for plotting.",
+      "value-key": "[INFILES]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "infiles",
+      "name": "Input files",
+      "command-line-flag": "-infiles"
+    },
+    {
+      "description": "Output filename or prefix. Default output image type is .jpg",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "prefix",
+      "name": "Output prefix",
+      "command-line-flag": "-prefix"
+    },
+    {
+      "description": "See helpfile",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help",
+      "command-line-flag": "-h"
+    },
+    {
+      "description": "A fun feature to show an additional boxplot adjacent to each time series",
+      "value-key": "[BOXPLOT_ON]",
+      "type": "Flag",
+      "id": "boxplot_on",
+      "name": "Boxplot on",
+      "command-line-flag": "-boxplot_on"
+    },
+    {
+      "description": "Adjust view for boxplots when using censoring",
+      "value-key": "[BPLOT_VIEW]",
+      "type": "String",
+      "optional": true,
+      "id": "bplot_view",
+      "name": "Boxplot view",
+      "command-line-flag": "-bplot_view"
+    },
+    {
+      "description": "Fill the plot frame completely, thus no labels, frame, or titles will be visible",
+      "value-key": "[MARGIN_OFF]",
+      "type": "Flag",
+      "id": "margin_off",
+      "name": "Margin off",
+      "command-line-flag": "-margin_off"
+    },
+    {
+      "description": "Provide a list of scales to apply to the y-values",
+      "value-key": "[SCALE]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "scale",
+      "name": "Scale",
+      "command-line-flag": "-scale"
+    },
+    {
+      "description": "One way to input x-values explicitly: as a \"1D\" file containing a single file of numbers",
+      "value-key": "[XFILE]",
+      "type": "File",
+      "optional": true,
+      "id": "xfile",
+      "name": "X file",
+      "command-line-flag": "-xfile"
+    },
+    {
+      "description": "Provide exactly 3 numbers for x-values: start, stop, and stepsize",
+      "value-key": "[XVALS]",
+      "type": "Number",
+      "list": true,
+      "optional": true,
+      "id": "xvals",
+      "name": "X values",
+      "command-line-flag": "-xvals",
+      "min-list-entries": 3,
+      "max-list-entries": 3
+    },
+    {
+      "description": "Optional range for each 'infile' y-axis",
+      "value-key": "[YAXIS]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "yaxis",
+      "name": "Y axis",
+      "command-line-flag": "-yaxis"
+    },
+    {
+      "description": "Optional text labels for each 'infile' column",
+      "value-key": "[YLABELS]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "ylabels",
+      "name": "Y labels",
+      "command-line-flag": "-ylabels"
+    },
+    {
+      "description": "allows y-axis labels to wrap into multiple rows, each of length <= which the user can decide",
+      "value-key": "[YLABELS_MAXLEN]",
+      "type": "Number",
+      "optional": true,
+      "id": "ylabels_maxlen",
+      "name": "Y labels max length",
+      "command-line-flag": "-ylabels_maxlen"
+    },
+    {
+      "description": "Turn on the plotting of a legend in the plot(s)",
+      "value-key": "[LEGEND_ON]",
+      "type": "Flag",
+      "id": "legend_on",
+      "name": "Legend on",
+      "command-line-flag": "-legend_on"
+    },
+    {
+      "description": "Optional legend labels, if using '-legend_on'",
+      "value-key": "[LEGEND_LABELS]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "legend_labels",
+      "name": "Legend labels",
+      "command-line-flag": "-legend_labels"
+    },
+    {
+      "description": "Optional legend locations, if using '-legend_on'",
+      "value-key": "[LEGEND_LOCS]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "legend_locs",
+      "name": "Legend locations",
+      "command-line-flag": "-legend_locs"
+    },
+    {
+      "description": "Optional text labels for the abscissa/x-axis",
+      "value-key": "[XLABEL]",
+      "type": "String",
+      "optional": true,
+      "id": "xlabel",
+      "name": "X label",
+      "command-line-flag": "-xlabel"
+    },
+    {
+      "description": "Optional title for the set of plots",
+      "value-key": "[TITLE]",
+      "type": "String",
+      "optional": true,
+      "id": "title",
+      "name": "Title",
+      "command-line-flag": "-title"
+    },
+    {
+      "description": "Reverses the order of plotted time series",
+      "value-key": "[REVERSE_ORDER]",
+      "type": "Flag",
+      "id": "reverse_order",
+      "name": "Reverse order",
+      "command-line-flag": "-reverse_order"
+    },
+    {
+      "description": "Make each graph have its own y-range",
+      "value-key": "[SEPSCL]",
+      "type": "Flag",
+      "id": "sepscl",
+      "name": "Separate scale",
+      "command-line-flag": "-sepscl"
+    },
+    {
+      "description": "Plot multiple infiles in a single subplot",
+      "value-key": "[ONE_GRAPH]",
+      "type": "Flag",
+      "id": "one_graph",
+      "name": "One graph",
+      "command-line-flag": "-one_graph"
+    },
+    {
+      "description": "Choose the output image's DPI. Default value is 150",
+      "value-key": "[DPI]",
+      "type": "Number",
+      "optional": true,
+      "id": "dpi",
+      "name": "DPI",
+      "command-line-flag": "-dpi"
+    },
+    {
+      "description": "Choose the output image's dimensions (units are inches)",
+      "value-key": "[FIGSIZE]",
+      "type": "Number",
+      "list": true,
+      "optional": true,
+      "id": "figsize",
+      "name": "Figure size",
+      "command-line-flag": "-figsize",
+      "min-list-entries": 2,
+      "max-list-entries": 2
+    },
+    {
+      "description": "Change image fontsize; default is 10",
+      "value-key": "[FONTSIZE]",
+      "type": "Number",
+      "optional": true,
+      "id": "fontsize",
+      "name": "Font size",
+      "command-line-flag": "-fontsize"
+    },
+    {
+      "description": "Change font-family used; default is monospace",
+      "value-key": "[FONTFAMILY]",
+      "type": "String",
+      "optional": true,
+      "id": "fontfamily",
+      "name": "Font family",
+      "command-line-flag": "-fontfamily"
+    },
+    {
+      "description": "Add a specific font name; should match with chosen font-family",
+      "value-key": "[FONTSTYLES]",
+      "type": "String",
+      "optional": true,
+      "id": "fontstyles",
+      "name": "Font styles",
+      "command-line-flag": "-fontstyles"
+    },
+    {
+      "description": "Decide what color(s) to cycle through in plots (one or more)",
+      "value-key": "[COLORS]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "colors",
+      "name": "Colors",
+      "command-line-flag": "-colors"
+    },
+    {
+      "description": "Specify run lengths for background patches to distinguish runs",
+      "value-key": "[PATCHES]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "patches",
+      "name": "Patches",
+      "command-line-flag": "-patches"
+    },
+    {
+      "description": "Specify time points where censoring has occurred using AFNI index notation",
+      "value-key": "[CENSOR_TRS]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "censor_trs",
+      "name": "Censor TRs",
+      "command-line-flag": "-censor_trs"
+    },
+    {
+      "description": "Specify time points where censoring has occurred using one or more 1D files",
+      "value-key": "[CENSOR_FILES]",
+      "type": "File",
+      "list": true,
+      "optional": true,
+      "id": "censor_files",
+      "name": "Censor files",
+      "command-line-flag": "-censor_files"
+    },
+    {
+      "description": "Add a dotted horizontal line to the plot, representing the censor threshold",
+      "value-key": "[CENSOR_HLINE]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "censor_hline",
+      "name": "Censor horizontal line",
+      "command-line-flag": "-censor_hline"
+    },
+    {
+      "description": "Choose the color of the censoring background; default is: [1, 0.7, 0.7]",
+      "value-key": "[CENSOR_RGB]",
+      "type": "String",
+      "optional": true,
+      "id": "censor_rgb",
+      "name": "Censor RGB",
+      "command-line-flag": "-censor_RGB"
+    },
+    {
+      "description": "Change the background color outside of the plot windows. Default is 0.9",
+      "value-key": "[BKGD_COLOR]",
+      "type": "String",
+      "optional": true,
+      "id": "bkgd_color",
+      "name": "Background color",
+      "command-line-flag": "-bkgd_color"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX].jpg",
+      "description": "Output image file, default to .jpg",
+      "id": "output_image",
+      "name": "Output image"
+    }
+  ]
+}

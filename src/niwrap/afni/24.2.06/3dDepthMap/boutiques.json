@@ -1,0 +1,128 @@
+{
+  "name": "3dDepthMap",
+  "author": "AFNI Developers",
+  "description": "Calculates the Euclidean Distance Transform (EDT) for 3D volumes, allowing computation of ROI depth maps and applying various adjustments like masking and rimification.",
+  "command-line": "3dDepthMap [INPUT_DATASET] [OUTPUT_PREFIX] [MASK] [DIST_SQUARED] [IGNORE_VOXDIMS] [RIMIFY] [ZEROS_ARE_ZERO] [ZEROS_ARE_NEG] [NZ_ARE_NEG] [BOUNDS_ARE_NOT_ZERO] [ONLY2D] [BINARY_ONLY] [VERBOSITY]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "input_dataset",
+      "name": "Input Dataset",
+      "description": "Input dataset",
+      "type": "File",
+      "optional": false,
+      "command-line-flag": "-input",
+      "value-key": "[INPUT_DATASET]"
+    },
+    {
+      "id": "output_prefix",
+      "name": "Output Prefix",
+      "description": "Output prefix name",
+      "type": "String",
+      "optional": false,
+      "command-line-flag": "-prefix",
+      "value-key": "[OUTPUT_PREFIX]"
+    },
+    {
+      "id": "mask",
+      "name": "Mask Dataset",
+      "description": "Mask dataset, applied after the EDT has been calculated",
+      "type": "File",
+      "optional": true,
+      "command-line-flag": "-mask",
+      "value-key": "[MASK]"
+    },
+    {
+      "id": "dist_squared",
+      "name": "Output Distance Squared",
+      "description": "Output EDT values as distance squared",
+      "type": "Flag",
+      "command-line-flag": "-dist_sq",
+      "value-key": "[DIST_SQUARED]"
+    },
+    {
+      "id": "ignore_voxdims",
+      "name": "Ignore Voxel Dimensions",
+      "description": "Ignore voxel dimensions, producing outputs as if each voxel dimension was unity",
+      "type": "Flag",
+      "command-line-flag": "-ignore_voxdims",
+      "value-key": "[IGNORE_VOXDIMS]"
+    },
+    {
+      "id": "rimify",
+      "name": "Rimify Output",
+      "description": "Output a map of each ROI's boundary layer up to thickness RIM",
+      "type": "Number",
+      "optional": true,
+      "command-line-flag": "-rimify",
+      "value-key": "[RIMIFY]"
+    },
+    {
+      "id": "zeros_are_zero",
+      "name": "Zeros Are Zero",
+      "description": "EDT values only reported within nonzero locations of the input dataset",
+      "type": "Flag",
+      "command-line-flag": "-zeros_are_zero",
+      "value-key": "[ZEROS_ARE_ZERO]"
+    },
+    {
+      "id": "zeros_are_neg",
+      "name": "Zeros Are Negative",
+      "description": "EDT values in the zero/background regions will be negative",
+      "type": "Flag",
+      "command-line-flag": "-zeros_are_neg",
+      "value-key": "[ZEROS_ARE_NEG]"
+    },
+    {
+      "id": "nz_are_neg",
+      "name": "Nonzero Are Negative",
+      "description": "EDT values in the nonzero ROI regions will be negative",
+      "type": "Flag",
+      "command-line-flag": "-nz_are_neg",
+      "value-key": "[NZ_ARE_NEG]"
+    },
+    {
+      "id": "bounds_are_not_zero",
+      "name": "Bounds Are Not Zero",
+      "description": "Treat FOV boundaries for nonzero ROIs as open (i.e., continue infinitely)",
+      "type": "Flag",
+      "command-line-flag": "-bounds_are_not_zero",
+      "value-key": "[BOUNDS_ARE_NOT_ZERO]"
+    },
+    {
+      "id": "only2D",
+      "name": "Run in 2D",
+      "description": "Run EDT in 2D along the specified plane (axi|cor|sag)",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "-only2D",
+      "value-key": "[ONLY2D]"
+    },
+    {
+      "id": "binary_only",
+      "name": "Binary Only",
+      "description": "Treat the input as a binary mask for a faster calculation",
+      "type": "Flag",
+      "command-line-flag": "-binary_only",
+      "value-key": "[BINARY_ONLY]"
+    },
+    {
+      "id": "verbosity",
+      "name": "Verbosity Level",
+      "description": "Manage verbosity when running code (default: 1)",
+      "type": "Number",
+      "optional": true,
+      "command-line-flag": "-verb",
+      "value-key": "[VERBOSITY]"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "output_file",
+      "name": "Output File",
+      "path-template": "[OUTPUT_PREFIX].nii.gz",
+      "description": "Main output file"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

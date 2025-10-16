@@ -1,0 +1,104 @@
+{
+  "name": "slices_summary",
+  "description": "Generate summary PNG images for 4D neuroimaging data.",
+  "command-line": "slices_summary [4D_INPUT_FILE] [THRESHOLD] [BACKGROUND_IMAGE] [PICTURES_SUM] [SINGLE_SLICE_FLAG] [DARKER_BACKGROUND_FLAG] [DUMB_RULE_FLAG] [PICTURES_SUM_SECOND] [OUTPUT_PNG] [TIMEPOINTS]",
+  "inputs": [
+    {
+      "description": "4D input image (e.g., melodic_IC)",
+      "value-key": "[4D_INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "4d_input_file",
+      "name": "4D Input File"
+    },
+    {
+      "description": "Threshold value for the slices",
+      "value-key": "[THRESHOLD]",
+      "type": "Number",
+      "optional": false,
+      "id": "threshold",
+      "name": "Threshold"
+    },
+    {
+      "description": "Background image file (e.g., standard/MNI152_T1_2mm)",
+      "value-key": "[BACKGROUND_IMAGE]",
+      "type": "File",
+      "optional": false,
+      "id": "background_image",
+      "name": "Background Image"
+    },
+    {
+      "description": "Output directory for summary images",
+      "value-key": "[PICTURES_SUM]",
+      "type": "String",
+      "optional": false,
+      "id": "pictures_sum",
+      "name": "Pictures Summar"
+    },
+    {
+      "command-line-flag": "-1",
+      "description": "Generate single-slice summary images instead of 3-slice",
+      "value-key": "[SINGLE_SLICE_FLAG]",
+      "type": "Flag",
+      "id": "single_slice_flag",
+      "name": "Single Slice Flag"
+    },
+    {
+      "command-line-flag": "-d",
+      "description": "Make background darker and colour brighter, for greater colour visibility",
+      "value-key": "[DARKER_BACKGROUND_FLAG]",
+      "type": "Flag",
+      "id": "darker_background_flag",
+      "name": "Darker Background Flag"
+    },
+    {
+      "command-line-flag": "-c",
+      "description": "Use dumber rule for choosing optimal slice",
+      "value-key": "[DUMB_RULE_FLAG]",
+      "type": "Flag",
+      "id": "dumb_rule_flag",
+      "name": "Dumb Rule Flag"
+    },
+    {
+      "description": "Path to summary images directory",
+      "value-key": "[PICTURES_SUM_SECOND]",
+      "type": "String",
+      "optional": false,
+      "id": "pictures_sum_second",
+      "name": "Pictures Summary Second"
+    },
+    {
+      "description": "Output PNG file",
+      "value-key": "[OUTPUT_PNG]",
+      "type": "String",
+      "optional": false,
+      "id": "output_png",
+      "name": "Output PNG"
+    },
+    {
+      "description": "Space-separated list of timepoints to use; first timepoint is 0",
+      "value-key": "[TIMEPOINTS]",
+      "type": "String",
+      "optional": false,
+      "id": "timepoints",
+      "name": "Timepoints"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PICTURES_SUM_SECOND]",
+      "description": "Directory containing summary images",
+      "id": "summary_images_directory",
+      "name": "Summary Images Directory"
+    },
+    {
+      "path-template": "[OUTPUT_PNG]",
+      "description": "Combined summary PNG image",
+      "id": "combined_summary_image",
+      "name": "Combined Summary Image"
+    }
+  ],
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

@@ -1,0 +1,96 @@
+{
+  "name": "first_flirt",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "FLIRT-based image registration tool with additional options for brain extraction and weighting masks",
+  "command-line": "first_flirt [INPUT_IMAGE] [OUTPUT_BASENAME] [ALREADY_BRAIN_EXTRACTED_FLAG] [DEBUG_FLAG] [INWEIGHT_FLAG] [STRUCWEIGHT_MASK] [CORT_FLAG] [COST_FUNCTION]",
+  "inputs": [
+    {
+      "description": "Input image (e.g. subject10rawT1.nii.gz)",
+      "value-key": "[INPUT_IMAGE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_image",
+      "name": "Input Image"
+    },
+    {
+      "description": "Output basename for the results (e.g. subject10rawT1_to_std_sub)",
+      "value-key": "[OUTPUT_BASENAME]",
+      "type": "String",
+      "optional": false,
+      "id": "output_basename",
+      "name": "Output Basename"
+    },
+    {
+      "command-line-flag": "-b",
+      "description": "Input is already brain extracted",
+      "value-key": "[ALREADY_BRAIN_EXTRACTED_FLAG]",
+      "type": "Flag",
+      "id": "already_brain_extracted_flag",
+      "name": "Already Brain Extracted"
+    },
+    {
+      "command-line-flag": "-d",
+      "description": "Debug mode: don't delete intermediate files",
+      "value-key": "[DEBUG_FLAG]",
+      "type": "Flag",
+      "id": "debug_flag",
+      "name": "Debug Flag"
+    },
+    {
+      "command-line-flag": "-inweight",
+      "description": "Use a weighting mask on the first registration",
+      "value-key": "[INWEIGHT_FLAG]",
+      "type": "Flag",
+      "id": "inweight_flag",
+      "name": "Inweight Mask"
+    },
+    {
+      "command-line-flag": "-strucweight",
+      "description": "Use a specific structure weighting mask (in standard space) for an optional third-stage registration step (e.g. maskimage.nii.gz)",
+      "value-key": "[STRUCWEIGHT_MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "strucweight_mask",
+      "name": "Structure Weighting Mask"
+    },
+    {
+      "command-line-flag": "-cort",
+      "description": "Use a weighting mask of the whole brain on the first registration for specific models",
+      "value-key": "[CORT_FLAG]",
+      "type": "Flag",
+      "id": "cort_flag",
+      "name": "Cortical Weighting Mask"
+    },
+    {
+      "command-line-flag": "-cost",
+      "description": "Specify the cost function to be used by all FLIRT calls",
+      "value-key": "[COST_FUNCTION]",
+      "type": "String",
+      "optional": true,
+      "id": "cost_function",
+      "name": "Cost Function"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_BASENAME]_result.nii.gz",
+      "description": "Output image registered to standard space",
+      "id": "registered_output_image",
+      "name": "Registered Output Image"
+    },
+    {
+      "path-template": "[OUTPUT_BASENAME]_log.txt",
+      "description": "Log file containing details of the registration process",
+      "id": "log_file",
+      "name": "Log File"
+    },
+    {
+      "path-template": "[OUTPUT_BASENAME]_matrix.mat",
+      "description": "Transformation matrix file",
+      "id": "transformation_matrix",
+      "name": "Transformation Matrix"
+    }
+  ],
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

@@ -1,0 +1,34 @@
+{
+  "name": "volume-reorient",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -volume-reorient [VOLUME] [ORIENT_STRING] [VOLUME_OUT]",
+  "description": "Change voxel order of a volume file.\n\nChanges the voxel order and the header spacing/origin information such that the value of any spatial point is unchanged.  Orientation strings look like 'LPI', which means first index is left to right, second is posterior to anterior, and third is inferior to superior.  The valid characters are:\n\nL      left to right\nR      right to left\nP      posterior to anterior\nA      anterior to posterior\nI      inferior to superior\nS      superior to inferior",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "volume",
+      "name": "volume",
+      "description": "the volume to reorient",
+      "optional": false,
+      "value-key": "[VOLUME]",
+      "type": "File"
+    },
+    {
+      "id": "orient_string",
+      "name": "orient_string",
+      "description": "the desired orientation",
+      "optional": false,
+      "value-key": "[ORIENT_STRING]",
+      "type": "String"
+    },
+    {
+      "id": "volume_out",
+      "name": "volume_out",
+      "description": "out - the reoriented volume",
+      "optional": false,
+      "value-key": "[VOLUME_OUT]",
+      "type": "String"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

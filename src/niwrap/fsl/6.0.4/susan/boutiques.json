@@ -1,0 +1,112 @@
+{
+  "name": "susan",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Non-linear noise reduction filtering tool",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "susan [INPUT_FILE] [BRIGHTNESS_THRESHOLD] [SPATIAL_SIZE] [DIMENSIONALITY] [USE_MEDIAN_FILTER] [N_USANS] [USAN1] [BRIGHTNESS_THRESHOLD1] [USAN2] [BRIGHTNESS_THRESHOLD2] [OUTPUT_FILE]",
+  "inputs": [
+    {
+      "description": "Input image file",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input file"
+    },
+    {
+      "description": "Brightness threshold; should be greater than noise level and less than contrast of edges to be preserved",
+      "value-key": "[BRIGHTNESS_THRESHOLD]",
+      "type": "Number",
+      "optional": false,
+      "id": "brightness_threshold",
+      "name": "Brightness threshold"
+    },
+    {
+      "description": "Spatial size (sigma, i.e., half-width) of smoothing, in mm",
+      "value-key": "[SPATIAL_SIZE]",
+      "type": "Number",
+      "optional": false,
+      "id": "spatial_size",
+      "name": "Spatial size"
+    },
+    {
+      "description": "Dimensionality (2 or 3), for within-plane (2) or fully 3D (3) smoothing",
+      "value-key": "[DIMENSIONALITY]",
+      "type": "Number",
+      "optional": false,
+      "id": "dimensionality",
+      "name": "Dimensionality",
+      "minimum": 2,
+      "maximum": 3
+    },
+    {
+      "description": "Use median filter for cases where single-point noise is detected (0 or 1)",
+      "value-key": "[USE_MEDIAN_FILTER]",
+      "type": "Number",
+      "optional": false,
+      "id": "use_median_filter",
+      "name": "Use median filter",
+      "minimum": 0,
+      "maximum": 1
+    },
+    {
+      "description": "Determine if the smoothing area is found from secondary images (0, 1 or 2)",
+      "value-key": "[N_USANS]",
+      "type": "Number",
+      "optional": false,
+      "id": "n_usans",
+      "name": "Number of USANs",
+      "minimum": 0,
+      "maximum": 2
+    },
+    {
+      "description": "First USAN image file",
+      "value-key": "[USAN1]",
+      "type": "File",
+      "optional": true,
+      "id": "usan1",
+      "name": "USAN1"
+    },
+    {
+      "description": "Brightness threshold for first USAN image",
+      "value-key": "[BRIGHTNESS_THRESHOLD1]",
+      "type": "Number",
+      "optional": true,
+      "id": "brightness_threshold1",
+      "name": "Brightness threshold 1"
+    },
+    {
+      "description": "Second USAN image file",
+      "value-key": "[USAN2]",
+      "type": "File",
+      "optional": true,
+      "id": "usan2",
+      "name": "USAN2"
+    },
+    {
+      "description": "Brightness threshold for second USAN image",
+      "value-key": "[BRIGHTNESS_THRESHOLD2]",
+      "type": "Number",
+      "optional": true,
+      "id": "brightness_threshold2",
+      "name": "Brightness threshold 2"
+    },
+    {
+      "description": "Output image file",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_file",
+      "name": "Output file"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILE]",
+      "description": "Filtered output image file",
+      "id": "filtered_output",
+      "name": "Filtered output file"
+    }
+  ]
+}

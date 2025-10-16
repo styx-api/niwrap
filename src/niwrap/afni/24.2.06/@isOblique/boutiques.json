@@ -1,0 +1,26 @@
+{
+  "name": "@isOblique",
+  "author": "AFNI Developers",
+  "description": "Determine if a file is oblique or plumb",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "@isOblique [INFILE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input file (e.g., Hello+orig.HEAD)",
+      "value-key": "[INFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "infile",
+      "name": "Input file"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "oblique_check_result.txt",
+      "description": "Output result indicating if the file is oblique or plumb",
+      "id": "result",
+      "name": "Output result file"
+    }
+  ]
+}

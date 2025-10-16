@@ -1,0 +1,27 @@
+{
+  "name": "fslslice",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Tool to extract all slices from a 3D volume and store as 2D images",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "fslslice [VOLUME] [OUTPUT_BASENAME]",
+  "inputs": [
+    {
+      "description": "Input 3D volume (e.g. volume.nii.gz)",
+      "value-key": "[VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "volume",
+      "name": "Input 3D Volume"
+    },
+    {
+      "description": "Output basename for extracted slices",
+      "value-key": "[OUTPUT_BASENAME]",
+      "type": "String",
+      "optional": true,
+      "id": "output_basename",
+      "name": "Output Basename"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": []
+}

@@ -1,0 +1,185 @@
+{
+  "name": "@chauffeur_afni",
+  "author": "AFNI Developers",
+  "description": "Automated QC snapshots generator in AFNI",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "@chauffeur_afni [ULAY] [OLAY] [PREFIX] [MODE_4D] [FUNC_RANGE] [OPACITY] [SET_SUBBRICKS] [MONTX] [MONTY] [MONTGAP] [LABEL_MODE] [LABEL_SIZE] [LABEL_COLOR] [LABEL_SETBACK] [NO_CLEAN] [DO_CLEAN] [HELP] [VERSION]",
+  "inputs": [
+    {
+      "description": "Name of underlay dataset (required); can be 3D or 4D set",
+      "value-key": "[ULAY]",
+      "type": "File",
+      "optional": false,
+      "id": "ulay",
+      "name": "Underlay dataset"
+    },
+    {
+      "description": "Name of overlay dataset (optional)",
+      "value-key": "[OLAY]",
+      "type": "File",
+      "optional": true,
+      "id": "olay",
+      "name": "Overlay dataset"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Prefix for output files (required)",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "prefix",
+      "name": "Output prefix"
+    },
+    {
+      "command-line-flag": "-mode_4D",
+      "description": "For each viewing plane, one slice is selected across all volumes in a 4D dataset",
+      "type": "Flag",
+      "id": "mode_4D",
+      "name": "4D mode",
+      "value-key": "[MODE_4D]"
+    },
+    {
+      "command-line-flag": "-func_range",
+      "description": "Specify upper value of the overlay dataset to be matched to top of colorbar (default: 98%ile non-zero value of dataset)",
+      "value-key": "[FUNC_RANGE]",
+      "type": "Number",
+      "optional": true,
+      "id": "func_range",
+      "name": "Functional range"
+    },
+    {
+      "command-line-flag": "-opacity",
+      "description": "Enter an opacity factor for the overlay (0-9, with 9 being opaque)",
+      "value-key": "[OPACITY]",
+      "type": "Number",
+      "optional": true,
+      "id": "opacity",
+      "name": "Overlay opacity"
+    },
+    {
+      "command-line-flag": "-set_subbricks",
+      "description": "Specify subbricks for 3D image viewing",
+      "value-key": "[SET_SUBBRICKS]",
+      "type": "String",
+      "optional": true,
+      "id": "set_subbricks",
+      "name": "Set subbricks"
+    },
+    {
+      "command-line-flag": "-montx",
+      "description": "Number of image panels in a row (default: 3)",
+      "value-key": "[MONTX]",
+      "type": "Number",
+      "optional": true,
+      "id": "montx",
+      "name": "Montage X"
+    },
+    {
+      "command-line-flag": "-monty",
+      "description": "Number of image panels in a column (default: 3)",
+      "value-key": "[MONTY]",
+      "type": "Number",
+      "optional": true,
+      "id": "monty",
+      "name": "Montage Y"
+    },
+    {
+      "command-line-flag": "-montgap",
+      "description": "Number of pixels as gap between image panels (default: 0)",
+      "value-key": "[MONTGAP]",
+      "type": "Number",
+      "optional": true,
+      "id": "montgap",
+      "name": "Montage gap"
+    },
+    {
+      "command-line-flag": "-label_mode",
+      "description": "Control labels, ON/OFF and location (default: 1)",
+      "value-key": "[LABEL_MODE]",
+      "type": "Number",
+      "optional": true,
+      "id": "label_mode",
+      "name": "Label mode"
+    },
+    {
+      "command-line-flag": "-label_size",
+      "description": "Control labels, size (default: 3)",
+      "value-key": "[LABEL_SIZE]",
+      "type": "Number",
+      "optional": true,
+      "id": "label_size",
+      "name": "Label size"
+    },
+    {
+      "command-line-flag": "-label_color",
+      "description": "Control labels, color (default: white)",
+      "value-key": "[LABEL_COLOR]",
+      "type": "String",
+      "optional": true,
+      "id": "label_color",
+      "name": "Label color"
+    },
+    {
+      "command-line-flag": "-label_setback",
+      "description": "Control labels, offset from edge (default: 0.01)",
+      "value-key": "[LABEL_SETBACK]",
+      "type": "Number",
+      "optional": true,
+      "id": "label_setback",
+      "name": "Label setback"
+    },
+    {
+      "command-line-flag": "-no_clean",
+      "description": "Do not remove the temporary directory of copied/intermediate files",
+      "type": "Flag",
+      "id": "no_clean",
+      "name": "No clean",
+      "value-key": "[NO_CLEAN]"
+    },
+    {
+      "command-line-flag": "-do_clean",
+      "description": "Remove the temporary directory of copied/intermediate files",
+      "type": "Flag",
+      "id": "do_clean",
+      "name": "Do clean",
+      "value-key": "[DO_CLEAN]"
+    },
+    {
+      "command-line-flag": "-help",
+      "description": "Display help information",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help",
+      "value-key": "[HELP]"
+    },
+    {
+      "command-line-flag": "-ver",
+      "description": "Display version number",
+      "type": "Flag",
+      "id": "version",
+      "name": "Version",
+      "value-key": "[VERSION]"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX].png",
+      "description": "Generated montage image",
+      "id": "output_image",
+      "name": "Montage Image"
+    },
+    {
+      "path-template": "[PREFIX]_clust_rep.txt",
+      "description": "Clusterization report",
+      "id": "cluster_report",
+      "name": "Cluster Report"
+    },
+    {
+      "path-template": "[PREFIX]_clust_whereami.txt",
+      "description": "Whereami report for clusterized data",
+      "id": "whereami_report",
+      "name": "Whereami Report"
+    }
+  ]
+}

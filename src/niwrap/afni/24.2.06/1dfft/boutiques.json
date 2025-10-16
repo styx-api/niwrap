@@ -1,0 +1,96 @@
+{
+  "name": "1dfft",
+  "author": "AFNI Developers",
+  "description": "Compute the absolute value of the FFT of input columns from an AFNI 1D file.",
+  "command-line": "1dfft [INFILE] [OUTFILE] [IGNORE] [USE] [NFFT] [TOCX] [FROMCX] [HILBERT] [NODETREND]",
+  "inputs": [
+    {
+      "description": "Input .1D file containing an ASCII list of numbers arranged in columns.",
+      "value-key": "[INFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "infile",
+      "name": "Input file"
+    },
+    {
+      "description": "Output file to store the FFT results.",
+      "value-key": "[OUTFILE]",
+      "type": "String",
+      "optional": false,
+      "id": "outfile",
+      "name": "Output file"
+    },
+    {
+      "command-line-flag": "-ignore",
+      "description": "Skip the first 'sss' lines in the input file. [default = no skipping]",
+      "value-key": "[IGNORE]",
+      "type": "Number",
+      "optional": true,
+      "id": "ignore",
+      "name": "Ignore lines",
+      "minimum": 0
+    },
+    {
+      "command-line-flag": "-use",
+      "description": "Use only 'uuu' lines of the input file. [default = use them all]",
+      "value-key": "[USE]",
+      "type": "Number",
+      "optional": true,
+      "id": "use",
+      "name": "Use lines",
+      "minimum": 0
+    },
+    {
+      "command-line-flag": "-nfft",
+      "description": "Set FFT length to 'nnn'. [default = length of data (# of lines used)]",
+      "value-key": "[NFFT]",
+      "type": "Number",
+      "optional": true,
+      "id": "nfft",
+      "name": "FFT length",
+      "minimum": 1
+    },
+    {
+      "command-line-flag": "-tocx",
+      "description": "Save Re and Im parts of transform in 2 columns.",
+      "value-key": "[TOCX]",
+      "type": "Flag",
+      "id": "tocx",
+      "name": "Save Re and Im parts flag"
+    },
+    {
+      "command-line-flag": "-fromcx",
+      "description": "Convert 2 column complex input into 1 column real output. Note: This will not work if the original data FFT length was an odd number.",
+      "value-key": "[FROMCX]",
+      "type": "Flag",
+      "id": "fromcx",
+      "name": "Convert complex to real flag"
+    },
+    {
+      "command-line-flag": "-hilbert",
+      "description": "When -fromcx is used, the inverse FFT will do the Hilbert transform instead.",
+      "value-key": "[HILBERT]",
+      "type": "Flag",
+      "id": "hilbert",
+      "name": "Hilbert transform flag"
+    },
+    {
+      "command-line-flag": "-nodetrend",
+      "description": "Skip the detrending of the input.",
+      "value-key": "[NODETREND]",
+      "type": "Flag",
+      "id": "nodetrend",
+      "name": "No detrend flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTFILE]",
+      "description": "Output file with the absolute value of the FFT of the input columns.",
+      "id": "out_fft",
+      "name": "Output FFT file"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

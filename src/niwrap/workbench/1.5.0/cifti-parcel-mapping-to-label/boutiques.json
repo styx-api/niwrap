@@ -1,0 +1,50 @@
+{
+  "name": "cifti-parcel-mapping-to-label",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -cifti-parcel-mapping-to-label [CIFTI_IN] [DIRECTION] [TEMPLATE_CIFTI] [DLABEL_OUT]",
+  "description": "Create dlabel from parcellated file.\n\nThis command will output a dlabel file, useful for doing the same parcellation to another dense file.\n\nFor ptseries, pscalar, plabel, pconn, and pdconn, using COLUMN for <direction> will work.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "cifti_in",
+      "name": "cifti_in",
+      "description": "the input parcellated file",
+      "optional": false,
+      "value-key": "[CIFTI_IN]",
+      "type": "File"
+    },
+    {
+      "id": "direction",
+      "name": "direction",
+      "description": "which dimension to take the parcel map from, ROW or COLUMN",
+      "optional": false,
+      "value-key": "[DIRECTION]",
+      "type": "String"
+    },
+    {
+      "id": "template_cifti",
+      "name": "template_cifti",
+      "description": "a cifti file with the desired dense mapping along column",
+      "optional": false,
+      "value-key": "[TEMPLATE_CIFTI]",
+      "type": "File"
+    },
+    {
+      "id": "dlabel_out",
+      "name": "dlabel_out",
+      "type": "String",
+      "description": "the output dense label file",
+      "optional": false,
+      "value-key": "[DLABEL_OUT]"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "dlabel_out",
+      "name": "dlabel_out",
+      "path-template": "[DLABEL_OUT]",
+      "description": "the output dense label file"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

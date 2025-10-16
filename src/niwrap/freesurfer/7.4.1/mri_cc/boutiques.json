@@ -1,0 +1,123 @@
+{
+  "name": "mri_cc",
+  "author": "FreeSurfer Developers",
+  "description": "Segments the corpus callosum into five separate labels in the subcortical segmentation volume.",
+  "command-line": "mri_cc [SUBJECT_NAME] [OUTPUT_FILE] [ASEG_FILE] [NORM_FILE] [SDIR] [ROTATION_LTA] [FORCE_FLAG] [INCLUDE_FORNIX] [COMPARTMENTS] [THICKNESS] [SKIP_VOXELS] [MAX_ROTATION]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Subject name used in processing",
+      "value-key": "[SUBJECT_NAME]",
+      "type": "String",
+      "optional": false,
+      "id": "subject_name",
+      "name": "Subject Name"
+    },
+    {
+      "command-line-flag": "-o",
+      "description": "Write aseg including CC to SDIR/mri/<fname>",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "output_file",
+      "name": "Output File"
+    },
+    {
+      "command-line-flag": "-aseg",
+      "description": "Read aseg from SDIR/mri/<fname>",
+      "value-key": "[ASEG_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "aseg_file",
+      "name": "Aseg File"
+    },
+    {
+      "command-line-flag": "-norm",
+      "description": "Read norm from SDIR/mri/<fname>",
+      "value-key": "[NORM_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "norm_file",
+      "name": "Norm File"
+    },
+    {
+      "command-line-flag": "-sdir",
+      "description": "Set SUBJECTS_DIR to <dname>",
+      "value-key": "[SDIR]",
+      "type": "String",
+      "optional": true,
+      "id": "sdir",
+      "name": "Subjects Directory"
+    },
+    {
+      "command-line-flag": "-lta",
+      "description": "Write rotation lta to global <fname>",
+      "value-key": "[ROTATION_LTA]",
+      "type": "File",
+      "optional": true,
+      "id": "rotation_lta",
+      "name": "Rotation LTA File"
+    },
+    {
+      "command-line-flag": "-force",
+      "description": "Process regardless of existing CC in input",
+      "value-key": "[FORCE_FLAG]",
+      "type": "Flag",
+      "id": "force_flag",
+      "name": "Force Flag"
+    },
+    {
+      "command-line-flag": "-f",
+      "description": "Include fornix in segmentation",
+      "value-key": "[INCLUDE_FORNIX]",
+      "type": "Flag",
+      "id": "include_fornix",
+      "name": "Include Fornix"
+    },
+    {
+      "command-line-flag": "-d",
+      "description": "Subdivide into <int> compartments",
+      "value-key": "[COMPARTMENTS]",
+      "type": "Number",
+      "optional": true,
+      "id": "compartments",
+      "name": "Compartments"
+    },
+    {
+      "command-line-flag": "-t",
+      "description": "Setting CC thickness to <int> mm",
+      "value-key": "[THICKNESS]",
+      "type": "Number",
+      "optional": true,
+      "id": "thickness",
+      "name": "CC Thickness"
+    },
+    {
+      "command-line-flag": "-s",
+      "description": "Skipping <int> voxels in rotational align",
+      "value-key": "[SKIP_VOXELS]",
+      "type": "Number",
+      "optional": true,
+      "id": "skip_voxels",
+      "name": "Skip Voxels"
+    },
+    {
+      "command-line-flag": "-m",
+      "description": "Set max of rotations to be searched (default=7deg)",
+      "value-key": "[MAX_ROTATION]",
+      "type": "Number",
+      "optional": true,
+      "id": "max_rotation",
+      "name": "Max Rotation"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "SDIR/mri/[OUTPUT_FILE]",
+      "description": "Output volume including CC segmentation results.",
+      "id": "output_volume",
+      "name": "Output Volume"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

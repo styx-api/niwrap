@@ -1,0 +1,136 @@
+{
+  "name": "@ANATICOR",
+  "author": "AFNI Developers",
+  "description": "Script to produce a residual time series cleaned by ANATICOR model",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "@ANATICOR [TS] [POLORT] [MOTION] [ASEG] [PREFIX] [RADIUS] [VIEW] [NUISANCE] [NO_VENTRICLES] [RSQ_WME] [COVERAGE] [VERB] [DIRTY] [ECHO]",
+  "inputs": [
+    {
+      "id": "ts",
+      "name": "TimeSeriesVol",
+      "type": "File",
+      "command-line-flag": "-ts",
+      "value-key": "[TS]",
+      "description": "Time series volume which should have already undergone preprocessing steps such as despiking, RetroIcor, RVT correction, time shifting, and volume registration.",
+      "optional": false
+    },
+    {
+      "id": "polort",
+      "name": "polort",
+      "type": "String",
+      "command-line-flag": "-polort",
+      "value-key": "[POLORT]",
+      "description": "Polynomial for linear trend removal. Use the same order as for afni_proc.py",
+      "optional": false
+    },
+    {
+      "id": "motion",
+      "name": "motion",
+      "type": "File",
+      "command-line-flag": "-motion",
+      "value-key": "[MOTION]",
+      "description": "Head motion parameters from 3dvolreg, also created by afni_proc.py",
+      "optional": false
+    },
+    {
+      "id": "aseg",
+      "name": "aseg",
+      "type": "File",
+      "value-key": "[ASEG]",
+      "description": "Aseg file from FreeSurfer's segmentation. This aseg volume must be in register with the EPI time series.",
+      "optional": false
+    },
+    {
+      "id": "prefix",
+      "name": "output",
+      "type": "String",
+      "command-line-flag": "-prefix",
+      "value-key": "[PREFIX]",
+      "description": "Use output (residual time series) for a prefix",
+      "optional": false
+    },
+    {
+      "id": "radius",
+      "name": "radius",
+      "type": "Number",
+      "command-line-flag": "-radius",
+      "value-key": "[RADIUS]",
+      "description": "The radius of a local sphere mask in mm. Default is 15 mm for high resolution 1.7x1.7x3mm data.",
+      "optional": true
+    },
+    {
+      "id": "view",
+      "name": "view",
+      "type": "String",
+      "value-key": "[VIEW]",
+      "description": "Set the view of the output data. Default is +orig. Choose from +orig, +acpc, or +tlrc.",
+      "optional": true
+    },
+    {
+      "id": "nuisance",
+      "name": "nuisance",
+      "type": "File",
+      "command-line-flag": "-nuisance",
+      "value-key": "[NUISANCE]",
+      "description": "Other nuisance regressors. Each regressor is a column in .1D file",
+      "optional": true
+    },
+    {
+      "id": "no_ventricles",
+      "name": "no_ventricles",
+      "type": "Flag",
+      "command-line-flag": "-no_ventricles",
+      "value-key": "[NO_VENTRICLES]",
+      "description": "Do not include LVe regressor"
+    },
+    {
+      "id": "Rsq_WMe",
+      "name": "Rsq_WMe",
+      "type": "Flag",
+      "command-line-flag": "-Rsq_WMe",
+      "value-key": "[RSQ_WME]",
+      "description": "Produce an explained variance map for WMeLOCAL regressor."
+    },
+    {
+      "id": "coverage",
+      "name": "coverage",
+      "type": "Flag",
+      "command-line-flag": "-coverage",
+      "value-key": "[COVERAGE]",
+      "description": "Produce a spatial coverage map of WMeLOCAL regressor"
+    },
+    {
+      "id": "verb",
+      "name": "verb",
+      "type": "Flag",
+      "command-line-flag": "-verb",
+      "value-key": "[VERB]",
+      "description": "Verbose flag"
+    },
+    {
+      "id": "dirty",
+      "name": "dirty",
+      "type": "Flag",
+      "command-line-flag": "-dirty",
+      "value-key": "[DIRTY]",
+      "description": "Keep temporary files"
+    },
+    {
+      "id": "echo",
+      "name": "echo",
+      "type": "Flag",
+      "command-line-flag": "-echo",
+      "value-key": "[ECHO]",
+      "description": "Echo each script command for debugging"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX]",
+      "description": "Output files with the prefix specified by the -prefix option.",
+      "id": "output_files",
+      "name": "Output Files"
+    }
+  ]
+}

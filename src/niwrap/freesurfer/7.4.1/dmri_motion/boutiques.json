@@ -1,0 +1,121 @@
+{
+  "name": "dmri_motion",
+  "command-line": "dmri_motion [OUTFILE] [OUTF] [MAT] [DWI] [BVAL] [THRESHOLD] [DIFFUSIVITY] [DEBUG] [CHECKOPTS] [HELP] [VERSION]",
+  "schema-version": "0.5+styx",
+  "description": "A tool for calculating motion measures from DWI scans.",
+  "inputs": [
+    {
+      "value-key": "[OUTFILE]",
+      "command-line-flag": "--out",
+      "type": "File",
+      "description": "Output text file of motion measures",
+      "id": "outfile",
+      "name": "Output File",
+      "optional": false
+    },
+    {
+      "value-key": "[OUTF]",
+      "command-line-flag": "--outf",
+      "type": "File",
+      "description": "Output text file of frame-by-frame motion measures",
+      "id": "outf",
+      "name": "Output Frame-by-Frame File",
+      "optional": true
+    },
+    {
+      "value-key": "[MAT]",
+      "command-line-flag": "--mat",
+      "type": "File",
+      "description": "Input text file of volume-to-baseline affine transformations",
+      "id": "mat",
+      "name": "Transformation Matrix File",
+      "optional": true
+    },
+    {
+      "value-key": "[DWI]",
+      "command-line-flag": "--dwi",
+      "type": "File",
+      "list": true,
+      "description": "Input DWI scan(s), unprocessed",
+      "id": "dwi",
+      "name": "DWI Scans",
+      "optional": true
+    },
+    {
+      "value-key": "[BVAL]",
+      "command-line-flag": "--bval",
+      "type": "File",
+      "list": true,
+      "description": "Input b-value table(s), one per scan",
+      "id": "bval",
+      "name": "B-Value Tables",
+      "optional": true
+    },
+    {
+      "value-key": "[THRESHOLD]",
+      "command-line-flag": "--T",
+      "type": "Number",
+      "description": "Low-b image intensity threshold",
+      "id": "threshold",
+      "name": "Image Intensity Threshold",
+      "optional": true
+    },
+    {
+      "value-key": "[DIFFUSIVITY]",
+      "command-line-flag": "--D",
+      "type": "Number",
+      "description": "Nominal diffusivity",
+      "id": "diffusivity",
+      "name": "Nominal Diffusivity",
+      "optional": true
+    },
+    {
+      "value-key": "[DEBUG]",
+      "command-line-flag": "--debug",
+      "type": "Flag",
+      "description": "Turn on debugging",
+      "id": "debug",
+      "name": "Debug"
+    },
+    {
+      "value-key": "[CHECKOPTS]",
+      "command-line-flag": "--checkopts",
+      "type": "Flag",
+      "description": "Don't run anything, just check options and exit",
+      "id": "checkopts",
+      "name": "Check Options"
+    },
+    {
+      "value-key": "[HELP]",
+      "command-line-flag": "--help",
+      "type": "Flag",
+      "description": "Print out information on how to use this program",
+      "id": "help",
+      "name": "Help"
+    },
+    {
+      "value-key": "[VERSION]",
+      "command-line-flag": "--version",
+      "type": "Flag",
+      "description": "Print out version and exit",
+      "id": "version",
+      "name": "Version"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTFILE]",
+      "description": "Output file of motion measures",
+      "name": "Motion Measures Output",
+      "id": "motion_measures_out"
+    },
+    {
+      "path-template": "[OUTF]",
+      "description": "Output frame-by-frame motion measures file",
+      "name": "Frame-by-Frame Motion Measures Output",
+      "id": "frame_by_frame_out"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

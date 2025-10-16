@@ -1,0 +1,26 @@
+{
+  "name": "spm_t_to_b",
+  "command-line": "spm_t_to_b [SPM_STEM_FORMAT] [BSHORT_STEM]",
+  "description": "Converts SPM format to Bshort format.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "spm_stem_format",
+      "name": "SPM Stem Format",
+      "type": "String",
+      "description": "Input SPM stem format.",
+      "value-key": "[SPM_STEM_FORMAT]",
+      "optional": false
+    },
+    {
+      "id": "bshort_stem",
+      "name": "Bshort Stem",
+      "type": "String",
+      "description": "Output bshort stem.",
+      "value-key": "[BSHORT_STEM]",
+      "optional": false
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

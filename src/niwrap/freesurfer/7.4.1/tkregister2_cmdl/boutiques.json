@@ -1,0 +1,541 @@
+{
+  "name": "tkregister2_cmdl",
+  "author": "FreeSurfer Developers",
+  "description": "tkregister2 is a tool to assist in the manual tuning of the linear registration between two volumes, mainly for the purpose of interacting with the FreeSurfer anatomical stream.",
+  "command-line": "tkregister2_cmdl [MOVABLE_VOLUME] [TARGET_VOLUME] [FSTARG_FLAG] [REG_FILE] [CHECK_REG_FLAG] [REGHEADER_FLAG] [REGHEADER_CENTER_FLAG] [FSL_TARG_FLAG] [FSL_TARG_LR_FLAG] [GCA_SUBJECT] [GCA_SKULL_SUBJECT] [NO_ZERO_CRAS_FLAG] [MOVBRIGHT] [NO_INORM_FLAG] [FMOV] [FMOV_TARG_FLAG] [PLANE] [SLICE] [VOLVIEW] [FOV] [MOVSCALE] [SURF] [SURF_RGB] [LH_ONLY_FLAG] [RH_ONLY_FLAG] [FSTAL_FLAG] [TALXFMNAME] [IXFM] [XFM] [XFMOUT] [FSL] [FSLREGOUT] [FREEVIEW] [VOX2VOX] [LTA] [LTA_INV] [LTAOUT] [LTAOUT_INV_FLAG] [FEAT] [FSFEAT] [IDENTITY_FLAG] [SUBJECT_ID] [SUBJECTS_DIR] [NOFIX_FLAG] [FLOAT2INT] [TITLE] [TAG_FLAG] [MOV_ORIENTATION] [TARG_ORIENTATION] [INT] [DOUBLE_WINDOW_SIZE_FLAG] [WINDOW_SCALE] [DET] [ASEG_FLAG] [APARC_FLAG] [WMPARC_FLAG] [GDIAGNO] [TRANS] [ROT] [CONF_TARG_FLAG]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Path to the movable volume.",
+      "value-key": "[MOVABLE_VOLUME]",
+      "type": "File",
+      "command-line-flag": "--mov",
+      "optional": false,
+      "id": "movable_volume",
+      "name": "Movable volume"
+    },
+    {
+      "description": "Path to the target volume.",
+      "value-key": "[TARGET_VOLUME]",
+      "type": "File",
+      "command-line-flag": "--targ",
+      "optional": false,
+      "id": "target_volume",
+      "name": "Target volume"
+    },
+    {
+      "command-line-flag": "--fstarg",
+      "description": "Target is relative to subjectid/mri.",
+      "value-key": "[FSTARG_FLAG]",
+      "type": "Flag",
+      "id": "fstarg_flag",
+      "name": "FSTARG flag"
+    },
+    {
+      "description": "Path to input/output registration file.",
+      "value-key": "[REG_FILE]",
+      "type": "File",
+      "command-line-flag": "--reg",
+      "optional": true,
+      "id": "reg_file",
+      "name": "Registration file"
+    },
+    {
+      "command-line-flag": "--check-reg",
+      "description": "Only check, no --reg needed.",
+      "value-key": "[CHECK_REG_FLAG]",
+      "type": "Flag",
+      "id": "check_reg_flag",
+      "name": "Check registration flag"
+    },
+    {
+      "command-line-flag": "--regheader",
+      "description": "Compute registration from headers.",
+      "value-key": "[REGHEADER_FLAG]",
+      "type": "Flag",
+      "id": "regheader_flag",
+      "name": "Regheader flag"
+    },
+    {
+      "command-line-flag": "--regheader-center",
+      "description": "Same as --regheader but aligns volume centers.",
+      "value-key": "[REGHEADER_CENTER_FLAG]",
+      "type": "Flag",
+      "id": "regheader_center_flag",
+      "name": "Regheader center flag"
+    },
+    {
+      "command-line-flag": "--fsl-targ",
+      "description": "Use FSLDIR/data/standard/avg152T1.nii.gz.",
+      "value-key": "[FSL_TARG_FLAG]",
+      "type": "Flag",
+      "id": "fsl_targ_flag",
+      "name": "FSL target flag"
+    },
+    {
+      "command-line-flag": "--fsl-targ-lr",
+      "description": "Use FSLDIR/data/standard/avg152T1_LR-marked.nii.gz.",
+      "value-key": "[FSL_TARG_LR_FLAG]",
+      "type": "Flag",
+      "id": "fsl_targ_lr_flag",
+      "name": "FSL target LR flag"
+    },
+    {
+      "description": "Subject ID for linear GCA registration check.",
+      "value-key": "[GCA_SUBJECT]",
+      "type": "String",
+      "command-line-flag": "--gca",
+      "optional": true,
+      "id": "gca_subject",
+      "name": "GCA subject"
+    },
+    {
+      "description": "Subject ID for linear 'with skull' GCA registration check.",
+      "value-key": "[GCA_SKULL_SUBJECT]",
+      "type": "String",
+      "command-line-flag": "--gca-skull",
+      "optional": true,
+      "id": "gca_skull_subject",
+      "name": "GCA skull subject"
+    },
+    {
+      "command-line-flag": "--no-zero-cras",
+      "description": "Do not zero target cras (done with --fstal).",
+      "value-key": "[NO_ZERO_CRAS_FLAG]",
+      "type": "Flag",
+      "id": "no_zero_cras_flag",
+      "name": "No zero CRAS flag"
+    },
+    {
+      "command-line-flag": "--movbright",
+      "description": "Brightness of movable volume.",
+      "value-key": "[MOVBRIGHT]",
+      "type": "Number",
+      "optional": true,
+      "id": "movbright",
+      "name": "Movable brightness"
+    },
+    {
+      "command-line-flag": "--no-inorm",
+      "description": "Turn off intensity normalization.",
+      "value-key": "[NO_INORM_FLAG]",
+      "type": "Flag",
+      "id": "no_inorm_flag",
+      "name": "No intensity normalization flag"
+    },
+    {
+      "command-line-flag": "--fmov",
+      "description": "Set movable volume brightness.",
+      "value-key": "[FMOV]",
+      "type": "Number",
+      "optional": true,
+      "id": "fmov",
+      "name": "Movable brightness factor"
+    },
+    {
+      "command-line-flag": "--fmov-targ",
+      "description": "Apply movable brightness to the target.",
+      "value-key": "[FMOV_TARG_FLAG]",
+      "type": "Flag",
+      "id": "fmov_targ_flag",
+      "name": "Apply movable brightness to target flag"
+    },
+    {
+      "command-line-flag": "--plane",
+      "description": "Startup view plane: cor, sag, ax.",
+      "value-key": "[PLANE]",
+      "type": "String",
+      "optional": true,
+      "id": "plane",
+      "name": "View plane"
+    },
+    {
+      "command-line-flag": "--slice",
+      "description": "Startup slice number.",
+      "value-key": "[SLICE]",
+      "type": "Number",
+      "optional": true,
+      "id": "slice",
+      "name": "Slice number"
+    },
+    {
+      "command-line-flag": "--volview",
+      "description": "Startup with targ or mov.",
+      "value-key": "[VOLVIEW]",
+      "type": "String",
+      "optional": true,
+      "id": "volview",
+      "name": "Volume view"
+    },
+    {
+      "command-line-flag": "--fov",
+      "description": "Window FOV in mm (default is 256).",
+      "value-key": "[FOV]",
+      "type": "Number",
+      "optional": true,
+      "id": "fov",
+      "name": "Field of view"
+    },
+    {
+      "command-line-flag": "--movscale",
+      "description": "Scale size of movable volume by scale.",
+      "value-key": "[MOVSCALE]",
+      "type": "Number",
+      "optional": true,
+      "id": "movscale",
+      "name": "Movable volume scale"
+    },
+    {
+      "command-line-flag": "--surf",
+      "description": "Display surface as an overlay.",
+      "value-key": "[SURF]",
+      "type": "String",
+      "optional": true,
+      "id": "surf",
+      "name": "Surface name"
+    },
+    {
+      "command-line-flag": "--surf-rgb",
+      "description": "Set surface color (0-255) for R G B.",
+      "value-key": "[SURF_RGB]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 3,
+      "optional": true,
+      "id": "surf_rgb",
+      "min-list-entries": 3,
+      "name": "Surface RGB color"
+    },
+    {
+      "command-line-flag": "--lh-only",
+      "description": "Only load/display left hemisphere.",
+      "value-key": "[LH_ONLY_FLAG]",
+      "type": "Flag",
+      "id": "lh_only_flag",
+      "name": "Left hemisphere only flag"
+    },
+    {
+      "command-line-flag": "--rh-only",
+      "description": "Only load/display right hemisphere.",
+      "value-key": "[RH_ONLY_FLAG]",
+      "type": "Flag",
+      "id": "rh_only_flag",
+      "name": "Right hemisphere only flag"
+    },
+    {
+      "command-line-flag": "--fstal",
+      "description": "Set movable to be tal and reg to be taliarach.xfm.",
+      "value-key": "[FSTAL_FLAG]",
+      "type": "Flag",
+      "id": "fstal_flag",
+      "name": "FSTAL flag"
+    },
+    {
+      "command-line-flag": "--talxfmname",
+      "description": "Set movable to be tal and reg to be talxfmname.",
+      "value-key": "[TALXFMNAME]",
+      "type": "String",
+      "optional": true,
+      "id": "talxfmname",
+      "name": "Talairach transform name"
+    },
+    {
+      "command-line-flag": "--ixfm",
+      "description": "MNI-style inverse registration input matrix.",
+      "value-key": "[IXFM]",
+      "type": "File",
+      "optional": true,
+      "id": "ixfm",
+      "name": "Inverse registration matrix file"
+    },
+    {
+      "command-line-flag": "--xfm",
+      "description": "MNI-style registration input matrix.",
+      "value-key": "[XFM]",
+      "type": "File",
+      "optional": true,
+      "id": "xfm",
+      "name": "Registration matrix file"
+    },
+    {
+      "command-line-flag": "--xfmout",
+      "description": "MNI-style registration output matrix.",
+      "value-key": "[XFMOUT]",
+      "type": "File",
+      "optional": true,
+      "id": "xfmout",
+      "name": "Output registration matrix file"
+    },
+    {
+      "command-line-flag": "--fsl",
+      "description": "FSL-style registration input matrix.",
+      "value-key": "[FSL]",
+      "type": "File",
+      "optional": true,
+      "id": "fsl",
+      "name": "FSL registration matrix input file"
+    },
+    {
+      "command-line-flag": "--fslregout",
+      "description": "FSL-Style registration output matrix.",
+      "value-key": "[FSLREGOUT]",
+      "type": "File",
+      "optional": true,
+      "id": "fslregout",
+      "name": "FSL registration matrix output file"
+    },
+    {
+      "command-line-flag": "--freeview",
+      "description": "FreeView registration output matrix.",
+      "value-key": "[FREEVIEW]",
+      "type": "File",
+      "optional": true,
+      "id": "freeview",
+      "name": "FreeView registration matrix output file"
+    },
+    {
+      "command-line-flag": "--vox2vox",
+      "description": "Vox2vox matrix in ascii.",
+      "value-key": "[VOX2VOX]",
+      "type": "File",
+      "optional": true,
+      "id": "vox2vox",
+      "name": "Vox2vox matrix file"
+    },
+    {
+      "command-line-flag": "--lta",
+      "description": "Linear Transform Array file.",
+      "value-key": "[LTA]",
+      "type": "File",
+      "optional": true,
+      "id": "lta",
+      "name": "Linear Transform Array file"
+    },
+    {
+      "command-line-flag": "--lta-inv",
+      "description": "Read in LTA and invert.",
+      "value-key": "[LTA_INV]",
+      "type": "File",
+      "optional": true,
+      "id": "lta_inv",
+      "name": "Inverted LTA file"
+    },
+    {
+      "command-line-flag": "--ltaout",
+      "description": "Output a Linear Transform Array.",
+      "value-key": "[LTAOUT]",
+      "type": "File",
+      "optional": true,
+      "id": "ltaout",
+      "name": "Output LTA file"
+    },
+    {
+      "command-line-flag": "--ltaout-inv",
+      "description": "Invert transform in ltaoutfile.",
+      "value-key": "[LTAOUT_INV_FLAG]",
+      "type": "Flag",
+      "id": "ltaout_inv_flag",
+      "name": "LTA output invert flag"
+    },
+    {
+      "command-line-flag": "--feat",
+      "description": "Check example_func2standard registration.",
+      "value-key": "[FEAT]",
+      "type": "String",
+      "optional": true,
+      "id": "feat",
+      "name": "FEAT directory"
+    },
+    {
+      "command-line-flag": "--fsfeat",
+      "description": "Check reg/freesurfer/register.dat registration.",
+      "value-key": "[FSFEAT]",
+      "type": "String",
+      "optional": true,
+      "id": "fsfeat",
+      "name": "FSFEAT directory"
+    },
+    {
+      "command-line-flag": "--identity",
+      "description": "Use identity as registration matrix.",
+      "value-key": "[IDENTITY_FLAG]",
+      "type": "Flag",
+      "id": "identity_flag",
+      "name": "Identity registration matrix flag"
+    },
+    {
+      "command-line-flag": "--s",
+      "description": "Set subject id.",
+      "value-key": "[SUBJECT_ID]",
+      "type": "String",
+      "optional": true,
+      "id": "subject_id",
+      "name": "Subject ID"
+    },
+    {
+      "command-line-flag": "--sd",
+      "description": "Use specified directory as SUBJECTS_DIR.",
+      "value-key": "[SUBJECTS_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "subjects_dir",
+      "name": "Subjects directory"
+    },
+    {
+      "command-line-flag": "--nofix",
+      "description": "Don't fix old tkregister matrices.",
+      "value-key": "[NOFIX_FLAG]",
+      "type": "Flag",
+      "id": "nofix_flag",
+      "name": "No fix flag"
+    },
+    {
+      "command-line-flag": "--float2int",
+      "description": "Specify old tkregister float2int.",
+      "value-key": "[FLOAT2INT]",
+      "type": "String",
+      "optional": true,
+      "id": "float2int",
+      "name": "Float to int specification"
+    },
+    {
+      "command-line-flag": "--title",
+      "description": "Set window title.",
+      "value-key": "[TITLE]",
+      "type": "String",
+      "optional": true,
+      "id": "title",
+      "name": "Window title"
+    },
+    {
+      "command-line-flag": "--tag",
+      "description": "Tag movable volume near the col/row origin.",
+      "value-key": "[TAG_FLAG]",
+      "type": "Flag",
+      "id": "tag_flag",
+      "name": "Tag flag"
+    },
+    {
+      "command-line-flag": "--mov-orientation",
+      "description": "Supply orientation string for movable volume.",
+      "value-key": "[MOV_ORIENTATION]",
+      "type": "String",
+      "optional": true,
+      "id": "mov_orientation",
+      "name": "Movable volume orientation"
+    },
+    {
+      "command-line-flag": "--targ-orientation",
+      "description": "Supply orientation string for target volume.",
+      "value-key": "[TARG_ORIENTATION]",
+      "type": "String",
+      "optional": true,
+      "id": "targ_orientation",
+      "name": "Target volume orientation"
+    },
+    {
+      "command-line-flag": "--int",
+      "description": "Use registration from intermediate volume.",
+      "value-key": "[INT]",
+      "type": "String",
+      "list": true,
+      "max-list-entries": 2,
+      "optional": true,
+      "id": "int",
+      "min-list-entries": 2,
+      "name": "Intermediate volume & registration"
+    },
+    {
+      "command-line-flag": "--2",
+      "description": "Double window size.",
+      "value-key": "[DOUBLE_WINDOW_SIZE_FLAG]",
+      "type": "Flag",
+      "id": "double_window_size_flag",
+      "name": "Double window size flag"
+    },
+    {
+      "command-line-flag": "--size",
+      "description": "Scale window by specified scale.",
+      "value-key": "[WINDOW_SCALE]",
+      "type": "Number",
+      "optional": true,
+      "id": "window_scale",
+      "name": "Window scale"
+    },
+    {
+      "command-line-flag": "--det",
+      "description": "Save determinant of registration matrix to specified file.",
+      "value-key": "[DET]",
+      "type": "File",
+      "optional": true,
+      "id": "det",
+      "name": "Determinant output file"
+    },
+    {
+      "command-line-flag": "--aseg",
+      "description": "Load aseg and hit 'd' to toggle.",
+      "value-key": "[ASEG_FLAG]",
+      "type": "Flag",
+      "id": "aseg_flag",
+      "name": "Load aseg flag"
+    },
+    {
+      "command-line-flag": "--aparc+aseg",
+      "description": "Load aparc+aseg and hit 'c' to toggle.",
+      "value-key": "[APARC_FLAG]",
+      "type": "Flag",
+      "id": "aparc_flag",
+      "name": "Load aparc+aseg flag"
+    },
+    {
+      "command-line-flag": "--wmparc",
+      "description": "Load wmparc and hit 'c' to toggle.",
+      "value-key": "[WMPARC_FLAG]",
+      "type": "Flag",
+      "id": "wmparc_flag",
+      "name": "Load wmparc flag"
+    },
+    {
+      "command-line-flag": "--gdiagno",
+      "description": "Set debug level.",
+      "value-key": "[GDIAGNO]",
+      "type": "Number",
+      "optional": true,
+      "id": "gdiagno",
+      "name": "Debug level"
+    },
+    {
+      "command-line-flag": "--trans",
+      "description": "Translation (mm) to apply to registration matrix.",
+      "value-key": "[TRANS]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 3,
+      "optional": true,
+      "id": "trans",
+      "min-list-entries": 3,
+      "name": "Translation vector"
+    },
+    {
+      "command-line-flag": "--rot",
+      "description": "Rotation angles (deg) to apply to registration matrix.",
+      "value-key": "[ROT]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 3,
+      "optional": true,
+      "id": "rot",
+      "min-list-entries": 3,
+      "name": "Rotation angles"
+    },
+    {
+      "command-line-flag": "--conf-targ",
+      "description": "Conform target (assumes reg computed to conform target, eg, GCA).",
+      "value-key": "[CONF_TARG_FLAG]",
+      "type": "Flag",
+      "id": "conf_targ_flag",
+      "name": "Conform target flag"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

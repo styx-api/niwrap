@@ -1,0 +1,52 @@
+{
+  "name": "mris_rf_label",
+  "author": "FreeSurfer Developers",
+  "description": "A tool for labeling regions of a surface using random forest classification.",
+  "command-line": "mris_rf_label [SUBJECT] [RF_CLASSIFIER] [OUTPUT_NAME] [HEMI] [SURF]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Subject identifier",
+      "value-key": "[SUBJECT]",
+      "type": "String",
+      "optional": false,
+      "id": "subject",
+      "name": "Subject"
+    },
+    {
+      "description": "Random Forest classifier",
+      "value-key": "[RF_CLASSIFIER]",
+      "type": "String",
+      "optional": false,
+      "id": "rf_classifier",
+      "name": "RF Classifier"
+    },
+    {
+      "description": "Output name",
+      "value-key": "[OUTPUT_NAME]",
+      "type": "String",
+      "optional": false,
+      "id": "output_name",
+      "name": "Output Name"
+    },
+    {
+      "command-line-flag": "--hemi",
+      "description": "Process specified hemisphere instead of default (lh).",
+      "value-key": "[HEMI]",
+      "type": "String",
+      "optional": true,
+      "id": "hemi",
+      "name": "Hemisphere"
+    },
+    {
+      "command-line-flag": "--surf",
+      "description": "Change default surface name from 'white' to specified surface.",
+      "value-key": "[SURF]",
+      "type": "String",
+      "optional": true,
+      "id": "surf",
+      "name": "Surface"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

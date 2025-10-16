@@ -1,0 +1,26 @@
+{
+  "name": "@GetAfniView",
+  "author": "AFNI Developers",
+  "description": "A tool to retrieve the AFNI view of a given dataset name",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "@GetAfniView [DATASET_NAME]",
+  "inputs": [
+    {
+      "description": "Name of the dataset (including path) from which to retrieve the AFNI view (+orig, +acpc, etc.)",
+      "value-key": "[DATASET_NAME]",
+      "type": "String",
+      "optional": false,
+      "id": "dataset_name",
+      "name": "Dataset Name"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "view_extension.txt",
+      "description": "The AFNI view extension retrieved from the dataset name",
+      "id": "afni_view",
+      "name": "AFNI View"
+    }
+  ]
+}

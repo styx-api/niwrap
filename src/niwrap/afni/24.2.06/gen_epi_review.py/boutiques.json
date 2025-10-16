@@ -1,0 +1,108 @@
+{
+  "name": "gen_epi_review.py",
+  "author": "AFNI Developers",
+  "description": "Generate an AFNI processing script to review EPI data",
+  "command-line": "gen_epi_review.py [DATASETS] [SCRIPT_NAME] [WINDOWS] [VERBOSITY] [IMAGE_SIZE] [IMAGE_XOFFSET] [IMAGE_YOFFSET] [GRAPH_SIZE] [GRAPH_XOFFSET] [GRAPH_YOFFSET]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Specify input datasets for processing",
+      "value-key": "[DATASETS]",
+      "type": "String",
+      "list": true,
+      "optional": false,
+      "command-line-flag": "-dsets",
+      "id": "datasets",
+      "name": "Datasets"
+    },
+    {
+      "command-line-flag": "-script",
+      "description": "Specify the name of the generated script",
+      "value-key": "[SCRIPT_NAME]",
+      "type": "String",
+      "optional": true,
+      "id": "script_name",
+      "name": "Script name"
+    },
+    {
+      "command-line-flag": "-verb",
+      "description": "Specify a verbosity level",
+      "value-key": "[VERBOSITY]",
+      "type": "Number",
+      "optional": true,
+      "id": "verbosity",
+      "name": "Verbosity"
+    },
+    {
+      "command-line-flag": "-windows",
+      "description": "Specify the image windows to open",
+      "value-key": "[WINDOWS]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "windows",
+      "name": "Windows"
+    },
+    {
+      "command-line-flag": "-im_size",
+      "description": "Set image dimensions, in pixels",
+      "value-key": "[IMAGE_SIZE]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 2,
+      "min-list-entries": 2,
+      "optional": true,
+      "id": "image_size",
+      "name": "Image size"
+    },
+    {
+      "command-line-flag": "-im_xoff",
+      "description": "Set the X-offset for the image, in pixels",
+      "value-key": "[IMAGE_XOFFSET]",
+      "type": "Number",
+      "optional": true,
+      "id": "image_xoffset",
+      "name": "Image X-offset"
+    },
+    {
+      "command-line-flag": "-im_yoff",
+      "description": "Set the Y-offset for the image, in pixels",
+      "value-key": "[IMAGE_YOFFSET]",
+      "type": "Number",
+      "optional": true,
+      "id": "image_yoffset",
+      "name": "Image Y-offset"
+    },
+    {
+      "command-line-flag": "-gr_size",
+      "description": "Set graph dimensions, in pixels",
+      "value-key": "[GRAPH_SIZE]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 2,
+      "min-list-entries": 2,
+      "optional": true,
+      "id": "graph_size",
+      "name": "Graph size"
+    },
+    {
+      "command-line-flag": "-gr_xoff",
+      "description": "Set the X-offset for the graph, in pixels",
+      "value-key": "[GRAPH_XOFFSET]",
+      "type": "Number",
+      "optional": true,
+      "id": "graph_xoffset",
+      "name": "Graph X-offset"
+    },
+    {
+      "command-line-flag": "-gr_yoff",
+      "description": "Set the Y-offset for the graph, in pixels",
+      "value-key": "[GRAPH_YOFFSET]",
+      "type": "Number",
+      "optional": true,
+      "id": "graph_yoffset",
+      "name": "Graph Y-offset"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

@@ -1,0 +1,249 @@
+{
+  "name": "imcat",
+  "author": "AFNI Developers",
+  "description": "Assembles a set of images into an image matrix (IM) montage of NX by NY images.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "imcat [INPUT_FILES] [SCALE_IMAGE] [SCALE_PIXELS] [SCALE_INTENSITY] [GSCALE] [RGB_OUT] [RES_IN] [RESPAD_IN] [PAD_VAL] [CROP] [AUTOCROP_CTOL] [AUTOCROP_ATOL] [AUTOCROP] [ZERO_WRAP] [WHITE_WRAP] [GRAY_WRAP] [IMAGE_WRAP] [RAND_WRAP] [PREFIX] [MATRIX] [NX] [NY] [MATRIX_FROM_SCALE] [GAP] [GAP_COL]",
+  "inputs": [
+    {
+      "description": "Input image files",
+      "value-key": "[INPUT_FILES]",
+      "type": "File",
+      "optional": false,
+      "list": true,
+      "id": "input_files",
+      "name": "Input files"
+    },
+    {
+      "command-line-flag": "-scale_image",
+      "description": "Multiply each image IM(i,j) in output image matrix IM by the color or intensity of the pixel (i,j) in SCALE_IMG.",
+      "value-key": "[SCALE_IMAGE]",
+      "type": "File",
+      "optional": true,
+      "id": "scale_image",
+      "name": "Scale image"
+    },
+    {
+      "command-line-flag": "-scale_pixels",
+      "description": "Multiply each pixel (i,j) in output image by the color or intensity of the pixel (i,j) in SCALE_IMG. SCALE_IMG is automatically resized to the resolution of the output image.",
+      "value-key": "[SCALE_PIXELS]",
+      "type": "File",
+      "optional": true,
+      "id": "scale_pixels",
+      "name": "Scale pixels"
+    },
+    {
+      "command-line-flag": "-scale_intensity",
+      "description": "Instead of multiplying by the color of pixel (i,j), use its intensity (average color).",
+      "value-key": "[SCALE_INTENSITY]",
+      "type": "Flag",
+      "id": "scale_intensity",
+      "name": "Scale intensity flag"
+    },
+    {
+      "command-line-flag": "-gscale",
+      "description": "Apply FAC in addition to scaling of -scale_* options.",
+      "value-key": "[GSCALE]",
+      "type": "Number",
+      "optional": true,
+      "id": "gscale",
+      "name": "Global scale factor"
+    },
+    {
+      "command-line-flag": "-rgb_out",
+      "description": "Force output to be in RGB, even if input is bytes. This option is turned on automatically in certain cases.",
+      "value-key": "[RGB_OUT]",
+      "type": "Flag",
+      "id": "rgb_out",
+      "name": "RGB output flag"
+    },
+    {
+      "command-line-flag": "-res_in",
+      "description": "Set resolution of all input images to RX by RY pixels. Default is to make all input have the same resolution as the first image.",
+      "value-key": "[RES_IN]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 2,
+      "optional": true,
+      "id": "res_in",
+      "name": "Input resolution"
+    },
+    {
+      "command-line-flag": "-respad_in",
+      "description": "Like -res_in, but resample to the max while respecting the aspect ratio, and then pad to achieve desired pixel count.",
+      "value-key": "[RESPAD_IN]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 2,
+      "optional": true,
+      "id": "respad_in",
+      "name": "Input resolution with padding"
+    },
+    {
+      "command-line-flag": "-pad_val",
+      "description": "Set the padding value, should it be needed by -respad_in to VAL. VAL is typecast to byte, default is 0, max is 255.",
+      "value-key": "[PAD_VAL]",
+      "type": "Number",
+      "optional": true,
+      "maximum": 255,
+      "minimum": 0,
+      "id": "pad_val",
+      "name": "Padding value"
+    },
+    {
+      "command-line-flag": "-crop",
+      "description": "Crop images by L (Left), R (Right), T (Top), B (Bottom) pixels. Cutting is performed after any resolution change, if any, is to be done.",
+      "value-key": "[CROP]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 4,
+      "optional": true,
+      "id": "crop",
+      "name": "Crop parameters"
+    },
+    {
+      "command-line-flag": "-autocrop_ctol",
+      "description": "A line is eliminated if none of its R G B values differ by more than CTOL% from those of the corner pixel.",
+      "value-key": "[AUTOCROP_CTOL]",
+      "type": "Number",
+      "optional": true,
+      "id": "autocrop_ctol",
+      "name": "Autocrop color tolerance"
+    },
+    {
+      "command-line-flag": "-autocrop_atol",
+      "description": "A line is eliminated if none of its R G B values differ by more than ATOL% from those of line average.",
+      "value-key": "[AUTOCROP_ATOL]",
+      "type": "Number",
+      "optional": true,
+      "id": "autocrop_atol",
+      "name": "Autocrop average tolerance"
+    },
+    {
+      "command-line-flag": "-autocrop",
+      "description": "This option is the same as using both of -autocrop_atol 20 and -autocrop_ctol 20",
+      "value-key": "[AUTOCROP]",
+      "type": "Flag",
+      "id": "autocrop",
+      "name": "Autocrop flag"
+    },
+    {
+      "command-line-flag": "-zero_wrap",
+      "description": "If number of images is not enough to fill matrix solid black images are used.",
+      "value-key": "[ZERO_WRAP]",
+      "type": "Flag",
+      "id": "zero_wrap",
+      "name": "Zero wrap flag"
+    },
+    {
+      "command-line-flag": "-white_wrap",
+      "description": "If number of images is not enough to fill matrix solid white images are used.",
+      "value-key": "[WHITE_WRAP]",
+      "type": "Flag",
+      "id": "white_wrap",
+      "name": "White wrap flag"
+    },
+    {
+      "command-line-flag": "-gray_wrap",
+      "description": "If number of images is not enough to fill matrix, solid gray images are used. GRAY must be between 0 and 1.0.",
+      "value-key": "[GRAY_WRAP]",
+      "type": "Number",
+      "optional": true,
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "id": "gray_wrap",
+      "name": "Gray wrap value"
+    },
+    {
+      "command-line-flag": "-image_wrap",
+      "description": "If number of images is not enough to fill matrix, images on command line are reused (default).",
+      "value-key": "[IMAGE_WRAP]",
+      "type": "Flag",
+      "id": "image_wrap",
+      "name": "Image wrap flag"
+    },
+    {
+      "command-line-flag": "-rand_wrap",
+      "description": "When reusing images to fill matrix, randomize the order in refill section only.",
+      "value-key": "[RAND_WRAP]",
+      "type": "Flag",
+      "id": "rand_wrap",
+      "name": "Random wrap flag"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Prefix the output files with string 'ppp'.",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Prefix"
+    },
+    {
+      "command-line-flag": "-matrix",
+      "description": "Specify number of images in each row and column of IM at the same time.",
+      "value-key": "[MATRIX]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 2,
+      "optional": true,
+      "id": "matrix",
+      "name": "Matrix dimensions"
+    },
+    {
+      "command-line-flag": "-nx",
+      "description": "Number of images in each row.",
+      "value-key": "[NX]",
+      "type": "Number",
+      "optional": true,
+      "id": "nx",
+      "name": "Number of rows"
+    },
+    {
+      "command-line-flag": "-ny",
+      "description": "Number of images in each column.",
+      "value-key": "[NY]",
+      "type": "Number",
+      "optional": true,
+      "id": "ny",
+      "name": "Number of columns"
+    },
+    {
+      "command-line-flag": "-matrix_from_scale",
+      "description": "Set NX and NY to be the same as the SCALE_IMG's dimensions. (needs -scale_image)",
+      "value-key": "[MATRIX_FROM_SCALE]",
+      "type": "Flag",
+      "id": "matrix_from_scale",
+      "name": "Matrix from scale flag"
+    },
+    {
+      "command-line-flag": "-gap",
+      "description": "Put a line G pixels wide between images.",
+      "value-key": "[GAP]",
+      "type": "Number",
+      "optional": true,
+      "id": "gap",
+      "name": "Gap width"
+    },
+    {
+      "command-line-flag": "-gap_col",
+      "description": "Set color of line to R G B values. Values range between 0 and 255.",
+      "value-key": "[GAP_COL]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 3,
+      "optional": true,
+      "id": "gap_col",
+      "name": "Gap color"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX]output_image.[EXT]",
+      "description": "Output image file",
+      "id": "output_image_file",
+      "name": "Output image file"
+    }
+  ]
+}

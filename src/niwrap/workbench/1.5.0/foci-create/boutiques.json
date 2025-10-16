@@ -1,0 +1,66 @@
+{
+  "name": "foci-create",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -foci-create [OUTPUT] [CLASS]",
+  "description": "Create a foci file.\n\nCreates a foci file from names, coordinates, and RGB values in a text file.  The text file must have the following format (2 lines per focus):\n\n<focus-name>\n<red> <green> <blue> <x> <y> <z> \n...\n\nFoci names are specified on a separate line from their coordinates and color, in order to let foci names contain spaces.  Whitespace is trimmed from both ends of the foci name, but is kept if it is in the middle of a name.  The values of <red>, <green>, <blue> and must be integers from 0 to 255, and will specify the color the foci is drawn as.\n\nFoci are grouped into classes and the name for the class is specified using the <class-name> parameter.\n\nAll foci within one text file must be associated with the structure contained in the <surface> parameter and are projected to that surface.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "output",
+      "name": "output",
+      "type": "String",
+      "description": "the output foci file",
+      "optional": false,
+      "value-key": "[OUTPUT]"
+    },
+    {
+      "id": "class",
+      "name": "class",
+      "description": "specify class input data",
+      "type": {
+        "id": "class",
+        "name": "class",
+        "description": "specify class input data",
+        "command-line": "-class [CLASS_NAME] [FOCI_LIST_FILE] [SURFACE]",
+        "inputs": [
+          {
+            "id": "class_name",
+            "name": "class_name",
+            "description": "name of class",
+            "optional": false,
+            "value-key": "[CLASS_NAME]",
+            "type": "String"
+          },
+          {
+            "id": "foci_list_file",
+            "name": "foci_list_file",
+            "description": "text file containing foci names, coordinates, and colors",
+            "optional": false,
+            "value-key": "[FOCI_LIST_FILE]",
+            "type": "String"
+          },
+          {
+            "id": "surface",
+            "name": "surface",
+            "description": "surface file for projection of foci list file",
+            "optional": false,
+            "value-key": "[SURFACE]",
+            "type": "File"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[CLASS]",
+      "list": true
+    }
+  ],
+  "output-files": [
+    {
+      "id": "output",
+      "name": "output",
+      "path-template": "[OUTPUT]",
+      "description": "the output foci file"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

@@ -1,0 +1,88 @@
+{
+  "name": "3dZcat",
+  "author": "AFNI Developers",
+  "description": "Concatenates datasets in the slice (z) direction",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dZcat [PREFIX] [DATUM] [FSCALE] [NSCALE] [VERB] [FRUGAL] [INPUT_FILES]",
+  "inputs": [
+    {
+      "description": "Use 'pname' for the output dataset prefix name. [default='zcat']",
+      "value-key": "[PREFIX]",
+      "command-line-flag": "-prefix",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Output Prefix"
+    },
+    {
+      "description": "Coerce the output data to be stored as the given type, which may be byte, short, or float.",
+      "value-key": "[DATUM]",
+      "command-line-flag": "-datum",
+      "type": "String",
+      "optional": true,
+      "id": "datum",
+      "name": "Output Datum",
+      "value-choices": [
+        "byte",
+        "short",
+        "float"
+      ]
+    },
+    {
+      "description": "Force scaling of the output to the maximum integer range. This only has effect if the output datum is byte or short (either forced or defaulted). This option is sometimes necessary to eliminate unpleasant truncation artifacts.",
+      "value-key": "[FSCALE]",
+      "command-line-flag": "-fscale",
+      "type": "Flag",
+      "id": "fscale",
+      "name": "Force Scaling"
+    },
+    {
+      "description": "Don't do any scaling on output to byte or short datasets. This may be especially useful when operating on mask datasets whose output values are only 0's and 1's.",
+      "value-key": "[NSCALE]",
+      "command-line-flag": "-nscale",
+      "type": "Flag",
+      "id": "nscale",
+      "name": "No Scaling"
+    },
+    {
+      "description": "Print out some verbosity as the program proceeds.",
+      "value-key": "[VERB]",
+      "command-line-flag": "-verb",
+      "type": "Flag",
+      "id": "verb",
+      "name": "Verbose"
+    },
+    {
+      "description": "Be 'frugal' in the use of memory, at the cost of I/O time. Only needed if the program runs out of memory. Note frugality cannot be combined with NIFTI output",
+      "value-key": "[FRUGAL]",
+      "command-line-flag": "-frugal",
+      "type": "Flag",
+      "id": "frugal",
+      "name": "Frugal Memory Usage"
+    },
+    {
+      "description": "Input datasets",
+      "value-key": "[INPUT_FILES]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "input_files",
+      "name": "Input Files"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX]+orig.HEAD",
+      "description": "AFNI HEAD file of the output dataset",
+      "id": "out_head",
+      "name": "Output HEAD File"
+    },
+    {
+      "path-template": "[PREFIX]+orig.BRIK",
+      "description": "AFNI BRIK file of the output dataset",
+      "id": "out_brik",
+      "name": "Output BRIK File"
+    }
+  ]
+}

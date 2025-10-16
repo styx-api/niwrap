@@ -1,0 +1,35 @@
+{
+  "name": "mri_compute_bias",
+  "description": "Compute bias correction volumes for the given subjects and outputs the result to a specified volume.",
+  "command-line": "mri_compute_bias [SUBJECTS] [OUTPUT_VOLUME]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "List of subjects for which bias correction is calculated.",
+      "value-key": "[SUBJECTS]",
+      "type": "String",
+      "list": true,
+      "optional": false,
+      "id": "subjects",
+      "name": "Subjects"
+    },
+    {
+      "description": "Output volume where the result will be stored.",
+      "value-key": "[OUTPUT_VOLUME]",
+      "type": "String",
+      "optional": false,
+      "id": "output_volume",
+      "name": "Output Volume"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_VOLUME]",
+      "description": "The output volume containing the bias correction result.",
+      "id": "output_file",
+      "name": "Output File"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

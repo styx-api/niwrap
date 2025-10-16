@@ -1,0 +1,183 @@
+{
+  "name": "bianca",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "BIANCA: Brain Intensity AbNormality Classification Algorithm",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "bianca [MASTER_FILE] [LABEL_FEATURE_NUM] [BRAIN_MASK_FEATURE_NUM] [QUERY_SUBJECT_NUM] [TRAINING_NUMS] [FEATURE_SUBSET] [MAT_FEATURE_NUM] [SPATIAL_WEIGHT] [PATCH_SIZES] [PATCH_3D] [SELECT_PTS] [TRAINING_PTS] [NON_LES_PTS] [LOAD_CLASSIFIER_DATA] [SAVE_CLASSIFIER_DATA] [VERBOSE_FLAG] [OUT_NAME]",
+  "inputs": [
+    {
+      "description": "Name of the master file",
+      "command-line-flag": "--singlefile",
+      "command-line-flag-separator": "=",
+      "value-key": "[MASTER_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "master_file",
+      "name": "Master file"
+    },
+    {
+      "description": "Row number of query subject (in masterlistfile)",
+      "command-line-flag": "--querysubjectnum",
+      "command-line-flag-separator": "=",
+      "value-key": "[QUERY_SUBJECT_NUM]",
+      "type": "Number",
+      "optional": false,
+      "id": "query_subject_num",
+      "name": "Query subject number"
+    },
+    {
+      "description": "Column number (in the master file) of images to derive non-zero mask from",
+      "command-line-flag": "--brainmaskfeaturenum",
+      "command-line-flag-separator": "=",
+      "value-key": "[BRAIN_MASK_FEATURE_NUM]",
+      "type": "Number",
+      "optional": false,
+      "id": "brain_mask_feature_num",
+      "name": "Brain mask feature number"
+    },
+    {
+      "description": "Column number (in the master file) of the manual masks (or any placeholder name for query subjects)",
+      "command-line-flag": "labelfeaturenum",
+      "command-line-flag-separator": "=",
+      "value-key": "[LABEL_FEATURE_NUM]",
+      "type": "Number",
+      "optional": false,
+      "id": "label_feature_num",
+      "name": "Label feature number"
+    },
+    {
+      "command-line-flag": "--trainingnums",
+      "command-line-flag-separator": "=",
+      "description": "Subjects to be used in training. List of row numbers (comma separated, no spaces) or 'all' to use all the subjects in the master file",
+      "value-key": "[TRAINING_NUMS]",
+      "type": "String",
+      "optional": true,
+      "id": "training_nums",
+      "name": "Training numbers"
+    },
+    {
+      "command-line-flag": "--loadclassifierdata",
+      "command-line-flag-separator": "=",
+      "description": "Load training data from file",
+      "value-key": "[LOAD_CLASSIFIER_DATA]",
+      "type": "String",
+      "optional": true,
+      "id": "load_classifier_data",
+      "name": "Load classifier data"
+    },
+    {
+      "command-line-flag": "-o",
+      "description": "Specify (base) output name of files",
+      "value-key": "[OUT_NAME]",
+      "type": "String",
+      "optional": true,
+      "id": "out_name",
+      "name": "Output name"
+    },
+    {
+      "command-line-flag": "--featuresubset",
+      "command-line-flag-separator": "=",
+      "description": "Set of column numbers (comma separated and no spaces) for features/images to use (default: use all available modalities as intensity features). The image used to derive non-zero mask from must be part of the features subset",
+      "value-key": "[FEATURE_SUBSET]",
+      "type": "String",
+      "optional": true,
+      "id": "feature_subset",
+      "name": "Feature subset"
+    },
+    {
+      "command-line-flag": "--matfeaturenum",
+      "command-line-flag-separator": "=",
+      "description": "Column number of matrix files (in masterlistfile). Needed to extract spatial features (MNI coordinates)",
+      "value-key": "[MAT_FEATURE_NUM]",
+      "type": "Number",
+      "optional": true,
+      "id": "mat_feature_num",
+      "name": "Matrix feature number"
+    },
+    {
+      "command-line-flag": "--spatialweight",
+      "command-line-flag-separator": "=",
+      "description": "Weighting for spatial coordinates (default = 1, i.e., variance-normalized MNI coordinates). Requires --matfeaturenum to be specified",
+      "value-key": "[SPATIAL_WEIGHT]",
+      "type": "Number",
+      "optional": true,
+      "id": "spatial_weight",
+      "name": "Spatial weight"
+    },
+    {
+      "command-line-flag": "--patchsizes",
+      "command-line-flag-separator": "=",
+      "description": "List of patch sizes for local averaging",
+      "value-key": "[PATCH_SIZES]",
+      "type": "String",
+      "optional": true,
+      "id": "patch_sizes",
+      "name": "Patch sizes"
+    },
+    {
+      "command-line-flag": "--patch3D",
+      "description": "Use 3D patches (default is 2D)",
+      "value-key": "[PATCH_3D]",
+      "type": "Flag",
+      "id": "patch_3d",
+      "name": "3D patches"
+    },
+    {
+      "command-line-flag": "--selectpts",
+      "command-line-flag-separator": "=",
+      "description": "\"any\" (default) or \"surround\" or \"noborder\"",
+      "value-key": "[SELECT_PTS]",
+      "type": "String",
+      "optional": true,
+      "id": "select_pts",
+      "name": "Select points"
+    },
+    {
+      "command-line-flag": "--trainingpts",
+      "command-line-flag-separator": "=",
+      "description": "Number (max) of (lesion) points to use (per training subject) or \"equalpoints\" to select all lesion points and equal number of non-lesion points",
+      "value-key": "[TRAINING_PTS]",
+      "type": "String",
+      "optional": true,
+      "id": "training_pts",
+      "name": "Training points"
+    },
+    {
+      "command-line-flag": "--nonlespts",
+      "command-line-flag-separator": "=",
+      "description": "Number (max) of non-lesion points to use. If not specified will be set to the same amount of lesion points",
+      "value-key": "[NON_LES_PTS]",
+      "type": "String",
+      "optional": true,
+      "id": "non_les_pts",
+      "name": "Non-lesion points"
+    },
+    {
+      "command-line-flag": "--saveclassifierdata",
+      "command-line-flag-separator": "=",
+      "description": "Save training data to file",
+      "value-key": "[SAVE_CLASSIFIER_DATA]",
+      "type": "String",
+      "optional": true,
+      "id": "save_classifier_data",
+      "name": "Save classifier data"
+    },
+    {
+      "command-line-flag": "-v",
+      "description": "Use verbose mode",
+      "value-key": "[VERBOSE_FLAG]",
+      "type": "Flag",
+      "id": "verbose_flag",
+      "name": "Verbose flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUT_NAME]_bianca",
+      "description": "Base output file generated by BIANCA",
+      "id": "base_output",
+      "name": "Base output"
+    }
+  ]
+}

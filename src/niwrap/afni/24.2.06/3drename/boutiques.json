@@ -1,0 +1,26 @@
+{
+  "name": "3drename",
+  "author": "AFNI Developers",
+  "description": "Tool to rename AFNI datasets by changing the dataset prefix.",
+  "command-line": "3drename [OLD_PREFIX] [NEW_PREFIX]",
+  "inputs": [
+    {
+      "description": "Old prefix of the datasets to rename.",
+      "value-key": "[OLD_PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "old_prefix",
+      "name": "Old Prefix"
+    },
+    {
+      "description": "New prefix for the datasets.",
+      "value-key": "[NEW_PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "new_prefix",
+      "name": "New Prefix"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

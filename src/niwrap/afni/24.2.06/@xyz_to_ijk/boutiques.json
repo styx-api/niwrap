@@ -1,0 +1,61 @@
+{
+  "name": "@xyz_to_ijk",
+  "author": "AFNI Developers",
+  "description": "Helper script to convert (x, y, z) coordinates to (i, j, k) indices for a volumetric dataset.",
+  "command-line": "@xyz_to_ijk [INSET] [X_COORD] [Y_COORD] [Z_COORD] [PREFIX]",
+  "inputs": [
+    {
+      "description": "Volumetric file name (e.g. FILE.nii.gz)",
+      "value-key": "[INSET]",
+      "type": "File",
+      "optional": false,
+      "id": "inset",
+      "name": "Volumetric file",
+      "command-line-flag": "-inset"
+    },
+    {
+      "description": "Three coordinates (in units of the dataset, like mm)",
+      "value-key": "[X_COORD]",
+      "type": "Number",
+      "optional": false,
+      "id": "x_coord",
+      "name": "X coordinate",
+      "command-line-flag": "-xyz"
+    },
+    {
+      "description": "Three coordinates (in units of the dataset, like mm)",
+      "value-key": "[Y_COORD]",
+      "type": "Number",
+      "optional": false,
+      "id": "y_coord",
+      "name": "Y coordinate"
+    },
+    {
+      "description": "Three coordinates (in units of the dataset, like mm)",
+      "value-key": "[Z_COORD]",
+      "type": "Number",
+      "optional": false,
+      "id": "z_coord",
+      "name": "Z coordinate"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "File name (including path) to output the three indices",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Output prefix"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX]",
+      "description": "Output file containing the translated indices",
+      "id": "output_file",
+      "name": "Output file"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

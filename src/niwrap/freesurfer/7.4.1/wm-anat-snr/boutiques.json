@@ -1,0 +1,79 @@
+{
+  "name": "wm-anat-snr",
+  "description": "Measures the anatomical SNR in white matter (WM) for quality assurance (QA). This is an experimental metric.",
+  "command-line": "wm-anat-snr [SUBJECT] [OUTPUT_FILE] [FORCE] [NERODE] [TMP_DIR] [CLEANUP] [NO_CLEANUP]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--s",
+      "description": "FreeSurfer subject name",
+      "id": "subject",
+      "name": "Subject",
+      "optional": false,
+      "type": "String",
+      "value-key": "[SUBJECT]"
+    },
+    {
+      "command-line-flag": "--o",
+      "description": "Output file",
+      "id": "output_file",
+      "name": "Output file",
+      "optional": false,
+      "type": "String",
+      "value-key": "[OUTPUT_FILE]"
+    },
+    {
+      "command-line-flag": "--nerode",
+      "description": "Number of erosions for the WM mask",
+      "id": "nerode",
+      "name": "Number of Erodes",
+      "optional": true,
+      "type": "Number",
+      "integer": true,
+      "value-key": "[NERODE]"
+    },
+    {
+      "command-line-flag": "--tmp",
+      "description": "Temporary directory",
+      "id": "tmp_dir",
+      "name": "Temporary Directory",
+      "optional": true,
+      "type": "String",
+      "value-key": "[TMP_DIR]"
+    },
+    {
+      "command-line-flag": "--force",
+      "description": "Force analysis even if output is up-to-date",
+      "id": "force",
+      "name": "Force Flag",
+      "type": "Flag",
+      "value-key": "[FORCE]"
+    },
+    {
+      "command-line-flag": "--cleanup",
+      "description": "Delete temporary directory after execution",
+      "id": "cleanup",
+      "name": "Cleanup Flag",
+      "type": "Flag",
+      "value-key": "[CLEANUP]"
+    },
+    {
+      "command-line-flag": "--no-cleanup",
+      "description": "Do not delete temporary directory after execution",
+      "id": "no_cleanup",
+      "name": "No Cleanup Flag",
+      "type": "Flag",
+      "value-key": "[NO_CLEANUP]"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILE]",
+      "description": "Output data file containing SNR and associated metrics",
+      "id": "output_datafile",
+      "name": "Output Data File"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

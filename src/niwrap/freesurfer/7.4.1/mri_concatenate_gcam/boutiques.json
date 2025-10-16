@@ -1,0 +1,77 @@
+{
+  "name": "mri_concatenate_gcam",
+  "description": "Concatenate a combination of input LTAs (linear transform array) and GCAMs (Gaussian classifier atlas, M3Z).",
+  "command-line": "mri_concatenate_gcam [INPUTS] [OUTPUT] [SOURCE_IMAGE] [TARGET_IMAGE] [REDUCE] [INVERT] [DOWNSAMPLE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "inputs",
+      "name": "Input Transforms",
+      "description": "Combination of input LTAs and M3Zs.",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "value-key": "[INPUTS]"
+    },
+    {
+      "id": "output",
+      "name": "Output Transform",
+      "description": "Concatenated output transform, saved as an LTA or M3Z depending on the input transforms.",
+      "type": "String",
+      "optional": false,
+      "value-key": "[OUTPUT]"
+    },
+    {
+      "command-line-flag": "-s",
+      "id": "source_image",
+      "name": "Change Source Image",
+      "description": "Change source image geometry of output M3Z, useful for GCAM inversion if the path of the original source volume changed.",
+      "type": "File",
+      "optional": true,
+      "value-key": "[SOURCE_IMAGE]"
+    },
+    {
+      "command-line-flag": "-t",
+      "id": "target_image",
+      "name": "Change Target Image",
+      "description": "Change destination image geometry of output M3Z.",
+      "type": "File",
+      "optional": true,
+      "value-key": "[TARGET_IMAGE]"
+    },
+    {
+      "command-line-flag": "-r",
+      "id": "reduce",
+      "name": "Reduce LTA",
+      "description": "Reduce output LTA to single LT.",
+      "type": "Flag",
+      "value-key": "[REDUCE]"
+    },
+    {
+      "command-line-flag": "-i",
+      "id": "invert",
+      "name": "Invert Transform",
+      "description": "Invert the output transform.",
+      "type": "Flag",
+      "value-key": "[INVERT]"
+    },
+    {
+      "command-line-flag": "-d",
+      "id": "downsample",
+      "name": "Downsample M3Z",
+      "description": "Downsample output M3Z to spacing of 2; by default, the output spacing is that of the rightmost input M3Z.",
+      "type": "Flag",
+      "value-key": "[DOWNSAMPLE]"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT]",
+      "description": "Composite LTA or M3Z transform, depending on input.",
+      "id": "output_file",
+      "name": "Output Transform File"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

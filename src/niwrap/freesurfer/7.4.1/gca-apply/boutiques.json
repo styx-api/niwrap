@@ -1,0 +1,198 @@
+{
+  "name": "gca-apply",
+  "author": "FreeSurfer Developers",
+  "description": "Applies a GCA, performing the steps of mri_em_register, mri_ca_normalize, mri_ca_register, and mri_ca_label. This script replicates the stages in recon-all without overwriting files.",
+  "command-line": "gca-apply [GCAFILE] [SUBJECT] [NTHREADS] [BASE] [NO_SEGSTATS] [SUBJECTS_DIR] [DICE_SEG] [DICE_FILE] [LTA] [NORM] [INPUT_MGZ] [BRAINMASK] [OUTPUT_DIR] [NO_V6LABOPTS] [M3Z_FILE] [GCA_RB_2016] [FORCE_UPDATE] [GCAREG_ITERS]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "GCA file",
+      "value-key": "[GCAFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "gcafile",
+      "name": "GCA file",
+      "command-line-flag": "-apply"
+    },
+    {
+      "description": "Subject",
+      "value-key": "[SUBJECT]",
+      "type": "String",
+      "optional": false,
+      "id": "subject",
+      "name": "Subject"
+    },
+    {
+      "command-line-flag": "--nthreads",
+      "description": "Number of OMP threads",
+      "value-key": "[NTHREADS]",
+      "type": "Number",
+      "optional": true,
+      "id": "nthreads",
+      "name": "Number of threads"
+    },
+    {
+      "command-line-flag": "--base",
+      "description": "Use gcabase for naming output files (default is basename gcafile)",
+      "value-key": "[BASE]",
+      "type": "String",
+      "optional": true,
+      "id": "base",
+      "name": "Output file base"
+    },
+    {
+      "command-line-flag": "--no-segstats",
+      "description": "Do not compute segstats",
+      "value-key": "[NO_SEGSTATS]",
+      "type": "Flag",
+      "id": "no_segstats",
+      "name": "No segstats flag"
+    },
+    {
+      "command-line-flag": "--sd",
+      "description": "Subjects directory",
+      "value-key": "[SUBJECTS_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "subjects_dir",
+      "name": "Subjects Directory"
+    },
+    {
+      "command-line-flag": "--dice",
+      "description": "Specify dice coefficient computation parameters",
+      "value-key": "[DICE_SEG]",
+      "type": "String",
+      "optional": true,
+      "id": "dice_seg",
+      "name": "Dice Segmentation"
+    },
+    {
+      "description": "Specify dice coefficient computation file",
+      "value-key": "[DICE_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "dice_file",
+      "name": "Dice File"
+    },
+    {
+      "command-line-flag": "--lta",
+      "description": "Use SrcLTA instead of running mri_em_register",
+      "value-key": "[LTA]",
+      "type": "File",
+      "optional": true,
+      "id": "lta",
+      "name": "LTA File"
+    },
+    {
+      "command-line-flag": "--norm",
+      "description": "Use SrcNorm instead of running mri_ca_normalize",
+      "value-key": "[NORM]",
+      "type": "File",
+      "optional": true,
+      "id": "norm",
+      "name": "Normalization File"
+    },
+    {
+      "command-line-flag": "--input",
+      "description": "Input file, default is nu.mgz",
+      "value-key": "[INPUT_MGZ]",
+      "type": "File",
+      "optional": true,
+      "id": "input_mgz",
+      "name": "Input File"
+    },
+    {
+      "command-line-flag": "--brainmask",
+      "description": "Brainmask file, default is brainmask.mgz",
+      "value-key": "[BRAINMASK]",
+      "type": "File",
+      "optional": true,
+      "id": "brainmask",
+      "name": "Brainmask File"
+    },
+    {
+      "command-line-flag": "--o",
+      "description": "Output directory (default: SUBJECTS_DIR/subject)",
+      "value-key": "[OUTPUT_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "output_dir",
+      "name": "Output Directory"
+    },
+    {
+      "command-line-flag": "--no-v6labopts",
+      "description": "Do not include v6 command line options",
+      "value-key": "[NO_V6LABOPTS]",
+      "type": "Flag",
+      "id": "no_v6labopts",
+      "name": "No v6labopts flag"
+    },
+    {
+      "command-line-flag": "--m3z",
+      "description": "M3Z file",
+      "value-key": "[M3Z_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "m3z_file",
+      "name": "M3Z File"
+    },
+    {
+      "command-line-flag": "--gca-rb-2016",
+      "description": "Use RB_all_2016-05-10.vc700.gca",
+      "value-key": "[GCA_RB_2016]",
+      "type": "Flag",
+      "id": "gca_rb_2016",
+      "name": "GCA RB 2016 Flag"
+    },
+    {
+      "command-line-flag": "--force-update",
+      "description": "Force recreation of a file even if it is younger than its parents",
+      "value-key": "[FORCE_UPDATE]",
+      "type": "Flag",
+      "id": "force_update",
+      "name": "Force Update Flag"
+    },
+    {
+      "command-line-flag": "--gcareg-iters",
+      "description": "Set to 1, only for testing",
+      "value-key": "[GCAREG_ITERS]",
+      "type": "Number",
+      "optional": true,
+      "id": "gcareg_iters",
+      "name": "GCA Register Iterations"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[BASE].lta",
+      "description": "Output LTA file",
+      "id": "output_lta",
+      "name": "Output LTA File"
+    },
+    {
+      "path-template": "[BASE].m3z",
+      "description": "Output M3Z file",
+      "id": "output_m3z",
+      "name": "Output M3Z File"
+    },
+    {
+      "path-template": "norm.[BASE].mgz",
+      "description": "Normalized GCA base MGZ file",
+      "id": "normalized_gca",
+      "name": "Normalized GCA MGZ File"
+    },
+    {
+      "path-template": "[BASE].aseg.mgz",
+      "description": "Segmented GCA base MGZ file",
+      "id": "segmented_gca",
+      "name": "Segmented GCA MGZ File"
+    },
+    {
+      "path-template": "[BASE].stats",
+      "description": "Statistical output file",
+      "id": "stats_output",
+      "name": "Statistical Output File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

@@ -1,0 +1,61 @@
+{
+  "name": "mris_compute_acorr",
+  "description": "Compute the autocorrelation function of a curvature file on a spherical surface.",
+  "command-line": "mris_compute_acorr [OUTPUT_SUBJECT] [HEMI] [SURF] [CURV] [C1_SUBJECTS] [C2_SUBJECTS]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "output_subject",
+      "name": "Output Subject",
+      "description": "The output subject file.",
+      "type": "String",
+      "value-key": "[OUTPUT_SUBJECT]",
+      "command-line-flag": "-o",
+      "optional": false
+    },
+    {
+      "id": "hemi",
+      "name": "Hemisphere",
+      "description": "Specify the hemisphere for processing.",
+      "type": "String",
+      "value-key": "[HEMI]",
+      "optional": false
+    },
+    {
+      "id": "surf",
+      "name": "Surface File",
+      "description": "The surface file which must be a spherical surface suitable for computing geodesics.",
+      "type": "File",
+      "value-key": "[SURF]",
+      "optional": false
+    },
+    {
+      "id": "curv",
+      "name": "Curvature File",
+      "description": "The input curvature file.",
+      "type": "File",
+      "value-key": "[CURV]",
+      "optional": false
+    },
+    {
+      "id": "c1_subjects",
+      "name": "Class 1 Subjects",
+      "description": "List of subjects from one class.",
+      "type": "String",
+      "list": true,
+      "value-key": "[C1_SUBJECTS]",
+      "optional": false
+    },
+    {
+      "id": "c2_subjects",
+      "name": "Class 2 Subjects",
+      "description": "List of subjects from another class.",
+      "type": "String",
+      "list": true,
+      "value-key": "[C2_SUBJECTS]",
+      "optional": false
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

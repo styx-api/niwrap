@@ -1,0 +1,35 @@
+{
+  "name": "concat_bvars",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Concatenate multiple .bvars files into a single .bvars file",
+  "command-line": "concat_bvars [OUTPUT_BVARS] [INPUT_BVARS]",
+  "inputs": [
+    {
+      "description": "Output .bvars file",
+      "value-key": "[OUTPUT_BVARS]",
+      "type": "String",
+      "optional": false,
+      "id": "output_bvars",
+      "name": "Output BVARS file"
+    },
+    {
+      "description": "List of input .bvars files",
+      "value-key": "[INPUT_BVARS]",
+      "type": "File",
+      "optional": false,
+      "list": true,
+      "id": "input_bvars",
+      "name": "Input BVARS files"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_BVARS]",
+      "description": "Concatenated output .bvars file",
+      "id": "output_file",
+      "name": "Output BVARS file"
+    }
+  ],
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

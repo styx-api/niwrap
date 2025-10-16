@@ -1,0 +1,134 @@
+{
+  "name": "fat_proc_align_anat_pair",
+  "author": "AFNI Developers",
+  "description": "A tool for aligning a T1w anatomical image to a T2w anatomical image using solid-body parameters (translation and rotation)",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "fat_proc_align_anat_pair [INPUT_T1W] [INPUT_T2W] [OUTPUT_PREFIX] [OUTPUT_GRID] [OUT_T2W_GRID] [INPUT_T2W_MASK] [DO_SS_TMP_T1W] [WARP] [MATRIX] [WORKDIR] [NO_CMD_OUT] [NO_CLEAN]",
+  "inputs": [
+    {
+      "description": "T1-weighted volume",
+      "value-key": "[INPUT_T1W]",
+      "type": "File",
+      "optional": false,
+      "id": "input_t1w",
+      "name": "Input T1W file",
+      "command-line-flag": "-in_t1w"
+    },
+    {
+      "description": "T2-weighted volume",
+      "value-key": "[INPUT_T2W]",
+      "type": "File",
+      "optional": false,
+      "id": "input_t2w",
+      "name": "Input T2W file",
+      "command-line-flag": "-in_t2w"
+    },
+    {
+      "description": "Output prefix for files and snapshots",
+      "value-key": "[OUTPUT_PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "output_prefix",
+      "name": "Output prefix",
+      "command-line-flag": "-prefix"
+    },
+    {
+      "command-line-flag": "-newgrid",
+      "description": "Specify output T1w volume's final resolution (isotropic)",
+      "value-key": "[OUTPUT_GRID]",
+      "type": "Number",
+      "optional": true,
+      "id": "output_grid",
+      "name": "Output grid resolution"
+    },
+    {
+      "command-line-flag": "-out_t2w_grid",
+      "description": "Final T1w volume is on the T2W volume's grid",
+      "value-key": "[OUT_T2W_GRID]",
+      "type": "Flag",
+      "id": "out_t2w_grid",
+      "name": "Output T2W grid flag"
+    },
+    {
+      "command-line-flag": "-in_t2w_mask",
+      "description": "Input a mask to apply to the T2w volume for alignment",
+      "value-key": "[INPUT_T2W_MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "input_t2w_mask",
+      "name": "Input T2W mask"
+    },
+    {
+      "command-line-flag": "-do_ss_tmp_t1w",
+      "description": "Apply skullstripping to the T1w volume during an intermediate step",
+      "value-key": "[DO_SS_TMP_T1W]",
+      "type": "Flag",
+      "id": "do_ss_tmp_t1w",
+      "name": "Apply skullstripping"
+    },
+    {
+      "command-line-flag": "-warp",
+      "description": "Specify the degrees of freedom for warping using options from 3dAllineate",
+      "value-key": "[WARP]",
+      "type": "String",
+      "optional": true,
+      "id": "warp",
+      "name": "Warp degrees of freedom"
+    },
+    {
+      "command-line-flag": "-matrix",
+      "description": "Apply a pre-made matrix from 3dAllineate",
+      "value-key": "[MATRIX]",
+      "type": "File",
+      "optional": true,
+      "id": "matrix",
+      "name": "Pre-made matrix"
+    },
+    {
+      "command-line-flag": "-workdir",
+      "description": "Specify a working directory",
+      "value-key": "[WORKDIR]",
+      "type": "String",
+      "optional": true,
+      "id": "workdir",
+      "name": "Working directory"
+    },
+    {
+      "command-line-flag": "-no_cmd_out",
+      "description": "Do not save the command line call and the location where it was run",
+      "value-key": "[NO_CMD_OUT]",
+      "type": "Flag",
+      "id": "no_cmd_out",
+      "name": "No command output flag"
+    },
+    {
+      "command-line-flag": "-no_clean",
+      "description": "Do not delete the temporary working directory",
+      "value-key": "[NO_CLEAN]",
+      "type": "Flag",
+      "id": "no_clean",
+      "name": "No clean flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_PREFIX]_t1w_aligned.nii.gz",
+      "description": "Aligned T1w volume",
+      "id": "aligned_t1w",
+      "name": "Aligned T1W file"
+    },
+    {
+      "path-template": "[OUTPUT_PREFIX]_QC_T1w_over_T2w.png",
+      "description": "QC snapshot of the T1w volume overlaying the T2w volume",
+      "id": "qc_snapshot_t1w_on_t2w",
+      "name": "QC snapshot T1W on T2W"
+    },
+    {
+      "path-template": "[OUTPUT_PREFIX]_QC_T1w_edges_over_T2w.png",
+      "description": "QC snapshot of the T1w edges overlaying the T2w volume",
+      "id": "qc_snapshot_t1w_edges_on_t2w",
+      "name": "QC snapshot T1W edges on T2W"
+    }
+  ]
+}

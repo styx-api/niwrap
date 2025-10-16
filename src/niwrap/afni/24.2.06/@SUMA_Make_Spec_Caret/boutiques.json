@@ -1,0 +1,82 @@
+{
+  "name": "@SUMA_Make_Spec_Caret",
+  "author": "AFNI Developers",
+  "description": "Prepare surfaces for viewing in SUMA, tested with Caret-5.2 surfaces.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "@SUMA_Make_Spec_Caret [SUBJECT_ID] [HELP] [DEBUG] [ECHO] [SURFACE_PATH] [SIDE_LABELS_STYLE]",
+  "inputs": [
+    {
+      "command-line-flag": "-sid",
+      "description": "Subject ID for file naming",
+      "value-key": "[SUBJECT_ID]",
+      "type": "String",
+      "optional": false,
+      "id": "subject_id",
+      "name": "Subject ID"
+    },
+    {
+      "command-line-flag": "-help",
+      "description": "Show help information",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help Flag"
+    },
+    {
+      "command-line-flag": "-debug",
+      "description": "Print debug information along the way",
+      "value-key": "[DEBUG]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "debug",
+      "name": "Debug Level",
+      "minimum": 0,
+      "maximum": 2
+    },
+    {
+      "command-line-flag": "-echo",
+      "description": "Turn shell echo on",
+      "value-key": "[ECHO]",
+      "type": "Flag",
+      "id": "echo",
+      "name": "Echo Flag"
+    },
+    {
+      "command-line-flag": "-sfpath",
+      "description": "Path to directory containing 'SURFACES' and AFNI volume used in creating the surfaces",
+      "value-key": "[SURFACE_PATH]",
+      "type": "String",
+      "optional": true,
+      "id": "surface_path",
+      "name": "Surface Path"
+    },
+    {
+      "command-line-flag": "-side_labels_style",
+      "description": "Naming style for Left, Right sides. Allowed values: 1 for L R LR style (default), 2 for LEFT RIGHT LR style, 3 for A B AB",
+      "value-key": "[SIDE_LABELS_STYLE]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "side_labels_style",
+      "name": "Side Labels Style",
+      "minimum": 1,
+      "maximum": 3
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[SUBJECT_ID]_lh.spec",
+      "description": "Output spec file for the left hemisphere",
+      "id": "left_hemisphere_spec",
+      "name": "Left Hemisphere Spec File"
+    },
+    {
+      "path-template": "[SUBJECT_ID]_rh.spec",
+      "description": "Output spec file for the right hemisphere",
+      "id": "right_hemisphere_spec",
+      "name": "Right Hemisphere Spec File"
+    }
+  ]
+}

@@ -1,0 +1,207 @@
+{
+  "name": "dt_recon",
+  "author": "FreeSurfer Developers",
+  "description": "Performs DTI reconstruction from the raw DWI input files.",
+  "command-line": "dt_recon [INPUT_VOLUME] [BVALS_BVECS] [SUBJECT_ID] [OUTPUT_DIR] [INFO_DUMP] [EC_REFERENCE] [NO_EC_FLAG] [NO_REG_FLAG] [REGISTER_FILE] [NO_TAL_FLAG] [SUBJECTS_DIR] [SAVE_EC_RESIDUALS_FLAG] [PCA_ANALYSIS_FLAG] [MASK_PRUNE_THRESHOLD] [INIT_SPM_FLAG] [INIT_FSL_FLAG] [DEBUG_FLAG] [VERSION_FLAG]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--i",
+      "description": "Input volume (DWI data).",
+      "id": "input_volume",
+      "name": "Input Volume",
+      "optional": false,
+      "type": "File",
+      "value-key": "[INPUT_VOLUME]"
+    },
+    {
+      "command-line-flag": "--b",
+      "description": "B-values and B-vectors files.",
+      "id": "bvals_bvecs",
+      "name": "B-values and B-vectors",
+      "optional": true,
+      "type": "String",
+      "value-key": "[BVALS_BVECS]"
+    },
+    {
+      "command-line-flag": "--s",
+      "description": "Subject ID.",
+      "id": "subject_id",
+      "name": "Subject ID",
+      "optional": false,
+      "type": "String",
+      "value-key": "[SUBJECT_ID]"
+    },
+    {
+      "command-line-flag": "--o",
+      "description": "Output directory.",
+      "id": "output_dir",
+      "name": "Output Directory",
+      "optional": false,
+      "type": "String",
+      "value-key": "[OUTPUT_DIR]"
+    },
+    {
+      "command-line-flag": "--info-dump",
+      "description": "Use info dump created by unpacksdcmdir or dcmunpack.",
+      "id": "info_dump",
+      "name": "Info Dump",
+      "optional": true,
+      "type": "File",
+      "value-key": "[INFO_DUMP]"
+    },
+    {
+      "command-line-flag": "--ecref",
+      "description": "Use specified time points as 0-based reference for eddy current correction.",
+      "id": "ec_reference",
+      "name": "EC Reference Time Points",
+      "optional": true,
+      "type": "Number",
+      "value-key": "[EC_REFERENCE]"
+    },
+    {
+      "command-line-flag": "--no-ec",
+      "description": "Turn off eddy/motion correction.",
+      "id": "no_ec_flag",
+      "name": "No Eddy Correction Flag",
+      "type": "Flag",
+      "value-key": "[NO_EC_FLAG]"
+    },
+    {
+      "command-line-flag": "--no-reg",
+      "description": "Do not register to subject or resample to talairach.",
+      "id": "no_reg_flag",
+      "name": "No Registration Flag",
+      "type": "Flag",
+      "value-key": "[NO_REG_FLAG]"
+    },
+    {
+      "command-line-flag": "--reg",
+      "description": "Supply a register.lta file instead of registering.",
+      "id": "register_file",
+      "name": "Register File",
+      "optional": true,
+      "type": "File",
+      "value-key": "[REGISTER_FILE]"
+    },
+    {
+      "command-line-flag": "--no-tal",
+      "description": "Do not resample FA to talairach space.",
+      "id": "no_tal_flag",
+      "name": "No Talairach Flag",
+      "type": "Flag",
+      "value-key": "[NO_TAL_FLAG]"
+    },
+    {
+      "command-line-flag": "--sd",
+      "description": "Specify subjects directory (default env SUBJECTS_DIR).",
+      "id": "subjects_dir",
+      "name": "Subjects Directory",
+      "optional": true,
+      "type": "String",
+      "value-key": "[SUBJECTS_DIR]"
+    },
+    {
+      "command-line-flag": "--eres-save",
+      "description": "Save residual error (dwires and eres).",
+      "id": "save_ec_residuals_flag",
+      "name": "Save EC Residuals Flag",
+      "type": "Flag",
+      "value-key": "[SAVE_EC_RESIDUALS_FLAG]"
+    },
+    {
+      "command-line-flag": "--pca",
+      "description": "Run PCA/SVD analysis on eres (saves in pca-eres dir).",
+      "id": "pca_analysis_flag",
+      "name": "PCA Analysis Flag",
+      "type": "Flag",
+      "value-key": "[PCA_ANALYSIS_FLAG]"
+    },
+    {
+      "command-line-flag": "--prune_thr",
+      "description": "Set threshold for masking (default is FLT_MIN).",
+      "id": "mask_prune_threshold",
+      "name": "Mask Prune Threshold",
+      "optional": true,
+      "type": "Number",
+      "value-key": "[MASK_PRUNE_THRESHOLD]"
+    },
+    {
+      "command-line-flag": "--init-spm",
+      "description": "Initialize BBR with SPM instead of coreg (requires MATLAB).",
+      "id": "init_spm_flag",
+      "name": "Initialize with SPM Flag",
+      "type": "Flag",
+      "value-key": "[INIT_SPM_FLAG]"
+    },
+    {
+      "command-line-flag": "--init-fsl",
+      "description": "Initialize BBR with FSL instead of coreg.",
+      "id": "init_fsl_flag",
+      "name": "Initialize with FSL Flag",
+      "type": "Flag",
+      "value-key": "[INIT_FSL_FLAG]"
+    },
+    {
+      "command-line-flag": "--debug",
+      "description": "Print out lots of info.",
+      "id": "debug_flag",
+      "name": "Debug Flag",
+      "type": "Flag",
+      "value-key": "[DEBUG_FLAG]"
+    },
+    {
+      "command-line-flag": "--version",
+      "description": "Print version of this script and exit.",
+      "id": "version_flag",
+      "name": "Version Flag",
+      "type": "Flag",
+      "value-key": "[VERSION_FLAG]"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_DIR]/dwi.nii.gz",
+      "description": "Converted input to NIFTI format.",
+      "id": "dwi_nifti",
+      "name": "DWI NIFTI File"
+    },
+    {
+      "path-template": "[OUTPUT_DIR]/dwi-ec.nii.gz",
+      "description": "DWI after eddy-current correction.",
+      "id": "dwi_eddy_corrected",
+      "name": "Eddy-Corrected DWI"
+    },
+    {
+      "path-template": "[OUTPUT_DIR]/tensor.nii.gz",
+      "description": "Tensor map.",
+      "id": "tensor_map",
+      "name": "Tensor Map"
+    },
+    {
+      "path-template": "[OUTPUT_DIR]/fa.nii.gz",
+      "description": "Fractional anisotropy (FA) map.",
+      "id": "fa_map",
+      "name": "FA Map"
+    },
+    {
+      "path-template": "[OUTPUT_DIR]/fa-tal.nii.gz",
+      "description": "FA map in Talairach space.",
+      "id": "fa_tal_map",
+      "name": "FA Talairach Map"
+    },
+    {
+      "path-template": "[OUTPUT_DIR]/register.lta",
+      "description": "Registration file.",
+      "id": "register_file_output",
+      "name": "Registration File"
+    },
+    {
+      "path-template": "[OUTPUT_DIR]/mask.nii.gz",
+      "description": "Mask file.",
+      "id": "mask_file",
+      "name": "Mask File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

@@ -1,0 +1,295 @@
+{
+  "name": "antsAtroposN4.sh",
+  "command-line": "antsAtroposN4.sh [IMAGE_DIMENSION] [INPUT_IMAGE] [MASK_IMAGE] [NUMBER_OF_CLASSES] [OUTPUT_PREFIX] [MAX_N4_ATROPOS_ITERATIONS] [MAX_ATROPOS_ITERATIONS] [SEGMENTATION_PRIORS] [MRF] [DENOISE_ANATOMICAL_IMAGES] [POSTERIOR_FORMULATION] [LABEL_PROPAGATION] [POSTERIOR_LABEL_FOR_N4_WEIGHT_MASK] [IMAGE_FILE_SUFFIX] [KEEP_TEMPORARY_FILES] [USE_RANDOM_SEEDING] [ATROPOS_SEGMENTATION_PRIOR_WEIGHT] [N4_CONVERGENCE] [N4_SHRINK_FACTOR] [N4_BSPLINE_PARAMS] [ATROPOS_SEGMENTATION_ICM] [ATROPOS_SEGMENTATION_USE_EUCLIDEAN_DISTANCE] [TEST_DEBUG_MODE]",
+  "author": "ANTs Developers",
+  "description": "antsAtroposN4.sh iterates between N4 <-> Atropos to improve segmentation results.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "image_dimension",
+      "name": "Image Dimension",
+      "value-key": "[IMAGE_DIMENSION]",
+      "command-line-flag": "-d",
+      "description": "2 or 3, for 2- or 3-dimensional image.",
+      "type": "Number",
+      "integer": true,
+      "value-choices": [
+        2,
+        3
+      ],
+      "optional": false
+    },
+    {
+      "id": "input_image",
+      "name": "Input Image",
+      "value-key": "[INPUT_IMAGE]",
+      "command-line-flag": "-a",
+      "description": "Anatomical image, typically T1. If more than one anatomical image is specified, subsequent images are also used during the segmentation process.",
+      "type": "File",
+      "optional": false
+    },
+    {
+      "id": "mask_image",
+      "name": "Mask Image",
+      "value-key": "[MASK_IMAGE]",
+      "command-line-flag": "-x",
+      "description": "Binary mask defining the region of interest.",
+      "type": "File",
+      "optional": false
+    },
+    {
+      "id": "number_of_classes",
+      "name": "Number of Segmentation Classes",
+      "value-key": "[NUMBER_OF_CLASSES]",
+      "command-line-flag": "-c",
+      "description": "Number of classes defining the segmentation.",
+      "type": "Number",
+      "integer": true,
+      "optional": false
+    },
+    {
+      "id": "output_prefix",
+      "name": "Output Prefix",
+      "value-key": "[OUTPUT_PREFIX]",
+      "command-line-flag": "-o",
+      "description": "The following images are created: {output_prefix}N4Corrected.{output_suffix}, {output_prefix}Segmentation.{output_suffix}, {output_prefix}SegmentationPosteriors.{output_suffix}",
+      "type": "String",
+      "optional": false
+    },
+    {
+      "id": "max_n4_atropos_iterations",
+      "name": "Max. N4 <-> Atropos Iterations",
+      "value-key": "[MAX_N4_ATROPOS_ITERATIONS]",
+      "command-line-flag": "-m",
+      "description": "Maximum number of (outer loop) iterations between N4 <-> Atropos (default = 15).",
+      "type": "Number",
+      "integer": true,
+      "minimum": 1,
+      "optional": true
+    },
+    {
+      "id": "max_atropos_iterations",
+      "name": "Max. Atropos Iterations",
+      "value-key": "[MAX_ATROPOS_ITERATIONS]",
+      "command-line-flag": "-n",
+      "description": "Maximum number of (inner loop) iterations in Atropos (default = 3).",
+      "type": "Number",
+      "integer": true,
+      "minimum": 1,
+      "optional": true
+    },
+    {
+      "id": "segmentation_priors",
+      "name": "Segmentation Priors",
+      "value-key": "[SEGMENTATION_PRIORS]",
+      "command-line-flag": "-p",
+      "description": "Prior probability images initializing the segmentation. Specified using c-style formatting, e.g. -p labelsPriors%02d.nii.gz. If this is not specified, k-means initialization is used instead.",
+      "type": {
+        "description": "Segmentation Priors",
+        "name": "Segmentation Priors",
+        "id": "segmentation_priors",
+        "command-line": "[SEGMENTATION_PRIORS]/[SEGMENTATION_PRIORS_FOLDER]",
+        "inputs": [
+          {
+            "id": "segmentation_priors_pattern",
+            "name": "Segmentation Priors",
+            "value-key": "[SEGMENTATION_PRIORS]",
+            "description": "Prior probability images initializing the segmentation. Specified using c-style formatting, e.g. -p labelsPriors%02d.nii.gz. If this is not specified, k-means initialization is used instead.",
+            "type": "String",
+            "optional": true
+          },
+          {
+            "id": "segmentation_priors_folder",
+            "name": "Segmentation Priors Folder",
+            "value-key": "[SEGMENTATION_PRIORS_FOLDER]",
+            "description": "Included so.",
+            "type": "File",
+            "optional": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "mrf",
+      "name": "MRF",
+      "value-key": "[MRF]",
+      "command-line-flag": "-r",
+      "description": "Specifies MRF prior (of the form '[ weight,neighborhood ]', e.g. '[ 0.1,1x1x1 ]' which is default).",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "denoise_anatomical_images",
+      "name": "Denoise Anatomical Images",
+      "value-key": "[DENOISE_ANATOMICAL_IMAGES]",
+      "command-line-flag": "-g",
+      "description": "Denoise anatomical images (1) or not (0) (default = 1).",
+      "type": "Number",
+      "integer": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "optional": true
+    },
+    {
+      "id": "posterior_formulation",
+      "name": "Posterior Formulation",
+      "value-key": "[POSTERIOR_FORMULATION]",
+      "command-line-flag": "-b",
+      "description": "Posterior formulation and whether or not to use mixture model proportions. e.g 'Socrates[ 1 ]' (default) or 'Aristotle[ 1 ]'.  Choose the latter if you want to use the distance priors, see also the -l option for label propagation control (default = 'Socrates[ 1 ]').",
+      "type": "String",
+      "optional": true,
+      "value-choices": [
+        "Socrates[ 1 ]",
+        "Aristotle[ 1 ]"
+      ]
+    },
+    {
+      "id": "label_propagation",
+      "name": "Label Propagation",
+      "value-key": "[LABEL_PROPAGATION]",
+      "command-line-flag": "-l",
+      "description": "Incorporate a distance prior into the 'Aristotle' posterior formulation. Should be of the form 'label[ lambda,boundaryProbability ]' where label is a value of 1,2,3,... denoting label ID. The label probability for anything outside the current label\n\n  = boundaryProbability * exp( -lambda * distanceFromBoundary )\n\nIntuitively, smaller lambda values will increase the spatial capture range of the distance prior. To apply to all label values, simply omit specifying the label, i.e. -l '[ lambda,boundaryProbability ]'.",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "posterior_label_for_n4_weight_mask",
+      "name": "Posterior Label for N4 Weight Mask",
+      "value-key": "[POSTERIOR_LABEL_FOR_N4_WEIGHT_MASK]",
+      "command-line-flag": "-y",
+      "description": "Which posterior probability image should be used to define the N4 weight mask. Can also specify multiple posteriors in which case the chosen posteriors are combined.",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "image_file_suffix",
+      "name": "Image File Suffix",
+      "value-key": "[IMAGE_FILE_SUFFIX]",
+      "command-line-flag": "-s",
+      "description": "Any of the standard ITK IO formats e.g. nrrd, nii.gz (default), mhd.",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "keep_temporary_files",
+      "name": "Keep Temporary Files",
+      "value-key": "[KEEP_TEMPORARY_FILES]",
+      "command-line-flag": "-k",
+      "description": "Keep temporary files on disk (1) or delete them (0) (default = 0).",
+      "type": "Number",
+      "integer": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "optional": true
+    },
+    {
+      "id": "use_random_seeding",
+      "name": "Use Random Seeding",
+      "value-key": "[USE_RANDOM_SEEDING]",
+      "command-line-flag": "-u",
+      "description": "Use random number generated from system clock in Atropos (default = 1).",
+      "type": "Number",
+      "integer": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "optional": true
+    },
+    {
+      "id": "atropos_segmentation_prior_weight",
+      "name": "Atropos Prior Segmentation Weight",
+      "value-key": "[ATROPOS_SEGMENTATION_PRIOR_WEIGHT]",
+      "command-line-flag": "-w",
+      "description": "Atropos spatial prior probability weight for the segmentation (default = 0.25).",
+      "type": "Number",
+      "optional": true
+    },
+    {
+      "id": "n4_convergence",
+      "name": "N4 Convergence",
+      "value-key": "[N4_CONVERGENCE]",
+      "command-line-flag": "-e",
+      "description": "Convergence parameters for N4, see '-c' option in N4BiasFieldCorrection (default = [50x50x50x50,0.0000001]).",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "n4_shrink_factor",
+      "name": "N4 Shrink Factor",
+      "value-key": "[N4_SHRINK_FACTOR]",
+      "command-line-flag": "-f",
+      "description": "Shrink factor for N4 (default = 4).",
+      "type": "Number",
+      "integer": true,
+      "optional": true
+    },
+    {
+      "id": "n4_bspline_params",
+      "name": "N4 B-spline Parameters",
+      "value-key": "[N4_BSPLINE_PARAMS]",
+      "command-line-flag": "-q",
+      "description": "N4 b-spline specification, see '-b' option in N4BiasFieldCorrection (default = [200,0,0,0]).",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "atropos_segmentation_icm",
+      "name": "Atropos ICM",
+      "value-key": "[ATROPOS_SEGMENTATION_ICM]",
+      "command-line-flag": "-i",
+      "description": "ICM parameters for segmentation, see '-g' option in Atropos (default = [1,1]).",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "atropos_segmentation_use_euclidean_distance",
+      "name": "Atropos Use Euclidean Distance",
+      "value-key": "[ATROPOS_SEGMENTATION_USE_EUCLIDEAN_DISTANCE]",
+      "command-line-flag": "-j",
+      "description": "Use euclidean distances in distance prior formulation (1) or not (0), see Atropos usage for details (default = 1).",
+      "type": "Number",
+      "integer": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "optional": true
+    },
+    {
+      "id": "test_debug_mode",
+      "name": "Test / Debug Mode",
+      "value-key": "[TEST_DEBUG_MODE]",
+      "command-line-flag": "-z",
+      "description": "If > 0, attempts to continue after errors.",
+      "type": "Number",
+      "integer": true,
+      "optional": true
+    }
+  ],
+  "output-files": [
+    {
+      "id": "n4_corrected",
+      "name": "N4 Corrected Image",
+      "description": "N4 corrected image.",
+      "path-template": "[OUTPUT_PREFIX]N4Corrected.[OUTPUT_SUFFIX]"
+    },
+    {
+      "id": "segmentation",
+      "name": "Segmentation Image",
+      "description": "Segmentation image.",
+      "path-template": "[OUTPUT_PREFIX]Segmentation.[OUTPUT_SUFFIX]"
+    },
+    {
+      "id": "segmentation_posteriors",
+      "name": "Segmentation Posteriors Image",
+      "description": "Segmentation posteriors image.",
+      "path-template": "[OUTPUT_PREFIX]SegmentationPosteriors.[OUTPUT_SUFFIX]"
+    }
+  ],
+  "url": "https://github.com/ANTsX/ANTs"
+}

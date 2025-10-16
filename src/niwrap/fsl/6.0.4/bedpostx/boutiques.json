@@ -1,0 +1,94 @@
+{
+  "name": "bedpostx",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Bayesian Estimation of Diffusion Parameters Obtained using Sampling Techniques (BEDPOST) for modeling multiple fibers per voxel.",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "bedpostx [SUBJECT_DIR] [NUM_FIBRES] [ARD_WEIGHT] [BURNIN] [NUM_JUMPS] [SAMPLE_EVERY] [MODEL_TYPE] [GRAD_NONLINEAR]",
+  "inputs": [
+    {
+      "description": "Input subject directory which contains bvals, bvecs, data, and nodif_brain_mask files.",
+      "value-key": "[SUBJECT_DIR]",
+      "type": "String",
+      "optional": false,
+      "id": "subject_dir",
+      "name": "Subject Directory"
+    },
+    {
+      "command-line-flag": "-n",
+      "description": "Number of fibres per voxel (default 3).",
+      "value-key": "[NUM_FIBRES]",
+      "type": "Number",
+      "optional": true,
+      "id": "num_fibres",
+      "name": "Number of Fibres"
+    },
+    {
+      "command-line-flag": "-w",
+      "description": "ARD weight, more weight means less secondary fibres per voxel (default 1).",
+      "value-key": "[ARD_WEIGHT]",
+      "type": "Number",
+      "optional": true,
+      "id": "ard_weight",
+      "name": "ARD Weight"
+    },
+    {
+      "command-line-flag": "-b",
+      "description": "Burnin period (default 1000).",
+      "value-key": "[BURNIN]",
+      "type": "Number",
+      "optional": true,
+      "id": "burnin",
+      "name": "Burnin Period"
+    },
+    {
+      "command-line-flag": "-j",
+      "description": "Number of jumps (default 1250).",
+      "value-key": "[NUM_JUMPS]",
+      "type": "Number",
+      "optional": true,
+      "id": "num_jumps",
+      "name": "Number of Jumps"
+    },
+    {
+      "command-line-flag": "-s",
+      "description": "Sample every (default 25).",
+      "value-key": "[SAMPLE_EVERY]",
+      "type": "Number",
+      "optional": true,
+      "id": "sample_every",
+      "name": "Sample Every"
+    },
+    {
+      "command-line-flag": "-model",
+      "description": "Deconvolution model. 1: with sticks, 2: with sticks with a range of diffusivities (default), 3: with zeppelins.",
+      "value-key": "[MODEL_TYPE]",
+      "type": "Number",
+      "optional": true,
+      "id": "model_type",
+      "name": "Model Type"
+    },
+    {
+      "command-line-flag": "-g",
+      "description": "Consider gradient nonlinearities, expects grad_dev in the subject directory.",
+      "value-key": "[GRAD_NONLINEAR]",
+      "type": "Flag",
+      "id": "grad_nonlinear",
+      "name": "Gradient Nonlinearities"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[SUBJECT_DIR]_bedpostx/xfms",
+      "description": "Output transformations directory.",
+      "id": "xfms_output",
+      "name": "Transformations Output Directory"
+    },
+    {
+      "path-template": "[SUBJECT_DIR]_bedpostx/diff_slices",
+      "description": "Output diffusion slices directory.",
+      "id": "diff_slices_output",
+      "name": "Diffusion Slices Output Directory"
+    }
+  ]
+}

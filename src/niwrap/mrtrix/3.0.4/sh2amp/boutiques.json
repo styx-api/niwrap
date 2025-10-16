@@ -1,0 +1,229 @@
+{
+  "name": "sh2amp",
+  "description": "Evaluate the amplitude of an image of spherical harmonic functions along specified directions.\n\nThe input image should consist of a 4D or 5D image, with SH coefficients along the 4th dimension according to the convention below. If 4D (or size 1 along the 5th dimension), the program expects to be provided with a single shell of directions. If 5D, each set of coefficients along the 5th dimension is understood to correspond to a different shell.\n\nThe directions can be provided as:\n- a 2-column ASCII text file contained azimuth / elevation pairs (as produced by dirgen)\n- a 3-column ASCII text file containing x, y, z Cartesian direction vectors (as produced by dirgen -cart)\n- a 4-column ASCII text file containing the x, y, z, b components of a full DW encoding scheme (in MRtrix format, see main documentation for details).\n- an image file whose header contains a valid DW encoding scheme\n\nIf a full DW encoding is provided, the number of shells needs to match those found in the input image of coefficients (i.e. its size along the 5th dimension). If needed, the -shell option can be used to pick out the specific shell(s) of interest.\n\nIf the input image contains multiple shells (its size along the 5th dimension is greater than one), the program will expect the direction set to contain multiple shells, which can only be provided as a full DW encodings (the last two options in the list above).\n\nThe spherical harmonic coefficients are stored according the conventions described the main documentation, which can be found at the following link: \nhttps://mrtrix.readthedocs.io/en/3.0.4/concepts/spherical_harmonics.html\n\nReferences:\n\n",
+  "author": "MRTrix3 Developers",
+  "schema-version": "0.5+styx",
+  "command-line": "sh2amp [OPTIONS_NONNEGATIVE] [DW_GRADIENT_TABLE_IMPORT_OPTIONS_GRAD] [DW_GRADIENT_TABLE_IMPORT_OPTIONS_FSLGRAD] [STRIDE_OPTIONS_STRIDES] [DATA_TYPE_OPTIONS_DATATYPE] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION] [INPUT] [DIRECTIONS] [OUTPUT]",
+  "inputs": [
+    {
+      "id": "input",
+      "name": "input",
+      "value-key": "[INPUT]",
+      "description": "the input image consisting of spherical harmonic (SH) coefficients.",
+      "type": "File",
+      "optional": false
+    },
+    {
+      "id": "directions",
+      "name": "directions",
+      "value-key": "[DIRECTIONS]",
+      "description": "the list of directions along which the SH functions will be sampled, generated using the dirgen command",
+      "type": "File",
+      "optional": false
+    },
+    {
+      "id": "output",
+      "name": "output",
+      "value-key": "[OUTPUT]",
+      "description": "the output image consisting of the amplitude of the SH functions along the specified directions.",
+      "type": "String",
+      "optional": false
+    },
+    {
+      "id": "nonnegative",
+      "name": "nonnegative",
+      "command-line-flag": "-nonnegative",
+      "value-key": "[OPTIONS_NONNEGATIVE]",
+      "description": "cap all negative amplitudes to zero",
+      "type": "Flag"
+    },
+    {
+      "id": "grad",
+      "name": "grad",
+      "command-line-flag": "-grad",
+      "value-key": "[DW_GRADIENT_TABLE_IMPORT_OPTIONS_GRAD]",
+      "description": "Provide the diffusion-weighted gradient scheme used in the acquisition in a text file. This should be supplied as a 4xN text file with each line is in the format [ X Y Z b ], where [ X Y Z ] describe the direction of the applied gradient, and b gives the b-value in units of s/mm^2. If a diffusion gradient scheme is present in the input image header, the data provided with this option will be instead used.",
+      "type": "File",
+      "optional": true
+    },
+    {
+      "id": "fslgrad",
+      "name": "fslgrad",
+      "value-key": "[DW_GRADIENT_TABLE_IMPORT_OPTIONS_FSLGRAD]",
+      "description": "Provide the diffusion-weighted gradient scheme used in the acquisition in FSL bvecs/bvals format files. If a diffusion gradient scheme is present in the input image header, the data provided with this option will be instead used.",
+      "type": {
+        "id": "fslgrad",
+        "name": "fslgrad",
+        "description": "Provide the diffusion-weighted gradient scheme used in the acquisition in FSL bvecs/bvals format files. If a diffusion gradient scheme is present in the input image header, the data provided with this option will be instead used.",
+        "command-line": "-fslgrad [BVECS] [BVALS]",
+        "inputs": [
+          {
+            "id": "bvecs",
+            "name": "bvecs",
+            "value-key": "[BVECS]",
+            "description": "Provide the diffusion-weighted gradient scheme used in the acquisition in FSL bvecs/bvals format files. If a diffusion gradient scheme is present in the input image header, the data provided with this option will be instead used.",
+            "type": "File",
+            "optional": false
+          },
+          {
+            "id": "bvals",
+            "name": "bvals",
+            "value-key": "[BVALS]",
+            "description": "Provide the diffusion-weighted gradient scheme used in the acquisition in FSL bvecs/bvals format files. If a diffusion gradient scheme is present in the input image header, the data provided with this option will be instead used.",
+            "type": "File",
+            "optional": false
+          }
+        ],
+        "output-files": []
+      },
+      "optional": true
+    },
+    {
+      "id": "strides",
+      "name": "strides",
+      "command-line-flag": "-strides",
+      "value-key": "[STRIDE_OPTIONS_STRIDES]",
+      "description": "specify the strides of the output data in memory; either as a comma-separated list of (signed) integers, or as a template image from which the strides shall be extracted and used. The actual strides produced will depend on whether the output image format can support it.",
+      "type": [
+        {
+          "id": "VariousString",
+          "command-line": "[OBJ]",
+          "inputs": [
+            {
+              "id": "obj",
+              "name": "Object",
+              "value-key": "[OBJ]",
+              "description": "String object.",
+              "type": "String",
+              "optional": false
+            }
+          ]
+        },
+        {
+          "id": "VariousFile",
+          "command-line": "[OBJ]",
+          "inputs": [
+            {
+              "id": "obj",
+              "name": "Object",
+              "value-key": "[OBJ]",
+              "description": "File object.",
+              "type": "File",
+              "optional": false
+            }
+          ]
+        }
+      ],
+      "optional": true
+    },
+    {
+      "id": "datatype",
+      "name": "datatype",
+      "command-line-flag": "-datatype",
+      "value-key": "[DATA_TYPE_OPTIONS_DATATYPE]",
+      "description": "specify output image data type. Valid choices are: float32, float32le, float32be, float64, float64le, float64be, int64, uint64, int64le, uint64le, int64be, uint64be, int32, uint32, int32le, uint32le, int32be, uint32be, int16, uint16, int16le, uint16le, int16be, uint16be, cfloat32, cfloat32le, cfloat32be, cfloat64, cfloat64le, cfloat64be, int8, uint8, bit.",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "info",
+      "name": "info",
+      "command-line-flag": "-info",
+      "value-key": "[__STANDARD_OPTIONS_INFO]",
+      "description": "display information messages.",
+      "type": "Flag"
+    },
+    {
+      "id": "quiet",
+      "name": "quiet",
+      "command-line-flag": "-quiet",
+      "value-key": "[__STANDARD_OPTIONS_QUIET]",
+      "description": "do not display information messages or progress status; alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string.",
+      "type": "Flag"
+    },
+    {
+      "id": "debug",
+      "name": "debug",
+      "command-line-flag": "-debug",
+      "value-key": "[__STANDARD_OPTIONS_DEBUG]",
+      "description": "display debugging messages.",
+      "type": "Flag"
+    },
+    {
+      "id": "force",
+      "name": "force",
+      "command-line-flag": "-force",
+      "value-key": "[__STANDARD_OPTIONS_FORCE]",
+      "description": "force overwrite of output files (caution: using the same file as input and output might cause unexpected behaviour).",
+      "type": "Flag"
+    },
+    {
+      "id": "nthreads",
+      "name": "nthreads",
+      "command-line-flag": "-nthreads",
+      "value-key": "[__STANDARD_OPTIONS_NTHREADS]",
+      "description": "use this number of threads in multi-threaded applications (set to 0 to disable multi-threading).",
+      "type": "Number",
+      "optional": true,
+      "integer": true
+    },
+    {
+      "id": "config",
+      "name": "config",
+      "value-key": "[__STANDARD_OPTIONS_CONFIG]",
+      "description": "temporarily set the value of an MRtrix config file entry.",
+      "type": {
+        "id": "config",
+        "name": "config",
+        "description": "temporarily set the value of an MRtrix config file entry.",
+        "command-line": "-config [KEY] [VALUE]",
+        "inputs": [
+          {
+            "id": "key",
+            "name": "key",
+            "value-key": "[KEY]",
+            "description": "temporarily set the value of an MRtrix config file entry.",
+            "type": "String",
+            "optional": false
+          },
+          {
+            "id": "value",
+            "name": "value",
+            "value-key": "[VALUE]",
+            "description": "temporarily set the value of an MRtrix config file entry.",
+            "type": "String",
+            "optional": false
+          }
+        ],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "help",
+      "name": "help",
+      "command-line-flag": "-help",
+      "value-key": "[__STANDARD_OPTIONS_HELP]",
+      "description": "display this information page and exit.",
+      "type": "Flag"
+    },
+    {
+      "id": "version",
+      "name": "version",
+      "command-line-flag": "-version",
+      "value-key": "[__STANDARD_OPTIONS_VERSION]",
+      "description": "display version information and exit.",
+      "type": "Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "output",
+      "name": "output",
+      "path-template": "[OUTPUT]",
+      "description": "the output image consisting of the amplitude of the SH functions along the specified directions."
+    }
+  ],
+  "url": "https://www.mrtrix.org/"
+}

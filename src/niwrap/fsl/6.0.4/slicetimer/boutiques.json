@@ -1,0 +1,105 @@
+{
+  "name": "slicetimer",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "FMRIB's Interpolation for Slice Timing",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "slicetimer [INFILE] [OUTFILE] [VERBOSE_FLAG] [DOWN_FLAG] [TR_VALUE] [DIRECTION] [ODD_FLAG] [TCUSTOM_FILE] [TGLOBAL_VALUE] [OCUSTOM_FILE]",
+  "inputs": [
+    {
+      "description": "Filename of input timeseries",
+      "value-key": "[INFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "infile",
+      "name": "Input file",
+      "command-line-flag": "-i"
+    },
+    {
+      "description": "Filename of output timeseries",
+      "value-key": "[OUTFILE]",
+      "type": "File",
+      "optional": true,
+      "id": "outfile",
+      "name": "Output file",
+      "command-line-flag": "-o"
+    },
+    {
+      "description": "Switch on diagnostic messages",
+      "value-key": "[VERBOSE_FLAG]",
+      "type": "Flag",
+      "id": "verbose_flag",
+      "name": "Verbose Flag",
+      "command-line-flag": "-v"
+    },
+    {
+      "description": "Reverse slice indexing (default is: slices were acquired bottom-up)",
+      "value-key": "[DOWN_FLAG]",
+      "type": "Flag",
+      "id": "down_flag",
+      "name": "Reverse slice indexing",
+      "command-line-flag": "--down"
+    },
+    {
+      "description": "Specify TR of data - default is 3s",
+      "value-key": "[TR_VALUE]",
+      "type": "Number",
+      "optional": true,
+      "id": "tr_value",
+      "name": "TR value",
+      "command-line-flag": "-r"
+    },
+    {
+      "description": "Direction of slice acquisition (x=1,y=2,z=3) - default is z",
+      "value-key": "[DIRECTION]",
+      "type": "String",
+      "optional": true,
+      "id": "direction",
+      "name": "Acquisition direction",
+      "command-line-flag": "-d"
+    },
+    {
+      "description": "Use interleaved acquisition",
+      "value-key": "[ODD_FLAG]",
+      "type": "Flag",
+      "id": "odd_flag",
+      "name": "Interleaved acquisition",
+      "command-line-flag": "--odd"
+    },
+    {
+      "description": "Filename of single-column slice timings, in fractions of TR, +ve values shift slices forward in time",
+      "value-key": "[TCUSTOM_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "tcustom_file",
+      "name": "Custom slice timings file",
+      "command-line-flag": "--tcustom"
+    },
+    {
+      "description": "Global shift in fraction of TR, (default is 0)",
+      "value-key": "[TGLOBAL_VALUE]",
+      "type": "Number",
+      "optional": true,
+      "id": "tglobal_value",
+      "name": "Global shift in TR fraction",
+      "command-line-flag": "--tglobal"
+    },
+    {
+      "description": "Filename of single-column custom interleave order file (first slice is referred to as 1 not 0)",
+      "value-key": "[OCUSTOM_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "ocustom_file",
+      "name": "Custom interleave order file",
+      "command-line-flag": "--ocustom"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTFILE]",
+      "description": "Output timeseries",
+      "id": "output_timeseries",
+      "name": "Corrected timeseries output"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "gcatrainskull",
+  "description": "GCA train skull stripping tool",
+  "command-line": "gcatrainskull [GCATRAIN_DIR]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--g",
+      "description": "Directory containing GCA training data",
+      "value-key": "[GCATRAIN_DIR]",
+      "type": "String",
+      "optional": false,
+      "id": "gcatrain_dir",
+      "name": "GCATRAIN Directory"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

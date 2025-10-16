@@ -1,0 +1,42 @@
+{
+  "name": "mri_compute_volume_intensities",
+  "author": "FreeSurfer Developers",
+  "description": "A tool to compute volume intensities for a given input intensity volume and volume fraction stem.",
+  "command-line": "mri_compute_volume_intensities [INPUT_INTENSITY] [VOLUME_FRACTION_STEM] [OUTPUT_VOLUME]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input intensity volume",
+      "value-key": "[INPUT_INTENSITY]",
+      "type": "File",
+      "optional": false,
+      "id": "input_intensity",
+      "name": "Input Intensity Volume"
+    },
+    {
+      "description": "Volume fraction stem",
+      "value-key": "[VOLUME_FRACTION_STEM]",
+      "type": "String",
+      "optional": false,
+      "id": "volume_fraction_stem",
+      "name": "Volume Fraction Stem"
+    },
+    {
+      "description": "Output volume file",
+      "value-key": "[OUTPUT_VOLUME]",
+      "type": "String",
+      "optional": false,
+      "id": "output_volume",
+      "name": "Output Volume"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_VOLUME]",
+      "description": "Computed output volume file",
+      "id": "output_volume_file",
+      "name": "Output Volume File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

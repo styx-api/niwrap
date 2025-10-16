@@ -1,0 +1,128 @@
+{
+  "name": "surface-resample",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -surface-resample [SURFACE_IN] [CURRENT_SPHERE] [NEW_SPHERE] [METHOD] [SURFACE_OUT] [AREA_SURFS] [AREA_METRICS] [OPT_BYPASS_SPHERE_CHECK]",
+  "description": "Resample a surface to a different mesh.\n\nResamples a surface file, given two spherical surfaces that are in register.  If ADAP_BARY_AREA is used, exactly one of -area-surfs or -area-metrics must be specified.  This method is not generally recommended for surface resampling, but is provided for completeness.\n\nThe BARYCENTRIC method is generally recommended for anatomical surfaces, in order to minimize smoothing.\n\nFor cut surfaces (including flatmaps), use -surface-cut-resample.\n\nInstead of resampling a spherical surface, the -surface-sphere-project-unproject command is recommended.\n\nThe <method> argument must be one of the following:\n\nADAP_BARY_AREA\nBARYCENTRIC\n",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "surface_in",
+      "name": "surface_in",
+      "description": "the surface file to resample",
+      "optional": false,
+      "value-key": "[SURFACE_IN]",
+      "type": "File"
+    },
+    {
+      "id": "current_sphere",
+      "name": "current_sphere",
+      "description": "a sphere surface with the mesh that the input surface is currently on",
+      "optional": false,
+      "value-key": "[CURRENT_SPHERE]",
+      "type": "File"
+    },
+    {
+      "id": "new_sphere",
+      "name": "new_sphere",
+      "description": "a sphere surface that is in register with <current-sphere> and has the desired output mesh",
+      "optional": false,
+      "value-key": "[NEW_SPHERE]",
+      "type": "File"
+    },
+    {
+      "id": "method",
+      "name": "method",
+      "description": "the method name",
+      "optional": false,
+      "value-key": "[METHOD]",
+      "type": "String"
+    },
+    {
+      "id": "surface_out",
+      "name": "surface_out",
+      "type": "String",
+      "description": "the output surface file",
+      "optional": false,
+      "value-key": "[SURFACE_OUT]"
+    },
+    {
+      "id": "area_surfs",
+      "name": "area_surfs",
+      "description": "specify surfaces to do vertex area correction based on",
+      "type": {
+        "id": "area_surfs",
+        "name": "area_surfs",
+        "description": "specify surfaces to do vertex area correction based on",
+        "command-line": "-area-surfs [CURRENT_AREA] [NEW_AREA]",
+        "inputs": [
+          {
+            "id": "current_area",
+            "name": "current_area",
+            "description": "a relevant surface with <current-sphere> mesh",
+            "optional": false,
+            "value-key": "[CURRENT_AREA]",
+            "type": "File"
+          },
+          {
+            "id": "new_area",
+            "name": "new_area",
+            "description": "a relevant surface with <new-sphere> mesh",
+            "optional": false,
+            "value-key": "[NEW_AREA]",
+            "type": "File"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[AREA_SURFS]"
+    },
+    {
+      "id": "area_metrics",
+      "name": "area_metrics",
+      "description": "specify vertex area metrics to do area correction based on",
+      "type": {
+        "id": "area_metrics",
+        "name": "area_metrics",
+        "description": "specify vertex area metrics to do area correction based on",
+        "command-line": "-area-metrics [CURRENT_AREA] [NEW_AREA]",
+        "inputs": [
+          {
+            "id": "current_area",
+            "name": "current_area",
+            "description": "a metric file with vertex areas for <current-sphere> mesh",
+            "optional": false,
+            "value-key": "[CURRENT_AREA]",
+            "type": "File"
+          },
+          {
+            "id": "new_area",
+            "name": "new_area",
+            "description": "a metric file with vertex areas for <new-sphere> mesh",
+            "optional": false,
+            "value-key": "[NEW_AREA]",
+            "type": "File"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[AREA_METRICS]"
+    },
+    {
+      "id": "opt_bypass_sphere_check",
+      "name": "opt_bypass_sphere_check",
+      "command-line-flag": "-bypass-sphere-check",
+      "description": "ADVANCED: allow the current and new 'spheres' to have arbitrary shape as long as they follow the same contour",
+      "type": "Flag",
+      "value-key": "[OPT_BYPASS_SPHERE_CHECK]"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "surface_out",
+      "name": "surface_out",
+      "path-template": "[SURFACE_OUT]",
+      "description": "the output surface file"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

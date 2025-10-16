@@ -1,0 +1,347 @@
+{
+  "name": "run_fastsurfer.sh",
+  "description": "run_fastsurfer.sh takes a T1 full head image and creates segmentation using FastSurferVINN and surfaces using recon-surf",
+  "command-line": "run_fastsurfer.sh [SID] [SUBJECTS_DIR] [T1_INPUT] [FS_LICENSE] [ASEGDKT_SEGFILE] [VOX_SIZE] [SEG_ONLY] [SEG_LOG] [CONFORMED_NAME] [NORM_NAME] [T2_INPUT] [REG_MODE] [THREADS] [DEVICE] [VIEWAGG_DEVICE] [BATCH_SIZE] [PYTHON_CMD] [SURF_ONLY] [NO_BIASFIELD] [TAL_REG] [NO_ASEGDKT] [NO_CEREB] [CEREB_SEGFILE] [NO_HYPOTHAL] [QC_SNAP] [THREE_T] [PARALLEL] [IGNORE_FS_VERSION] [FSTESS] [FSQSPHERE] [FSAPARC] [NO_FS_T1] [NO_SURFREG] [ALLOW_ROOT] [VERSION]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "sid",
+      "name": "Subject ID",
+      "description": "Subject ID to create directory inside SUBJECTS_DIR",
+      "type": "String",
+      "value-key": "[SID]",
+      "command-line-flag": "--sid",
+      "optional": false
+    },
+    {
+      "id": "subjects_dir",
+      "name": "Subjects Directory",
+      "description": "Output directory SUBJECTS_DIR",
+      "type": "String",
+      "value-key": "[SUBJECTS_DIR]",
+      "command-line-flag": "--sd",
+      "optional": false
+    },
+    {
+      "id": "t1_input",
+      "name": "T1 Input",
+      "description": "T1 full head input (not bias corrected). Requires an ABSOLUTE Path!",
+      "type": "File",
+      "value-key": "[T1_INPUT]",
+      "command-line-flag": "--t1",
+      "optional": false
+    },
+    {
+      "id": "fs_license",
+      "name": "FreeSurfer License",
+      "description": "Path to FreeSurfer license key file",
+      "type": "File",
+      "value-key": "[FS_LICENSE]",
+      "command-line-flag": "--fs_license",
+      "optional": true
+    },
+    {
+      "id": "asegdkt_segfile",
+      "name": "Segmentation File",
+      "description": "Name of the segmentation file including aparc+DKTatlas-aseg segmentations",
+      "type": "String",
+      "value-key": "[ASEGDKT_SEGFILE]",
+      "command-line-flag": "--asegdkt_segfile",
+      "optional": true
+    },
+    {
+      "id": "vox_size",
+      "name": "Voxel Size",
+      "description": "Forces processing at a specific voxel size (0.7-1 or 'min')",
+      "type": "String",
+      "value-key": "[VOX_SIZE]",
+      "command-line-flag": "--vox_size",
+      "optional": true
+    },
+    {
+      "id": "seg_only",
+      "name": "Segmentation Only",
+      "description": "Run only FastSurferVINN",
+      "type": "Flag",
+      "command-line-flag": "--seg_only",
+      "value-key": "[SEG_ONLY]"
+    },
+    {
+      "id": "seg_log",
+      "name": "Segmentation Log",
+      "description": "Log-file for the segmentation",
+      "type": "String",
+      "value-key": "[SEG_LOG]",
+      "command-line-flag": "--seg_log",
+      "optional": true
+    },
+    {
+      "id": "conformed_name",
+      "name": "Conformed Image Name",
+      "description": "Name of the file for the conformed input image",
+      "type": "String",
+      "value-key": "[CONFORMED_NAME]",
+      "command-line-flag": "--conformed_name",
+      "optional": true
+    },
+    {
+      "id": "norm_name",
+      "name": "Normalized Image Name",
+      "description": "Name of the biasfield corrected image",
+      "type": "String",
+      "value-key": "[NORM_NAME]",
+      "command-line-flag": "--norm_name",
+      "optional": true
+    },
+    {
+      "id": "t2_input",
+      "name": "T2 Input",
+      "description": "Optional T2 full head input",
+      "type": "File",
+      "value-key": "[T2_INPUT]",
+      "command-line-flag": "--t2",
+      "optional": true
+    },
+    {
+      "id": "reg_mode",
+      "name": "Registration Mode",
+      "description": "Registration method for T1 and T2 images",
+      "type": "String",
+      "value-key": "[REG_MODE]",
+      "command-line-flag": "--reg_mode",
+      "optional": true,
+      "value-choices": [
+        "none",
+        "coreg",
+        "robust"
+      ]
+    },
+    {
+      "id": "threads",
+      "name": "Number of Threads",
+      "description": "Set openMP and ITK threads",
+      "type": "Number",
+      "integer": true,
+      "minimum": 1,
+      "value-key": "[THREADS]",
+      "command-line-flag": "--threads",
+      "optional": true
+    },
+    {
+      "id": "device",
+      "name": "Processing Device",
+      "description": "Device for inference (cpu/cuda)",
+      "type": "String",
+      "value-key": "[DEVICE]",
+      "command-line-flag": "--device",
+      "optional": true
+    },
+    {
+      "id": "viewagg_device",
+      "name": "View Aggregation Device",
+      "description": "Device for view aggregation",
+      "type": "String",
+      "value-key": "[VIEWAGG_DEVICE]",
+      "command-line-flag": "--viewagg_device",
+      "optional": true
+    },
+    {
+      "id": "batch_size",
+      "name": "Batch Size",
+      "description": "Batch size for inference",
+      "type": "Number",
+      "integer": true,
+      "minimum": 1,
+      "value-key": "[BATCH_SIZE]",
+      "command-line-flag": "--batch",
+      "optional": true
+    },
+    {
+      "id": "python_cmd",
+      "name": "Python Command",
+      "description": "Command for python",
+      "type": "String",
+      "value-key": "[PYTHON_CMD]",
+      "command-line-flag": "--py",
+      "optional": true
+    },
+    {
+      "id": "surf_only",
+      "name": "Surface Only",
+      "description": "Run surface pipeline only",
+      "type": "Flag",
+      "command-line-flag": "--surf_only",
+      "value-key": "[SURF_ONLY]"
+    },
+    {
+      "id": "no_biasfield",
+      "name": "No Biasfield",
+      "description": "Deactivate bias field correction and partial volume-corrected stats",
+      "type": "Flag",
+      "command-line-flag": "--no_biasfield",
+      "value-key": "[NO_BIASFIELD]"
+    },
+    {
+      "id": "tal_reg",
+      "name": "Talairach Registration",
+      "description": "Perform talairach registration for eTIV estimates",
+      "type": "Flag",
+      "command-line-flag": "--tal_reg",
+      "value-key": "[TAL_REG]"
+    },
+    {
+      "id": "no_asegdkt",
+      "name": "Skip ASEGDKT",
+      "description": "Skip the asegdkt segmentation",
+      "type": "Flag",
+      "command-line-flag": "--no_asegdkt",
+      "value-key": "[NO_ASEGDKT]"
+    },
+    {
+      "id": "no_cereb",
+      "name": "Skip Cerebellum",
+      "description": "Skip the cerebellum segmentation",
+      "type": "Flag",
+      "command-line-flag": "--no_cereb",
+      "value-key": "[NO_CEREB]"
+    },
+    {
+      "id": "cereb_segfile",
+      "name": "Cerebellum Segmentation File",
+      "description": "Name of DL-based segmentation file of the cerebellum",
+      "type": "String",
+      "value-key": "[CEREB_SEGFILE]",
+      "command-line-flag": "--cereb_segfile",
+      "optional": true
+    },
+    {
+      "id": "no_hypothal",
+      "name": "Skip Hypothalamus",
+      "description": "Skip the hypothalamus segmentation",
+      "type": "Flag",
+      "command-line-flag": "--no_hypothal",
+      "value-key": "[NO_HYPOTHAL]"
+    },
+    {
+      "id": "qc_snap",
+      "name": "QC Snapshots",
+      "description": "Create QC snapshots in subjects directory",
+      "type": "Flag",
+      "command-line-flag": "--qc_snap",
+      "value-key": "[QC_SNAP]"
+    },
+    {
+      "id": "three_t",
+      "name": "3T Atlas",
+      "description": "Use the 3T atlas for talairach registration",
+      "type": "Flag",
+      "command-line-flag": "--3T",
+      "value-key": "[THREE_T]"
+    },
+    {
+      "id": "parallel",
+      "name": "Parallel Processing",
+      "description": "Run both hemispheres in parallel",
+      "type": "Flag",
+      "command-line-flag": "--parallel",
+      "value-key": "[PARALLEL]"
+    },
+    {
+      "id": "ignore_fs_version",
+      "name": "Ignore FreeSurfer Version",
+      "description": "Switch on to avoid check for FreeSurfer version",
+      "type": "Flag",
+      "command-line-flag": "--ignore_fs_version",
+      "value-key": "[IGNORE_FS_VERSION]"
+    },
+    {
+      "id": "fstess",
+      "name": "Use mri_tesselate",
+      "description": "Switch on mri_tesselate for surface creation",
+      "type": "Flag",
+      "command-line-flag": "--fstess",
+      "value-key": "[FSTESS]"
+    },
+    {
+      "id": "fsqsphere",
+      "name": "FreeSurfer Iterative Inflation",
+      "description": "Use FreeSurfer iterative inflation for qsphere",
+      "type": "Flag",
+      "command-line-flag": "--fsqsphere",
+      "value-key": "[FSQSPHERE]"
+    },
+    {
+      "id": "fsaparc",
+      "name": "Create FS aparc",
+      "description": "Additionally create FS aparc segmentations and ribbon",
+      "type": "Flag",
+      "command-line-flag": "--fsaparc",
+      "value-key": "[FSAPARC]"
+    },
+    {
+      "id": "no_fs_t1",
+      "name": "Skip T1.mgz",
+      "description": "Do not generate T1.mgz",
+      "type": "Flag",
+      "command-line-flag": "--no_fs_T1",
+      "value-key": "[NO_FS_T1]"
+    },
+    {
+      "id": "no_surfreg",
+      "name": "Skip Surface Registration",
+      "description": "Do not run Surface registration with FreeSurfer",
+      "type": "Flag",
+      "command-line-flag": "--no_surfreg",
+      "value-key": "[NO_SURFREG]"
+    },
+    {
+      "id": "allow_root",
+      "name": "Allow Root",
+      "description": "Allow execution as root user",
+      "type": "Flag",
+      "command-line-flag": "--allow_root",
+      "value-key": "[ALLOW_ROOT]"
+    },
+    {
+      "id": "version",
+      "name": "Version Information",
+      "description": "Print version information",
+      "type": "String",
+      "value-key": "[VERSION]",
+      "command-line-flag": "--version",
+      "optional": true
+    }
+  ],
+  "output-files": [
+    {
+      "id": "segmentation",
+      "name": "Segmentation Output",
+      "description": "FastSurferVINN segmentation output",
+      "path-template": "[SUBJECTS_DIR]/[SID]/mri/aparc.DKTatlas+aseg.deep.mgz"
+    },
+    {
+      "id": "surface_files",
+      "name": "Surface Files",
+      "description": "Generated surface files",
+      "path-template": "[SUBJECTS_DIR]/[SID]/surf/"
+    },
+    {
+      "id": "cerebellum_seg",
+      "name": "Cerebellum Segmentation",
+      "description": "Cerebellum segmentation output",
+      "path-template": "[SUBJECTS_DIR]/[SID]/mri/cerebellum.CerebNet.nii.gz"
+    },
+    {
+      "id": "qc_snapshots",
+      "name": "QC Snapshots",
+      "description": "Quality control snapshot images",
+      "path-template": "[SUBJECTS_DIR]/[SID]/qc_snapshots/"
+    },
+    {
+      "id": "bias_corrected",
+      "name": "Bias Corrected Image",
+      "description": "Bias field corrected image",
+      "path-template": "[SUBJECTS_DIR]/[SID]/mri/orig_nu.mgz"
+    }
+  ]
+}

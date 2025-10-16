@@ -1,0 +1,79 @@
+{
+  "name": "pointflirt",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "A tool to align point coordinates between volumes and compute affine transformation matrices.",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "pointflirt [INVOL_COORDS] [REFVOL_COORDS] [OUT_MATRIX] [USE_VOX] [VOL_INPUT] [VOL_REF] [VERBOSE_FLAG]",
+  "inputs": [
+    {
+      "description": "Filename of input volume coordinates",
+      "value-key": "[INVOL_COORDS]",
+      "type": "File",
+      "optional": false,
+      "id": "invol_coords",
+      "name": "Input volume coordinates",
+      "command-line-flag": "-i"
+    },
+    {
+      "description": "Filename of reference volume coordinates",
+      "value-key": "[REFVOL_COORDS]",
+      "type": "File",
+      "optional": false,
+      "id": "refvol_coords",
+      "name": "Reference volume coordinates",
+      "command-line-flag": "-r"
+    },
+    {
+      "command-line-flag": "-o",
+      "description": "Filename of affine matrix output",
+      "value-key": "[OUT_MATRIX]",
+      "type": "String",
+      "optional": true,
+      "id": "out_matrix",
+      "name": "Output matrix"
+    },
+    {
+      "command-line-flag": "--vox",
+      "description": "Use voxel coordinates, not mm, for input",
+      "value-key": "[USE_VOX]",
+      "type": "Flag",
+      "id": "use_vox",
+      "name": "Use Voxel Coordinates"
+    },
+    {
+      "command-line-flag": "--invol",
+      "description": "Filename of input volume (needed for --vox option)",
+      "value-key": "[VOL_INPUT]",
+      "type": "File",
+      "optional": true,
+      "id": "vol_input",
+      "name": "Input volume"
+    },
+    {
+      "command-line-flag": "--refvol",
+      "description": "Filename of reference volume (needed for --vox option)",
+      "value-key": "[VOL_REF]",
+      "type": "File",
+      "optional": true,
+      "id": "vol_ref",
+      "name": "Reference volume"
+    },
+    {
+      "command-line-flag": "-v",
+      "description": "Switch on diagnostic messages",
+      "value-key": "[VERBOSE_FLAG]",
+      "type": "Flag",
+      "id": "verbose_flag",
+      "name": "Verbose Flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUT_MATRIX]",
+      "description": "Affine matrix output file",
+      "id": "output_matrix_file",
+      "name": "Output Matrix File"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "name": "unpack_mnc.tcl",
+  "author": "FreeSurfer Developers",
+  "description": "A tool for unpacking MINC format images",
+  "command-line": "unpack_mnc.tcl [VERBOSE] [OUTPUT_DIR] [INPUT_FILE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Verbose output messages",
+      "value-key": "[VERBOSE]",
+      "type": "Flag",
+      "id": "verbose",
+      "name": "Verbose Flag",
+      "command-line-flag": "-v"
+    },
+    {
+      "description": "Output directory for unpacked files",
+      "value-key": "[OUTPUT_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "output_dir",
+      "name": "Output Directory",
+      "command-line-flag": "-o"
+    },
+    {
+      "description": "Specify a custom input file for unpacking",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "input_file",
+      "name": "Input File",
+      "command-line-flag": "-i"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_DIR]/unpacked_data.mnc",
+      "description": "Unpacked output MINC file",
+      "id": "unpacked_file",
+      "name": "Unpacked MINC File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

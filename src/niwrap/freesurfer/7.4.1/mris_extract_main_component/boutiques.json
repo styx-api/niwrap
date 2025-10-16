@@ -1,0 +1,34 @@
+{
+  "name": "mris_extract_main_component",
+  "author": "FreeSurfer Developers",
+  "description": "Tool for extracting the main component from a surface input.",
+  "command-line": "mris_extract_main_component [INPUT_SURFACE] [OUTPUT_SURFACE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input surface file (e.g. lh.white)",
+      "value-key": "[INPUT_SURFACE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_surface",
+      "name": "Input Surface"
+    },
+    {
+      "description": "Output surface file (e.g. lh.white.main)",
+      "value-key": "[OUTPUT_SURFACE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_surface",
+      "name": "Output Surface"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_SURFACE]",
+      "description": "Extracted main component of the input surface",
+      "id": "output_surface_file",
+      "name": "Output Surface File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

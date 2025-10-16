@@ -1,0 +1,82 @@
+{
+  "name": "mri_extract_largest_CC",
+  "description": "This program extracts the largest connected component of the input volume.",
+  "command-line": "mri_extract_largest_CC [INPUT_VOLUME] [OUTPUT_VOLUME] [THRESHOLD] [HEMISPHERE] [LARGEST_CC_IN_BG] [ORIGINAL_VOLUME] [LABEL_VALUE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input volume.",
+      "value-key": "[INPUT_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "input_volume",
+      "name": "Input Volume"
+    },
+    {
+      "description": "Output volume.",
+      "value-key": "[OUTPUT_VOLUME]",
+      "type": "String",
+      "optional": false,
+      "id": "output_volume",
+      "name": "Output Volume"
+    },
+    {
+      "command-line-flag": "-T",
+      "description": "Threshold for object.",
+      "value-key": "[THRESHOLD]",
+      "type": "Number",
+      "optional": true,
+      "id": "threshold",
+      "name": "Threshold"
+    },
+    {
+      "command-line-flag": "-hemi",
+      "description": "Set the target value corresponding to lh (255) or rh (127).",
+      "value-key": "[HEMISPHERE]",
+      "type": "String",
+      "optional": true,
+      "id": "hemisphere",
+      "name": "Hemisphere",
+      "value-choices": [
+        "lh",
+        "rh"
+      ]
+    },
+    {
+      "command-line-flag": "-I",
+      "description": "Find the largest CC in the background.",
+      "value-key": "[LARGEST_CC_IN_BG]",
+      "type": "Flag",
+      "id": "largest_cc_in_bg",
+      "name": "Largest CC in Background Flag"
+    },
+    {
+      "command-line-flag": "-O",
+      "description": "Clone values from original volume into output (used with -I).",
+      "value-key": "[ORIGINAL_VOLUME]",
+      "type": "File",
+      "optional": true,
+      "id": "original_volume",
+      "name": "Original Volume"
+    },
+    {
+      "command-line-flag": "-L",
+      "description": "Perform connected components on voxels with specified label value.",
+      "value-key": "[LABEL_VALUE]",
+      "type": "Number",
+      "optional": true,
+      "id": "label_value",
+      "name": "Label Value"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_VOLUME]",
+      "description": "The output volume with the largest connected component extracted.",
+      "id": "output_volume_file",
+      "name": "Output Volume File"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

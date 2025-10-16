@@ -1,0 +1,136 @@
+{
+  "name": "3dLocalBistat",
+  "author": "AFNI Developers",
+  "description": "Compute statistics between 2 datasets at each voxel based on a local neighborhood.",
+  "command-line": "3dLocalBistat [NBHD] [STATS] [MASK] [AUTOMASK] [WEIGHT] [PREFIX] [HISTPOW] [HISTBIN] [HCLIP1] [HCLIP2] [DATASET1] [DATASET2]",
+  "inputs": [
+    {
+      "description": "The first input dataset (e.g. data1.nii)",
+      "value-key": "[DATASET1]",
+      "type": "File",
+      "optional": false,
+      "id": "dataset1",
+      "name": "Dataset 1"
+    },
+    {
+      "description": "The second input dataset (e.g. data2.nii)",
+      "value-key": "[DATASET2]",
+      "type": "File",
+      "optional": false,
+      "id": "dataset2",
+      "name": "Dataset 2"
+    },
+    {
+      "command-line-flag": "-nbhd",
+      "description": "Specifies the neighborhood around each voxel for statistics calculation. Types include: SPHERE(r), RECT(a,b,c), RHDD(r), TOHD(r)",
+      "value-key": "[NBHD]",
+      "type": "String",
+      "optional": false,
+      "id": "nbhd",
+      "name": "Neighborhood"
+    },
+    {
+      "command-line-flag": "-stat",
+      "description": "Statistic to compute in the region around each voxel. Multiple options allowed. Includes: pearson, spearman, quadrant, mutinfo, normuti, jointent, hellinger, crU, crM, crA, L2slope, L1slope, num, ALL.",
+      "value-key": "[STATS]",
+      "type": "String",
+      "optional": false,
+      "list": true,
+      "id": "stats",
+      "name": "Statistics"
+    },
+    {
+      "command-line-flag": "-mask",
+      "description": "Read in a dataset to use as a mask. Non-zero voxels define the mask region.",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "mask",
+      "name": "Mask"
+    },
+    {
+      "command-line-flag": "-automask",
+      "description": "Compute the mask as in program 3dAutomask. Mutually exclusive with -mask.",
+      "value-key": "[AUTOMASK]",
+      "type": "Flag",
+      "id": "automask",
+      "name": "Automatic mask"
+    },
+    {
+      "command-line-flag": "-weight",
+      "description": "Use dataset as a weight (applies to pearson).",
+      "value-key": "[WEIGHT]",
+      "type": "File",
+      "optional": true,
+      "id": "weight",
+      "name": "Weight"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Prefix of the output dataset.",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "prefix",
+      "name": "Output Prefix"
+    },
+    {
+      "command-line-flag": "-histpow",
+      "description": "Sets the exponent for the number of bins in the histogram used for Hellinger, Mutual Information, and Correlation Ratio statistics.",
+      "value-key": "[HISTPOW]",
+      "type": "Number",
+      "optional": true,
+      "id": "histpow",
+      "name": "Histogram Power"
+    },
+    {
+      "command-line-flag": "-histbin",
+      "description": "Sets the number of bins directly in the histogram used for Hellinger, Mutual Information, and Correlation Ratio statistics.",
+      "value-key": "[HISTBIN]",
+      "type": "Number",
+      "optional": true,
+      "id": "histbin",
+      "name": "Histogram Bins"
+    },
+    {
+      "command-line-flag": "-hclip1",
+      "description": "Clip dataset1 to lie between specified values.",
+      "value-key": "[HCLIP1]",
+      "type": "String",
+      "optional": true,
+      "list": true,
+      "max-list-entries": 2,
+      "min-list-entries": 2,
+      "id": "hclip1",
+      "name": "Clip Dataset 1"
+    },
+    {
+      "command-line-flag": "-hclip2",
+      "description": "Clip dataset2 to lie between specified values.",
+      "value-key": "[HCLIP2]",
+      "type": "String",
+      "optional": true,
+      "list": true,
+      "max-list-entries": 2,
+      "min-list-entries": 2,
+      "id": "hclip2",
+      "name": "Clip Dataset 2"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX]+orig.HEAD",
+      "description": "Output dataset header for AFNI format",
+      "id": "output_head",
+      "name": "Output Header"
+    },
+    {
+      "path-template": "[PREFIX]+orig.BRIK",
+      "description": "Output dataset BRIK for AFNI format",
+      "id": "output_brik",
+      "name": "Output BRIK"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

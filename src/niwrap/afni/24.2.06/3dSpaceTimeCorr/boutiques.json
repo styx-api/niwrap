@@ -1,0 +1,86 @@
+{
+  "name": "3dSpaceTimeCorr",
+  "author": "AFNI Developers",
+  "description": "Calculates correlation coefficients between two 4D datasets using space+time patterns",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dSpaceTimeCorr [INSETA] [INSETB] [PREFIX] [MASK] [OUT_ZCORR] [FREEZE_INSETA_IJK] [FREEZE_INSETA_XYZ]",
+  "inputs": [
+    {
+      "description": "First 4D data set.",
+      "value-key": "[INSETA]",
+      "command-line-flag": "-insetA",
+      "type": "File",
+      "optional": false,
+      "id": "insetA",
+      "name": "Input data set A"
+    },
+    {
+      "description": "Second 4D data set. Must have the same spatial dimensions and number of time points as insetA.",
+      "value-key": "[INSETB]",
+      "command-line-flag": "-insetB",
+      "type": "File",
+      "optional": false,
+      "id": "insetB",
+      "name": "Input data set B"
+    },
+    {
+      "description": "Output filename/base.",
+      "value-key": "[PREFIX]",
+      "command-line-flag": "-prefix",
+      "type": "String",
+      "optional": false,
+      "id": "prefix",
+      "name": "Output prefix"
+    },
+    {
+      "command-line-flag": "-mask",
+      "description": "Optional mask for calculations. Recommended for speed and interpretability.",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "mask",
+      "name": "Mask file"
+    },
+    {
+      "command-line-flag": "-out_Zcorr",
+      "description": "Switch to output Fisher Z transform of spatial map correlation instead of Pearson r values.",
+      "value-key": "[OUT_ZCORR]",
+      "type": "Flag",
+      "id": "out_Zcorr",
+      "name": "Output Z-transformed correlation"
+    },
+    {
+      "command-line-flag": "-freeze_insetA_ijk",
+      "description": "Freeze the seed voxel location in the insetA data set using ijk indices while the seed location in insetB moves throughout the volume or mask. Provide three ijk values.",
+      "value-key": "[FREEZE_INSETA_IJK]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 3,
+      "min-list-entries": 3,
+      "optional": true,
+      "id": "freeze_insetA_ijk",
+      "name": "Freeze insetA ijk indices"
+    },
+    {
+      "command-line-flag": "-freeze_insetA_xyz",
+      "description": "Freeze the seed voxel location in the insetA data set using xyz coordinates while the seed location in insetB moves throughout the volume or mask. Provide three xyz values.",
+      "value-key": "[FREEZE_INSETA_XYZ]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 3,
+      "min-list-entries": 3,
+      "optional": true,
+      "id": "freeze_insetA_xyz",
+      "name": "Freeze insetA xyz coordinates"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX].nii.gz",
+      "description": "Output data set with space-time correlation coefficients.",
+      "id": "output",
+      "name": "Output data set"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "name": "imcp",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Copy images from one location to another",
+  "command-line": "imcp [INFILES] [OUTPUT_LOCATION]",
+  "inputs": [
+    {
+      "description": "Input image files (e.g. img1.nii.gz, img2.nii.gz)",
+      "value-key": "[INFILES]",
+      "type": "File",
+      "list": true,
+      "id": "infiles",
+      "name": "Input files",
+      "optional": false
+    },
+    {
+      "description": "Output file or directory",
+      "value-key": "[OUTPUT_LOCATION]",
+      "type": "String",
+      "id": "output_location",
+      "name": "Output location",
+      "optional": false
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_LOCATION]",
+      "description": "Output file or directory",
+      "id": "outfiles",
+      "name": "Output files or directory"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

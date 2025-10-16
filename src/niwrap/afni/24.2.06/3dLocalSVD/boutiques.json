@@ -1,0 +1,80 @@
+{
+  "name": "3dLocalSVD",
+  "author": "AFNI Developers",
+  "description": "Computes the SVD of time series from a neighborhood of each voxel.",
+  "command-line": "3dLocalSVD [AUTO_MASK] [INPUT_FILE] [MASK_FILE] [OUTPUT_FILE] [NBHD] [POLORT] [VNORM] [VPROJ]",
+  "inputs": [
+    {
+      "description": "Input time series dataset file",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input file",
+      "command-line-flag": "-input"
+    },
+    {
+      "description": "Prefix for the output SVD vector result dataset file",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_file",
+      "name": "Output file",
+      "command-line-flag": "-prefix"
+    },
+    {
+      "description": "Restrict operations to this mask dataset",
+      "value-key": "[MASK_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "mask_file",
+      "name": "Mask file",
+      "command-line-flag": "-mask"
+    },
+    {
+      "description": "Create a mask from time series dataset",
+      "value-key": "[AUTO_MASK]",
+      "type": "Flag",
+      "id": "auto_mask",
+      "name": "Auto mask flag",
+      "command-line-flag": "-automask"
+    },
+    {
+      "description": "Neighborhood for SVD calculation, e.g., 'SPHERE(5)'",
+      "value-key": "[NBHD]",
+      "type": "String",
+      "optional": true,
+      "id": "nbhd",
+      "name": "Neighborhood",
+      "command-line-flag": "-nbhd"
+    },
+    {
+      "description": "Detrending option, ['+' means to add trend back]",
+      "value-key": "[POLORT]",
+      "type": "String",
+      "optional": true,
+      "id": "polort",
+      "name": "Polort",
+      "command-line-flag": "-polort"
+    },
+    {
+      "description": "Normalize data vectors [strongly recommended]",
+      "value-key": "[VNORM]",
+      "type": "Flag",
+      "id": "vnorm",
+      "name": "Normalize data vectors flag",
+      "command-line-flag": "-vnorm"
+    },
+    {
+      "description": "Project central data time series onto local SVD subspace of dimension 'ndim'",
+      "value-key": "[VPROJ]",
+      "type": "Number",
+      "optional": true,
+      "id": "vproj",
+      "name": "Project onto SVD subspace",
+      "command-line-flag": "-vproj"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

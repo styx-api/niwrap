@@ -1,0 +1,60 @@
+{
+  "name": "ttoz",
+  "description": "Tool to convert a T-statistic image to a Z-statistic image",
+  "command-line": "ttoz [VARSFILE] [CBSFILE] [DOF] [OUTPUTVOL] [HELP_FLAG]",
+  "inputs": [
+    {
+      "description": "Input variables file",
+      "value-key": "[VARSFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "varsfile",
+      "name": "Variables file"
+    },
+    {
+      "description": "Input CBS file",
+      "value-key": "[CBSFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "cbsfile",
+      "name": "CBS file"
+    },
+    {
+      "description": "Degrees of freedom",
+      "value-key": "[DOF]",
+      "type": "Number",
+      "integer": true,
+      "optional": false,
+      "id": "dof",
+      "name": "Degrees of freedom"
+    },
+    {
+      "command-line-flag": "-zout",
+      "description": "Output volume name (default is zstats)",
+      "value-key": "[OUTPUTVOL]",
+      "type": "String",
+      "optional": true,
+      "id": "outputvol",
+      "name": "Output volume"
+    },
+    {
+      "command-line-flag": "-help",
+      "description": "Display help information",
+      "value-key": "[HELP_FLAG]",
+      "type": "Flag",
+      "id": "help_flag",
+      "name": "Help flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUTVOL].nii.gz",
+      "description": "Output Z-statistic volume",
+      "id": "output_zvol",
+      "name": "Output Z volume"
+    }
+  ],
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

@@ -1,0 +1,90 @@
+{
+  "name": "mris_flatten",
+  "author": "FreeSurfer Developers",
+  "description": "This program will flatten a surface patch",
+  "command-line": "mris_flatten [INPUT_PATCH] [OUTPUT_PATCH] [ITERATIONS] [DISTANCES] [DILATIONS] [RANDOM_SEED] [COPY_COORDS] [NORAND]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input surface patch",
+      "value-key": "[INPUT_PATCH]",
+      "type": "File",
+      "optional": false,
+      "id": "input_patch",
+      "name": "Input Patch"
+    },
+    {
+      "description": "Output flattened surface patch",
+      "value-key": "[OUTPUT_PATCH]",
+      "type": "String",
+      "optional": false,
+      "id": "output_patch",
+      "name": "Output Patch"
+    },
+    {
+      "command-line-flag": "-w",
+      "description": "Write out the surface every # of iterations.",
+      "value-key": "[ITERATIONS]",
+      "type": "Number",
+      "optional": true,
+      "id": "iterations",
+      "name": "Iterations"
+    },
+    {
+      "command-line-flag": "-distances",
+      "description": "Specify size of neighborhood and number of vertices at each distance to be used in the optimization.",
+      "value-key": "[DISTANCES]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 2,
+      "min-list-entries": 2,
+      "optional": true,
+      "id": "distances",
+      "name": "Distances"
+    },
+    {
+      "command-line-flag": "-dilate",
+      "description": "Specify the number of times to dilate the ripped edges to ensure a clean cut",
+      "value-key": "[DILATIONS]",
+      "type": "Number",
+      "optional": true,
+      "id": "dilations",
+      "name": "Dilations"
+    },
+    {
+      "command-line-flag": "-norand",
+      "description": "Set the random seed to 0 so that flattening is repeatable",
+      "value-key": "[NORAND]",
+      "type": "Flag",
+      "id": "norand",
+      "name": "No Random Seed Flag"
+    },
+    {
+      "command-line-flag": "-seed",
+      "description": "Set the random seed to a specific value so that flattening is repeatable",
+      "value-key": "[RANDOM_SEED]",
+      "type": "Number",
+      "optional": true,
+      "id": "random_seed",
+      "name": "Random Seed"
+    },
+    {
+      "command-line-flag": "-copy-coords",
+      "description": "Copy xyz coords from surface before flattening.",
+      "value-key": "[COPY_COORDS]",
+      "type": "String",
+      "optional": true,
+      "id": "copy_coords",
+      "name": "Copy Coords Surface"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_PATCH]",
+      "description": "Output flattened surface patch",
+      "id": "output_patch_file",
+      "name": "Output Patch File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

@@ -1,0 +1,60 @@
+{
+  "name": "rPkgsInstall",
+  "author": "AFNI Developers",
+  "description": "A tool for installing, checking, updating, or removing R packages for AFNI.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "rPkgsInstall [PACKAGES] [DOWNLOAD_SITE] [CHECK] [UPDATE] [REMOVE]",
+  "inputs": [
+    {
+      "command-line-flag": "-pkgs",
+      "description": "List of R packages to install, update, or remove. Use 'ALL' to refer to all AFNI-required packages.",
+      "value-key": "[PACKAGES]",
+      "type": "String",
+      "optional": false,
+      "id": "packages",
+      "name": "R packages list"
+    },
+    {
+      "command-line-flag": "-site",
+      "description": "Specify the package repository website. Default is 'http://cloud.r-project.org'.",
+      "value-key": "[DOWNLOAD_SITE]",
+      "type": "String",
+      "optional": true,
+      "id": "download_site",
+      "name": "Download site"
+    },
+    {
+      "command-line-flag": "-check",
+      "description": "Verify whether the specified R packages are installed on the computer without installing/updating/removing them.",
+      "value-key": "[CHECK]",
+      "type": "Flag",
+      "id": "check",
+      "name": "Check flag"
+    },
+    {
+      "command-line-flag": "-update",
+      "description": "Update the specified R packages. If packages are not installed, they will be installed.",
+      "value-key": "[UPDATE]",
+      "type": "Flag",
+      "id": "update",
+      "name": "Update flag"
+    },
+    {
+      "command-line-flag": "-remove",
+      "description": "Remove the specified R packages from the system.",
+      "value-key": "[REMOVE]",
+      "type": "Flag",
+      "id": "remove",
+      "name": "Remove flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PACKAGES]",
+      "description": "Output R packages after installation, update, or removal",
+      "id": "output_packages",
+      "name": "Output R packages log"
+    }
+  ]
+}

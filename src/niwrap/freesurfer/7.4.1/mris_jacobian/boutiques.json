@@ -1,0 +1,66 @@
+{
+  "name": "mris_jacobian",
+  "author": "FreeSurfer Developers",
+  "description": "This program computes the Jacobian of a surface mapping.",
+  "command-line": "mris_jacobian [ORIGINAL_SURFACE] [MAPPED_SURFACE] [JACOBIAN_FILE] [LOG] [NOSCALE] [INVERT]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "The original surface file.",
+      "value-key": "[ORIGINAL_SURFACE]",
+      "type": "File",
+      "optional": false,
+      "id": "original_surface",
+      "name": "Original Surface"
+    },
+    {
+      "description": "The mapped surface file.",
+      "value-key": "[MAPPED_SURFACE]",
+      "type": "File",
+      "optional": false,
+      "id": "mapped_surface",
+      "name": "Mapped Surface"
+    },
+    {
+      "description": "The output file name for the Jacobian.",
+      "value-key": "[JACOBIAN_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "jacobian_file",
+      "name": "Jacobian File"
+    },
+    {
+      "command-line-flag": "-log",
+      "description": "Compute and write out log of Jacobian.",
+      "value-key": "[LOG]",
+      "type": "Flag",
+      "id": "log",
+      "name": "Log Flag"
+    },
+    {
+      "command-line-flag": "-noscale",
+      "description": "Don't scale Jacobian by total surface areas.",
+      "value-key": "[NOSCALE]",
+      "type": "Flag",
+      "id": "noscale",
+      "name": "No Scale Flag"
+    },
+    {
+      "command-line-flag": "-invert",
+      "description": "Compute -1/Jacobian for Jacobian < 1.",
+      "value-key": "[INVERT]",
+      "type": "Flag",
+      "id": "invert",
+      "name": "Invert Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[JACOBIAN_FILE]",
+      "description": "Output file containing the Jacobian of the surface mapping.",
+      "id": "output_jacobian_file",
+      "name": "Output Jacobian File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

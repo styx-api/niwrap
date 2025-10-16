@@ -1,0 +1,26 @@
+{
+  "name": "dicom_to_raw",
+  "author": "AFNI Developers",
+  "description": "Reads images from DICOM file and writes them to raw file(s).",
+  "command-line": "dicom_to_raw [INPUT_DICOM]",
+  "inputs": [
+    {
+      "description": "Input DICOM file",
+      "value-key": "[INPUT_DICOM]",
+      "type": "File",
+      "optional": false,
+      "id": "input_dicom",
+      "name": "Input DICOM file"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[INPUT_DICOM].raw.0001",
+      "description": "Output raw file(s)",
+      "id": "output_raw_file",
+      "name": "Output raw file(s)"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

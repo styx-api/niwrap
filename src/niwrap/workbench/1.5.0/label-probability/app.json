@@ -1,0 +1,14 @@
+{
+  "name": "label-probability",
+  "source": {
+    "type": "boutiques",
+    "path": "boutiques.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-label-probability"
+  ],
+  "docs": {
+    "description": "Find frequency of surface labels.\n\nThis command outputs a set of soft ROIs, one for each label in the input, where the value is how many of the input maps had that label at that vertex, divided by the number of input maps."
+  }
+}

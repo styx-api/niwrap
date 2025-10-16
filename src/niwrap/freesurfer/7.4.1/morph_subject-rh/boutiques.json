@@ -1,0 +1,19 @@
+{
+  "name": "morph_subject-rh",
+  "description": "A tool for morphing the right hemisphere of subject data in FreeSurfer.",
+  "command-line": "morph_subject-rh [SUBJECT_ID]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Subject ID to morph the right hemisphere.",
+      "value-key": "[SUBJECT_ID]",
+      "type": "String",
+      "optional": false,
+      "id": "subject_id",
+      "name": "Subject ID",
+      "command-line-flag": "-rh"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

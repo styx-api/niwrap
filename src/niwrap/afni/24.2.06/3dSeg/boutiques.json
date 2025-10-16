@@ -1,0 +1,200 @@
+{
+  "name": "3dSeg",
+  "author": "AFNI Developers",
+  "description": "Segments brain volumes into tissue classes with optional global and voxelwise priors.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dSeg [ANAT] [MASK] [BLUR_METH] [BIAS_FWHM] [CLASSES] [BMRF] [BIAS_CLASSES] [PREFIX] [OVERWRITE] [DEBUG] [MIXFRAC] [MIXFLOOR] [GOLD] [GOLD_BIAS] [MAIN_N] [CSET] [LABELTABLE] [VOX_DEBUG] [VOX_DEBUG_FILE]",
+  "inputs": [
+    {
+      "description": "Volume to segment",
+      "value-key": "[ANAT]",
+      "type": "File",
+      "optional": false,
+      "id": "anat",
+      "name": "Anatomical Image",
+      "command-line-flag": "-anat"
+    },
+    {
+      "description": "Mask of the volume to be segmented. Can be a dataset or 'AUTO' to use AFNI's automask function.",
+      "value-key": "[MASK]",
+      "type": "String",
+      "optional": true,
+      "id": "mask",
+      "name": "Mask",
+      "command-line-flag": "-mask"
+    },
+    {
+      "command-line-flag": "-blur_meth",
+      "description": "Blurring method for bias field estimation. Options: BFT, BIM, BNN, LSB. Default: BFT",
+      "value-key": "[BLUR_METH]",
+      "type": "String",
+      "optional": true,
+      "id": "blur_meth",
+      "name": "Blurring Method"
+    },
+    {
+      "command-line-flag": "-bias_fwhm",
+      "description": "The amount of blurring used when estimating the field bias. Default: 25.0",
+      "value-key": "[BIAS_FWHM]",
+      "type": "Number",
+      "optional": true,
+      "id": "bias_fwhm",
+      "name": "Bias FWHM"
+    },
+    {
+      "command-line-flag": "-classes",
+      "description": "String of class labels separated by semicolons. Default: 'CSF; GM; WM'",
+      "value-key": "[CLASSES]",
+      "type": "String",
+      "optional": true,
+      "id": "classes",
+      "name": "Classes"
+    },
+    {
+      "command-line-flag": "-Bmrf",
+      "description": "Weighting factor controlling spatial homogeneity of classifications. Default: 0.0",
+      "value-key": "[BMRF]",
+      "type": "Number",
+      "optional": true,
+      "id": "Bmrf",
+      "name": "MRF Weighting Factor"
+    },
+    {
+      "command-line-flag": "-bias_classes",
+      "description": "Classes that contribute to the estimation of the bias field. Default: 'GM; WM'",
+      "value-key": "[BIAS_CLASSES]",
+      "type": "String",
+      "optional": true,
+      "id": "bias_classes",
+      "name": "Bias Classes"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Prefix for all output volume",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Output Prefix"
+    },
+    {
+      "command-line-flag": "-overwrite",
+      "description": "Automatically overwrite existing files with the same prefix.",
+      "value-key": "[OVERWRITE]",
+      "type": "Flag",
+      "id": "overwrite",
+      "name": "Overwrite"
+    },
+    {
+      "command-line-flag": "-debug",
+      "description": "Set debug level (0, 1, or 2)",
+      "value-key": "[DEBUG]",
+      "type": "Number",
+      "optional": true,
+      "id": "debug",
+      "name": "Debug Level"
+    },
+    {
+      "command-line-flag": "-mixfrac",
+      "description": "Volume-wide mixing fractions for initialization. Options: '0.1 0.45 0.45', 'UNI', 'AVG152_BRAIN_MASK', 'IGNORE'. Default: UNI",
+      "value-key": "[MIXFRAC]",
+      "type": "String",
+      "optional": true,
+      "id": "mixfrac",
+      "name": "Mixing Fraction"
+    },
+    {
+      "command-line-flag": "-mixfloor",
+      "description": "Set the minimum value for any class's mixing fraction. Default: 0.0001",
+      "value-key": "[MIXFLOOR]",
+      "type": "Number",
+      "optional": true,
+      "id": "mixfloor",
+      "name": "Mixing Fraction Floor"
+    },
+    {
+      "command-line-flag": "-gold",
+      "description": "Goldstandard segmentation volume for comparison.",
+      "value-key": "[GOLD]",
+      "type": "File",
+      "optional": true,
+      "id": "gold",
+      "name": "Gold Standard Segmentation"
+    },
+    {
+      "command-line-flag": "-gold_bias",
+      "description": "Goldstandard bias volume for comparison.",
+      "value-key": "[GOLD_BIAS]",
+      "type": "File",
+      "optional": true,
+      "id": "gold_bias",
+      "name": "Gold Standard Bias"
+    },
+    {
+      "command-line-flag": "-main_N",
+      "description": "Number of iterations to perform. Default: 5",
+      "value-key": "[MAIN_N]",
+      "type": "Number",
+      "optional": true,
+      "id": "main_N",
+      "name": "Number of Iterations"
+    },
+    {
+      "command-line-flag": "-cset",
+      "description": "Initial classification. Uses 3dkmean's engine if not provided.",
+      "value-key": "[CSET]",
+      "type": "File",
+      "optional": true,
+      "id": "cset",
+      "name": "Initial Classification Set"
+    },
+    {
+      "command-line-flag": "-labeltable",
+      "description": "Label table containing integer keys and corresponding labels.",
+      "value-key": "[LABELTABLE]",
+      "type": "File",
+      "optional": true,
+      "id": "labeltable",
+      "name": "Label Table"
+    },
+    {
+      "command-line-flag": "-vox_debug",
+      "description": "1D index of voxel to debug or 3D voxel indices.",
+      "value-key": "[VOX_DEBUG]",
+      "type": "String",
+      "optional": true,
+      "id": "vox_debug",
+      "name": "Voxel Debug Index"
+    },
+    {
+      "command-line-flag": "-vox_debug_file",
+      "description": "File in which debug information is output, use '-' for stdout, '+' for stderr.",
+      "value-key": "[VOX_DEBUG_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "vox_debug_file",
+      "name": "Debug Information Output File"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX]_Segsy+orig.HEAD",
+      "description": "Segmented brain volume output",
+      "id": "segmented_volume",
+      "name": "Segmented Volume"
+    },
+    {
+      "path-template": "[PREFIX]_BiasField+orig.HEAD",
+      "description": "Bias field estimate output",
+      "id": "bias_field",
+      "name": "Bias Field Estimate"
+    },
+    {
+      "path-template": "[PREFIX]_Classes+orig.HEAD",
+      "description": "Classified volume output",
+      "id": "classified_volume",
+      "name": "Classified Volume"
+    }
+  ]
+}

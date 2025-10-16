@@ -1,0 +1,259 @@
+{
+  "name": "mredit",
+  "description": "Directly edit the intensities within an image from the command-line.\n\nA range of options are provided to enable direct editing of voxel intensities based on voxel / real-space coordinates. If only one image path is provided, the image will be edited in-place (use at own risk); if input and output image paths are provided, the output will contain the edited image, and the original image will not be modified in any way.\n\nReferences:\n\n",
+  "author": "MRTrix3 Developers",
+  "schema-version": "0.5+styx",
+  "command-line": "mredit [OPTIONS_PLANE] [OPTIONS_SPHERE] [OPTIONS_VOXEL] [OPTIONS_SCANNER] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION] [INPUT] [OUTPUT]",
+  "inputs": [
+    {
+      "id": "input",
+      "name": "input",
+      "value-key": "[INPUT]",
+      "description": "the input image",
+      "type": "File",
+      "optional": false
+    },
+    {
+      "id": "output",
+      "name": "output",
+      "value-key": "[OUTPUT]",
+      "description": "the (optional) output image",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "plane",
+      "name": "plane",
+      "value-key": "[OPTIONS_PLANE]",
+      "description": "fill one or more planes on a particular image axis",
+      "type": {
+        "id": "plane",
+        "name": "plane",
+        "description": "fill one or more planes on a particular image axis",
+        "command-line": "-plane [AXIS] [COORD] [VALUE]",
+        "inputs": [
+          {
+            "id": "axis",
+            "name": "axis",
+            "value-key": "[AXIS]",
+            "description": "fill one or more planes on a particular image axis",
+            "type": "Number",
+            "optional": false,
+            "integer": true
+          },
+          {
+            "id": "coord",
+            "name": "coord",
+            "value-key": "[COORD]",
+            "description": "fill one or more planes on a particular image axis",
+            "type": "Number",
+            "optional": false,
+            "integer": true,
+            "list": true
+          },
+          {
+            "id": "value",
+            "name": "value",
+            "value-key": "[VALUE]",
+            "description": "fill one or more planes on a particular image axis",
+            "type": "Number",
+            "optional": false,
+            "integer": false
+          }
+        ],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "sphere",
+      "name": "sphere",
+      "value-key": "[OPTIONS_SPHERE]",
+      "description": "draw a sphere with radius in mm",
+      "type": {
+        "id": "sphere",
+        "name": "sphere",
+        "description": "draw a sphere with radius in mm",
+        "command-line": "-sphere [POSITION] [RADIUS] [VALUE]",
+        "inputs": [
+          {
+            "id": "position",
+            "name": "position",
+            "value-key": "[POSITION]",
+            "description": "draw a sphere with radius in mm",
+            "type": "Number",
+            "optional": false,
+            "integer": false,
+            "list": true
+          },
+          {
+            "id": "radius",
+            "name": "radius",
+            "value-key": "[RADIUS]",
+            "description": "draw a sphere with radius in mm",
+            "type": "Number",
+            "optional": false,
+            "integer": false
+          },
+          {
+            "id": "value",
+            "name": "value",
+            "value-key": "[VALUE]",
+            "description": "draw a sphere with radius in mm",
+            "type": "Number",
+            "optional": false,
+            "integer": false
+          }
+        ],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "voxel",
+      "name": "voxel",
+      "value-key": "[OPTIONS_VOXEL]",
+      "description": "change the image value within a single voxel",
+      "type": {
+        "id": "voxel",
+        "name": "voxel",
+        "description": "change the image value within a single voxel",
+        "command-line": "-voxel [POSITION] [VALUE]",
+        "inputs": [
+          {
+            "id": "position",
+            "name": "position",
+            "value-key": "[POSITION]",
+            "description": "change the image value within a single voxel",
+            "type": "Number",
+            "optional": false,
+            "integer": false,
+            "list": true
+          },
+          {
+            "id": "value",
+            "name": "value",
+            "value-key": "[VALUE]",
+            "description": "change the image value within a single voxel",
+            "type": "Number",
+            "optional": false,
+            "integer": false
+          }
+        ],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "scanner",
+      "name": "scanner",
+      "command-line-flag": "-scanner",
+      "value-key": "[OPTIONS_SCANNER]",
+      "description": "indicate that coordinates are specified in scanner space, rather than as voxel coordinates",
+      "type": "Flag"
+    },
+    {
+      "id": "info",
+      "name": "info",
+      "command-line-flag": "-info",
+      "value-key": "[__STANDARD_OPTIONS_INFO]",
+      "description": "display information messages.",
+      "type": "Flag"
+    },
+    {
+      "id": "quiet",
+      "name": "quiet",
+      "command-line-flag": "-quiet",
+      "value-key": "[__STANDARD_OPTIONS_QUIET]",
+      "description": "do not display information messages or progress status; alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string.",
+      "type": "Flag"
+    },
+    {
+      "id": "debug",
+      "name": "debug",
+      "command-line-flag": "-debug",
+      "value-key": "[__STANDARD_OPTIONS_DEBUG]",
+      "description": "display debugging messages.",
+      "type": "Flag"
+    },
+    {
+      "id": "force",
+      "name": "force",
+      "command-line-flag": "-force",
+      "value-key": "[__STANDARD_OPTIONS_FORCE]",
+      "description": "force overwrite of output files (caution: using the same file as input and output might cause unexpected behaviour).",
+      "type": "Flag"
+    },
+    {
+      "id": "nthreads",
+      "name": "nthreads",
+      "command-line-flag": "-nthreads",
+      "value-key": "[__STANDARD_OPTIONS_NTHREADS]",
+      "description": "use this number of threads in multi-threaded applications (set to 0 to disable multi-threading).",
+      "type": "Number",
+      "optional": true,
+      "integer": true
+    },
+    {
+      "id": "config",
+      "name": "config",
+      "value-key": "[__STANDARD_OPTIONS_CONFIG]",
+      "description": "temporarily set the value of an MRtrix config file entry.",
+      "type": {
+        "id": "config",
+        "name": "config",
+        "description": "temporarily set the value of an MRtrix config file entry.",
+        "command-line": "-config [KEY] [VALUE]",
+        "inputs": [
+          {
+            "id": "key",
+            "name": "key",
+            "value-key": "[KEY]",
+            "description": "temporarily set the value of an MRtrix config file entry.",
+            "type": "String",
+            "optional": false
+          },
+          {
+            "id": "value",
+            "name": "value",
+            "value-key": "[VALUE]",
+            "description": "temporarily set the value of an MRtrix config file entry.",
+            "type": "String",
+            "optional": false
+          }
+        ],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "help",
+      "name": "help",
+      "command-line-flag": "-help",
+      "value-key": "[__STANDARD_OPTIONS_HELP]",
+      "description": "display this information page and exit.",
+      "type": "Flag"
+    },
+    {
+      "id": "version",
+      "name": "version",
+      "command-line-flag": "-version",
+      "value-key": "[__STANDARD_OPTIONS_VERSION]",
+      "description": "display version information and exit.",
+      "type": "Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "output",
+      "name": "output",
+      "path-template": "[OUTPUT]",
+      "description": "the (optional) output image"
+    }
+  ],
+  "url": "https://www.mrtrix.org/"
+}

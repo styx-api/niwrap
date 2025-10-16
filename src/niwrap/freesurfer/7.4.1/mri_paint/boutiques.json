@@ -1,0 +1,67 @@
+{
+  "name": "mri_paint",
+  "description": "This program will paint average Talairach stats onto a surface",
+  "command-line": "mri_paint [INPUT_VOLUME] [INPUT_SURFACE] [REGISTRATION_FILE] [OUTPUT_FLOAT_FILE] [IMAGE_OFFSET] [PAINT_SURF_COORDS]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "input_volume",
+      "name": "Input Volume",
+      "description": "The input volume file",
+      "type": "File",
+      "value-key": "[INPUT_VOLUME]",
+      "optional": false
+    },
+    {
+      "id": "input_surface",
+      "name": "Input Surface",
+      "description": "The input surface file",
+      "type": "File",
+      "value-key": "[INPUT_SURFACE]",
+      "optional": false
+    },
+    {
+      "id": "registration_file",
+      "name": "Registration File",
+      "description": "The registration file",
+      "type": "File",
+      "value-key": "[REGISTRATION_FILE]",
+      "optional": false
+    },
+    {
+      "id": "output_float_file",
+      "name": "Output Float File",
+      "description": "The output .float file",
+      "type": "String",
+      "value-key": "[OUTPUT_FLOAT_FILE]",
+      "optional": false
+    },
+    {
+      "id": "image_offset",
+      "name": "Image Offset",
+      "description": "Set offset to use",
+      "type": "Number",
+      "value-key": "[IMAGE_OFFSET]",
+      "command-line-flag": "-imageoffset",
+      "optional": true
+    },
+    {
+      "id": "paint_surf_coords",
+      "name": "Paint Using Surface Coordinates",
+      "description": "Paint using surface coordinates",
+      "type": "Flag",
+      "value-key": "[PAINT_SURF_COORDS]",
+      "command-line-flag": "-S"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "output_float",
+      "name": "Output Float File",
+      "description": "The output .float file resulting from the painting process",
+      "path-template": "[OUTPUT_FLOAT_FILE]"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

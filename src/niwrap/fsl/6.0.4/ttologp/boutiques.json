@@ -1,0 +1,59 @@
+{
+  "name": "ttologp",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Tool for computing logp",
+  "command-line": "ttologp [VARSFILE] [CBSFILE] [DOF] [OUTPUTVOL] [HELP_FLAG]",
+  "inputs": [
+    {
+      "description": "Path to the vars file",
+      "value-key": "[VARSFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "varsfile",
+      "name": "Vars File"
+    },
+    {
+      "description": "Path to the cbs file",
+      "value-key": "[CBSFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "cbsfile",
+      "name": "CBS File"
+    },
+    {
+      "description": "Degree of freedom",
+      "value-key": "[DOF]",
+      "type": "String",
+      "optional": false,
+      "id": "dof",
+      "name": "DOF"
+    },
+    {
+      "command-line-flag": "-logpout",
+      "description": "Output volume for logp value (default is logps)",
+      "value-key": "[OUTPUTVOL]",
+      "type": "String",
+      "optional": true,
+      "id": "outputvol",
+      "name": "Logp Output Volume"
+    },
+    {
+      "command-line-flag": "-help",
+      "description": "Display help information and exit",
+      "value-key": "[HELP_FLAG]",
+      "type": "Flag",
+      "id": "help_flag",
+      "name": "Help Flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUTVOL].nii.gz",
+      "description": "Output volume for logp value",
+      "id": "output_logpvol",
+      "name": "Logp Output Volume File"
+    }
+  ],
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

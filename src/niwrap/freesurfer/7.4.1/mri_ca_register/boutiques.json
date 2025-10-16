@@ -1,0 +1,354 @@
+{
+  "name": "mri_ca_register",
+  "author": "FreeSurfer Developers",
+  "description": "Generates a multi-dimensional talairach transform from a gca file and talairach.lta file",
+  "command-line": "mri_ca_register [INPUT_VOLUME] [TEMPLATE] [OUTPUT_VOLUME] [TOLERANCE] [MASK] [TRANSFORM_LTA] [LEVEL] [READ_INTENSITY] [ALIGN] [INVERT_SAVE_FILE] [DISTANCE] [REGULARIZE] [REGULARIZE_MEAN] [SCALE_SMOOTHNESS] [NOBRIGHT] [RENORMALIZE_MAP] [RENORMALIZE] [READ_LTA] [SMOOTHNESS] [SAMPLES] [NSMALL] [FIXED] [OPTIMAL] [NONEG] [WM] [MIN_AVGS] [TRANSFORM_LIMIT] [RELABEL] [RELABEL_AVGS] [RESET_AVGS] [VF_FILE] [DIAG_FILE] [TR] [TE] [EXAMPLE] [BIGVENTRICLES] [UNCOMPRESS] [SECOND_PASS_RENORM] [THREADS]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input volume",
+      "value-key": "[INPUT_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "input_volume",
+      "name": "Input Volume"
+    },
+    {
+      "description": "Template in GCA format",
+      "value-key": "[TEMPLATE]",
+      "type": "File",
+      "optional": false,
+      "id": "template",
+      "name": "Template"
+    },
+    {
+      "description": "Output volume in M3D format",
+      "value-key": "[OUTPUT_VOLUME]",
+      "type": "String",
+      "optional": false,
+      "id": "output_volume",
+      "name": "Output Volume"
+    },
+    {
+      "command-line-flag": "-tol",
+      "description": "Defines convergence of registration",
+      "value-key": "[TOLERANCE]",
+      "type": "Number",
+      "optional": true,
+      "id": "tolerance",
+      "name": "Tolerance"
+    },
+    {
+      "command-line-flag": "-mask",
+      "description": "Specifies volume to use as a mask",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "mask",
+      "name": "Mask"
+    },
+    {
+      "command-line-flag": "-T",
+      "description": "Transform in LTA format",
+      "value-key": "[TRANSFORM_LTA]",
+      "type": "File",
+      "optional": true,
+      "id": "transform_lta",
+      "name": "Transform LTA"
+    },
+    {
+      "command-line-flag": "-level",
+      "description": "Defines how many surrounding voxels will be used in interpolations, default is 6",
+      "value-key": "[LEVEL]",
+      "type": "Number",
+      "optional": true,
+      "id": "level",
+      "name": "Level"
+    },
+    {
+      "command-line-flag": "-ri",
+      "description": "Allows reading of multiple intensity normalization",
+      "value-key": "[READ_INTENSITY]",
+      "type": "Flag",
+      "id": "read_intensity",
+      "name": "Read Intensity"
+    },
+    {
+      "command-line-flag": "-align",
+      "description": "Enable alignment",
+      "value-key": "[ALIGN]",
+      "type": "Flag",
+      "id": "align",
+      "name": "Align"
+    },
+    {
+      "command-line-flag": "-invert-and-save",
+      "description": "Invert and save as GCAM file",
+      "value-key": "[INVERT_SAVE_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "invert_save_file",
+      "name": "Invert and Save File"
+    },
+    {
+      "command-line-flag": "-dist",
+      "description": "Distance for registration",
+      "value-key": "[DISTANCE]",
+      "type": "Number",
+      "optional": true,
+      "id": "distance",
+      "name": "Distance"
+    },
+    {
+      "command-line-flag": "-regularize",
+      "description": "Regularization parameter",
+      "value-key": "[REGULARIZE]",
+      "type": "Number",
+      "optional": true,
+      "id": "regularize",
+      "name": "Regularize"
+    },
+    {
+      "command-line-flag": "-regularize-mean",
+      "description": "Mean regularization",
+      "value-key": "[REGULARIZE_MEAN]",
+      "type": "Number",
+      "optional": true,
+      "id": "regularize_mean",
+      "name": "Regularize Mean"
+    },
+    {
+      "command-line-flag": "-scale_smoothness",
+      "description": "Smoothness scaling factor",
+      "value-key": "[SCALE_SMOOTHNESS]",
+      "type": "Number",
+      "optional": true,
+      "id": "scale_smoothness",
+      "name": "Scale Smoothness"
+    },
+    {
+      "command-line-flag": "-nobright",
+      "description": "Disable brightness adjustment",
+      "value-key": "[NOBRIGHT]",
+      "type": "Flag",
+      "id": "nobright",
+      "name": "No Brightness Adjustment"
+    },
+    {
+      "command-line-flag": "-renormalize_map",
+      "description": "Renormalize using map",
+      "value-key": "[RENORMALIZE_MAP]",
+      "type": "Flag",
+      "id": "renormalize_map",
+      "name": "Renormalize Map"
+    },
+    {
+      "command-line-flag": "-renormalize",
+      "description": "Renormalize with intensity file",
+      "value-key": "[RENORMALIZE]",
+      "type": "File",
+      "optional": true,
+      "id": "renormalize",
+      "name": "Renormalize"
+    },
+    {
+      "command-line-flag": "-read_lta",
+      "description": "Use LTA file for registration",
+      "value-key": "[READ_LTA]",
+      "type": "Flag",
+      "id": "read_lta",
+      "name": "Read LTA"
+    },
+    {
+      "command-line-flag": "-smoothness",
+      "description": "Smoothness parameter",
+      "value-key": "[SMOOTHNESS]",
+      "type": "Number",
+      "optional": true,
+      "id": "smoothness",
+      "name": "Smoothness"
+    },
+    {
+      "command-line-flag": "-samples",
+      "description": "Sample points for registration",
+      "value-key": "[SAMPLES]",
+      "type": "Number",
+      "optional": true,
+      "id": "samples",
+      "name": "Samples"
+    },
+    {
+      "command-line-flag": "-nsmall",
+      "description": "Number of small features",
+      "value-key": "[NSMALL]",
+      "type": "Number",
+      "optional": true,
+      "id": "nsmall",
+      "name": "Number of Small Features"
+    },
+    {
+      "command-line-flag": "-fixed",
+      "description": "Fixed mode for registration",
+      "value-key": "[FIXED]",
+      "type": "Flag",
+      "id": "fixed",
+      "name": "Fixed Mode"
+    },
+    {
+      "command-line-flag": "-optimal",
+      "description": "Optimal registration settings",
+      "value-key": "[OPTIMAL]",
+      "type": "Flag",
+      "id": "optimal",
+      "name": "Optimal Settings"
+    },
+    {
+      "command-line-flag": "-noneg",
+      "description": "Disallow negative values",
+      "value-key": "[NONEG]",
+      "type": "Flag",
+      "id": "noneg",
+      "name": "No Negative Values"
+    },
+    {
+      "command-line-flag": "-wm",
+      "description": "White matter flag",
+      "value-key": "[WM]",
+      "type": "Flag",
+      "id": "wm",
+      "name": "White Matter Flag"
+    },
+    {
+      "command-line-flag": "-min_avgs",
+      "description": "Minimum number of averages",
+      "value-key": "[MIN_AVGS]",
+      "type": "Number",
+      "optional": true,
+      "id": "min_avgs",
+      "name": "Minimum Averages"
+    },
+    {
+      "command-line-flag": "-tl",
+      "description": "Transform limit",
+      "value-key": "[TRANSFORM_LIMIT]",
+      "type": "Number",
+      "optional": true,
+      "id": "transform_limit",
+      "name": "Transform Limit"
+    },
+    {
+      "command-line-flag": "-relabel",
+      "description": "Relabel options",
+      "value-key": "[RELABEL]",
+      "type": "Number",
+      "optional": true,
+      "id": "relabel",
+      "name": "Relabel"
+    },
+    {
+      "command-line-flag": "-relabel_avgs",
+      "description": "Relabel averages",
+      "value-key": "[RELABEL_AVGS]",
+      "type": "Number",
+      "optional": true,
+      "id": "relabel_avgs",
+      "name": "Relabel Averages"
+    },
+    {
+      "command-line-flag": "-reset_avgs",
+      "description": "Reset averages",
+      "value-key": "[RESET_AVGS]",
+      "type": "Number",
+      "optional": true,
+      "id": "reset_avgs",
+      "name": "Reset Averages"
+    },
+    {
+      "command-line-flag": "-vf",
+      "description": "VF file name",
+      "value-key": "[VF_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "vf_file",
+      "name": "VF File"
+    },
+    {
+      "command-line-flag": "-diag",
+      "description": "Diagnostic file name",
+      "value-key": "[DIAG_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "diag_file",
+      "name": "Diag File"
+    },
+    {
+      "command-line-flag": "-tr",
+      "description": "TR parameter",
+      "value-key": "[TR]",
+      "type": "Number",
+      "optional": true,
+      "id": "tr",
+      "name": "TR"
+    },
+    {
+      "command-line-flag": "-te",
+      "description": "TE parameter",
+      "value-key": "[TE]",
+      "type": "Number",
+      "optional": true,
+      "id": "te",
+      "name": "TE"
+    },
+    {
+      "command-line-flag": "-example",
+      "description": "Example file",
+      "value-key": "[EXAMPLE]",
+      "type": "String",
+      "optional": true,
+      "id": "example",
+      "name": "Example"
+    },
+    {
+      "command-line-flag": "-<no>bigventricles",
+      "description": "Handle big ventricles",
+      "value-key": "[BIGVENTRICLES]",
+      "type": "Flag",
+      "id": "bigventricles",
+      "name": "Big Ventricles"
+    },
+    {
+      "command-line-flag": "-uncompress",
+      "description": "Uncompress files",
+      "value-key": "[UNCOMPRESS]",
+      "type": "Flag",
+      "id": "uncompress",
+      "name": "Uncompress"
+    },
+    {
+      "command-line-flag": "-secondpassrenorm",
+      "description": "Second pass renormalization",
+      "value-key": "[SECOND_PASS_RENORM]",
+      "type": "Flag",
+      "id": "second_pass_renorm",
+      "name": "Second Pass Renorm"
+    },
+    {
+      "command-line-flag": "-threads",
+      "description": "Number of threads",
+      "value-key": "[THREADS]",
+      "type": "Number",
+      "optional": true,
+      "id": "threads",
+      "name": "Threads"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_VOLUME].m3d",
+      "description": "Multidimensional transform in m3d format",
+      "id": "output_file",
+      "name": "Output Multidimensional Transform"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

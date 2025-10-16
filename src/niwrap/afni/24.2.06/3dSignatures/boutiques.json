@@ -1,0 +1,71 @@
+{
+  "name": "3dSignatures",
+  "author": "AFNI Developers",
+  "description": "3dSignatures analysis tool for 3D genome organization",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dSignatures [INFILE] [OUTFILE] [SEGMENTATION] [FILTER] [THRESHOLD] [SMOOTHING]",
+  "inputs": [
+    {
+      "description": "Input file containing 3D genome data (e.g. genome_data.txt)",
+      "value-key": "[INFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "infile",
+      "name": "Input file"
+    },
+    {
+      "description": "Output file to store analysis results (e.g. analysis_results.txt)",
+      "value-key": "[OUTFILE]",
+      "type": "String",
+      "optional": false,
+      "id": "outfile",
+      "name": "Output file"
+    },
+    {
+      "command-line-flag": "--segmentation",
+      "description": "Flag to apply genome segmentation",
+      "value-key": "[SEGMENTATION]",
+      "type": "Flag",
+      "id": "segmentation",
+      "name": "Segmentation flag"
+    },
+    {
+      "command-line-flag": "--filter",
+      "description": "Flag to apply data filtering",
+      "value-key": "[FILTER]",
+      "type": "Flag",
+      "id": "filter",
+      "name": "Filter flag"
+    },
+    {
+      "command-line-flag": "--threshold",
+      "description": "Threshold level for data filtering; default=0.5",
+      "value-key": "[THRESHOLD]",
+      "type": "Number",
+      "maximum": 1,
+      "minimum": 0,
+      "integer": false,
+      "optional": true,
+      "id": "threshold",
+      "name": "Threshold"
+    },
+    {
+      "command-line-flag": "--smoothing",
+      "description": "Apply smoothing with specified kernel size",
+      "value-key": "[SMOOTHING]",
+      "type": "Number",
+      "optional": true,
+      "id": "smoothing",
+      "name": "Smoothing kernel size"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTFILE].txt",
+      "description": "Main analysis results file",
+      "id": "results_file",
+      "name": "Results file"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "name": "ImageIntensityStatistics",
+  "command-line": "ImageIntensityStatistics [IMAGE_DIMENSION] [INPUT_IMAGE] [LABEL_IMAGE]",
+  "description": "This tool computes intensity statistics of an input image, optionally given a label image.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "image_dimension",
+      "name": "Image Dimension",
+      "value-key": "[IMAGE_DIMENSION]",
+      "type": "Number",
+      "integer": true,
+      "description": "The dimensionality of the image (e.g., 2D, 3D).",
+      "optional": false
+    },
+    {
+      "id": "input_image",
+      "name": "Input Image",
+      "value-key": "[INPUT_IMAGE]",
+      "type": "File",
+      "description": "The input image for which intensity statistics will be computed.",
+      "optional": false
+    },
+    {
+      "id": "label_image",
+      "name": "Label Image",
+      "value-key": "[LABEL_IMAGE]",
+      "type": "File",
+      "description": "An optional label image which defines regions of interest.",
+      "optional": true
+    }
+  ],
+  "output-files": [
+    {
+      "id": "intensity_statistics",
+      "name": "Intensity Statistics",
+      "description": "The output file containing intensity statistics.",
+      "path-template": "intensity_statistics.txt"
+    }
+  ],
+  "author": "ANTs Developers",
+  "url": "https://github.com/ANTsX/ANTs"
+}

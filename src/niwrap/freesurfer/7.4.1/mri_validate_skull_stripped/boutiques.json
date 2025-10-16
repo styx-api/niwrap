@@ -1,0 +1,35 @@
+{
+  "name": "mri_validate_skull_stripped",
+  "command-line": "mri_validate_skull_stripped [MRI_REFERENCE] [MRI_TEST] [WEIGHT]",
+  "description": "Tool to validate skull stripped MRI images.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "mri_reference",
+      "name": "MRI Reference",
+      "type": "File",
+      "value-key": "[MRI_REFERENCE]",
+      "description": "Reference MRI image to compare against.",
+      "optional": false
+    },
+    {
+      "id": "mri_test",
+      "name": "MRI Test",
+      "type": "File",
+      "value-key": "[MRI_TEST]",
+      "description": "Test MRI image that has undergone skull stripping.",
+      "optional": false
+    },
+    {
+      "id": "weight",
+      "name": "Weight",
+      "type": "Number",
+      "value-key": "[WEIGHT]",
+      "description": "Weight parameter, should be greater than 1.",
+      "minimum": 1.01,
+      "optional": false
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

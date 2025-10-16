@@ -1,0 +1,84 @@
+{
+  "name": "bianca_overlap_measures",
+  "description": "BIANCA overlap measures script for FSL",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "command-line": "bianca_overlap_measures [LESION_MASK] [MANUAL_MASK] [OUTPUT_DIR]",
+  "inputs": [
+    {
+      "description": "Lesion mask image file",
+      "value-key": "[LESION_MASK]",
+      "type": "File",
+      "optional": false,
+      "id": "lesion_mask",
+      "name": "Lesion Mask"
+    },
+    {
+      "description": "Manual mask image file",
+      "value-key": "[MANUAL_MASK]",
+      "type": "File",
+      "optional": false,
+      "id": "manual_mask",
+      "name": "Manual Mask"
+    },
+    {
+      "description": "Output directory for generated files",
+      "value-key": "[OUTPUT_DIR]",
+      "type": "String",
+      "optional": false,
+      "id": "output_dir",
+      "name": "Output Directory"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "{OUTPUT_DIR}/TPauto.nii.gz",
+      "description": "True positive voxels in automatic mask",
+      "id": "tp_auto",
+      "name": "True Positive Auto"
+    },
+    {
+      "path-template": "{OUTPUT_DIR}/TPmanual.nii.gz",
+      "description": "True positive voxels in manual mask",
+      "id": "tp_manual",
+      "name": "True Positive Manual"
+    },
+    {
+      "path-template": "{OUTPUT_DIR}/FPvox_TP_overlap.nii.gz",
+      "description": "False positive voxels that overlap with true positives",
+      "id": "fp_vox_tp_overlap",
+      "name": "False Positive Voxels Overlap with True Positives"
+    },
+    {
+      "path-template": "{OUTPUT_DIR}/FNvox_TP_overlap.nii.gz",
+      "description": "False negative voxels that overlap with true positives",
+      "id": "fn_vox_tp_overlap",
+      "name": "False Negative Voxels Overlap with True Positives"
+    },
+    {
+      "path-template": "{OUTPUT_DIR}/lesmask_idx.nii.gz",
+      "description": "Indexed lesion mask",
+      "id": "lesmask_idx",
+      "name": "Lesion Mask Index"
+    },
+    {
+      "path-template": "{OUTPUT_DIR}/manualmask_idx.nii.gz",
+      "description": "Indexed manual mask",
+      "id": "manualmask_idx",
+      "name": "Manual Mask Index"
+    },
+    {
+      "path-template": "{OUTPUT_DIR}/lesmask_idx_TP.nii.gz",
+      "description": "True positive indexed lesion mask",
+      "id": "lesmask_idx_tp",
+      "name": "Lesion Mask Index True Positive"
+    },
+    {
+      "path-template": "{OUTPUT_DIR}/manualmask_idx_TP.nii.gz",
+      "description": "True positive indexed manual mask",
+      "id": "manualmask_idx_tp",
+      "name": "Manual Mask Index True Positive"
+    }
+  ],
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

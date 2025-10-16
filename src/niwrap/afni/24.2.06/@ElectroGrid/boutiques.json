@@ -1,0 +1,75 @@
+{
+  "name": "@ElectroGrid",
+  "author": "AFNI Developers",
+  "description": "Creates a mesh representation of an electrode grid for use with SUMA",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "@ElectroGrid [STRIP] [GRID] [PREFIX] [COORDS] [WITH_MARKERS] [ECHO]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "-strip",
+      "description": "Make an Nx strip (array) of electrodes.",
+      "value-key": "[STRIP]",
+      "type": "Number",
+      "optional": true,
+      "id": "strip",
+      "name": "Strip Nx",
+      "integer": true
+    },
+    {
+      "command-line-flag": "-grid",
+      "description": "Make an Nx by Ny grid of electrodes. A node at (i,j) has a node ID = i+Nx*j with 0<=i<Nx and 0<=j<=Ny",
+      "value-key": "[GRID]",
+      "type": "Number",
+      "optional": true,
+      "id": "grid",
+      "name": "Grid Nx Ny",
+      "integer": true,
+      "list": true,
+      "min-list-entries": 2,
+      "max-list-entries": 2
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Use PREFIX for the output surface.",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Prefix"
+    },
+    {
+      "command-line-flag": "-coords",
+      "description": "Specify the coordinates of the nodes on the grid, or the array. XYZ.1D should have three columns, with each row specifying the coordinates of one node.",
+      "value-key": "[COORDS]",
+      "type": "File",
+      "optional": true,
+      "id": "coords",
+      "name": "Coordinates"
+    },
+    {
+      "command-line-flag": "-with_markers",
+      "description": "Add markers to the surface at each electrode.",
+      "value-key": "[WITH_MARKERS]",
+      "type": "Flag",
+      "id": "with_markers",
+      "name": "With markers"
+    },
+    {
+      "command-line-flag": "-echo",
+      "description": "Set echo.",
+      "value-key": "[ECHO]",
+      "type": "Flag",
+      "id": "echo",
+      "name": "Echo"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[PREFIX].gii",
+      "description": "Output surface file",
+      "id": "output_surface",
+      "name": "Output surface"
+    }
+  ]
+}

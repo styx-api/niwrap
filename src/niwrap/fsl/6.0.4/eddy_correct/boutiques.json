@@ -1,0 +1,55 @@
+{
+  "name": "eddy_correct",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Eddy current correction tool for FSL",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "eddy_correct [4D_INPUT] [4D_OUTPUT] [REFERENCE_NO][INTERP_METHOD]",
+  "inputs": [
+    {
+      "description": "Input 4D image file (e.g., dti.nii.gz)",
+      "value-key": "[4D_INPUT]",
+      "type": "File",
+      "optional": false,
+      "id": "4d_input",
+      "name": "4D Input file"
+    },
+    {
+      "description": "Output 4D image file (e.g., dti_corrected.nii.gz)",
+      "value-key": "[4D_OUTPUT]",
+      "type": "String",
+      "optional": false,
+      "id": "4d_output",
+      "name": "4D Output file"
+    },
+    {
+      "description": "Reference number",
+      "value-key": "[REFERENCE_NO]",
+      "type": "Number",
+      "integer": true,
+      "optional": false,
+      "id": "reference_no",
+      "name": "Reference number"
+    },
+    {
+      "description": "Interpolation method to use: 'trilinear' or 'spline'",
+      "value-key": "[INTERP_METHOD]",
+      "type": "String",
+      "optional": true,
+      "id": "interp_method",
+      "name": "Interpolation Method",
+      "value-choices": [
+        "trilinear",
+        "spline"
+      ]
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[4D_OUTPUT].nii.gz",
+      "description": "Corrected 4D output image file",
+      "id": "corrected_4d_output",
+      "name": "Corrected 4D output file"
+    }
+  ]
+}

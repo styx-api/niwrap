@@ -1,0 +1,139 @@
+{
+  "name": "cifti-change-mapping",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -cifti-change-mapping [DATA_CIFTI] [DIRECTION] [CIFTI_OUT] [SERIES] [SCALAR] [FROM_CIFTI]",
+  "description": "Convert to scalar, copy mapping, etc.\n\nTake an existing cifti file and change one of the mappings.  Exactly one of -series, -scalar, or -from-cifti must be specified.  The direction can be either an integer starting from 1, or the strings 'ROW' or 'COLUMN'.\n\nThe argument to -unit must be one of the following:\n\nSECOND\nHERTZ\nMETER\nRADIAN",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "data_cifti",
+      "name": "data_cifti",
+      "description": "the cifti file to use the data from",
+      "optional": false,
+      "value-key": "[DATA_CIFTI]",
+      "type": "File"
+    },
+    {
+      "id": "direction",
+      "name": "direction",
+      "description": "which direction on <data-cifti> to replace the mapping",
+      "optional": false,
+      "value-key": "[DIRECTION]",
+      "type": "String"
+    },
+    {
+      "id": "cifti_out",
+      "name": "cifti_out",
+      "type": "String",
+      "description": "the output cifti file",
+      "optional": false,
+      "value-key": "[CIFTI_OUT]"
+    },
+    {
+      "id": "series",
+      "name": "series",
+      "description": "set the mapping to series",
+      "type": {
+        "id": "series",
+        "name": "series",
+        "description": "set the mapping to series",
+        "command-line": "-series [STEP] [START] [OPT_UNIT_UNIT]",
+        "inputs": [
+          {
+            "id": "step",
+            "name": "step",
+            "description": "increment between series points",
+            "optional": false,
+            "value-key": "[STEP]",
+            "type": "Number",
+            "integer": false
+          },
+          {
+            "id": "start",
+            "name": "start",
+            "description": "start value of the series",
+            "optional": false,
+            "value-key": "[START]",
+            "type": "Number",
+            "integer": false
+          },
+          {
+            "id": "opt_unit_unit",
+            "name": "opt_unit_unit",
+            "command-line-flag": "-unit",
+            "description": "select unit for series (default SECOND): unit identifier",
+            "optional": true,
+            "value-key": "[OPT_UNIT_UNIT]",
+            "type": "String"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[SERIES]"
+    },
+    {
+      "id": "scalar",
+      "name": "scalar",
+      "description": "set the mapping to scalar",
+      "type": {
+        "id": "scalar",
+        "name": "scalar",
+        "description": "set the mapping to scalar",
+        "command-line": "-scalar [OPT_NAME_FILE_FILE]",
+        "inputs": [
+          {
+            "id": "opt_name_file_file",
+            "name": "opt_name_file_file",
+            "command-line-flag": "-name-file",
+            "description": "specify names for the maps: text file containing map names, one per line",
+            "optional": true,
+            "value-key": "[OPT_NAME_FILE_FILE]",
+            "type": "String"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[SCALAR]"
+    },
+    {
+      "id": "from_cifti",
+      "name": "from_cifti",
+      "description": "copy mapping from another cifti file",
+      "type": {
+        "id": "from_cifti",
+        "name": "from_cifti",
+        "description": "copy mapping from another cifti file",
+        "command-line": "-from-cifti [TEMPLATE_CIFTI] [DIRECTION]",
+        "inputs": [
+          {
+            "id": "template_cifti",
+            "name": "template_cifti",
+            "description": "a cifti file containing the desired mapping",
+            "optional": false,
+            "value-key": "[TEMPLATE_CIFTI]",
+            "type": "File"
+          },
+          {
+            "id": "direction",
+            "name": "direction",
+            "description": "which direction to copy the mapping from",
+            "optional": false,
+            "value-key": "[DIRECTION]",
+            "type": "String"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[FROM_CIFTI]"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "cifti_out",
+      "name": "cifti_out",
+      "path-template": "[CIFTI_OUT]",
+      "description": "the output cifti file"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

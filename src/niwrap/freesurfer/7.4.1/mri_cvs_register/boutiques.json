@@ -1,0 +1,266 @@
+{
+  "name": "mri_cvs_register",
+  "author": "FreeSurfer Developers",
+  "description": "Combined Volume and Surface Registration",
+  "command-line": "mri_cvs_register [MOV_SUBJID] [TEMPLATE_SUBJID] [TEMPLATEDIR] [MNI_FLAG] [OUTDIR] [ASEGFNAME] [VOLTYPE] [STEP1_FLAG] [STEP2_FLAG] [STEP3_FLAG] [NOASEG_FLAG] [NOINTENSITY_FLAG] [HEMI_FLAG] [MASKTARGETHEMI_FLAG] [MASKMOVINGHEMI_FLAG] [NOCLEANUP_FLAG] [KEEPELREG_FLAG] [KEEPALLM3Z_FLAG] [CLEANALL_FLAG] [CLEANSURFREG_FLAG] [CLEANELREG_FLAG] [CLEANVOLREG_FLAG] [M3D_FLAG] [OPENMP] [NOLOG_FLAG] [VERSION_FLAG] [HELP_FLAG]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--mov",
+      "description": "FreeSurfer subject name as found in $SUBJECTS_DIR. This identifies the subject that is to be moved / registered to the target.",
+      "value-key": "[MOV_SUBJID]",
+      "type": "String",
+      "optional": false,
+      "id": "mov_subjid",
+      "name": "Moving subject"
+    },
+    {
+      "command-line-flag": "--template",
+      "description": "FreeSurfer subject name as found in $SUBJECTS_DIR (or --templatedir). This identifies the subject that is to be kept fixed (template).",
+      "value-key": "[TEMPLATE_SUBJID]",
+      "type": "String",
+      "optional": true,
+      "id": "template_subjid",
+      "name": "Template subject"
+    },
+    {
+      "command-line-flag": "--templatedir",
+      "description": "Directory of the template subject's SUBJECTS_DIR if different from that of the moving subject.",
+      "value-key": "[TEMPLATEDIR]",
+      "type": "String",
+      "optional": true,
+      "id": "templatedir",
+      "name": "Template directory"
+    },
+    {
+      "command-line-flag": "--mni",
+      "description": "Use the CVS atlas in MNI152 space as a target for registration.",
+      "value-key": "[MNI_FLAG]",
+      "type": "Flag",
+      "id": "mni_flag",
+      "name": "MNI flag"
+    },
+    {
+      "command-line-flag": "--outdir",
+      "description": "Name of the output directory where all the registration results are written.",
+      "value-key": "[OUTDIR]",
+      "type": "String",
+      "optional": true,
+      "id": "outdir",
+      "name": "Output directory"
+    },
+    {
+      "command-line-flag": "--asegfname",
+      "description": "Name of the segmentation volume used in volumetric registration step. Do not use the file extension.",
+      "value-key": "[ASEGFNAME]",
+      "type": "String",
+      "optional": true,
+      "id": "asegfname",
+      "name": "Segmentation volume name"
+    },
+    {
+      "command-line-flag": "--voltype",
+      "description": "Changes the input from norm.mgz to voltype.mgz.",
+      "value-key": "[VOLTYPE]",
+      "type": "String",
+      "optional": true,
+      "id": "voltype",
+      "name": "Volume type"
+    },
+    {
+      "command-line-flag": "--step1",
+      "description": "Only do step 1 (spherical registration).",
+      "value-key": "[STEP1_FLAG]",
+      "type": "Flag",
+      "id": "step1_flag",
+      "name": "Step 1 flag"
+    },
+    {
+      "command-line-flag": "--step2",
+      "description": "Only do step 2 (elastic registration).",
+      "value-key": "[STEP2_FLAG]",
+      "type": "Flag",
+      "id": "step2_flag",
+      "name": "Step 2 flag"
+    },
+    {
+      "command-line-flag": "--step3",
+      "description": "Only do step 3 (volumetric registration).",
+      "value-key": "[STEP3_FLAG]",
+      "type": "Flag",
+      "id": "step3_flag",
+      "name": "Step 3 flag"
+    },
+    {
+      "command-line-flag": "--noaseg",
+      "description": "Do not use aseg volumes in the volumetric registration pipeline.",
+      "value-key": "[NOASEG_FLAG]",
+      "type": "Flag",
+      "id": "noaseg_flag",
+      "name": "No aseg flag"
+    },
+    {
+      "command-line-flag": "--nointensity",
+      "description": "Do not use intensity volumes in the volumetric registration pipeline.",
+      "value-key": "[NOINTENSITY_FLAG]",
+      "type": "Flag",
+      "id": "nointensity_flag",
+      "name": "No intensity flag"
+    },
+    {
+      "command-line-flag": "--hemi",
+      "description": "Run CVS registration only on one hemisphere.",
+      "value-key": "[HEMI_FLAG]",
+      "type": "Flag",
+      "id": "hemi_flag",
+      "name": "Hemisphere flag"
+    },
+    {
+      "command-line-flag": "--masktargethemi",
+      "description": "Use with --hemi when hemi is registered to full brain target.",
+      "value-key": "[MASKTARGETHEMI_FLAG]",
+      "type": "Flag",
+      "id": "masktargethemi_flag",
+      "name": "Mask target hemisphere flag"
+    },
+    {
+      "command-line-flag": "--maskmovinghemi",
+      "description": "Use with --hemi when full brain is registered to single hemi target.",
+      "value-key": "[MASKMOVINGHEMI_FLAG]",
+      "type": "Flag",
+      "id": "maskmovinghemi_flag",
+      "name": "Mask moving hemisphere flag"
+    },
+    {
+      "command-line-flag": "--nocleanup",
+      "description": "Do not delete temporary files.",
+      "value-key": "[NOCLEANUP_FLAG]",
+      "type": "Flag",
+      "id": "nocleanup_flag",
+      "name": "No cleanup flag"
+    },
+    {
+      "command-line-flag": "--keepelreg",
+      "description": "Do not delete elastic registration outcomes.",
+      "value-key": "[KEEPELREG_FLAG]",
+      "type": "Flag",
+      "id": "keepelreg_flag",
+      "name": "Keep elastic registration flag"
+    },
+    {
+      "command-line-flag": "--keepallm3z",
+      "description": "Do not delete m3z morph files computed during CVS.",
+      "value-key": "[KEEPALLM3Z_FLAG]",
+      "type": "Flag",
+      "id": "keepallm3z_flag",
+      "name": "Keep all m3z flag"
+    },
+    {
+      "command-line-flag": "--cleanall",
+      "description": "Overwrite / recompute all CVS-related morphs.",
+      "value-key": "[CLEANALL_FLAG]",
+      "type": "Flag",
+      "id": "cleanall_flag",
+      "name": "Clean all flag"
+    },
+    {
+      "command-line-flag": "--cleansurfreg",
+      "description": "Overwrite/recompute CVS-related surface registration morphs.",
+      "value-key": "[CLEANSURFREG_FLAG]",
+      "type": "Flag",
+      "id": "cleansurfreg_flag",
+      "name": "Clean surface registration flag"
+    },
+    {
+      "command-line-flag": "--cleanelreg",
+      "description": "Overwrite / recompute CVS-related elastic registration morph.",
+      "value-key": "[CLEANELREG_FLAG]",
+      "type": "Flag",
+      "id": "cleanelreg_flag",
+      "name": "Clean elastic registration flag"
+    },
+    {
+      "command-line-flag": "--cleanvolreg",
+      "description": "Overwrite / recompute CVS-related volumetric morphs.",
+      "value-key": "[CLEANVOLREG_FLAG]",
+      "type": "Flag",
+      "id": "cleanvolreg_flag",
+      "name": "Clean volumetric registration flag"
+    },
+    {
+      "command-line-flag": "--m3d",
+      "description": "Use m3d instead of m3z for registration morphs.",
+      "value-key": "[M3D_FLAG]",
+      "type": "Flag",
+      "id": "m3d_flag",
+      "name": "Use m3d flag"
+    },
+    {
+      "command-line-flag": "--openmp",
+      "description": "Assign the number of nodes for openmp runs.",
+      "value-key": "[OPENMP]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "openmp",
+      "name": "OpenMP Nodes"
+    },
+    {
+      "command-line-flag": "--nolog",
+      "description": "Do not produce a log file.",
+      "value-key": "[NOLOG_FLAG]",
+      "type": "Flag",
+      "id": "nolog_flag",
+      "name": "No log flag"
+    },
+    {
+      "command-line-flag": "--version",
+      "description": "Print version and exit.",
+      "value-key": "[VERSION_FLAG]",
+      "type": "Flag",
+      "id": "version_flag",
+      "name": "Version flag"
+    },
+    {
+      "command-line-flag": "--help",
+      "description": "Print help and exit.",
+      "value-key": "[HELP_FLAG]",
+      "type": "Flag",
+      "id": "help_flag",
+      "name": "Help flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTDIR]/final_CVSmorph_toTEMPLATE.m3z",
+      "description": "The final morph that combines correspondences recovered in all registration steps.",
+      "id": "final_cvs_morph",
+      "name": "Final CVS morph"
+    },
+    {
+      "path-template": "[OUTDIR]/final_CVSmorphed_toTEMPLATE_norm.mgz",
+      "description": "The CVS morphed norm.mgz file; final result of CVS with all registration steps contributions.",
+      "id": "final_cvs_morphed_norm",
+      "name": "Final CVS morphed norm"
+    },
+    {
+      "path-template": "[OUTDIR]/final_CVSmorphed_toTEMPLATE_aseg.mgz",
+      "description": "The CVS morphed aseg.mgz file with all registration steps contributions.",
+      "id": "final_cvs_morphed_aseg",
+      "name": "Final CVS morphed aseg"
+    },
+    {
+      "path-template": "[OUTDIR]/step1_CVSmorphed_toTEMPLATE_aseg.mgz",
+      "description": "Morphed aseg.mgz file result of CVS up to step (3)(i) and contains elatic morph and aseg-based nonlinear registration.",
+      "id": "step1_morphed_aseg",
+      "name": "Step 1 morphed aseg"
+    },
+    {
+      "path-template": "[OUTDIR]/step1_CVSmorphed_toTEMPLATE_norm.mgz",
+      "description": "Morphed norm.mgz file result of CVS up to step (3)(i) and contains elatic morph and aseg-based nonlinear registration.",
+      "id": "step1_morphed_norm",
+      "name": "Step 1 morphed norm"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

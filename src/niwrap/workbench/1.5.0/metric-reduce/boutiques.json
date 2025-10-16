@@ -1,0 +1,83 @@
+{
+  "name": "metric-reduce",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -metric-reduce [METRIC_IN] [OPERATION] [METRIC_OUT] [EXCLUDE_OUTLIERS] [OPT_ONLY_NUMERIC]",
+  "description": "Perform reduction operation across metric columns.\n\nFor each surface vertex, takes the data across columns as a vector, and performs the specified reduction on it, putting the result into the single output column at that vertex.  The reduction operators are as follows:\n\nMAX: the maximum value\nMIN: the minimum value\nINDEXMAX: the 1-based index of the maximum value\nINDEXMIN: the 1-based index of the minimum value\nSUM: add all values\nPRODUCT: multiply all values\nMEAN: the mean of the data\nSTDEV: the standard deviation (N denominator)\nSAMPSTDEV: the sample standard deviation (N-1 denominator)\nVARIANCE: the variance of the data\nTSNR: mean divided by sample standard deviation (N-1 denominator)\nCOV: sample standard deviation (N-1 denominator) divided by mean\nL2NORM: square root of sum of squares\nMEDIAN: the median of the data\nMODE: the mode of the data\nCOUNT_NONZERO: the number of nonzero elements in the data\n",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "metric_in",
+      "name": "metric_in",
+      "description": "the metric to reduce",
+      "optional": false,
+      "value-key": "[METRIC_IN]",
+      "type": "File"
+    },
+    {
+      "id": "operation",
+      "name": "operation",
+      "description": "the reduction operator to use",
+      "optional": false,
+      "value-key": "[OPERATION]",
+      "type": "String"
+    },
+    {
+      "id": "metric_out",
+      "name": "metric_out",
+      "type": "String",
+      "description": "the output metric",
+      "optional": false,
+      "value-key": "[METRIC_OUT]"
+    },
+    {
+      "id": "exclude_outliers",
+      "name": "exclude_outliers",
+      "description": "exclude non-numeric values and outliers by standard deviation",
+      "type": {
+        "id": "exclude_outliers",
+        "name": "exclude_outliers",
+        "description": "exclude non-numeric values and outliers by standard deviation",
+        "command-line": "-exclude-outliers [SIGMA_BELOW] [SIGMA_ABOVE]",
+        "inputs": [
+          {
+            "id": "sigma_below",
+            "name": "sigma_below",
+            "description": "number of standard deviations below the mean to include",
+            "optional": false,
+            "value-key": "[SIGMA_BELOW]",
+            "type": "Number",
+            "integer": false
+          },
+          {
+            "id": "sigma_above",
+            "name": "sigma_above",
+            "description": "number of standard deviations above the mean to include",
+            "optional": false,
+            "value-key": "[SIGMA_ABOVE]",
+            "type": "Number",
+            "integer": false
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[EXCLUDE_OUTLIERS]"
+    },
+    {
+      "id": "opt_only_numeric",
+      "name": "opt_only_numeric",
+      "command-line-flag": "-only-numeric",
+      "description": "exclude non-numeric values",
+      "type": "Flag",
+      "value-key": "[OPT_ONLY_NUMERIC]"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "metric_out",
+      "name": "metric_out",
+      "path-template": "[METRIC_OUT]",
+      "description": "the output metric"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

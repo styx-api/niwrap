@@ -1,0 +1,92 @@
+{
+  "name": "@ExamineGenFeatDists",
+  "author": "AFNI Developers",
+  "description": "Examine histograms produced by 3dGenFeatDists",
+  "command-line": "@ExamineGenFeatDists [FEATURES_DIR] [WILDCARDS] [OUTPUT_SUFFIX] [EXCLUDE_FEATURES] [EXCLUDE_CLASSES] [OUTPUT_DIR] [PANELS_HORIZONTAL] [ECHO] [HELP]",
+  "inputs": [
+    {
+      "command-line-flag": "-fdir",
+      "description": "Output directory of 3dGenFeatDists",
+      "value-key": "[FEATURES_DIR]",
+      "type": "String",
+      "optional": false,
+      "id": "features_dir",
+      "name": "Features Directory"
+    },
+    {
+      "command-line-flag": "-fwild",
+      "description": "Wildcards used to select feature histograms under the directory.",
+      "value-key": "[WILDCARDS]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "wildcards",
+      "name": "Feature Histograms Wildcards"
+    },
+    {
+      "command-line-flag": "-suffix",
+      "description": "Output suffix, added to output images. Default is 'nosuff'.",
+      "value-key": "[OUTPUT_SUFFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "output_suffix",
+      "name": "Output Suffix"
+    },
+    {
+      "command-line-flag": "-exfeat",
+      "description": "Exclude following features. String matching is partial.",
+      "value-key": "[EXCLUDE_FEATURES]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "exclude_features",
+      "name": "Exclude Features"
+    },
+    {
+      "command-line-flag": "-exclass",
+      "description": "Exclude following classes. String matching is partial.",
+      "value-key": "[EXCLUDE_CLASSES]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "exclude_classes",
+      "name": "Exclude Classes"
+    },
+    {
+      "command-line-flag": "-odir",
+      "description": "Output directory, default is the same as -fdir.",
+      "value-key": "[OUTPUT_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "output_dir",
+      "name": "Output Directory"
+    },
+    {
+      "command-line-flag": "-nx",
+      "description": "Set number of panels along the horizontal direction.",
+      "value-key": "[PANELS_HORIZONTAL]",
+      "type": "Number",
+      "optional": true,
+      "id": "panels_horizontal",
+      "name": "Panels Horizontal"
+    },
+    {
+      "command-line-flag": "-echo",
+      "description": "Set echo.",
+      "value-key": "[ECHO]",
+      "type": "Flag",
+      "id": "echo",
+      "name": "Enable Echo"
+    },
+    {
+      "command-line-flag": "-help",
+      "description": "Display help message.",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Display Help"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

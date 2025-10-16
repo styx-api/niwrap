@@ -1,0 +1,26 @@
+{
+  "name": "@2dwarper",
+  "author": "AFNI Developers",
+  "description": "2D image warping tool",
+  "command-line": "@2dwarper [INPUT_DATASET]",
+  "inputs": [
+    {
+      "description": "Input dataset (e.g., image to be warped)",
+      "value-key": "[INPUT_DATASET]",
+      "type": "File",
+      "optional": false,
+      "id": "input_dataset",
+      "name": "Input dataset"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "warped_output",
+      "description": "Warped output image from the dataset",
+      "id": "output_file",
+      "name": "Warped output file"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

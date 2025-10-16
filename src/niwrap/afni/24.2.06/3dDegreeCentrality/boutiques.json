@@ -1,0 +1,94 @@
+{
+  "name": "3dDegreeCentrality",
+  "command-line": "3dDegreeCentrality [AUTOCLIP] [AUTOMASK] [IN_FILE] [MASK] [ONED_FILE] [POLORT] [SPARSITY] [THRESH]",
+  "author": "AFNI Developers",
+  "description": "Computes voxelwise weighted and binary degree centrality and stores the result in a new 3D bucket dataset as floats to preserve their values. Degree centrality reflects the strength and extent of the correlation of a voxel with every other voxel in the brain. ",
+  "url": "https://afni.nimh.nih.gov/",
+  "inputs": [
+    {
+      "id": "autoclip",
+      "name": "Autoclip",
+      "type": "Flag",
+      "value-key": "[AUTOCLIP]",
+      "command-line-flag": "-autoclip",
+      "description": "Clip off low-intensity regions in the dataset."
+    },
+    {
+      "id": "automask",
+      "name": "Automask",
+      "type": "Flag",
+      "value-key": "[AUTOMASK]",
+      "command-line-flag": "-automask",
+      "description": "Mask the dataset to target brain-only voxels."
+    },
+    {
+      "id": "in_file",
+      "name": "In file",
+      "type": "File",
+      "value-key": "[IN_FILE]",
+      "description": "Input file to 3ddegreecentrality.",
+      "optional": false
+    },
+    {
+      "id": "mask",
+      "name": "Mask",
+      "type": "File",
+      "value-key": "[MASK]",
+      "command-line-flag": "-mask",
+      "description": "Mask file to mask input data.",
+      "optional": true
+    },
+    {
+      "id": "oned_file",
+      "name": "Oned file",
+      "type": "String",
+      "value-key": "[ONED_FILE]",
+      "command-line-flag": "-out1D",
+      "description": "Output filepath to text dump of correlation matrix.",
+      "optional": true
+    },
+    {
+      "id": "polort",
+      "name": "Polort",
+      "type": "Number",
+      "integer": true,
+      "value-key": "[POLORT]",
+      "command-line-flag": "-polort",
+      "description": "No description provided.",
+      "optional": true
+    },
+    {
+      "id": "sparsity",
+      "name": "Sparsity",
+      "type": "Number",
+      "value-key": "[SPARSITY]",
+      "command-line-flag": "-sparsity",
+      "description": "Only take the top percent of connections.",
+      "optional": true
+    },
+    {
+      "id": "thresh",
+      "name": "Thresh",
+      "type": "Number",
+      "value-key": "[THRESH]",
+      "command-line-flag": "-thresh",
+      "description": "Threshold to exclude connections where corr <= thresh.",
+      "optional": true
+    }
+  ],
+  "output-files": [
+    {
+      "name": "Out file",
+      "id": "out_file",
+      "description": "Output image file name.",
+      "path-template": "[IN_FILE]"
+    },
+    {
+      "name": "Oned file",
+      "id": "oned_file_outfile",
+      "path-template": "[ONED_FILE]",
+      "description": "The text output of the similarity matrix computed after thresholding with one-dimensional and ijk voxel indices, correlations, image extents, and affine matrix."
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

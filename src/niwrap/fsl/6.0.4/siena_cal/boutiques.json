@@ -1,0 +1,51 @@
+{
+  "name": "siena_cal",
+  "description": "SIENA is part of FSL (FMRIB Software Library), which performs a two-timepoint brain volume change analysis.",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "siena_cal [INPUT1_FILE] [INPUT2_FILE] [SCALE] [SIENA_DIFF_OPTIONS]",
+  "inputs": [
+    {
+      "description": "First input image file root (e.g., baseline image root).",
+      "value-key": "[INPUT1_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input1_file",
+      "name": "Input 1 File Root"
+    },
+    {
+      "description": "Second input image file root (e.g., follow-up image root).",
+      "value-key": "[INPUT2_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input2_file",
+      "name": "Input 2 File Root"
+    },
+    {
+      "description": "Voxel size scaling factor.",
+      "value-key": "[SCALE]",
+      "type": "Number",
+      "integer": false,
+      "optional": false,
+      "id": "scale",
+      "name": "Scale"
+    },
+    {
+      "description": "Optional SIENA difference options.",
+      "value-key": "[SIENA_DIFF_OPTIONS]",
+      "type": "String",
+      "optional": true,
+      "id": "siena_diff_options",
+      "name": "SIENA Difference Options"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[INPUT1_FILE]_to_[INPUT2_FILE]_siena",
+      "description": "Output directory containing SIENA results",
+      "id": "output_dir",
+      "name": "Output Directory"
+    }
+  ],
+  "author": "FMRIB Analysis Group, University of Oxford"
+}

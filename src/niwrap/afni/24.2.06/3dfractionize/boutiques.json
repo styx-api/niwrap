@@ -1,0 +1,79 @@
+{
+  "name": "3dfractionize",
+  "author": "AFNI Developers",
+  "description": "For each voxel in the output dataset, computes the fraction of it that is occupied by nonzero voxels from the input.",
+  "command-line": "3dfractionize [TEMPLATE] [INPUT] [PREFIX] [CLIP] [WARP] [PRESERVE] [VOTE]",
+  "inputs": [
+    {
+      "command-line-flag": "-template",
+      "description": "Use dataset as a template for the output. The output dataset will be on the same grid as this dataset.",
+      "value-key": "[TEMPLATE]",
+      "type": "File",
+      "optional": false,
+      "id": "template",
+      "name": "Template Dataset"
+    },
+    {
+      "command-line-flag": "-input",
+      "description": "Use dataset for the input. Only the sub-brick #0 of the input is used.",
+      "value-key": "[INPUT]",
+      "type": "File",
+      "optional": false,
+      "id": "input",
+      "name": "Input Dataset"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Prefix for the output dataset.",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Output Prefix"
+    },
+    {
+      "command-line-flag": "-clip",
+      "description": "Clip off voxels that are less than the specified occupancy fraction.",
+      "value-key": "[CLIP]",
+      "type": "Number",
+      "optional": true,
+      "id": "clip",
+      "name": "Clip Fraction"
+    },
+    {
+      "command-line-flag": "-warp",
+      "description": "Dataset that provides a transformation (warp) from +orig coordinates to the coordinates of the input dataset.",
+      "value-key": "[WARP]",
+      "type": "File",
+      "optional": true,
+      "id": "warp",
+      "name": "Warp Dataset"
+    },
+    {
+      "command-line-flag": "-preserve",
+      "description": "Preserve the nonzero values of input voxels in the output dataset rather than creating a fractional mask.",
+      "value-key": "[PRESERVE]",
+      "type": "Flag",
+      "id": "preserve",
+      "name": "Preserve Nonzero Values Flag"
+    },
+    {
+      "command-line-flag": "-vote",
+      "description": "Vote for which input value to preserve when using the preserve flag.",
+      "value-key": "[VOTE]",
+      "type": "Flag",
+      "id": "vote",
+      "name": "Vote for Preservation Flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX]",
+      "description": "Output dataset with the specified prefix.",
+      "id": "output",
+      "name": "Output Dataset"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

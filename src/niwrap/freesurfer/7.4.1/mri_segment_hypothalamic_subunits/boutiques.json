@@ -1,0 +1,135 @@
+{
+  "name": "mri_segment_hypothalamic_subunits",
+  "description": "This module segments hypothalamic subunits and can be run in two modes: on FreeSurfer subjects or on any T1-weighted scan(s) of approximately 1mm resolution.",
+  "command-line": "mri_segment_hypothalamic_subunits [SUBJECTS] [SUBJECTS_DIR] [WRITE_POSTERIORS] [IMAGE_INPUT] [OUTPUT] [POSTERIORS] [RESAMPLE] [VOLUME_OUTPUT] [CROP_SIZE] [THREADS] [CPU]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--s",
+      "description": "(required in FS mode) Name of one or several subjects in $SUBJECTS_DIR on which to run the module, assuming recon-all has been run on the specified subjects.",
+      "value-key": "[SUBJECTS]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "subjects",
+      "name": "Subjects"
+    },
+    {
+      "command-line-flag": "--sd",
+      "description": "(FS mode, optional) Override current $SUBJECTS_DIR.",
+      "value-key": "[SUBJECTS_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "subjects_dir",
+      "name": "Subjects Directory"
+    },
+    {
+      "command-line-flag": "--write_posteriors",
+      "description": "(FS mode, optional) Save posteriors; default is False.",
+      "value-key": "[WRITE_POSTERIORS]",
+      "type": "Flag",
+      "id": "write_posteriors",
+      "name": "Write Posteriors Flag"
+    },
+    {
+      "command-line-flag": "--i",
+      "description": "(required in T1 mode) Image(s) to segment. Can be a path to a single image or to a folder.",
+      "value-key": "[IMAGE_INPUT]",
+      "type": "String",
+      "optional": true,
+      "id": "image_input",
+      "name": "Image Input"
+    },
+    {
+      "command-line-flag": "--o",
+      "description": "(required in T1 mode) Segmentation output(s). Must be a folder if --i designates a folder.",
+      "value-key": "[OUTPUT]",
+      "type": "String",
+      "optional": true,
+      "id": "output",
+      "name": "Output"
+    },
+    {
+      "command-line-flag": "--post",
+      "description": "(T1 mode, optional) Posteriors output(s). Must be a folder if --i designates a folder.",
+      "value-key": "[POSTERIORS]",
+      "type": "String",
+      "optional": true,
+      "id": "posteriors",
+      "name": "Posteriors"
+    },
+    {
+      "command-line-flag": "--resample",
+      "description": "(T1 mode, optional) Resampled image(s). Must be a folder if --i designates a folder.",
+      "value-key": "[RESAMPLE]",
+      "type": "String",
+      "optional": true,
+      "id": "resample",
+      "name": "Resample"
+    },
+    {
+      "command-line-flag": "--vol",
+      "description": "(T1 mode, optional) Output CSV file with volumes for all structures and subjects.",
+      "value-key": "[VOLUME_OUTPUT]",
+      "type": "String",
+      "optional": true,
+      "id": "volume_output",
+      "name": "Volume Output"
+    },
+    {
+      "command-line-flag": "--crop",
+      "description": "(both modes, optional) Size of the central patch to analyse (must be divisible by 8). The whole image is analysed by default.",
+      "value-key": "[CROP_SIZE]",
+      "type": "Number",
+      "list": true,
+      "optional": true,
+      "id": "crop_size",
+      "name": "Crop Size"
+    },
+    {
+      "command-line-flag": "--threads",
+      "description": "(both modes, optional) Number of cores to be used. Default uses 1 core.",
+      "value-key": "[THREADS]",
+      "type": "Number",
+      "optional": true,
+      "id": "threads",
+      "name": "Threads"
+    },
+    {
+      "command-line-flag": "--cpu",
+      "description": "(both modes, optional) Enforce running with CPU rather than GPU.",
+      "value-key": "[CPU]",
+      "type": "Flag",
+      "id": "cpu",
+      "name": "CPU Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT]",
+      "description": "Segmentation output(s) in T1 mode.",
+      "id": "segmentation_output_files",
+      "name": "Segmentation Output Files"
+    },
+    {
+      "path-template": "[POSTERIORS]",
+      "description": "Posteriors output(s).",
+      "id": "posteriors_output",
+      "name": "Posteriors Output"
+    },
+    {
+      "path-template": "[RESAMPLE]",
+      "description": "Resampled image(s) output.",
+      "id": "resampled_output",
+      "name": "Resampled Output"
+    },
+    {
+      "path-template": "[VOLUME_OUTPUT]",
+      "description": "CSV file with volumes for all structures and subjects.",
+      "id": "volume_output_csv",
+      "name": "Volume Output CSV"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

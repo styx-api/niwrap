@@ -1,0 +1,34 @@
+{
+  "name": "fslvbm_1_bet",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Brain extraction for VBM using FSL BET",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "fslvbm_1_bet [DEFAULT_BET] [INCREASED_ROBUSTNESS] [BET_PARAMETERS]",
+  "inputs": [
+    {
+      "command-line-flag": "-b",
+      "description": "Default BET brain extraction with -f 0.4",
+      "value-key": "[DEFAULT_BET]",
+      "type": "Flag",
+      "id": "default_bet",
+      "name": "Default BET brain extraction"
+    },
+    {
+      "command-line-flag": "-N",
+      "description": "Increased robustness in the brain extraction when a lot of neck is present",
+      "value-key": "[INCREASED_ROBUSTNESS]",
+      "type": "Flag",
+      "id": "increased_robustness",
+      "name": "Increased robustness for neck presence"
+    },
+    {
+      "description": "Additional options to be passed on to BET",
+      "value-key": "[BET_PARAMETERS]",
+      "type": "String",
+      "optional": true,
+      "id": "bet_parameters",
+      "name": "BET parameters"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

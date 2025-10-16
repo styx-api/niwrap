@@ -1,0 +1,60 @@
+{
+  "name": "print_unique_labels.csh",
+  "description": "Prints the list of unique labels (with structure name) in the input volume.",
+  "command-line": "print_unique_labels.csh [LABEL_VOLUME] [OUTPUT_FILE] [LIST_ONLY] [VERSION] [HELP]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "label_volume",
+      "name": "Label Volume",
+      "type": "File",
+      "optional": false,
+      "value-key": "[LABEL_VOLUME]",
+      "description": "Label volume to be analyzed",
+      "command-line-flag": "--vol"
+    },
+    {
+      "id": "output_file",
+      "name": "Output File",
+      "type": "String",
+      "optional": true,
+      "value-key": "[OUTPUT_FILE]",
+      "description": "Text file where the results are written",
+      "command-line-flag": "--out"
+    },
+    {
+      "id": "list_only",
+      "name": "List Only",
+      "type": "Flag",
+      "value-key": "[LIST_ONLY]",
+      "description": "Only list the labels",
+      "command-line-flag": "--list"
+    },
+    {
+      "id": "version",
+      "name": "Print Version",
+      "type": "Flag",
+      "value-key": "[VERSION]",
+      "description": "Print version and exit",
+      "command-line-flag": "--version"
+    },
+    {
+      "id": "help",
+      "name": "Print Help",
+      "type": "Flag",
+      "value-key": "[HELP]",
+      "description": "Print help and exit",
+      "command-line-flag": "--help"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "results_file",
+      "name": "Results File",
+      "path-template": "[OUTPUT_FILE]",
+      "description": "Output file with the list of unique labels"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

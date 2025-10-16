@@ -1,0 +1,252 @@
+{
+  "name": "mri_compute_volume_fractions",
+  "author": "FreeSurfer Developers",
+  "description": "Computes partial volume fractions for cortex, subcortical GM, WM and CSF",
+  "command-line": "mri_compute_volume_fractions [OUTPUT_STEM] [REGISTRATION_FILE] [REGHEADER] [USF] [RESOLUTION] [RESMM] [SEGMENTATION_FILE] [WSURF] [PSURF] [NO_ASEG] [STACKFILE] [GMFILE] [NO_FILL_CSF] [DILATION] [OUT_SEG] [TTSEG] [TTSEG_CTAB] [MGZ_FORMAT] [MGH_FORMAT] [NII_FORMAT] [NII_GZ_FORMAT] [TTYPE_HEAD] [VG_THRESH] [DEBUG] [CHECKOPTS]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--o",
+      "description": "Output stem for generated files (e.g. cortex, subcort_gm, wm, csf). Files will be saved with this stem in different formats based on the selected flags.",
+      "value-key": "[OUTPUT_STEM]",
+      "type": "String",
+      "optional": false,
+      "id": "output_stem",
+      "name": "Output Stem"
+    },
+    {
+      "command-line-flag": "--reg",
+      "description": "Registration file (can be LTA or reg.dat). If using reg.dat, a template volume is needed.",
+      "value-key": "[REGISTRATION_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "registration_file",
+      "name": "Registration File"
+    },
+    {
+      "command-line-flag": "--regheader",
+      "description": "Specify the subject for regheader.",
+      "value-key": "[REGHEADER]",
+      "type": "String",
+      "optional": true,
+      "id": "regheader",
+      "name": "Registration Header Subject"
+    },
+    {
+      "command-line-flag": "--usf",
+      "description": "Set anatomical upsample factor (default is 2).",
+      "value-key": "[USF]",
+      "type": "Number",
+      "optional": true,
+      "id": "usf",
+      "name": "Anatomical Upsample Factor"
+    },
+    {
+      "command-line-flag": "--r",
+      "description": "Resolution setting. Sets USF to round(1/res).",
+      "value-key": "[RESOLUTION]",
+      "type": "Number",
+      "optional": true,
+      "id": "resolution",
+      "name": "Resolution"
+    },
+    {
+      "command-line-flag": "--resmm",
+      "description": "Set functional upsampling resolution (default is aseg->xsize/(USF)).",
+      "value-key": "[RESMM]",
+      "type": "Number",
+      "optional": true,
+      "id": "resmm",
+      "name": "Functional Upsampling Resolution"
+    },
+    {
+      "command-line-flag": "--seg",
+      "description": "Use specified segmentation file instead of aseg.mgz.",
+      "value-key": "[SEGMENTATION_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "segmentation_file",
+      "name": "Segmentation File"
+    },
+    {
+      "command-line-flag": "--wsurf",
+      "description": "Specify the white surface (default is 'white').",
+      "value-key": "[WSURF]",
+      "type": "String",
+      "optional": true,
+      "id": "wsurf",
+      "name": "White Surface"
+    },
+    {
+      "command-line-flag": "--psurf",
+      "description": "Specify the pial surface (default is 'pial').",
+      "value-key": "[PSURF]",
+      "type": "String",
+      "optional": true,
+      "id": "psurf",
+      "name": "Pial Surface"
+    },
+    {
+      "command-line-flag": "--no-aseg",
+      "description": "Do not include aseg in processing (useful for testing).",
+      "value-key": "[NO_ASEG]",
+      "type": "Flag",
+      "id": "no_aseg",
+      "name": "No Aseg Flag"
+    },
+    {
+      "command-line-flag": "--stack",
+      "description": "Put cortex, subcortical GM, WM, CSF into a single multi-frame file.",
+      "value-key": "[STACKFILE]",
+      "type": "String",
+      "optional": true,
+      "id": "stackfile",
+      "name": "Stack File"
+    },
+    {
+      "command-line-flag": "--gm",
+      "description": "Put cortex + subcortical GM into a single-frame file.",
+      "value-key": "[GMFILE]",
+      "type": "String",
+      "optional": true,
+      "id": "gmfile",
+      "name": "GM File"
+    },
+    {
+      "command-line-flag": "--no-fill-csf",
+      "description": "Do not attempt to fill voxels surrounding segmentation with extracerebral CSF segmentation.",
+      "value-key": "[NO_FILL_CSF]",
+      "type": "Flag",
+      "id": "no_fill_csf",
+      "name": "No Fill CSF Flag"
+    },
+    {
+      "command-line-flag": "--dil",
+      "description": "For xCSF fill, dilate by specified number (default is 3). Use -1 to fill the entire volume.",
+      "value-key": "[DILATION]",
+      "type": "Number",
+      "optional": true,
+      "id": "dilation",
+      "name": "Dilation"
+    },
+    {
+      "command-line-flag": "--out-seg",
+      "description": "Save segmentation (after adding xCSF voxels).",
+      "value-key": "[OUT_SEG]",
+      "type": "String",
+      "optional": true,
+      "id": "out_seg",
+      "name": "Output Seg File"
+    },
+    {
+      "command-line-flag": "--ttseg",
+      "description": "Save tissue type segmentation.",
+      "value-key": "[TTSEG]",
+      "type": "String",
+      "optional": true,
+      "id": "ttseg",
+      "name": "Tissue Type Segmentation"
+    },
+    {
+      "command-line-flag": "--ttseg-ctab",
+      "description": "Save tissue type segmentation color table.",
+      "value-key": "[TTSEG_CTAB]",
+      "type": "String",
+      "optional": true,
+      "id": "ttseg_ctab",
+      "name": "Tissue Type Segmentation CTab"
+    },
+    {
+      "command-line-flag": "--mgz",
+      "description": "Use MGZ format.",
+      "value-key": "[MGZ_FORMAT]",
+      "type": "Flag",
+      "id": "mgz_format",
+      "name": "MGZ Format Flag"
+    },
+    {
+      "command-line-flag": "--mgh",
+      "description": "Use MGH format.",
+      "value-key": "[MGH_FORMAT]",
+      "type": "Flag",
+      "id": "mgh_format",
+      "name": "MGH Format Flag"
+    },
+    {
+      "command-line-flag": "--nii",
+      "description": "Use NII format.",
+      "value-key": "[NII_FORMAT]",
+      "type": "Flag",
+      "id": "nii_format",
+      "name": "NII Format Flag"
+    },
+    {
+      "command-line-flag": "--nii.gz",
+      "description": "Use NII.GZ format.",
+      "value-key": "[NII_GZ_FORMAT]",
+      "type": "Flag",
+      "id": "nii_gz_format",
+      "name": "NII.GZ Format Flag"
+    },
+    {
+      "command-line-flag": "--ttype+head",
+      "description": "Use default+head instead of default tissue type info for segmentation.",
+      "value-key": "[TTYPE_HEAD]",
+      "type": "Flag",
+      "id": "ttype_head",
+      "name": "Default Head Tissue Type Flag"
+    },
+    {
+      "command-line-flag": "--vg-thresh",
+      "description": "Threshold for 'ERROR: LTAconcat(): LTAs 0 and 1 do not match'.",
+      "value-key": "[VG_THRESH]",
+      "type": "Number",
+      "optional": true,
+      "id": "vg_thresh",
+      "name": "VG Threshold"
+    },
+    {
+      "command-line-flag": "--debug",
+      "description": "Turn on debugging mode.",
+      "value-key": "[DEBUG]",
+      "type": "Flag",
+      "id": "debug",
+      "name": "Debug Flag"
+    },
+    {
+      "command-line-flag": "--checkopts",
+      "description": "Do not run anything, just check options and exit.",
+      "value-key": "[CHECKOPTS]",
+      "type": "Flag",
+      "id": "checkopts",
+      "name": "Check Options Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_STEM].cortex.mgz",
+      "description": "Output cortex volume file.",
+      "id": "output_cortex",
+      "name": "Output Cortex File"
+    },
+    {
+      "path-template": "[OUTPUT_STEM].subcort_gm.mgz",
+      "description": "Output subcortical gray matter volume file.",
+      "id": "output_subcort_gm",
+      "name": "Output Subcortical Gray Matter File"
+    },
+    {
+      "path-template": "[OUTPUT_STEM].wm.mgz",
+      "description": "Output white matter volume file.",
+      "id": "output_wm",
+      "name": "Output White Matter File"
+    },
+    {
+      "path-template": "[OUTPUT_STEM].csf.mgz",
+      "description": "Output cerebrospinal fluid volume file.",
+      "id": "output_csf",
+      "name": "Output CSF File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

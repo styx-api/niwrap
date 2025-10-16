@@ -1,0 +1,152 @@
+{
+  "name": "mrisp_paint",
+  "description": "A tool for extracting arrays from a surface-registration template file and sampling them onto a surface mesh.",
+  "command-line": "mrisp_paint [TEMPLATE_FILE] [INPUT_SURFACE] [OUTPUT_NAME] [SUBJECTS_DIR] [VERTEX_COORDS] [AVERAGE_FLAG] [NORMALIZE_FLAG] [FRAME_NUMBER] [SQUARE_ROOT_FLAG] [VARIANCE_PARAMS] [USAGE_FLAG] [BIRN_INFO_FLAG] [HELP_FLAG] [DIAG_VERTEX] [VERSION_FLAG] [DIAG_WRITE_FLAG]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Full path to the template file. Template may contain multiple parameters. Example: 'somepath/mytemplate.tif#1'.",
+      "value-key": "[TEMPLATE_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "template_file",
+      "name": "Template file"
+    },
+    {
+      "description": "Full path to the input surface file, which provides the grid onto which the template data is sampled.",
+      "value-key": "[INPUT_SURFACE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_surface",
+      "name": "Input surface file"
+    },
+    {
+      "description": "Output file name. Saves the surface-worth of per-vertex values.",
+      "value-key": "[OUTPUT_NAME]",
+      "type": "String",
+      "optional": false,
+      "id": "output_name",
+      "name": "Output file name"
+    },
+    {
+      "command-line-flag": "-SDIR",
+      "description": "Set the SUBJECTS_DIR. Default: use environment variable.",
+      "value-key": "[SUBJECTS_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "subjects_dir",
+      "name": "Subjects directory"
+    },
+    {
+      "command-line-flag": "-coords",
+      "description": "Treat overlay as a surface and write it into a 3 frame parameterization.",
+      "value-key": "[VERTEX_COORDS]",
+      "type": "String",
+      "optional": true,
+      "id": "vertex_coords",
+      "name": "Vertex coordinates"
+    },
+    {
+      "command-line-flag": "-A",
+      "description": "Average curvature patterns a given number of times.",
+      "value-key": "[AVERAGE_FLAG]",
+      "type": "Number",
+      "optional": true,
+      "id": "average_flag",
+      "name": "Average flag"
+    },
+    {
+      "command-line-flag": "-N",
+      "description": "Normalize curvature by variance.",
+      "value-key": "[NORMALIZE_FLAG]",
+      "type": "Flag",
+      "id": "normalize_flag",
+      "name": "Normalize flag"
+    },
+    {
+      "command-line-flag": "-f",
+      "description": "Paint the specified frame number to the output file. Default: 0.",
+      "value-key": "[FRAME_NUMBER]",
+      "type": "Number",
+      "optional": true,
+      "id": "frame_number",
+      "name": "Frame number"
+    },
+    {
+      "command-line-flag": "-S",
+      "description": "Take the square-root of the output variable.",
+      "value-key": "[SQUARE_ROOT_FLAG]",
+      "type": "Flag",
+      "id": "square_root_flag",
+      "name": "Square root flag"
+    },
+    {
+      "command-line-flag": "-variance",
+      "description": "Generate variance map. Requires subject name, hemisphere, and field number.",
+      "value-key": "[VARIANCE_PARAMS]",
+      "type": "String",
+      "optional": true,
+      "id": "variance_params",
+      "name": "Variance parameters"
+    },
+    {
+      "command-line-flag": "-?",
+      "description": "Print usage.",
+      "value-key": "[USAGE_FLAG]",
+      "type": "Flag",
+      "id": "usage_flag",
+      "name": "Usage flag"
+    },
+    {
+      "command-line-flag": "--all-info",
+      "description": "Print BIRN-standard program information.",
+      "value-key": "[BIRN_INFO_FLAG]",
+      "type": "Flag",
+      "id": "birn_info_flag",
+      "name": "BIRN info flag"
+    },
+    {
+      "command-line-flag": "--help",
+      "description": "Print help message.",
+      "value-key": "[HELP_FLAG]",
+      "type": "Flag",
+      "id": "help_flag",
+      "name": "Help flag"
+    },
+    {
+      "command-line-flag": "-V",
+      "description": "Invoke diagnostics for a specific vertex number.",
+      "value-key": "[DIAG_VERTEX]",
+      "type": "Number",
+      "optional": true,
+      "id": "diag_vertex",
+      "name": "Diagnostic vertex"
+    },
+    {
+      "command-line-flag": "--version",
+      "description": "Print version information.",
+      "value-key": "[VERSION_FLAG]",
+      "type": "Flag",
+      "id": "version_flag",
+      "name": "Version flag"
+    },
+    {
+      "command-line-flag": "-W",
+      "description": "Write some diagnostics (DIAG_WRITE).",
+      "value-key": "[DIAG_WRITE_FLAG]",
+      "type": "Flag",
+      "id": "diag_write_flag",
+      "name": "Diagnostic write flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_NAME]",
+      "description": "Output file containing a surface-worth of per-vertex values in 'curvature' format.",
+      "id": "output_file",
+      "name": "Output file"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

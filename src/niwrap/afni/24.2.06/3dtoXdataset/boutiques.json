@@ -1,0 +1,44 @@
+{
+  "name": "3dtoXdataset",
+  "author": "AFNI Developers",
+  "description": "Convert input datasets to the format needed for 3dClustSimX",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dtoXdataset [PREFIX] [MASK] [INPUT_FILES]",
+  "inputs": [
+    {
+      "description": "Prefix for the output file.",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "prefix",
+      "name": "Prefix",
+      "command-line-flag": "-prefix"
+    },
+    {
+      "description": "Mask dataset file.",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": false,
+      "id": "mask",
+      "name": "Mask file"
+    },
+    {
+      "description": "Input datasets to be converted.",
+      "value-key": "[INPUT_FILES]",
+      "type": "File",
+      "optional": false,
+      "list": true,
+      "id": "input_files",
+      "name": "Input files"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[PREFIX].sdat",
+      "description": "Output file in .sdat format",
+      "id": "output_sdat",
+      "name": "Output SDAT file"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

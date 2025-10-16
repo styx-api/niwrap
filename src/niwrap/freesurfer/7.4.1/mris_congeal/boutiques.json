@@ -1,0 +1,152 @@
+{
+  "name": "mris_congeal",
+  "author": "FreeSurfer Developers",
+  "description": "Program that registers a set of input surfaces together and generates an atlas.",
+  "command-line": "mris_congeal [INPUT_SURFACE_NAME] [HEMI] [SUBJECTS] [OUTPUT_SURFACE_NAME] [SUBJECTS_DIR] [DISABLE_RIGID_ALIGNMENT] [DISABLE_SULC_ALIGNMENT] [SMOOTHWM_CURV] [JACOBIAN_OUTPUT] [DISTANCE_TERM] [MANUAL_LABEL] [ADDFRAME] [OVERLAY] [OVERLAY_DIR] [TARGET_SUBJECT]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input surface name",
+      "value-key": "[INPUT_SURFACE_NAME]",
+      "type": "String",
+      "optional": false,
+      "id": "input_surface_name",
+      "name": "Input Surface Name"
+    },
+    {
+      "description": "Hemisphere (hemi)",
+      "value-key": "[HEMI]",
+      "type": "String",
+      "optional": false,
+      "id": "hemi",
+      "name": "Hemisphere"
+    },
+    {
+      "description": "List of subjects",
+      "value-key": "[SUBJECTS]",
+      "type": "String",
+      "list": true,
+      "optional": false,
+      "id": "subjects",
+      "name": "Subjects"
+    },
+    {
+      "description": "Output surface name",
+      "value-key": "[OUTPUT_SURFACE_NAME]",
+      "type": "String",
+      "optional": false,
+      "id": "output_surface_name",
+      "name": "Output Surface Name"
+    },
+    {
+      "command-line-flag": "-SDIR",
+      "description": "Subjects directory",
+      "value-key": "[SUBJECTS_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "subjects_dir",
+      "name": "Subjects Directory"
+    },
+    {
+      "command-line-flag": "-norot",
+      "description": "Disable initial rigid alignment",
+      "value-key": "[DISABLE_RIGID_ALIGNMENT]",
+      "type": "Flag",
+      "id": "disable_rigid_alignment",
+      "name": "Disable Rigid Alignment Flag"
+    },
+    {
+      "command-line-flag": "-nosulc",
+      "description": "Disable initial sulc alignment",
+      "value-key": "[DISABLE_SULC_ALIGNMENT]",
+      "type": "Flag",
+      "id": "disable_sulc_alignment",
+      "name": "Disable Sulc Alignment Flag"
+    },
+    {
+      "command-line-flag": "-curv",
+      "description": "Use smoothwm curvature for final alignment",
+      "value-key": "[SMOOTHWM_CURV]",
+      "type": "Flag",
+      "id": "smoothwm_curv",
+      "name": "Smoothwm Curvature Flag"
+    },
+    {
+      "command-line-flag": "-jacobian",
+      "description": "Write-out jacobian overlay data to file",
+      "value-key": "[JACOBIAN_OUTPUT]",
+      "type": "String",
+      "optional": true,
+      "id": "jacobian_output",
+      "name": "Jacobian Output File"
+    },
+    {
+      "command-line-flag": "-dist",
+      "description": "Specify distance term",
+      "value-key": "[DISTANCE_TERM]",
+      "type": "Number",
+      "optional": true,
+      "id": "distance_term",
+      "name": "Distance Term"
+    },
+    {
+      "command-line-flag": "-l",
+      "description": "Specify a manual label to align with atlas label",
+      "value-key": "[MANUAL_LABEL]",
+      "type": "String",
+      "list": true,
+      "max-list-entries": 3,
+      "optional": true,
+      "id": "manual_label",
+      "name": "Manual Label"
+    },
+    {
+      "command-line-flag": "-addframe",
+      "description": "Add frame with specified parameters",
+      "value-key": "[ADDFRAME]",
+      "type": "String",
+      "list": true,
+      "max-list-entries": 4,
+      "optional": true,
+      "id": "addframe",
+      "name": "Add Frame"
+    },
+    {
+      "command-line-flag": "-overlay",
+      "description": "Specify overlay surface values and number of averages",
+      "value-key": "[OVERLAY]",
+      "type": "String",
+      "list": true,
+      "max-list-entries": 2,
+      "optional": true,
+      "id": "overlay",
+      "name": "Overlay"
+    },
+    {
+      "command-line-flag": "-overlay-dir",
+      "description": "Specify overlay directory",
+      "value-key": "[OVERLAY_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "overlay_dir",
+      "name": "Overlay Directory"
+    },
+    {
+      "command-line-flag": "-1",
+      "description": "Target specifies a subject's surface, not a template file",
+      "value-key": "[TARGET_SUBJECT]",
+      "type": "Flag",
+      "id": "target_subject",
+      "name": "Target Subject Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_SURFACE_NAME]",
+      "description": "Output surface",
+      "id": "output_surface",
+      "name": "Output Surface"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

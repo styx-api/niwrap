@@ -1,0 +1,397 @@
+{
+  "name": "3dANOVA3",
+  "author": "AFNI Developers",
+  "description": "Performs three-factor ANOVA on 3D data sets.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dANOVA3 [TYPE] [ALEVELS] [BLEVELS] [CLEVELS] [DSETS] [VOXEL_NUM] [DISKSPACE] [MASK] [OUTFILE_FA] [OUTFILE_FB] [OUTFILE_FC] [OUTFILE_FAB] [OUTFILE_FAC] [OUTFILE_FBC] [OUTFILE_FABC] [OUTFILE_AMEAN] [OUTFILE_BMEAN] [OUTFILE_CMEAN] [OUTFILE_XMEAN] [OUTFILE_ADIFF] [OUTFILE_BDIFF] [OUTFILE_CDIFF] [OUTFILE_XDIFF] [OUTFILE_ACONTR] [OUTFILE_BCONTR] [OUTFILE_CCONTR] [OUTFILE_ABCONTR] [OUTFILE_ABDIFF] [OUTFILE_ABMEAN] [OUTFILE_BUCKET] [ANOVA_OPTIONS]",
+  "inputs": [
+    {
+      "description": "Type of ANOVA model to be used. k = 1: A,B,C fixed; AxBxC, k = 2: A,B,C random; AxBxC, k = 3: A fixed; B,C random; AxBxC, k = 4: A,B fixed; C random; AxBxC, k = 5: A,B fixed; C random; AxB,BxC,C(A)",
+      "value-key": "[TYPE]",
+      "command-line-flag": "-type",
+      "type": "Number",
+      "minimum": 1,
+      "maximum": 5,
+      "integer": true,
+      "optional": false,
+      "id": "type",
+      "name": "ANOVA Model Type"
+    },
+    {
+      "description": "Number of levels for factor A.",
+      "value-key": "[ALEVELS]",
+      "command-line-flag": "-alevels",
+      "type": "Number",
+      "integer": true,
+      "optional": false,
+      "id": "alevels",
+      "name": "Factor A Levels"
+    },
+    {
+      "description": "Number of levels for factor B.",
+      "value-key": "[BLEVELS]",
+      "command-line-flag": "-blevels",
+      "type": "Number",
+      "integer": true,
+      "optional": false,
+      "id": "blevels",
+      "name": "Factor B Levels"
+    },
+    {
+      "description": "Number of levels for factor C.",
+      "value-key": "[CLEVELS]",
+      "command-line-flag": "-clevels",
+      "type": "Number",
+      "integer": true,
+      "optional": false,
+      "id": "clevels",
+      "name": "Factor C Levels"
+    },
+    {
+      "description": "Input data sets for specific levels of factors A, B, and C.",
+      "value-key": "[DSETS]",
+      "command-line-flag": "-dset",
+      "type": "String",
+      "list": true,
+      "optional": false,
+      "id": "dsets",
+      "name": "Datasets"
+    },
+    {
+      "description": "Screen output for specified voxel number.",
+      "value-key": "[VOXEL_NUM]",
+      "command-line-flag": "-voxel",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "voxel_num",
+      "name": "Voxel Number"
+    },
+    {
+      "description": "Print out disk space required for program execution.",
+      "value-key": "[DISKSPACE]",
+      "command-line-flag": "-diskspace",
+      "type": "Flag",
+      "id": "diskspace",
+      "name": "Disk Space"
+    },
+    {
+      "description": "Use sub-brick #0 of dataset to define which voxels to process.",
+      "value-key": "[MASK]",
+      "command-line-flag": "-mask",
+      "type": "File",
+      "optional": true,
+      "id": "mask",
+      "name": "Mask Dataset"
+    },
+    {
+      "description": "Specify the output file for the main ANOVA result.",
+      "value-key": "[OUTFILE_FA]",
+      "command-line-flag": "-fa",
+      "type": "String",
+      "optional": true,
+      "id": "outfile_fa",
+      "name": "Output File A"
+    },
+    {
+      "description": "Specify the output file for the main B ANOVA result.",
+      "value-key": "[OUTFILE_FB]",
+      "command-line-flag": "-fb",
+      "type": "String",
+      "optional": true,
+      "id": "outfile_fb",
+      "name": "Output File B"
+    },
+    {
+      "description": "Specify the output file for the main C ANOVA result.",
+      "value-key": "[OUTFILE_FC]",
+      "command-line-flag": "-fc",
+      "type": "String",
+      "optional": true,
+      "id": "outfile_fc",
+      "name": "Output File C"
+    },
+    {
+      "description": "Specify the output file for the interaction between A and B.",
+      "value-key": "[OUTFILE_FAB]",
+      "command-line-flag": "-fab",
+      "type": "String",
+      "optional": true,
+      "id": "outfile_fab",
+      "name": "Output File AB"
+    },
+    {
+      "description": "Specify the output file for the interaction between A and C.",
+      "value-key": "[OUTFILE_FAC]",
+      "command-line-flag": "-fac",
+      "type": "String",
+      "optional": true,
+      "id": "outfile_fac",
+      "name": "Output File AC"
+    },
+    {
+      "description": "Specify the output file for the interaction between B and C.",
+      "value-key": "[OUTFILE_FBC]",
+      "command-line-flag": "-fbc",
+      "type": "String",
+      "optional": true,
+      "id": "outfile_fbc",
+      "name": "Output File BC"
+    },
+    {
+      "description": "Specify the output file for the interaction between A, B, and C.",
+      "value-key": "[OUTFILE_FABC]",
+      "command-line-flag": "-fabc",
+      "type": "String",
+      "optional": true,
+      "id": "outfile_fabc",
+      "name": "Output File ABC"
+    },
+    {
+      "description": "Specify the output file for the A mean results.",
+      "value-key": "[OUTFILE_AMEAN]",
+      "command-line-flag": "-amean",
+      "type": "String",
+      "optional": true,
+      "id": "outfile_amean",
+      "name": "Output File A Mean"
+    },
+    {
+      "description": "Specify the output file for the B mean results.",
+      "value-key": "[OUTFILE_BMEAN]",
+      "command-line-flag": "-bmean",
+      "type": "String",
+      "optional": true,
+      "id": "outfile_bmean",
+      "name": "Output File B Mean"
+    },
+    {
+      "description": "Specify the output file for the C mean results.",
+      "value-key": "[OUTFILE_CMEAN]",
+      "command-line-flag": "-cmean",
+      "type": "String",
+      "optional": true,
+      "id": "outfile_cmean",
+      "name": "Output File C Mean"
+    },
+    {
+      "description": "Specify the output file for the overall mean results.",
+      "value-key": "[OUTFILE_XMEAN]",
+      "command-line-flag": "-xmean",
+      "type": "String",
+      "optional": true,
+      "id": "outfile_xmean",
+      "name": "Output File Overall Mean"
+    },
+    {
+      "description": "Specify the output file for the A difference results.",
+      "value-key": "[OUTFILE_ADIFF]",
+      "command-line-flag": "-adiff",
+      "type": "String",
+      "optional": true,
+      "id": "outfile_adiff",
+      "name": "Output File A Difference"
+    },
+    {
+      "description": "Specify the output file for the B difference results.",
+      "value-key": "[OUTFILE_BDIFF]",
+      "command-line-flag": "-bdiff",
+      "type": "String",
+      "optional": true,
+      "id": "outfile_bdiff",
+      "name": "Output File B Difference"
+    },
+    {
+      "description": "Specify the output file for the C difference results.",
+      "value-key": "[OUTFILE_CDIFF]",
+      "command-line-flag": "-cdiff",
+      "type": "String",
+      "optional": true,
+      "id": "outfile_cdiff",
+      "name": "Output File C Difference"
+    },
+    {
+      "description": "Specify the output file for the overall difference results.",
+      "value-key": "[OUTFILE_XDIFF]",
+      "command-line-flag": "-xdiff",
+      "type": "String",
+      "optional": true,
+      "id": "outfile_xdiff",
+      "name": "Output File Overall Difference"
+    },
+    {
+      "description": "Specify the output file for the A contrast results.",
+      "value-key": "[OUTFILE_ACONTR]",
+      "command-line-flag": "-acontr",
+      "type": "String",
+      "optional": true,
+      "id": "outfile_acontr",
+      "name": "Output File A Contrast"
+    },
+    {
+      "description": "Specify the output file for the B contrast results.",
+      "value-key": "[OUTFILE_BCONTR]",
+      "command-line-flag": "-bcontr",
+      "type": "String",
+      "optional": true,
+      "id": "outfile_bcontr",
+      "name": "Output File B Contrast"
+    },
+    {
+      "description": "Specify the output file for the C contrast results.",
+      "value-key": "[OUTFILE_CCONTR]",
+      "command-line-flag": "-ccontr",
+      "type": "String",
+      "optional": true,
+      "id": "outfile_ccontr",
+      "name": "Output File C Contrast"
+    },
+    {
+      "id": "outfile_abcontr",
+      "name": "Output file A and B Contrast",
+      "value-key": "[OUTFILE_ABCONTR]",
+      "description": "Specify the output file for the interaction contrast results between A and B.",
+      "optional": true,
+      "type": {
+        "id": "outfile_abcontr",
+        "command-line": "[OUTFILE_ABCONTR] [OUTFILE_ABCONTR_CASE]",
+        "inputs": [
+          {
+            "description": "Specify the output file for the interaction contrast results between A and B.",
+            "value-key": "[OUTFILE_ABCONTR]",
+            "command-line-flag": "-aBcontr",
+            "type": "String",
+            "optional": true,
+            "id": "outfile_abcontr",
+            "name": "Output File A and B Contrast"
+          },
+          {
+            "description": "Specify the output file for the interaction contrast results between A and B (case-sensitive).",
+            "value-key": "[OUTFILE_ABCONTR_CASE]",
+            "command-line-flag": "-Abcontr",
+            "type": "String",
+            "optional": true,
+            "id": "outfile_Abcontr",
+            "name": "Output File A and b Contrast"
+          }
+        ]
+      }
+    },
+    {
+      "id": "outfile_abdiff",
+      "name": "Output file A and B Contrast",
+      "value-key": "[OUTFILE_ABDIFF]",
+      "description": "Specify the output file for the interaction contrast results between A and B.",
+      "optional": true,
+      "type": {
+        "id": "outfile_abcontr",
+        "command-line": "[OUTFILE_ABDIFF] [OUTFILE_ABDIFF_CASE]",
+        "inputs": [
+          {
+            "description": "Specify the output file for the interaction difference results between A and B.",
+            "value-key": "[OUTFILE_ABDIFF]",
+            "command-line-flag": "-aBdiff",
+            "type": "String",
+            "optional": true,
+            "id": "outfile_abdiff",
+            "name": "Output File A and B Difference"
+          },
+          {
+            "description": "Specify the output file for the interaction difference results between A and B (case-sensitive).",
+            "value-key": "[OUTFILE_ABDIFF_CASE]",
+            "command-line-flag": "-Abdiff",
+            "type": "String",
+            "optional": true,
+            "id": "outfile_Abdiff",
+            "name": "Output File A and b Difference"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Specify the output file for the mean results of the interaction between A and B.",
+      "value-key": "[OUTFILE_ABMEAN]",
+      "command-line-flag": "-abmean",
+      "type": "String",
+      "optional": true,
+      "id": "outfile_abmean",
+      "name": "Output File AB Mean"
+    },
+    {
+      "description": "Specify the output file for the bucket (combined) results.",
+      "value-key": "[OUTFILE_BUCKET]",
+      "command-line-flag": "-bucket",
+      "type": "String",
+      "optional": true,
+      "id": "outfile_bucket",
+      "name": "Output File Bucket"
+    },
+    {
+      "description": "Modified ANOVA computation options. See: https://afni.nimh.nih.gov/sscc/gangc/ANOVA_Mod.html",
+      "value-key": "[ANOVA_OPTIONS]",
+      "command-line-flag": "-old_method -OK -assume_sph",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "anova_options",
+      "name": "ANOVA Computation Options"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "description": "Output file for the main ANOVA result.",
+      "path-template": "[OUTFILE_FA]",
+      "id": "outfile_fa",
+      "name": "Output File A"
+    },
+    {
+      "description": "Output file for the main B ANOVA result.",
+      "path-template": "[OUTFILE_FB]",
+      "id": "outfile_fb",
+      "name": "Output File B"
+    },
+    {
+      "description": "Output file for the main C ANOVA result.",
+      "path-template": "[OUTFILE_FC]",
+      "id": "outfile_fc",
+      "name": "Output File C"
+    },
+    {
+      "description": "Output file for the interaction between A and B.",
+      "path-template": "[OUTFILE_FAB]",
+      "id": "outfile_fab",
+      "name": "Output File AB"
+    },
+    {
+      "description": "Output file for the interaction between A and C.",
+      "path-template": "[OUTFILE_FAC]",
+      "id": "outfile_fac",
+      "name": "Output File AC"
+    },
+    {
+      "description": "Output file for the interaction between B and C.",
+      "path-template": "[OUTFILE_FBC]",
+      "id": "outfile_fbc",
+      "name": "Output File BC"
+    },
+    {
+      "description": "Output file for the interaction between A, B, and C.",
+      "path-template": "[OUTFILE_FABC]",
+      "id": "outfile_fabc",
+      "name": "Output File ABC"
+    },
+    {
+      "description": "Output file for the A mean results.",
+      "path-template": "[OUTFILE_AMEAN]",
+      "id": "outfile_amean",
+      "name": "Output File A Mean"
+    },
+    {
+      "description": "Output file for the B mean results.",
+      "path-template": "[OUTFILE_BMEAN]",
+      "id": "outfile_bmean",
+      "name": "Output File B Mean"
+    }
+  ]
+}

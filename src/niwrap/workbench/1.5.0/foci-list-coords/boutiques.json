@@ -1,0 +1,35 @@
+{
+  "name": "foci-list-coords",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -foci-list-coords [FOCI_FILE] [COORD_FILE_OUT] [OPT_NAMES_OUT_NAMES_FILE_OUT]",
+  "description": "Output foci coordinates in a text file.\n\nOutput the coordinates for every focus in the foci file, and optionally the focus names in a second text file.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "foci_file",
+      "name": "foci_file",
+      "description": "input foci file",
+      "optional": false,
+      "value-key": "[FOCI_FILE]",
+      "type": "File"
+    },
+    {
+      "id": "coord_file_out",
+      "name": "coord_file_out",
+      "description": "output - the output coordinate text file",
+      "optional": false,
+      "value-key": "[COORD_FILE_OUT]",
+      "type": "String"
+    },
+    {
+      "id": "opt_names_out_names_file_out",
+      "name": "opt_names_out_names_file_out",
+      "command-line-flag": "-names-out",
+      "description": "output the foci names: output - text file to put foci names in",
+      "optional": true,
+      "value-key": "[OPT_NAMES_OUT_NAMES_FILE_OUT]",
+      "type": "String"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

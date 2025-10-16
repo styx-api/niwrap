@@ -1,0 +1,36 @@
+{
+  "name": "cp-dicom",
+  "description": "Copies DICOM files into separate directories for each series based on DICOM headers.",
+  "command-line": "cp-dicom [DICOM_DIR] [OUTPUT_DIR] [DEBUG]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Directory containing DICOM files",
+      "value-key": "[DICOM_DIR]",
+      "type": "String",
+      "optional": false,
+      "id": "dicom_dir",
+      "name": "DICOM Directory",
+      "command-line-flag": "-d"
+    },
+    {
+      "description": "Output directory where sorted DICOM files will be stored",
+      "value-key": "[OUTPUT_DIR]",
+      "type": "String",
+      "optional": false,
+      "id": "output_dir",
+      "name": "Output Directory",
+      "command-line-flag": "-o"
+    },
+    {
+      "command-line-flag": "-debug",
+      "description": "Print additional debug information",
+      "value-key": "[DEBUG]",
+      "type": "Flag",
+      "id": "debug",
+      "name": "Debug Flag"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

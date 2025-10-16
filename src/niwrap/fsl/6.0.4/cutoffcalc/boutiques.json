@@ -1,0 +1,84 @@
+{
+  "name": "cutoffcalc",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Calculates the minimal period for the highpass filter that still preserves a specified amount of variance in all the design matrix regressors.",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "cutoffcalc [INPUT_DESIGN] [THRESHOLD] [TR] [LOWER_LIMIT] [EXAMPLE_SIGMA] [VERBOSE_FLAG] [DEBUG_FLAG]",
+  "inputs": [
+    {
+      "command-line-flag": "-i",
+      "command-line-flag-separator": " ",
+      "description": "Input design matrix (e.g. design.mat)",
+      "value-key": "[INPUT_DESIGN]",
+      "type": "File",
+      "optional": false,
+      "id": "input_design",
+      "name": "Input design matrix"
+    },
+    {
+      "command-line-flag": "-t",
+      "command-line-flag-separator": " ",
+      "description": "Threshold for retained variance (default=0.9)",
+      "value-key": "[THRESHOLD]",
+      "type": "Number",
+      "optional": true,
+      "id": "threshold",
+      "name": "Threshold for retained variance"
+    },
+    {
+      "command-line-flag": "--tr",
+      "command-line-flag-separator": " ",
+      "description": "Time between successive data points (default=3.0s)",
+      "value-key": "[TR]",
+      "type": "Number",
+      "optional": true,
+      "id": "tr",
+      "name": "Time between data points"
+    },
+    {
+      "command-line-flag": "--limit",
+      "command-line-flag-separator": " ",
+      "description": "Lower limit on period due to autocorr estimation (default=90s)",
+      "value-key": "[LOWER_LIMIT]",
+      "type": "Number",
+      "optional": true,
+      "id": "lower_limit",
+      "name": "Lower limit on period"
+    },
+    {
+      "command-line-flag": "--example_sig",
+      "command-line-flag-separator": " ",
+      "description": "Example sigma (in sec) to produce output called example_filt.mtx",
+      "value-key": "[EXAMPLE_SIGMA]",
+      "type": "Number",
+      "optional": true,
+      "id": "example_sigma",
+      "name": "Example sigma for output"
+    },
+    {
+      "command-line-flag": "-v",
+      "description": "Switch on diagnostic messages",
+      "value-key": "[VERBOSE_FLAG]",
+      "type": "Flag",
+      "id": "verbose_flag",
+      "name": "Verbose flag"
+    },
+    {
+      "command-line-flag": "--debug",
+      "description": "Switch on debugging messages",
+      "value-key": "[DEBUG_FLAG]",
+      "type": "Flag",
+      "id": "debug_flag",
+      "name": "Debug flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "example_filt.mtx",
+      "description": "Filtered output file if example sigma is provided",
+      "id": "example_output",
+      "name": "Example filtered output file"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "border-merge",
+  "source": {
+    "type": "boutiques",
+    "path": "boutiques.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-border-merge"
+  ],
+  "docs": {
+    "description": "Merge border files into a new file.\n\nTakes one or more border files and makes a new border file from the borders in them.\n\nExample: wb_command -border-merge out.border -border first.border -select 1 -border second.border\n\nThis example would take the first border from first.border, followed by all borders from second.border, and write these to out.border."
+  }
+}

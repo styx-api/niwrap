@@ -1,0 +1,51 @@
+{
+  "name": "surface-apply-warpfield",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -surface-apply-warpfield [IN_SURF] [WARPFIELD] [OUT_SURF] [OPT_FNIRT_FORWARD_WARP]",
+  "description": "Apply warpfield to surface file.\n\nNOTE: warping a surface requires the INVERSE of the warpfield used to warp the volume it lines up with.  The header of the forward warp is needed by the -fnirt option in order to correctly interpret the displacements in the fnirt warpfield.\n\nIf the -fnirt option is not present, the warpfield must be a nifti 'world' warpfield, which can be obtained with the -convert-warpfield command.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "in_surf",
+      "name": "in_surf",
+      "description": "the surface to transform",
+      "optional": false,
+      "value-key": "[IN_SURF]",
+      "type": "File"
+    },
+    {
+      "id": "warpfield",
+      "name": "warpfield",
+      "description": "the INVERSE warpfield",
+      "optional": false,
+      "value-key": "[WARPFIELD]",
+      "type": "String"
+    },
+    {
+      "id": "out_surf",
+      "name": "out_surf",
+      "type": "String",
+      "description": "the output transformed surface",
+      "optional": false,
+      "value-key": "[OUT_SURF]"
+    },
+    {
+      "id": "opt_fnirt_forward_warp",
+      "name": "opt_fnirt_forward_warp",
+      "command-line-flag": "-fnirt",
+      "description": "MUST be used if using a fnirt warpfield: the forward warpfield",
+      "optional": true,
+      "value-key": "[OPT_FNIRT_FORWARD_WARP]",
+      "type": "String"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "out_surf",
+      "name": "out_surf",
+      "path-template": "[OUT_SURF]",
+      "description": "the output transformed surface"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

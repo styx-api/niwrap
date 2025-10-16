@@ -1,0 +1,53 @@
+{
+  "name": "3dNwarpAdjust",
+  "author": "AFNI Developers",
+  "description": "Program to adjust 3D warp datasets by composing them with the inverse of their average, optionally warping input datasets and generating an output mean dataset.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dNwarpAdjust [INPUT_WARPS] [SOURCE_DATASETS] [OUTPUT_PREFIX]",
+  "inputs": [
+    {
+      "command-line-flag": "-nwarp",
+      "description": "List of input 3D warp datasets (at least 5).",
+      "value-key": "[INPUT_WARPS]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "input_warps",
+      "name": "Input Warps"
+    },
+    {
+      "command-line-flag": "-source",
+      "description": "List of input 3D datasets to be warped by the adjusted warp datasets. There must be exactly as many of these datasets as there are input warps.",
+      "value-key": "[SOURCE_DATASETS]",
+      "type": "File",
+      "list": true,
+      "optional": true,
+      "id": "source_datasets",
+      "name": "Source Datasets"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Prefix for the output mean dataset (only needed if the '-source' option is also given).",
+      "value-key": "[OUTPUT_PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "output_prefix",
+      "name": "Output Prefix"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_PREFIX]+tlrc.BRIK",
+      "description": "Output mean dataset BRIK file",
+      "id": "output_brik",
+      "name": "Output BRIK File"
+    },
+    {
+      "path-template": "[OUTPUT_PREFIX]+tlrc.HEAD",
+      "description": "Output mean dataset HEAD file",
+      "id": "output_head",
+      "name": "Output HEAD File"
+    }
+  ]
+}

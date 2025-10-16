@@ -1,0 +1,171 @@
+{
+  "name": "3dXClustSim",
+  "author": "AFNI Developers",
+  "description": "ETAC processing tool to find cluster figure of merit (FOM) thresholds.",
+  "command-line": "3dXClustSim [INSET] [INSDAT] [NN] [SID] [HPOW] [NCASE] [PTHR] [FPR] [MULTIFPR] [MINCLUST] [LOCAL] [GLOBAL] [NOLOCAL] [NOGLOBAL] [SPLITFRAC] [PREFIX] [VERBOSE] [QUIET]",
+  "inputs": [
+    {
+      "description": "Mask sdata file (from 3dtoXdataset or 3dttest++)",
+      "value-key": "[INSET]",
+      "type": "File",
+      "optional": false,
+      "id": "inset",
+      "name": "Input mask file"
+    },
+    {
+      "description": "Data files in the '.sdat' format.",
+      "value-key": "[INSDAT]",
+      "type": "File",
+      "optional": true,
+      "id": "insdat",
+      "name": "Data files"
+    },
+    {
+      "command-line-flag": "-NN",
+      "description": "Neighborhood connectivity (1, 2, or 3). Default is 2.",
+      "value-key": "[NN]",
+      "type": "Number",
+      "optional": true,
+      "id": "nn",
+      "name": "Neighborhood connectivity"
+    },
+    {
+      "command-line-flag": "-sid",
+      "description": "Sidedness: 1 (one-sided) or 2 (two-sided). Default is 2.",
+      "value-key": "[SID]",
+      "type": "Number",
+      "optional": true,
+      "id": "sid",
+      "name": "Sidedness"
+    },
+    {
+      "command-line-flag": "-hpow",
+      "description": "H power values (can be a subset of 0, 1, 2). Default is 2.",
+      "value-key": "[HPOW]",
+      "type": "Number",
+      "list": true,
+      "optional": true,
+      "id": "hpow",
+      "name": "H power values"
+    },
+    {
+      "command-line-flag": "-ncase",
+      "description": "Number of cases with labels. Default is 1 A.",
+      "value-key": "[NCASE]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "ncase",
+      "name": "Number of cases"
+    },
+    {
+      "command-line-flag": "-pthr",
+      "description": "List of p-value thresholds. Default is 0.0100 0.0056 0.0031 0.0018 0.0010.",
+      "value-key": "[PTHR]",
+      "type": "Number",
+      "list": true,
+      "optional": true,
+      "id": "pthr",
+      "name": "P-value thresholds"
+    },
+    {
+      "command-line-flag": "-FPR",
+      "description": "Set global FPR goal to an integer ff between 2 and 9. Default is 5.",
+      "value-key": "[FPR]",
+      "type": "Number",
+      "minimum": 2,
+      "maximum": 9,
+      "optional": true,
+      "id": "fpr",
+      "name": "Global FPR goal"
+    },
+    {
+      "command-line-flag": "-multiFPR",
+      "description": "Compute results for multiple FPR goals (2%, 3%, ... 9%).",
+      "value-key": "[MULTIFPR]",
+      "type": "Flag",
+      "id": "multiFPR",
+      "name": "Multiple FPR goal"
+    },
+    {
+      "command-line-flag": "-minclust",
+      "description": "Minimum cluster size in voxels. Default is 5.",
+      "value-key": "[MINCLUST]",
+      "type": "Number",
+      "optional": true,
+      "id": "minclust",
+      "name": "Minimum cluster size"
+    },
+    {
+      "command-line-flag": "-local",
+      "description": "Do voxel-wise (local) ETAC computations.",
+      "value-key": "[LOCAL]",
+      "type": "Flag",
+      "id": "local",
+      "name": "Local ETAC computations"
+    },
+    {
+      "command-line-flag": "-global",
+      "description": "Do volume-wise (global) ETAC computations.",
+      "value-key": "[GLOBAL]",
+      "type": "Flag",
+      "id": "global",
+      "name": "Global ETAC computations"
+    },
+    {
+      "command-line-flag": "-nolocal",
+      "description": "Do not perform voxel-wise ETAC computations.",
+      "value-key": "[NOLOCAL]",
+      "type": "Flag",
+      "id": "nolocal",
+      "name": "No voxel-wise ETAC computations"
+    },
+    {
+      "command-line-flag": "-noglobal",
+      "description": "Do not perform volume-wise ETAC computations.",
+      "value-key": "[NOGLOBAL]",
+      "type": "Flag",
+      "id": "noglobal",
+      "name": "No volume-wise ETAC computations"
+    },
+    {
+      "command-line-flag": "-splitfrac",
+      "description": "Fraction to split simulations into pieces (0.2 < F < 0.8).",
+      "value-key": "[SPLITFRAC]",
+      "type": "Number",
+      "minimum": 0.2,
+      "maximum": 0.8,
+      "optional": true,
+      "id": "splitfrac",
+      "name": "Split fraction"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Output filename prefix.",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Output prefix"
+    },
+    {
+      "command-line-flag": "-verb",
+      "description": "Be more verbose.",
+      "value-key": "[VERBOSE]",
+      "type": "Flag",
+      "id": "verbose",
+      "name": "Verbose output"
+    },
+    {
+      "command-line-flag": "-quiet",
+      "description": "Silent mode.",
+      "value-key": "[QUIET]",
+      "type": "Flag",
+      "id": "quiet",
+      "name": "Quiet mode"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [],
+  "url": "https://afni.nimh.nih.gov/"
+}

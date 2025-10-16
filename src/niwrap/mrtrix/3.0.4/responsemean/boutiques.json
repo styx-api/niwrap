@@ -1,0 +1,139 @@
+{
+  "name": "responsemean",
+  "author": "MRTrix3 Developers",
+  "description": "Calculate the mean response function from a set of text files",
+  "url": "https://www.mrtrix.org/",
+  "command-line": "responsemean [INPUT_RESPONSES] [OUTPUT_RESPONSE] [LEGACY] [NOCLEANUP] [SCRATCH] [CONTINUE_SCRATCH] [INFO] [QUIET] [DEBUG] [FORCE] [NTHREADS] [CONFIG] [HELP] [VERSION]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "input_response",
+      "name": "Input response functions",
+      "type": "File",
+      "value-key": "[INPUT_RESPONSES]",
+      "description": "Input response functions",
+      "optional": false,
+      "list": true
+    },
+    {
+      "id": "output_response",
+      "name": "Output response function",
+      "type": "String",
+      "value-key": "[OUTPUT_RESPONSE]",
+      "description": "Output mean response function",
+      "optional": false
+    },
+    {
+      "id": "legacy",
+      "name": "Legacy",
+      "type": "Flag",
+      "value-key": "[LEGACY]",
+      "command-line-flag": "-legacy",
+      "description": "Calculate the mean response function from a set of text files"
+    },
+    {
+      "id": "nocleanup",
+      "name": "No Cleanup",
+      "type": "Flag",
+      "value-key": "[NOCLEANUP]",
+      "command-line-flag": "-nocleanup",
+      "description": "Do not delete intermediate files during script execution, and do not delete scratch directory at script completion"
+    },
+    {
+      "id": "scratch_dir",
+      "name": "Scratch Directory",
+      "type": "File",
+      "value-key": "[SCRATCH]",
+      "command-line-flag": "-scratch",
+      "description": "Manually specify the path in which to generate the scratch directory",
+      "optional": true
+    },
+    {
+      "id": "continue_scratch_dir",
+      "name": "Continue Scratch Directory",
+      "type": "File",
+      "value-key": "[CONTINUE_SCRATCH]",
+      "command-line-flag": "-continue",
+      "description": "Continue the script from a previous execution; must provide the scratch directory path",
+      "optional": true,
+      "list": true,
+      "min-list-entries": 2,
+      "max-list-entries": 2
+    },
+    {
+      "id": "info",
+      "name": "Display Information Messages",
+      "type": "Flag",
+      "value-key": "[INFO]",
+      "command-line-flag": "-info",
+      "description": "Display information messages"
+    },
+    {
+      "id": "quiet",
+      "name": "Quiet Mode",
+      "type": "Flag",
+      "value-key": "[QUIET]",
+      "command-line-flag": "-quiet",
+      "description": "Do not display information messages or progress status"
+    },
+    {
+      "id": "debug",
+      "name": "Debug Mode",
+      "type": "Flag",
+      "value-key": "[DEBUG]",
+      "command-line-flag": "-debug",
+      "description": "Display debugging messages"
+    },
+    {
+      "id": "force",
+      "name": "Force Overwrite",
+      "type": "Flag",
+      "value-key": "[FORCE]",
+      "command-line-flag": "-force",
+      "description": "Force overwrite of output files"
+    },
+    {
+      "id": "nthreads",
+      "name": "Number of Threads",
+      "type": "Number",
+      "value-key": "[NTHREADS]",
+      "command-line-flag": "-nthreads",
+      "description": "Use this number of threads in multi-threaded applications (set to 0 to disable multi-threading)",
+      "optional": true
+    },
+    {
+      "id": "config",
+      "name": "Config Key Value",
+      "type": "String",
+      "value-key": "[CONFIG]",
+      "command-line-flag": "-config",
+      "description": "Temporarily set the value of an MRtrix config file entry",
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "help",
+      "name": "Display Help",
+      "type": "Flag",
+      "value-key": "[HELP]",
+      "command-line-flag": "-help",
+      "description": "Display help information and exit"
+    },
+    {
+      "id": "version",
+      "name": "Display Version",
+      "type": "Flag",
+      "value-key": "[VERSION]",
+      "command-line-flag": "-version",
+      "description": "Display version information and exit"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "output_response_file",
+      "name": "Averaged tissue response",
+      "path-template": "[OUTPUT_RESPONSE]",
+      "description": "File containing the averaged tissue response function"
+    }
+  ]
+}

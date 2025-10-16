@@ -1,0 +1,73 @@
+{
+  "name": "compute_interrater_variability.csh",
+  "description": "Computes the interrater variability between label volumes from different raters or time points using several metrics.",
+  "command-line": "compute_interrater_variability.csh [LABEL_VOL1] [LABEL_VOL2] [OUTPUT_PREFIX] [VERSION] [HELP]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "label_vol1",
+      "name": "Rater 1 label volume",
+      "type": "File",
+      "description": "Label volume from rater 1.",
+      "optional": false,
+      "value-key": "[LABEL_VOL1]",
+      "command-line-flag": "--vol1"
+    },
+    {
+      "id": "label_vol2",
+      "name": "Rater 2 label volume",
+      "type": "File",
+      "description": "Label volume from rater 2.",
+      "optional": false,
+      "value-key": "[LABEL_VOL2]",
+      "command-line-flag": "--vol2"
+    },
+    {
+      "id": "output_prefix",
+      "name": "Output file prefix",
+      "type": "String",
+      "description": "Prefix for the output text files containing results. A total of three files will be produced.",
+      "optional": false,
+      "value-key": "[OUTPUT_PREFIX]",
+      "command-line-flag": "--out"
+    },
+    {
+      "id": "version",
+      "name": "Version",
+      "type": "Flag",
+      "description": "Print version information and exit.",
+      "command-line-flag": "--version",
+      "value-key": "[VERSION]"
+    },
+    {
+      "id": "help",
+      "name": "Help",
+      "type": "Flag",
+      "description": "Print help information and exit.",
+      "command-line-flag": "--help",
+      "value-key": "[HELP]"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "output_file_1",
+      "name": "Output file 1",
+      "path-template": "[OUTPUT_PREFIX]_file1.txt",
+      "description": "Output file containing mean Hausdorff distance."
+    },
+    {
+      "id": "output_file_2",
+      "name": "Output file 2",
+      "path-template": "[OUTPUT_PREFIX]_file2.txt",
+      "description": "Output file containing max Hausdorff distance."
+    },
+    {
+      "id": "output_file_3",
+      "name": "Output file 3",
+      "path-template": "[OUTPUT_PREFIX]_file3.txt",
+      "description": "Output file containing label volume difference, Dice, and Jaccard overlap measures."
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

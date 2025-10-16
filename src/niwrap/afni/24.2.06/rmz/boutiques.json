@@ -1,0 +1,44 @@
+{
+  "name": "rmz",
+  "author": "AFNI Developers",
+  "description": "Zeros out files before removing them",
+  "command-line": "rmz [QUIET] [HASH_FLAG] [KEEP_FLAG] [FILENAMES]",
+  "inputs": [
+    {
+      "command-line-flag": "-q",
+      "description": "Quiet mode",
+      "value-key": "[QUIET]",
+      "type": "Flag",
+      "id": "quiet",
+      "name": "Quiet mode flag"
+    },
+    {
+      "command-line-flag": "-#",
+      "description": "Number of times to zero out the files",
+      "value-key": "[HASH_FLAG]",
+      "type": "Number",
+      "optional": true,
+      "id": "hash_flag",
+      "name": "Hash flag"
+    },
+    {
+      "command-line-flag": "-k",
+      "description": "Keep the files instead of removing them",
+      "value-key": "[KEEP_FLAG]",
+      "type": "Flag",
+      "id": "keep_flag",
+      "name": "Keep files flag"
+    },
+    {
+      "description": "Files to zero out and remove",
+      "value-key": "[FILENAMES]",
+      "type": "File",
+      "optional": false,
+      "id": "filenames",
+      "name": "Input filenames",
+      "list": true
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

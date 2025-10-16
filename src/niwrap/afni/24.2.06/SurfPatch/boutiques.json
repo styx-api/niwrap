@@ -1,0 +1,207 @@
+{
+  "name": "SurfPatch",
+  "author": "AFNI Developers",
+  "description": "Creates a patch of surface formed by nodes in a nodefile and optionally calculates the volume between the same patch on two isotopic surfaces.",
+  "command-line": "SurfPatch [SPEC_FILE] [SURF_A] [SURF_B] [NODEFILE] [INODE] [ILABEL] [PREFIX] [HITS] [MASKLABEL] [VOL] [VOL_ONLY] [PATCH2SURF] [COORD_GAIN] [CHECK_BOWTIE] [FIX_BOWTIE] [OK_BOWTIE] [ADJUST_CONTOUR] [DO_NOT_ADJUST_CONTOUR] [STITCHED_SURFACE] [FLIP_ORIENTATION] [VERBOSITY]",
+  "inputs": [
+    {
+      "description": "Spec file containing input surfaces",
+      "value-key": "[SPEC_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "spec_file",
+      "name": "Spec File"
+    },
+    {
+      "description": "Input surface A",
+      "value-key": "[SURF_A]",
+      "type": "File",
+      "command-line-flag": "-surf_A",
+      "optional": false,
+      "id": "surf_A",
+      "name": "Input Surface A"
+    },
+    {
+      "description": "Input surface B",
+      "value-key": "[SURF_B]",
+      "type": "File",
+      "command-line-flag": "-surf_B",
+      "optional": false,
+      "id": "surf_B",
+      "name": "Input Surface B"
+    },
+    {
+      "description": "File containing nodes defining the patch",
+      "value-key": "[NODEFILE]",
+      "type": "File",
+      "command-line-flag": "-input",
+      "optional": false,
+      "id": "nodefile",
+      "name": "Node File"
+    },
+    {
+      "description": "Index of the column containing the nodes",
+      "value-key": "[INODE]",
+      "type": "Number",
+      "optional": false,
+      "id": "inode",
+      "name": "Node Column Index"
+    },
+    {
+      "description": "Index of the column containing labels of the nodes in column inode",
+      "value-key": "[ILABEL]",
+      "type": "Number",
+      "optional": false,
+      "id": "ilabel",
+      "name": "Label Column Index"
+    },
+    {
+      "description": "Prefix of output patch",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "command-line-flag": "-prefix",
+      "optional": false,
+      "id": "prefix",
+      "name": "Output Prefix"
+    },
+    {
+      "command-line-flag": "-hits",
+      "description": "Minimum number of nodes specified for a triangle to be made a part of the patch (1 <= min_hits <= 3); default is 2",
+      "value-key": "[HITS]",
+      "type": "Number",
+      "optional": true,
+      "id": "hits",
+      "name": "Minimum Hits"
+    },
+    {
+      "command-line-flag": "-masklabel",
+      "description": "Only nodes that are labeled with this label are considered for the patch",
+      "value-key": "[MASKLABEL]",
+      "type": "String",
+      "optional": true,
+      "id": "masklabel",
+      "name": "Mask Label"
+    },
+    {
+      "description": "Calculate the volume formed by the patch on surf_A and surf_B. Requires only two surfaces specified with surf_A and surf_B.",
+      "command-line-flag": "-vol",
+      "type": "Flag",
+      "id": "vol",
+      "name": "Calculate Volume",
+      "value-key": "[VOL]"
+    },
+    {
+      "description": "Only calculate the volume, don't write out patches.",
+      "command-line-flag": "-vol_only",
+      "type": "Flag",
+      "id": "vol_only",
+      "name": "Volume Only",
+      "value-key": "[VOL_ONLY]"
+    },
+    {
+      "description": "Turn surface patch into a surface where only nodes used in forming the mesh are preserved.",
+      "command-line-flag": "-patch2surf",
+      "type": "Flag",
+      "id": "patch2surf",
+      "name": "Patch to Surface",
+      "value-key": "[PATCH2SURF]"
+    },
+    {
+      "description": "Multiply node coordinates by a gain. Useful for enlarging tiny patches for easier viewing in SUMA.",
+      "command-line-flag": "-coord_gain",
+      "value-key": "[COORD_GAIN]",
+      "type": "Number",
+      "optional": true,
+      "id": "coord_gain",
+      "name": "Coordinate Gain"
+    },
+    {
+      "description": "Check if the patch has a section hanging by one node to the rest of the mesh. Default when -vol or -vol_only are used.",
+      "command-line-flag": "-check_bowtie",
+      "type": "Flag",
+      "id": "check_bowtie",
+      "name": "Check Bowtie",
+      "value-key": "[CHECK_BOWTIE]"
+    },
+    {
+      "description": "Modify patch to eliminate bowties.",
+      "command-line-flag": "-fix_bowtie",
+      "type": "Flag",
+      "id": "fix_bowtie",
+      "name": "Fix Bowtie",
+      "value-key": "[FIX_BOWTIE]"
+    },
+    {
+      "description": "Do not check for, or fix bowties. Default when -vol* are not used.",
+      "command-line-flag": "-ok_bowtie",
+      "type": "Flag",
+      "id": "ok_bowtie",
+      "name": "OK Bowtie",
+      "value-key": "[OK_BOWTIE]"
+    },
+    {
+      "description": "Shrink patch contours at nodes that were not in nodefile.",
+      "command-line-flag": "-adjust_contour",
+      "type": "Flag",
+      "id": "adjust_contour",
+      "name": "Adjust Contour",
+      "value-key": "[ADJUST_CONTOUR]"
+    },
+    {
+      "description": "Do not adjust contours. This is the default.",
+      "command-line-flag": "-do-not-adjust_contour",
+      "type": "Flag",
+      "id": "do_not_adjust_contour",
+      "name": "Do Not Adjust Contour",
+      "value-key": "[DO_NOT_ADJUST_CONTOUR]"
+    },
+    {
+      "description": "Write out the stitched surface used to calculate the volume.",
+      "value-key": "[STITCHED_SURFACE]",
+      "command-line-flag": "-stitched_surface",
+      "type": "File",
+      "optional": true,
+      "id": "stitched_surface",
+      "name": "Stitched Surface"
+    },
+    {
+      "description": "Change orientation of triangles before writing surfaces.",
+      "command-line-flag": "-flip_orientation",
+      "type": "Flag",
+      "id": "flip_orientation",
+      "name": "Flip Orientation",
+      "value-key": "[FLIP_ORIENTATION]"
+    },
+    {
+      "description": "Set verbosity level, 1 is the default.",
+      "value-key": "[VERBOSITY]",
+      "command-line-flag": "-verb",
+      "type": "Number",
+      "optional": true,
+      "id": "verbosity",
+      "name": "Verbosity Level"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX]_A",
+      "description": "Output patch for surface A",
+      "id": "outpatch_A",
+      "name": "Output Patch A"
+    },
+    {
+      "path-template": "[PREFIX]_B",
+      "description": "Output patch for surface B",
+      "id": "outpatch_B",
+      "name": "Output Patch B"
+    },
+    {
+      "path-template": "[PREFIX]_stitched",
+      "description": "Stitched surface file",
+      "id": "out_stitched_surface",
+      "name": "Stitched Surface"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

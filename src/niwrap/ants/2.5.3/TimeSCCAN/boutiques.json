@@ -1,0 +1,219 @@
+{
+  "name": "TimeSCCAN",
+  "command-line": "TimeSCCAN [OUTPUT] [NUMBER_CONSECUTIVE_LABELS] [MINIMUM_REGION_SIZE] [ITERATIONS] [SPARSITY] [N_EIGENVECTORS] [ROBUSTIFY] [L1] [CLUSTER_THRESH] [RIDGE_CCA] [PARTIAL_SCCA_OPTION] [TIMESERIESIMAGE_TO_MATRIX] [LABELSIMAGE_TO_MATRIX] [NETWORK]",
+  "author": "ANTs Developers",
+  "description": "A tool for sparse statistical analysis on connectivity within a subject.",
+  "url": "https://github.com/ANTsX/ANTs",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "output",
+      "name": "Output Image",
+      "value-key": "[OUTPUT]",
+      "command-line-flag": "--output",
+      "type": "String",
+      "optional": false,
+      "description": "Output is a 2D correlation matrix."
+    },
+    {
+      "id": "number_consecutive_labels",
+      "name": "Number of Consecutive Labels",
+      "value-key": "[NUMBER_CONSECUTIVE_LABELS]",
+      "command-line-flag": "-l",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "description": "Number of consecutive labels in data."
+    },
+    {
+      "id": "minimum_region_size",
+      "name": "Minimum Region Size",
+      "value-key": "[MINIMUM_REGION_SIZE]",
+      "command-line-flag": "-R",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "description": "Minimum size of a region: regions below this size are given a 0.0 connectivity value."
+    },
+    {
+      "id": "iterations",
+      "name": "Iterations",
+      "value-key": "[ITERATIONS]",
+      "command-line-flag": "-i",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "description": "Number of iterations."
+    },
+    {
+      "id": "sparsity",
+      "name": "Sparsity",
+      "value-key": "[SPARSITY]",
+      "command-line-flag": "-s",
+      "type": "Number",
+      "optional": true,
+      "description": "Sparsity - a float from (0,1] indicating what fraction of the data to use."
+    },
+    {
+      "id": "n_eigenvectors",
+      "name": "Number of Eigenvectors",
+      "value-key": "[N_EIGENVECTORS]",
+      "command-line-flag": "-n",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "description": "Number of permutations to use in scca."
+    },
+    {
+      "id": "robustify",
+      "name": "Robustify",
+      "value-key": "[ROBUSTIFY]",
+      "command-line-flag": "-r",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "description": "Rank-based scca."
+    },
+    {
+      "id": "l1",
+      "name": "L1 Penalty",
+      "value-key": "[L1]",
+      "command-line-flag": "-l",
+      "type": "Number",
+      "optional": true,
+      "description": "Use l1 ( > 0 ) or l0 ( < 0 ) penalty, also sets gradient step size e.g. -l 0.5 ( L1 ) , -l -0.5 (L0) will set 0.5 grad descent step for either penalty."
+    },
+    {
+      "id": "cluster_thresh",
+      "name": "Cluster Threshold",
+      "value-key": "[CLUSTER_THRESH]",
+      "command-line-flag": "--ClusterThresh",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "description": "Cluster threshold on view P."
+    },
+    {
+      "id": "ridge_cca",
+      "name": "Ridge CCA",
+      "value-key": "[RIDGE_CCA]",
+      "command-line-flag": "-e",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "description": "Number of permutations to use in scca."
+    },
+    {
+      "id": "partial_scca_option",
+      "name": "Partial SCCA Option",
+      "value-key": "[PARTIAL_SCCA_OPTION]",
+      "command-line-flag": "--partial-scca-option",
+      "type": "String",
+      "optional": true,
+      "value-choices": [
+        "PQ",
+        "PminusRQ",
+        "PQminusR",
+        "PminusRQminusR"
+      ],
+      "description": "Choices for partial SCCA: PQ, PminusRQ, PQminusR, PminusRQminusR."
+    },
+    {
+      "id": "timeseriesimage_to_matrix",
+      "name": "Timeseries Image to Matrix",
+      "value-key": "[TIMESERIESIMAGE_TO_MATRIX]",
+      "command-line-flag": "--timeseriesimage-to-matrix",
+      "type": {
+        "id": "timeseriesimage_to_matrix",
+        "command-line": "[TIMESERIES_IMAGE][MASK_IMAGE]",
+        "inputs": [
+          {
+            "id": "timeseries_image",
+            "name": "4D Image",
+            "value-key": "[TIMESERIES_IMAGE]",
+            "type": "File",
+            "optional": false
+          },
+          {
+            "id": "mask_image",
+            "name": "3D Mask",
+            "value-key": "[MASK_IMAGE]",
+            "type": "File",
+            "optional": false
+          }
+        ]
+      },
+      "optional": true,
+      "description": "Takes a timeseries (4D) image and converts it to a 2D matrix csv format as output. If the mask has multiple labels (more than one), then the average time series in each label will be computed and put in the csv."
+    },
+    {
+      "id": "labelsimage_to_matrix",
+      "name": "Labels Image to Matrix",
+      "value-key": "[LABELSIMAGE_TO_MATRIX]",
+      "command-line-flag": "--labelsimage-to-matrix",
+      "type": "File",
+      "optional": true,
+      "description": "Takes a labeled (3D) image and converts it to a 2D matrix csv format as output."
+    },
+    {
+      "id": "network",
+      "name": "Network",
+      "value-key": "[NETWORK]",
+      "command-line-flag": "--network",
+      "type": [
+        {
+          "id": "network_scca",
+          "name": "SCCA",
+          "command-line": "scca[[TIME_MATRIX],[LABEL_MATRIX]]",
+          "inputs": [
+            {
+              "id": "time_matrix",
+              "name": "Time Matrix",
+              "value-key": "[TIME_MATRIX]",
+              "type": "File",
+              "optional": false
+            },
+            {
+              "id": "label_matrix",
+              "name": "Label Matrix",
+              "value-key": "[LABEL_MATRIX]",
+              "type": "File",
+              "optional": false
+            }
+          ]
+        },
+        {
+          "id": "network_region_averaging",
+          "name": "Region Averaging",
+          "command-line": "region-averaging[[TIME_MATRIX],[LABEL_MATRIX]]",
+          "inputs": [
+            {
+              "id": "time_matrix",
+              "name": "Time Matrix",
+              "value-key": "[TIME_MATRIX]",
+              "type": "File",
+              "optional": false
+            },
+            {
+              "id": "label_matrix",
+              "name": "Label Matrix",
+              "value-key": "[LABEL_MATRIX]",
+              "type": "File",
+              "optional": false
+            }
+          ]
+        }
+      ],
+      "optional": true,
+      "description": "Build the network connectivity matrix."
+    }
+  ],
+  "output-files": [
+    {
+      "id": "correlation_matrix",
+      "name": "Correlation Matrix",
+      "description": "The output is the 2D correlation matrix.",
+      "path-template": "[OUTPUT]"
+    }
+  ]
+}

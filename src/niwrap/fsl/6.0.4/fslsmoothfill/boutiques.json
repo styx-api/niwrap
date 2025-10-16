@@ -1,0 +1,66 @@
+{
+  "name": "fslsmoothfill",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Smoothfill is a tool designed to fill in holes in images by smoothly interpolating the pixel values.",
+  "command-line": "fslsmoothfill [INPUT_IMAGE] [MASK_IMAGE] [OUTPUT_IMAGE] [NUMBER_OF_ITERATIONS] [DEBUG_FLAG] [VERBOSE_FLAG]",
+  "inputs": [
+    {
+      "description": "Filename of the input image.",
+      "value-key": "[INPUT_IMAGE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_image",
+      "name": "Input Image",
+      "command-line-flag": "--in",
+      "command-line-flag-separator": "="
+    },
+    {
+      "description": "Filename of the mask image.",
+      "value-key": "[MASK_IMAGE]",
+      "type": "File",
+      "optional": false,
+      "id": "mask_image",
+      "name": "Mask Image",
+      "command-line-flag": "--mask",
+      "command-line-flag-separator": "="
+    },
+    {
+      "description": "Filename for the output smoothed result image.",
+      "value-key": "[OUTPUT_IMAGE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_image",
+      "name": "Output Image",
+      "command-line-flag": "--out",
+      "command-line-flag-separator": "="
+    },
+    {
+      "description": "Number of iterations.",
+      "value-key": "[NUMBER_OF_ITERATIONS]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "number_of_iterations",
+      "name": "Number of Iterations",
+      "command-line-flag": "--niter"
+    },
+    {
+      "description": "Turn on debugging output.",
+      "value-key": "[DEBUG_FLAG]",
+      "type": "Flag",
+      "id": "debug_flag",
+      "name": "Debug Flag",
+      "command-line-flag": "--debug"
+    },
+    {
+      "description": "Switch on diagnostic messages.",
+      "value-key": "[VERBOSE_FLAG]",
+      "type": "Flag",
+      "id": "verbose_flag",
+      "name": "Verbose Flag",
+      "command-line-flag": "--verbose"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

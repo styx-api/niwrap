@@ -1,0 +1,67 @@
+{
+  "name": "mris_entropy",
+  "author": "FreeSurfer Developers",
+  "description": "Computes the entropy of a surface activation pattern for FreeSurfer",
+  "command-line": "mris_entropy [SUBJECT] [HEMI] [WFILE] [CURVFILE] [AVERAGE_ITERATIONS] [NORMALIZE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Subject ID",
+      "value-key": "[SUBJECT]",
+      "type": "String",
+      "optional": false,
+      "id": "subject",
+      "name": "Subject"
+    },
+    {
+      "description": "Hemisphere (e.g., lh or rh)",
+      "value-key": "[HEMI]",
+      "type": "String",
+      "optional": false,
+      "id": "hemi",
+      "name": "Hemisphere"
+    },
+    {
+      "description": "Weight file for surface",
+      "value-key": "[WFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "wfile",
+      "name": "Weight File"
+    },
+    {
+      "description": "Curvature file for input",
+      "value-key": "[CURVFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "curvfile",
+      "name": "Curvature File"
+    },
+    {
+      "command-line-flag": "-a",
+      "description": "Specify number of curvature averaging iterations (default=0)",
+      "value-key": "[AVERAGE_ITERATIONS]",
+      "type": "Number",
+      "optional": true,
+      "id": "average_iterations",
+      "name": "Curvature Averaging Iterations"
+    },
+    {
+      "command-line-flag": "-n",
+      "description": "Normalize curvature before writing",
+      "value-key": "[NORMALIZE]",
+      "type": "Flag",
+      "id": "normalize",
+      "name": "Normalize Curvature Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[SUBJECT]_[HEMI]_output.txt",
+      "description": "Output file containing the computed entropy",
+      "id": "output_file",
+      "name": "Entropy Output File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

@@ -1,0 +1,69 @@
+{
+  "name": "3dRankizer",
+  "author": "AFNI Developers",
+  "description": "Tool to rank each voxel as sorted into increasing value. Ties get the average rank.",
+  "command-line": "3dRankizer [DATASET] [BASE_RANK] [MASK] [PREFIX] [PERCENTIZE] [PERCENTIZE_MASK]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input MRI dataset",
+      "value-key": "[DATASET]",
+      "type": "File",
+      "optional": false,
+      "id": "dataset",
+      "name": "Input dataset"
+    },
+    {
+      "command-line-flag": "-brank",
+      "description": "Set the 'base' rank instead of 1",
+      "value-key": "[BASE_RANK]",
+      "type": "Number",
+      "optional": true,
+      "id": "base_rank",
+      "name": "Base rank"
+    },
+    {
+      "command-line-flag": "-mask",
+      "description": "Use the specified dataset as a mask. Only voxels with nonzero values in this mask will be used from the input dataset. Voxels outside the mask will get rank 0.",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "mask",
+      "name": "Mask dataset"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Write results into float-format output dataset",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "prefix",
+      "name": "Output prefix"
+    },
+    {
+      "command-line-flag": "-percentize",
+      "description": "Divide rank by the number of voxels in the dataset and multiply by 100.0",
+      "value-key": "[PERCENTIZE]",
+      "type": "Flag",
+      "id": "percentize",
+      "name": "Percentize"
+    },
+    {
+      "command-line-flag": "-percentize_mask",
+      "description": "Divide rank by the number of voxels in the mask and multiply by 100.0",
+      "value-key": "[PERCENTIZE_MASK]",
+      "type": "Flag",
+      "id": "percentize_mask",
+      "name": "Percentize with mask"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[PREFIX]+tlrc.HEAD",
+      "description": "Output float-format dataset containing ranked voxel values",
+      "id": "output_dataset",
+      "name": "Output dataset"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

@@ -1,0 +1,368 @@
+{
+  "name": "mri_robust_template",
+  "author": "FreeSurfer Developers",
+  "description": "Constructs an unbiased robust template for longitudinal volumes using an iterative method.",
+  "command-line": "mri_robust_template [MOV_FILES] [TEMPLATE_FILE] [SAT_VALUE] [SATIT_FLAG] [LTA_FILES] [MAPMOV_FILES] [MAPMOVHDR_FILES] [WEIGHTS_FILES] [ONEMINUSW_FLAG] [AVERAGE_TYPE] [INITTP] [FIXTP_FLAG] [ISCALE_FLAG] [ISCALEONLY_FLAG] [ISCALEIN_FILES] [ISCALEOUT_FILES] [TRANSONLY_FLAG] [AFFINE_FLAG] [IXFORMS_FILES] [MASKS_FILES] [VOX2VOX_FLAG] [LEASTSQUARES_FLAG] [NOIT_FLAG] [MAXIT] [HIGHIT] [EPSIT] [PAIRMAXIT] [PAIREPSIT] [SUBSAMPLE] [NOMULTI_FLAG] [FLOATTYPE_FLAG] [FINALNEAREST_FLAG] [DOUBLEPREC_FLAG] [CRAS_FLAG] [RES_THRESH] [FROBNORM_THRESH] [DEBUG_FLAG]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input movable volumes to be aligned to common mean/median template.",
+      "value-key": "[MOV_FILES]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "mov_files",
+      "name": "Movable volumes",
+      "command-line-flag": "-mov"
+    },
+    {
+      "description": "Output template volume (final mean/median image).",
+      "value-key": "[TEMPLATE_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "template_file",
+      "name": "Template file",
+      "command-line-flag": "-template"
+    },
+    {
+      "command-line-flag": "--sat",
+      "description": "Set outlier sensitivity manually. Higher values mean less sensitivity.",
+      "value-key": "[SAT_VALUE]",
+      "type": "Number",
+      "optional": true,
+      "id": "sat_value",
+      "name": "Outlier sensitivity"
+    },
+    {
+      "command-line-flag": "--satit",
+      "description": "Auto-detect good sensitivity (recommended for head or full brain scans).",
+      "value-key": "[SATIT_FLAG]",
+      "type": "Flag",
+      "id": "satit_flag",
+      "name": "Auto-detect sensitivity"
+    },
+    {
+      "command-line-flag": "--lta",
+      "description": "Output transforms to template (for each input).",
+      "value-key": "[LTA_FILES]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "lta_files",
+      "name": "Output transforms"
+    },
+    {
+      "command-line-flag": "--mapmov",
+      "description": "Output images: map and resample each input to template.",
+      "value-key": "[MAPMOV_FILES]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "mapmov_files",
+      "name": "Resampled images"
+    },
+    {
+      "command-line-flag": "--mapmovhdr",
+      "description": "Output images: header-adjusted movables (no resampling).",
+      "value-key": "[MAPMOVHDR_FILES]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "mapmovhdr_files",
+      "name": "Header-adjusted images"
+    },
+    {
+      "command-line-flag": "--weights",
+      "description": "Output weights (outliers) in target space.",
+      "value-key": "[WEIGHTS_FILES]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "weights_files",
+      "name": "Outlier weights"
+    },
+    {
+      "command-line-flag": "--oneminusw",
+      "description": "Weights (outlier) map will be inverted (0=outlier), as in earlier versions.",
+      "value-key": "[ONEMINUSW_FLAG]",
+      "type": "Flag",
+      "id": "oneminusw_flag",
+      "name": "Invert outlier weights"
+    },
+    {
+      "command-line-flag": "--average",
+      "description": "Construct template from: 0 Mean, 1 Median (default).",
+      "value-key": "[AVERAGE_TYPE]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "average_type",
+      "name": "Template average type"
+    },
+    {
+      "command-line-flag": "--inittp",
+      "description": "Use TP# for spatial init (default random), 0: no init.",
+      "value-key": "[INITTP]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "inittp",
+      "name": "Initial TP"
+    },
+    {
+      "command-line-flag": "--fixtp",
+      "description": "Map everything to init TP# (init TP is not resampled).",
+      "value-key": "[FIXTP_FLAG]",
+      "type": "Flag",
+      "id": "fixtp_flag",
+      "name": "Fix initial TP"
+    },
+    {
+      "command-line-flag": "--iscale",
+      "description": "Allow also intensity scaling (default off).",
+      "value-key": "[ISCALE_FLAG]",
+      "type": "Flag",
+      "id": "iscale_flag",
+      "name": "Intensity scaling"
+    },
+    {
+      "command-line-flag": "--iscaleonly",
+      "description": "Only perform iscale (no transformation, default off).",
+      "value-key": "[ISCALEONLY_FLAG]",
+      "type": "Flag",
+      "id": "iscaleonly_flag",
+      "name": "Intensity scaling only"
+    },
+    {
+      "command-line-flag": "--iscalein",
+      "description": "Use initial intensity scales.",
+      "value-key": "[ISCALEIN_FILES]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "iscalein_files",
+      "name": "Initial intensity scales"
+    },
+    {
+      "command-line-flag": "--iscaleout",
+      "description": "Output final intensity scales (will activate --iscale).",
+      "value-key": "[ISCALEOUT_FILES]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "iscaleout_files",
+      "name": "Final intensity scales"
+    },
+    {
+      "command-line-flag": "--transonly",
+      "description": "Find 3 parameter translation only.",
+      "value-key": "[TRANSONLY_FLAG]",
+      "type": "Flag",
+      "id": "transonly_flag",
+      "name": "Translation only"
+    },
+    {
+      "command-line-flag": "--affine",
+      "description": "Find 12 parameter affine transform.",
+      "value-key": "[AFFINE_FLAG]",
+      "type": "Flag",
+      "id": "affine_flag",
+      "name": "Affine transform"
+    },
+    {
+      "command-line-flag": "--ixforms",
+      "description": "Use initial transforms (lta) on source ('id'=identity).",
+      "value-key": "[IXFORMS_FILES]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "ixforms_files",
+      "name": "Initial transforms"
+    },
+    {
+      "command-line-flag": "--masks",
+      "description": "Input masks applied to movables.",
+      "value-key": "[MASKS_FILES]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "masks_files",
+      "name": "Input masks"
+    },
+    {
+      "command-line-flag": "--vox2vox",
+      "description": "Output VOX2VOX lta file (default is RAS2RAS).",
+      "value-key": "[VOX2VOX_FLAG]",
+      "type": "Flag",
+      "id": "vox2vox_flag",
+      "name": "VOX2VOX output"
+    },
+    {
+      "command-line-flag": "--leastsquares",
+      "description": "Use least squares instead of robust M-estimator (for testing only).",
+      "value-key": "[LEASTSQUARES_FLAG]",
+      "type": "Flag",
+      "id": "leastsquares_flag",
+      "name": "Least squares"
+    },
+    {
+      "command-line-flag": "--noit",
+      "description": "Do not iterate, just create first template.",
+      "value-key": "[NOIT_FLAG]",
+      "type": "Flag",
+      "id": "noit_flag",
+      "name": "No iteration"
+    },
+    {
+      "command-line-flag": "--maxit",
+      "description": "Iterate max # times (if #tp>2 default 6, else 5 for 2tp reg.).",
+      "value-key": "[MAXIT]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "maxit",
+      "name": "Max iterations"
+    },
+    {
+      "command-line-flag": "--highit",
+      "description": "Iterate max # times on highest resolution (default 5).",
+      "value-key": "[HIGHIT]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "highit",
+      "name": "High resolution max iterations"
+    },
+    {
+      "command-line-flag": "--epsit",
+      "description": "Stop iterations when all transform updates fall below the specified value.",
+      "value-key": "[EPSIT]",
+      "type": "Number",
+      "optional": true,
+      "id": "epsit",
+      "name": "Iteration stop threshold"
+    },
+    {
+      "command-line-flag": "--pairmaxit",
+      "description": "Iterate max # times (default 5) for individual pairwise registrations.",
+      "value-key": "[PAIRMAXIT]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "pairmaxit",
+      "name": "Pairwise max iterations"
+    },
+    {
+      "command-line-flag": "--pairepsit",
+      "description": "Stop individual pairwise registration iterations when transform updates fall below the specified value.",
+      "value-key": "[PAIREPSIT]",
+      "type": "Number",
+      "optional": true,
+      "id": "pairepsit",
+      "name": "Pairwise iteration stop threshold"
+    },
+    {
+      "command-line-flag": "--subsample",
+      "description": "Subsample if dimension > specified value on all axes (default no subsampling).",
+      "value-key": "[SUBSAMPLE]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "subsample",
+      "name": "Subsample threshold"
+    },
+    {
+      "command-line-flag": "--nomulti",
+      "description": "Do not use multi-resolution (only highest resolution).",
+      "value-key": "[NOMULTI_FLAG]",
+      "type": "Flag",
+      "id": "nomulti_flag",
+      "name": "Disable multi-resolution"
+    },
+    {
+      "command-line-flag": "--floattype",
+      "description": "Convert images to float internally (default: keep input type).",
+      "value-key": "[FLOATTYPE_FLAG]",
+      "type": "Flag",
+      "id": "floattype_flag",
+      "name": "Convert to float"
+    },
+    {
+      "command-line-flag": "--finalnearest",
+      "description": "Use nearest neighbor in final interpolation when creating average.",
+      "value-key": "[FINALNEAREST_FLAG]",
+      "type": "Flag",
+      "id": "finalnearest_flag",
+      "name": "Nearest neighbor interpolation"
+    },
+    {
+      "command-line-flag": "--doubleprec",
+      "description": "Use double precision instead of float internally (large memory usage).",
+      "value-key": "[DOUBLEPREC_FLAG]",
+      "type": "Flag",
+      "id": "doubleprec_flag",
+      "name": "Double precision"
+    },
+    {
+      "command-line-flag": "--cras",
+      "description": "Center template at average CRAS, instead of average barycenter.",
+      "value-key": "[CRAS_FLAG]",
+      "type": "Flag",
+      "id": "cras_flag",
+      "name": "Center at CRAS"
+    },
+    {
+      "command-line-flag": "--res-thresh",
+      "description": "Volume resolution threshold (default is 0.01 mm).",
+      "value-key": "[RES_THRESH]",
+      "type": "Number",
+      "optional": true,
+      "id": "res_thresh",
+      "name": "Resolution threshold"
+    },
+    {
+      "command-line-flag": "--frobnorm-thresh",
+      "description": "Matrix frobenius norm threshold (default is 0.0001).",
+      "value-key": "[FROBNORM_THRESH]",
+      "type": "Number",
+      "optional": true,
+      "id": "frobnorm_thresh",
+      "name": "Frobenius norm threshold"
+    },
+    {
+      "command-line-flag": "--debug",
+      "description": "Show debug output (default no debug output).",
+      "value-key": "[DEBUG_FLAG]",
+      "type": "Flag",
+      "id": "debug_flag",
+      "name": "Debug mode"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[TEMPLATE_FILE]",
+      "description": "Output template volume (final mean/median image).",
+      "id": "output_template",
+      "name": "Output template"
+    },
+    {
+      "path-template": "[TMP_NAME].lta",
+      "description": "Output transform file.",
+      "id": "output_lta_transform",
+      "name": "Output transform"
+    },
+    {
+      "path-template": "[TMP_NAME]_to_template.mgz",
+      "description": "Output mapped and resampled image.",
+      "id": "output_mapped_image",
+      "name": "Mapped image"
+    },
+    {
+      "path-template": "[TMP_NAME]_weights.mgz",
+      "description": "Output weights map (outliers).",
+      "id": "output_weights_map",
+      "name": "Weights map"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

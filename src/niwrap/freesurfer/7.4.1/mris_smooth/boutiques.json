@@ -1,0 +1,128 @@
+{
+  "name": "mris_smooth",
+  "description": "This program smooths the tessellation of a cortical surface and writes out the mean curvature and area files.",
+  "command-line": "mris_smooth [INPUT_SURFACE] [OUTPUT_SURFACE] [AVERAGE_ITERS] [SMOOTHING_ITERS] [NO_WRITE] [CURVATURE_NAME] [AREA_NAME] [GAUSSIAN_PARAMS] [NORMALIZE_AREA] [MOMENTUM] [SNAPSHOT_INTERVAL]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input surface file for smoothing.",
+      "value-key": "[INPUT_SURFACE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_surface",
+      "name": "Input Surface"
+    },
+    {
+      "description": "Output surface file after smoothing.",
+      "value-key": "[OUTPUT_SURFACE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_surface",
+      "name": "Output Surface"
+    },
+    {
+      "command-line-flag": "-a",
+      "description": "Specify number of curvature averaging iterations (default is 10).",
+      "value-key": "[AVERAGE_ITERS]",
+      "type": "Number",
+      "optional": true,
+      "id": "average_iters",
+      "name": "Averaging Iterations"
+    },
+    {
+      "command-line-flag": "-n",
+      "description": "Specify number of smoothing iterations (default is 10).",
+      "value-key": "[SMOOTHING_ITERS]",
+      "type": "Number",
+      "optional": true,
+      "id": "smoothing_iters",
+      "name": "Smoothing Iterations"
+    },
+    {
+      "command-line-flag": "-nw",
+      "description": "Disable writing of curvature and area estimates.",
+      "value-key": "[NO_WRITE]",
+      "type": "Flag",
+      "id": "no_write",
+      "name": "No Write Flag"
+    },
+    {
+      "command-line-flag": "-c",
+      "description": "Write curvature to a specified file name (default 'curv').",
+      "value-key": "[CURVATURE_NAME]",
+      "type": "String",
+      "optional": true,
+      "id": "curvature_name",
+      "name": "Curvature File Name"
+    },
+    {
+      "command-line-flag": "-b",
+      "description": "Write area to a specified file name (default 'area').",
+      "value-key": "[AREA_NAME]",
+      "type": "String",
+      "optional": true,
+      "id": "area_name",
+      "name": "Area File Name"
+    },
+    {
+      "command-line-flag": "-g",
+      "description": "Use Gaussian curvature smoothing with specified norm and steps.",
+      "value-key": "[GAUSSIAN_PARAMS]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 2,
+      "optional": true,
+      "id": "gaussian_params",
+      "min-list-entries": 2,
+      "name": "Gaussian Parameters"
+    },
+    {
+      "command-line-flag": "-area",
+      "description": "Normalize area after smoothing.",
+      "value-key": "[NORMALIZE_AREA]",
+      "type": "Flag",
+      "id": "normalize_area",
+      "name": "Normalize Area Flag"
+    },
+    {
+      "command-line-flag": "-m",
+      "description": "Set momentum value.",
+      "value-key": "[MOMENTUM]",
+      "type": "Number",
+      "optional": true,
+      "id": "momentum",
+      "name": "Momentum"
+    },
+    {
+      "command-line-flag": "-w",
+      "description": "Write snapshot every specified number of iterations.",
+      "value-key": "[SNAPSHOT_INTERVAL]",
+      "type": "Number",
+      "optional": true,
+      "id": "snapshot_interval",
+      "name": "Snapshot Interval"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_SURFACE]",
+      "description": "Output smoothed surface file.",
+      "id": "output_surface_file",
+      "name": "Output Surface File"
+    },
+    {
+      "path-template": "${OUTPUT_SURFACE}_curvature",
+      "description": "Output curvature file (if written).",
+      "id": "curvature_file",
+      "name": "Curvature File"
+    },
+    {
+      "path-template": "${OUTPUT_SURFACE}_area",
+      "description": "Output area file (if written).",
+      "id": "area_file",
+      "name": "Area File"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

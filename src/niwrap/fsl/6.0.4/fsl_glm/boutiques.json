@@ -1,0 +1,297 @@
+{
+  "name": "fsl_glm",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Simple GLM allowing temporal or spatial regression on either text data or images",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "fsl_glm [INPUT_FILE] [DESIGN_MATRIX] [OUTPUT_FILE] [CONTRASTS] [MASK_FILE] [DOF] [DESIGN_NORM_FLAG] [DATA_NORM_FLAG] [VN_FLAG] [DEMEAN_FLAG] [OUTPUT_COPES] [OUTPUT_ZSTATS] [OUTPUT_TSTATS] [OUTPUT_PVALS] [OUTPUT_FVALS] [OUTPUT_PFVALS] [OUTPUT_RESIDUALS] [OUTPUT_VARCB] [OUTPUT_SIGSQ] [OUTPUT_DATA] [OUTPUT_VNSCALES] [VX_TEXT] [VX_IMAGES] [HELP_FLAG]",
+  "inputs": [
+    {
+      "command-line-flag": "-i",
+      "description": "Input file name (text matrix or 3D/4D image file)",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input file"
+    },
+    {
+      "command-line-flag": "-d",
+      "description": "File name of the GLM design matrix (text time courses for temporal regression or an image file for spatial regression)",
+      "value-key": "[DESIGN_MATRIX]",
+      "type": "File",
+      "optional": false,
+      "id": "design_matrix",
+      "name": "Design matrix"
+    },
+    {
+      "command-line-flag": "-o",
+      "description": "Output file name for GLM parameter estimates (GLM betas)",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "output_file",
+      "name": "Output file"
+    },
+    {
+      "command-line-flag": "-c",
+      "description": "Matrix of t-statistics contrasts",
+      "value-key": "[CONTRASTS]",
+      "type": "File",
+      "optional": true,
+      "id": "contrasts",
+      "name": "Contrasts"
+    },
+    {
+      "command-line-flag": "-m",
+      "description": "Mask image file name if input is image",
+      "value-key": "[MASK_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "mask_file",
+      "name": "Mask file"
+    },
+    {
+      "command-line-flag": "--dof",
+      "description": "Set degrees-of-freedom explicitly",
+      "value-key": "[DOF]",
+      "type": "Number",
+      "optional": true,
+      "id": "dof",
+      "name": "Degrees-of-freedom"
+    },
+    {
+      "command-line-flag": "--des_norm",
+      "description": "Switch on normalisation of the design matrix columns to unit std. deviation",
+      "value-key": "[DESIGN_NORM_FLAG]",
+      "type": "Flag",
+      "id": "design_norm_flag",
+      "name": "Design normalisation flag"
+    },
+    {
+      "command-line-flag": "--dat_norm",
+      "description": "Switch on normalisation of the data time series to unit std. deviation",
+      "value-key": "[DATA_NORM_FLAG]",
+      "type": "Flag",
+      "id": "data_norm_flag",
+      "name": "Data normalisation flag"
+    },
+    {
+      "command-line-flag": "--vn",
+      "description": "Perform MELODIC variance-normalisation on data",
+      "value-key": "[VN_FLAG]",
+      "type": "Flag",
+      "id": "vn_flag",
+      "name": "Variance normalisation flag"
+    },
+    {
+      "command-line-flag": "--demean",
+      "description": "Switch on de-meaning of design and data",
+      "value-key": "[DEMEAN_FLAG]",
+      "type": "Flag",
+      "id": "demean_flag",
+      "name": "De-mean flag"
+    },
+    {
+      "command-line-flag": "--out_cope",
+      "description": "Output file name for COPEs (either as text file or image)",
+      "value-key": "[OUTPUT_COPES]",
+      "type": "String",
+      "optional": true,
+      "id": "output_copes",
+      "name": "Output COPEs file"
+    },
+    {
+      "command-line-flag": "--out_z",
+      "description": "Output file name for Z-stats (either as text file or image)",
+      "value-key": "[OUTPUT_ZSTATS]",
+      "type": "String",
+      "optional": true,
+      "id": "output_zstats",
+      "name": "Output Z-stats file"
+    },
+    {
+      "command-line-flag": "--out_t",
+      "description": "Output file name for t-stats (either as text file or image)",
+      "value-key": "[OUTPUT_TSTATS]",
+      "type": "String",
+      "optional": true,
+      "id": "output_tstats",
+      "name": "Output t-stats file"
+    },
+    {
+      "command-line-flag": "--out_p",
+      "description": "Output file name for p-values of Z-stats (either as text file or image)",
+      "value-key": "[OUTPUT_PVALS]",
+      "type": "String",
+      "optional": true,
+      "id": "output_pvals",
+      "name": "Output p-values file"
+    },
+    {
+      "command-line-flag": "--out_f",
+      "description": "Output file name for F-value of full model fit",
+      "value-key": "[OUTPUT_FVALS]",
+      "type": "String",
+      "optional": true,
+      "id": "output_fvals",
+      "name": "Output F-value file"
+    },
+    {
+      "command-line-flag": "--out_pf",
+      "description": "Output file name for p-value for full model fit",
+      "value-key": "[OUTPUT_PFVALS]",
+      "type": "String",
+      "optional": true,
+      "id": "output_pfvals",
+      "name": "Output p-value file"
+    },
+    {
+      "command-line-flag": "--out_res",
+      "description": "Output file name for residuals",
+      "value-key": "[OUTPUT_RESIDUALS]",
+      "type": "String",
+      "optional": true,
+      "id": "output_residuals",
+      "name": "Output residuals file"
+    },
+    {
+      "command-line-flag": "--out_varcb",
+      "description": "Output file name for variance of COPEs",
+      "value-key": "[OUTPUT_VARCB]",
+      "type": "String",
+      "optional": true,
+      "id": "output_varcb",
+      "name": "Output variance of COPEs file"
+    },
+    {
+      "command-line-flag": "--out_sigsq",
+      "description": "Output file name for residual noise variance sigma-square",
+      "value-key": "[OUTPUT_SIGSQ]",
+      "type": "String",
+      "optional": true,
+      "id": "output_sigsq",
+      "name": "Output sigma-square variance file"
+    },
+    {
+      "command-line-flag": "--out_data",
+      "description": "Output file name for pre-processed data",
+      "value-key": "[OUTPUT_DATA]",
+      "type": "String",
+      "optional": true,
+      "id": "output_data",
+      "name": "Output pre-processed data"
+    },
+    {
+      "command-line-flag": "--out_vnscales",
+      "description": "Output file name for scaling factors for variance normalisation",
+      "value-key": "[OUTPUT_VNSCALES]",
+      "type": "String",
+      "optional": true,
+      "id": "output_vnscales",
+      "name": "Output variance normalisation scales file"
+    },
+    {
+      "command-line-flag": "--vxt",
+      "description": "List of text files containing text matrix confounds. Caution, BETA option.",
+      "value-key": "[VX_TEXT]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "vx_text",
+      "name": "VXT confounds"
+    },
+    {
+      "command-line-flag": "--vxf",
+      "description": "List of 4D images containing voxelwise confounds. Caution, BETA option.",
+      "value-key": "[VX_IMAGES]",
+      "type": "File",
+      "list": true,
+      "optional": true,
+      "id": "vx_images",
+      "name": "VXF confounds"
+    },
+    {
+      "command-line-flag": "-h",
+      "description": "Display this help text",
+      "value-key": "[HELP_FLAG]",
+      "type": "Flag",
+      "id": "help_flag",
+      "name": "Help flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILE].nii.gz",
+      "description": "Output file name for GLM parameter estimates (GLM betas)",
+      "id": "output_file_out",
+      "name": "Output file"
+    },
+    {
+      "path-template": "[OUTPUT_COPES].nii.gz",
+      "description": "Output file name for COPEs (either as text file or image)",
+      "id": "output_copes_out",
+      "name": "Output COPEs file"
+    },
+    {
+      "path-template": "[OUTPUT_ZSTATS].nii.gz",
+      "description": "Output file name for Z-stats (either as text file or image)",
+      "id": "output_zstats_out",
+      "name": "Output Z-stats file"
+    },
+    {
+      "path-template": "[OUTPUT_TSTATS].nii.gz",
+      "description": "Output file name for t-stats (either as text file or image)",
+      "id": "output_tstats_out",
+      "name": "Output t-stats file"
+    },
+    {
+      "path-template": "[OUTPUT_PVALS].nii.gz",
+      "description": "Output file name for p-values of Z-stats (either as text file or image)",
+      "id": "output_pvals_out",
+      "name": "Output p-values file"
+    },
+    {
+      "path-template": "[OUTPUT_FVALS].nii.gz",
+      "description": "Output file name for F-value of full model fit",
+      "id": "output_fvals_out",
+      "name": "Output F-value file"
+    },
+    {
+      "path-template": "[OUTPUT_PFVALS].nii.gz",
+      "description": "Output file name for p-value for full model fit",
+      "id": "output_pfvals_out",
+      "name": "Output p-value file"
+    },
+    {
+      "path-template": "[OUTPUT_RESIDUALS].nii.gz",
+      "description": "Output file name for residuals",
+      "id": "output_residuals_out",
+      "name": "Output residuals file"
+    },
+    {
+      "path-template": "[OUTPUT_VARCB].nii.gz",
+      "description": "Output file name for variance of COPEs",
+      "id": "output_varcb_out",
+      "name": "Output variance of COPEs file"
+    },
+    {
+      "path-template": "[OUTPUT_SIGSQ].nii.gz",
+      "description": "Output file name for residual noise variance sigma-square",
+      "id": "output_sigsq_out",
+      "name": "Output sigma-square variance file"
+    },
+    {
+      "path-template": "[OUTPUT_DATA].nii.gz",
+      "description": "Output file name for pre-processed data",
+      "id": "output_data_out",
+      "name": "Output pre-processed data"
+    },
+    {
+      "path-template": "[OUTPUT_VNSCALES].nii.gz",
+      "description": "Output file name for scaling factors for variance normalisation",
+      "id": "output_vnscales_out",
+      "name": "Output variance normalisation scales file"
+    }
+  ]
+}

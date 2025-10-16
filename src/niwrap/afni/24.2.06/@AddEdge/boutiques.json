@@ -1,0 +1,166 @@
+{
+  "name": "@AddEdge",
+  "author": "AFNI Developers",
+  "description": "A script to create composite edge-enhanced datasets and drive the AFNI interface to display the results",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "@AddEdge [INPUT_FILES] [EXAMINE_LIST] [AX_MONT] [AX_GEOM] [SAG_GEOM] [LAYOUT_FILE] [NO_LAYOUT] [EDGE_PERCENTILE] [SINGLE_EDGE] [OPACITY] [KEEP_TEMP] [NO_DEOBLIQUE] [AUTO_RECORD] [AUTO] [NO_AUTO]",
+  "inputs": [
+    {
+      "description": "Input datasets",
+      "value-key": "[INPUT_FILES]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "input_files",
+      "name": "Input datasets"
+    },
+    {
+      "command-line-flag": "-examinelist",
+      "description": "Use list of paired datasets from file",
+      "value-key": "[EXAMINE_LIST]",
+      "type": "String",
+      "optional": true,
+      "id": "examine_list",
+      "name": "Examine list file"
+    },
+    {
+      "command-line-flag": "-ax_mont",
+      "description": "Axial montage string (default='2x2:24')",
+      "value-key": "[AX_MONT]",
+      "type": "String",
+      "optional": true,
+      "id": "ax_mont",
+      "name": "Axial montage format"
+    },
+    {
+      "command-line-flag": "-ax_geom",
+      "description": "Axial image window geometry (default='777x702+433+334')",
+      "value-key": "[AX_GEOM]",
+      "type": "String",
+      "optional": true,
+      "id": "ax_geom",
+      "name": "Axial image window geometry"
+    },
+    {
+      "command-line-flag": "-sag_geom",
+      "description": "Sagittal image window geometry (default='540x360+4+436')",
+      "value-key": "[SAG_GEOM]",
+      "type": "String",
+      "optional": true,
+      "id": "sag_geom",
+      "name": "Sagittal image window geometry"
+    },
+    {
+      "command-line-flag": "-layout",
+      "description": "Use AFNI layout file for display",
+      "value-key": "[LAYOUT_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "layout_file",
+      "name": "AFNI layout file"
+    },
+    {
+      "command-line-flag": "-no_layout",
+      "description": "Do not use layout. Use AFNI as it is open.",
+      "value-key": "[NO_LAYOUT]",
+      "type": "Flag",
+      "id": "no_layout",
+      "name": "No layout flag"
+    },
+    {
+      "command-line-flag": "-edge_percentile",
+      "description": "Specify edge threshold value (default=30%)",
+      "value-key": "[EDGE_PERCENTILE]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "edge_percentile",
+      "name": "Edge threshold value"
+    },
+    {
+      "command-line-flag": "-single_edge",
+      "description": "Show only a single edge in composite image",
+      "value-key": "[SINGLE_EDGE]",
+      "type": "Flag",
+      "id": "single_edge",
+      "name": "Single edge flag"
+    },
+    {
+      "command-line-flag": "-opa",
+      "description": "Set opacity of overlay (default=9 opaque)",
+      "value-key": "[OPACITY]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "opacity",
+      "name": "Overlay opacity"
+    },
+    {
+      "command-line-flag": "-keep_temp",
+      "description": "Do not remove temporary files",
+      "value-key": "[KEEP_TEMP]",
+      "type": "Flag",
+      "id": "keep_temp",
+      "name": "Keep temporary files flag"
+    },
+    {
+      "command-line-flag": "-no_deoblique",
+      "description": "Do not deoblique any data to show overlap",
+      "value-key": "[NO_DEOBLIQUE]",
+      "type": "Flag",
+      "id": "no_deoblique",
+      "name": "No deoblique flag"
+    },
+    {
+      "command-line-flag": "-auto_record",
+      "description": "Save JPEG files of current slices without prompting",
+      "value-key": "[AUTO_RECORD]",
+      "type": "Flag",
+      "id": "auto_record",
+      "name": "Auto record flag"
+    },
+    {
+      "command-line-flag": "-auto",
+      "description": "Closes old AFNI sessions and relaunches a new one ready to listen to @AddEdge in review mode.",
+      "value-key": "[AUTO]",
+      "type": "Flag",
+      "id": "auto",
+      "name": "Auto flag"
+    },
+    {
+      "command-line-flag": "-no_auto",
+      "description": "Opposite of -auto",
+      "value-key": "[NO_AUTO]",
+      "type": "Flag",
+      "id": "no_auto",
+      "name": "No auto flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "dset_nn_ec",
+      "description": "Edge composite image of dataset with its own edges",
+      "id": "dset_nn_ec",
+      "name": "Edge composite dataset"
+    },
+    {
+      "path-template": "base_dset_dset_nn_ec",
+      "description": "Edge composite image of base dataset together with the edges of the input dset_nn dataset",
+      "id": "base_dset_dset_nn_ec",
+      "name": "Base and input edge composite dataset"
+    },
+    {
+      "path-template": "base_dset_e3",
+      "description": "Edge-only datasets - used in single edge display option",
+      "id": "base_dset_e3",
+      "name": "Base dataset with only edges"
+    },
+    {
+      "path-template": "dset_nn_e3",
+      "description": "Edge-only input datasets - used in single edge display option",
+      "id": "dset_nn_e3",
+      "name": "Input dataset with only edges"
+    }
+  ]
+}

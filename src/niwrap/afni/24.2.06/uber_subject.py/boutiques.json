@@ -1,0 +1,393 @@
+{
+  "name": "uber_subject.py",
+  "author": "AFNI Developers",
+  "description": "Graphical interface to afni_proc.py",
+  "command-line": "uber_subject.py [QT_OPTS] [SVAR] [CVAR] [NO_GUI] [PRINT_AP_COMMAND] [SAVE_AP_COMMAND] [EXEC_AP_COMMAND] [EXEC_PROC_SCRIPT] [ALIGN_COST] [ALIGN_GIANT_MOVE] [ALIGN_OPTS_AEA] [ANAL_DOMAIN] [ANAL_TYPE] [ANAT] [ANAT_HAS_SKULL] [BLOCKS] [BLUR_SIZE] [EPI] [EPI_WILDCARD] [GID] [GLTSYM] [GLTSYM_LABEL] [MOTION_LIMIT] [OUTLIER_LIMIT] [REGRESS_GOFORIT] [REGRESS_BANDPASS] [REGRESS_JOBS] [REGRESS_MOT_DERIV] [REGRESS_OPTS_3DD] [REML_EXEC] [RUN_CLUSTSIM] [SID] [STIM] [STIM_BASIS] [STIM_LABEL] [STIM_TYPE] [STIM_WILDCARD] [TCAT_NFIRST] [TLRC_BASE] [TLRC_OK_MAXITE] [TLRC_OPTS_AT] [VOLREG_BASE] [VERB]",
+  "inputs": [
+    {
+      "description": "Pass options to PyQt4",
+      "command-line-flag": "-qt_opts",
+      "value-key": "[QT_OPTS]",
+      "type": "String",
+      "optional": true,
+      "id": "qt_opts",
+      "name": "Qt Options"
+    },
+    {
+      "description": "Set subject variable to value",
+      "command-line-flag": "-svar",
+      "value-key": "[SVAR]",
+      "type": "String",
+      "optional": true,
+      "id": "svar",
+      "name": "Subject Variable"
+    },
+    {
+      "description": "Set control variable to value",
+      "command-line-flag": "-cvar",
+      "value-key": "[CVAR]",
+      "type": "String",
+      "optional": true,
+      "id": "cvar",
+      "name": "Control Variable"
+    },
+    {
+      "description": "Do not open graphical interface",
+      "command-line-flag": "-no_gui",
+      "value-key": "[NO_GUI]",
+      "type": "Flag",
+      "id": "no_gui",
+      "name": "No GUI Flag"
+    },
+    {
+      "description": "Show afni_proc.py script",
+      "command-line-flag": "-print_ap_command",
+      "value-key": "[PRINT_AP_COMMAND]",
+      "type": "Flag",
+      "id": "print_ap_command",
+      "name": "Print AP Command Flag"
+    },
+    {
+      "description": "Save afni_proc.py script",
+      "command-line-flag": "-save_ap_command",
+      "value-key": "[SAVE_AP_COMMAND]",
+      "type": "String",
+      "optional": true,
+      "id": "save_ap_command",
+      "name": "Save AP Command"
+    },
+    {
+      "description": "Run afni_proc.py command",
+      "command-line-flag": "-exec_ap_command",
+      "value-key": "[EXEC_AP_COMMAND]",
+      "type": "Flag",
+      "id": "exec_ap_command",
+      "name": "Exec AP Command Flag"
+    },
+    {
+      "description": "Run proc script",
+      "command-line-flag": "-exec_proc_script",
+      "value-key": "[EXEC_PROC_SCRIPT]",
+      "type": "Flag",
+      "id": "exec_proc_script",
+      "name": "Exec Proc Script Flag"
+    },
+    {
+      "description": "Specify cost function for anat/EPI alignment",
+      "command-line-flag": "-align_cost",
+      "value-key": "[ALIGN_COST]",
+      "type": "String",
+      "optional": true,
+      "id": "align_cost",
+      "name": "Alignment Cost Function"
+    },
+    {
+      "description": "Use -giant_move in AEA.py",
+      "command-line-flag": "-align_giant_move",
+      "value-key": "[ALIGN_GIANT_MOVE]",
+      "type": "String",
+      "optional": true,
+      "id": "align_giant_move",
+      "name": "Alignment Giant Move"
+    },
+    {
+      "description": "Specify extra options for align_epi_anat.py",
+      "command-line-flag": "-align_opts_aea",
+      "value-key": "[ALIGN_OPTS_AEA]",
+      "type": "String",
+      "optional": true,
+      "id": "align_opts_aea",
+      "name": "Alignment Options for AEA"
+    },
+    {
+      "description": "Set data domain (volume/rest)",
+      "command-line-flag": "-anal_domain",
+      "value-key": "[ANAL_DOMAIN]",
+      "type": "String",
+      "optional": true,
+      "id": "anal_domain",
+      "name": "Data Domain"
+    },
+    {
+      "description": "Set analysis type (task/rest)",
+      "command-line-flag": "-anal_type",
+      "value-key": "[ANAL_TYPE]",
+      "type": "String",
+      "optional": true,
+      "id": "anal_type",
+      "name": "Analysis Type"
+    },
+    {
+      "description": "Set anatomical dataset name",
+      "command-line-flag": "-anat",
+      "value-key": "[ANAT]",
+      "type": "File",
+      "optional": true,
+      "id": "anat",
+      "name": "Anatomical Dataset"
+    },
+    {
+      "description": "Whether anat has skull (yes/no)",
+      "command-line-flag": "-anat_has_skull",
+      "value-key": "[ANAT_HAS_SKULL]",
+      "type": "String",
+      "optional": true,
+      "id": "anat_has_skull",
+      "name": "Anatomical Dataset Skull"
+    },
+    {
+      "description": "Set list of processing blocks to apply",
+      "command-line-flag": "-blocks",
+      "value-key": "[BLOCKS]",
+      "type": "String",
+      "optional": true,
+      "id": "blocks",
+      "name": "Processing Blocks"
+    },
+    {
+      "description": "Set blur size in mm",
+      "command-line-flag": "-blur_size",
+      "value-key": "[BLUR_SIZE]",
+      "type": "Number",
+      "optional": true,
+      "id": "blur_size",
+      "name": "Blur Size"
+    },
+    {
+      "description": "Set list of EPI datasets",
+      "command-line-flag": "-epi",
+      "value-key": "[EPI]",
+      "type": "String",
+      "optional": true,
+      "id": "epi",
+      "name": "EPI Datasets"
+    },
+    {
+      "description": "Use wildcard for EPI datasets (yes/no)",
+      "command-line-flag": "-epi_wildcard",
+      "value-key": "[EPI_WILDCARD]",
+      "type": "String",
+      "optional": true,
+      "id": "epi_wildcard",
+      "name": "EPI Wildcard"
+    },
+    {
+      "description": "Set group ID",
+      "command-line-flag": "-gid",
+      "value-key": "[GID]",
+      "type": "String",
+      "optional": true,
+      "id": "gid",
+      "name": "Group ID"
+    },
+    {
+      "description": "Specify list of symbolic GLTs",
+      "command-line-flag": "-gltsym",
+      "value-key": "[GLTSYM]",
+      "type": "String",
+      "optional": true,
+      "id": "gltsym",
+      "name": "Symbolic GLTs"
+    },
+    {
+      "description": "Set corresponding GLT labels",
+      "command-line-flag": "-gltsym_label",
+      "value-key": "[GLTSYM_LABEL]",
+      "type": "String",
+      "optional": true,
+      "id": "gltsym_label",
+      "name": "Symbolic GLT Labels"
+    },
+    {
+      "description": "Set per-TR motion limit in mm",
+      "command-line-flag": "-motion_limit",
+      "value-key": "[MOTION_LIMIT]",
+      "type": "Number",
+      "optional": true,
+      "id": "motion_limit",
+      "name": "Motion Limit"
+    },
+    {
+      "description": "Specify outlier limit for censoring",
+      "command-line-flag": "-outlier_limit",
+      "value-key": "[OUTLIER_LIMIT]",
+      "type": "Number",
+      "optional": true,
+      "id": "outlier_limit",
+      "name": "Outlier Limit"
+    },
+    {
+      "description": "Set GOFORIT level in 3dDeconvolve",
+      "command-line-flag": "-regress_GOFORIT",
+      "value-key": "[REGRESS_GOFORIT]",
+      "type": "Number",
+      "optional": true,
+      "id": "regress_GOFORIT",
+      "name": "Regress GOFORIT"
+    },
+    {
+      "description": "Specify bandpass limits to remain after regress",
+      "command-line-flag": "-regress_bandpass",
+      "value-key": "[REGRESS_BANDPASS]",
+      "type": "String",
+      "optional": true,
+      "id": "regress_bandpass",
+      "name": "Regress Bandpass"
+    },
+    {
+      "description": "Number of jobs to use in 3dDeconvolve",
+      "command-line-flag": "-regress_jobs",
+      "value-key": "[REGRESS_JOBS]",
+      "type": "Number",
+      "optional": true,
+      "id": "regress_jobs",
+      "name": "Regress Jobs"
+    },
+    {
+      "description": "Regress motion derivatives (yes/no)",
+      "command-line-flag": "-regress_mot_deriv",
+      "value-key": "[REGRESS_MOT_DERIV]",
+      "type": "String",
+      "optional": true,
+      "id": "regress_mot_deriv",
+      "name": "Regress Motion Derivatives"
+    },
+    {
+      "description": "Specify extra options for 3dDeconvolve",
+      "command-line-flag": "-regress_opts_3dD",
+      "value-key": "[REGRESS_OPTS_3DD]",
+      "type": "String",
+      "optional": true,
+      "id": "regress_opts_3dD",
+      "name": "Regress Options 3dD"
+    },
+    {
+      "description": "Run 3dREMLfit (yes/no)",
+      "command-line-flag": "-reml_exec",
+      "value-key": "[REML_EXEC]",
+      "type": "String",
+      "optional": true,
+      "id": "reml_exec",
+      "name": "REML Execution"
+    },
+    {
+      "description": "Run 3dClustSim (yes/no)",
+      "command-line-flag": "-run_clustsim",
+      "value-key": "[RUN_CLUSTSIM]",
+      "type": "String",
+      "optional": true,
+      "id": "run_clustsim",
+      "name": "Run ClustSim"
+    },
+    {
+      "description": "Set subject ID",
+      "command-line-flag": "-sid",
+      "value-key": "[SID]",
+      "type": "String",
+      "optional": true,
+      "id": "sid",
+      "name": "Subject ID"
+    },
+    {
+      "description": "Set list of stim timing files",
+      "command-line-flag": "-stim",
+      "value-key": "[STIM]",
+      "type": "File",
+      "optional": true,
+      "id": "stim",
+      "name": "Stimulus Timing Files"
+    },
+    {
+      "description": "Set basis functions for stim classes",
+      "command-line-flag": "-stim_basis",
+      "value-key": "[STIM_BASIS]",
+      "type": "String",
+      "optional": true,
+      "id": "stim_basis",
+      "name": "Stim Basis Functions"
+    },
+    {
+      "description": "Set stim file labels",
+      "command-line-flag": "-stim_label",
+      "value-key": "[STIM_LABEL]",
+      "type": "String",
+      "optional": true,
+      "id": "stim_label",
+      "name": "Stimulus File Labels"
+    },
+    {
+      "description": "Set stim types for stim classes",
+      "command-line-flag": "-stim_type",
+      "value-key": "[STIM_TYPE]",
+      "type": "String",
+      "optional": true,
+      "id": "stim_type",
+      "name": "Stimulus Types"
+    },
+    {
+      "description": "Use wildcard for stim files (yes/no)",
+      "command-line-flag": "-stim_wildcard",
+      "value-key": "[STIM_WILDCARD]",
+      "type": "String",
+      "optional": true,
+      "id": "stim_wildcard",
+      "name": "Stimulus Wildcard"
+    },
+    {
+      "description": "Set number of TRs to remove per run",
+      "command-line-flag": "-tcat_nfirst",
+      "value-key": "[TCAT_NFIRST]",
+      "type": "Number",
+      "optional": true,
+      "id": "tcat_nfirst",
+      "name": "Number of TRs to Remove"
+    },
+    {
+      "description": "Specify anat for standard space alignment",
+      "command-line-flag": "-tlrc_base",
+      "value-key": "[TLRC_BASE]",
+      "type": "String",
+      "optional": true,
+      "id": "tlrc_base",
+      "name": "Talarach Base"
+    },
+    {
+      "description": "Pass -OK_maxite to @auto_tlrc (yes/no)",
+      "command-line-flag": "-tlrc_ok_maxite",
+      "value-key": "[TLRC_OK_MAXITE]",
+      "type": "String",
+      "optional": true,
+      "id": "tlrc_ok_maxite",
+      "name": "Talarach OK Maxite"
+    },
+    {
+      "description": "Specify extra options for @auto_tlrc",
+      "command-line-flag": "-tlrc_opts_at",
+      "value-key": "[TLRC_OPTS_AT]",
+      "type": "String",
+      "optional": true,
+      "id": "tlrc_opts_at",
+      "name": "Talarach Options AT"
+    },
+    {
+      "description": "Set volreg base string (first/third/last)",
+      "command-line-flag": "-volreg_base",
+      "value-key": "[VOLREG_BASE]",
+      "type": "String",
+      "optional": true,
+      "id": "volreg_base",
+      "name": "Volume Registration Base"
+    },
+    {
+      "description": "Set verbose level",
+      "command-line-flag": "-verb",
+      "value-key": "[VERB]",
+      "type": "String",
+      "optional": true,
+      "id": "verb",
+      "name": "Verbose Level"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

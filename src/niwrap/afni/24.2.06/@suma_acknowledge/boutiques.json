@@ -1,0 +1,80 @@
+{
+  "name": "@suma_acknowledge",
+  "author": "AFNI Developers",
+  "description": "Demo script to create a graph dataset to show names of individuals and groups, potentially useful for acknowledgements in a talk.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "@suma_acknowledge [INPUT_FILE] [SURFACE_FILE] [OUTPUT_PREFIX] [CENTER_FLAG] [SUBSURFACE_FILE] [SCALE_FACTOR] [REDUCE_FACTOR]",
+  "inputs": [
+    {
+      "description": "Required input text file with format for each line: first last groupname.",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input file",
+      "command-line-flag": "-input"
+    },
+    {
+      "description": "Required surface to place nodes.",
+      "value-key": "[SURFACE_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "surface_file",
+      "name": "Surface file",
+      "command-line-flag": "-surf"
+    },
+    {
+      "description": "Output prefix for graph dataset.",
+      "value-key": "[OUTPUT_PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "output_prefix",
+      "name": "Output prefix",
+      "command-line-flag": "-prefix"
+    },
+    {
+      "command-line-flag": "-center",
+      "description": "Put center coord at x,y,z=0,0,0. Otherwise, uses average xyz in surface.",
+      "value-key": "[CENTER_FLAG]",
+      "type": "Flag",
+      "id": "center_flag",
+      "name": "Center flag"
+    },
+    {
+      "command-line-flag": "-subsurf",
+      "description": "Surface for surrounding members of group (use ld2, ld4, ld5, ld6, .... default is ld5).",
+      "value-key": "[SUBSURFACE_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "subsurface_file",
+      "name": "Subsurface file"
+    },
+    {
+      "command-line-flag": "-scalefactor",
+      "description": "Scale xyz for group nodes (default is 1.0).",
+      "value-key": "[SCALE_FACTOR]",
+      "type": "Number",
+      "optional": true,
+      "id": "scale_factor",
+      "name": "Scale factor"
+    },
+    {
+      "command-line-flag": "-reducefactor",
+      "description": "Scale xyz offsets for member nodes (xyz/r), default is 10.",
+      "value-key": "[REDUCE_FACTOR]",
+      "type": "Number",
+      "optional": true,
+      "id": "reduce_factor",
+      "name": "Reduce factor"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_PREFIX]_graph_dataset",
+      "description": "Output graph dataset",
+      "id": "output_file",
+      "name": "Output graph file"
+    }
+  ]
+}

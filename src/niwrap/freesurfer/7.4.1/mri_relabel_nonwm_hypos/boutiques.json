@@ -1,0 +1,70 @@
+{
+  "name": "mri_relabel_nonwm_hypos",
+  "author": "FreeSurfer Developers",
+  "description": "Relabels non-WM hypointensities based on proximity to a nearby label.",
+  "command-line": "mri_relabel_nonwm_hypos [INPUTSEG] [OUTPUTSEG] [SEGMENTS] [SEG_DEFAULT] [DEBUG] [CHECKOPTS]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input segmentation file with non-wm-hypos labeled as 80, 81, or 82.",
+      "value-key": "[INPUTSEG]",
+      "type": "File",
+      "optional": false,
+      "id": "inputseg",
+      "name": "Input Segmentation",
+      "command-line-flag": "-i"
+    },
+    {
+      "description": "Output segmentation file with non-wm-hypos relabeled.",
+      "value-key": "[OUTPUTSEG]",
+      "type": "String",
+      "optional": false,
+      "id": "outputseg",
+      "name": "Output Segmentation",
+      "command-line-flag": "-o"
+    },
+    {
+      "command-line-flag": "--seg",
+      "description": "Label hypos adjacent to specified segment as a new segment (can be used multiple times).",
+      "value-key": "[SEGMENTS]",
+      "type": "String",
+      "optional": true,
+      "list": true,
+      "id": "segments",
+      "name": "Segments"
+    },
+    {
+      "command-line-flag": "--seg-default",
+      "description": "Use the default relabeling scheme.",
+      "value-key": "[SEG_DEFAULT]",
+      "type": "Flag",
+      "id": "seg_default",
+      "name": "Segment Default"
+    },
+    {
+      "command-line-flag": "--debug",
+      "description": "Turn on debugging.",
+      "value-key": "[DEBUG]",
+      "type": "Flag",
+      "id": "debug",
+      "name": "Debug Flag"
+    },
+    {
+      "command-line-flag": "--checkopts",
+      "description": "Don't run anything, just check options and exit.",
+      "value-key": "[CHECKOPTS]",
+      "type": "Flag",
+      "id": "checkopts",
+      "name": "Check Options Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUTSEG]",
+      "description": "Output segmentation with non-WM hypointensities relabeled.",
+      "id": "out_segmentation",
+      "name": "Output Segmentation File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

@@ -1,0 +1,50 @@
+{
+  "name": "mri_strip_nonwhite",
+  "description": "Tool for processing MRI images, transforming volumetric data using provided transformation and template files.",
+  "command-line": "mri_strip_nonwhite [INPUT_VOLUME] [TRANSFORM] [TEMPLATE_VOLUME] [OUTPUT_VOLUME]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "input_volume",
+      "name": "Input Volume",
+      "type": "File",
+      "description": "Input MRI volume file",
+      "value-key": "[INPUT_VOLUME]",
+      "optional": false
+    },
+    {
+      "id": "transform",
+      "name": "Transform",
+      "type": "File",
+      "description": "Transformation file to be applied to the input volume",
+      "value-key": "[TRANSFORM]",
+      "optional": false
+    },
+    {
+      "id": "template_volume",
+      "name": "Template Volume",
+      "type": "File",
+      "description": "Template volume file used in conjunction with the transform",
+      "value-key": "[TEMPLATE_VOLUME]",
+      "optional": false
+    },
+    {
+      "id": "output_volume",
+      "name": "Output Volume",
+      "type": "String",
+      "description": "Name of the output volume file",
+      "value-key": "[OUTPUT_VOLUME]",
+      "optional": false
+    }
+  ],
+  "output-files": [
+    {
+      "id": "output_file",
+      "name": "Output Volume File",
+      "description": "Processed output volume file",
+      "path-template": "[OUTPUT_VOLUME]"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

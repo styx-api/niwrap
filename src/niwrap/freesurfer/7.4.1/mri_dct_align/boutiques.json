@@ -1,0 +1,42 @@
+{
+  "name": "mri_dct_align",
+  "description": "MRI DCT alignment tool from FreeSurfer",
+  "command-line": "mri_dct_align [SOURCE] [DESTINATION] [OUTPUT_XFORM]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Source image file",
+      "value-key": "[SOURCE]",
+      "type": "File",
+      "optional": false,
+      "id": "source",
+      "name": "Source"
+    },
+    {
+      "description": "Destination image file",
+      "value-key": "[DESTINATION]",
+      "type": "File",
+      "optional": false,
+      "id": "destination",
+      "name": "Destination"
+    },
+    {
+      "description": "Output transformation file",
+      "value-key": "[OUTPUT_XFORM]",
+      "type": "String",
+      "optional": false,
+      "id": "output_xform",
+      "name": "Output Transformation"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_XFORM]",
+      "description": "Transformation file resulting from the alignment",
+      "id": "output_xform_file",
+      "name": "Output XForm File"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

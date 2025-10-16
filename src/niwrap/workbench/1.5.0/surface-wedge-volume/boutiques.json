@@ -1,0 +1,42 @@
+{
+  "name": "surface-wedge-volume",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -surface-wedge-volume [INNER_SURFACE] [OUTER_SURFACE] [METRIC]",
+  "description": "Measure per-vertex volume between surfaces.\n\nCompute the volume of each vertex's area from one surface to another.  The surfaces must have vertex correspondence, and have consistent triangle orientation.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "inner_surface",
+      "name": "inner_surface",
+      "description": "the inner surface",
+      "optional": false,
+      "value-key": "[INNER_SURFACE]",
+      "type": "File"
+    },
+    {
+      "id": "outer_surface",
+      "name": "outer_surface",
+      "description": "the outer surface",
+      "optional": false,
+      "value-key": "[OUTER_SURFACE]",
+      "type": "File"
+    },
+    {
+      "id": "metric",
+      "name": "metric",
+      "type": "String",
+      "description": "the output metric",
+      "optional": false,
+      "value-key": "[METRIC]"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "metric",
+      "name": "metric",
+      "path-template": "[METRIC]",
+      "description": "the output metric"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

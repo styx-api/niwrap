@@ -1,0 +1,124 @@
+{
+  "name": "feat2surf",
+  "author": "FreeSurfer Developers",
+  "description": "Resamples Feat statistics onto the surface of the subject and onto a stereo-taxic surface atlas.",
+  "command-line": "feat2surf [FEAT_DIRS] [FEAT_DIRFILE] [PROJ_FRAC] [HEMI] [TARGET] [SURF] [COPE_ONLY] [DEBUG_FLAG] [NOLOG_FLAG] [OUT_DIR]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--feat",
+      "description": "Directory where Feat results are stored. Can specify multiple directories.",
+      "value-key": "[FEAT_DIRS]",
+      "type": "String",
+      "list": true,
+      "optional": false,
+      "id": "feat_dirs",
+      "name": "Feat directories"
+    },
+    {
+      "command-line-flag": "--featdirfile",
+      "description": "File with a list of Feat directories.",
+      "value-key": "[FEAT_DIRFILE]",
+      "type": "File",
+      "optional": true,
+      "id": "feat_dirfile",
+      "name": "Feat directory file"
+    },
+    {
+      "command-line-flag": "--projfrac",
+      "description": "Sample functional a fraction of the cortical thickness normal to the surface. Default is 0.",
+      "value-key": "[PROJ_FRAC]",
+      "type": "Number",
+      "optional": true,
+      "id": "proj_frac",
+      "name": "Projection fraction"
+    },
+    {
+      "command-line-flag": "--hemi",
+      "description": "Run on specified hemisphere (lh or rh) only. Default is both hemispheres.",
+      "value-key": "[HEMI]",
+      "type": "String",
+      "optional": true,
+      "id": "hemi",
+      "name": "Hemisphere"
+    },
+    {
+      "command-line-flag": "--target",
+      "description": "Subject used to define common surface space. Default is fsaverage.",
+      "value-key": "[TARGET]",
+      "type": "String",
+      "optional": true,
+      "id": "target",
+      "name": "Target subject"
+    },
+    {
+      "command-line-flag": "--surf",
+      "description": "Surface to resample to. Default is white.",
+      "value-key": "[SURF]",
+      "type": "String",
+      "optional": true,
+      "id": "surf",
+      "name": "Surface"
+    },
+    {
+      "command-line-flag": "--cope-only",
+      "description": "Only map the copes and varcopes to the common surface space",
+      "value-key": "[COPE_ONLY]",
+      "type": "Flag",
+      "id": "cope_only",
+      "name": "Cope only flag"
+    },
+    {
+      "command-line-flag": "--debug",
+      "description": "Turn on debugging",
+      "value-key": "[DEBUG_FLAG]",
+      "type": "Flag",
+      "id": "debug_flag",
+      "name": "Debug flag"
+    },
+    {
+      "command-line-flag": "--nolog",
+      "description": "Do not create a log file",
+      "value-key": "[NOLOG_FLAG]",
+      "type": "Flag",
+      "id": "nolog_flag",
+      "name": "No log flag"
+    },
+    {
+      "command-line-flag": "--out",
+      "description": "Output directory to use instead of default feat/reg_surf-?h/stats.",
+      "value-key": "[OUT_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "out_dir",
+      "name": "Output directory"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUT_DIR]/reg_surf-lh-Subject/stats",
+      "description": "Output statistics on the left hemisphere for the subject",
+      "id": "lh_output",
+      "name": "Left hemisphere output"
+    },
+    {
+      "path-template": "[OUT_DIR]/reg_surf-rh-Subject/stats",
+      "description": "Output statistics on the right hemisphere for the subject",
+      "id": "rh_output",
+      "name": "Right hemisphere output"
+    },
+    {
+      "path-template": "[OUT_DIR]/reg_surf-lh-targid/stats",
+      "description": "Output statistics on the left hemisphere for the target subject",
+      "id": "lh_target_output",
+      "name": "Left hemisphere target output"
+    },
+    {
+      "path-template": "[OUT_DIR]/reg_surf-rh-targid/stats",
+      "description": "Output statistics on the right hemisphere for the target subject",
+      "id": "rh_target_output",
+      "name": "Right hemisphere target output"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

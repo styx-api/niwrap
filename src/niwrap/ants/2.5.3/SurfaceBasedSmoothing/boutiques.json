@@ -1,0 +1,55 @@
+{
+  "name": "SurfaceBasedSmoothing",
+  "command-line": "SurfaceBasedSmoothing [IMAGE_TO_SMOOTH] [SIGMA] [SURFACE_IMAGE] [OUTNAME] [NUM_REPEATS]",
+  "description": "Surface-based smoothing applied to ImageToSmooth using a geodesic neighbourhood defined by sigma and the surface image.",
+  "author": "ANTs Developers",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "image_to_smooth",
+      "name": "Image to Smooth",
+      "value-key": "[IMAGE_TO_SMOOTH]",
+      "type": "File",
+      "description": "The image that needs to be smoothed."
+    },
+    {
+      "id": "sigma",
+      "name": "Sigma",
+      "value-key": "[SIGMA]",
+      "type": "Number",
+      "description": "Geodesic neighborhood radius."
+    },
+    {
+      "id": "surface_image",
+      "name": "Surface Image",
+      "value-key": "[SURFACE_IMAGE]",
+      "type": "File",
+      "description": "Assumes a label == 1 that defines the surface."
+    },
+    {
+      "id": "outname",
+      "name": "Output Name",
+      "value-key": "[OUTNAME]",
+      "type": "String",
+      "description": "The name of the output file."
+    },
+    {
+      "id": "num_repeats",
+      "name": "Number of Repeats",
+      "value-key": "[NUM_REPEATS]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "description": "Number of times the geodesic neighborhood is applied repeatedly."
+    }
+  ],
+  "output-files": [
+    {
+      "id": "smoothed_output",
+      "name": "Smoothed Output",
+      "description": "The output smoothed image.",
+      "path-template": "[OUTNAME]"
+    }
+  ],
+  "url": "https://github.com/ANTsX/ANTs"
+}

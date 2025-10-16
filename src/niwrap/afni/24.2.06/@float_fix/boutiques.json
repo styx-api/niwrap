@@ -1,0 +1,19 @@
+{
+  "name": "@float_fix",
+  "author": "AFNI Developers",
+  "description": "Check whether the input files have any IEEE floating point numbers for illegal values: infinities and not-a-number (NaN) values.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "@float_fix [INPUT_FILES]",
+  "inputs": [
+    {
+      "description": "Input files to be checked for illegal IEEE floating point values. Wildcards can be used, but filenames must end with .HEAD.",
+      "value-key": "[INPUT_FILES]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "input_files",
+      "name": "Input files"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

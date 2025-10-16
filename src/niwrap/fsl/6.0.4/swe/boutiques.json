@@ -1,0 +1,353 @@
+{
+  "name": "swe",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "SwE (summary statistics and voxelwise statistical analyses tool for FSL)",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "swe [INPUT_FILE] [OUTPUT_ROOT] [DESIGN_MAT] [DESIGN_CON] [DESIGN_SUB] [MASK] [FCON] [MODIFIED] [WILD_BOOTSTRAP] [LOGP] [NBOOT] [CORRP] [FONLY] [TFCE] [TFCE_2D] [CLUSTER_T] [CLUSTER_T_MASS] [CLUSTER_F] [CLUSTER_F_MASS] [QUIET] [RAW] [EQUIV] [DOF] [UNCORR_P] [NULL_DIST] [NO_RC_MASK] [SEED] [TFCE_H] [TFCE_D] [TFCE_E] [TFCE_C] [VOXELWISE_EV] [VOXELWISE_EVS] [GLM_OUTPUT]",
+  "inputs": [
+    {
+      "description": "4D input image",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input file",
+      "command-line-flag": "-i"
+    },
+    {
+      "description": "Output file root name",
+      "value-key": "[OUTPUT_ROOT]",
+      "type": "String",
+      "optional": false,
+      "id": "output_root",
+      "name": "Output root",
+      "command-line-flag": "-o"
+    },
+    {
+      "description": "Design matrix file",
+      "value-key": "[DESIGN_MAT]",
+      "type": "File",
+      "optional": false,
+      "id": "design_mat",
+      "name": "Design matrix",
+      "command-line-flag": "-d"
+    },
+    {
+      "description": "T contrasts file",
+      "value-key": "[DESIGN_CON]",
+      "type": "File",
+      "optional": false,
+      "id": "design_con",
+      "name": "Design contrasts",
+      "command-line-flag": "-t"
+    },
+    {
+      "description": "Subjects file",
+      "value-key": "[DESIGN_SUB]",
+      "type": "File",
+      "optional": false,
+      "id": "design_sub",
+      "name": "Design subjects",
+      "command-line-flag": "-s"
+    },
+    {
+      "command-line-flag": "-m",
+      "description": "Mask image",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "mask",
+      "name": "Mask"
+    },
+    {
+      "command-line-flag": "-f",
+      "description": "F contrasts file",
+      "value-key": "[FCON]",
+      "type": "File",
+      "optional": true,
+      "id": "fcon",
+      "name": "F contrasts"
+    },
+    {
+      "command-line-flag": "--modified",
+      "description": "Use the modified 'Homogeneous' SwE instead of the classic 'Heterogeneous' SwE",
+      "value-key": "[MODIFIED]",
+      "type": "Flag",
+      "id": "modified",
+      "name": "Modified SwE"
+    },
+    {
+      "command-line-flag": "--wb",
+      "description": "Inference using a non-parametric Wild Bootstrap procedure",
+      "value-key": "[WILD_BOOTSTRAP]",
+      "type": "Flag",
+      "id": "wild_bootstrap",
+      "name": "Wild Bootstrap"
+    },
+    {
+      "command-line-flag": "--logp",
+      "description": "Return -log_10(p) images instead of 1-p images",
+      "value-key": "[LOGP]",
+      "type": "Flag",
+      "id": "logp",
+      "name": "-log_10(p)"
+    },
+    {
+      "command-line-flag": "-n",
+      "description": "Number of bootstraps (default 999)",
+      "value-key": "[NBOOT]",
+      "type": "Number",
+      "optional": true,
+      "id": "nboot",
+      "name": "Number of bootstraps"
+    },
+    {
+      "command-line-flag": "-x",
+      "description": "Output voxelwise corrected p-value images",
+      "value-key": "[CORRP]",
+      "type": "Flag",
+      "id": "corrp",
+      "name": "Corrected p-values"
+    },
+    {
+      "command-line-flag": "--fonly",
+      "description": "Calculate f-statistics only",
+      "value-key": "[FONLY]",
+      "type": "Flag",
+      "id": "fonly",
+      "name": "F-statistics only"
+    },
+    {
+      "command-line-flag": "-T",
+      "description": "Threshold-Free Cluster Enhancement",
+      "value-key": "[TFCE]",
+      "type": "Flag",
+      "id": "tfce",
+      "name": "TFCE"
+    },
+    {
+      "command-line-flag": "--T2",
+      "description": "Threshold-Free Cluster Enhancement with 2D optimisation, e.g. for TBSS data (H=2, E=1, C=26)",
+      "value-key": "[TFCE_2D]",
+      "type": "Flag",
+      "id": "tfce_2d",
+      "name": "TFCE 2D"
+    },
+    {
+      "command-line-flag": "-c",
+      "description": "Cluster-extent-based inference for t-contrasts with specified cluster-forming threshold (z-score if >= 1, uncorrected p-value if < 1)",
+      "value-key": "[CLUSTER_T]",
+      "type": "Number",
+      "optional": true,
+      "id": "cluster_t",
+      "name": "Cluster extent t-contrasts"
+    },
+    {
+      "command-line-flag": "-C",
+      "description": "Cluster-mass-based inference for t-contrasts with specified cluster-forming threshold (z-score if >= 1, uncorrected p-value if < 1)",
+      "value-key": "[CLUSTER_T_MASS]",
+      "type": "Number",
+      "optional": true,
+      "id": "cluster_t_mass",
+      "name": "Cluster mass t-contrasts"
+    },
+    {
+      "command-line-flag": "-F",
+      "description": "Cluster-extent-based inference for f-contrasts with specified cluster-forming threshold (chi-squared-score if >= 1, uncorrected p-value if < 1)",
+      "value-key": "[CLUSTER_F]",
+      "type": "Number",
+      "optional": true,
+      "id": "cluster_f",
+      "name": "Cluster extent f-contrasts"
+    },
+    {
+      "command-line-flag": "-S",
+      "description": "Cluster-mass-based inference for f-contrasts with specified cluster-forming threshold (chi-squared-score if >= 1, uncorrected p-value if < 1)",
+      "value-key": "[CLUSTER_F_MASS]",
+      "type": "Number",
+      "optional": true,
+      "id": "cluster_f_mass",
+      "name": "Cluster mass f-contrasts"
+    },
+    {
+      "command-line-flag": "--quiet",
+      "description": "Switch off diagnostic messages",
+      "value-key": "[QUIET]",
+      "type": "Flag",
+      "id": "quiet",
+      "name": "Quiet"
+    },
+    {
+      "command-line-flag": "-R",
+      "description": "Output raw voxelwise statistic images",
+      "value-key": "[RAW]",
+      "type": "Flag",
+      "id": "raw",
+      "name": "Raw voxelwise stats"
+    },
+    {
+      "command-line-flag": "-E",
+      "description": "Output equivalent z or chi-squared statistic images",
+      "value-key": "[EQUIV]",
+      "type": "Flag",
+      "id": "equiv",
+      "name": "Equivalent statistics"
+    },
+    {
+      "command-line-flag": "-D",
+      "description": "Output effective number of degrees of freedom images",
+      "value-key": "[DOF]",
+      "type": "Flag",
+      "id": "dof",
+      "name": "Degrees of freedom"
+    },
+    {
+      "command-line-flag": "--uncorrp",
+      "description": "Output uncorrected p-value images",
+      "value-key": "[UNCORR_P]",
+      "type": "Flag",
+      "id": "uncorr_p",
+      "name": "Uncorrected p-values"
+    },
+    {
+      "command-line-flag": "-N",
+      "description": "Output null distribution text files",
+      "value-key": "[NULL_DIST]",
+      "type": "Flag",
+      "id": "null_dist",
+      "name": "Null distribution"
+    },
+    {
+      "command-line-flag": "--norcmask",
+      "description": "Don't remove constant voxels from mask",
+      "value-key": "[NO_RC_MASK]",
+      "type": "Flag",
+      "id": "no_rc_mask",
+      "name": "No RC mask"
+    },
+    {
+      "command-line-flag": "--seed",
+      "description": "Specific integer seed for random number generator",
+      "value-key": "[SEED]",
+      "type": "Number",
+      "optional": true,
+      "id": "seed",
+      "name": "Seed"
+    },
+    {
+      "command-line-flag": "--tfce_H",
+      "description": "TFCE height parameter (default=2)",
+      "value-key": "[TFCE_H]",
+      "type": "Number",
+      "optional": true,
+      "id": "tfce_h",
+      "name": "TFCE height"
+    },
+    {
+      "command-line-flag": "--tfce_D",
+      "description": "TFCE delta parameter override",
+      "value-key": "[TFCE_D]",
+      "type": "Number",
+      "optional": true,
+      "id": "tfce_d",
+      "name": "TFCE delta"
+    },
+    {
+      "command-line-flag": "--tfce_E",
+      "description": "TFCE extent parameter (default=0.5)",
+      "value-key": "[TFCE_E]",
+      "type": "Number",
+      "optional": true,
+      "id": "tfce_e",
+      "name": "TFCE extent"
+    },
+    {
+      "command-line-flag": "--tfce_C",
+      "description": "TFCE connectivity (6 or 26; default=6)",
+      "value-key": "[TFCE_C]",
+      "type": "Number",
+      "optional": true,
+      "id": "tfce_c",
+      "name": "TFCE connectivity"
+    },
+    {
+      "command-line-flag": "--vxl",
+      "description": "List of numbers indicating voxelwise EVs position in the design matrix",
+      "value-key": "[VOXELWISE_EV]",
+      "type": "Number",
+      "list": true,
+      "optional": true,
+      "id": "voxelwise_ev",
+      "name": "Voxelwise EVs"
+    },
+    {
+      "command-line-flag": "--vxf",
+      "description": "List of 4D images containing voxelwise EVs",
+      "value-key": "[VOXELWISE_EVS]",
+      "type": "File",
+      "list": true,
+      "optional": true,
+      "id": "voxelwise_evs",
+      "name": "Voxelwise EVs images"
+    },
+    {
+      "command-line-flag": "--glm_output",
+      "description": "Output GLM information (pe, cope, & varcope)",
+      "value-key": "[GLM_OUTPUT]",
+      "type": "Flag",
+      "id": "glm_output",
+      "name": "GLM output"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_ROOT]_logp.nii.gz",
+      "description": "Output -log_10(p) images",
+      "id": "logp_img",
+      "name": "-log_10(p) images"
+    },
+    {
+      "path-template": "[OUTPUT_ROOT]_corrp.nii.gz",
+      "description": "Output voxel-corrected p-value images",
+      "id": "corrp_img",
+      "name": "Corrected p-value images"
+    },
+    {
+      "path-template": "[OUTPUT_ROOT]_raw.nii.gz",
+      "description": "Output raw voxelwise statistic images",
+      "id": "raw_img",
+      "name": "Raw voxelwise stats"
+    },
+    {
+      "path-template": "[OUTPUT_ROOT]_equiv.nii.gz",
+      "description": "Output equivalent z or chi-squared statistic images",
+      "id": "equiv_img",
+      "name": "Equivalent statistics"
+    },
+    {
+      "path-template": "[OUTPUT_ROOT]_dof.nii.gz",
+      "description": "Output effective number of degrees of freedom images",
+      "id": "dof_img",
+      "name": "Degrees of freedom"
+    },
+    {
+      "path-template": "[OUTPUT_ROOT]_uncorrp.nii.gz",
+      "description": "Output uncorrected p-value images",
+      "id": "uncorrp_img",
+      "name": "Uncorrected p-values"
+    },
+    {
+      "path-template": "[OUTPUT_ROOT]_null_dist.txt",
+      "description": "Output null distribution text files",
+      "id": "null_dist_file",
+      "name": "Null distribution"
+    },
+    {
+      "path-template": "[OUTPUT_ROOT]_glm.nii.gz",
+      "description": "Output GLM information (pe, cope, & varcope)",
+      "id": "glm_output_file",
+      "name": "GLM output"
+    }
+  ]
+}

@@ -1,0 +1,199 @@
+{
+  "name": "fat_proc_convert_dcm_dwis",
+  "author": "AFNI Developers",
+  "description": "Convert sets of DWIs in DICOM format into 'nicer' volume+grad format, reorient volumetric data, and glue together multiple sessions/directories of data.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "fat_proc_convert_dcm_dwis [DICOM_DIR] [OUTPUT_PREFIX] [NIFTI_FILES] [BVEC_FILES] [BVAL_FILES] [WORK_DIR] [ORIENTATION] [ORIGIN_XYZ] [FLIP_X] [FLIP_Y] [FLIP_Z] [NO_FLIP] [QC_PREFIX] [REORIENT_OFF] [NO_CLEAN] [NO_CMD_OUT] [NO_QC_VIEW] [DO_MOVIE]",
+  "inputs": [
+    {
+      "description": "Directory of DICOM files of the DWI data with 'AP' phase encoding. Can contain a wildcard expression for several directories.",
+      "value-key": "[DICOM_DIR]",
+      "type": "String",
+      "optional": false,
+      "id": "dicom_dir",
+      "name": "Input DICOM Directory"
+    },
+    {
+      "description": "Prefix (and path) for output data (e.g., *.nii.gz, *.bvec, *.bval files). Required.",
+      "value-key": "[OUTPUT_PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "output_prefix",
+      "name": "Output Prefix"
+    },
+    {
+      "description": "One or more NIFTI files of DWIs.",
+      "value-key": "[NIFTI_FILES]",
+      "type": "File",
+      "list": true,
+      "optional": true,
+      "id": "nifti_files",
+      "name": "NIFTI Files"
+    },
+    {
+      "description": "One or more row-wise, gradient (unit-magnitude) files (e.g., *.bvec).",
+      "value-key": "[BVEC_FILES]",
+      "type": "File",
+      "list": true,
+      "optional": true,
+      "id": "bvec_files",
+      "name": "bvec Files"
+    },
+    {
+      "description": "One or more bvalue files (e.g., *.bval).",
+      "value-key": "[BVAL_FILES]",
+      "type": "File",
+      "list": true,
+      "optional": true,
+      "id": "bval_files",
+      "name": "bval Files"
+    },
+    {
+      "description": "Optional working directory for intermediate files.",
+      "value-key": "[WORK_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "work_dir",
+      "name": "Working Directory"
+    },
+    {
+      "description": "Optional chance to reset orientation of the volume files (default is currently 'RAI').",
+      "value-key": "[ORIENTATION]",
+      "type": "String",
+      "optional": true,
+      "id": "orientation",
+      "name": "Orientation"
+    },
+    {
+      "description": "Explicit origin coordinates (X, Y, Z).",
+      "value-key": "[ORIGIN_XYZ]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 3,
+      "min-list-entries": 3,
+      "optional": true,
+      "id": "origin_xyz",
+      "name": "Origin XYZ"
+    },
+    {
+      "description": "Flip gradients along the X-axis.",
+      "value-key": "[FLIP_X]",
+      "command-line-flag": "-flip_x",
+      "type": "Flag",
+      "id": "flip_x",
+      "name": "Flip X"
+    },
+    {
+      "description": "Flip gradients along the Y-axis.",
+      "value-key": "[FLIP_Y]",
+      "command-line-flag": "-flip_y",
+      "type": "Flag",
+      "id": "flip_y",
+      "name": "Flip Y"
+    },
+    {
+      "description": "Flip gradients along the Z-axis.",
+      "value-key": "[FLIP_Z]",
+      "command-line-flag": "-flip_z",
+      "type": "Flag",
+      "id": "flip_z",
+      "name": "Flip Z"
+    },
+    {
+      "description": "Prevent flipping of gradients (default).",
+      "value-key": "[NO_FLIP]",
+      "command-line-flag": "-no_flip",
+      "type": "Flag",
+      "id": "no_flip",
+      "name": "No Flip"
+    },
+    {
+      "description": "Set the prefix for QC image files separately (default is '').",
+      "value-key": "[QC_PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "qc_prefix",
+      "name": "QC Prefix"
+    },
+    {
+      "description": "Turn off reorigin calculation and reorientation.",
+      "value-key": "[REORIENT_OFF]",
+      "command-line-flag": "-reorig_reorient_off",
+      "type": "Flag",
+      "id": "reorient_off",
+      "name": "Reorient Off"
+    },
+    {
+      "description": "Do not remove the working directory of intermediate files (default is to delete it).",
+      "value-key": "[NO_CLEAN]",
+      "command-line-flag": "-no_clean",
+      "type": "Flag",
+      "id": "no_clean",
+      "name": "No Clean"
+    },
+    {
+      "description": "Do not save the command line call and location where it was run.",
+      "value-key": "[NO_CMD_OUT]",
+      "command-line-flag": "-no_cmd_out",
+      "type": "Flag",
+      "id": "no_cmd_out",
+      "name": "No Cmd Out"
+    },
+    {
+      "description": "Do not generate QC image files.",
+      "value-key": "[NO_QC_VIEW]",
+      "command-line-flag": "-no_qc_view",
+      "type": "Flag",
+      "id": "no_qc_view",
+      "name": "No QC View"
+    },
+    {
+      "description": "Generate a movie of the newly created dataset (AGIF or MPEG).",
+      "value-key": "[DO_MOVIE]",
+      "command-line-flag": "-do_movie",
+      "type": "String",
+      "optional": true,
+      "id": "do_movie",
+      "name": "Create Movie"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_PREFIX].nii.gz",
+      "description": "A NIFTI file with N volumes.",
+      "id": "output_nifti",
+      "name": "Output NIFTI"
+    },
+    {
+      "path-template": "[OUTPUT_PREFIX].rvec",
+      "description": "A row-wise (3xN) bvec file of the (unit-magnitude) gradient orientations.",
+      "id": "output_rvec",
+      "name": "Output rvec"
+    },
+    {
+      "path-template": "[OUTPUT_PREFIX].bval",
+      "description": "A row-wise (1xN) bval file of the gradient magnitudes.",
+      "id": "output_bval",
+      "name": "Output bval"
+    },
+    {
+      "path-template": "[OUTPUT_PREFIX]_matA.dat",
+      "description": "A column-wise (Nx6) AFNI-style matrix file of the (scaled) b-matrix values.",
+      "id": "output_matA",
+      "name": "Output matA"
+    },
+    {
+      "path-template": "[OUTPUT_PREFIX]_matT.dat",
+      "description": "A column-wise (Nx6) TORTOISE-style matrix file of the (scaled) b-matrix values.",
+      "id": "output_matT",
+      "name": "Output matT"
+    },
+    {
+      "path-template": "[OUTPUT_PREFIX]_cvec.dat",
+      "description": "A column-wise (Nx3) bvec file of the (b-magn scaled) gradient orientations.",
+      "id": "output_cvec",
+      "name": "Output cvec"
+    }
+  ]
+}

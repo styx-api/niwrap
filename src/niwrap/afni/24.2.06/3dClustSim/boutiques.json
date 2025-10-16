@@ -1,0 +1,262 @@
+{
+  "name": "3dClustSim",
+  "author": "AFNI Developers",
+  "description": "Program to estimate the probability of false positive (noise-only) clusters.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dClustSim [NXYZ] [DXYZ] [BALL] [MASK] [OKSMALLMASK] [INSET] [FWHM] [ACF] [NOPAD] [PTHR] [ATHR] [LOTS] [MEGA] [ITER] [NODEC] [SEED] [NIML] [BOTH] [PREFIX] [CMD] [QUIET] [SSAVE]",
+  "inputs": [
+    {
+      "command-line-flag": "-nxyz",
+      "description": "Size of 3D grid to use for simulation",
+      "value-key": "[NXYZ]",
+      "type": "String",
+      "optional": true,
+      "name": "Grid Size",
+      "id": "nxyz"
+    },
+    {
+      "command-line-flag": "-dxyz",
+      "description": "Voxel sizes along each dimension",
+      "value-key": "[DXYZ]",
+      "type": "String",
+      "optional": true,
+      "name": "Voxel Sizes",
+      "id": "dxyz"
+    },
+    {
+      "command-line-flag": "-BALL",
+      "description": "Mask off points outside a ball at the center of the grid",
+      "value-key": "[BALL]",
+      "type": "Flag",
+      "name": "Ball Mask",
+      "id": "ball"
+    },
+    {
+      "command-line-flag": "-mask",
+      "description": "Use the 0 sub-brick of this dataset as a mask",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": true,
+      "name": "Mask Dataset",
+      "id": "mask"
+    },
+    {
+      "command-line-flag": "-OKsmallmask",
+      "description": "Allow small masks with less than 128 nonzero voxels",
+      "value-key": "[OKSMALLMASK]",
+      "type": "Flag",
+      "name": "Allow Small Mask",
+      "id": "oksmallmask"
+    },
+    {
+      "command-line-flag": "-inset",
+      "description": "Use these dataset(s) as the simulations to threshold and clusterize",
+      "value-key": "[INSET]",
+      "type": "File",
+      "list": true,
+      "optional": true,
+      "name": "Input Datasets",
+      "id": "inset"
+    },
+    {
+      "command-line-flag": "-fwhm",
+      "description": "Gaussian filter width in mm (use -fwhmxyz for different values per axis)",
+      "value-key": "[FWHM]",
+      "type": "Number",
+      "optional": true,
+      "name": "Gaussian Filter Width",
+      "id": "fwhm"
+    },
+    {
+      "command-line-flag": "-acf",
+      "description": "Parameters a, b, c for the autocorrelation function",
+      "value-key": "[ACF]",
+      "type": "String",
+      "optional": true,
+      "name": "Autocorrelation Function",
+      "id": "acf"
+    },
+    {
+      "command-line-flag": "-nopad",
+      "description": "Turn off padding slices added for edge effects",
+      "value-key": "[NOPAD]",
+      "type": "Flag",
+      "name": "No Padding",
+      "id": "nopad"
+    },
+    {
+      "command-line-flag": "-pthr",
+      "description": "List of uncorrected per voxel p-values",
+      "value-key": "[PTHR]",
+      "type": "String",
+      "optional": true,
+      "name": "P-Value Thresholds",
+      "id": "pthr"
+    },
+    {
+      "command-line-flag": "-athr",
+      "description": "List of corrected whole volume alpha-values",
+      "value-key": "[ATHR]",
+      "type": "String",
+      "optional": true,
+      "name": "Alpha Thresholds",
+      "id": "athr"
+    },
+    {
+      "command-line-flag": "-LOTS",
+      "description": "Use a longer list of values for pthr and athr",
+      "value-key": "[LOTS]",
+      "type": "Flag",
+      "name": "Lots of Values",
+      "id": "lots"
+    },
+    {
+      "command-line-flag": "-MEGA",
+      "description": "Add even more values to the pthr and athr grids",
+      "value-key": "[MEGA]",
+      "type": "Flag",
+      "name": "Mega Values",
+      "id": "mega"
+    },
+    {
+      "command-line-flag": "-iter",
+      "description": "Number of Monte Carlo simulations",
+      "value-key": "[ITER]",
+      "type": "Number",
+      "optional": true,
+      "name": "Monte Carlo Iterations",
+      "id": "iter"
+    },
+    {
+      "command-line-flag": "-nodec",
+      "description": "Print the cluster size threshold as an integer",
+      "value-key": "[NODEC]",
+      "type": "Flag",
+      "name": "No Decimal",
+      "id": "nodec"
+    },
+    {
+      "command-line-flag": "-seed",
+      "description": "Random number seed",
+      "value-key": "[SEED]",
+      "type": "Number",
+      "optional": true,
+      "name": "Random Seed",
+      "id": "seed"
+    },
+    {
+      "command-line-flag": "-niml",
+      "description": "Output the table in XML/NIML format",
+      "value-key": "[NIML]",
+      "type": "Flag",
+      "name": "NIML Output",
+      "id": "niml"
+    },
+    {
+      "command-line-flag": "-both",
+      "description": "Output the table in both XML/NIML format and in .1D format",
+      "value-key": "[BOTH]",
+      "type": "Flag",
+      "name": "Both Formats",
+      "id": "both"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Specify prefix for the output files",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "name": "Output Prefix",
+      "id": "prefix"
+    },
+    {
+      "command-line-flag": "-cmd",
+      "description": "Write command for putting results into a file's header",
+      "value-key": "[CMD]",
+      "type": "String",
+      "optional": true,
+      "name": "Command File",
+      "id": "cmd"
+    },
+    {
+      "command-line-flag": "-quiet",
+      "description": "Don't print out progress reports",
+      "value-key": "[QUIET]",
+      "type": "Flag",
+      "name": "Quiet Mode",
+      "id": "quiet"
+    },
+    {
+      "command-line-flag": "-ssave",
+      "description": "Save un-thresholded generated random volumes",
+      "value-key": "[SSAVE]",
+      "type": "String",
+      "optional": true,
+      "name": "Save Random Volumes",
+      "id": "ssave"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX].NN1_1sided.1D",
+      "description": "Output file for NN1 with 1-sided thresholding",
+      "id": "output_nn1_1sided",
+      "name": "NN1 Sided Output"
+    },
+    {
+      "path-template": "[PREFIX].NN1_2sided.1D",
+      "description": "Output file for NN1 with 2-sided thresholding",
+      "id": "output_nn1_2sided",
+      "name": "NN1 2-sided Output"
+    },
+    {
+      "path-template": "[PREFIX].NN1_bisided.1D",
+      "description": "Output file for NN1 with bi-sided thresholding",
+      "id": "output_nn1_bisided",
+      "name": "NN1 Bi-sided Output"
+    },
+    {
+      "path-template": "[PREFIX].NN2_1sided.1D",
+      "description": "Output file for NN2 with 1-sided thresholding",
+      "id": "output_nn2_1sided",
+      "name": "NN2 Sided Output"
+    },
+    {
+      "path-template": "[PREFIX].NN2_2sided.1D",
+      "description": "Output file for NN2 with 2-sided thresholding",
+      "id": "output_nn2_2sided",
+      "name": "NN2 2-sided Output"
+    },
+    {
+      "path-template": "[PREFIX].NN2_bisided.1D",
+      "description": "Output file for NN2 with bi-sided thresholding",
+      "id": "output_nn2_bisided",
+      "name": "NN2 Bi-sided Output"
+    },
+    {
+      "path-template": "[PREFIX].NN3_1sided.1D",
+      "description": "Output file for NN3 with 1-sided thresholding",
+      "id": "output_nn3_1sided",
+      "name": "NN3 Sided Output"
+    },
+    {
+      "path-template": "[PREFIX].NN3_2sided.1D",
+      "description": "Output file for NN3 with 2-sided thresholding",
+      "id": "output_nn3_2sided",
+      "name": "NN3 2-sided Output"
+    },
+    {
+      "path-template": "[PREFIX].NN3_bisided.1D",
+      "description": "Output file for NN3 with bi-sided thresholding",
+      "id": "output_nn3_bisided",
+      "name": "NN3 Bi-sided Output"
+    },
+    {
+      "path-template": "[PREFIX].mask",
+      "description": "Compressed ASCII encoding of the mask volume",
+      "id": "mask_compressed",
+      "name": "Mask Compression Output"
+    }
+  ]
+}

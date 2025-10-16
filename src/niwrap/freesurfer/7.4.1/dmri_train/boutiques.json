@@ -1,0 +1,265 @@
+{
+  "name": "dmri_train",
+  "command-line": "dmri_train [SLIST] [TRK_FILES] [ROIS] [SEG] [CMASK] [LMASK] [BMASK_TRAINING] [OUTTRK] [BMASK_TEST] [FA] [REG] [REGNL] [REFNL] [BASEREG] [BASEREF] [NCPTS] [MAX_STREAMLINES] [XSTR] [APRIOR] [SPRIOR] [TRUNC] [OUT_FILES] [OUTDIR] [CPTDIR] [DEBUG] [CHECKOPTS] [HELP] [VERSION]",
+  "description": "DMRI training tool for processing diffusion MRI data in FreeSurfer",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--slist",
+      "description": "Text file with list of training subject directories",
+      "value-key": "[SLIST]",
+      "type": "File",
+      "optional": false,
+      "id": "slist",
+      "name": "Subject list file"
+    },
+    {
+      "command-line-flag": "--trk",
+      "description": "Name(s) of input .trk file(s), one per path",
+      "value-key": "[TRK_FILES]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "trk_files",
+      "name": "Input .trk files"
+    },
+    {
+      "command-line-flag": "--rois",
+      "description": "Optional, names of input tract labeling ROIs, two per path",
+      "value-key": "[ROIS]",
+      "type": "File",
+      "list": true,
+      "optional": true,
+      "id": "rois",
+      "name": "Tract labeling ROI files"
+    },
+    {
+      "command-line-flag": "--seg",
+      "description": "Name of input aparc+aseg volume",
+      "value-key": "[SEG]",
+      "type": "File",
+      "optional": false,
+      "id": "seg",
+      "name": "Aparc+aseg volume"
+    },
+    {
+      "command-line-flag": "--cmask",
+      "description": "Name of input cortex mask volume",
+      "value-key": "[CMASK]",
+      "type": "File",
+      "optional": false,
+      "id": "cmask",
+      "name": "Cortex mask volume"
+    },
+    {
+      "command-line-flag": "--lmask",
+      "description": "Add a label ID from aparc+aseg to cortex mask, one per path",
+      "value-key": "[LMASK]",
+      "type": "Number",
+      "list": true,
+      "optional": false,
+      "id": "lmask",
+      "name": "Label ID for cortex mask"
+    },
+    {
+      "command-line-flag": "--bmask",
+      "description": "Input brain mask volume(s)",
+      "value-key": "[BMASK_TRAINING]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "bmask_training",
+      "name": "Brain mask volumes for training"
+    },
+    {
+      "command-line-flag": "--outtrk",
+      "description": "Name(s) of output, pre-sorted .trk file(s), one per path",
+      "value-key": "[OUTTRK]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "outtrk",
+      "name": "Output pre-sorted .trk files"
+    },
+    {
+      "command-line-flag": "--bmask",
+      "description": "Input brain mask volume(s) for test subject",
+      "value-key": "[BMASK_TEST]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "bmask_test",
+      "name": "Brain mask volumes for test subject"
+    },
+    {
+      "command-line-flag": "--fa",
+      "description": "Input FA volume(s) for test subject",
+      "value-key": "[FA]",
+      "type": "File",
+      "list": true,
+      "optional": true,
+      "id": "fa",
+      "name": "FA volumes"
+    },
+    {
+      "command-line-flag": "--reg",
+      "description": "Affine registration from atlas to base space",
+      "value-key": "[REG]",
+      "type": "File",
+      "optional": true,
+      "id": "reg",
+      "name": "Affine registration"
+    },
+    {
+      "command-line-flag": "--regnl",
+      "description": "Nonlinear registration from atlas to base space",
+      "value-key": "[REGNL]",
+      "type": "File",
+      "optional": true,
+      "id": "regnl",
+      "name": "Nonlinear registration"
+    },
+    {
+      "command-line-flag": "--refnl",
+      "description": "Nonlinear registration source reference volume",
+      "value-key": "[REFNL]",
+      "type": "File",
+      "optional": true,
+      "id": "refnl",
+      "name": "Nonlinear registration source reference"
+    },
+    {
+      "command-line-flag": "--basereg",
+      "description": "Affine registration(s) from base to FA volume(s)",
+      "value-key": "[BASEREG]",
+      "type": "File",
+      "list": true,
+      "optional": true,
+      "id": "basereg",
+      "name": "Base to FA affine registration"
+    },
+    {
+      "command-line-flag": "--baseref",
+      "description": "Base space reference volume",
+      "value-key": "[BASEREF]",
+      "type": "File",
+      "list": true,
+      "optional": true,
+      "id": "baseref",
+      "name": "Base reference volume"
+    },
+    {
+      "command-line-flag": "--ncpts",
+      "description": "Number of control points for initial spline",
+      "value-key": "[NCPTS]",
+      "type": "Number",
+      "list": true,
+      "optional": false,
+      "id": "ncpts",
+      "name": "Control points for initial spline"
+    },
+    {
+      "command-line-flag": "--max",
+      "description": "Maximum number of training streamlines to keep per path",
+      "value-key": "[MAX_STREAMLINES]",
+      "type": "Number",
+      "optional": false,
+      "id": "max_streamlines",
+      "name": "Max training streamlines"
+    },
+    {
+      "command-line-flag": "--xstr",
+      "description": "Exclude previously chosen center streamline(s)",
+      "value-key": "[XSTR]",
+      "type": "Flag",
+      "id": "xstr",
+      "name": "Exclude center streamlines"
+    },
+    {
+      "command-line-flag": "--aprior",
+      "description": "Compute priors on underlying anatomy",
+      "value-key": "[APRIOR]",
+      "type": "Flag",
+      "id": "aprior",
+      "name": "Anatomy priors"
+    },
+    {
+      "command-line-flag": "--sprior",
+      "description": "Compute priors on shape",
+      "value-key": "[SPRIOR]",
+      "type": "Flag",
+      "id": "sprior",
+      "name": "Shape priors"
+    },
+    {
+      "command-line-flag": "--trunc",
+      "description": "Use all training streamlines, truncated or not",
+      "value-key": "[TRUNC]",
+      "type": "Flag",
+      "id": "trunc",
+      "name": "Use truncated streamlines"
+    },
+    {
+      "command-line-flag": "--out",
+      "description": "Base name(s) of output(s) for test subject, one per path",
+      "value-key": "[OUT_FILES]",
+      "type": "String",
+      "list": true,
+      "optional": false,
+      "id": "out_files",
+      "name": "Output base names"
+    },
+    {
+      "command-line-flag": "--outdir",
+      "description": "Output directory",
+      "value-key": "[OUTDIR]",
+      "type": "String",
+      "optional": true,
+      "id": "outdir",
+      "name": "Output directory"
+    },
+    {
+      "command-line-flag": "--cptdir",
+      "description": "Output directory for control points in test subject's space",
+      "value-key": "[CPTDIR]",
+      "type": "String",
+      "optional": true,
+      "id": "cptdir",
+      "name": "Control points output directory"
+    },
+    {
+      "command-line-flag": "--debug",
+      "description": "Turn on debugging",
+      "value-key": "[DEBUG]",
+      "type": "Flag",
+      "id": "debug",
+      "name": "Debug mode"
+    },
+    {
+      "command-line-flag": "--checkopts",
+      "description": "Don't run anything, just check options and exit",
+      "value-key": "[CHECKOPTS]",
+      "type": "Flag",
+      "id": "checkopts",
+      "name": "Check options"
+    },
+    {
+      "command-line-flag": "--help",
+      "description": "Print out information on how to use this program",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help"
+    },
+    {
+      "command-line-flag": "--version",
+      "description": "Print out version and exit",
+      "value-key": "[VERSION]",
+      "type": "Flag",
+      "id": "version",
+      "name": "Version"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

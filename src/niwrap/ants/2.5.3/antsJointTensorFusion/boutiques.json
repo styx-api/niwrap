@@ -1,0 +1,228 @@
+{
+  "name": "antsJointTensorFusion",
+  "command-line": "antsJointTensorFusion [DIMENSIONALITY] [TARGET_IMAGE] [ATLAS_IMAGE] [ATLAS_SEGMENTATION] [ALPHA] [BETA] [RETAIN_LABEL_POSTERIOR_IMAGES] [RETAIN_ATLAS_VOTING_IMAGES] [CONSTRAIN_NONNEGATIVE] [LOG_EUCLIDEAN] [PATCH_RADIUS] [PATCH_METRIC] [SEARCH_RADIUS] [EXCLUSION_IMAGE] [MASK_IMAGE] [OUTPUT] [VERBOSE]",
+  "author": "ANTs Developers",
+  "description": "antsJointTensorFusion is an image fusion algorithm developed by Hongzhi Wang and Paul Yushkevich which won segmentation challenges at MICCAI 2012 and MICCAI 2013. The original label fusion framework was extended to accommodate intensities by Brian Avants. This implementation is based on the original ITK-style implementation and ANTsR implementation.",
+  "url": "https://github.com/ANTsX/ANTs",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "dimensionality",
+      "name": "Dimensionality",
+      "value-key": "[DIMENSIONALITY]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [
+        2,
+        3,
+        4
+      ],
+      "command-line-flag": "--image-dimensionality",
+      "description": "This option forces the image to be treated as a specified-dimensional image. If not specified, the program tries to infer the dimensionality from the input image."
+    },
+    {
+      "id": "target_image",
+      "name": "Target Image",
+      "value-key": "[TARGET_IMAGE]",
+      "command-line-flag": "-t",
+      "type": "String",
+      "list": true,
+      "list-separator": ",",
+      "optional": false,
+      "description": "The target image (or multimodal target images) assumed to be aligned to a common image domain."
+    },
+    {
+      "id": "atlas_image",
+      "name": "Atlas Image",
+      "value-key": "[ATLAS_IMAGE]",
+      "command-line-flag": "-g",
+      "type": "String",
+      "list": true,
+      "list-separator": ",",
+      "optional": false,
+      "description": "The atlas image (or multimodal atlas images) assumed to be aligned to a common image domain."
+    },
+    {
+      "id": "atlas_segmentation",
+      "name": "Atlas Segmentation",
+      "value-key": "[ATLAS_SEGMENTATION]",
+      "command-line-flag": "-l",
+      "type": "File",
+      "optional": false,
+      "description": "The atlas segmentation images. For performing label fusion the number of specified segmentations should be identical to the number of atlas image sets."
+    },
+    {
+      "id": "alpha",
+      "name": "Alpha",
+      "value-key": "[ALPHA]",
+      "command-line-flag": "-a",
+      "type": "Number",
+      "optional": true,
+      "description": "Regularization term added to matrix Mx for calculating the inverse. Default = 0.1"
+    },
+    {
+      "id": "beta",
+      "name": "Beta",
+      "value-key": "[BETA]",
+      "command-line-flag": "-b",
+      "type": "Number",
+      "optional": true,
+      "description": "Exponent for mapping intensity difference to the joint error. Default = 2.0"
+    },
+    {
+      "id": "retain_label_posterior_images",
+      "name": "Retain Label Posterior Images",
+      "value-key": "[RETAIN_LABEL_POSTERIOR_IMAGES]",
+      "command-line-flag": "-r",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "description": "Retain label posterior probability images. Requires atlas segmentations to be specified. Default = false"
+    },
+    {
+      "id": "retain_atlas_voting_images",
+      "name": "Retain Atlas Voting Images",
+      "value-key": "[RETAIN_ATLAS_VOTING_IMAGES]",
+      "command-line-flag": "-f",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "description": "Retain atlas voting images. Default = false"
+    },
+    {
+      "id": "constrain_nonnegative",
+      "name": "Constrain Nonnegative",
+      "value-key": "[CONSTRAIN_NONNEGATIVE]",
+      "command-line-flag": "-c",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "description": "Constrain solution to non-negative weights."
+    },
+    {
+      "id": "log_euclidean",
+      "name": "Log Euclidean",
+      "value-key": "[LOG_EUCLIDEAN]",
+      "command-line-flag": "-u",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "description": "Use log Euclidean space for tensor math."
+    },
+    {
+      "id": "patch_radius",
+      "name": "Patch Radius",
+      "value-key": "[PATCH_RADIUS]",
+      "command-line-flag": "-p",
+      "type": "String",
+      "optional": true,
+      "description": "Patch radius for similarity measures. Default = 2x2x2"
+    },
+    {
+      "id": "patch_metric",
+      "name": "Patch Metric",
+      "value-key": "[PATCH_METRIC]",
+      "command-line-flag": "-m",
+      "type": "String",
+      "optional": true,
+      "value-choices": [
+        "PC",
+        "MSQ"
+      ],
+      "description": "Metric to be used in determining the most similar neighborhood patch. Options include Pearson's correlation (PC) and mean squares (MSQ). Default = PC."
+    },
+    {
+      "id": "search_radius",
+      "name": "Search Radius",
+      "value-key": "[SEARCH_RADIUS]",
+      "command-line-flag": "-s",
+      "type": "String",
+      "optional": true,
+      "description": "Search radius for similarity measures. Default = 3x3x3"
+    },
+    {
+      "id": "exclusion_image",
+      "name": "Exclusion Image",
+      "value-key": "[EXCLUSION_IMAGE]",
+      "command-line-flag": "-e",
+      "type": "String",
+      "optional": true,
+      "description": "Specify an exclusion region for the given label."
+    },
+    {
+      "id": "mask_image",
+      "name": "Mask Image",
+      "value-key": "[MASK_IMAGE]",
+      "command-line-flag": "-x",
+      "type": "File",
+      "optional": true,
+      "description": "If a mask image is specified, fusion is only performed in the mask region."
+    },
+    {
+      "id": "output",
+      "name": "Output",
+      "value-key": "[OUTPUT]",
+      "command-line-flag": "-o",
+      "type": "String",
+      "optional": false,
+      "description": "The output is the intensity and/or label fusion image. Additional optional outputs include the label posterior probability images and the atlas voting weight images."
+    },
+    {
+      "id": "verbose",
+      "name": "Verbose",
+      "value-key": "[VERBOSE]",
+      "command-line-flag": "-v",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "description": "Verbose output."
+    }
+  ],
+  "output-files": [
+    {
+      "id": "label_fusion_image",
+      "name": "Label Fusion Image",
+      "description": "The label fusion image output.",
+      "path-template": "[OUTPUT]_LabelFusion.nii.gz"
+    },
+    {
+      "id": "intensity_fusion_image",
+      "name": "Intensity Fusion Image",
+      "description": "The intensity fusion image output.",
+      "path-template": "[OUTPUT]_IntensityFusion.nii.gz"
+    },
+    {
+      "id": "label_posterior_probability_image",
+      "name": "Label Posterior Probability Image",
+      "description": "The label posterior probability images.",
+      "path-template": "[OUTPUT]_LabelPosterior.nii.gz"
+    },
+    {
+      "id": "atlas_voting_weight_image",
+      "name": "Atlas Voting Weight Image",
+      "description": "The atlas voting weight images.",
+      "path-template": "[OUTPUT]_AtlasVoting.nii.gz"
+    }
+  ]
+}

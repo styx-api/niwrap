@@ -1,0 +1,66 @@
+{
+  "name": "balloon",
+  "author": "AFNI Developers",
+  "description": "Simulation of haemodynamic response using the balloon model. Based on the theoretical model proposed by Buxton et al. (1998).",
+  "command-line": "balloon [TR] [NUM_SCANS] [EVENT_TIMES] [T_RISE] [T_FALL] [T_SUSTAIN]",
+  "inputs": [
+    {
+      "description": "Scan repetition time in seconds (TR), the interval at which the output curve will be sampled.",
+      "value-key": "[TR]",
+      "type": "Number",
+      "optional": false,
+      "id": "tr",
+      "name": "Repetition Time",
+      "integer": false
+    },
+    {
+      "description": "Number of scans (N), the output curve will comprise this number of samples.",
+      "value-key": "[NUM_SCANS]",
+      "type": "Number",
+      "optional": false,
+      "id": "num_scans",
+      "name": "Number of Scans",
+      "integer": true
+    },
+    {
+      "description": "The name of a file containing the event timings, in seconds, as ASCII strings separated by white space, with time 0 being the time at which the initial scan occurred.",
+      "value-key": "[EVENT_TIMES]",
+      "type": "File",
+      "optional": false,
+      "id": "event_times",
+      "name": "Event Times File"
+    },
+    {
+      "description": "Haemodynamic rise time in seconds (typically between 4s and 6s).",
+      "value-key": "[T_RISE]",
+      "type": "Number",
+      "optional": true,
+      "id": "t_rise",
+      "name": "Haemodynamic Rise Time",
+      "list": true,
+      "max-list-entries": 1
+    },
+    {
+      "description": "Haemodynamic sustain time in seconds (typically between 0s and 4s).",
+      "value-key": "[T_SUSTAIN]",
+      "type": "Number",
+      "optional": true,
+      "id": "t_sustain",
+      "name": "Haemodynamic Sustain Time",
+      "list": true,
+      "max-list-entries": 1
+    },
+    {
+      "description": "Haemodynamic fall time in seconds (typically between 4s and 6s).",
+      "value-key": "[T_FALL]",
+      "type": "Number",
+      "optional": true,
+      "id": "t_fall",
+      "name": "Haemodynamic Fall Time",
+      "list": true,
+      "max-list-entries": 1
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

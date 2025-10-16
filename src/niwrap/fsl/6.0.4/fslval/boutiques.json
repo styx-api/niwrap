@@ -1,0 +1,34 @@
+{
+  "name": "fslval",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Tool for printing out header information from NIfTI image files.",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "fslval [INPUT_FILE] [KEYWORD]",
+  "inputs": [
+    {
+      "description": "Input NIfTI image file",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input file"
+    },
+    {
+      "description": "Keyword to query from the NIfTI header",
+      "value-key": "[KEYWORD]",
+      "type": "String",
+      "optional": false,
+      "id": "keyword",
+      "name": "Keyword"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "stdout",
+      "description": "Output printed to standard out",
+      "id": "stdout",
+      "name": "Standard Out"
+    }
+  ]
+}

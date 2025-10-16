@@ -1,0 +1,50 @@
+{
+  "name": "mist_FA_reg",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Tool for registering FA volumes to a reference T1 volume",
+  "command-line": "mist_FA_reg [FA_VOLUME] [S0_VOLUME] [REFERENCE_T1_VOLUME] [OUTPUT_FILENAME]",
+  "inputs": [
+    {
+      "description": "The FA volume to be registered.",
+      "value-key": "[FA_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "fa_volume",
+      "name": "FA volume"
+    },
+    {
+      "description": "The S0 volume corresponding to the FA volume.",
+      "value-key": "[S0_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "s0_volume",
+      "name": "S0 volume"
+    },
+    {
+      "description": "The reference T1 volume to register against.",
+      "value-key": "[REFERENCE_T1_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "reference_t1_volume",
+      "name": "Reference T1 volume"
+    },
+    {
+      "description": "The output filename for the registered volume.",
+      "value-key": "[OUTPUT_FILENAME]",
+      "type": "String",
+      "optional": false,
+      "id": "output_filename",
+      "name": "Output filename"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILENAME]",
+      "description": "Output file for the registered volume",
+      "id": "output_file",
+      "name": "Output file"
+    }
+  ],
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

@@ -1,0 +1,201 @@
+{
+  "name": "SurfaceMetrics",
+  "author": "AFNI Developers",
+  "description": "Outputs information about a surface's mesh",
+  "command-line": "SurfaceMetrics [VOLUME] [CONVEXITY] [CLOSEST_NODE] [AREA] [TRI_SINES] [TRI_COSINES] [TRI_COSINES_SINES] [TRI_ANGLES] [NODE_ANGLES] [CURVATURE] [EDGES] [NODE_NORMALS] [FACE_NORMALS] [NORMALS_SCALE] [COORDS] [SPH_COORDS] [SPH_COORDS_CENTER] [BOUNDARY_NODES] [BOUNDARY_TRIANGLES] [INTERNAL_NODES] [SURF1] [TLRC] [PREFIX]",
+  "inputs": [
+    {
+      "command-line-flag": "-vol",
+      "description": "Calculates the volume of a surface.",
+      "value-key": "[VOLUME]",
+      "type": "Flag",
+      "id": "volume",
+      "name": "Volume"
+    },
+    {
+      "command-line-flag": "-conv",
+      "description": "Output surface convexity at each node.",
+      "value-key": "[CONVEXITY]",
+      "type": "Flag",
+      "id": "convexity",
+      "name": "Convexity"
+    },
+    {
+      "command-line-flag": "-closest_node",
+      "description": "Find the closest node to each XYZ triplet in XYZ_LIST.1D.",
+      "value-key": "[CLOSEST_NODE]",
+      "type": "File",
+      "optional": true,
+      "id": "closest_node",
+      "name": "Closest Node"
+    },
+    {
+      "command-line-flag": "-area",
+      "description": "Output area of each triangle.",
+      "value-key": "[AREA]",
+      "type": "Flag",
+      "id": "area",
+      "name": "Triangle Area"
+    },
+    {
+      "command-line-flag": "-tri_sines",
+      "description": "Output sine of angles at nodes forming triangles.",
+      "value-key": "[TRI_SINES]",
+      "type": "Flag",
+      "id": "tri_sines",
+      "name": "Triangle Sines"
+    },
+    {
+      "command-line-flag": "-tri_cosines",
+      "description": "Output cosine of angles at nodes forming triangles.",
+      "value-key": "[TRI_COSINES]",
+      "type": "Flag",
+      "id": "tri_cosines",
+      "name": "Triangle Cosines"
+    },
+    {
+      "command-line-flag": "-tri_CoSines",
+      "description": "Output both cosines and sines of angles at nodes forming triangles.",
+      "value-key": "[TRI_COSINES_SINES]",
+      "type": "Flag",
+      "id": "tri_CoSines",
+      "name": "Triangle Cosines and Sines"
+    },
+    {
+      "command-line-flag": "-tri_angles",
+      "description": "Unsigned angles in radians of triangles.",
+      "value-key": "[TRI_ANGLES]",
+      "type": "Flag",
+      "id": "tri_angles",
+      "name": "Triangle Angles"
+    },
+    {
+      "command-line-flag": "-node_angles",
+      "description": "Unsigned angles in radians at nodes of surface.",
+      "value-key": "[NODE_ANGLES]",
+      "type": "Flag",
+      "id": "node_angles",
+      "name": "Node Angles"
+    },
+    {
+      "command-line-flag": "-curv",
+      "description": "Output curvature at each node.",
+      "value-key": "[CURVATURE]",
+      "type": "Flag",
+      "id": "curvature",
+      "name": "Curvature"
+    },
+    {
+      "command-line-flag": "-edges",
+      "description": "Outputs info on each edge.",
+      "value-key": "[EDGES]",
+      "type": "Flag",
+      "id": "edges",
+      "name": "Edges"
+    },
+    {
+      "command-line-flag": "-node_normals",
+      "description": "Outputs segments along node normals.",
+      "value-key": "[NODE_NORMALS]",
+      "type": "Flag",
+      "id": "node_normals",
+      "name": "Node Normals"
+    },
+    {
+      "command-line-flag": "-face_normals",
+      "description": "Outputs segments along triangle normals.",
+      "value-key": "[FACE_NORMALS]",
+      "type": "Flag",
+      "id": "face_normals",
+      "name": "Face Normals"
+    },
+    {
+      "command-line-flag": "-normals_scale",
+      "description": "Scale the normals by a given factor.",
+      "value-key": "[NORMALS_SCALE]",
+      "type": "Number",
+      "optional": true,
+      "id": "normals_scale",
+      "name": "Normals Scale"
+    },
+    {
+      "command-line-flag": "-coords",
+      "description": "Output coordinates of each node after any transformation.",
+      "value-key": "[COORDS]",
+      "type": "Flag",
+      "id": "coords",
+      "name": "Coordinates"
+    },
+    {
+      "command-line-flag": "-sph_coords",
+      "description": "Output spherical coordinates of each node.",
+      "value-key": "[SPH_COORDS]",
+      "type": "Flag",
+      "id": "sph_coords",
+      "name": "Spherical Coordinates"
+    },
+    {
+      "command-line-flag": "-sph_coords_center",
+      "description": "Shift each node by x y z before calculating spherical coordinates.",
+      "value-key": "[SPH_COORDS_CENTER]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 3,
+      "optional": true,
+      "id": "sph_coords_center",
+      "name": "Spherical Coordinates Center"
+    },
+    {
+      "command-line-flag": "-boundary_nodes",
+      "description": "Output nodes that form a boundary of a surface.",
+      "value-key": "[BOUNDARY_NODES]",
+      "type": "Flag",
+      "id": "boundary_nodes",
+      "name": "Boundary Nodes"
+    },
+    {
+      "command-line-flag": "-boundary_triangles",
+      "description": "Output triangles that form a boundary of a surface.",
+      "value-key": "[BOUNDARY_TRIANGLES]",
+      "type": "Flag",
+      "id": "boundary_triangles",
+      "name": "Boundary Triangles"
+    },
+    {
+      "command-line-flag": "-internal_nodes",
+      "description": "Output nodes that are not a boundary.",
+      "value-key": "[INTERNAL_NODES]",
+      "type": "Flag",
+      "id": "internal_nodes",
+      "name": "Internal Nodes"
+    },
+    {
+      "command-line-flag": "-SURF_1",
+      "description": "Specifies the input surface.",
+      "value-key": "[SURF1]",
+      "type": "String",
+      "optional": false,
+      "id": "surf1",
+      "name": "Surface 1"
+    },
+    {
+      "command-line-flag": "-tlrc",
+      "description": "Apply Talairach transform to surface.",
+      "value-key": "[TLRC]",
+      "type": "Flag",
+      "id": "tlrc",
+      "name": "Talairach Transform"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Use prefix for output files.",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Prefix"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

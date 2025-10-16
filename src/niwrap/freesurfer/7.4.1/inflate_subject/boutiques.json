@@ -1,0 +1,26 @@
+{
+  "name": "inflate_subject",
+  "description": "Inflate subject script for FreeSurfer",
+  "command-line": "inflate_subject [ARGS]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Arguments for the inflate_subject command",
+      "value-key": "[ARGS]",
+      "type": "String",
+      "optional": true,
+      "id": "args",
+      "name": "Command-line arguments"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[ARGS]_output.txt",
+      "description": "Output of inflate_subject command",
+      "id": "output_file",
+      "name": "Output file"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

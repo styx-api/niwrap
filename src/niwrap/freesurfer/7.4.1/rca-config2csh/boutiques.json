@@ -1,0 +1,19 @@
+{
+  "name": "rca-config2csh",
+  "author": "FreeSurfer Developers",
+  "description": "rca-config2csh is a utility to convert configuration files into C-shell syntax.",
+  "command-line": "rca-config2csh [CONFIGFILE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Configuration file to be converted",
+      "value-key": "[CONFIGFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "configfile",
+      "name": "Configuration file",
+      "command-line-flag": "-config2csh"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

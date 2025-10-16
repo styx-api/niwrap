@@ -1,0 +1,78 @@
+{
+  "name": "surface-inflation",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -surface-inflation [ANATOMICAL_SURFACE_IN] [SURFACE_IN] [NUMBER_OF_SMOOTHING_CYCLES] [SMOOTHING_STRENGTH] [SMOOTHING_ITERATIONS] [INFLATION_FACTOR] [SURFACE_OUT]",
+  "description": "Surface inflation.\n\nInflate a surface by performing cycles that consist of smoothing  followed by inflation (to correct shrinkage caused by smoothing).",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "anatomical_surface_in",
+      "name": "anatomical_surface_in",
+      "description": "the anatomical surface",
+      "optional": false,
+      "value-key": "[ANATOMICAL_SURFACE_IN]",
+      "type": "File"
+    },
+    {
+      "id": "surface_in",
+      "name": "surface_in",
+      "description": "the surface file to inflate",
+      "optional": false,
+      "value-key": "[SURFACE_IN]",
+      "type": "File"
+    },
+    {
+      "id": "number_of_smoothing_cycles",
+      "name": "number_of_smoothing_cycles",
+      "description": "number of smoothing cycles",
+      "optional": false,
+      "value-key": "[NUMBER_OF_SMOOTHING_CYCLES]",
+      "type": "Number",
+      "integer": true
+    },
+    {
+      "id": "smoothing_strength",
+      "name": "smoothing_strength",
+      "description": "smoothing strength (ranges [0.0 - 1.0])",
+      "optional": false,
+      "value-key": "[SMOOTHING_STRENGTH]",
+      "type": "Number",
+      "integer": false
+    },
+    {
+      "id": "smoothing_iterations",
+      "name": "smoothing_iterations",
+      "description": "smoothing iterations",
+      "optional": false,
+      "value-key": "[SMOOTHING_ITERATIONS]",
+      "type": "Number",
+      "integer": true
+    },
+    {
+      "id": "inflation_factor",
+      "name": "inflation_factor",
+      "description": "inflation factor",
+      "optional": false,
+      "value-key": "[INFLATION_FACTOR]",
+      "type": "Number",
+      "integer": false
+    },
+    {
+      "id": "surface_out",
+      "name": "surface_out",
+      "type": "String",
+      "description": "output surface file",
+      "optional": false,
+      "value-key": "[SURFACE_OUT]"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "surface_out",
+      "name": "surface_out",
+      "path-template": "[SURFACE_OUT]",
+      "description": "output surface file"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

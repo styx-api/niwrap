@@ -1,0 +1,26 @@
+{
+  "name": "brec",
+  "description": "A description for brec tool could not be retrieved",
+  "command-line": "brec [MY_FILE] [DEPTH_LIMIT]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "my_file",
+      "name": "My File",
+      "type": "String",
+      "description": "Input file with .rec extension",
+      "value-key": "[MY_FILE]",
+      "optional": false
+    },
+    {
+      "command-line-flag": "-depth_limit",
+      "id": "depth_limit",
+      "name": "Depth Limit",
+      "type": "Flag",
+      "description": "Optional depth limit flag",
+      "value-key": "[DEPTH_LIMIT]"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "metric-dilate",
+  "source": {
+    "type": "boutiques",
+    "path": "boutiques.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-metric-dilate"
+  ],
+  "docs": {
+    "description": "Dilate a metric file.\n\nFor all metric vertices that are designated as bad, if they neighbor a non-bad vertex with data or are within the specified distance of such a vertex, replace the value with a distance-based weighted average of nearby non-bad vertices that have data, otherwise set the value to zero.  No matter how small <distance> is, dilation will always use at least the immediate neighbor vertices.  If -nearest is specified, it will use the value from the closest non-bad vertex with data within range instead of a weighted average.\n\nIf -bad-vertex-roi is specified, all vertices with a positive ROI value are bad.  If it is not specified, only vertices that have data, with a value of zero, are bad.  If -data-roi is not specified, all vertices are assumed to have data.\n\nNote that the -corrected-areas option uses an approximate correction for the change in distances along a group average surface.\n\nTo get the behavior of version 1.3.2 or earlier, use '-legacy-cutoff -exponent 2'."
+  }
+}

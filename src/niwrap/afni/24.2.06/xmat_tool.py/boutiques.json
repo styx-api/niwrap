@@ -1,0 +1,192 @@
+{
+  "name": "xmat_tool.py",
+  "author": "AFNI Developers",
+  "description": "A tool for evaluating an AFNI X-matrix",
+  "command-line": "xmat_tool.py [NO_GUI] [LOAD_XMAT] [LOAD_1D] [CHOOSE_COLS] [CHOOSE_NONZERO_COLS] [CHRONO] [CORMAT_CUTOFF] [COSMAT_CUTOFF] [COSMAT_MOTION] [VERB] [SHOW_COL_TYPES] [SHOW_CONDS] [SHOW_CORMAT] [SHOW_CORMAT_WARNINGS] [SHOW_COSMAT] [SHOW_COSMAT_WARNINGS] [SHOW_FIT_BETAS] [SHOW_FIT_TS] [SHOW_XMAT] [SHOW_1D] [GUI_PLOT_XMAT_AS_ONE]",
+  "inputs": [
+    {
+      "command-line-flag": "-no_gui",
+      "description": "Do not start the GUI",
+      "value-key": "[NO_GUI]",
+      "type": "Flag",
+      "id": "no_gui",
+      "name": "No GUI"
+    },
+    {
+      "command-line-flag": "-load_xmat",
+      "description": "Load the AFNI X-matrix",
+      "value-key": "[LOAD_XMAT]",
+      "type": "File",
+      "optional": true,
+      "id": "load_xmat",
+      "name": "Load X-matrix"
+    },
+    {
+      "command-line-flag": "-load_1D",
+      "description": "Load the 1D time series",
+      "value-key": "[LOAD_1D]",
+      "type": "File",
+      "optional": true,
+      "id": "load_1d",
+      "name": "Load 1D Time Series"
+    },
+    {
+      "command-line-flag": "-choose_cols",
+      "description": "Select columns to fit against",
+      "value-key": "[CHOOSE_COLS]",
+      "type": "String",
+      "optional": true,
+      "id": "choose_cols",
+      "name": "Choose Columns"
+    },
+    {
+      "command-line-flag": "-choose_nonzero_cols",
+      "description": "Select only non-zero columns",
+      "value-key": "[CHOOSE_NONZERO_COLS]",
+      "type": "Flag",
+      "id": "choose_nonzero_cols",
+      "name": "Choose Non-zero Columns"
+    },
+    {
+      "command-line-flag": "-chrono",
+      "description": "Apply options chronologically",
+      "value-key": "[CHRONO]",
+      "type": "Flag",
+      "id": "chrono",
+      "name": "Chronological Order"
+    },
+    {
+      "command-line-flag": "-cormat_cutoff",
+      "description": "Set min cutoff for correlation matrix warnings",
+      "value-key": "[CORMAT_CUTOFF]",
+      "type": "Number",
+      "optional": true,
+      "id": "cormat_cutoff",
+      "name": "Correlation Matrix Cutoff"
+    },
+    {
+      "command-line-flag": "-cosmat_cutoff",
+      "description": "Set min cutoff for cosine matrix warnings",
+      "value-key": "[COSMAT_CUTOFF]",
+      "type": "Number",
+      "optional": true,
+      "id": "cosmat_cutoff",
+      "name": "Cosine Matrix Cutoff"
+    },
+    {
+      "command-line-flag": "-cosmat_motion",
+      "description": "Include motion in cosine matrix warnings",
+      "value-key": "[COSMAT_MOTION]",
+      "type": "Flag",
+      "id": "cosmat_motion",
+      "name": "Cosine Matrix Motion"
+    },
+    {
+      "command-line-flag": "-verb",
+      "description": "Set the verbose level. Valid levels are currently 0..5.",
+      "value-key": "[VERB]",
+      "type": "Number",
+      "optional": true,
+      "id": "verb",
+      "name": "Verbose Level"
+    },
+    {
+      "command-line-flag": "-show_col_types",
+      "description": "Display columns by regressor types",
+      "value-key": "[SHOW_COL_TYPES]",
+      "type": "Flag",
+      "id": "show_col_types",
+      "name": "Show Column Types"
+    },
+    {
+      "command-line-flag": "-show_conds",
+      "description": "Display a list of condition numbers",
+      "value-key": "[SHOW_CONDS]",
+      "type": "Flag",
+      "id": "show_conds",
+      "name": "Show Condition Numbers"
+    },
+    {
+      "command-line-flag": "-show_cormat",
+      "description": "Display the correlation matrix",
+      "value-key": "[SHOW_CORMAT]",
+      "type": "Flag",
+      "id": "show_cormat",
+      "name": "Show Correlation Matrix"
+    },
+    {
+      "command-line-flag": "-show_cormat_warnings",
+      "description": "Show correlation matrix warnings",
+      "value-key": "[SHOW_CORMAT_WARNINGS]",
+      "type": "Flag",
+      "id": "show_cormat_warnings",
+      "name": "Show Correlation Matrix Warnings"
+    },
+    {
+      "command-line-flag": "-show_cosmat",
+      "description": "Display the cosine matrix",
+      "value-key": "[SHOW_COSMAT]",
+      "type": "Flag",
+      "id": "show_cosmat",
+      "name": "Show Cosine Matrix"
+    },
+    {
+      "command-line-flag": "-show_cosmat_warnings",
+      "description": "Show cosine matrix warnings",
+      "value-key": "[SHOW_COSMAT_WARNINGS]",
+      "type": "Flag",
+      "id": "show_cosmat_warnings",
+      "name": "Show Cosine Matrix Warnings"
+    },
+    {
+      "command-line-flag": "-show_fit_betas",
+      "description": "Show fit betas",
+      "value-key": "[SHOW_FIT_BETAS]",
+      "type": "Flag",
+      "id": "show_fit_betas",
+      "name": "Show Fit Betas"
+    },
+    {
+      "command-line-flag": "-show_fit_ts",
+      "description": "Show fit time series",
+      "value-key": "[SHOW_FIT_TS]",
+      "type": "Flag",
+      "id": "show_fit_ts",
+      "name": "Show Fit Time Series"
+    },
+    {
+      "command-line-flag": "-show_xmat",
+      "description": "Display general X-matrix information",
+      "value-key": "[SHOW_XMAT]",
+      "type": "Flag",
+      "id": "show_xmat",
+      "name": "Show X-Matrix Info"
+    },
+    {
+      "command-line-flag": "-show_1D",
+      "description": "Display general 1D information",
+      "value-key": "[SHOW_1D]",
+      "type": "Flag",
+      "id": "show_1d",
+      "name": "Show 1D Info"
+    },
+    {
+      "command-line-flag": "-gui_plot_xmat_as_one",
+      "description": "Plot Xmat columns on single axis",
+      "value-key": "[GUI_PLOT_XMAT_AS_ONE]",
+      "type": "Flag",
+      "id": "gui_plot_xmat_as_one",
+      "name": "GUI Plot Xmat As One"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "fitts.1D",
+      "description": "Output fit time series",
+      "id": "output_fitts",
+      "name": "Fitts 1D File"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

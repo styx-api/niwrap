@@ -1,0 +1,55 @@
+{
+  "name": "@suma_reprefixize_spec",
+  "author": "AFNI Developers",
+  "description": "A tool for prefixing and working with SUMA specification files.",
+  "command-line": "@suma_reprefixize_spec [INPUT_FILE] [PREFIX] [OUTPUT_DIR] [WORK_DIR] [NO_CLEAN]",
+  "inputs": [
+    {
+      "description": "Input SUMA specification file",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "command-line-flag": "-input",
+      "id": "input_file",
+      "name": "Input File"
+    },
+    {
+      "description": "Prefix to be added to the file names",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": false,
+      "command-line-flag": "-preprefix",
+      "id": "prefix",
+      "name": "Prefix"
+    },
+    {
+      "description": "Output directory where the prefixed files will be saved",
+      "value-key": "[OUTPUT_DIR]",
+      "type": "String",
+      "optional": false,
+      "command-line-flag": "-odir",
+      "id": "output_dir",
+      "name": "Output Directory"
+    },
+    {
+      "description": "Working directory for temporary files",
+      "value-key": "[WORK_DIR]",
+      "type": "String",
+      "optional": false,
+      "command-line-flag": "-workdir",
+      "id": "work_dir",
+      "name": "Work Directory"
+    },
+    {
+      "description": "Flag to avoid cleaning temporary files",
+      "value-key": "[NO_CLEAN]",
+      "type": "Flag",
+      "command-line-flag": "-no_clean",
+      "id": "no_clean",
+      "name": "No Clean Flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [],
+  "url": "https://afni.nimh.nih.gov/"
+}

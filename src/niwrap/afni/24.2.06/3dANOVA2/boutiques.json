@@ -1,0 +1,316 @@
+{
+  "name": "3dANOVA2",
+  "author": "AFNI Developers",
+  "description": "This program performs a two-factor Analysis of Variance (ANOVA) on 3D datasets.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dANOVA2 [TYPE] [ALEVELS] [BLEVELS] [DATASET] [VOXEL] [DISKSPACE] [MASK] [FTR] [FA] [FB] [FAB] [AMEAN] [BMEAN] [XMEAN] [ADIFF] [BDIFF] [XDIFF] [ACONTR] [BCONTR] [XCONTR] [BUCKET] [OLD_METHOD] [OK] [ASSUME_SPH]",
+  "inputs": [
+    {
+      "command-line-flag": "-type",
+      "description": "Type of ANOVA model to be used: 1=fixed, 2=random, 3=mixed",
+      "value-key": "[TYPE]",
+      "type": "Number",
+      "integer": true,
+      "maximum": 3,
+      "minimum": 1,
+      "optional": false,
+      "id": "type",
+      "name": "ANOVA Model Type"
+    },
+    {
+      "command-line-flag": "-alevels",
+      "description": "Number of levels of factor A",
+      "value-key": "[ALEVELS]",
+      "type": "Number",
+      "integer": true,
+      "optional": false,
+      "id": "alevels",
+      "name": "A Levels"
+    },
+    {
+      "command-line-flag": "-blevels",
+      "description": "Number of levels of factor B",
+      "value-key": "[BLEVELS]",
+      "type": "Number",
+      "integer": true,
+      "optional": false,
+      "id": "blevels",
+      "name": "B Levels"
+    },
+    {
+      "command-line-flag": "-dset",
+      "description": "Data set for levels of factor A and factor B",
+      "value-key": "[DATASET]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "dataset",
+      "name": "Dataset",
+      "min-list-entries": 1
+    },
+    {
+      "command-line-flag": "-voxel",
+      "description": "Screen output for voxel number",
+      "value-key": "[VOXEL]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "voxel",
+      "name": "Voxel Number"
+    },
+    {
+      "command-line-flag": "-diskspace",
+      "description": "Print out disk space required for program execution",
+      "value-key": "[DISKSPACE]",
+      "type": "Flag",
+      "id": "diskspace",
+      "name": "Disk Space Flag"
+    },
+    {
+      "command-line-flag": "-mask",
+      "description": "Use sub-brick #0 of dataset 'mset' to define which voxels to process",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "mask",
+      "name": "Mask Dataset"
+    },
+    {
+      "command-line-flag": "-ftr",
+      "description": "F-statistic for treatment effect",
+      "value-key": "[FTR]",
+      "type": "String",
+      "optional": true,
+      "id": "ftr",
+      "name": "F-statistic Treatment Prefix"
+    },
+    {
+      "command-line-flag": "-fa",
+      "description": "F-statistic for factor A effect",
+      "value-key": "[FA]",
+      "type": "String",
+      "optional": true,
+      "id": "fa",
+      "name": "F-statistic A Prefix"
+    },
+    {
+      "command-line-flag": "-fb",
+      "description": "F-statistic for factor B effect",
+      "value-key": "[FB]",
+      "type": "String",
+      "optional": true,
+      "id": "fb",
+      "name": "F-statistic B Prefix"
+    },
+    {
+      "command-line-flag": "-fab",
+      "description": "F-statistic for interaction",
+      "value-key": "[FAB]",
+      "type": "String",
+      "optional": true,
+      "id": "fab",
+      "name": "F-statistic Interaction Prefix"
+    },
+    {
+      "command-line-flag": "-amean",
+      "description": "Estimate mean of factor A level",
+      "value-key": "[AMEAN]",
+      "type": "String",
+      "optional": true,
+      "id": "amean",
+      "name": "Estimate Mean A Prefix"
+    },
+    {
+      "command-line-flag": "-bmean",
+      "description": "Estimate mean of factor B level",
+      "value-key": "[BMEAN]",
+      "type": "String",
+      "optional": true,
+      "id": "bmean",
+      "name": "Estimate Mean B Prefix"
+    },
+    {
+      "command-line-flag": "-xmean",
+      "description": "Estimate mean of cell at level i of factor A and level j of factor B",
+      "value-key": "[XMEAN]",
+      "type": "String",
+      "optional": true,
+      "id": "xmean",
+      "name": "Estimate Mean Cell Prefix"
+    },
+    {
+      "command-line-flag": "-adiff",
+      "description": "Difference between levels i and j of factor A",
+      "value-key": "[ADIFF]",
+      "type": "String",
+      "optional": true,
+      "id": "adiff",
+      "name": "Difference A Prefix"
+    },
+    {
+      "command-line-flag": "-bdiff",
+      "description": "Difference between levels i and j of factor B",
+      "value-key": "[BDIFF]",
+      "type": "String",
+      "optional": true,
+      "id": "bdiff",
+      "name": "Difference B Prefix"
+    },
+    {
+      "command-line-flag": "-xdiff",
+      "description": "Difference between cell mean at A=i, B=j and cell mean at A=k, B=l",
+      "value-key": "[XDIFF]",
+      "type": "String",
+      "optional": true,
+      "id": "xdiff",
+      "name": "Difference Cell Mean Prefix"
+    },
+    {
+      "command-line-flag": "-acontr",
+      "description": "Contrast in factor A levels",
+      "value-key": "[ACONTR]",
+      "type": "String",
+      "optional": true,
+      "id": "acontr",
+      "name": "Contrast A Prefix"
+    },
+    {
+      "command-line-flag": "-bcontr",
+      "description": "Contrast in factor B levels",
+      "value-key": "[BCONTR]",
+      "type": "String",
+      "optional": true,
+      "id": "bcontr",
+      "name": "Contrast B Prefix"
+    },
+    {
+      "command-line-flag": "-xcontr",
+      "description": "Contrast in cell means",
+      "value-key": "[XCONTR]",
+      "type": "String",
+      "optional": true,
+      "id": "xcontr",
+      "name": "Contrast Cell Means Prefix"
+    },
+    {
+      "command-line-flag": "-bucket",
+      "description": "Create one AFNI 'bucket' dataset whose sub-bricks are obtained by concatenating the above output files",
+      "value-key": "[BUCKET]",
+      "type": "String",
+      "optional": true,
+      "id": "bucket",
+      "name": "Bucket Prefix"
+    },
+    {
+      "command-line-flag": "-old_method",
+      "description": "Request to perform ANOVA using the previous functionality (requires -OK, also)",
+      "value-key": "[OLD_METHOD]",
+      "type": "Flag",
+      "id": "old_method",
+      "name": "Old Method Flag"
+    },
+    {
+      "command-line-flag": "-OK",
+      "description": "Confirm understanding that contrasts that do not sum to zero have inflated t-stats, and contrasts that do sum to zero assume sphericity (to be used with -old_method)",
+      "value-key": "[OK]",
+      "type": "Flag",
+      "id": "ok",
+      "name": "OK Flag"
+    },
+    {
+      "command-line-flag": "-assume_sph",
+      "description": "Assume sphericity (zero-sum contrasts, only). This allows use of the old_method for computing contrasts which sum to zero",
+      "value-key": "[ASSUME_SPH]",
+      "type": "Flag",
+      "id": "assume_sph",
+      "name": "Assume Sphericity Flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[FTR].+tlrc",
+      "description": "F-statistic for treatment effect output file",
+      "id": "output_ftr",
+      "name": "Output FTR File"
+    },
+    {
+      "path-template": "[FA].+tlrc",
+      "description": "F-statistic for factor A effect output file",
+      "id": "output_fa",
+      "name": "Output FA File"
+    },
+    {
+      "path-template": "[FB].+tlrc",
+      "description": "F-statistic for factor B effect output file",
+      "id": "output_fb",
+      "name": "Output FB File"
+    },
+    {
+      "path-template": "[FAB].+tlrc",
+      "description": "F-statistic for interaction output file",
+      "id": "output_fab",
+      "name": "Output FAB File"
+    },
+    {
+      "path-template": "[AMEAN].+tlrc",
+      "description": "Estimate mean of factor A level output file",
+      "id": "output_amean",
+      "name": "Output AMEAN File"
+    },
+    {
+      "path-template": "[BMEAN].+tlrc",
+      "description": "Estimate mean of factor B level output file",
+      "id": "output_bmean",
+      "name": "Output BMEAN File"
+    },
+    {
+      "path-template": "[XMEAN].+tlrc",
+      "description": "Estimate mean of cell at level i of factor A and level j of factor B output file",
+      "id": "output_xmean",
+      "name": "Output XMEAN File"
+    },
+    {
+      "path-template": "[ADIFF].+tlrc",
+      "description": "Difference between levels i and j of factor A output file",
+      "id": "output_adiff",
+      "name": "Output ADIFF File"
+    },
+    {
+      "path-template": "[BDIFF].+tlrc",
+      "description": "Difference between levels i and j of factor B output file",
+      "id": "output_bdiff",
+      "name": "Output BDIFF File"
+    },
+    {
+      "path-template": "[XDIFF].+tlrc",
+      "description": "Difference between cell mean at A=i, B=j and cell mean at A=k, B=l output file",
+      "id": "output_xdiff",
+      "name": "Output XDIFF File"
+    },
+    {
+      "path-template": "[ACONTR].+tlrc",
+      "description": "Contrast in factor A levels output file",
+      "id": "output_acontr",
+      "name": "Output ACONTR File"
+    },
+    {
+      "path-template": "[BCONTR].+tlrc",
+      "description": "Contrast in factor B levels output file",
+      "id": "output_bcontr",
+      "name": "Output BCONTR File"
+    },
+    {
+      "path-template": "[XCONTR].+tlrc",
+      "description": "Contrast in cell means output file",
+      "id": "output_xcontr",
+      "name": "Output XCONTR File"
+    },
+    {
+      "path-template": "[BUCKET].+tlrc",
+      "description": "Create one AFNI 'bucket' dataset file",
+      "id": "output_bucket",
+      "name": "Output Bucket File"
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "name": "mris_curvature",
+  "author": "FreeSurfer Developers",
+  "description": "Compute the second fundamental form of a cortical surface to generate mean and Gaussian curvature.",
+  "command-line": "mris_curvature [SAVE_CURVATURE_FILES] [MAX_PRINCIPAL_CURVATURE] [MGH_OUTPUT_FORMAT] [MIN_PRINCIPAL_CURVATURE] [ITERATIVE_AVERAGES] [NEIGHBORHOOD_SIZE] [RANDOM_SEED] [CURVATURES] [H_CURVATURE] [K_CURVATURE] [K1_CURVATURE] [K2_CURVATURE] [K1K2_CURVATURE] [INPUT_SURFACE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input surface file",
+      "value-key": "[INPUT_SURFACE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_surface",
+      "name": "Input Surface"
+    },
+    {
+      "command-line-flag": "-w",
+      "description": "Save curvature files (will only generate screen output without this option)",
+      "value-key": "[SAVE_CURVATURE_FILES]",
+      "type": "Flag",
+      "id": "save_curvature_files",
+      "name": "Save Curvature Files"
+    },
+    {
+      "command-line-flag": "-max",
+      "description": "Save 1st (max) principal curvature in ?h.<surface>.max file",
+      "value-key": "[MAX_PRINCIPAL_CURVATURE]",
+      "type": "Flag",
+      "id": "max_principal_curvature",
+      "name": "Max Principal Curvature"
+    },
+    {
+      "command-line-flag": "-mgh",
+      "description": "Save outputs in .mgz format",
+      "value-key": "[MGH_OUTPUT_FORMAT]",
+      "type": "Flag",
+      "id": "mgh_output_format",
+      "name": "MGH Output Format"
+    },
+    {
+      "command-line-flag": "-min",
+      "description": "Save 2nd (min) principal curvature in ?h.<surface>.min file",
+      "value-key": "[MIN_PRINCIPAL_CURVATURE]",
+      "type": "Flag",
+      "id": "min_principal_curvature",
+      "name": "Min Principal Curvature"
+    },
+    {
+      "command-line-flag": "-a",
+      "description": "Perform <avgs> iterative averages of curvature measure before saving",
+      "value-key": "[ITERATIVE_AVERAGES]",
+      "type": "Number",
+      "optional": true,
+      "id": "iterative_averages",
+      "name": "Iterative Averages"
+    },
+    {
+      "command-line-flag": "-nbrs",
+      "description": "Set neighborhood size to nbrs",
+      "value-key": "[NEIGHBORHOOD_SIZE]",
+      "type": "Number",
+      "optional": true,
+      "id": "neighborhood_size",
+      "name": "Neighborhood Size"
+    },
+    {
+      "command-line-flag": "-seed",
+      "description": "Set random number generator to seed N",
+      "value-key": "[RANDOM_SEED]",
+      "type": "Number",
+      "optional": true,
+      "id": "random_seed",
+      "name": "Random Seed"
+    },
+    {
+      "command-line-flag": "-curvs",
+      "description": "Stand-alone option to save H (mean), K (gaussian), k1, and k2 curvatures to stem.{curvname}.mgz",
+      "value-key": "[CURVATURES]",
+      "type": "String",
+      "optional": true,
+      "id": "curvatures",
+      "name": "Curvatures"
+    },
+    {
+      "command-line-flag": "-H",
+      "description": "Stand-alone option to save H mean curvature to stem.H.mgz",
+      "value-key": "[H_CURVATURE]",
+      "type": "String",
+      "optional": true,
+      "id": "H_curvature",
+      "name": "H Curvature"
+    },
+    {
+      "command-line-flag": "-K",
+      "description": "Stand-alone option to save K gaussian curvature to stem.K.mgz",
+      "value-key": "[K_CURVATURE]",
+      "type": "String",
+      "optional": true,
+      "id": "K_curvature",
+      "name": "K Curvature"
+    },
+    {
+      "command-line-flag": "-k1",
+      "description": "Stand-alone option to save k1 (primary principle) curvature to stem.k1.mgz",
+      "value-key": "[K1_CURVATURE]",
+      "type": "String",
+      "optional": true,
+      "id": "k1_curvature",
+      "name": "K1 Curvature"
+    },
+    {
+      "command-line-flag": "-k2",
+      "description": "Stand-alone option to save k2 (secondary principle) curvature to stem.k2.mgz",
+      "value-key": "[K2_CURVATURE]",
+      "type": "String",
+      "optional": true,
+      "id": "k2_curvature",
+      "name": "K2 Curvature"
+    },
+    {
+      "command-line-flag": "-k1k2",
+      "description": "Stand-alone option to save k1 and k2 curvature to stem.{k1,k2}.mgz",
+      "value-key": "[K1K2_CURVATURE]",
+      "type": "String",
+      "optional": true,
+      "id": "k1k2_curvature",
+      "name": "K1 and K2 Curvatures"
+    }
+  ],
+  "output-files": [],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

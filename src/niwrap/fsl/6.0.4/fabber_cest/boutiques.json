@@ -1,0 +1,388 @@
+{
+  "name": "fabber_cest",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Fabber Model-based Analysis",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "fabber_cest [OUTPUT] [METHOD] [MODEL] [DATA] [HELP] [LISTMETHODS] [LISTMODELS] [LISTPARAMS] [DESCPARAMS] [LISTOUTPUTS] [EVALUATE] [EVALUATE_PARAMS] [EVALUATE_NT] [SIMPLE_OUTPUT] [OVERWRITE] [LINK_TO_LATEST] [LOADMODELS] [DATA_MULTI] [DATA_ORDER] [MASK] [MASKED_TIMEPOINTS] [SUPPDATA] [DUMP_PARAM_NAMES] [SAVE_MODEL_FIT] [SAVE_RESIDUALS] [SAVE_MODEL_EXTRAS] [SAVE_MVN] [SAVE_MEAN] [SAVE_STD] [SAVE_VAR] [SAVE_ZSTAT] [SAVE_NOISE_MEAN] [SAVE_NOISE_STD] [SAVE_FREE_ENERGY] [OPTFILE] [DEBUG]",
+  "inputs": [
+    {
+      "description": "Directory for output files",
+      "value-key": "[OUTPUT]",
+      "type": "String",
+      "optional": false,
+      "id": "output",
+      "name": "Output directory",
+      "command-line-flag": "--output"
+    },
+    {
+      "description": "Inference method",
+      "value-key": "[METHOD]",
+      "type": "String",
+      "optional": false,
+      "id": "method",
+      "name": "Inference method",
+      "command-line-flag": "--method"
+    },
+    {
+      "description": "Forward model",
+      "value-key": "[MODEL]",
+      "type": "String",
+      "optional": false,
+      "id": "model",
+      "name": "Forward model",
+      "command-line-flag": "--model"
+    },
+    {
+      "description": "Input data file",
+      "value-key": "[DATA]",
+      "type": "File",
+      "optional": false,
+      "id": "data",
+      "name": "Input data file",
+      "command-line-flag": "--data"
+    },
+    {
+      "description": "Print usage help",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help",
+      "command-line-flag": "--help"
+    },
+    {
+      "description": "List all known inference methods",
+      "value-key": "[LISTMETHODS]",
+      "type": "Flag",
+      "id": "listmethods",
+      "name": "List Methods",
+      "command-line-flag": "--listmethods"
+    },
+    {
+      "description": "List all known forward models",
+      "value-key": "[LISTMODELS]",
+      "type": "Flag",
+      "id": "listmodels",
+      "name": "List Models",
+      "command-line-flag": "--listmodels"
+    },
+    {
+      "description": "List model parameters",
+      "value-key": "[LISTPARAMS]",
+      "type": "Flag",
+      "id": "listparams",
+      "name": "List Parameters",
+      "command-line-flag": "--listparams"
+    },
+    {
+      "description": "Describe model parameters",
+      "value-key": "[DESCPARAMS]",
+      "type": "Flag",
+      "id": "descparams",
+      "name": "Describe Parameters",
+      "command-line-flag": "--descparams"
+    },
+    {
+      "description": "List additional model outputs",
+      "value-key": "[LISTOUTPUTS]",
+      "type": "Flag",
+      "id": "listoutputs",
+      "name": "List Outputs",
+      "command-line-flag": "--listoutputs"
+    },
+    {
+      "description": "Evaluate model and set to name of output required",
+      "value-key": "[EVALUATE]",
+      "type": "String",
+      "optional": true,
+      "id": "evaluate",
+      "name": "Evaluate Model",
+      "command-line-flag": "--evaluate"
+    },
+    {
+      "description": "List of parameter values for evaluation",
+      "value-key": "[EVALUATE_PARAMS]",
+      "type": "String",
+      "optional": true,
+      "id": "evaluate_params",
+      "name": "Evaluation Parameters",
+      "command-line-flag": "--evaluate-params"
+    },
+    {
+      "description": "Number of time points for evaluation",
+      "value-key": "[EVALUATE_NT]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "evaluate_nt",
+      "name": "Evaluation Time Points",
+      "command-line-flag": "--evaluate-nt"
+    },
+    {
+      "description": "Simple output series of lines each giving progress as percentage",
+      "value-key": "[SIMPLE_OUTPUT]",
+      "type": "Flag",
+      "id": "simple_output",
+      "name": "Simple Output",
+      "command-line-flag": "--simple-output"
+    },
+    {
+      "description": "Overwrite existing output",
+      "value-key": "[OVERWRITE]",
+      "type": "Flag",
+      "id": "overwrite",
+      "name": "Overwrite Output",
+      "command-line-flag": "--overwrite"
+    },
+    {
+      "description": "Create a link to the most recent output directory with the prefix _latest",
+      "value-key": "[LINK_TO_LATEST]",
+      "type": "Flag",
+      "id": "link_to_latest",
+      "name": "Link to Latest",
+      "command-line-flag": "--link-to-latest"
+    },
+    {
+      "description": "Load models dynamically from the specified filename",
+      "value-key": "[LOADMODELS]",
+      "type": "File",
+      "optional": true,
+      "id": "loadmodels",
+      "name": "Load Models",
+      "command-line-flag": "--loadmodels"
+    },
+    {
+      "description": "Specify multiple data files (data<n>)",
+      "value-key": "[DATA_MULTI]",
+      "type": "File",
+      "optional": true,
+      "id": "data_multi",
+      "name": "Multiple Data Files",
+      "command-line-flag": "--data"
+    },
+    {
+      "description": "Handling of multiple data files (concatenate or interleave)",
+      "value-key": "[DATA_ORDER]",
+      "type": "String",
+      "optional": true,
+      "id": "data_order",
+      "name": "Data Order",
+      "command-line-flag": "--data-order"
+    },
+    {
+      "description": "Mask file. Inference performed where mask value > 0",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "mask",
+      "name": "Mask File",
+      "command-line-flag": "--mask"
+    },
+    {
+      "description": "List of masked time points to ignore (mt<n>)",
+      "value-key": "[MASKED_TIMEPOINTS]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "masked_timepoints",
+      "name": "Masked Timepoints",
+      "command-line-flag": "--mt"
+    },
+    {
+      "description": "Supplemental timeseries data required for some models",
+      "value-key": "[SUPPDATA]",
+      "type": "File",
+      "optional": true,
+      "id": "suppdata",
+      "name": "Supplemental Data",
+      "command-line-flag": "--suppdata"
+    },
+    {
+      "description": "Write the file paramnames.txt containing the names of the model parameters",
+      "value-key": "[DUMP_PARAM_NAMES]",
+      "type": "Flag",
+      "id": "dump_param_names",
+      "name": "Dump Parameter Names",
+      "command-line-flag": "--dump-param-names"
+    },
+    {
+      "description": "Output the model prediction as a 4d volume",
+      "value-key": "[SAVE_MODEL_FIT]",
+      "type": "Flag",
+      "id": "save_model_fit",
+      "name": "Save Model Fit",
+      "command-line-flag": "--save-model-fit"
+    },
+    {
+      "description": "Output the residuals (difference between the data and the model prediction)",
+      "value-key": "[SAVE_RESIDUALS]",
+      "type": "Flag",
+      "id": "save_residuals",
+      "name": "Save Residuals",
+      "command-line-flag": "--save-residuals"
+    },
+    {
+      "description": "Output additional model-specific timeseries data",
+      "value-key": "[SAVE_MODEL_EXTRAS]",
+      "type": "Flag",
+      "id": "save_model_extras",
+      "name": "Save Model Extras",
+      "command-line-flag": "--save-model-extras"
+    },
+    {
+      "description": "Output the final MVN distributions.",
+      "value-key": "[SAVE_MVN]",
+      "type": "Flag",
+      "id": "save_mvn",
+      "name": "Save MVN",
+      "command-line-flag": "--save-mvn"
+    },
+    {
+      "description": "Output the parameter means.",
+      "value-key": "[SAVE_MEAN]",
+      "type": "Flag",
+      "id": "save_mean",
+      "name": "Save Mean",
+      "command-line-flag": "--save-mean"
+    },
+    {
+      "description": "Output the parameter standard deviations.",
+      "value-key": "[SAVE_STD]",
+      "type": "Flag",
+      "id": "save_std",
+      "name": "Save Std",
+      "command-line-flag": "--save-std"
+    },
+    {
+      "description": "Output the parameter variances.",
+      "value-key": "[SAVE_VAR]",
+      "type": "Flag",
+      "id": "save_var",
+      "name": "Save Var",
+      "command-line-flag": "--save-var"
+    },
+    {
+      "description": "Output the parameter Zstats.",
+      "value-key": "[SAVE_ZSTAT]",
+      "type": "Flag",
+      "id": "save_zstat",
+      "name": "Save Zstat",
+      "command-line-flag": "--save-zstat"
+    },
+    {
+      "description": "Output the noise means.",
+      "value-key": "[SAVE_NOISE_MEAN]",
+      "type": "Flag",
+      "id": "save_noise_mean",
+      "name": "Save Noise Mean",
+      "command-line-flag": "--save-noise-mean"
+    },
+    {
+      "description": "Output the noise standard deviations.",
+      "value-key": "[SAVE_NOISE_STD]",
+      "type": "Flag",
+      "id": "save_noise_std",
+      "name": "Save Noise Std",
+      "command-line-flag": "--save-noise-std"
+    },
+    {
+      "description": "Output the free energy, if calculated.",
+      "value-key": "[SAVE_FREE_ENERGY]",
+      "type": "Flag",
+      "id": "save_free_energy",
+      "name": "Save Free Energy",
+      "command-line-flag": "--save-free-energy"
+    },
+    {
+      "description": "File containing additional options, one per line, in the same form as specified on the command line",
+      "value-key": "[OPTFILE]",
+      "type": "File",
+      "optional": true,
+      "id": "optfile",
+      "name": "Options File",
+      "command-line-flag": "--optfile"
+    },
+    {
+      "description": "Output large amounts of debug information. ONLY USE WITH VERY SMALL NUMBERS OF VOXELS",
+      "value-key": "[DEBUG]",
+      "type": "Flag",
+      "id": "debug",
+      "name": "Debug",
+      "command-line-flag": "--debug"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT]/logfile.log",
+      "description": "Log file",
+      "id": "logfile",
+      "name": "Log file"
+    },
+    {
+      "path-template": "[OUTPUT]/model_fit.nii.gz",
+      "description": "Model fit output as a 4d volume",
+      "id": "modelfit_out",
+      "name": "Model Fit File"
+    },
+    {
+      "path-template": "[OUTPUT]/residuals.nii.gz",
+      "description": "Residuals output as a 4d volume",
+      "id": "residuals_out",
+      "name": "Residuals File"
+    },
+    {
+      "path-template": "[OUTPUT]/model_extras.nii.gz",
+      "description": "Model extras output",
+      "id": "modelextras_out",
+      "name": "Model Extras File"
+    },
+    {
+      "path-template": "[OUTPUT]/mvn.nii.gz",
+      "description": "Final MVN distributions output",
+      "id": "mvn_out",
+      "name": "MVN Distributions File"
+    },
+    {
+      "path-template": "[OUTPUT]/mean.nii.gz",
+      "description": "Parameter means output",
+      "id": "mean_out",
+      "name": "Parameter Means File"
+    },
+    {
+      "path-template": "[OUTPUT]/std.nii.gz",
+      "description": "Parameter standard deviations output",
+      "id": "std_out",
+      "name": "Parameter Std Dev File"
+    },
+    {
+      "path-template": "[OUTPUT]/var.nii.gz",
+      "description": "Parameter variances output",
+      "id": "var_out",
+      "name": "Parameter Variances File"
+    },
+    {
+      "path-template": "[OUTPUT]/zstat.nii.gz",
+      "description": "Parameter Z statistics output",
+      "id": "zstat_out",
+      "name": "Parameter Z Stats File"
+    },
+    {
+      "path-template": "[OUTPUT]/noise_mean.nii.gz",
+      "description": "Noise means output",
+      "id": "noise_mean_out",
+      "name": "Noise Means File"
+    },
+    {
+      "path-template": "[OUTPUT]/noise_std.nii.gz",
+      "description": "Noise standard deviations output",
+      "id": "noise_std_out",
+      "name": "Noise Std Dev File"
+    },
+    {
+      "path-template": "[OUTPUT]/free_energy.nii.gz",
+      "description": "Free energy output",
+      "id": "free_energy_out",
+      "name": "Free Energy File"
+    }
+  ]
+}

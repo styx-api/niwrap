@@ -1,0 +1,128 @@
+{
+  "name": "fnirtfileutils",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "FNIRT file utilities for FSL - Converts FNIRT warp field coefficients to other formats",
+  "command-line": "fnirtfileutils [INPUT_COEFS] [REF_VOLUME] [OUT_FIELD] [OUTPUT_FORMAT] [WARP_RES] [KNOT_SPACE] [JACOBIAN_OUTPUT] [JACOBIAN_MATRIX_OUTPUT] [WITH_AFF] [VERBOSE_FLAG] [HELP_FLAG]",
+  "inputs": [
+    {
+      "command-line-flag": "--in",
+      "description": "Filename of input coefficient volume to be converted",
+      "value-key": "[INPUT_COEFS]",
+      "type": "File",
+      "optional": false,
+      "id": "input_coefs",
+      "name": "Input Coefficients"
+    },
+    {
+      "command-line-flag": "--ref",
+      "description": "Filename for reference volume",
+      "value-key": "[REF_VOLUME]",
+      "type": "File",
+      "optional": true,
+      "id": "ref_volume",
+      "name": "Reference Volume"
+    },
+    {
+      "command-line-flag": "--out",
+      "description": "Filename for output field/coef volume - uses relative warp convention",
+      "value-key": "[OUT_FIELD]",
+      "type": "String",
+      "optional": true,
+      "id": "out_field",
+      "name": "Output Field"
+    },
+    {
+      "command-line-flag": "--outformat",
+      "description": "Output format [field, spline], default=field",
+      "value-key": "[OUTPUT_FORMAT]",
+      "type": "String",
+      "optional": true,
+      "id": "output_format",
+      "name": "Output Format"
+    },
+    {
+      "command-line-flag": "--warpres",
+      "description": "Warp resolution (mm), only relevant when --outformat=spline",
+      "value-key": "[WARP_RES]",
+      "type": "Number",
+      "integer": false,
+      "optional": true,
+      "id": "warp_res",
+      "name": "Warp Resolution"
+    },
+    {
+      "command-line-flag": "--knotspace",
+      "description": "Knot-spacing (voxels), only relevant when --outformat=spline",
+      "value-key": "[KNOT_SPACE]",
+      "type": "Number",
+      "integer": false,
+      "optional": true,
+      "id": "knot_space",
+      "name": "Knot Spacing"
+    },
+    {
+      "command-line-flag": "--jac",
+      "description": "Filename for output jacobian determinant map volume",
+      "value-key": "[JACOBIAN_OUTPUT]",
+      "type": "String",
+      "optional": true,
+      "id": "jacobian_output",
+      "name": "Jacobian Determinant Map Output"
+    },
+    {
+      "command-line-flag": "--matjac",
+      "description": "Filename for output full jacobian matrix 4D-map volume",
+      "value-key": "[JACOBIAN_MATRIX_OUTPUT]",
+      "type": "String",
+      "optional": true,
+      "id": "jacobian_matrix_output",
+      "name": "Full Jacobian Matrix Output"
+    },
+    {
+      "command-line-flag": "--withaff",
+      "description": "If set, the affine transform is included in the field/jacobian",
+      "value-key": "[WITH_AFF]",
+      "type": "Flag",
+      "id": "with_aff",
+      "name": "Include Affine Transform"
+    },
+    {
+      "command-line-flag": "--verbose",
+      "description": "Switch on diagnostic messages",
+      "value-key": "[VERBOSE_FLAG]",
+      "type": "Flag",
+      "id": "verbose_flag",
+      "name": "Verbose Flag"
+    },
+    {
+      "command-line-flag": "--help",
+      "description": "Display this help message",
+      "value-key": "[HELP_FLAG]",
+      "type": "Flag",
+      "id": "help_flag",
+      "name": "Help Flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUT_FIELD].nii.gz",
+      "description": "Output field or coefficient volume",
+      "id": "output_field_file",
+      "name": "Output Field File"
+    },
+    {
+      "path-template": "[JACOBIAN_OUTPUT].nii.gz",
+      "description": "Output jacobian determinant map volume",
+      "id": "jacobian_output_file",
+      "name": "Jacobian Determinant Map File"
+    },
+    {
+      "path-template": "[JACOBIAN_MATRIX_OUTPUT].nii.gz",
+      "description": "Output full jacobian matrix 4D-map volume",
+      "id": "jacobian_matrix_file",
+      "name": "Full Jacobian Matrix File"
+    }
+  ],
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

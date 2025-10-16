@@ -1,0 +1,69 @@
+{
+  "name": "mris_calc",
+  "author": "FreeSurfer Developers",
+  "description": "Simple calculator that operates on FreeSurfer curvatures and volumes.",
+  "command-line": "mris_calc [INPUT_FILE1] [ACTION] [INPUT_FILE2_OR_FLOAT] [OUTPUT_FILE] [LABEL_FILE] [VERBOSITY]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "The name of a FreeSurfer curvature overlay (e.g., rh.curv) or volume file (e.g., orig.mgz).",
+      "value-key": "[INPUT_FILE1]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file1",
+      "name": "Input File 1"
+    },
+    {
+      "description": "Mathematical action to perform on the input file(s), written as a text string.",
+      "value-key": "[ACTION]",
+      "type": "String",
+      "optional": false,
+      "id": "action",
+      "name": "Action"
+    },
+    {
+      "description": "The second input for the calculation. Can be a file (e.g., rh.thickness) or a float number if the file does not exist.",
+      "value-key": "[INPUT_FILE2_OR_FLOAT]",
+      "type": "File",
+      "optional": true,
+      "id": "input_file2_or_float",
+      "name": "Input File 2 or Float"
+    },
+    {
+      "command-line-flag": "--output",
+      "description": "Specify the output file name for the result of the calculation.",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "output_file",
+      "name": "Output File"
+    },
+    {
+      "command-line-flag": "--label",
+      "description": "Constrain the calculation to vertices defined in the FreeSurfer label file.",
+      "value-key": "[LABEL_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "label_file",
+      "name": "Label File"
+    },
+    {
+      "command-line-flag": "--verbosity",
+      "description": "Set the verbosity of the program.",
+      "value-key": "[VERBOSITY]",
+      "type": "String",
+      "optional": true,
+      "id": "verbosity",
+      "name": "Verbosity"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILE]",
+      "description": "The resulting FreeSurfer curvature overlay or volume file.",
+      "id": "output_curv_file",
+      "name": "Output Curvature File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

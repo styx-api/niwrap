@@ -1,0 +1,113 @@
+{
+  "name": "serial_helper",
+  "author": "AFNI Developers",
+  "description": "Passes motion parameters from socket to serial port",
+  "command-line": "serial_helper [SERIAL_PORT] [SOCK_NUM] [MP_MAX] [MP_MIN] [NUM_EXTRA] [DISP_ALL] [DEBUG] [SHOW_TIMES] [HELP] [HIST] [NO_SERIAL] [VERSION]",
+  "inputs": [
+    {
+      "description": "Output serial port filename",
+      "id": "serial_port",
+      "name": "Serial Port",
+      "type": "String",
+      "optional": false,
+      "command-line-flag": "-serial_port",
+      "value-key": "[SERIAL_PORT]"
+    },
+    {
+      "description": "Specify socket number to serve",
+      "id": "sock_num",
+      "name": "Socket Number",
+      "type": "Number",
+      "optional": true,
+      "command-line-flag": "-sock_num",
+      "value-key": "[SOCK_NUM]"
+    },
+    {
+      "description": "Limit the maximum value of the MP data",
+      "id": "mp_max",
+      "name": "Maximum MP Value",
+      "type": "Number",
+      "optional": true,
+      "command-line-flag": "-mp_max",
+      "value-key": "[MP_MAX]"
+    },
+    {
+      "description": "Limit the minimum value of the MP data",
+      "id": "mp_min",
+      "name": "Minimum MP Value",
+      "type": "Number",
+      "optional": true,
+      "command-line-flag": "-mp_min",
+      "value-key": "[MP_MIN]"
+    },
+    {
+      "description": "Receive additional floats per TR",
+      "id": "num_extra",
+      "name": "Number of Extras",
+      "type": "Number",
+      "optional": true,
+      "command-line-flag": "-num_extra",
+      "value-key": "[NUM_EXTRA]"
+    },
+    {
+      "description": "Receive NVOX*8 extra floats per TR",
+      "id": "disp_all",
+      "name": "Display All Voxels",
+      "type": "Number",
+      "optional": true,
+      "command-line-flag": "-disp_all",
+      "value-key": "[DISP_ALL]"
+    },
+    {
+      "description": "Set the debugging level (0-3)",
+      "id": "debug",
+      "name": "Debug Level",
+      "type": "Number",
+      "optional": true,
+      "command-line-flag": "-debug",
+      "value-key": "[DEBUG]"
+    },
+    {
+      "description": "Show communication times",
+      "id": "show_times",
+      "name": "Show Times",
+      "type": "Flag",
+      "command-line-flag": "-show_times",
+      "value-key": "[SHOW_TIMES]"
+    },
+    {
+      "description": "Display this help information",
+      "id": "help",
+      "name": "Help",
+      "type": "Flag",
+      "command-line-flag": "-help",
+      "value-key": "[HELP]"
+    },
+    {
+      "description": "Show the module history",
+      "id": "hist",
+      "name": "History",
+      "type": "Flag",
+      "command-line-flag": "-hist",
+      "value-key": "[HIST]"
+    },
+    {
+      "description": "Turn off serial port output",
+      "id": "no_serial",
+      "name": "No Serial Output",
+      "type": "Flag",
+      "command-line-flag": "-no_serial",
+      "value-key": "[NO_SERIAL]"
+    },
+    {
+      "description": "Show the current version number",
+      "id": "version",
+      "name": "Version",
+      "type": "Flag",
+      "command-line-flag": "-version",
+      "value-key": "[VERSION]"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

@@ -1,0 +1,45 @@
+{
+  "name": "imand",
+  "author": "AFNI Developers",
+  "description": "Image AND operation tool. Only pixels nonzero in all input images (and above the threshold, if given) will be output.",
+  "command-line": "imand [THRESHOLD] [INPUT_IMAGES] [OUTPUT_IMAGE]",
+  "inputs": [
+    {
+      "description": "Threshold value; only pixels above this value will be output. Optional.",
+      "command-line-flag": "--thresh",
+      "value-key": "[THRESHOLD]",
+      "type": "Number",
+      "integer": false,
+      "optional": true,
+      "id": "threshold",
+      "name": "Threshold"
+    },
+    {
+      "description": "Input images to be processed. Multiple input images can be specified.",
+      "value-key": "[INPUT_IMAGES]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "input_images",
+      "name": "Input Images"
+    },
+    {
+      "description": "Output image file.",
+      "value-key": "[OUTPUT_IMAGE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_image",
+      "name": "Output Image"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_IMAGE]",
+      "description": "The resulting output image file.",
+      "id": "outfile",
+      "name": "Output Image"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

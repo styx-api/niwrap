@@ -1,0 +1,67 @@
+{
+  "name": "mris_AA_shrinkwrap",
+  "author": "FreeSurfer Developers",
+  "description": "This program positions the tessellation of the cortical surface at the white matter surface, then the gray matter surface and generates surface files for these surfaces as well as a 'curvature' file for the cortical thickness, and a surface file which approximates layer IV of the cortical sheet.",
+  "command-line": "mris_AA_shrinkwrap [T1_VOL] [PD_VOL] [OUTPUT_DIR] [OMIT_SELF_INTERSECTION] [CREATE_CURVATURE_AREA] [AVERAGE_CURVATURE] [WHITE_ONLY]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "T1 volume file",
+      "value-key": "[T1_VOL]",
+      "type": "File",
+      "optional": false,
+      "id": "t1_vol",
+      "name": "T1 Volume File"
+    },
+    {
+      "description": "PD volume file",
+      "value-key": "[PD_VOL]",
+      "type": "File",
+      "optional": false,
+      "id": "pd_vol",
+      "name": "PD Volume File"
+    },
+    {
+      "description": "Output directory",
+      "value-key": "[OUTPUT_DIR]",
+      "type": "String",
+      "optional": false,
+      "id": "output_dir",
+      "name": "Output Directory"
+    },
+    {
+      "command-line-flag": "-q",
+      "description": "Omit self-intersection and only generate gray/white surface",
+      "value-key": "[OMIT_SELF_INTERSECTION]",
+      "type": "Flag",
+      "id": "omit_self_intersection",
+      "name": "Omit Self-intersection Flag"
+    },
+    {
+      "command-line-flag": "-c",
+      "description": "Create curvature and area files from white matter surface",
+      "value-key": "[CREATE_CURVATURE_AREA]",
+      "type": "Flag",
+      "id": "create_curvature_area",
+      "name": "Create Curvature and Area Flag"
+    },
+    {
+      "command-line-flag": "-a",
+      "description": "Average curvature values a specified number of times (default=10)",
+      "value-key": "[AVERAGE_CURVATURE]",
+      "type": "Number",
+      "optional": true,
+      "id": "average_curvature",
+      "name": "Average Curvature"
+    },
+    {
+      "command-line-flag": "-whiteonly",
+      "description": "Only generate white matter surface",
+      "value-key": "[WHITE_ONLY]",
+      "type": "Flag",
+      "id": "white_only",
+      "name": "White Only Flag"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

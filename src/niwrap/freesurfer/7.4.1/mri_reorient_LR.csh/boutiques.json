@@ -1,0 +1,76 @@
+{
+  "name": "mri_reorient_LR.csh",
+  "command-line": "mri_reorient_LR.csh [INPUT_VOL] [OUTPUT_VOL] [DISPLAY_RESULT] [CLEAN_FILES] [OUTPUT_REGISTRATION] [VERSION] [HELP]",
+  "schema-version": "0.5+styx",
+  "description": "A script to reorient MRI volumes from left-right orientation.",
+  "inputs": [
+    {
+      "description": "Input file to be reoriented",
+      "value-key": "[INPUT_VOL]",
+      "type": "File",
+      "optional": false,
+      "id": "input_vol",
+      "command-line-flag": "--i",
+      "name": "Input Volume"
+    },
+    {
+      "description": "Reoriented input file",
+      "value-key": "[OUTPUT_VOL]",
+      "type": "String",
+      "optional": false,
+      "id": "output_vol",
+      "command-line-flag": "--o",
+      "name": "Output Volume"
+    },
+    {
+      "command-line-flag": "--disp",
+      "description": "Display registration result using FreeView",
+      "value-key": "[DISPLAY_RESULT]",
+      "type": "Flag",
+      "id": "display_result",
+      "name": "Display Result Flag"
+    },
+    {
+      "command-line-flag": "--clean",
+      "description": "Delete all auxiliary and registration files",
+      "value-key": "[CLEAN_FILES]",
+      "type": "Flag",
+      "id": "clean_files",
+      "name": "Clean Files Flag"
+    },
+    {
+      "command-line-flag": "--outreg",
+      "description": "Write out the registration file that is applied to the reoriented input file (fslmat or lta)",
+      "value-key": "[OUTPUT_REGISTRATION]",
+      "type": "Flag",
+      "id": "output_registration",
+      "name": "Output Registration Flag"
+    },
+    {
+      "command-line-flag": "--version",
+      "description": "Print version and exit",
+      "value-key": "[VERSION]",
+      "type": "Flag",
+      "id": "version",
+      "name": "Version Flag"
+    },
+    {
+      "command-line-flag": "--help",
+      "description": "Print help and exit",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_VOL]",
+      "description": "Reoriented volume",
+      "id": "reoriented_vol",
+      "name": "Reoriented Volume File"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

@@ -1,0 +1,157 @@
+{
+  "name": "SurfFWHM",
+  "author": "AFNI Developers",
+  "description": "A program for calculating local and global FWHM.",
+  "command-line": "SurfFWHM [INPUT_FILE] [MASK] [SURF_1] [SURF_SPHERE] [CLEAN] [DETREND] [DETPOLY] [DETPREFIX] [PREFIX] [VOX_SIZE] [NEIGHBORHOOD] [OK_WARN] [EXAMPLES] [SLICE]",
+  "inputs": [
+    {
+      "description": "Dataset for which the FWHM is to be calculated.",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input file"
+    },
+    {
+      "command-line-flag": "-MASK",
+      "description": "Node mask so that only nodes in the mask are used to obtain estimates.",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "mask",
+      "name": "Node mask"
+    },
+    {
+      "command-line-flag": "-SURF_1",
+      "description": "Option for specifying the surface over which the input dataset is defined.",
+      "value-key": "[SURF_1]",
+      "type": "String",
+      "optional": true,
+      "id": "surf_1",
+      "name": "Surface 1"
+    },
+    {
+      "command-line-flag": "-SURF_SPHERE",
+      "description": "Spherical version of -SURF_1 for Local FWHM estimates.",
+      "value-key": "[SURF_SPHERE]",
+      "type": "String",
+      "optional": true,
+      "id": "surf_sphere",
+      "name": "Surface Sphere"
+    },
+    {
+      "command-line-flag": "-clean",
+      "description": "Strip text from output to simplify parsing.",
+      "value-key": "[CLEAN]",
+      "type": "Flag",
+      "id": "clean",
+      "name": "Clean output"
+    },
+    {
+      "command-line-flag": "-detrend",
+      "description": "Detrend to order 'q'. If q is not given, the program picks q=NT/30.",
+      "value-key": "[DETREND]",
+      "type": "Number",
+      "optional": true,
+      "id": "detrend",
+      "name": "Detrend"
+    },
+    {
+      "command-line-flag": "-detpoly",
+      "description": "Detrend with polynomials of order p.",
+      "value-key": "[DETPOLY]",
+      "type": "Number",
+      "optional": true,
+      "id": "detpoly",
+      "name": "Detrend polynomial"
+    },
+    {
+      "command-line-flag": "-detprefix",
+      "description": "Save the detrended file into a dataset with prefix 'd'.",
+      "value-key": "[DETPREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "detprefix",
+      "name": "Detrend prefix"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Prefix of output data set.",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Output prefix"
+    },
+    {
+      "command-line-flag": "-vox_size",
+      "description": "Specify the nominal voxel size in mm.",
+      "value-key": "[VOX_SIZE]",
+      "type": "Number",
+      "optional": true,
+      "id": "vox_size",
+      "name": "Voxel size"
+    },
+    {
+      "command-line-flag": "-hood",
+      "description": "Neighborhood radius R for local FWHM estimates.",
+      "value-key": "[NEIGHBORHOOD]",
+      "type": "Number",
+      "optional": true,
+      "id": "neighborhood",
+      "name": "Neighborhood radius"
+    },
+    {
+      "command-line-flag": "-ok_warn",
+      "description": "Flag to set the mode to ok_warn.",
+      "value-key": "[OK_WARN]",
+      "type": "Flag",
+      "id": "ok_warn",
+      "name": "OK Warn"
+    },
+    {
+      "command-line-flag": "-examples",
+      "description": "Show command line examples and quit.",
+      "value-key": "[EXAMPLES]",
+      "type": "Flag",
+      "id": "examples",
+      "name": "Examples"
+    },
+    {
+      "command-line-flag": "-slice",
+      "description": "Use the contours from planar intersections to estimate gradients. For testing and development purposes only.",
+      "value-key": "[SLICE]",
+      "type": "Flag",
+      "id": "slice",
+      "name": "Slice"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[PREFIX].1D.dset",
+      "description": "Detrended dataset.",
+      "id": "detrended_output",
+      "name": "Detrended output"
+    },
+    {
+      "path-template": "[PREFIX].nii.gz",
+      "description": "Main output dataset.",
+      "id": "main_output",
+      "name": "Main output"
+    },
+    {
+      "path-template": "[PREFIX]_histog.1D",
+      "description": "Histogram showing the distribution of local FWHM.",
+      "id": "histogram_output",
+      "name": "Histogram output"
+    },
+    {
+      "path-template": "[PREFIX]_mask.nii.gz",
+      "description": "Mask output dataset.",
+      "id": "mask_output",
+      "name": "Mask output"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

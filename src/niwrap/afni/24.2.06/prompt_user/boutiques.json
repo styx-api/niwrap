@@ -1,0 +1,37 @@
+{
+  "name": "prompt_user",
+  "author": "AFNI Developers",
+  "description": "Tool that prompts a window requesting user input with a custom message.",
+  "command-line": "prompt_user [PAUSE_MESSAGE] [TIMEOUT] [TIMEOUT_ALIAS]",
+  "inputs": [
+    {
+      "command-line-flag": "<-pause>",
+      "description": "Pops a window prompting the user with MESSAGE. If MESSAGE is '-', it is read from stdin.",
+      "value-key": "[PAUSE_MESSAGE]",
+      "type": "String",
+      "optional": false,
+      "id": "pause_message",
+      "name": "Pause Message"
+    },
+    {
+      "command-line-flag": "-timeout",
+      "description": "Timeout in seconds for the prompt message. Default answer is returned if TT seconds elapse without user input.",
+      "value-key": "[TIMEOUT]",
+      "type": "Number",
+      "optional": true,
+      "id": "timeout",
+      "name": "Timeout"
+    },
+    {
+      "command-line-flag": "-to",
+      "description": "Alias for -timeout",
+      "value-key": "[TIMEOUT_ALIAS]",
+      "type": "Number",
+      "optional": true,
+      "id": "timeout_alias",
+      "name": "Timeout Alias"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

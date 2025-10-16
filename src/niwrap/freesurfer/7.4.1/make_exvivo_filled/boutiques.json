@@ -1,0 +1,42 @@
+{
+  "name": "make_exvivo_filled",
+  "description": "A command-line tool for generating filled ex vivo brain images.",
+  "command-line": "make_exvivo_filled [SUBJECT_NAME] [INPUT_SAMSEG] [INPUT_INTENSITY_VOL] [HEMI_BOTH]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Name of the subject.",
+      "value-key": "[SUBJECT_NAME]",
+      "type": "String",
+      "optional": false,
+      "id": "subject_name",
+      "name": "Subject Name"
+    },
+    {
+      "description": "Input SAMSEG (Segmentation Analysis of MRI brain images).",
+      "value-key": "[INPUT_SAMSEG]",
+      "type": "File",
+      "optional": false,
+      "id": "input_samseg",
+      "name": "Input SAMSEG"
+    },
+    {
+      "description": "Input intensity volume.",
+      "value-key": "[INPUT_INTENSITY_VOL]",
+      "type": "File",
+      "optional": false,
+      "id": "input_intensity_vol",
+      "name": "Input Intensity Volume"
+    },
+    {
+      "description": "Specify hemisphere or both.",
+      "value-key": "[HEMI_BOTH]",
+      "type": "String",
+      "optional": false,
+      "id": "hemi_both",
+      "name": "Hemisphere or Both"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

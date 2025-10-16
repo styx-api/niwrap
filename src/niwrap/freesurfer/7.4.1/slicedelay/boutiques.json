@@ -1,0 +1,61 @@
+{
+  "name": "slicedelay",
+  "description": "Creates an FSL custom slice delay file for use with slicetimer for slice-time correction of fMRI",
+  "author": "FreeSurfer Developers",
+  "command-line": "slicedelay [SLICEDELAYFILE] [NSLICES] [ORDER] [NGROUPS]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "slicedelayfile",
+      "name": "Slice Delay File",
+      "description": "Output file for the custom slice delay",
+      "value-key": "[SLICEDELAYFILE]",
+      "type": "String",
+      "optional": false,
+      "command-line-flag": "--o"
+    },
+    {
+      "id": "nslices",
+      "name": "Number of Slices",
+      "description": "Total number of slices in the volume",
+      "value-key": "[NSLICES]",
+      "type": "Number",
+      "optional": false,
+      "command-line-flag": "--nslices"
+    },
+    {
+      "id": "order",
+      "name": "Slice Order",
+      "description": "Order of slices (up, down, odd, even, siemens)",
+      "value-key": "[ORDER]",
+      "type": "String",
+      "optional": false,
+      "command-line-flag": "--order",
+      "value-choices": [
+        "up",
+        "down",
+        "odd",
+        "even",
+        "siemens"
+      ]
+    },
+    {
+      "id": "ngroups",
+      "name": "Number of Groups",
+      "description": "Number of slice groups for SMS",
+      "value-key": "[NGROUPS]",
+      "type": "Number",
+      "optional": false,
+      "command-line-flag": "--ngroups"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "slicedelayfile",
+      "name": "Slice Delay Output File",
+      "description": "The generated slice delay file",
+      "path-template": "[SLICEDELAYFILE]"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

@@ -1,0 +1,71 @@
+{
+  "name": "cifti-roi-average",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -cifti-roi-average [CIFTI_IN] [TEXT_OUT] [OPT_CIFTI_ROI_ROI_CIFTI] [OPT_LEFT_ROI_ROI_METRIC] [OPT_RIGHT_ROI_ROI_METRIC] [OPT_CEREBELLUM_ROI_ROI_METRIC] [OPT_VOL_ROI_ROI_VOL]",
+  "description": "Average rows in a single cifti file.\n\nAverage the rows that are within the specified ROIs, and write the resulting average row to a text file, separated by newlines.  If -cifti-roi is specified, -left-roi, -right-roi, -cerebellum-roi, and -vol-roi must not be specified.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "cifti_in",
+      "name": "cifti_in",
+      "description": "the cifti file to average rows from",
+      "optional": false,
+      "value-key": "[CIFTI_IN]",
+      "type": "File"
+    },
+    {
+      "id": "text_out",
+      "name": "text_out",
+      "description": "output text file of the average values",
+      "optional": false,
+      "value-key": "[TEXT_OUT]",
+      "type": "String"
+    },
+    {
+      "id": "opt_cifti_roi_roi_cifti",
+      "name": "opt_cifti_roi_roi_cifti",
+      "command-line-flag": "-cifti-roi",
+      "description": "cifti file containing combined rois: the rois as a cifti file",
+      "optional": true,
+      "value-key": "[OPT_CIFTI_ROI_ROI_CIFTI]",
+      "type": "File"
+    },
+    {
+      "id": "opt_left_roi_roi_metric",
+      "name": "opt_left_roi_roi_metric",
+      "command-line-flag": "-left-roi",
+      "description": "vertices to use from left hemisphere: the left roi as a metric file",
+      "optional": true,
+      "value-key": "[OPT_LEFT_ROI_ROI_METRIC]",
+      "type": "File"
+    },
+    {
+      "id": "opt_right_roi_roi_metric",
+      "name": "opt_right_roi_roi_metric",
+      "command-line-flag": "-right-roi",
+      "description": "vertices to use from right hemisphere: the right roi as a metric file",
+      "optional": true,
+      "value-key": "[OPT_RIGHT_ROI_ROI_METRIC]",
+      "type": "File"
+    },
+    {
+      "id": "opt_cerebellum_roi_roi_metric",
+      "name": "opt_cerebellum_roi_roi_metric",
+      "command-line-flag": "-cerebellum-roi",
+      "description": "vertices to use from cerebellum: the cerebellum roi as a metric file",
+      "optional": true,
+      "value-key": "[OPT_CEREBELLUM_ROI_ROI_METRIC]",
+      "type": "File"
+    },
+    {
+      "id": "opt_vol_roi_roi_vol",
+      "name": "opt_vol_roi_roi_vol",
+      "command-line-flag": "-vol-roi",
+      "description": "voxels to use: the roi volume file",
+      "optional": true,
+      "value-key": "[OPT_VOL_ROI_ROI_VOL]",
+      "type": "File"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

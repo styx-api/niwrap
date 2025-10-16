@@ -1,0 +1,67 @@
+{
+  "name": "mris_average_curvature",
+  "command-line": "mris_average_curvature [INPUT_CURVATURE_FILE] [HEMI] [SURFACE] [SUBJECTS] [OUTPUT_CURVATURE_FILE] [SUMMARY_STATS_FLAG] [OUTPUT_SURFACE_FLAG]",
+  "description": "This tool averages curvature data across multiple subjects and generates an output curvature file painted onto the last subject specified. It can also generate summary statistics if requested.",
+  "inputs": [
+    {
+      "id": "input_curvature_file",
+      "name": "Input Curvature File",
+      "description": "The input curvature file.",
+      "type": "File",
+      "value-key": "[INPUT_CURVATURE_FILE]",
+      "optional": false
+    },
+    {
+      "id": "hemi",
+      "name": "Hemisphere",
+      "description": "Specifies the hemisphere (e.g., lh or rh).",
+      "type": "String",
+      "value-key": "[HEMI]",
+      "optional": false
+    },
+    {
+      "id": "surface",
+      "name": "Surface",
+      "description": "Specifies the surface.",
+      "type": "String",
+      "value-key": "[SURFACE]",
+      "optional": false
+    },
+    {
+      "id": "subjects",
+      "name": "Subjects",
+      "description": "The list of subjects. The output curvature file will be painted onto the last subject specified.",
+      "type": "String",
+      "value-key": "[SUBJECTS]",
+      "optional": false,
+      "list": true
+    },
+    {
+      "id": "output_curvature_file",
+      "name": "Output Curvature File",
+      "description": "The output curvature file.",
+      "type": "String",
+      "value-key": "[OUTPUT_CURVATURE_FILE]",
+      "optional": false
+    },
+    {
+      "id": "summary_stats_flag",
+      "name": "Summary Statistics Flag",
+      "description": "Generate summary statistics and write them into specified directory.",
+      "type": "Flag",
+      "command-line-flag": "-s",
+      "value-key": "[SUMMARY_STATS_FLAG]"
+    },
+    {
+      "id": "output_surface_flag",
+      "name": "Output Surface Flag",
+      "description": "Override the last subject as the output surface.",
+      "type": "Flag",
+      "command-line-flag": "-o",
+      "value-key": "[OUTPUT_SURFACE_FLAG]"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "schema-version": "0.5+styx",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

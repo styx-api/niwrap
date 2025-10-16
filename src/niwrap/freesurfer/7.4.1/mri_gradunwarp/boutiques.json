@@ -1,0 +1,119 @@
+{
+  "name": "mri_gradunwarp",
+  "author": "FreeSurfer Developers",
+  "description": "Tool to correct gradient non-linearity distortions in MRI images.",
+  "command-line": "mri_gradunwarp [GRADIENT_COEFF] [LOAD_TRANSTBL] [INPUT_FILE] [OUTPUT_FILE] [OUT_TRANSTBL] [SAVE_TRANSTBL_ONLY] [INTERPOLATION_TYPE] [NTHREADS] [CHECKOPTS] [VERSION] [HELP]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--gradcoeff",
+      "description": "Gradient coefficient input file (not to be used with --load_transtbl)",
+      "value-key": "[GRADIENT_COEFF]",
+      "type": "File",
+      "optional": true,
+      "id": "gradient_coeff",
+      "name": "Gradient Coefficient File"
+    },
+    {
+      "command-line-flag": "--load_transtbl",
+      "description": "Load unwarp transform table in m3z format (not to be used with --gradcoeff)",
+      "value-key": "[LOAD_TRANSTBL]",
+      "type": "File",
+      "optional": true,
+      "id": "load_transtbl",
+      "name": "Load Transform Table"
+    },
+    {
+      "command-line-flag": "--i",
+      "description": "Input warped volume or surface",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input File"
+    },
+    {
+      "command-line-flag": "--o",
+      "description": "Output unwarped volume or surface",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "output_file",
+      "name": "Output File"
+    },
+    {
+      "command-line-flag": "--out_transtbl",
+      "description": "Save unwarp transform table in m3z format",
+      "value-key": "[OUT_TRANSTBL]",
+      "type": "String",
+      "optional": true,
+      "id": "out_transtbl",
+      "name": "Output Transform Table"
+    },
+    {
+      "command-line-flag": "--save_transtbl_only",
+      "description": "Just save unwarp transform table in m3z format, requires --gradcoeff",
+      "value-key": "[SAVE_TRANSTBL_ONLY]",
+      "type": "Flag",
+      "id": "save_transtbl_only",
+      "name": "Save Table Only Flag"
+    },
+    {
+      "command-line-flag": "--interp",
+      "description": "Interpolation method: nearest | trilinear | cubic (default is trilinear)",
+      "value-key": "[INTERPOLATION_TYPE]",
+      "type": "String",
+      "optional": true,
+      "id": "interpolation_type",
+      "name": "Interpolation Type"
+    },
+    {
+      "command-line-flag": "--nthreads",
+      "description": "Number of threads to run",
+      "value-key": "[NTHREADS]",
+      "type": "Number",
+      "optional": true,
+      "id": "nthreads",
+      "name": "Number of Threads"
+    },
+    {
+      "command-line-flag": "--checkopts",
+      "description": "Don't run anything, just check options and exit",
+      "value-key": "[CHECKOPTS]",
+      "type": "Flag",
+      "id": "checkopts",
+      "name": "Check Options Flag"
+    },
+    {
+      "command-line-flag": "--help",
+      "description": "Print out information on how to use this program",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help Flag"
+    },
+    {
+      "command-line-flag": "--version",
+      "description": "Print out version and exit",
+      "value-key": "[VERSION]",
+      "type": "Flag",
+      "id": "version",
+      "name": "Version Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILE]",
+      "description": "Unwarped output volume or surface",
+      "id": "unwarped_output",
+      "name": "Unwarped Output File"
+    },
+    {
+      "path-template": "[OUT_TRANSTBL]",
+      "description": "Saved unwarp transform table in m3z format",
+      "id": "output_transform_table",
+      "name": "Output Transform Table"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

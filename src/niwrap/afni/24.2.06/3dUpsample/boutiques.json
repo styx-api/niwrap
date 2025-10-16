@@ -1,0 +1,79 @@
+{
+  "name": "3dUpsample",
+  "author": "AFNI Developers",
+  "description": "Upsamples a 3D+time dataset in the time direction by a specified factor.",
+  "command-line": "3dUpsample [UPSAMPLE_FACTOR] [INPUT_DATASET] [LINEAR_INTERPOLATION] [OUTPUT_PREFIX] [VERBOSE_FLAG] [DATATYPE]",
+  "inputs": [
+    {
+      "command-line-flag": "-n",
+      "description": "Upsampling factor; must be between 2 and 320 (inclusive)",
+      "value-key": "[UPSAMPLE_FACTOR]",
+      "type": "Number",
+      "maximum": 320,
+      "minimum": 2,
+      "integer": true,
+      "optional": false,
+      "id": "upsample_factor",
+      "name": "Upsample Factor"
+    },
+    {
+      "command-line-flag": "-input",
+      "description": "Input dataset",
+      "value-key": "[INPUT_DATASET]",
+      "type": "String",
+      "optional": false,
+      "id": "input_dataset",
+      "name": "Input Dataset"
+    },
+    {
+      "command-line-flag": "-1",
+      "description": "Use linear interpolation instead of 7th order polynomial interpolation",
+      "value-key": "[LINEAR_INTERPOLATION]",
+      "type": "Flag",
+      "id": "linear_interpolation",
+      "name": "Linear Interpolation Flag"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Define the prefix name of the output dataset; default is 'Upsam'",
+      "value-key": "[OUTPUT_PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "output_prefix",
+      "name": "Output Prefix"
+    },
+    {
+      "command-line-flag": "-verb",
+      "description": "Print verbose output",
+      "value-key": "[VERBOSE_FLAG]",
+      "type": "Flag",
+      "id": "verbose_flag",
+      "name": "Verbose Flag"
+    },
+    {
+      "command-line-flag": "-datum",
+      "description": "Specify the datatype for the output dataset (float, short, byte); default is float",
+      "value-key": "[DATATYPE]",
+      "type": "String",
+      "optional": true,
+      "id": "datatype",
+      "name": "Output Datatype"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_PREFIX]+orig.BRIK",
+      "description": "Upsampled dataset in BRIK format.",
+      "id": "output_brik",
+      "name": "Output BRIK File"
+    },
+    {
+      "path-template": "[OUTPUT_PREFIX]+orig.HEAD",
+      "description": "Header information for the upsampled dataset.",
+      "id": "output_head",
+      "name": "Output HEAD File"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

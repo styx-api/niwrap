@@ -1,0 +1,78 @@
+{
+  "name": "mris_expand",
+  "author": "FreeSurfer Developers",
+  "description": "Expand a given surface by a specified distance",
+  "command-line": "mris_expand [INPUT_SURFACE] [EXPANSION_DISTANCE] [OUTPUT_SURFACE] [THICKNESS] [LABEL] [TMAP] [TMAP_RANDOM]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input surface file (e.g. lh.white)",
+      "value-key": "[INPUT_SURFACE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_surface",
+      "name": "Input Surface"
+    },
+    {
+      "description": "Expansion distance in mm",
+      "value-key": "[EXPANSION_DISTANCE]",
+      "type": "Number",
+      "integer": false,
+      "optional": false,
+      "id": "expansion_distance",
+      "name": "Expansion Distance"
+    },
+    {
+      "description": "Output surface file",
+      "value-key": "[OUTPUT_SURFACE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_surface",
+      "name": "Output Surface"
+    },
+    {
+      "command-line-flag": "-thickness",
+      "description": "Use thickness for expansion",
+      "value-key": "[THICKNESS]",
+      "type": "Flag",
+      "id": "thickness",
+      "name": "Thickness Flag"
+    },
+    {
+      "command-line-flag": "-label",
+      "description": "Use label file for expansion",
+      "value-key": "[LABEL]",
+      "type": "String",
+      "optional": true,
+      "id": "label",
+      "name": "Label File"
+    },
+    {
+      "command-line-flag": "-tmap",
+      "description": "Use a prespecified map of percent thickness to compute the target locations for expansion",
+      "value-key": "[TMAP]",
+      "type": "String",
+      "optional": true,
+      "id": "tmap",
+      "name": "TMap File"
+    },
+    {
+      "command-line-flag": "-tmap random",
+      "description": "Create a random target distance map with Gaussian sampling for the target locations",
+      "value-key": "[TMAP_RANDOM]",
+      "type": "String",
+      "optional": true,
+      "id": "tmap_random",
+      "name": "TMap Random Parameters"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_SURFACE]",
+      "description": "Expanded output surface file",
+      "id": "output_surface_file",
+      "name": "Output Surface File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

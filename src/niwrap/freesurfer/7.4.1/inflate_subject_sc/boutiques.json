@@ -1,0 +1,42 @@
+{
+  "name": "inflate_subject_sc",
+  "author": "FreeSurfer Developers",
+  "description": "Inferred description: Tool for inflating subject surfaces, specific details unavailable.",
+  "command-line": "inflate_subject_sc [SUBJECT_DIR] [VERBOSE] [DEBUG]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Path to the subject directory.",
+      "value-key": "[SUBJECT_DIR]",
+      "type": "String",
+      "optional": false,
+      "id": "subject_dir",
+      "name": "Subject directory"
+    },
+    {
+      "command-line-flag": "--verbose",
+      "description": "Enable verbose output.",
+      "value-key": "[VERBOSE]",
+      "type": "Flag",
+      "id": "verbose",
+      "name": "Verbose flag"
+    },
+    {
+      "command-line-flag": "--debug",
+      "description": "Enable debug mode.",
+      "value-key": "[DEBUG]",
+      "type": "Flag",
+      "id": "debug",
+      "name": "Debug flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[SUBJECT_DIR]/inflated_output",
+      "description": "Inflated subject surface output.",
+      "id": "inflated_output",
+      "name": "Inflated output file"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

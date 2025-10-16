@@ -1,0 +1,208 @@
+{
+  "name": "imreg",
+  "author": "AFNI Developers",
+  "description": "Registers each 2D image in 'image_sequence' to 'base_image'",
+  "command-line": "imreg [BASE_IMAGE] [IMAGE_SEQUENCE] [NOWRITE] [PREFIX] [SUFFIX] [START] [STEP] [FLIM] [KEEPSIZE] [QUIET] [DEBUG] [DPREFIX] [BILINEAR] [MODES] [MLCF] [WTIM] [DFSPACE] [CMASS] [FINE] [NOFINE]",
+  "inputs": [
+    {
+      "description": "Base image or method to determine base image ('+AVER' or '+count')",
+      "value-key": "[BASE_IMAGE]",
+      "type": "String",
+      "optional": false,
+      "id": "base_image",
+      "name": "Base Image"
+    },
+    {
+      "description": "Sequence of images to be registered",
+      "value-key": "[IMAGE_SEQUENCE]",
+      "type": "File",
+      "optional": false,
+      "list": true,
+      "id": "image_sequence",
+      "name": "Image Sequence"
+    },
+    {
+      "command-line-flag": "-nowrite",
+      "description": "Don't write outputs, just print progress reports",
+      "value-key": "[NOWRITE]",
+      "type": "Flag",
+      "id": "nowrite",
+      "name": "No Write Flag"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Prefix for output file names",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Prefix"
+    },
+    {
+      "command-line-flag": "-suffix",
+      "description": "Suffix for output file names",
+      "value-key": "[SUFFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "suffix",
+      "name": "Suffix"
+    },
+    {
+      "command-line-flag": "-start",
+      "description": "Start index for output file names",
+      "value-key": "[START]",
+      "type": "Number",
+      "optional": true,
+      "id": "start",
+      "name": "Start Index"
+    },
+    {
+      "command-line-flag": "-step",
+      "description": "Step size for output file indices",
+      "value-key": "[STEP]",
+      "type": "Number",
+      "optional": true,
+      "id": "step",
+      "name": "Step Size"
+    },
+    {
+      "command-line-flag": "-flim",
+      "description": "Write output in mrilib floating point format",
+      "value-key": "[FLIM]",
+      "type": "Flag",
+      "id": "flim",
+      "name": "MRILib Floating Point Format"
+    },
+    {
+      "command-line-flag": "-keepsize",
+      "description": "Preserve the original image size on output",
+      "value-key": "[KEEPSIZE]",
+      "type": "Flag",
+      "id": "keepsize",
+      "name": "Keep Size Flag"
+    },
+    {
+      "command-line-flag": "-quiet",
+      "description": "Don't write progress report messages",
+      "value-key": "[QUIET]",
+      "type": "Flag",
+      "id": "quiet",
+      "name": "Quiet Flag"
+    },
+    {
+      "command-line-flag": "-debug",
+      "description": "Write lots of debugging output",
+      "value-key": "[DEBUG]",
+      "type": "Flag",
+      "id": "debug",
+      "name": "Debug Flag"
+    },
+    {
+      "command-line-flag": "-dprefix",
+      "description": "Prefix for dx, dy, and phi files",
+      "value-key": "[DPREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "dprefix",
+      "name": "DPrefix"
+    },
+    {
+      "command-line-flag": "-bilinear",
+      "description": "Use bilinear interpolation",
+      "value-key": "[BILINEAR]",
+      "type": "Flag",
+      "id": "bilinear",
+      "name": "Bilinear Interpolation"
+    },
+    {
+      "command-line-flag": "-modes",
+      "description": "Interpolation modes during coarse, fine, and registration phases",
+      "value-key": "[MODES]",
+      "type": "String",
+      "optional": true,
+      "id": "modes",
+      "name": "Interpolation Modes"
+    },
+    {
+      "command-line-flag": "-mlcF",
+      "description": "Equivalent to '-modes bilinear bicubic Fourier'",
+      "value-key": "[MLCF]",
+      "type": "Flag",
+      "id": "mlcf",
+      "name": "MLCF Flag"
+    },
+    {
+      "command-line-flag": "-wtim",
+      "description": "Weighting image file",
+      "value-key": "[WTIM]",
+      "type": "File",
+      "optional": true,
+      "id": "wtim",
+      "name": "Weighting Image"
+    },
+    {
+      "command-line-flag": "-dfspace",
+      "description": "Use difiterated differential spatial method",
+      "value-key": "[DFSPACE]",
+      "type": "Flag",
+      "id": "dfspace",
+      "name": "Differential Spatial Alignment"
+    },
+    {
+      "command-line-flag": "-cmass",
+      "description": "Align centers of mass of the images",
+      "value-key": "[CMASS]",
+      "type": "Flag",
+      "id": "cmass",
+      "name": "Center of Mass Alignment"
+    },
+    {
+      "command-line-flag": "-fine",
+      "description": "Fine fit parameters: blur, dxy, dphi",
+      "value-key": "[FINE]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 3,
+      "min-list-entries": 3,
+      "optional": true,
+      "id": "fine",
+      "name": "Fine Fit Parameters"
+    },
+    {
+      "command-line-flag": "-nofine",
+      "description": "Turn off the 'fine' fit algorithm",
+      "value-key": "[NOFINE]",
+      "type": "Flag",
+      "id": "nofine",
+      "name": "No Fine Fit Flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX].[INDEX].[SUFFIX]",
+      "description": "Registered images",
+      "id": "registered_images",
+      "name": "Registered Images"
+    },
+    {
+      "path-template": "[DPREFIX].dx",
+      "description": "Time series dx file",
+      "id": "dx_file",
+      "name": "Dx File"
+    },
+    {
+      "path-template": "[DPREFIX].dy",
+      "description": "Time series dy file",
+      "id": "dy_file",
+      "name": "Dy File"
+    },
+    {
+      "path-template": "[DPREFIX].phi",
+      "description": "Time series phi file",
+      "id": "phi_file",
+      "name": "Phi File"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

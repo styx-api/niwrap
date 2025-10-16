@@ -1,0 +1,29 @@
+{
+  "name": "tokens",
+  "author": "AFNI Developers",
+  "description": "Token counting tool",
+  "command-line": "tokens [INFILE] [EXTRA_CHAR]",
+  "inputs": [
+    {
+      "command-line-flag": "-infile",
+      "description": "Specify input file (stdin if none)",
+      "value-key": "[INFILE]",
+      "type": "File",
+      "optional": true,
+      "id": "infile",
+      "name": "Input file"
+    },
+    {
+      "command-line-flag": "-extra",
+      "description": "Specify extra character to count as valid. Can be used more than once.",
+      "value-key": "[EXTRA_CHAR]",
+      "type": "String",
+      "optional": true,
+      "list": true,
+      "id": "extra_char",
+      "name": "Extra character"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

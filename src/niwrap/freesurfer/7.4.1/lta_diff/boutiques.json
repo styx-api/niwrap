@@ -1,0 +1,78 @@
+{
+  "name": "lta_diff",
+  "description": "A tool to compute different distance norms for a single transform or for the difference between two transforms.",
+  "command-line": "lta_diff [TRANSFORM1] [TRANSFORM2] [DIST_TYPE] [INVERT1] [INVERT2] [VOX] [NORMDIV] [RADIUS]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "First transform file",
+      "id": "transform1",
+      "name": "Transform 1",
+      "type": "File",
+      "value-key": "[TRANSFORM1]",
+      "optional": false
+    },
+    {
+      "description": "Second transform file",
+      "id": "transform2",
+      "name": "Transform 2",
+      "type": "File",
+      "value-key": "[TRANSFORM2]",
+      "optional": true
+    },
+    {
+      "command-line-flag": "--dist",
+      "description": "Distance type: 1 (Rigid Trans. Dist.), 2 (Affine Transform Distance), 3 (8-corners mean distance), 4 (Max Displacement), 5 (Determinant scaling), 6 (Interpolation Smoothing), 7 (Decomposition). Default is 2.",
+      "id": "dist_type",
+      "name": "Distance Type",
+      "type": "Number",
+      "integer": true,
+      "value-key": "[DIST_TYPE]",
+      "optional": true
+    },
+    {
+      "command-line-flag": "--invert1",
+      "description": "Invert first transform before computing difference matrix D",
+      "id": "invert1",
+      "name": "Invert First Transform",
+      "type": "Flag",
+      "value-key": "[INVERT1]"
+    },
+    {
+      "command-line-flag": "--invert2",
+      "description": "Invert second transform before computing difference matrix D",
+      "id": "invert2",
+      "name": "Invert Second Transform",
+      "type": "Flag",
+      "value-key": "[INVERT2]"
+    },
+    {
+      "command-line-flag": "--vox",
+      "description": "Compute distance in vox coordinates, after adjusting for voxel sizes. Default is RAS coordinates.",
+      "id": "vox",
+      "name": "Vox Coordinates",
+      "type": "Flag",
+      "value-key": "[VOX]"
+    },
+    {
+      "command-line-flag": "--normdiv",
+      "description": "Divide final distance by this value for step adjustment.",
+      "id": "normdiv",
+      "name": "Normalization Divisor",
+      "type": "Number",
+      "value-key": "[NORMDIV]",
+      "optional": true
+    },
+    {
+      "command-line-flag": "--radius",
+      "description": "Radius in mm, used for RMS distance. Default is 100 to include the head.",
+      "id": "radius",
+      "name": "Radius",
+      "type": "Number",
+      "value-key": "[RADIUS]",
+      "optional": true
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

@@ -1,0 +1,186 @@
+{
+  "name": "SurfInfo",
+  "author": "AFNI Developers",
+  "description": "Tool to gather information about surface files.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "SurfInfo [SURFACE] [COM] [DEBUG_LEVEL] [DETAIL_LEVEL] [N_NODE] [N_FACESET] [N_TRI] [QUIET] [SEPARATOR] [INPUT_SURFACE] [SURFACE_STATE] [SURFACE_VOLUME] [SPEC_FILE] [NOVOLREG] [NOXFORM] [SETENV] [TRACE] [EXTREME_TRACE] [NOMALL] [YESMALL]",
+  "inputs": [
+    {
+      "description": "Input surface file.",
+      "value-key": "[SURFACE]",
+      "type": "File",
+      "optional": false,
+      "id": "surface",
+      "name": "Surface file"
+    },
+    {
+      "command-line-flag": "-detail",
+      "description": "Calculate surface metrics. 1=yes, 0=no",
+      "value-key": "[DETAIL_LEVEL]",
+      "type": "Number",
+      "optional": true,
+      "id": "detail_level",
+      "name": "Detail level"
+    },
+    {
+      "command-line-flag": "-debug",
+      "description": "Debugging level (2 turns LocalHead ON)",
+      "value-key": "[DEBUG_LEVEL]",
+      "type": "Number",
+      "optional": true,
+      "id": "debug_level",
+      "name": "Debug level"
+    },
+    {
+      "command-line-flag": "-N_Node",
+      "description": "Output the number of nodes.",
+      "value-key": "[N_NODE]",
+      "type": "Flag",
+      "id": "n_node",
+      "name": "Number of nodes flag"
+    },
+    {
+      "command-line-flag": "-N_FaceSet",
+      "description": "Output the number of face sets.",
+      "value-key": "[N_FACESET]",
+      "type": "Flag",
+      "id": "n_faceset",
+      "name": "Number of face sets flag"
+    },
+    {
+      "command-line-flag": "-N_Tri",
+      "description": "Output the number of triangles.",
+      "value-key": "[N_TRI]",
+      "type": "Flag",
+      "id": "n_tri",
+      "name": "Number of triangles flag"
+    },
+    {
+      "command-line-flag": "-COM",
+      "description": "Output the center of mass.",
+      "value-key": "[COM]",
+      "type": "Flag",
+      "id": "com",
+      "name": "Center of mass flag"
+    },
+    {
+      "command-line-flag": "-quiet",
+      "description": "Do not include the name of the parameter in output.",
+      "value-key": "[QUIET]",
+      "type": "Flag",
+      "id": "quiet",
+      "name": "Quiet flag"
+    },
+    {
+      "command-line-flag": "-sep",
+      "description": "Use string SEP to separate parameter values. Default is ' ; '",
+      "value-key": "[SEPARATOR]",
+      "type": "String",
+      "optional": true,
+      "id": "separator",
+      "name": "Separator string"
+    },
+    {
+      "command-line-flag": "-i_TYPE",
+      "description": "Specify the input surface type and file.",
+      "value-key": "[INPUT_SURFACE]",
+      "type": "String",
+      "optional": true,
+      "id": "input_surface",
+      "name": "Input surface type and file"
+    },
+    {
+      "command-line-flag": "-tsn",
+      "description": "Specify surface type, state, and name.",
+      "value-key": "[SURFACE_STATE]",
+      "type": "String",
+      "optional": true,
+      "id": "surface_state",
+      "name": "Surface type, state, and name"
+    },
+    {
+      "command-line-flag": "-sv",
+      "description": "Specify a surface volume file.",
+      "value-key": "[SURFACE_VOLUME]",
+      "type": "File",
+      "optional": true,
+      "id": "surface_volume",
+      "name": "Surface volume file"
+    },
+    {
+      "command-line-flag": "-spec",
+      "description": "Specify a surface specification (spec) file.",
+      "value-key": "[SPEC_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "spec_file",
+      "name": "Spec file"
+    },
+    {
+      "command-line-flag": "-novolreg",
+      "description": "Ignore any Rotate, Volreg, Tagalign, or WarpDrive transformations present in the Surface Volume.",
+      "value-key": "[NOVOLREG]",
+      "type": "Flag",
+      "id": "novolreg",
+      "name": "No volume registration"
+    },
+    {
+      "command-line-flag": "-noxform",
+      "description": "Same as -novolreg.",
+      "value-key": "[NOXFORM]",
+      "type": "Flag",
+      "id": "noxform",
+      "name": "No transform"
+    },
+    {
+      "command-line-flag": "-setenv",
+      "description": "Set environment variable ENVname to be ENVvalue. Quotes are necessary.",
+      "value-key": "[SETENV]",
+      "type": "String",
+      "optional": true,
+      "id": "setenv",
+      "name": "Set environment variable"
+    },
+    {
+      "command-line-flag": "-trace",
+      "description": "Turns on In/Out debug and Memory tracing.",
+      "value-key": "[TRACE]",
+      "type": "Flag",
+      "id": "trace",
+      "name": "Trace flag"
+    },
+    {
+      "command-line-flag": "-TRACE",
+      "description": "Turns on extreme tracing.",
+      "value-key": "[EXTREME_TRACE]",
+      "type": "Flag",
+      "id": "extreme_trace",
+      "name": "Extreme trace flag"
+    },
+    {
+      "command-line-flag": "-nomall",
+      "description": "Turn off memory tracing.",
+      "value-key": "[NOMALL]",
+      "type": "Flag",
+      "id": "nomall",
+      "name": "No memory trace flag"
+    },
+    {
+      "command-line-flag": "-yesmall",
+      "description": "Turn on memory tracing (default).",
+      "value-key": "[YESMALL]",
+      "type": "Flag",
+      "id": "yesmall",
+      "name": "Memory trace flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[SURFACE]_metrics.txt",
+      "description": "Output file containing calculated surface metrics.",
+      "id": "metrics_output",
+      "name": "Metrics output file"
+    }
+  ]
+}

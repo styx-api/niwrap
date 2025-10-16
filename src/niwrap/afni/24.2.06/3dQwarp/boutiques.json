@@ -1,0 +1,192 @@
+{
+  "name": "3dQwarp",
+  "author": "AFNI Developers",
+  "description": "Computes a nonlinearly warped version of source_dataset to match base_dataset.",
+  "command-line": "3dQwarp [BASE_DATASET] [SOURCE_DATASET] [PREFIX] [NO_WARP] [INVERSE_WARP] [NO_DATASET] [A_WARP] [PCL] [PEAR] [HEL] [MI] [NMI] [LPC] [LPA] [NONEG] [NOPENALTY] [MINPATCH] [MAXLEV] [VERBOSE] [QUIET]",
+  "inputs": [
+    {
+      "description": "Base dataset",
+      "value-key": "[BASE_DATASET]",
+      "type": "File",
+      "optional": false,
+      "id": "base_dataset",
+      "name": "Base Dataset"
+    },
+    {
+      "description": "Source dataset",
+      "value-key": "[SOURCE_DATASET]",
+      "type": "File",
+      "optional": false,
+      "id": "source_dataset",
+      "name": "Source Dataset"
+    },
+    {
+      "description": "Prefix for the output datasets",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "prefix",
+      "name": "Output Prefix"
+    },
+    {
+      "command-line-flag": "-nowarp",
+      "description": "Do not save the _WARP file",
+      "value-key": "[NO_WARP]",
+      "type": "Flag",
+      "id": "no_warp",
+      "name": "No Warp"
+    },
+    {
+      "command-line-flag": "-iwarp",
+      "description": "Compute and save the _WARPINV file",
+      "value-key": "[INVERSE_WARP]",
+      "type": "Flag",
+      "id": "inverse_warp",
+      "name": "Inverse Warp"
+    },
+    {
+      "command-line-flag": "-nodset",
+      "description": "Do not save the warped source dataset",
+      "value-key": "[NO_DATASET]",
+      "type": "Flag",
+      "id": "no_dataset",
+      "name": "No Dataset"
+    },
+    {
+      "command-line-flag": "-awarp",
+      "description": "Output the nonlinear warp when -allineate is used",
+      "value-key": "[A_WARP]",
+      "type": "Flag",
+      "id": "a_warp",
+      "name": "Affine Warp"
+    },
+    {
+      "command-line-flag": "-pcl",
+      "description": "Clipped Pearson correlation (default method)",
+      "value-key": "[PCL]",
+      "type": "Flag",
+      "id": "pcl",
+      "name": "Clipped Pearson Correlation"
+    },
+    {
+      "command-line-flag": "-pear",
+      "description": "Use strict Pearson correlation for matching",
+      "value-key": "[PEAR]",
+      "type": "Flag",
+      "id": "pear",
+      "name": "Pearson Correlation"
+    },
+    {
+      "command-line-flag": "-hel",
+      "description": "Use Hellinger metric for matching",
+      "value-key": "[HEL]",
+      "type": "Flag",
+      "id": "hel",
+      "name": "Hellinger Metric"
+    },
+    {
+      "command-line-flag": "-mi",
+      "description": "Use Mutual Information for matching",
+      "value-key": "[MI]",
+      "type": "Flag",
+      "id": "mi",
+      "name": "Mutual Information"
+    },
+    {
+      "command-line-flag": "-nmi",
+      "description": "Use Normalized Mutual Information for matching",
+      "value-key": "[NMI]",
+      "type": "Flag",
+      "id": "nmi",
+      "name": "Normalized Mutual Information"
+    },
+    {
+      "command-line-flag": "-lpc",
+      "description": "Use Local Pearson correlation (signed) for matching",
+      "value-key": "[LPC]",
+      "type": "Flag",
+      "id": "lpc",
+      "name": "Local Pearson Correlation (Signed)"
+    },
+    {
+      "command-line-flag": "-lpa",
+      "description": "Use Local Pearson correlation (absolute value) for matching",
+      "value-key": "[LPA]",
+      "type": "Flag",
+      "id": "lpa",
+      "name": "Local Pearson Correlation (Absolute Value)"
+    },
+    {
+      "command-line-flag": "-noneg",
+      "description": "Replace negative values in either input volume with 0",
+      "value-key": "[NONEG]",
+      "type": "Flag",
+      "id": "noneg",
+      "name": "Replace Negative Values"
+    },
+    {
+      "command-line-flag": "-nopenalty",
+      "description": "Don't use a penalty on the cost functional",
+      "value-key": "[NOPENALTY]",
+      "type": "Flag",
+      "id": "nopenalty",
+      "name": "No Penalty"
+    },
+    {
+      "command-line-flag": "-minpatch",
+      "description": "Set the minimum patch size for warp searching",
+      "value-key": "[MINPATCH]",
+      "type": "Number",
+      "optional": true,
+      "id": "minpatch",
+      "name": "Minimum Patch Size"
+    },
+    {
+      "command-line-flag": "-maxlev",
+      "description": "Set the maximum refinement level",
+      "value-key": "[MAXLEV]",
+      "type": "Number",
+      "optional": true,
+      "id": "maxlev",
+      "name": "Maximum Refinement Level"
+    },
+    {
+      "command-line-flag": "-verb",
+      "description": "Print out very verbose progress messages",
+      "value-key": "[VERBOSE]",
+      "type": "Flag",
+      "id": "verbose",
+      "name": "Verbose"
+    },
+    {
+      "command-line-flag": "-quiet",
+      "description": "Cut out most progress messages",
+      "value-key": "[QUIET]",
+      "type": "Flag",
+      "id": "quiet",
+      "name": "Quiet"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "{PREFIX}+tlrc",
+      "description": "Warped dataset",
+      "id": "warped_dataset",
+      "name": "Warped Dataset"
+    },
+    {
+      "path-template": "{PREFIX}_WARP+tlrc",
+      "description": "Warp dataset",
+      "id": "warp_dataset",
+      "name": "Warp Dataset"
+    },
+    {
+      "path-template": "{PREFIX}_WARPINV+tlrc",
+      "description": "Inverse warp dataset",
+      "id": "inverse_warp_dataset",
+      "name": "Inverse Warp Dataset"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

@@ -1,0 +1,26 @@
+{
+  "name": "@ClustExp_run_shiny",
+  "author": "AFNI Developers",
+  "description": "Launch a shiny app that was created by ClustExp_StatParse.py",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "@ClustExp_run_shiny [DIRECTORY] [HELP]",
+  "inputs": [
+    {
+      "description": "Folder created by ClustExp_StatParse.py",
+      "value-key": "[DIRECTORY]",
+      "type": "String",
+      "optional": false,
+      "id": "directory",
+      "name": "Input Directory"
+    },
+    {
+      "command-line-flag": "-help",
+      "description": "Show help message",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help Flag"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

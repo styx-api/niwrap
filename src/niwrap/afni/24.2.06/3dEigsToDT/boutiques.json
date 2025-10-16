@@ -1,0 +1,93 @@
+{
+  "name": "3dEigsToDT",
+  "author": "AFNI Developers",
+  "description": "Convert set of DTI eigenvectors and eigenvalues to a diffusion tensor, with optional value-scaling and vector-flipping.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dEigsToDT [EIG_VALS] [EIG_VECS] [PREFIX] [MASK] [FLIP_X] [FLIP_Y] [FLIP_Z] [SCALE_EIGS]",
+  "inputs": [
+    {
+      "description": "Searchable descriptor for finding all three required eigenvalue files. It should list all three eigenvalue files in descending order of magnitude.",
+      "value-key": "[EIG_VALS]",
+      "type": "String",
+      "optional": false,
+      "id": "eig_vals",
+      "name": "Eigenvalue Files Descriptor",
+      "command-line-flag": "-eig_vals"
+    },
+    {
+      "description": "Searchable descriptor for finding all three required eigenvector files. It should list all three eigenvector files in order matching the eigenvalue files.",
+      "value-key": "[EIG_VECS]",
+      "type": "String",
+      "optional": false,
+      "id": "eig_vecs",
+      "name": "Eigenvector Files Descriptor",
+      "command-line-flag": "-eig_vecs"
+    },
+    {
+      "description": "Prefix for the output file name. It is recommended to include a 'DT' label in it.",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "prefix",
+      "name": "Output File Prefix",
+      "command-line-flag": "-prefix"
+    },
+    {
+      "command-line-flag": "-mask",
+      "description": "Optional mask within which to calculate uncertainty. If not provided, the data should be masked already.",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "mask",
+      "name": "Mask File"
+    },
+    {
+      "command-line-flag": "-flip_x",
+      "description": "Change sign of the first element of eigenvectors.",
+      "value-key": "[FLIP_X]",
+      "type": "Flag",
+      "id": "flip_x",
+      "name": "Flip X"
+    },
+    {
+      "command-line-flag": "-flip_y",
+      "description": "Change sign of the second element of eigenvectors.",
+      "value-key": "[FLIP_Y]",
+      "type": "Flag",
+      "id": "flip_y",
+      "name": "Flip Y"
+    },
+    {
+      "command-line-flag": "-flip_z",
+      "description": "Change sign of the third element of eigenvectors.",
+      "value-key": "[FLIP_Z]",
+      "type": "Flag",
+      "id": "flip_z",
+      "name": "Flip Z"
+    },
+    {
+      "command-line-flag": "-scale_eigs",
+      "description": "Rescale the eigenvalues by dividing by a number X > 0.",
+      "value-key": "[SCALE_EIGS]",
+      "type": "Number",
+      "optional": true,
+      "id": "scale_eigs",
+      "name": "Scale Eigenvalues"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX]_DT+orig.BRIK",
+      "description": "Output diffusion tensor (DT) file in AFNI format (BRIK)",
+      "id": "dt_brik_output",
+      "name": "Output DT BRIK File"
+    },
+    {
+      "path-template": "[PREFIX]_DT+orig.HEAD",
+      "description": "Output diffusion tensor (DT) file in AFNI format (HEAD)",
+      "id": "dt_head_output",
+      "name": "Output DT HEAD File"
+    }
+  ]
+}

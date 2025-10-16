@@ -1,0 +1,84 @@
+{
+  "name": "3daxialize",
+  "author": "AFNI Developers",
+  "description": "Read and write dataset as new dataset with data brick oriented as axial slices.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3daxialize [INFILE] [PREFIX] [VERB] [SAGITTAL] [CORONAL] [AXIAL] [ORIENT_CODE] [FRUGAL]",
+  "inputs": [
+    {
+      "description": "Dataset to be axially oriented",
+      "value-key": "[INFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "infile",
+      "name": "Input dataset file"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Use specified prefix for the new dataset. Default is 'axialize'.",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Output prefix"
+    },
+    {
+      "command-line-flag": "-verb",
+      "description": "Print out a progress report.",
+      "value-key": "[VERB]",
+      "type": "Flag",
+      "id": "verb",
+      "name": "Verbose flag"
+    },
+    {
+      "command-line-flag": "-sagittal",
+      "description": "Write dataset in sagittal slice order.",
+      "value-key": "[SAGITTAL]",
+      "type": "Flag",
+      "id": "sagittal",
+      "name": "Sagittal slice order flag"
+    },
+    {
+      "command-line-flag": "-coronal",
+      "description": "Write dataset in coronal slice order.",
+      "value-key": "[CORONAL]",
+      "type": "Flag",
+      "id": "coronal",
+      "name": "Coronal slice order flag"
+    },
+    {
+      "command-line-flag": "-axial",
+      "description": "Write dataset in axial slice order, the default orientation.",
+      "value-key": "[AXIAL]",
+      "type": "Flag",
+      "id": "axial",
+      "name": "Axial slice order flag"
+    },
+    {
+      "command-line-flag": "-orient",
+      "description": "Orientation code for output. 3 letters: one from {R,L}, {A,P}, {I,S}.",
+      "value-key": "[ORIENT_CODE]",
+      "type": "String",
+      "optional": true,
+      "id": "orient_code",
+      "name": "Orientation code"
+    },
+    {
+      "command-line-flag": "-frugal",
+      "description": "Write data as it is rotated, saving memory. Not available with NIFTI datasets.",
+      "value-key": "[FRUGAL]",
+      "type": "Flag",
+      "id": "frugal",
+      "name": "Frugal flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX]+orig",
+      "description": "Output dataset with axial slices orientation",
+      "id": "outfile",
+      "name": "Output dataset file"
+    }
+  ]
+}

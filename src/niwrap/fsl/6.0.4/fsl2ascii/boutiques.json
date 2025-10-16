@@ -1,0 +1,34 @@
+{
+  "name": "fsl2ascii",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Convert NIfTI image or analyze 7.5 format file to ASCII text file",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "fsl2ascii [INPUT_FILE] [OUTPUT_FILE]",
+  "inputs": [
+    {
+      "description": "Input NIfTI (or analyze 7.5 format) image",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input File"
+    },
+    {
+      "description": "Output ASCII text file",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_file",
+      "name": "Output File"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILE]",
+      "description": "Output ASCII text file",
+      "id": "output_ascii_file",
+      "name": "Output ASCII File"
+    }
+  ]
+}

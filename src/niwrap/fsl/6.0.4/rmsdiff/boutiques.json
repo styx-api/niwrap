@@ -1,0 +1,42 @@
+{
+  "name": "rmsdiff",
+  "description": "Outputs RMS deviation between matrices (in mm)",
+  "command-line": "rmsdiff [MATRIXFILE1] [MATRIXFILE2] [REFVOL] [MASK]",
+  "inputs": [
+    {
+      "description": "First matrix file",
+      "value-key": "[MATRIXFILE1]",
+      "type": "File",
+      "optional": false,
+      "id": "matrixfile1",
+      "name": "Matrix file 1"
+    },
+    {
+      "description": "Second matrix file",
+      "value-key": "[MATRIXFILE2]",
+      "type": "File",
+      "optional": false,
+      "id": "matrixfile2",
+      "name": "Matrix file 2"
+    },
+    {
+      "description": "Reference volume",
+      "value-key": "[REFVOL]",
+      "type": "File",
+      "optional": false,
+      "id": "refvol",
+      "name": "Reference volume"
+    },
+    {
+      "description": "Optional mask",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "mask",
+      "name": "Mask file"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

@@ -1,0 +1,155 @@
+{
+  "name": "IsoSurface",
+  "author": "AFNI Developers",
+  "description": "A program to perform isosurface extraction from a volume.",
+  "command-line": "IsoSurface [INPUT_VOL] [SHAPE_SPEC] [ISOROIS] [ISOVAL] [ISORANGE] [ISOCMASK] [OUTPUT_PREFIX] [TSMOOTH] [DEBUG] [AUTOCROP] [REMESH] [XFORM] [NOVOLREG] [NOXFORM]",
+  "inputs": [
+    {
+      "description": "Input volume file.",
+      "value-key": "[INPUT_VOL]",
+      "type": "File",
+      "optional": true,
+      "id": "input_vol",
+      "name": "Input Volume",
+      "command-line-flag": "-input"
+    },
+    {
+      "description": "Built-in shape specification.",
+      "value-key": "[SHAPE_SPEC]",
+      "type": "String",
+      "optional": true,
+      "id": "shape_spec",
+      "name": "Shape Specification",
+      "command-line-flag": "-shape",
+      "list": true
+    },
+    {
+      "description": "Create isosurface for each unique value in the input volume.",
+      "value-key": "[ISOROIS]",
+      "type": "Flag",
+      "id": "isorois",
+      "name": "Isosurface for unique values",
+      "command-line-flag": "-isorois"
+    },
+    {
+      "description": "Create isosurface where volume = V.",
+      "value-key": "[ISOVAL]",
+      "type": "String",
+      "optional": true,
+      "id": "isoval",
+      "name": "Isoval",
+      "command-line-flag": "-isoval"
+    },
+    {
+      "description": "Create isosurface where V0 <= volume < V1.",
+      "value-key": "[ISORANGE]",
+      "type": "String",
+      "optional": true,
+      "id": "isorange",
+      "name": "Isorange",
+      "command-line-flag": "-isorange",
+      "list": true
+    },
+    {
+      "description": "Create isosurface where MASK_COM != 0.",
+      "value-key": "[ISOCMASK]",
+      "type": "String",
+      "optional": true,
+      "id": "isocmask",
+      "name": "Isocmask",
+      "command-line-flag": "-isocmask"
+    },
+    {
+      "description": "Prefix of output surface file.",
+      "value-key": "[OUTPUT_PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "output_prefix",
+      "name": "Output Prefix",
+      "command-line-flag": "-o_TYPE"
+    },
+    {
+      "description": "Smooth resultant surface using Taubin smoothing with parameters KPB and NITER.",
+      "value-key": "[TSMOOTH]",
+      "type": "String",
+      "optional": true,
+      "id": "tsmooth",
+      "name": "Taubin Smoothing",
+      "command-line-flag": "-Tsmooth",
+      "list": true
+    },
+    {
+      "description": "Debug levels of 0 (default), 1, 2, 3.",
+      "value-key": "[DEBUG]",
+      "type": "String",
+      "optional": true,
+      "id": "debug",
+      "name": "Debug",
+      "command-line-flag": "-debug"
+    },
+    {
+      "description": "Crop input volume before extraction.",
+      "value-key": "[AUTOCROP]",
+      "type": "Flag",
+      "id": "autocrop",
+      "name": "Autocrop",
+      "command-line-flag": "-autocrop"
+    },
+    {
+      "description": "Remesh the surface(s).",
+      "value-key": "[REMESH]",
+      "type": "String",
+      "optional": true,
+      "id": "remesh",
+      "name": "Remesh",
+      "command-line-flag": "-remesh"
+    },
+    {
+      "description": "Transform to apply to volume values before extracting.",
+      "value-key": "[XFORM]",
+      "type": "String",
+      "optional": true,
+      "id": "xform",
+      "name": "Transform",
+      "command-line-flag": "-xform"
+    },
+    {
+      "description": "Ignore any Rotate, Volreg, Tagalign, or WarpDrive transformations.",
+      "value-key": "[NOVOLREG]",
+      "type": "Flag",
+      "id": "novolreg",
+      "name": "No Volreg Transform",
+      "command-line-flag": "-novolreg"
+    },
+    {
+      "description": "Same as -novolreg.",
+      "value-key": "[NOXFORM]",
+      "type": "Flag",
+      "id": "noxform",
+      "name": "No Transform",
+      "command-line-flag": "-noxform"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[MASK]_surf.ply",
+      "description": "Output isosurface in PLY format.",
+      "id": "output_surface_ply",
+      "name": "Output Surface PLY"
+    },
+    {
+      "path-template": "[MASK]_surf.gii",
+      "description": "Output isosurface in GIFTI format.",
+      "id": "output_surface_gii",
+      "name": "Output Surface GIFTI"
+    },
+    {
+      "path-template": "[MASK]_surf.stl",
+      "description": "Output isosurface in STL format.",
+      "id": "output_surface_stl",
+      "name": "Output Surface STL"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "cifti-convert",
+  "source": {
+    "type": "boutiques",
+    "path": "boutiques.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-cifti-convert"
+  ],
+  "docs": {
+    "description": "Dump cifti matrix into other formats.\n\nThis command is used to convert a full CIFTI matrix to/from formats that can be used by programs that don't understand CIFTI.  You must specify exactly one of -to-gifti-ext, -from-gifti-ext, -to-nifti, -from-nifti, -to-text, or -from-text.\n\nIf you want to write an existing CIFTI file with a different CIFTI version, see -file-convert, and its -cifti-version-convert option.\n\nIf you want part of the CIFTI file as a metric, label, or volume file, see -cifti-separate.  If you want to create a CIFTI file from metric and/or volume files, see the -cifti-create-* commands.\n\nIf you want to import a matrix that is restricted to an ROI, first create a template CIFTI file matching that ROI using a -cifti-create-* command.  After importing to CIFTI, you can then expand the file into a standard brainordinates space with -cifti-create-dense-from-template.  If you want to export only part of a CIFTI file, first create an roi-restricted CIFTI file with -cifti-restrict-dense-mapping.\n\nThe -transpose option to -from-gifti-ext is needed if the replacement binary file is in column-major order.\n\nThe -unit options accept these values:\n\nSECOND\nHERTZ\nMETER\nRADIAN"
+  }
+}

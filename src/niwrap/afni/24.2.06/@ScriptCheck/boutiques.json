@@ -1,0 +1,50 @@
+{
+  "name": "@ScriptCheck",
+  "author": "AFNI Developers",
+  "description": "Checks scripts for improperly terminated lines and optionally cleans them.",
+  "command-line": "@ScriptCheck [CLEAN] [SUFFIX] [SCRIPTS]",
+  "inputs": [
+    {
+      "command-line-flag": "-clean",
+      "description": "Clean bad line breaks",
+      "value-key": "[CLEAN]",
+      "type": "Flag",
+      "id": "clean",
+      "name": "Clean Flag"
+    },
+    {
+      "command-line-flag": "-suffix",
+      "description": "Rename uncleaned file with specified suffix. Default is .uncln",
+      "value-key": "[SUFFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "suffix",
+      "name": "Suffix"
+    },
+    {
+      "description": "Scripts to be checked for improperly terminated lines",
+      "value-key": "[SCRIPTS]",
+      "type": "File",
+      "optional": false,
+      "id": "scripts",
+      "name": "Script Files",
+      "list": true
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "{SCRIPT}.uncln",
+      "description": "Uncleaned original file with specified suffix",
+      "id": "uncleaned_file",
+      "name": "Uncleaned File"
+    },
+    {
+      "path-template": "{SCRIPT}",
+      "description": "Cleaned file if -clean option is used",
+      "id": "cleaned_file",
+      "name": "Cleaned File"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

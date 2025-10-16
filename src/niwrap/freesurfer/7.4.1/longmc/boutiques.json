@@ -1,0 +1,69 @@
+{
+  "name": "longmc",
+  "author": "FreeSurfer Developers",
+  "description": "Perform motion correction for the longitudinal recon-all stream when creating the longitudinal timepoint of a subject.",
+  "command-line": "longmc [CROSS_TP_NAME] [BASE_NAME] [CONFORM_TO_HIRES] [NO_CONFORM_TO_HIRES] [SUBJECTS_DIR] [SUBJECT_NAME] [NO_FORCE_UPDATE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Cross time point name for the longitudinal analysis",
+      "value-key": "[CROSS_TP_NAME]",
+      "type": "String",
+      "optional": false,
+      "id": "cross_tp_name",
+      "name": "Cross Time Point Name",
+      "command-line-flag": "-long"
+    },
+    {
+      "description": "Base name for the longitudinal analysis",
+      "value-key": "[BASE_NAME]",
+      "type": "String",
+      "optional": false,
+      "id": "base_name",
+      "name": "Base Name"
+    },
+    {
+      "command-line-flag": "-conf2hires",
+      "description": "Option to conform input to high-resolution",
+      "value-key": "[CONFORM_TO_HIRES]",
+      "type": "Flag",
+      "id": "conform_to_hires",
+      "name": "Conform to High Resolution Flag"
+    },
+    {
+      "command-line-flag": "-no-conf2hires",
+      "description": "Option to not conform input to high-resolution",
+      "value-key": "[NO_CONFORM_TO_HIRES]",
+      "type": "Flag",
+      "id": "no_conform_to_hires",
+      "name": "No Conform to High Resolution Flag"
+    },
+    {
+      "command-line-flag": "-sd",
+      "description": "Set the SUBJECTS_DIR directory",
+      "value-key": "[SUBJECTS_DIR]",
+      "type": "String",
+      "optional": false,
+      "id": "subjects_dir",
+      "name": "Subjects Directory"
+    },
+    {
+      "command-line-flag": "-s",
+      "description": "Subject name override, must be declared after -long",
+      "value-key": "[SUBJECT_NAME]",
+      "type": "String",
+      "optional": true,
+      "id": "subject_name",
+      "name": "Subject Name"
+    },
+    {
+      "command-line-flag": "-no-force-update",
+      "description": "Do not force update",
+      "value-key": "[NO_FORCE_UPDATE]",
+      "type": "Flag",
+      "id": "no_force_update",
+      "name": "No Force Update Flag"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

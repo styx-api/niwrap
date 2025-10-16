@@ -1,0 +1,107 @@
+{
+  "name": "3dCRUISEtoAFNI",
+  "author": "AFNI Developers",
+  "description": "Converts a CRUISE dataset defined by a header in OpenDX format.",
+  "command-line": "3dCRUISEtoAFNI [INPUT] [NOVOLREG] [NOXFORM] [SETENV] [TRACE] [NOMALL] [YESMALL] [HELP] [H]",
+  "inputs": [
+    {
+      "description": "Input CRUISE header file in OpenDX format",
+      "command-line-flag": "-input",
+      "value-key": "[INPUT]",
+      "type": "File",
+      "optional": false,
+      "id": "input",
+      "name": "Input file"
+    },
+    {
+      "command-line-flag": "-novolreg",
+      "description": "Ignore any Rotate, Volreg, Tagalign, or WarpDrive transformations present in the Surface Volume.",
+      "value-key": "[NOVOLREG]",
+      "type": "Flag",
+      "id": "novolreg",
+      "name": "Ignore VolReg transformations"
+    },
+    {
+      "command-line-flag": "-noxform",
+      "description": "Same as -novolreg.",
+      "value-key": "[NOXFORM]",
+      "type": "Flag",
+      "id": "noxform",
+      "name": "No Transformations"
+    },
+    {
+      "command-line-flag": "-setenv",
+      "description": "Set environment variable ENVname to be ENVvalue. Quotes are necessary. Example: suma -setenv \"'SUMA_BackgroundColor = 1 0 1'\"",
+      "value-key": "[SETENV]",
+      "type": "String",
+      "optional": true,
+      "id": "setenv",
+      "name": "Set Environment Variable"
+    },
+    {
+      "id": "trace",
+      "name": "Trace Debugging",
+      "description": "Turns on In/Out debug and Memory tracing. It's recommended to redirect stdout to a file when using this option.",
+      "value-key": "[TRACE]",
+      "optional": true,
+      "type": {
+        "id": "trace",
+        "command-line": "[TRACE] [EXTREME_TRACE]",
+        "inputs": [
+          {
+            "command-line-flag": "-trace",
+            "description": "Turns on In/Out debug and Memory tracing. It's recommended to redirect stdout to a file when using this option.",
+            "value-key": "[TRACE]",
+            "type": "Flag",
+            "optional": true,
+            "id": "trace",
+            "name": "Trace Debugging"
+          },
+          {
+            "command-line-flag": "-TRACE",
+            "description": "Turns on extreme tracing.",
+            "value-key": "[EXTREME_TRACE]",
+            "type": "Flag",
+            "optional": true,
+            "id": "TRACE",
+            "name": "Extreme Tracing"
+          }
+        ]
+      }
+    },
+    {
+      "command-line-flag": "-nomall",
+      "description": "Turn off memory tracing.",
+      "value-key": "[NOMALL]",
+      "type": "Flag",
+      "id": "nomall",
+      "name": "No Memory Tracing"
+    },
+    {
+      "command-line-flag": "-yesmall",
+      "description": "Turn on memory tracing (default).",
+      "value-key": "[YESMALL]",
+      "type": "Flag",
+      "id": "yesmall",
+      "name": "Memory Tracing"
+    },
+    {
+      "command-line-flag": "-help",
+      "description": "The entire help output.",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help"
+    },
+    {
+      "command-line-flag": "-h",
+      "description": "Displays mini help; in many cases, it's the same as -help.",
+      "value-key": "[H]",
+      "type": "Flag",
+      "id": "h",
+      "name": "Mini Help"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

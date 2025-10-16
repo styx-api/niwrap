@@ -1,0 +1,118 @@
+{
+  "name": "standard_space_roi",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Masks input and/or reduces its FOV based on a standard space image or mask, transformed into the space of the input image.",
+  "command-line": "standard_space_roi [INFILE] [OUTFILE] [MASK_FOV_FLAG] [MASK_MASK] [MASK_NONE_FLAG] [ROI_FOV_FLAG] [ROI_MASK] [ROI_NONE_FLAG] [SS_REF] [ALT_INPUT] [DEBUG_FLAG] [BET_PREMASK_FLAG]",
+  "inputs": [
+    {
+      "description": "Input image",
+      "value-key": "[INFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "infile",
+      "name": "Input file"
+    },
+    {
+      "description": "Output image",
+      "value-key": "[OUTFILE]",
+      "type": "String",
+      "optional": false,
+      "id": "outfile",
+      "name": "Output file"
+    },
+    {
+      "command-line-flag": "-maskFOV",
+      "description": "Mask output using transformed standard space FOV",
+      "value-key": "[MASK_FOV_FLAG]",
+      "type": "Flag",
+      "id": "mask_fov_flag",
+      "name": "Mask FOV"
+    },
+    {
+      "command-line-flag": "-maskMASK",
+      "description": "Mask output using transformed standard space mask",
+      "value-key": "[MASK_MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "mask_mask",
+      "name": "Mask using standard space mask"
+    },
+    {
+      "command-line-flag": "-maskNONE",
+      "description": "Do not mask output",
+      "value-key": "[MASK_NONE_FLAG]",
+      "type": "Flag",
+      "id": "mask_none_flag",
+      "name": "Do not mask output"
+    },
+    {
+      "command-line-flag": "-roiFOV",
+      "description": "Cut down input FOV using bounding box of the transformed standard space FOV",
+      "value-key": "[ROI_FOV_FLAG]",
+      "type": "Flag",
+      "id": "roi_fov_flag",
+      "name": "Cut down FOV using standard space bounding box"
+    },
+    {
+      "command-line-flag": "-roiMASK",
+      "description": "Cut down input FOV using nonbackground bounding box of the transformed standard space mask",
+      "value-key": "[ROI_MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "roi_mask",
+      "name": "Cut down FOV using standard space mask"
+    },
+    {
+      "command-line-flag": "-roiNONE",
+      "description": "Do not cut down input FOV",
+      "value-key": "[ROI_NONE_FLAG]",
+      "type": "Flag",
+      "id": "roi_none_flag",
+      "name": "Do not cut down input FOV"
+    },
+    {
+      "command-line-flag": "-ssref",
+      "description": "Standard space reference image to use (default: /usr/local/fsl/data/standard/MNI152_T1)",
+      "value-key": "[SS_REF]",
+      "type": "File",
+      "optional": true,
+      "id": "ss_ref",
+      "name": "Standard space reference image"
+    },
+    {
+      "command-line-flag": "-altinput",
+      "description": "Alternative input image to apply the ROI to (instead of the one used to register to the reference)",
+      "value-key": "[ALT_INPUT]",
+      "type": "File",
+      "optional": true,
+      "id": "alt_input",
+      "name": "Alternative input image"
+    },
+    {
+      "command-line-flag": "-d",
+      "description": "Debug mode (don't delete intermediate files)",
+      "value-key": "[DEBUG_FLAG]",
+      "type": "Flag",
+      "id": "debug_flag",
+      "name": "Debug flag"
+    },
+    {
+      "command-line-flag": "-b",
+      "description": "Equivalent to: -maskMASK /usr/local/fsl/data/standard/MNI152_T1_2mm_brain_mask_dil -roiNONE",
+      "value-key": "[BET_PREMASK_FLAG]",
+      "type": "Flag",
+      "id": "bet_premask_flag",
+      "name": "BET pre-mask"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTFILE]",
+      "description": "Output image after masking and/or FOV reduction",
+      "id": "out_image",
+      "name": "Output image"
+    }
+  ],
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

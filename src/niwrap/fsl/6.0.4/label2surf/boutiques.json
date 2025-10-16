@@ -1,0 +1,61 @@
+{
+  "name": "label2surf",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Transform a group of labels into a surface",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "label2surf [INPUT_SURFACE] [OUTPUT_SURFACE] [LABELS] [VERBOSE_FLAG] [HELP_FLAG]",
+  "inputs": [
+    {
+      "command-line-flag": "--surf",
+      "description": "Input surface file",
+      "value-key": "[INPUT_SURFACE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_surface",
+      "name": "Input Surface File"
+    },
+    {
+      "command-line-flag": "--out",
+      "description": "Output surface file",
+      "value-key": "[OUTPUT_SURFACE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_surface",
+      "name": "Output Surface File"
+    },
+    {
+      "command-line-flag": "--labels",
+      "description": "ASCII list of label files",
+      "value-key": "[LABELS]",
+      "type": "File",
+      "optional": false,
+      "id": "labels",
+      "name": "Label Files"
+    },
+    {
+      "command-line-flag": "--verbose",
+      "description": "Switch on diagnostic messages",
+      "value-key": "[VERBOSE_FLAG]",
+      "type": "Flag",
+      "id": "verbose_flag",
+      "name": "Verbose Flag"
+    },
+    {
+      "command-line-flag": "--help",
+      "description": "Display help message",
+      "value-key": "[HELP_FLAG]",
+      "type": "Flag",
+      "id": "help_flag",
+      "name": "Help Flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_SURFACE]",
+      "description": "Resulting output surface file",
+      "id": "out_surf",
+      "name": "Output Surface File"
+    }
+  ]
+}

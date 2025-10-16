@@ -1,0 +1,89 @@
+{
+  "name": "convert_cdiflist_to_grads.py",
+  "author": "AFNI Developers",
+  "description": "This program reads in a GE cdiflist and outputs gradient file and file of bvalues for subsequent processing.",
+  "command-line": "convert_cdiflist_to_grads.py [CDIFLIST] [BVAL_MAX] [PREFIX] [VER] [DATE] [HELP] [HVIEW]",
+  "inputs": [
+    {
+      "command-line-flag": "-cdiflist",
+      "description": "Name(s) of cdiflist text file output by GE scanners when acquiring DWIs.",
+      "value-key": "[CDIFLIST]",
+      "type": "File",
+      "optional": false,
+      "id": "cdiflist",
+      "name": "Cdiflist file"
+    },
+    {
+      "command-line-flag": "-bval_max",
+      "description": "Max bvalue used, which provides a reference value for scaling everything else.",
+      "value-key": "[BVAL_MAX]",
+      "type": "Number",
+      "optional": false,
+      "id": "bval_max",
+      "name": "Maximum bvalue"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Output basename for the subsequent grad and bvalue files (suffix and extensions will be added).",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "prefix",
+      "name": "Output prefix"
+    },
+    {
+      "command-line-flag": "-ver",
+      "description": "Display current version.",
+      "value-key": "[VER]",
+      "type": "Flag",
+      "id": "ver",
+      "name": "Version flag"
+    },
+    {
+      "command-line-flag": "-date",
+      "description": "Display release/editing date of current version.",
+      "value-key": "[DATE]",
+      "type": "Flag",
+      "id": "date",
+      "name": "Date flag"
+    },
+    {
+      "command-line-flag": "-help",
+      "description": "Display help in terminal.",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help flag"
+    },
+    {
+      "command-line-flag": "-h",
+      "description": "Display help in terminal.",
+      "value-key": "[HVIEW]",
+      "type": "Flag",
+      "id": "hview",
+      "name": "Help in text editor flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX]_rvec.dat",
+      "description": "Row-format of gradients (unit magnitude).",
+      "id": "output_rvec",
+      "name": "Row gradient file"
+    },
+    {
+      "path-template": "[PREFIX]_bval.dat",
+      "description": "Row-format of bvals.",
+      "id": "output_bval",
+      "name": "Row bvalue file"
+    },
+    {
+      "path-template": "[PREFIX]_cvec.dat",
+      "description": "Col-format of gradients (scaled by b-values).",
+      "id": "output_cvec",
+      "name": "Column gradient file"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

@@ -1,0 +1,99 @@
+{
+  "name": "volume-gradient",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -volume-gradient [VOLUME_IN] [VOLUME_OUT] [PRESMOOTH] [OPT_ROI_ROI_VOLUME] [OPT_VECTORS_VECTOR_VOLUME_OUT] [OPT_SUBVOLUME_SUBVOL]",
+  "description": "Gradient of a volume file.\n\nComputes the gradient of the volume by doing linear regressions for each voxel, considering only its face neighbors unless too few face neighbors exist.  The gradient vector is constructed from the partial derivatives of the resulting linear function, and the magnitude of this vector is the output.  If specified, the volume vector output is arranged with the x, y, and z components from a subvolume as consecutive subvolumes.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "volume_in",
+      "name": "volume_in",
+      "description": "the input volume",
+      "optional": false,
+      "value-key": "[VOLUME_IN]",
+      "type": "File"
+    },
+    {
+      "id": "volume_out",
+      "name": "volume_out",
+      "type": "String",
+      "description": "the output gradient magnitude volume",
+      "optional": false,
+      "value-key": "[VOLUME_OUT]"
+    },
+    {
+      "id": "presmooth",
+      "name": "presmooth",
+      "description": "smooth the volume before computing the gradient",
+      "type": {
+        "id": "presmooth",
+        "name": "presmooth",
+        "description": "smooth the volume before computing the gradient",
+        "command-line": "-presmooth [KERNEL] [OPT_FWHM]",
+        "inputs": [
+          {
+            "id": "kernel",
+            "name": "kernel",
+            "description": "the size of the gaussian smoothing kernel in mm, as sigma by default",
+            "optional": false,
+            "value-key": "[KERNEL]",
+            "type": "Number",
+            "integer": false
+          },
+          {
+            "id": "opt_fwhm",
+            "name": "opt_fwhm",
+            "command-line-flag": "-fwhm",
+            "description": "kernel size is FWHM, not sigma",
+            "type": "Flag",
+            "value-key": "[OPT_FWHM]"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[PRESMOOTH]"
+    },
+    {
+      "id": "opt_roi_roi_volume",
+      "name": "opt_roi_roi_volume",
+      "command-line-flag": "-roi",
+      "description": "select a region of interest to take the gradient of: the region to take the gradient within",
+      "optional": true,
+      "value-key": "[OPT_ROI_ROI_VOLUME]",
+      "type": "File"
+    },
+    {
+      "id": "opt_vectors_vector_volume_out",
+      "name": "opt_vectors_vector_volume_out",
+      "command-line-flag": "-vectors",
+      "description": "output vectors: the vectors as a volume file",
+      "optional": true,
+      "value-key": "[OPT_VECTORS_VECTOR_VOLUME_OUT]",
+      "type": "String"
+    },
+    {
+      "id": "opt_subvolume_subvol",
+      "name": "opt_subvolume_subvol",
+      "command-line-flag": "-subvolume",
+      "description": "select a single subvolume to take the gradient of: the subvolume number or name",
+      "optional": true,
+      "value-key": "[OPT_SUBVOLUME_SUBVOL]",
+      "type": "String"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "volume_out",
+      "name": "volume_out",
+      "path-template": "[VOLUME_OUT]",
+      "description": "the output gradient magnitude volume"
+    },
+    {
+      "id": "opt_vectors_vector_volume_out",
+      "name": "opt_vectors_vector_volume_out",
+      "path-template": "[OPT_VECTORS_VECTOR_VOLUME_OUT]",
+      "description": "output vectors: the vectors as a volume file"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

@@ -1,0 +1,134 @@
+{
+  "name": "realtime_receiver.py",
+  "author": "AFNI Developers",
+  "description": "Program to receive and display real-time plugin data from AFNI.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "realtime_receiver.py [SHOW_DATA] [WRITE_TEXT_DATA] [DATA_CHOICE] [SERIAL_PORT] [SHOW_DEMO_GUI] [DC_PARAMS] [EXTRAS_ON_ONE_LINE] [SHOW_COMM_TIMES] [SHOW_DEMO_DATA] [SWAP] [TCP_PORT] [VERBOSITY]",
+  "inputs": [
+    {
+      "command-line-flag": "-show_data",
+      "description": "Display incoming data in terminal window",
+      "value-key": "[SHOW_DATA]",
+      "type": "String",
+      "optional": true,
+      "id": "show_data",
+      "name": "Show Data",
+      "value-choices": [
+        "yes",
+        "no"
+      ]
+    },
+    {
+      "command-line-flag": "-write_text_data",
+      "description": "Write data to text file",
+      "value-key": "[WRITE_TEXT_DATA]",
+      "type": "String",
+      "optional": true,
+      "id": "write_text_data",
+      "name": "Write Text Data"
+    },
+    {
+      "command-line-flag": "-data_choice",
+      "description": "Pick which data to send as feedback",
+      "value-key": "[DATA_CHOICE]",
+      "type": "String",
+      "optional": true,
+      "id": "data_choice",
+      "name": "Data Choice",
+      "value-choices": [
+        "motion",
+        "motion_norm",
+        "all_extras",
+        "diff_ratio"
+      ]
+    },
+    {
+      "command-line-flag": "-serial_port",
+      "description": "Specify serial port file for feedback data",
+      "value-key": "[SERIAL_PORT]",
+      "type": "String",
+      "optional": true,
+      "id": "serial_port",
+      "name": "Serial Port"
+    },
+    {
+      "command-line-flag": "-show_demo_gui",
+      "description": "Demonstrate a feedback GUI",
+      "value-key": "[SHOW_DEMO_GUI]",
+      "type": "String",
+      "optional": true,
+      "id": "show_demo_gui",
+      "name": "Show Demo GUI",
+      "value-choices": [
+        "yes",
+        "no"
+      ]
+    },
+    {
+      "command-line-flag": "-dc_params",
+      "description": "Set data_choice parameters, e.g. for diff_ratio, params P1 P2",
+      "value-key": "[DC_PARAMS]",
+      "type": "Number",
+      "optional": true,
+      "id": "dc_params",
+      "name": "Data Choice Parameters",
+      "list": true
+    },
+    {
+      "command-line-flag": "-extras_on_one_line",
+      "description": "Show 'extras' on one line only",
+      "value-key": "[EXTRAS_ON_ONE_LINE]",
+      "type": "String",
+      "optional": true,
+      "id": "extras_on_one_line",
+      "name": "Extras On One Line",
+      "value-choices": [
+        "yes",
+        "no"
+      ]
+    },
+    {
+      "command-line-flag": "-show_comm_times",
+      "description": "Display communication times",
+      "value-key": "[SHOW_COMM_TIMES]",
+      "type": "Flag",
+      "id": "show_comm_times",
+      "name": "Show Communication Times"
+    },
+    {
+      "command-line-flag": "-show_demo_data",
+      "description": "Display feedback data in terminal window",
+      "value-key": "[SHOW_DEMO_DATA]",
+      "type": "Flag",
+      "id": "show_demo_data",
+      "name": "Show Demo Data"
+    },
+    {
+      "command-line-flag": "-swap",
+      "description": "Swap bytes of incoming data",
+      "value-key": "[SWAP]",
+      "type": "Flag",
+      "id": "swap",
+      "name": "Swap Bytes"
+    },
+    {
+      "command-line-flag": "-tcp_port",
+      "description": "Specify TCP port for incoming connections",
+      "value-key": "[TCP_PORT]",
+      "type": "Number",
+      "optional": true,
+      "id": "tcp_port",
+      "name": "TCP Port"
+    },
+    {
+      "command-line-flag": "-verb",
+      "description": "Set the verbosity level",
+      "value-key": "[VERBOSITY]",
+      "type": "Number",
+      "optional": true,
+      "id": "verbosity",
+      "name": "Verbosity Level"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

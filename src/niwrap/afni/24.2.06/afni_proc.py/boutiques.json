@@ -1,0 +1,114 @@
+{
+  "name": "afni_proc.py",
+  "author": "AFNI Developers",
+  "description": "Generate a tcsh script for an AFNI single subject processing stream",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "afni_proc.py [DSETS] [SUBJ_ID] [OUT_DIR] [BLOCKS] [ANAT] [ECHO_TIMES] [STIM_TIMES] [STIM_FILES] [COPY_FILES] [COPY_ANAT] [REGRESS_PARAMS]",
+  "inputs": [
+    {
+      "description": "Specify the EPI dataset files. (e.g. epi_run1+orig, epi_run2+orig)",
+      "value-key": "[DSETS]",
+      "type": "File",
+      "optional": false,
+      "list": true,
+      "id": "dsets",
+      "name": "EPI Datasets"
+    },
+    {
+      "description": "Specify the subject ID for the script.",
+      "value-key": "[SUBJ_ID]",
+      "type": "String",
+      "optional": false,
+      "id": "subj_id",
+      "name": "Subject ID"
+    },
+    {
+      "description": "Specify the output directory for the script.",
+      "value-key": "[OUT_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "out_dir",
+      "name": "Output Directory"
+    },
+    {
+      "description": "Specify the processing blocks to apply (e.g. tshift volreg blur mask scale regress).",
+      "value-key": "[BLOCKS]",
+      "type": "String",
+      "optional": true,
+      "list": true,
+      "id": "blocks",
+      "name": "Processing Blocks"
+    },
+    {
+      "description": "Specify the anatomical dataset.",
+      "value-key": "[ANAT]",
+      "type": "File",
+      "optional": false,
+      "id": "anat",
+      "name": "Anatomical Dataset"
+    },
+    {
+      "description": "Specify echo times for multi-echo data processing.",
+      "value-key": "[ECHO_TIMES]",
+      "type": "Number",
+      "optional": true,
+      "list": true,
+      "id": "echo_times",
+      "name": "Echo Times"
+    },
+    {
+      "description": "Specify files used for stimulus timing in -stim_times.",
+      "value-key": "[STIM_TIMES]",
+      "type": "File",
+      "optional": true,
+      "list": true,
+      "id": "stim_times",
+      "name": "Stimulus Timing Files"
+    },
+    {
+      "description": "Specify TR-locked stim files for 3dDeconvolve -stim_file instead of -stim_times.",
+      "value-key": "[STIM_FILES]",
+      "type": "File",
+      "optional": true,
+      "list": true,
+      "id": "stim_files",
+      "name": "TR-locked Stimulus Files"
+    },
+    {
+      "description": "Specify additional files to be copied to the results directory.",
+      "value-key": "[COPY_FILES]",
+      "type": "File",
+      "optional": true,
+      "list": true,
+      "id": "copy_files",
+      "name": "Additional Files to Copy"
+    },
+    {
+      "description": "Copy the anatomical dataset(s) to the results directory.",
+      "value-key": "[COPY_ANAT]",
+      "type": "File",
+      "optional": true,
+      "id": "copy_anat",
+      "name": "Copy Anatomical Dataset"
+    },
+    {
+      "command-line-flag": "-regress_opts_3dD",
+      "description": "Specify extra options for 3dDeconvolve.",
+      "value-key": "[REGRESS_PARAMS]",
+      "type": "String",
+      "optional": true,
+      "list": true,
+      "id": "regress_params",
+      "name": "Extra Regression Parameters"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUT_DIR]",
+      "description": "All output files stored in the specified output directory.",
+      "id": "output_directory",
+      "name": "Output Directory"
+    }
+  ]
+}

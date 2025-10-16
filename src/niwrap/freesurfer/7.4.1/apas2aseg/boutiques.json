@@ -1,0 +1,45 @@
+{
+  "name": "apas2aseg",
+  "author": "FreeSurfer Developers",
+  "description": "Converts aparc+aseg.mgz into aseg.mgz-like format by replacing specific cortical segmentations.",
+  "command-line": "apas2aseg [SUBJECT] [INPUT_APARC_ASEG] [OUTPUT_SEG]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--s",
+      "description": "Subject identifier specifying the directory where the subject's data is stored.",
+      "value-key": "[SUBJECT]",
+      "type": "String",
+      "optional": true,
+      "id": "subject",
+      "name": "Subject ID"
+    },
+    {
+      "command-line-flag": "--i",
+      "description": "Input aparc+aseg.mgz file to be converted.",
+      "value-key": "[INPUT_APARC_ASEG]",
+      "type": "File",
+      "optional": true,
+      "id": "input_aparc_aseg",
+      "name": "Input aparc+aseg file"
+    },
+    {
+      "command-line-flag": "--o",
+      "description": "Output file for the new segmentation (e.g., apas-aseg.mgz).",
+      "value-key": "[OUTPUT_SEG]",
+      "type": "String",
+      "optional": true,
+      "id": "output_seg",
+      "name": "Output segmentation file"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_SEG]",
+      "description": "The output segmentation file resulting from the conversion process.",
+      "id": "output_seg_file",
+      "name": "Output segmentation file"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

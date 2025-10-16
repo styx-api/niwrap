@@ -1,0 +1,42 @@
+{
+  "name": "gifti-all-labels-to-rois",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -gifti-all-labels-to-rois [LABEL_IN] [MAP] [METRIC_OUT]",
+  "description": "Make rois from all labels in a gifti column.\n\nThe output metric file has a column for each label in the specified input map, other than the ??? label, each of which contains an ROI of all vertices that are set to the corresponding label.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "label_in",
+      "name": "label_in",
+      "description": "the input gifti label file",
+      "optional": false,
+      "value-key": "[LABEL_IN]",
+      "type": "File"
+    },
+    {
+      "id": "map",
+      "name": "map",
+      "description": "the number or name of the label map to use",
+      "optional": false,
+      "value-key": "[MAP]",
+      "type": "String"
+    },
+    {
+      "id": "metric_out",
+      "name": "metric_out",
+      "type": "String",
+      "description": "the output metric file",
+      "optional": false,
+      "value-key": "[METRIC_OUT]"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "metric_out",
+      "name": "metric_out",
+      "path-template": "[METRIC_OUT]",
+      "description": "the output metric file"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

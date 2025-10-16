@@ -1,0 +1,52 @@
+{
+  "name": "dcmdir-info-mgh",
+  "description": "Scans a DICOM directory and extracts information about each series.",
+  "command-line": "dcmdir-info-mgh [DICOMDIR] [UNPACKDIR] [VERSION] [HELP] [NOPRE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input DICOM directory.",
+      "value-key": "[DICOMDIR]",
+      "type": "String",
+      "optional": false,
+      "id": "dicomdir",
+      "name": "DICOM Directory",
+      "command-line-flag": "-mgh"
+    },
+    {
+      "description": "Directory where the unpacked data will be stored (optional). If specified, DICOM files are converted to MGZ format.",
+      "value-key": "[UNPACKDIR]",
+      "type": "String",
+      "optional": true,
+      "id": "unpackdir",
+      "name": "Unpack Directory"
+    },
+    {
+      "command-line-flag": "--version",
+      "description": "Print version and exit",
+      "value-key": "[VERSION]",
+      "type": "Flag",
+      "id": "version",
+      "name": "Version flag"
+    },
+    {
+      "command-line-flag": "--help",
+      "description": "Print help and exit",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help flag"
+    },
+    {
+      "command-line-flag": "--nopre",
+      "description": "Do not assume filenames use the NNNNNN- prefix convention",
+      "value-key": "[NOPRE]",
+      "type": "Flag",
+      "id": "nopre",
+      "name": "No Prefix flag"
+    }
+  ],
+  "output-files": [],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

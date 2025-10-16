@@ -1,0 +1,63 @@
+{
+  "name": "mri_gcut",
+  "author": "FreeSurfer Developers",
+  "description": "Skull stripping algorithm based on graph cuts.",
+  "command-line": "mri_gcut [WMMASK_110] [MULT_FILE] [THRESHOLD_VALUE] [INFILE] [OUTFILE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input brain volume file, e.g. T1.mgz",
+      "value-key": "[INFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "infile",
+      "name": "Input file"
+    },
+    {
+      "description": "Output file name, e.g. brainmask.auto.mgz",
+      "value-key": "[OUTFILE]",
+      "type": "String",
+      "optional": false,
+      "id": "outfile",
+      "name": "Output file"
+    },
+    {
+      "command-line-flag": "-110",
+      "description": "Use voxels with intensity 110 as white matter mask (when applied on T1.mgz, FreeSurfer only)",
+      "value-key": "[WMMASK_110]",
+      "type": "Flag",
+      "id": "wmmask_110",
+      "name": "White matter mask flag"
+    },
+    {
+      "command-line-flag": "-mult",
+      "description": "Intersect the skull-stripped 'in_filename' and an existing skull-stripped volume specified by 'filename', storing the result in 'out_filename'.",
+      "value-key": "[MULT_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "mult_file",
+      "name": "Mult filename"
+    },
+    {
+      "command-line-flag": "-T",
+      "description": "Set threshold to value (%) of WM intensity, where the value should be >0 and <1; defaults to 0.40.",
+      "value-key": "[THRESHOLD_VALUE]",
+      "type": "Number",
+      "maximum": 1,
+      "minimum": 0,
+      "integer": false,
+      "optional": true,
+      "id": "threshold_value",
+      "name": "Threshold value"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTFILE]",
+      "description": "The output file containing the skull-stripped brain volume.",
+      "id": "output_mask_file",
+      "name": "Output mask file"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

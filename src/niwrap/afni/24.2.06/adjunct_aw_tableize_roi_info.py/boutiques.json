@@ -1,0 +1,66 @@
+{
+  "name": "adjunct_aw_tableize_roi_info.py",
+  "author": "AFNI Developers",
+  "description": "A simple helper function for the fat_proc scripts that generates a text file containing ROI count/size information based on provided atlases and masks.",
+  "command-line": "adjunct_aw_tableize_roi_info.py [OUTPUT_FILE] [WARPED_ATLAS] [WARPED_MASK] [REFERENCE_ATLAS] [REFERENCE_MASK] [MODESMOOTH_VALUE]",
+  "inputs": [
+    {
+      "description": "Output file name",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_file",
+      "name": "Output file"
+    },
+    {
+      "description": "Warped atlas of interest, with subbrick selector if necessary",
+      "value-key": "[WARPED_ATLAS]",
+      "type": "File",
+      "optional": false,
+      "id": "warped_atlas",
+      "name": "Warped atlas"
+    },
+    {
+      "description": "Mask for the warped atlas (same grid)",
+      "value-key": "[WARPED_MASK]",
+      "type": "File",
+      "optional": false,
+      "id": "warped_mask",
+      "name": "Warped atlas mask"
+    },
+    {
+      "description": "Reference atlas (unwarped), with subbrick selector if necessary",
+      "value-key": "[REFERENCE_ATLAS]",
+      "type": "File",
+      "optional": false,
+      "id": "reference_atlas",
+      "name": "Reference atlas"
+    },
+    {
+      "description": "Mask for the reference atlas (same grid)",
+      "value-key": "[REFERENCE_MASK]",
+      "type": "File",
+      "optional": false,
+      "id": "reference_mask",
+      "name": "Reference atlas mask"
+    },
+    {
+      "description": "Modesmooth value, from modal smoothing used after warping",
+      "value-key": "[MODESMOOTH_VALUE]",
+      "type": "Number",
+      "optional": false,
+      "id": "modesmooth_value",
+      "name": "Modesmooth value"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILE]",
+      "description": "Text file containing ROI count/size information",
+      "id": "outfile",
+      "name": "Output file"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

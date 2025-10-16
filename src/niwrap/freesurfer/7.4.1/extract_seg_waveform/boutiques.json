@@ -1,0 +1,81 @@
+{
+  "name": "extract_seg_waveform",
+  "description": "This program extracts an average waveform from an input volume where the average is computed over the voxels in the given segmentation indices. The input volume is mapped to the space of the segmentation given the registration, and if a voxel shift map (VSM) is supplied, it is applied simultaneously as part of the transform.",
+  "command-line": "extract_seg_waveform [SEG_FILE] [SEG_INDICES] [INPUT_VOLUME] [REG_FILE] [VSM_FILE] [REGHEADER_FLAG] [DEMEAN_FLAG] [OUTPUT_FILE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--seg",
+      "description": "Segmentation file",
+      "value-key": "[SEG_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "seg_file",
+      "name": "Segmentation File"
+    },
+    {
+      "command-line-flag": "--id",
+      "description": "Segmentation indices, one or more indices can be specified",
+      "value-key": "[SEG_INDICES]",
+      "type": "Number",
+      "list": true,
+      "optional": false,
+      "id": "seg_indices",
+      "name": "Segmentation Indices"
+    },
+    {
+      "command-line-flag": "--i",
+      "description": "Input volume",
+      "value-key": "[INPUT_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "input_volume",
+      "name": "Input Volume"
+    },
+    {
+      "command-line-flag": "--reg",
+      "description": "Registration file (.lta)",
+      "value-key": "[REG_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "reg_file",
+      "name": "Registration File"
+    },
+    {
+      "command-line-flag": "--vsm",
+      "description": "Voxel shift map for B0 distortion correction",
+      "value-key": "[VSM_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "vsm_file",
+      "name": "Voxel Shift Map"
+    },
+    {
+      "command-line-flag": "--regheader",
+      "description": "Uses the header information in the registration file",
+      "value-key": "[REGHEADER_FLAG]",
+      "type": "Flag",
+      "id": "regheader_flag",
+      "name": "Registration Header Flag"
+    },
+    {
+      "command-line-flag": "--demean",
+      "description": "Remove mean, first, and second order trends",
+      "value-key": "[DEMEAN_FLAG]",
+      "type": "Flag",
+      "id": "demean_flag",
+      "name": "Demean Flag"
+    },
+    {
+      "command-line-flag": "--o",
+      "description": "Output waveform file",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_file",
+      "name": "Output File"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

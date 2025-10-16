@@ -1,0 +1,128 @@
+{
+  "name": "reg_tools",
+  "author": "NiftyReg Developers",
+  "description": "A versatile tool for manipulating and processing medical images.",
+  "url": "http://cmictig.cs.ucl.ac.uk/wiki/index.php/NiftyReg",
+  "command-line": "reg_tools [INPUT_IMAGE] [OUTPUT_IMAGE] [ADD_VALUE_OR_IMAGE] [SUB_VALUE_OR_IMAGE] [MUL_VALUE_OR_IMAGE] [DIV_VALUE_OR_IMAGE] [SMOOTH_VALUE] [SMOOTH_GAUSSIAN] [RMS_IMAGE] [BINARIZE] [THRESHOLD_VALUE] [NAN_MASK_IMAGE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "input_image",
+      "name": "Input Image",
+      "type": "File",
+      "value-key": "[INPUT_IMAGE]",
+      "command-line-flag": "-in",
+      "description": "Filename of the input image",
+      "optional": false
+    },
+    {
+      "id": "output_image",
+      "name": "Output Image",
+      "type": "String",
+      "value-key": "[OUTPUT_IMAGE]",
+      "command-line-flag": "-out",
+      "description": "Filename of the output image",
+      "optional": true
+    },
+    {
+      "id": "add_value_or_image",
+      "name": "Add Image or Value",
+      "type": "String",
+      "value-key": "[ADD_VALUE_OR_IMAGE]",
+      "command-line-flag": "-add",
+      "description": "This image (or value) is added to the input",
+      "optional": true
+    },
+    {
+      "id": "sub_value_or_image",
+      "name": "Subtract Image or Value",
+      "type": "String",
+      "value-key": "[SUB_VALUE_OR_IMAGE]",
+      "command-line-flag": "-sub",
+      "description": "This image (or value) is subtracted from the input",
+      "optional": true
+    },
+    {
+      "id": "mul_value_or_image",
+      "name": "Multiply Image or Value",
+      "type": "String",
+      "value-key": "[MUL_VALUE_OR_IMAGE]",
+      "command-line-flag": "-mul",
+      "description": "This image (or value) is multiplied with the input",
+      "optional": true
+    },
+    {
+      "id": "div_value_or_image",
+      "name": "Divide Image or Value",
+      "type": "String",
+      "value-key": "[DIV_VALUE_OR_IMAGE]",
+      "command-line-flag": "-div",
+      "description": "This image (or value) is divided by the input",
+      "optional": true
+    },
+    {
+      "id": "smooth_value",
+      "name": "Smooth with B-Spline Curve",
+      "type": "Number",
+      "value-key": "[SMOOTH_VALUE]",
+      "command-line-flag": "-smo",
+      "description": "The input image is smoothed using a B-spline curve",
+      "optional": true
+    },
+    {
+      "id": "smooth_gaussian",
+      "name": "Smooth with Gaussian Kernel",
+      "type": "Number",
+      "value-key": "[SMOOTH_GAUSSIAN]",
+      "command-line-flag": "-smoG",
+      "description": "The input image is smoothed using a Gaussian kernel",
+      "list": true,
+      "max-list-entries": 3,
+      "min-list-entries": 3,
+      "optional": true
+    },
+    {
+      "id": "rms_image",
+      "name": "Compute RMS",
+      "type": "File",
+      "value-key": "[RMS_IMAGE]",
+      "command-line-flag": "-rms",
+      "description": "Compute the mean RMS between the input image and this image",
+      "optional": true
+    },
+    {
+      "id": "binarize",
+      "name": "Binarize Image",
+      "type": "Flag",
+      "value-key": "[BINARIZE]",
+      "command-line-flag": "-bin",
+      "description": "Binarize the input image (val!=0?val=1:val=0)"
+    },
+    {
+      "id": "threshold_value",
+      "name": "Threshold Image",
+      "type": "Number",
+      "value-key": "[THRESHOLD_VALUE]",
+      "command-line-flag": "-thr",
+      "description": "Threshold the input image (val<thr?val=0:val=1)",
+      "optional": true
+    },
+    {
+      "id": "nan_mask_image",
+      "name": "NaN Mask Image",
+      "type": "File",
+      "value-key": "[NAN_MASK_IMAGE]",
+      "command-line-flag": "-nan",
+      "description": "This image is used to mask the input image. Voxels outside of the mask are set to NaN",
+      "optional": true
+    }
+  ],
+  "output-files": [
+    {
+      "id": "output_image_file",
+      "name": "Output Image",
+      "path-template": "[OUTPUT_IMAGE]",
+      "description": "File containing the output image"
+    }
+  ]
+}

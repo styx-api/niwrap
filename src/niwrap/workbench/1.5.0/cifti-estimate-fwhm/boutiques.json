@@ -1,0 +1,91 @@
+{
+  "name": "cifti-estimate-fwhm",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -cifti-estimate-fwhm [CIFTI] [OPT_MERGED_VOLUME] [OPT_COLUMN_COLUMN] [WHOLE_FILE] [SURFACE]",
+  "description": "Estimate fwhm smoothness of a cifti file.\n\nEstimate the smoothness of the components of the cifti file, printing the estimates to standard output.  If -merged-volume is used, all voxels are used as a single component, rather than separated by structure.\n\n<structure> must be one of the following:\n\nCORTEX_LEFT\nCORTEX_RIGHT\nCEREBELLUM\nACCUMBENS_LEFT\nACCUMBENS_RIGHT\nALL_GREY_MATTER\nALL_WHITE_MATTER\nAMYGDALA_LEFT\nAMYGDALA_RIGHT\nBRAIN_STEM\nCAUDATE_LEFT\nCAUDATE_RIGHT\nCEREBELLAR_WHITE_MATTER_LEFT\nCEREBELLAR_WHITE_MATTER_RIGHT\nCEREBELLUM_LEFT\nCEREBELLUM_RIGHT\nCEREBRAL_WHITE_MATTER_LEFT\nCEREBRAL_WHITE_MATTER_RIGHT\nCORTEX\nDIENCEPHALON_VENTRAL_LEFT\nDIENCEPHALON_VENTRAL_RIGHT\nHIPPOCAMPUS_LEFT\nHIPPOCAMPUS_RIGHT\nINVALID\nOTHER\nOTHER_GREY_MATTER\nOTHER_WHITE_MATTER\nPALLIDUM_LEFT\nPALLIDUM_RIGHT\nPUTAMEN_LEFT\nPUTAMEN_RIGHT\nTHALAMUS_LEFT\nTHALAMUS_RIGHT",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "cifti",
+      "name": "cifti",
+      "description": "the input cifti file",
+      "optional": false,
+      "value-key": "[CIFTI]",
+      "type": "File"
+    },
+    {
+      "id": "opt_merged_volume",
+      "name": "opt_merged_volume",
+      "command-line-flag": "-merged-volume",
+      "description": "treat volume components as if they were a single component",
+      "type": "Flag",
+      "value-key": "[OPT_MERGED_VOLUME]"
+    },
+    {
+      "id": "opt_column_column",
+      "name": "opt_column_column",
+      "command-line-flag": "-column",
+      "description": "only output estimates for one column: the column number",
+      "optional": true,
+      "value-key": "[OPT_COLUMN_COLUMN]",
+      "type": "Number",
+      "integer": true
+    },
+    {
+      "id": "whole_file",
+      "name": "whole_file",
+      "description": "estimate for the whole file at once, not each column separately",
+      "type": {
+        "id": "whole_file",
+        "name": "whole_file",
+        "description": "estimate for the whole file at once, not each column separately",
+        "command-line": "-whole-file [OPT_DEMEAN]",
+        "inputs": [
+          {
+            "id": "opt_demean",
+            "name": "opt_demean",
+            "command-line-flag": "-demean",
+            "description": "subtract the mean image before estimating smoothness",
+            "type": "Flag",
+            "value-key": "[OPT_DEMEAN]"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[WHOLE_FILE]"
+    },
+    {
+      "id": "surface",
+      "name": "surface",
+      "description": "specify an input surface",
+      "type": {
+        "id": "surface",
+        "name": "surface",
+        "description": "specify an input surface",
+        "command-line": "-surface [STRUCTURE] [SURFACE]",
+        "inputs": [
+          {
+            "id": "structure",
+            "name": "structure",
+            "description": "what structure to use this surface for",
+            "optional": false,
+            "value-key": "[STRUCTURE]",
+            "type": "String"
+          },
+          {
+            "id": "surface",
+            "name": "surface",
+            "description": "the surface file",
+            "optional": false,
+            "value-key": "[SURFACE]",
+            "type": "File"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[SURFACE]",
+      "list": true
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

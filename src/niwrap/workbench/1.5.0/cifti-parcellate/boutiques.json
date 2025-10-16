@@ -1,0 +1,219 @@
+{
+  "name": "cifti-parcellate",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -cifti-parcellate [CIFTI_IN] [CIFTI_LABEL] [DIRECTION] [CIFTI_OUT] [SPATIAL_WEIGHTS] [OPT_CIFTI_WEIGHTS_WEIGHT_CIFTI] [OPT_METHOD_METHOD] [EXCLUDE_OUTLIERS] [OPT_ONLY_NUMERIC] [OPT_FILL_VALUE_VALUE] [OPT_NONEMPTY_MASK_OUT_MASK_OUT] [OPT_LEGACY_MODE] [OPT_INCLUDE_EMPTY]",
+  "description": "Parcellate a cifti file.\n\nEach label (other than the unlabeled key) in the cifti label file will be treated as a parcel, and all rows or columns of data within the parcel are averaged together to form the parcel's output row or column.  If -legacy-mode is specified, parcels will be defined as the overlap between a label and the data, with no errors for missing data vertices or voxels, and empty parcels discarded.  The direction can be either an integer starting from 1, or the strings 'ROW' or 'COLUMN'.  For dtseries or dscalar, use COLUMN.  If you are parcellating a dconn in both directions, parcellating by ROW first will use much less memory.\n\nNOTE: the parcels in the output file are sorted by the numeric label keys, in ascending order.\n\nThe parameter to the -method option must be one of the following:\n\nMAX: the maximum value\nMIN: the minimum value\nINDEXMAX: the 1-based index of the maximum value\nINDEXMIN: the 1-based index of the minimum value\nSUM: add all values\nPRODUCT: multiply all values\nMEAN: the mean of the data\nSTDEV: the standard deviation (N denominator)\nSAMPSTDEV: the sample standard deviation (N-1 denominator)\nVARIANCE: the variance of the data\nTSNR: mean divided by sample standard deviation (N-1 denominator)\nCOV: sample standard deviation (N-1 denominator) divided by mean\nL2NORM: square root of sum of squares\nMEDIAN: the median of the data\nMODE: the mode of the data\nCOUNT_NONZERO: the number of nonzero elements in the data\n\nThe -*-weights options are mutually exclusive and may only be used with MEAN (default), SUM, STDEV, SAMPSTDEV, VARIANCE, MEDIAN, or MODE (default for label data).",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "cifti_in",
+      "name": "cifti_in",
+      "description": "the cifti file to parcellate",
+      "optional": false,
+      "value-key": "[CIFTI_IN]",
+      "type": "File"
+    },
+    {
+      "id": "cifti_label",
+      "name": "cifti_label",
+      "description": "a cifti label file to use for the parcellation",
+      "optional": false,
+      "value-key": "[CIFTI_LABEL]",
+      "type": "File"
+    },
+    {
+      "id": "direction",
+      "name": "direction",
+      "description": "which mapping to parcellate (integer, ROW, or COLUMN)",
+      "optional": false,
+      "value-key": "[DIRECTION]",
+      "type": "String"
+    },
+    {
+      "id": "cifti_out",
+      "name": "cifti_out",
+      "type": "String",
+      "description": "output cifti file",
+      "optional": false,
+      "value-key": "[CIFTI_OUT]"
+    },
+    {
+      "id": "spatial_weights",
+      "name": "spatial_weights",
+      "description": "use voxel volume and either vertex areas or metric files as weights",
+      "type": {
+        "id": "spatial_weights",
+        "name": "spatial_weights",
+        "description": "use voxel volume and either vertex areas or metric files as weights",
+        "command-line": "-spatial-weights [OPT_LEFT_AREA_SURF_LEFT_SURF] [OPT_RIGHT_AREA_SURF_RIGHT_SURF] [OPT_CEREBELLUM_AREA_SURF_CEREBELLUM_SURF] [OPT_LEFT_AREA_METRIC_LEFT_METRIC] [OPT_RIGHT_AREA_METRIC_RIGHT_METRIC] [OPT_CEREBELLUM_AREA_METRIC_CEREBELLUM_METRIC]",
+        "inputs": [
+          {
+            "id": "opt_left_area_surf_left_surf",
+            "name": "opt_left_area_surf_left_surf",
+            "command-line-flag": "-left-area-surf",
+            "description": "use a surface for left vertex areas: the left surface to use, areas are in mm^2",
+            "optional": true,
+            "value-key": "[OPT_LEFT_AREA_SURF_LEFT_SURF]",
+            "type": "File"
+          },
+          {
+            "id": "opt_right_area_surf_right_surf",
+            "name": "opt_right_area_surf_right_surf",
+            "command-line-flag": "-right-area-surf",
+            "description": "use a surface for right vertex areas: the right surface to use, areas are in mm^2",
+            "optional": true,
+            "value-key": "[OPT_RIGHT_AREA_SURF_RIGHT_SURF]",
+            "type": "File"
+          },
+          {
+            "id": "opt_cerebellum_area_surf_cerebellum_surf",
+            "name": "opt_cerebellum_area_surf_cerebellum_surf",
+            "command-line-flag": "-cerebellum-area-surf",
+            "description": "use a surface for cerebellum vertex areas: the cerebellum surface to use, areas are in mm^2",
+            "optional": true,
+            "value-key": "[OPT_CEREBELLUM_AREA_SURF_CEREBELLUM_SURF]",
+            "type": "File"
+          },
+          {
+            "id": "opt_left_area_metric_left_metric",
+            "name": "opt_left_area_metric_left_metric",
+            "command-line-flag": "-left-area-metric",
+            "description": "use a metric file for left vertex weights: metric file containing left vertex weights",
+            "optional": true,
+            "value-key": "[OPT_LEFT_AREA_METRIC_LEFT_METRIC]",
+            "type": "File"
+          },
+          {
+            "id": "opt_right_area_metric_right_metric",
+            "name": "opt_right_area_metric_right_metric",
+            "command-line-flag": "-right-area-metric",
+            "description": "use a metric file for right vertex weights: metric file containing right vertex weights",
+            "optional": true,
+            "value-key": "[OPT_RIGHT_AREA_METRIC_RIGHT_METRIC]",
+            "type": "File"
+          },
+          {
+            "id": "opt_cerebellum_area_metric_cerebellum_metric",
+            "name": "opt_cerebellum_area_metric_cerebellum_metric",
+            "command-line-flag": "-cerebellum-area-metric",
+            "description": "use a metric file for cerebellum vertex weights: metric file containing cerebellum vertex weights",
+            "optional": true,
+            "value-key": "[OPT_CEREBELLUM_AREA_METRIC_CEREBELLUM_METRIC]",
+            "type": "File"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[SPATIAL_WEIGHTS]"
+    },
+    {
+      "id": "opt_cifti_weights_weight_cifti",
+      "name": "opt_cifti_weights_weight_cifti",
+      "command-line-flag": "-cifti-weights",
+      "description": "use a cifti file containing weights: the weights to use, as a cifti file",
+      "optional": true,
+      "value-key": "[OPT_CIFTI_WEIGHTS_WEIGHT_CIFTI]",
+      "type": "File"
+    },
+    {
+      "id": "opt_method_method",
+      "name": "opt_method_method",
+      "command-line-flag": "-method",
+      "description": "specify method of parcellation (default MEAN, or MODE if label data): the method to use to assign parcel values from the values of member brainordinates",
+      "optional": true,
+      "value-key": "[OPT_METHOD_METHOD]",
+      "type": "String"
+    },
+    {
+      "id": "exclude_outliers",
+      "name": "exclude_outliers",
+      "description": "exclude non-numeric values and outliers from each parcel by standard deviation",
+      "type": {
+        "id": "exclude_outliers",
+        "name": "exclude_outliers",
+        "description": "exclude non-numeric values and outliers from each parcel by standard deviation",
+        "command-line": "-exclude-outliers [SIGMA_BELOW] [SIGMA_ABOVE]",
+        "inputs": [
+          {
+            "id": "sigma_below",
+            "name": "sigma_below",
+            "description": "number of standard deviations below the mean to include",
+            "optional": false,
+            "value-key": "[SIGMA_BELOW]",
+            "type": "Number",
+            "integer": false
+          },
+          {
+            "id": "sigma_above",
+            "name": "sigma_above",
+            "description": "number of standard deviations above the mean to include",
+            "optional": false,
+            "value-key": "[SIGMA_ABOVE]",
+            "type": "Number",
+            "integer": false
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[EXCLUDE_OUTLIERS]"
+    },
+    {
+      "id": "opt_only_numeric",
+      "name": "opt_only_numeric",
+      "command-line-flag": "-only-numeric",
+      "description": "exclude non-numeric values",
+      "type": "Flag",
+      "value-key": "[OPT_ONLY_NUMERIC]"
+    },
+    {
+      "id": "opt_fill_value_value",
+      "name": "opt_fill_value_value",
+      "command-line-flag": "-fill-value",
+      "description": "specify value to use in empty parcels (default 0): the value to fill empty parcels with",
+      "optional": true,
+      "value-key": "[OPT_FILL_VALUE_VALUE]",
+      "type": "Number",
+      "integer": false
+    },
+    {
+      "id": "opt_nonempty_mask_out_mask_out",
+      "name": "opt_nonempty_mask_out_mask_out",
+      "command-line-flag": "-nonempty-mask-out",
+      "description": "output a matching pscalar file that has 0s in empty parcels, and 1s elsewhere: the output mask file",
+      "optional": true,
+      "value-key": "[OPT_NONEMPTY_MASK_OUT_MASK_OUT]",
+      "type": "String"
+    },
+    {
+      "id": "opt_legacy_mode",
+      "name": "opt_legacy_mode",
+      "command-line-flag": "-legacy-mode",
+      "description": "use the old behavior, parcels are defined by the intersection between labels and valid data, and empty parcels are discarded",
+      "type": "Flag",
+      "value-key": "[OPT_LEGACY_MODE]"
+    },
+    {
+      "id": "opt_include_empty",
+      "name": "opt_include_empty",
+      "command-line-flag": "-include-empty",
+      "description": "deprecated: now the default behavior",
+      "type": "Flag",
+      "value-key": "[OPT_INCLUDE_EMPTY]"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "cifti_out",
+      "name": "cifti_out",
+      "path-template": "[CIFTI_OUT]",
+      "description": "output cifti file"
+    },
+    {
+      "id": "opt_nonempty_mask_out_mask_out",
+      "name": "opt_nonempty_mask_out_mask_out",
+      "path-template": "[OPT_NONEMPTY_MASK_OUT_MASK_OUT]",
+      "description": "output a matching pscalar file that has 0s in empty parcels, and 1s elsewhere: the output mask file"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

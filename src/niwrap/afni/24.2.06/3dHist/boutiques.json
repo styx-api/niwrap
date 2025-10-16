@@ -1,0 +1,189 @@
+{
+  "name": "3dHist",
+  "author": "AFNI Developers",
+  "description": "Computes histograms using functions for generating priors",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dHist [INPUT] [DIND_SUBBRICK] [MASK_DSET] [MASK_RANGE] [CMASK] [HIST_FILE] [PREFIX] [EQUALIZED] [NBIN] [MIN] [MAX] [BINWIDTH] [IGNORE_OUT] [RANGE_HIST] [SHOWHIST] [AT_VAL] [GET_PARAMS] [VOXVOL] [VAL_AT] [QUIET]",
+  "inputs": [
+    {
+      "description": "Dataset providing values for histogram.",
+      "value-key": "[INPUT]",
+      "type": "File",
+      "optional": false,
+      "id": "input",
+      "name": "Input dataset"
+    },
+    {
+      "command-line-flag": "-dind",
+      "description": "Use sub-brick SB from the input rather than 0",
+      "value-key": "[DIND_SUBBRICK]",
+      "type": "Number",
+      "optional": true,
+      "id": "dind_subbrick",
+      "name": "Sub-brick number"
+    },
+    {
+      "command-line-flag": "-mask",
+      "description": "Provide mask dataset to select subset of input.",
+      "value-key": "[MASK_DSET]",
+      "type": "File",
+      "optional": true,
+      "id": "mask_dset",
+      "name": "Mask dataset"
+    },
+    {
+      "command-line-flag": "-mask_range",
+      "description": "Specify the range of values to consider from MSET. Default is anything non-zero",
+      "value-key": "[MASK_RANGE]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 2,
+      "min-list-entries": 2,
+      "optional": true,
+      "id": "mask_range",
+      "name": "Mask range"
+    },
+    {
+      "command-line-flag": "-cmask",
+      "description": "Provide cmask expression. Voxels where expression is 0 are excluded from computations.",
+      "value-key": "[CMASK]",
+      "type": "String",
+      "optional": true,
+      "id": "cmask",
+      "name": "Cmask expression"
+    },
+    {
+      "command-line-flag": "-thishist",
+      "description": "Read this previously created histogram instead of forming one from DSET.",
+      "value-key": "[HIST_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "hist_file",
+      "name": "Histogram file"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Write histogram to niml file called PREF.niml.hist",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Output prefix"
+    },
+    {
+      "command-line-flag": "-equalized",
+      "description": "Write a histogram equalized version of the input dataset.",
+      "value-key": "[EQUALIZED]",
+      "type": "String",
+      "optional": true,
+      "id": "equalized",
+      "name": "Equalized output"
+    },
+    {
+      "command-line-flag": "-nbin",
+      "description": "Use K bins.",
+      "value-key": "[NBIN]",
+      "type": "Number",
+      "optional": true,
+      "id": "nbin",
+      "name": "Number of bins"
+    },
+    {
+      "command-line-flag": "-min",
+      "description": "Minimum intensity.",
+      "value-key": "[MIN]",
+      "type": "Number",
+      "optional": true,
+      "id": "min",
+      "name": "Minimum intensity"
+    },
+    {
+      "command-line-flag": "-max",
+      "description": "Maximum intensity.",
+      "value-key": "[MAX]",
+      "type": "Number",
+      "optional": true,
+      "id": "max",
+      "name": "Maximum intensity"
+    },
+    {
+      "command-line-flag": "-binwidth",
+      "description": "Bin width.",
+      "value-key": "[BINWIDTH]",
+      "type": "Number",
+      "optional": true,
+      "id": "binwidth",
+      "name": "Bin width"
+    },
+    {
+      "command-line-flag": "-ignore_out",
+      "description": "Do not count samples outside the user specified range.",
+      "value-key": "[IGNORE_OUT]",
+      "type": "Flag",
+      "id": "ignore_out",
+      "name": "Ignore out of range samples"
+    },
+    {
+      "command-line-flag": "-rhist",
+      "description": "Use previously created histogram to set range and binwidth parameters.",
+      "value-key": "[RANGE_HIST]",
+      "type": "File",
+      "optional": true,
+      "id": "range_hist",
+      "name": "Range histogram file"
+    },
+    {
+      "command-line-flag": "-showhist",
+      "description": "Display histogram to stdout.",
+      "value-key": "[SHOWHIST]",
+      "type": "Flag",
+      "id": "showhist",
+      "name": "Show histogram"
+    },
+    {
+      "command-line-flag": "-at",
+      "description": "Set the value at which you want histogram values.",
+      "value-key": "[AT_VAL]",
+      "type": "Number",
+      "optional": true,
+      "id": "at_val",
+      "name": "Histogram value at"
+    },
+    {
+      "command-line-flag": "-get",
+      "description": "Return the desired properties at a given value. You can select multiple properties.",
+      "value-key": "[GET_PARAMS]",
+      "type": "String",
+      "optional": true,
+      "id": "get_params",
+      "name": "Histogram parameters to get"
+    },
+    {
+      "command-line-flag": "-voxvol",
+      "description": "Specify voxel volume in mm^3. To be used with upvol.",
+      "value-key": "[VOXVOL]",
+      "type": "Number",
+      "optional": true,
+      "id": "voxvol",
+      "name": "Voxel volume"
+    },
+    {
+      "command-line-flag": "-val_at",
+      "description": "Return the value where histogram property PAR is equal to PARVAL. PAR can be: cdf, rcdf, ncdf, nrcdf, upvol.",
+      "value-key": "[VAL_AT]",
+      "type": "String",
+      "optional": true,
+      "id": "val_at",
+      "name": "Value at histogram property"
+    },
+    {
+      "command-line-flag": "-quiet",
+      "description": "Return a concise output to simplify parsing.",
+      "value-key": "[QUIET]",
+      "type": "Flag",
+      "id": "quiet",
+      "name": "Quiet output"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

@@ -1,0 +1,92 @@
+{
+  "name": "3dThreetoRGB",
+  "author": "AFNI Developers",
+  "description": "Converts 3 sub-bricks of input to an RGB-valued dataset.",
+  "command-line": "3dThreetoRGB [OUTPUT_PREFIX] [SCALE_FACTOR] [MASK_DATASET] [FIM] [ANAT] [INPUT_DATASET] [INPUT_DATASET2] [INPUT_DATASET3]",
+  "inputs": [
+    {
+      "description": "Input dataset or first dataset if three datasets are provided",
+      "value-key": "[INPUT_DATASET]",
+      "type": "File",
+      "optional": false,
+      "id": "input_dataset",
+      "name": "Input dataset"
+    },
+    {
+      "description": "Second dataset, required only if three datasets are provided",
+      "value-key": "[INPUT_DATASET2]",
+      "type": "File",
+      "optional": true,
+      "id": "input_dataset2",
+      "name": "Second input dataset"
+    },
+    {
+      "description": "Third dataset, required only if three datasets are provided",
+      "value-key": "[INPUT_DATASET3]",
+      "type": "File",
+      "optional": true,
+      "id": "input_dataset3",
+      "name": "Third input dataset"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Write output into dataset with specified prefix",
+      "value-key": "[OUTPUT_PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "output_prefix",
+      "name": "Output prefix"
+    },
+    {
+      "command-line-flag": "-scale",
+      "description": "Multiply input values by this factor before using as RGB",
+      "value-key": "[SCALE_FACTOR]",
+      "type": "Number",
+      "integer": false,
+      "optional": true,
+      "id": "scale_factor",
+      "name": "Scale factor"
+    },
+    {
+      "command-line-flag": "-mask",
+      "description": "Only output nonzero values where the mask dataset is nonzero",
+      "value-key": "[MASK_DATASET]",
+      "type": "File",
+      "optional": true,
+      "id": "mask_dataset",
+      "name": "Mask dataset"
+    },
+    {
+      "command-line-flag": "-fim",
+      "description": "Write result as a 'fim' type dataset (default behavior)",
+      "value-key": "[FIM]",
+      "type": "Flag",
+      "id": "fim",
+      "name": "FIM flag"
+    },
+    {
+      "command-line-flag": "-anat",
+      "description": "Write result as a anatomical type dataset",
+      "value-key": "[ANAT]",
+      "type": "Flag",
+      "id": "anat",
+      "name": "Anatomical flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_PREFIX]+rgb.HEAD",
+      "description": "RGB-valued dataset output",
+      "id": "output_dataset_head",
+      "name": "Output dataset (HEAD)"
+    },
+    {
+      "path-template": "[OUTPUT_PREFIX]+rgb.BRIK",
+      "description": "RGB-valued dataset output",
+      "id": "output_dataset_brik",
+      "name": "Output dataset (BRIK)"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

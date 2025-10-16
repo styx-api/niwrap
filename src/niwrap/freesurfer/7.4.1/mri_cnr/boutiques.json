@@ -1,0 +1,84 @@
+{
+  "name": "mri_cnr",
+  "author": "FreeSurfer Developers",
+  "description": "Compute the gray/white/csf contrast-to-noise ratio for volumes using FreeSurfer.",
+  "command-line": "mri_cnr [SURF_DIR] [VOLUME_FILES] [SLOPE] [LOGFILE] [LABELS] [PRINT_TOTAL_CNR] [VERSION_FLAG] [HELP_FLAG]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Directory containing surface data.",
+      "value-key": "[SURF_DIR]",
+      "type": "String",
+      "optional": false,
+      "id": "surf_dir",
+      "name": "Surface Directory"
+    },
+    {
+      "description": "Volumes to process.",
+      "value-key": "[VOLUME_FILES]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "volume_files",
+      "name": "Volume Files"
+    },
+    {
+      "command-line-flag": "-s",
+      "description": "Compute slope and write to files labeled with slope_fname. Requires four additional values: dist_in, dist_out, step_in, and step_out.",
+      "value-key": "[SLOPE]",
+      "type": "String",
+      "optional": true,
+      "list": true,
+      "id": "slope",
+      "name": "Slope Computation",
+      "min-list-entries": 5,
+      "max-list-entries": 5
+    },
+    {
+      "command-line-flag": "-l",
+      "description": "Log CNR to specified logfile. Will contain 8 values in a specific order: gray_white_cnr, gray_csf_cnr, white_mean, gray_mean, csf_mean, sqrt(white_var), sqrt(gray_var), sqrt(csf_var).",
+      "value-key": "[LOGFILE]",
+      "type": "String",
+      "optional": true,
+      "id": "logfile",
+      "name": "Log File"
+    },
+    {
+      "command-line-flag": "label",
+      "description": "Read hemisphere labels from specified left and right hemisphere files.",
+      "value-key": "[LABELS]",
+      "type": "String",
+      "optional": true,
+      "list": true,
+      "id": "labels",
+      "name": "Hemisphere Labels",
+      "min-list-entries": 2,
+      "max-list-entries": 2
+    },
+    {
+      "command-line-flag": "-t",
+      "description": "Print only the total CNR to stdout.",
+      "value-key": "[PRINT_TOTAL_CNR]",
+      "type": "Flag",
+      "id": "print_total_cnr",
+      "name": "Print Total CNR Flag"
+    },
+    {
+      "command-line-flag": "-version",
+      "description": "Print software version information and quit.",
+      "value-key": "[VERSION_FLAG]",
+      "type": "Flag",
+      "id": "version_flag",
+      "name": "Version Flag"
+    },
+    {
+      "command-line-flag": "-help",
+      "description": "Print usage information and quit.",
+      "value-key": "[HELP_FLAG]",
+      "type": "Flag",
+      "id": "help_flag",
+      "name": "Help Flag"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

@@ -1,0 +1,77 @@
+{
+  "name": "xcorr",
+  "description": "Computes the voxel-for-voxel correlation coefficient between two volumes.",
+  "command-line": "xcorr [INPUT1] [INPUT2] [OUTPUT] [LOG_FILE] [TMP_DIR] [NO_CLEANUP]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--i1",
+      "description": "First input volume file",
+      "value-key": "[INPUT1]",
+      "type": "File",
+      "optional": false,
+      "id": "input1",
+      "name": "Input file 1"
+    },
+    {
+      "command-line-flag": "--i2",
+      "description": "Second input volume file",
+      "value-key": "[INPUT2]",
+      "type": "File",
+      "optional": false,
+      "id": "input2",
+      "name": "Input file 2"
+    },
+    {
+      "command-line-flag": "--o",
+      "description": "Output xcorr file",
+      "value-key": "[OUTPUT]",
+      "type": "String",
+      "optional": false,
+      "id": "output",
+      "name": "Output file"
+    },
+    {
+      "command-line-flag": "--log",
+      "description": "Log file",
+      "value-key": "[LOG_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "log_file",
+      "name": "Log file"
+    },
+    {
+      "command-line-flag": "--tmp",
+      "description": "Temporary directory",
+      "value-key": "[TMP_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "tmp_dir",
+      "name": "Temporary directory"
+    },
+    {
+      "command-line-flag": "--no-cleanup",
+      "description": "Prevent cleanup of temporary files",
+      "value-key": "[NO_CLEANUP]",
+      "type": "Flag",
+      "id": "no_cleanup",
+      "name": "No cleanup flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT]",
+      "description": "Output xcorr file",
+      "id": "out_xcorrfile",
+      "name": "Output xcorr file"
+    },
+    {
+      "path-template": "[LOG_FILE]",
+      "description": "Log of xcorr execution",
+      "id": "log_output",
+      "name": "Log file"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

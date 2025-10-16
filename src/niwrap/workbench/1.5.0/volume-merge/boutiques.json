@@ -1,0 +1,105 @@
+{
+  "name": "volume-merge",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -volume-merge [VOLUME_OUT] [VOLUME]",
+  "description": "Merge volume files into a new file.\n\nTakes one or more volume files and constructs a new volume file by concatenating subvolumes from them.  The input volume files must have the same volume space.\n\nExample: wb_command -volume-merge out.nii -volume first.nii -subvolume 1 -volume second.nii\n\nThis example would take the first subvolume from first.nii, followed by all subvolumes from second.nii, and write these to out.nii.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "volume_out",
+      "name": "volume_out",
+      "type": "String",
+      "description": "the output volume file",
+      "optional": false,
+      "value-key": "[VOLUME_OUT]"
+    },
+    {
+      "id": "volume",
+      "name": "volume",
+      "description": "specify an input volume file",
+      "type": {
+        "id": "volume",
+        "name": "volume",
+        "description": "specify an input volume file",
+        "command-line": "-volume [VOLUME_IN] [SUBVOLUME]",
+        "inputs": [
+          {
+            "id": "volume_in",
+            "name": "volume_in",
+            "description": "a volume file to use subvolumes from",
+            "optional": false,
+            "value-key": "[VOLUME_IN]",
+            "type": "File"
+          },
+          {
+            "id": "subvolume",
+            "name": "subvolume",
+            "description": "select a single subvolume to use",
+            "type": {
+              "id": "subvolume",
+              "name": "subvolume",
+              "description": "select a single subvolume to use",
+              "command-line": "-subvolume [SUBVOL] [UP_TO]",
+              "inputs": [
+                {
+                  "id": "subvol",
+                  "name": "subvol",
+                  "description": "the subvolume number or name",
+                  "optional": false,
+                  "value-key": "[SUBVOL]",
+                  "type": "String"
+                },
+                {
+                  "id": "up_to",
+                  "name": "up_to",
+                  "description": "use an inclusive range of subvolumes",
+                  "type": {
+                    "id": "up_to",
+                    "name": "up_to",
+                    "description": "use an inclusive range of subvolumes",
+                    "command-line": "-up-to [LAST_SUBVOL] [OPT_REVERSE]",
+                    "inputs": [
+                      {
+                        "id": "last_subvol",
+                        "name": "last_subvol",
+                        "description": "the number or name of the last subvolume to include",
+                        "optional": false,
+                        "value-key": "[LAST_SUBVOL]",
+                        "type": "String"
+                      },
+                      {
+                        "id": "opt_reverse",
+                        "name": "opt_reverse",
+                        "command-line-flag": "-reverse",
+                        "description": "use the range in reverse order",
+                        "type": "Flag",
+                        "value-key": "[OPT_REVERSE]"
+                      }
+                    ]
+                  },
+                  "optional": true,
+                  "value-key": "[UP_TO]"
+                }
+              ]
+            },
+            "optional": true,
+            "value-key": "[SUBVOLUME]",
+            "list": true
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[VOLUME]",
+      "list": true
+    }
+  ],
+  "output-files": [
+    {
+      "id": "volume_out",
+      "name": "volume_out",
+      "path-template": "[VOLUME_OUT]",
+      "description": "the output volume file"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

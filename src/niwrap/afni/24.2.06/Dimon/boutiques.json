@@ -1,0 +1,99 @@
+{
+  "name": "Dimon",
+  "author": "AFNI Developers",
+  "description": "Monitor real-time acquisition of DICOM image files",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "Dimon [INFILE_PREFIX] [INFILE_PATTERN] [INFILE_LIST] [RT_CMD] [HOST] [DRIVE_AFNI] [DRIVE_WAIT] [TE_LIST] [SORT_METHOD]",
+  "inputs": [
+    {
+      "description": "Prefix matching input files",
+      "value-key": "[INFILE_PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "infile_prefix",
+      "command-line-flag": "-infile_prefix",
+      "name": "Input file prefix"
+    },
+    {
+      "description": "Pattern for input files",
+      "value-key": "[INFILE_PATTERN]",
+      "type": "String",
+      "optional": true,
+      "id": "infile_pattern",
+      "command-line-flag": "-infile_pattern",
+      "name": "Input file pattern"
+    },
+    {
+      "description": "List of filenames",
+      "value-key": "[INFILE_LIST]",
+      "type": "File",
+      "optional": true,
+      "id": "infile_list",
+      "command-line-flag": "-infile_list",
+      "name": "Input file list"
+    },
+    {
+      "description": "Send COMMAND(s) to realtime plugin",
+      "value-key": "[RT_CMD]",
+      "type": "String",
+      "optional": true,
+      "id": "rt_cmd",
+      "command-line-flag": "-rt_cmd",
+      "name": "Real-time command"
+    },
+    {
+      "description": "Specify the host for afni communication",
+      "value-key": "[HOST]",
+      "type": "String",
+      "optional": true,
+      "id": "host",
+      "command-line-flag": "-host",
+      "name": "Host name"
+    },
+    {
+      "description": "Send 'drive afni' command, CMND",
+      "value-key": "[DRIVE_AFNI]",
+      "type": "String",
+      "optional": true,
+      "id": "drive_afni",
+      "command-line-flag": "-drive_afni",
+      "name": "Drive AFNI command"
+    },
+    {
+      "description": "Send delayed 'drive afni' command, CMND",
+      "value-key": "[DRIVE_WAIT]",
+      "type": "String",
+      "optional": true,
+      "id": "drive_wait",
+      "command-line-flag": "-drive_wait",
+      "name": "Drive wait command"
+    },
+    {
+      "description": "Specify a list of echo times",
+      "value-key": "[TE_LIST]",
+      "type": "String",
+      "optional": true,
+      "id": "te_list",
+      "command-line-flag": "-te_list",
+      "name": "Echo time list"
+    },
+    {
+      "description": "Apply sorting method to image structures",
+      "value-key": "[SORT_METHOD]",
+      "type": "String",
+      "optional": true,
+      "id": "sort_method",
+      "command-line-flag": "-sort_method",
+      "name": "Sort method"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[INFILE_LIST]_details",
+      "description": "Details about sorted files",
+      "id": "sorted_files_details",
+      "name": "Sorted Files Details"
+    }
+  ]
+}

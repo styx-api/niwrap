@@ -1,0 +1,103 @@
+{
+  "name": "3dBrainSync",
+  "author": "AFNI Developers",
+  "description": "'Synchronizes' the -inset2 dataset to match the -inset1 dataset, using orthogonal or permutation transformation.",
+  "command-line": "3dBrainSync [INSET1] [INSET2] [QPREFIX] [PPREFIX] [NORMALIZE] [MASK] [VERB]",
+  "inputs": [
+    {
+      "description": "Reference dataset",
+      "value-key": "[INSET1]",
+      "command-line-flag": "-inset1",
+      "type": "File",
+      "optional": false,
+      "id": "inset1",
+      "name": "Reference Dataset"
+    },
+    {
+      "description": "Dataset to be matched to the reference dataset",
+      "value-key": "[INSET2]",
+      "command-line-flag": "-inset2",
+      "type": "File",
+      "optional": false,
+      "id": "inset2",
+      "name": "Dataset to Match"
+    },
+    {
+      "description": "Specifies the output dataset to be used for the orthogonal matrix transformation",
+      "value-key": "[QPREFIX]",
+      "command-line-flag": "-Qprefix",
+      "type": "String",
+      "optional": true,
+      "id": "qprefix",
+      "name": "Orthogonal Matrix Output Prefix"
+    },
+    {
+      "description": "Specifies the output dataset to be used for the permutation transformation",
+      "value-key": "[PPREFIX]",
+      "command-line-flag": "-Pprefix",
+      "type": "String",
+      "optional": true,
+      "id": "pprefix",
+      "name": "Permutation Output Prefix"
+    },
+    {
+      "description": "Normalize the output dataset(s) so that each time series has sum-of-squares = 1",
+      "value-key": "[NORMALIZE]",
+      "command-line-flag": "-normalize",
+      "type": "Flag",
+      "id": "normalize",
+      "name": "Normalize Output"
+    },
+    {
+      "description": "Only operate on nonzero voxels in the mask dataset",
+      "value-key": "[MASK]",
+      "command-line-flag": "-mask",
+      "type": "File",
+      "optional": true,
+      "id": "mask",
+      "name": "Mask Dataset"
+    },
+    {
+      "description": "Print some progress reports and auxiliary information",
+      "value-key": "[VERB]",
+      "command-line-flag": "-verb",
+      "type": "Flag",
+      "id": "verb",
+      "name": "Verbose"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[QPREFIX].nii",
+      "description": "Output dataset after orthogonal matrix transformation",
+      "id": "qprefix_output",
+      "name": "Orthogonal Matrix Output"
+    },
+    {
+      "path-template": "[PPREFIX].nii",
+      "description": "Output dataset after permutation transformation",
+      "id": "pprefix_output",
+      "name": "Permutation Output"
+    },
+    {
+      "path-template": "[QPREFIX].sval.1D",
+      "description": "Singular values from the BC' decomposition",
+      "id": "qprefix_sval",
+      "name": "Singular Values"
+    },
+    {
+      "path-template": "[QPREFIX].qmat.1D",
+      "description": "Q matrix",
+      "id": "qprefix_qmat",
+      "name": "Q Matrix"
+    },
+    {
+      "path-template": "[PPREFIX].perm.1D",
+      "description": "Permutation indexes p(i)",
+      "id": "pprefix_perm",
+      "name": "Permutation Indexes"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

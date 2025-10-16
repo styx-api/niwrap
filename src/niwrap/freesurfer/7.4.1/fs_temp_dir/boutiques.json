@@ -1,0 +1,35 @@
+{
+  "name": "fs_temp_dir",
+  "description": "Generates and creates an empty temporary directory",
+  "command-line": "fs_temp_dir [BASE_DIRECTORY] [SCRATCH]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "-b",
+      "description": "Manually specify base temporary directory.",
+      "value-key": "[BASE_DIRECTORY]",
+      "type": "String",
+      "optional": true,
+      "id": "base_directory",
+      "name": "Base Directory"
+    },
+    {
+      "command-line-flag": "--scratch",
+      "description": "Use /scratch directory if available, but FS_TMPDIR takes priority.",
+      "value-key": "[SCRATCH]",
+      "type": "Flag",
+      "id": "scratch",
+      "name": "Scratch Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "/tmp/tmp.SF5J66",
+      "description": "The created temporary directory path",
+      "id": "output_directory",
+      "name": "Output Directory"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

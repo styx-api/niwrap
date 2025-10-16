@@ -1,0 +1,137 @@
+{
+  "name": "cifti-correlation",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -cifti-correlation [CIFTI] [CIFTI_OUT] [ROI_OVERRIDE] [OPT_WEIGHTS_WEIGHT_FILE] [OPT_FISHER_Z] [OPT_NO_DEMEAN] [OPT_COVARIANCE] [OPT_MEM_LIMIT_LIMIT_GB]",
+  "description": "Generate correlation of rows in a cifti file.\n\nFor each row (or each row inside an roi if -roi-override is specified), correlate to all other rows.  The -cifti-roi suboption to -roi-override may not be specified with any other -*-roi suboption, but you may specify the other -*-roi suboptions together.\n\nWhen using the -fisher-z option, the output is NOT a Z-score, it is artanh(r), to do further math on this output, consider using -cifti-math.\n\nRestricting the memory usage will make it calculate the output in chunks, and if the input file size is more than 70% of the memory limit, it will also read through the input file as rows are required, resulting in several passes through the input file (once per chunk).  Memory limit does not need to be an integer, you may also specify 0 to calculate a single output row at a time (this may be very slow).",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "cifti",
+      "name": "cifti",
+      "description": "input cifti file",
+      "optional": false,
+      "value-key": "[CIFTI]",
+      "type": "File"
+    },
+    {
+      "id": "cifti_out",
+      "name": "cifti_out",
+      "type": "String",
+      "description": "output cifti file",
+      "optional": false,
+      "value-key": "[CIFTI_OUT]"
+    },
+    {
+      "id": "roi_override",
+      "name": "roi_override",
+      "description": "perform correlation from a subset of rows to all rows",
+      "type": {
+        "id": "roi_override",
+        "name": "roi_override",
+        "description": "perform correlation from a subset of rows to all rows",
+        "command-line": "-roi-override [OPT_LEFT_ROI_ROI_METRIC] [OPT_RIGHT_ROI_ROI_METRIC] [OPT_CEREBELLUM_ROI_ROI_METRIC] [OPT_VOL_ROI_ROI_VOL] [OPT_CIFTI_ROI_ROI_CIFTI]",
+        "inputs": [
+          {
+            "id": "opt_left_roi_roi_metric",
+            "name": "opt_left_roi_roi_metric",
+            "command-line-flag": "-left-roi",
+            "description": "use an roi for left hempsphere: the left roi as a metric file",
+            "optional": true,
+            "value-key": "[OPT_LEFT_ROI_ROI_METRIC]",
+            "type": "File"
+          },
+          {
+            "id": "opt_right_roi_roi_metric",
+            "name": "opt_right_roi_roi_metric",
+            "command-line-flag": "-right-roi",
+            "description": "use an roi for right hempsphere: the right roi as a metric file",
+            "optional": true,
+            "value-key": "[OPT_RIGHT_ROI_ROI_METRIC]",
+            "type": "File"
+          },
+          {
+            "id": "opt_cerebellum_roi_roi_metric",
+            "name": "opt_cerebellum_roi_roi_metric",
+            "command-line-flag": "-cerebellum-roi",
+            "description": "use an roi for cerebellum: the cerebellum roi as a metric file",
+            "optional": true,
+            "value-key": "[OPT_CEREBELLUM_ROI_ROI_METRIC]",
+            "type": "File"
+          },
+          {
+            "id": "opt_vol_roi_roi_vol",
+            "name": "opt_vol_roi_roi_vol",
+            "command-line-flag": "-vol-roi",
+            "description": "use an roi for volume: the volume roi file",
+            "optional": true,
+            "value-key": "[OPT_VOL_ROI_ROI_VOL]",
+            "type": "File"
+          },
+          {
+            "id": "opt_cifti_roi_roi_cifti",
+            "name": "opt_cifti_roi_roi_cifti",
+            "command-line-flag": "-cifti-roi",
+            "description": "use a cifti file for combined rois: the cifti roi file",
+            "optional": true,
+            "value-key": "[OPT_CIFTI_ROI_ROI_CIFTI]",
+            "type": "File"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[ROI_OVERRIDE]"
+    },
+    {
+      "id": "opt_weights_weight_file",
+      "name": "opt_weights_weight_file",
+      "command-line-flag": "-weights",
+      "description": "specify column weights: text file containing one weight per column",
+      "optional": true,
+      "value-key": "[OPT_WEIGHTS_WEIGHT_FILE]",
+      "type": "String"
+    },
+    {
+      "id": "opt_fisher_z",
+      "name": "opt_fisher_z",
+      "command-line-flag": "-fisher-z",
+      "description": "apply fisher small z transform (ie, artanh) to correlation",
+      "type": "Flag",
+      "value-key": "[OPT_FISHER_Z]"
+    },
+    {
+      "id": "opt_no_demean",
+      "name": "opt_no_demean",
+      "command-line-flag": "-no-demean",
+      "description": "instead of correlation, do dot product of rows, then normalize by diagonal",
+      "type": "Flag",
+      "value-key": "[OPT_NO_DEMEAN]"
+    },
+    {
+      "id": "opt_covariance",
+      "name": "opt_covariance",
+      "command-line-flag": "-covariance",
+      "description": "compute covariance instead of correlation",
+      "type": "Flag",
+      "value-key": "[OPT_COVARIANCE]"
+    },
+    {
+      "id": "opt_mem_limit_limit_gb",
+      "name": "opt_mem_limit_limit_gb",
+      "command-line-flag": "-mem-limit",
+      "description": "restrict memory usage: memory limit in gigabytes",
+      "optional": true,
+      "value-key": "[OPT_MEM_LIMIT_LIMIT_GB]",
+      "type": "Number",
+      "integer": false
+    }
+  ],
+  "output-files": [
+    {
+      "id": "cifti_out",
+      "name": "cifti_out",
+      "path-template": "[CIFTI_OUT]",
+      "description": "output cifti file"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

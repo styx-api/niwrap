@@ -1,0 +1,138 @@
+{
+  "name": "make_average_volume",
+  "author": "FreeSurfer Developers",
+  "description": "Creates average volumes from a set of subjects.",
+  "command-line": "make_average_volume [SUBJECTS] [FSGD] [OUT] [TOPDIR] [XFORM] [SDIR] [SD_FLAG] [FORCE_FLAG] [KEEP_ALL_ORIG_FLAG] [NO_ASEG_FLAG] [CTAB] [CTAB_DEFAULT_FLAG] [ECHO_FLAG] [DEBUG_FLAG] [NOCLEANUP_FLAG]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--subjects",
+      "description": "List of subjects to include in the average.",
+      "value-key": "[SUBJECTS]",
+      "type": "String",
+      "list": true,
+      "optional": false,
+      "id": "subjects",
+      "name": "Subjects"
+    },
+    {
+      "command-line-flag": "--fsgd",
+      "description": "File containing subject list for averaging.",
+      "value-key": "[FSGD]",
+      "type": "File",
+      "optional": true,
+      "id": "fsgd",
+      "name": "FSGD file"
+    },
+    {
+      "command-line-flag": "--out",
+      "description": "Output average subject name. Default is 'average'.",
+      "value-key": "[OUT]",
+      "type": "String",
+      "optional": true,
+      "id": "out",
+      "name": "Output average subject name"
+    },
+    {
+      "command-line-flag": "--topdir",
+      "description": "Directory to put data and link to SUBJECTS_DIR.",
+      "value-key": "[TOPDIR]",
+      "type": "String",
+      "optional": true,
+      "id": "topdir",
+      "name": "Top directory"
+    },
+    {
+      "command-line-flag": "--xform",
+      "description": "Transformation name to use, default is talairach.xfm.",
+      "value-key": "[XFORM]",
+      "type": "String",
+      "optional": true,
+      "id": "xform",
+      "name": "Transformation name"
+    },
+    {
+      "command-line-flag": "--sdir",
+      "description": "Use specified SUBJECTS_DIR instead of the environment's one.",
+      "value-key": "[SDIR]",
+      "type": "String",
+      "optional": true,
+      "id": "sdir",
+      "name": "Subjects directory"
+    },
+    {
+      "command-line-flag": "--sd",
+      "description": "Same as --sdir.",
+      "type": "Flag",
+      "id": "sd_flag",
+      "name": "SDIR flag",
+      "value-key": "[SD_FLAG]"
+    },
+    {
+      "command-line-flag": "--force",
+      "description": "Overwrite existing average subject data.",
+      "type": "Flag",
+      "id": "force_flag",
+      "name": "Force overwrite flag",
+      "value-key": "[FORCE_FLAG]"
+    },
+    {
+      "command-line-flag": "--keep-all-orig",
+      "description": "Concatenate all original volumes into mri/orig.all.mgz.",
+      "type": "Flag",
+      "id": "keep_all_orig_flag",
+      "name": "Keep all original volumes flag",
+      "value-key": "[KEEP_ALL_ORIG_FLAG]"
+    },
+    {
+      "command-line-flag": "--no-aseg",
+      "description": "Do not create 'average' aseg.",
+      "type": "Flag",
+      "id": "no_aseg_flag",
+      "name": "No aseg flag",
+      "value-key": "[NO_ASEG_FLAG]"
+    },
+    {
+      "command-line-flag": "--ctab",
+      "description": "Embed colortable into segmentations.",
+      "value-key": "[CTAB]",
+      "type": "String",
+      "optional": true,
+      "id": "ctab",
+      "name": "Color table"
+    },
+    {
+      "command-line-flag": "--ctab-default",
+      "description": "Embed FreeSurferColorLUT.txt into segmentations.",
+      "type": "Flag",
+      "id": "ctab_default_flag",
+      "name": "Default color table flag",
+      "value-key": "[CTAB_DEFAULT_FLAG]"
+    },
+    {
+      "command-line-flag": "--echo",
+      "description": "Enable command echo for debugging.",
+      "type": "Flag",
+      "id": "echo_flag",
+      "name": "Echo flag",
+      "value-key": "[ECHO_FLAG]"
+    },
+    {
+      "command-line-flag": "--debug",
+      "description": "Same as --echo for debugging.",
+      "type": "Flag",
+      "id": "debug_flag",
+      "name": "Debug flag",
+      "value-key": "[DEBUG_FLAG]"
+    },
+    {
+      "command-line-flag": "--nocleanup",
+      "description": "Do not delete temporary files.",
+      "type": "Flag",
+      "id": "nocleanup_flag",
+      "name": "No cleanup flag",
+      "value-key": "[NOCLEANUP_FLAG]"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

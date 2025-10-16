@@ -1,0 +1,144 @@
+{
+  "name": "2dImReg",
+  "author": "AFNI Developers",
+  "description": "2D image registration tool for 3D+time datasets, aligning images on a slice-by-slice basis to a specified base image.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "2dImReg [INPUT_FILE] [BASE_FILE] [BASE] [NOFINE] [FINE_BLUR] [FINE_DXY] [FINE_DPHI] [PREFIX] [DPREFIX] [DMM] [RPREFIX] [DEBUG]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "input_file",
+      "name": "Input file",
+      "type": "File",
+      "description": "Filename of input 3d+time dataset to process",
+      "value-key": "[INPUT_FILE]",
+      "optional": false
+    },
+    {
+      "id": "base_file",
+      "name": "Base file",
+      "type": "File",
+      "description": "Filename of 3d+time dataset for base image (default = current input dataset)",
+      "value-key": "[BASE_FILE]",
+      "optional": true
+    },
+    {
+      "id": "base",
+      "name": "Base time index",
+      "type": "Number",
+      "description": "Time index for base image (0 <= num) (default: num = 3)",
+      "value-key": "[BASE]",
+      "optional": true
+    },
+    {
+      "id": "nofine",
+      "name": "No fine fit phase flag",
+      "type": "Flag",
+      "command-line-flag": "-nofine",
+      "description": "Deactivate fine fit phase of image registration (default: fine fit is active)",
+      "value-key": "[NOFINE]"
+    },
+    {
+      "id": "fine_blur",
+      "name": "Fine fit parameters - Blur",
+      "type": "Number",
+      "description": "FWHM of blurring prior to registration (in pixels) (default: blur = 1.0)",
+      "value-key": "[FINE_BLUR]",
+      "optional": true
+    },
+    {
+      "id": "fine_dxy",
+      "name": "Fine fit parameters - DXY",
+      "type": "Number",
+      "description": "Convergence tolerance for translations (in pixels) (default: dxy = 0.07)",
+      "value-key": "[FINE_DXY]",
+      "optional": true
+    },
+    {
+      "id": "fine_dphi",
+      "name": "Fine fit parameters - DPHI",
+      "type": "Number",
+      "description": "Convergence tolerance for rotations (in degrees) (default: dphi = 0.21)",
+      "value-key": "[FINE_DPHI]",
+      "optional": true
+    },
+    {
+      "id": "prefix",
+      "name": "Output prefix",
+      "type": "String",
+      "description": "Prefix name for output 3d+time dataset",
+      "value-key": "[PREFIX]",
+      "optional": false
+    },
+    {
+      "id": "dprefix",
+      "name": "D-prefix",
+      "type": "String",
+      "description": "Write files containing the registration parameters for each slice in chronological order",
+      "value-key": "[DPREFIX]",
+      "optional": true
+    },
+    {
+      "id": "dmm",
+      "name": "DMM flag",
+      "type": "Flag",
+      "command-line-flag": "-dmm",
+      "description": "Change dx and dy output format from pixels to mm",
+      "value-key": "[DMM]"
+    },
+    {
+      "id": "rprefix",
+      "name": "R-prefix",
+      "type": "String",
+      "description": "Write files containing the volume RMS error for the original and the registered datasets",
+      "value-key": "[RPREFIX]",
+      "optional": true
+    },
+    {
+      "id": "debug",
+      "name": "Debug flag",
+      "type": "Flag",
+      "command-line-flag": "-debug",
+      "description": "Lots of additional output to screen",
+      "value-key": "[DEBUG]"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "output_dataset",
+      "name": "Output dataset",
+      "description": "Output 3d+time dataset",
+      "path-template": "[PREFIX].nii"
+    },
+    {
+      "id": "dx_file",
+      "name": "DX file",
+      "description": "File containing dx registration parameters in pixels/mm",
+      "path-template": "[DPREFIX].dx"
+    },
+    {
+      "id": "dy_file",
+      "name": "DY file",
+      "description": "File containing dy registration parameters in pixels/mm",
+      "path-template": "[DPREFIX].dy"
+    },
+    {
+      "id": "psi_file",
+      "name": "PSI file",
+      "description": "File containing psi registration parameters in degrees",
+      "path-template": "[DPREFIX].psi"
+    },
+    {
+      "id": "oldrms_file",
+      "name": "Old RMS file",
+      "description": "File containing the volume RMS error for the original dataset",
+      "path-template": "[RPREFIX].oldrms"
+    },
+    {
+      "id": "newrms_file",
+      "name": "New RMS file",
+      "description": "File containing the volume RMS error for the registered dataset",
+      "path-template": "[RPREFIX].newrms"
+    }
+  ]
+}

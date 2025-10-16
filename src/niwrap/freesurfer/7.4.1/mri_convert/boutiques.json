@@ -1,0 +1,178 @@
+{
+  "name": "mri_convert",
+  "author": "FreeSurfer Developers",
+  "description": "A general purpose utility for converting between different file formats supported by FreeSurfer",
+  "command-line": "mri_convert [INP_VOLUME] [OUT_VOLUME] [READ_ONLY] [NO_WRITE] [IN_INFO] [OUT_INFO] [IN_STATS] [OUT_STATS] [UPSAMPLE] [FORCE_RAS_GOOD] [APPLY_TRANSFORM] [APPLY_INVERSE_TRANSFORM] [IN_TYPE] [OUT_TYPE] [IN_ORIENTATION] [OUT_ORIENTATION] [SCALE_FACTOR] [BFILE_LITTLE_ENDIAN] [SPHINX]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "The input volume file",
+      "id": "inp_volume",
+      "name": "Input Volume",
+      "type": "File",
+      "value-key": "[INP_VOLUME]",
+      "optional": false
+    },
+    {
+      "description": "The output volume file",
+      "id": "out_volume",
+      "name": "Output Volume",
+      "type": "String",
+      "value-key": "[OUT_VOLUME]",
+      "optional": false
+    },
+    {
+      "command-line-flag": "-ro",
+      "description": "Open in read-only mode",
+      "id": "read_only",
+      "name": "Read Only",
+      "type": "Flag",
+      "value-key": "[READ_ONLY]"
+    },
+    {
+      "command-line-flag": "-nw",
+      "description": "Do not write output",
+      "id": "no_write",
+      "name": "No Write",
+      "type": "Flag",
+      "value-key": "[NO_WRITE]"
+    },
+    {
+      "command-line-flag": "-ii",
+      "description": "Print input volume information",
+      "id": "in_info",
+      "name": "Input Volume Information",
+      "type": "Flag",
+      "value-key": "[IN_INFO]"
+    },
+    {
+      "command-line-flag": "-oi",
+      "description": "Print output volume information",
+      "id": "out_info",
+      "name": "Output Volume Information",
+      "type": "Flag",
+      "value-key": "[OUT_INFO]"
+    },
+    {
+      "command-line-flag": "-is",
+      "description": "Print statistics on input volume",
+      "id": "in_stats",
+      "name": "Input Statistics",
+      "type": "Flag",
+      "value-key": "[IN_STATS]"
+    },
+    {
+      "command-line-flag": "-os",
+      "description": "Print statistics on output volume",
+      "id": "out_stats",
+      "name": "Output Statistics",
+      "type": "Flag",
+      "value-key": "[OUT_STATS]"
+    },
+    {
+      "command-line-flag": "--upsample",
+      "description": "Reduce voxel size by a factor in all dimensions",
+      "id": "upsample",
+      "name": "Upsample factor",
+      "type": "Number",
+      "value-key": "[UPSAMPLE]",
+      "optional": true
+    },
+    {
+      "command-line-flag": "--force_ras_good",
+      "description": "Use default when orientation info absent",
+      "id": "force_ras_good",
+      "name": "Force RAS Good",
+      "type": "Flag",
+      "value-key": "[FORCE_RAS_GOOD]"
+    },
+    {
+      "command-line-flag": "--apply_transform",
+      "description": "Apply transform given by xfm or m3z file",
+      "id": "apply_transform",
+      "name": "Apply Transform",
+      "type": "File",
+      "value-key": "[APPLY_TRANSFORM]",
+      "optional": true
+    },
+    {
+      "command-line-flag": "--apply_inverse_transform",
+      "description": "Apply inverse of transform given by xfm or m3z file",
+      "id": "apply_inverse_transform",
+      "name": "Apply Inverse Transform",
+      "type": "File",
+      "value-key": "[APPLY_INVERSE_TRANSFORM]",
+      "optional": true
+    },
+    {
+      "command-line-flag": "--in_type",
+      "description": "Specify input file type",
+      "id": "in_type",
+      "name": "Input Type",
+      "type": "String",
+      "value-key": "[IN_TYPE]",
+      "optional": true
+    },
+    {
+      "command-line-flag": "--out_type",
+      "description": "Specify output file type",
+      "id": "out_type",
+      "name": "Output Type",
+      "type": "String",
+      "value-key": "[OUT_TYPE]",
+      "optional": true
+    },
+    {
+      "command-line-flag": "--in_orientation",
+      "description": "Specify input orientation",
+      "id": "in_orientation",
+      "name": "Input Orientation",
+      "type": "String",
+      "value-key": "[IN_ORIENTATION]",
+      "optional": true
+    },
+    {
+      "command-line-flag": "--out_orientation",
+      "description": "Specify output orientation",
+      "id": "out_orientation",
+      "name": "Output Orientation",
+      "type": "String",
+      "value-key": "[OUT_ORIENTATION]",
+      "optional": true
+    },
+    {
+      "command-line-flag": "--scale",
+      "description": "Input intensity scale factor",
+      "id": "scale_factor",
+      "name": "Scale Factor",
+      "type": "Number",
+      "value-key": "[SCALE_FACTOR]",
+      "optional": true
+    },
+    {
+      "command-line-flag": "--bfile-little-endian",
+      "description": "Write out bshort/bfloat files in little endian",
+      "id": "bfile_little_endian",
+      "name": "Bfile Little Endian",
+      "type": "Flag",
+      "value-key": "[BFILE_LITTLE_ENDIAN]"
+    },
+    {
+      "command-line-flag": "--sphinx",
+      "description": "Reorient to sphinx position",
+      "id": "sphinx",
+      "name": "Sphinx Orientation",
+      "type": "Flag",
+      "value-key": "[SPHINX]"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUT_VOLUME]",
+      "description": "Converted volume output file",
+      "id": "converted_volume",
+      "name": "Converted Volume"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

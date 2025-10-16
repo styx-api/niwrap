@@ -1,0 +1,42 @@
+{
+  "name": "mri_rigid_register",
+  "author": "FreeSurfer Developers",
+  "description": "Rigid registration tool for MRI volumes",
+  "command-line": "mri_rigid_register [SOURCE_VOLUME] [TARGET_VOLUME] [TRANSFORM_OUTPUT]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Source volume file for registration",
+      "value-key": "[SOURCE_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "source_volume",
+      "name": "Source Volume"
+    },
+    {
+      "description": "Target volume file for registration",
+      "value-key": "[TARGET_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "target_volume",
+      "name": "Target Volume"
+    },
+    {
+      "description": "Output file name for the transform",
+      "value-key": "[TRANSFORM_OUTPUT]",
+      "type": "String",
+      "optional": false,
+      "id": "transform_output",
+      "name": "Transform Output"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[TRANSFORM_OUTPUT]",
+      "description": "Output file for transform matrix",
+      "id": "transform_file",
+      "name": "Transform File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

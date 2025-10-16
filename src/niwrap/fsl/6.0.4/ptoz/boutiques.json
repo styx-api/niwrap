@@ -1,0 +1,35 @@
+{
+  "name": "ptoz",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Convert p-values to z-values",
+  "command-line": "ptoz [P_VALUE] [TAIL_FLAG] [GRF_FLAG]",
+  "inputs": [
+    {
+      "description": "p-value to convert",
+      "value-key": "[P_VALUE]",
+      "type": "Number",
+      "optional": false,
+      "id": "p_value",
+      "name": "P-value"
+    },
+    {
+      "command-line-flag": "-2",
+      "description": "Use 2-tailed conversion",
+      "value-key": "[TAIL_FLAG]",
+      "type": "Flag",
+      "id": "tail_flag",
+      "name": "2-tailed flag"
+    },
+    {
+      "command-line-flag": "-g",
+      "description": "Use GRF maximum-height theory instead of Gaussian pdf",
+      "value-key": "[GRF_FLAG]",
+      "type": "Number",
+      "optional": true,
+      "id": "grf_flag",
+      "name": "GRF flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

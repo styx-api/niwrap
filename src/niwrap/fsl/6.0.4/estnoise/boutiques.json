@@ -1,0 +1,50 @@
+{
+  "name": "estnoise",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Estimate noise in 4D fMRI data.",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "estnoise [INPUT_4D_DATA] [SPATIAL_SIGMA] [TEMP_HP_SIGMA] [TEMP_LP_SIGMA]",
+  "inputs": [
+    {
+      "description": "Input 4D fMRI data (e.g., fmri_data.nii.gz)",
+      "value-key": "[INPUT_4D_DATA]",
+      "type": "File",
+      "optional": false,
+      "id": "input_4d_data",
+      "name": "Input 4D data"
+    },
+    {
+      "description": "Spatial smoothing sigma",
+      "value-key": "[SPATIAL_SIGMA]",
+      "type": "Number",
+      "optional": true,
+      "id": "spatial_sigma",
+      "name": "Spatial Sigma"
+    },
+    {
+      "description": "Temporal high-pass filter sigma",
+      "value-key": "[TEMP_HP_SIGMA]",
+      "type": "Number",
+      "optional": true,
+      "id": "temp_hp_sigma",
+      "name": "Temporal HP Sigma"
+    },
+    {
+      "description": "Temporal low-pass filter sigma",
+      "value-key": "[TEMP_LP_SIGMA]",
+      "type": "Number",
+      "optional": true,
+      "id": "temp_lp_sigma",
+      "name": "Temporal LP Sigma"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "noise_estimate.txt",
+      "description": "Output text file containing noise estimates",
+      "id": "output_noise_file",
+      "name": "Output noise file"
+    }
+  ]
+}

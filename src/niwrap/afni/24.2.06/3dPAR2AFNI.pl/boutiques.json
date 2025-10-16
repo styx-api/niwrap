@@ -1,0 +1,99 @@
+{
+  "name": "3dPAR2AFNI.pl",
+  "author": "AFNI Developers",
+  "description": "Convert Philips PAR/REC files to AFNI's BRIK/HEAD, NIfTI, or ANALYZE format",
+  "command-line": "3dPAR2AFNI.pl [INPUT_FILE] [SKIP_OUTLIERS_TEST] [OUTPUT_NIFTI] [OUTPUT_ANALYZE] [OUTPUT_DIR] [VERBOSE_FLAG] [GZIP_FILES] [BYTE_SWAP_2] [BYTE_SWAP_4] [HELP_FLAG]",
+  "inputs": [
+    {
+      "description": "Input PAR file (e.g., subject1.PAR)",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input File"
+    },
+    {
+      "command-line-flag": "-s",
+      "description": "Skip the outliers test when converting 4D files. The default is to perform the outliers test.",
+      "value-key": "[SKIP_OUTLIERS_TEST]",
+      "type": "Flag",
+      "id": "skip_outliers_test",
+      "name": "Skip Outliers Test Flag"
+    },
+    {
+      "command-line-flag": "-n",
+      "description": "Output NIfTI files instead of HEAD/BRIK. The default is to create HEAD/BRIK files.",
+      "value-key": "[OUTPUT_NIFTI]",
+      "type": "Flag",
+      "id": "output_nifti",
+      "name": "Output NIfTI Flag"
+    },
+    {
+      "command-line-flag": "-a",
+      "description": "Output ANALYZE files instead of HEAD/BRIK.",
+      "value-key": "[OUTPUT_ANALYZE]",
+      "type": "Flag",
+      "id": "output_analyze",
+      "name": "Output ANALYZE Flag"
+    },
+    {
+      "command-line-flag": "-o",
+      "description": "The name of the directory where the created files should be placed. If this directory does not exist, the program exits without performing any conversion.",
+      "value-key": "[OUTPUT_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "output_dir",
+      "name": "Output Directory"
+    },
+    {
+      "command-line-flag": "-v",
+      "description": "Be verbose in operation.",
+      "value-key": "[VERBOSE_FLAG]",
+      "type": "Flag",
+      "id": "verbose_flag",
+      "name": "Verbose Flag"
+    },
+    {
+      "command-line-flag": "-g",
+      "description": "Gzip the files created. The default is not to gzip the files.",
+      "value-key": "[GZIP_FILES]",
+      "type": "Flag",
+      "id": "gzip_files",
+      "name": "Gzip Files Flag"
+    },
+    {
+      "command-line-flag": "-2",
+      "description": "2-Byte-swap the files created. The default is not to 2 byte-swap.",
+      "value-key": "[BYTE_SWAP_2]",
+      "type": "Flag",
+      "id": "byte_swap_2",
+      "name": "2 Byte Swap Flag"
+    },
+    {
+      "command-line-flag": "-4",
+      "description": "4-Byte-swap the files created. The default is not to 4 byte-swap.",
+      "value-key": "[BYTE_SWAP_4]",
+      "type": "Flag",
+      "id": "byte_swap_4",
+      "name": "4 Byte Swap Flag"
+    },
+    {
+      "command-line-flag": "-h",
+      "description": "Display help message.",
+      "value-key": "[HELP_FLAG]",
+      "type": "Flag",
+      "id": "help_flag",
+      "name": "Help Flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[INPUT_FILE]_converted",
+      "description": "Converted output files",
+      "id": "output_files",
+      "name": "Converted Output Files"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

@@ -1,0 +1,42 @@
+{
+  "name": "fs_lib_check",
+  "author": "FreeSurfer Developers",
+  "description": "Checks if the operating system has the necessary system libraries required to run FreeSurfer.",
+  "command-line": "fs_lib_check [USE_LDCONFIG] [USE_RPM] [SHOW_HELP] [SHOW_VERSION]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "-l",
+      "description": "Force use of 'ldconfig' to check for instances of required system libraries. This is useful on rpm systems if system libraries were installed from source code, and are thus not known to the system rpm database.",
+      "value-key": "[USE_LDCONFIG]",
+      "type": "Flag",
+      "id": "use_ldconfig",
+      "name": "Force use ldconfig"
+    },
+    {
+      "command-line-flag": "-r",
+      "description": "Force use of 'rpm -qa' to check for installed library packages. If -r and -l are both specified concurrently, then behavior is unspecified.",
+      "value-key": "[USE_RPM]",
+      "type": "Flag",
+      "id": "use_rpm",
+      "name": "Force use rpm"
+    },
+    {
+      "command-line-flag": "-h",
+      "description": "Show this synopsis and exit.",
+      "value-key": "[SHOW_HELP]",
+      "type": "Flag",
+      "id": "show_help",
+      "name": "Show help"
+    },
+    {
+      "command-line-flag": "-v",
+      "description": "Show a version number and exit.",
+      "value-key": "[SHOW_VERSION]",
+      "type": "Flag",
+      "id": "show_version",
+      "name": "Show version"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

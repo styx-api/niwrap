@@ -1,0 +1,178 @@
+{
+  "name": "cifti-replace-structure",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -cifti-replace-structure [CIFTI] [DIRECTION] [VOLUME_ALL] [OPT_DISCARD_UNUSED_LABELS] [OPT_LABEL_COLLISION_ACTION] [LABEL] [METRIC] [VOLUME]",
+  "description": "Replace data in a structure in a cifti file.\n\nThis is a fairly low-level command, you probably want to use -cifti-create-dense-from-template instead.\n\nYou must specify at least one of -metric, -label, -volume, or -volume-all for this command to do anything.  Input volumes must line up with the output of -cifti-separate.  For dtseries/dscalar, use COLUMN, and if your dconn matrix will be fully symmetric, COLUMN is more efficient.  The -volume-all option must not be specified when using a -volume option.  A -metric option must not be specified when using a -label option, and is not recommended on a label-type cifti file.  For each <structure> argument, use one of the following strings:\n\nCORTEX_LEFT\nCORTEX_RIGHT\nCEREBELLUM\nACCUMBENS_LEFT\nACCUMBENS_RIGHT\nALL_GREY_MATTER\nALL_WHITE_MATTER\nAMYGDALA_LEFT\nAMYGDALA_RIGHT\nBRAIN_STEM\nCAUDATE_LEFT\nCAUDATE_RIGHT\nCEREBELLAR_WHITE_MATTER_LEFT\nCEREBELLAR_WHITE_MATTER_RIGHT\nCEREBELLUM_LEFT\nCEREBELLUM_RIGHT\nCEREBRAL_WHITE_MATTER_LEFT\nCEREBRAL_WHITE_MATTER_RIGHT\nCORTEX\nDIENCEPHALON_VENTRAL_LEFT\nDIENCEPHALON_VENTRAL_RIGHT\nHIPPOCAMPUS_LEFT\nHIPPOCAMPUS_RIGHT\nINVALID\nOTHER\nOTHER_GREY_MATTER\nOTHER_WHITE_MATTER\nPALLIDUM_LEFT\nPALLIDUM_RIGHT\nPUTAMEN_LEFT\nPUTAMEN_RIGHT\nTHALAMUS_LEFT\nTHALAMUS_RIGHT",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "cifti",
+      "name": "cifti",
+      "description": "the cifti to modify",
+      "optional": false,
+      "value-key": "[CIFTI]",
+      "type": "String"
+    },
+    {
+      "id": "direction",
+      "name": "direction",
+      "description": "which dimension to interpret as a single map, ROW or COLUMN",
+      "optional": false,
+      "value-key": "[DIRECTION]",
+      "type": "String"
+    },
+    {
+      "id": "volume_all",
+      "name": "volume_all",
+      "description": "replace the data in all volume components",
+      "type": {
+        "id": "volume_all",
+        "name": "volume_all",
+        "description": "replace the data in all volume components",
+        "command-line": "-volume-all [VOLUME] [OPT_FROM_CROPPED]",
+        "inputs": [
+          {
+            "id": "volume",
+            "name": "volume",
+            "description": "the input volume",
+            "optional": false,
+            "value-key": "[VOLUME]",
+            "type": "File"
+          },
+          {
+            "id": "opt_from_cropped",
+            "name": "opt_from_cropped",
+            "command-line-flag": "-from-cropped",
+            "description": "the input is cropped to the size of the data",
+            "type": "Flag",
+            "value-key": "[OPT_FROM_CROPPED]"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[VOLUME_ALL]"
+    },
+    {
+      "id": "opt_discard_unused_labels",
+      "name": "opt_discard_unused_labels",
+      "command-line-flag": "-discard-unused-labels",
+      "description": "when operating on a dlabel file, drop any unused label keys from the label table",
+      "type": "Flag",
+      "value-key": "[OPT_DISCARD_UNUSED_LABELS]"
+    },
+    {
+      "id": "opt_label_collision_action",
+      "name": "opt_label_collision_action",
+      "command-line-flag": "-label-collision",
+      "description": "how to handle conflicts between label keys: 'ERROR', 'LEFT_SURFACE_FIRST', or 'LEGACY', default 'ERROR', use 'LEGACY' to match v1.4.2 and earlier",
+      "optional": true,
+      "value-key": "[OPT_LABEL_COLLISION_ACTION]",
+      "type": "String"
+    },
+    {
+      "id": "label",
+      "name": "label",
+      "description": "replace the data in a surface label component",
+      "type": {
+        "id": "label",
+        "name": "label",
+        "description": "replace the data in a surface label component",
+        "command-line": "-label [STRUCTURE] [LABEL]",
+        "inputs": [
+          {
+            "id": "structure",
+            "name": "structure",
+            "description": "the structure to replace the data of",
+            "optional": false,
+            "value-key": "[STRUCTURE]",
+            "type": "String"
+          },
+          {
+            "id": "label",
+            "name": "label",
+            "description": "the input label file",
+            "optional": false,
+            "value-key": "[LABEL]",
+            "type": "File"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[LABEL]",
+      "list": true
+    },
+    {
+      "id": "metric",
+      "name": "metric",
+      "description": "replace the data in a surface component",
+      "type": {
+        "id": "metric",
+        "name": "metric",
+        "description": "replace the data in a surface component",
+        "command-line": "-metric [STRUCTURE] [METRIC]",
+        "inputs": [
+          {
+            "id": "structure",
+            "name": "structure",
+            "description": "the structure to replace the data of",
+            "optional": false,
+            "value-key": "[STRUCTURE]",
+            "type": "String"
+          },
+          {
+            "id": "metric",
+            "name": "metric",
+            "description": "the input metric",
+            "optional": false,
+            "value-key": "[METRIC]",
+            "type": "File"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[METRIC]",
+      "list": true
+    },
+    {
+      "id": "volume",
+      "name": "volume",
+      "description": "replace the data in a volume component",
+      "type": {
+        "id": "volume",
+        "name": "volume",
+        "description": "replace the data in a volume component",
+        "command-line": "-volume [STRUCTURE] [VOLUME] [OPT_FROM_CROPPED]",
+        "inputs": [
+          {
+            "id": "structure",
+            "name": "structure",
+            "description": "the structure to replace the data of",
+            "optional": false,
+            "value-key": "[STRUCTURE]",
+            "type": "String"
+          },
+          {
+            "id": "volume",
+            "name": "volume",
+            "description": "the input volume",
+            "optional": false,
+            "value-key": "[VOLUME]",
+            "type": "File"
+          },
+          {
+            "id": "opt_from_cropped",
+            "name": "opt_from_cropped",
+            "command-line-flag": "-from-cropped",
+            "description": "the input is cropped to the size of the component",
+            "type": "Flag",
+            "value-key": "[OPT_FROM_CROPPED]"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[VOLUME]",
+      "list": true
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

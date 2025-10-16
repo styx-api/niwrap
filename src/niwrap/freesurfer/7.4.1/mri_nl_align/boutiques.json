@@ -1,0 +1,446 @@
+{
+  "name": "mri_nl_align",
+  "description": "mri_nl_align aligns two images using nonlinear registration.",
+  "command-line": "mri_nl_align [SOURCE] [TARGET] [WARP] [DEBUG_VOXEL] [DEBUG_NODE] [NO_NEG] [RENORMALIZE] [ASEG_FLAG] [DIAG_VOLUME] [OPTIMAL_FLAG] [MOMENTUM_FLAG] [FIXED_FLAG] [DISTANCE] [DTRANS] [MATCH_PEAK_FLAG] [ERODE] [MATCH_MEAN] [INTENSITY] [LL] [NOREGRID_FLAG] [REGRID_FLAG] [VIEW] [LEVELS] [AREA_SMOOTHNESS] [ASMOOTH] [AREA] [TOLERANCE] [SIGMA] [MIN_SIGMA] [RIBBON] [RTHRESH] [SCALE] [DT] [PASSES] [SKIP] [APPLY] [DISTANCE_LOG] [MOMENTUM] [ITERATIONS] [SMOOTHNESS] [TRANSFORM] [INVERSE_TRANSFORM] [BINARY] [JACOBIAN] [DISABLE_ZERO_LOCATIONS] [SMOOTH_AVERAGES] [EXP_K] [DIAGNOSTICS]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "source",
+      "name": "Source Image",
+      "type": "File",
+      "optional": false,
+      "description": "Input source image file",
+      "value-key": "[SOURCE]"
+    },
+    {
+      "id": "target",
+      "name": "Target Image",
+      "type": "File",
+      "optional": false,
+      "description": "Input target image file",
+      "value-key": "[TARGET]"
+    },
+    {
+      "id": "warp",
+      "name": "Warp Output",
+      "type": "String",
+      "optional": false,
+      "description": "Output warp file",
+      "value-key": "[WARP]"
+    },
+    {
+      "id": "debug_voxel",
+      "name": "Debug Voxel",
+      "type": "Number",
+      "optional": true,
+      "list": true,
+      "max-list-entries": 3,
+      "description": "Debug voxel coordinates (Gx, Gy, Gz)",
+      "command-line-flag": "-debug_voxel",
+      "value-key": "[DEBUG_VOXEL]"
+    },
+    {
+      "id": "debug_node",
+      "name": "Debug Node",
+      "type": "Number",
+      "optional": true,
+      "list": true,
+      "max-list-entries": 3,
+      "description": "Debug node coordinates (Gx, Gy, Gz)",
+      "command-line-flag": "-debug_node",
+      "value-key": "[DEBUG_NODE]"
+    },
+    {
+      "id": "no_neg",
+      "name": "No Negative",
+      "type": "Number",
+      "optional": true,
+      "description": "Control allowing temporary folds during numerical minimization",
+      "command-line-flag": "-noneg",
+      "value-key": "[NO_NEG]"
+    },
+    {
+      "id": "renormalize",
+      "name": "Renormalize",
+      "type": "Number",
+      "optional": true,
+      "description": "Control for renormalizing intensities",
+      "command-line-flag": "-renormalize",
+      "value-key": "[RENORMALIZE]"
+    },
+    {
+      "id": "aseg_flag",
+      "name": "Segmentations Flag",
+      "type": "Flag",
+      "description": "Treat inputs as segmentations",
+      "command-line-flag": "-aseg",
+      "value-key": "[ASEG_FLAG]"
+    },
+    {
+      "id": "diag_volume",
+      "name": "Diagnostic Volume",
+      "type": "String",
+      "optional": true,
+      "description": "Write d2 diagnostics for input volume",
+      "command-line-flag": "-diag2",
+      "value-key": "[DIAG_VOLUME]"
+    },
+    {
+      "id": "optimal_flag",
+      "name": "Optimal Search Optimization Flag",
+      "type": "Flag",
+      "description": "Use line search optimization",
+      "command-line-flag": "-OPTIMAL",
+      "value-key": "[OPTIMAL_FLAG]"
+    },
+    {
+      "id": "momentum_flag",
+      "name": "Momentum Integration Flag",
+      "type": "Flag",
+      "description": "Use fixed time-step integration",
+      "command-line-flag": "-MOMENTUM",
+      "value-key": "[MOMENTUM_FLAG]"
+    },
+    {
+      "id": "fixed_flag",
+      "name": "Fixed Time-Step Integration Flag",
+      "type": "Flag",
+      "description": "Use fixed time-step integration",
+      "command-line-flag": "-FIXED",
+      "value-key": "[FIXED_FLAG]"
+    },
+    {
+      "id": "distance",
+      "name": "Expand Border",
+      "type": "Number",
+      "optional": true,
+      "description": "Expand border by specified mm every outer cycle",
+      "command-line-flag": "-distance",
+      "value-key": "[DISTANCE]"
+    },
+    {
+      "id": "dtrans",
+      "name": "Distance Transform Coefficient",
+      "type": "Number",
+      "optional": true,
+      "description": "Set distance transform coefficient",
+      "command-line-flag": "-dtrans",
+      "value-key": "[DTRANS]"
+    },
+    {
+      "id": "match_peak_flag",
+      "name": "Match Peak Flag",
+      "type": "Flag",
+      "description": "Match peak of intensity ratio histogram",
+      "command-line-flag": "-match_peak",
+      "value-key": "[MATCH_PEAK_FLAG]"
+    },
+    {
+      "id": "erode",
+      "name": "Erode",
+      "type": "Number",
+      "optional": true,
+      "description": "Erode source and target image specified times before morphing",
+      "command-line-flag": "-erode",
+      "value-key": "[ERODE]"
+    },
+    {
+      "id": "match_mean",
+      "name": "Match Mean",
+      "type": "Number",
+      "optional": true,
+      "description": "Control for matching peak of intensity ratio histogram",
+      "command-line-flag": "-match_mean",
+      "value-key": "[MATCH_MEAN]"
+    },
+    {
+      "id": "intensity",
+      "name": "Log Likelihood Intensity",
+      "type": "Number",
+      "optional": true,
+      "description": "Set l_log_likelihood to specified value",
+      "command-line-flag": "-intensity",
+      "value-key": "[INTENSITY]"
+    },
+    {
+      "id": "ll",
+      "name": "Log Likelihood",
+      "type": "Number",
+      "optional": true,
+      "description": "Set l_log_likelihood to specified value",
+      "command-line-flag": "-ll",
+      "value-key": "[LL]"
+    },
+    {
+      "id": "noregrid_flag",
+      "name": "Disable Regridding Flag",
+      "type": "Flag",
+      "description": "Disable regridding",
+      "command-line-flag": "-noregrid",
+      "value-key": "[NOREGRID_FLAG]"
+    },
+    {
+      "id": "regrid_flag",
+      "name": "Enable Regridding Flag",
+      "type": "Flag",
+      "description": "Enable regridding",
+      "command-line-flag": "-regrid",
+      "value-key": "[REGRID_FLAG]"
+    },
+    {
+      "id": "view",
+      "name": "View Voxel",
+      "type": "Number",
+      "optional": true,
+      "list": true,
+      "max-list-entries": 3,
+      "description": "View voxel coordinates (Gx, Gy, Gz)",
+      "command-line-flag": "-view",
+      "value-key": "[VIEW]"
+    },
+    {
+      "id": "levels",
+      "name": "Levels",
+      "type": "Number",
+      "optional": true,
+      "description": "Set levels to specified value",
+      "command-line-flag": "-levels",
+      "value-key": "[LEVELS]"
+    },
+    {
+      "id": "area_smoothness",
+      "name": "Area Smoothness",
+      "type": "Number",
+      "optional": true,
+      "description": "Set l_area_smoothness to specified value",
+      "command-line-flag": "-areasmoothness",
+      "value-key": "[AREA_SMOOTHNESS]"
+    },
+    {
+      "id": "asmooth",
+      "name": "Area Smoothness (asmooth)",
+      "type": "Number",
+      "optional": true,
+      "description": "Set l_area_smoothness to specified value",
+      "command-line-flag": "-asmooth",
+      "value-key": "[ASMOOTH]"
+    },
+    {
+      "id": "area",
+      "name": "Area",
+      "type": "Number",
+      "optional": true,
+      "description": "Set l_area to specified value",
+      "command-line-flag": "-area",
+      "value-key": "[AREA]"
+    },
+    {
+      "id": "tolerance",
+      "name": "Tolerance",
+      "type": "Number",
+      "optional": true,
+      "description": "Set tolerance to specified value",
+      "command-line-flag": "-tol",
+      "value-key": "[TOLERANCE]"
+    },
+    {
+      "id": "sigma",
+      "name": "Sigma",
+      "type": "Number",
+      "optional": true,
+      "description": "Set sigma to specified value",
+      "command-line-flag": "-sigma",
+      "value-key": "[SIGMA]"
+    },
+    {
+      "id": "min_sigma",
+      "name": "Minimum Sigma",
+      "type": "Number",
+      "optional": true,
+      "description": "Set minimum sigma value",
+      "command-line-flag": "-min_sigma",
+      "value-key": "[MIN_SIGMA]"
+    },
+    {
+      "id": "ribbon",
+      "name": "Ribbon",
+      "type": "File",
+      "optional": true,
+      "description": "Read ribbon from specified file and insert into aseg",
+      "command-line-flag": "-ribbon",
+      "value-key": "[RIBBON]"
+    },
+    {
+      "id": "rthresh",
+      "name": "Compression Ratio Threshold",
+      "type": "Number",
+      "optional": true,
+      "description": "Set compression ratio threshold to specified value",
+      "command-line-flag": "-rthresh",
+      "value-key": "[RTHRESH]"
+    },
+    {
+      "id": "scale",
+      "name": "Scale",
+      "type": "Number",
+      "optional": true,
+      "description": "Scale input values by specified factor",
+      "command-line-flag": "-scale",
+      "value-key": "[SCALE]"
+    },
+    {
+      "id": "dt",
+      "name": "Delta Time",
+      "type": "Number",
+      "optional": true,
+      "description": "Set dt to specified value",
+      "command-line-flag": "-dt",
+      "value-key": "[DT]"
+    },
+    {
+      "id": "passes",
+      "name": "Passes",
+      "type": "Number",
+      "optional": true,
+      "description": "Integrate in specified number of passes",
+      "command-line-flag": "-passes",
+      "value-key": "[PASSES]"
+    },
+    {
+      "id": "skip",
+      "name": "Skip Voxels",
+      "type": "Number",
+      "optional": true,
+      "description": "Skip specified number of voxels in source data",
+      "command-line-flag": "-skip",
+      "value-key": "[SKIP]"
+    },
+    {
+      "id": "apply",
+      "name": "Apply Transform",
+      "type": "Number",
+      "optional": true,
+      "description": "Control for applying transform after registration",
+      "command-line-flag": "-apply",
+      "value-key": "[APPLY]"
+    },
+    {
+      "id": "distance_log",
+      "name": "Distance Log",
+      "type": "Number",
+      "optional": true,
+      "description": "Set l_distance to specified value",
+      "command-line-flag": "-D",
+      "value-key": "[DISTANCE_LOG]"
+    },
+    {
+      "id": "momentum",
+      "name": "Momentum",
+      "type": "Number",
+      "optional": true,
+      "description": "Set momentum to specified value",
+      "command-line-flag": "-M",
+      "value-key": "[MOMENTUM]"
+    },
+    {
+      "id": "iterations",
+      "name": "Number of Iterations",
+      "type": "Number",
+      "optional": true,
+      "description": "Set number of iterations to specified value",
+      "command-line-flag": "-N",
+      "value-key": "[ITERATIONS]"
+    },
+    {
+      "id": "smoothness",
+      "name": "Smoothness",
+      "type": "Number",
+      "optional": true,
+      "description": "Set l_smoothness to specified value",
+      "command-line-flag": "-s",
+      "value-key": "[SMOOTHNESS]"
+    },
+    {
+      "id": "transform",
+      "name": "Forward Transform",
+      "type": "File",
+      "optional": true,
+      "description": "Read the forward transform from specified file",
+      "command-line-flag": "-T",
+      "value-key": "[TRANSFORM]"
+    },
+    {
+      "id": "inverse_transform",
+      "name": "Inverse Transform",
+      "type": "File",
+      "optional": true,
+      "description": "Read the inverse transform from specified file",
+      "command-line-flag": "-I",
+      "value-key": "[INVERSE_TRANSFORM]"
+    },
+    {
+      "id": "binary",
+      "name": "Binary",
+      "type": "Number",
+      "optional": true,
+      "description": "Set l_binary to specified value",
+      "command-line-flag": "-B",
+      "value-key": "[BINARY]"
+    },
+    {
+      "id": "jacobian",
+      "name": "Jacobian",
+      "type": "Number",
+      "optional": true,
+      "description": "Set l_jacobian to specified value",
+      "command-line-flag": "-J",
+      "value-key": "[JACOBIAN]"
+    },
+    {
+      "id": "disable_zero_locations",
+      "name": "Disable Zero Image Locations",
+      "type": "Number",
+      "optional": true,
+      "description": "Control for disabling zero image locations",
+      "command-line-flag": "-Z",
+      "value-key": "[DISABLE_ZERO_LOCATIONS]"
+    },
+    {
+      "id": "smooth_averages",
+      "name": "Gradient Smoothing Averages",
+      "type": "Number",
+      "optional": true,
+      "description": "Smooth gradient with specified number of averages",
+      "command-line-flag": "-a",
+      "value-key": "[SMOOTH_AVERAGES]"
+    },
+    {
+      "id": "exp_k",
+      "name": "Exp K",
+      "type": "Number",
+      "optional": true,
+      "description": "Set exp_k to specified value",
+      "command-line-flag": "-K",
+      "value-key": "[EXP_K]"
+    },
+    {
+      "id": "diagnostics",
+      "name": "Diagnostics Iteration",
+      "type": "Number",
+      "optional": true,
+      "description": "Write diagnostics at each specified iteration",
+      "command-line-flag": "-W",
+      "value-key": "[DIAGNOSTICS]"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "warp_output",
+      "name": "Warp Output File",
+      "description": "Resulting warp output file after alignment",
+      "path-template": "[WARP]"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

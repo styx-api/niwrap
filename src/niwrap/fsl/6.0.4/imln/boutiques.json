@@ -1,0 +1,34 @@
+{
+  "name": "imln",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Creates a link (called file2) to file1",
+  "command-line": "imln [INPUT_FILE] [LINK_NAME]",
+  "inputs": [
+    {
+      "description": "The source file (file1) to create a link to",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input File"
+    },
+    {
+      "description": "The name for the link (file2)",
+      "value-key": "[LINK_NAME]",
+      "type": "String",
+      "optional": false,
+      "id": "link_name",
+      "name": "Link Name"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[LINK_NAME]",
+      "description": "The created link to the input file",
+      "id": "output_link",
+      "name": "Output Link"
+    }
+  ],
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

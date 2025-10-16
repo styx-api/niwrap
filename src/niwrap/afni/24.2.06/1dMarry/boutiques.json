@@ -1,0 +1,56 @@
+{
+  "name": "1dMarry",
+  "author": "AFNI Developers",
+  "description": "Joins together 2 (or more) ragged-right .1D files, for use with 3dDeconvolve -stim_times_AM2, or breaks up 1 married file into 2 (or more) single-valued files.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "1dMarry [SEP] [DIVORCE] [FILES]",
+  "inputs": [
+    {
+      "description": "Input file(s) to be married or divorced.",
+      "value-key": "[FILES]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "files",
+      "name": "Input files"
+    },
+    {
+      "command-line-flag": "-sep",
+      "description": "Separator(s) for marrying files. The first character is used as the separator between values 1 and 2, the second character between values 2 and 3, etc.",
+      "value-key": "[SEP]",
+      "type": "String",
+      "optional": true,
+      "id": "sep",
+      "name": "Separators"
+    },
+    {
+      "command-line-flag": "-divorce",
+      "description": "Divorce mode: splits married file into separate files.",
+      "value-key": "[DIVORCE]",
+      "type": "Flag",
+      "id": "divorce",
+      "name": "Divorce flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "stdout",
+      "description": "Output file when marrying files. This file should be captured using a redirection such as '>'.",
+      "id": "outfile",
+      "name": "Output file"
+    },
+    {
+      "path-template": "[FILE2]_A.1D",
+      "description": "First output file when divorcing.",
+      "id": "divorcee_A",
+      "name": "Divorced file A"
+    },
+    {
+      "path-template": "[FILE2]_B.1D",
+      "description": "Second output file when divorcing.",
+      "id": "divorcee_B",
+      "name": "Divorced file B"
+    }
+  ]
+}

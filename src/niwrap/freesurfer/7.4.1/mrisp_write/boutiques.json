@@ -1,0 +1,112 @@
+{
+  "name": "mrisp_write",
+  "author": "FreeSurfer Developers",
+  "description": "This tool converts a surface overlay on a sphere into spherical coordinates.",
+  "command-line": "mrisp_write [INPUT_SURFACE] [OVERLAY_FILENAME] [OUTPUT_NAME] [SUBJECTS_DIR] [COORDS] [AVERAGE_CURVATURE] [CORRELATION_MATRIX] [SCALE_FACTOR] [NORMALIZE_CURVATURE] [VERBOSE_VERTEX] [WRITE_DIAGNOSTICS]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Full path to input surface.",
+      "value-key": "[INPUT_SURFACE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_surface",
+      "name": "Input Surface"
+    },
+    {
+      "description": "Full path to the overlay to map.",
+      "value-key": "[OVERLAY_FILENAME]",
+      "type": "File",
+      "optional": false,
+      "id": "overlay_filename",
+      "name": "Overlay Filename"
+    },
+    {
+      "description": "Output file name. Can be full path to a .tif or .mgz file.",
+      "value-key": "[OUTPUT_NAME]",
+      "type": "String",
+      "optional": false,
+      "id": "output_name",
+      "name": "Output Name"
+    },
+    {
+      "command-line-flag": "-SDIR",
+      "description": "Set SUBJECTS_DIR. Default: uses environment variable.",
+      "value-key": "[SUBJECTS_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "subjects_dir",
+      "name": "Subjects Directory"
+    },
+    {
+      "command-line-flag": "-coords",
+      "description": "Treat overlay as a surface and write it into a 3 frame parameterization.",
+      "value-key": "[COORDS]",
+      "type": "String",
+      "optional": true,
+      "id": "coords",
+      "name": "Overlay as Surface"
+    },
+    {
+      "command-line-flag": "-A",
+      "description": "Average curvature patterns navgs times.",
+      "value-key": "[AVERAGE_CURVATURE]",
+      "type": "Number",
+      "optional": true,
+      "id": "average_curvature",
+      "name": "Average Curvature"
+    },
+    {
+      "command-line-flag": "-CORR",
+      "description": "Use the overlay to compute the correlation matrix within the specified label.",
+      "value-key": "[CORRELATION_MATRIX]",
+      "type": "File",
+      "optional": true,
+      "id": "correlation_matrix",
+      "name": "Correlation Matrix Label"
+    },
+    {
+      "command-line-flag": "-SCALE",
+      "description": "Scale factor to adjust resolution of the spherical map.",
+      "value-key": "[SCALE_FACTOR]",
+      "type": "Number",
+      "optional": true,
+      "id": "scale_factor",
+      "name": "Scale Factor"
+    },
+    {
+      "command-line-flag": "-N",
+      "description": "Normalize curvature by variance.",
+      "value-key": "[NORMALIZE_CURVATURE]",
+      "type": "Flag",
+      "id": "normalize_curvature",
+      "name": "Normalize Curvature Flag"
+    },
+    {
+      "command-line-flag": "-V",
+      "description": "Invoke diagnostics for specified vertex number.",
+      "value-key": "[VERBOSE_VERTEX]",
+      "type": "Number",
+      "optional": true,
+      "id": "verbose_vertex",
+      "name": "Verbose Vertex Number"
+    },
+    {
+      "command-line-flag": "-W",
+      "description": "Write some diagnostics.",
+      "value-key": "[WRITE_DIAGNOSTICS]",
+      "type": "Flag",
+      "id": "write_diagnostics",
+      "name": "Write Diagnostics Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_NAME]",
+      "description": "A file containing a surface-worth of per-vertex values saved in spherical coordinates.",
+      "id": "output_file",
+      "name": "Output File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

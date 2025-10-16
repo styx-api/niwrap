@@ -1,0 +1,116 @@
+{
+  "name": "wmsaseg",
+  "author": "FreeSurfer Developers",
+  "description": "White Matter Hyperintensity Segmentation Tool",
+  "command-line": "wmsaseg [SUBJECT] [SOURCE_ORIG] [SOURCE_LONG] [OUTPUT_SUBDIR] [GCA_FILE] [NO_REG] [NO_CANORM] [INIT_SPM] [REG_ONLY] [HALO1] [HALO2]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Subject identifier",
+      "value-key": "[SUBJECT]",
+      "type": "String",
+      "optional": false,
+      "id": "subject",
+      "name": "Subject",
+      "command-line-flag": "-s"
+    },
+    {
+      "command-line-flag": "--s+orig",
+      "description": "Use T2 and PD images from original subject",
+      "value-key": "[SOURCE_ORIG]",
+      "type": "String",
+      "optional": true,
+      "id": "source_orig",
+      "name": "Source original"
+    },
+    {
+      "command-line-flag": "--s+long",
+      "description": "Use T2 and PD images from longitudinal subject",
+      "value-key": "[SOURCE_LONG]",
+      "type": "Flag",
+      "id": "source_long",
+      "name": "Source long"
+    },
+    {
+      "command-line-flag": "--sub",
+      "description": "Output subdirectory name (default is wmsa)",
+      "value-key": "[OUTPUT_SUBDIR]",
+      "type": "String",
+      "optional": true,
+      "id": "output_subdir",
+      "name": "Output subdirectory"
+    },
+    {
+      "command-line-flag": "--gca",
+      "description": "GCA file path",
+      "value-key": "[GCA_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "gca_file",
+      "name": "GCA file"
+    },
+    {
+      "command-line-flag": "--no-reg",
+      "description": "Do not register mode to anatomical image",
+      "value-key": "[NO_REG]",
+      "type": "Flag",
+      "id": "no_reg",
+      "name": "No registration"
+    },
+    {
+      "command-line-flag": "--no-canorm",
+      "description": "Do not run mri_ca_normalize",
+      "value-key": "[NO_CANORM]",
+      "type": "Flag",
+      "id": "no_canorm",
+      "name": "No CA normalization"
+    },
+    {
+      "command-line-flag": "--init-spm",
+      "description": "Initialize SPM (default is FSL)",
+      "value-key": "[INIT_SPM]",
+      "type": "Flag",
+      "id": "init_spm",
+      "name": "Initialize SPM"
+    },
+    {
+      "command-line-flag": "--reg-only",
+      "description": "Only perform registration",
+      "value-key": "[REG_ONLY]",
+      "type": "Flag",
+      "id": "reg_only",
+      "name": "Register only"
+    },
+    {
+      "command-line-flag": "--halo1",
+      "description": "Halo 1 option",
+      "value-key": "[HALO1]",
+      "type": "Flag",
+      "id": "halo1",
+      "name": "Halo 1"
+    },
+    {
+      "command-line-flag": "--halo2",
+      "description": "Halo 2 option",
+      "value-key": "[HALO2]",
+      "type": "Flag",
+      "id": "halo2",
+      "name": "Halo 2"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_SUBDIR]/T1.canorm.mgz",
+      "description": "CA normalized T1 output",
+      "id": "t1_canorm",
+      "name": "T1 CA Norm"
+    },
+    {
+      "path-template": "[OUTPUT_SUBDIR]/wmsa.lta",
+      "description": "Linear transform to average space",
+      "id": "wmsa_lta",
+      "name": "WMSA LTA file"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

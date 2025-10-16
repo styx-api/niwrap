@@ -1,0 +1,253 @@
+{
+  "name": "3danisosmooth",
+  "author": "AFNI Developers",
+  "description": "Smooths a dataset using an anisotropic smoothing technique.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3danisosmooth [INPUT_DATASET] [PREFIX] [ITERATIONS] [2D_FLAG] [3D_FLAG] [MASK_DATASET] [AUTOMASK_FLAG] [VIEWER_FLAG] [NOSMOOTH_FLAG] [SIGMA1] [SIGMA2] [DELTAT] [SAVETEMPDATA_FLAG] [SAVE_TEMP_WITH_DIFF_MEASURES_FLAG] [PHIDING_FLAG] [PHIEXP_FLAG] [NONEG_FLAG] [SETNEG_VALUE] [EDGEFRACTION] [DATUM_TYPE] [MATCHORIG_FLAG] [HELP_FLAG]",
+  "inputs": [
+    {
+      "description": "Input dataset to be smoothed",
+      "value-key": "[INPUT_DATASET]",
+      "type": "File",
+      "optional": false,
+      "id": "input_dataset",
+      "name": "Input dataset"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Output dataset prefix name",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Output prefix"
+    },
+    {
+      "command-line-flag": "-iters",
+      "description": "Number of iterations (default=10)",
+      "value-key": "[ITERATIONS]",
+      "type": "Number",
+      "optional": true,
+      "id": "iterations",
+      "name": "Number of iterations"
+    },
+    {
+      "command-line-flag": "-2D",
+      "description": "Smooth a slice at a time (default)",
+      "value-key": "[2D_FLAG]",
+      "type": "Flag",
+      "id": "2d_flag",
+      "name": "2D smoothing flag"
+    },
+    {
+      "command-line-flag": "-3D",
+      "description": "Smooth through slices",
+      "value-key": "[3D_FLAG]",
+      "type": "Flag",
+      "id": "3d_flag",
+      "name": "3D smoothing flag"
+    },
+    {
+      "command-line-flag": "-mask",
+      "description": "Use specified dataset as mask to include/exclude voxels",
+      "value-key": "[MASK_DATASET]",
+      "type": "File",
+      "optional": true,
+      "id": "mask_dataset",
+      "name": "Mask dataset"
+    },
+    {
+      "command-line-flag": "-automask",
+      "description": "Automatically compute mask for dataset",
+      "value-key": "[AUTOMASK_FLAG]",
+      "type": "Flag",
+      "id": "automask_flag",
+      "name": "Automask flag"
+    },
+    {
+      "command-line-flag": "-viewer",
+      "description": "Show central axial slice image every iteration",
+      "value-key": "[VIEWER_FLAG]",
+      "type": "Flag",
+      "id": "viewer_flag",
+      "name": "Viewer flag"
+    },
+    {
+      "command-line-flag": "-nosmooth",
+      "description": "Do not do intermediate smoothing of gradients",
+      "value-key": "[NOSMOOTH_FLAG]",
+      "type": "Flag",
+      "id": "nosmooth_flag",
+      "name": "No intermediate smoothing flag"
+    },
+    {
+      "command-line-flag": "-sigma1",
+      "description": "Gaussian smoothing sigma before gradient computation (default=0.5)",
+      "value-key": "[SIGMA1]",
+      "type": "Number",
+      "optional": true,
+      "id": "sigma1",
+      "name": "Sigma1"
+    },
+    {
+      "command-line-flag": "-sigma2",
+      "description": "Gaussian smoothing sigma after gradient computation (default=1.0)",
+      "value-key": "[SIGMA2]",
+      "type": "Number",
+      "optional": true,
+      "id": "sigma2",
+      "name": "Sigma2"
+    },
+    {
+      "command-line-flag": "-deltat",
+      "description": "Pseudo-time step (default=0.25)",
+      "value-key": "[DELTAT]",
+      "type": "Number",
+      "optional": true,
+      "id": "deltat",
+      "name": "DeltaT"
+    },
+    {
+      "command-line-flag": "-savetempdata",
+      "description": "Save temporary datasets each iteration",
+      "value-key": "[SAVETEMPDATA_FLAG]",
+      "type": "Flag",
+      "id": "savetempdata_flag",
+      "name": "Save temporary datasets flag"
+    },
+    {
+      "command-line-flag": "-save_temp_with_diff_measures",
+      "description": "Save temporary datasets with different measures in a dataset",
+      "value-key": "[SAVE_TEMP_WITH_DIFF_MEASURES_FLAG]",
+      "type": "Flag",
+      "id": "save_temp_with_diff_measures_flag",
+      "name": "Save temporary datasets with different measures flag"
+    },
+    {
+      "command-line-flag": "-phiding",
+      "description": "Use Ding method for computing phi (default)",
+      "value-key": "[PHIDING_FLAG]",
+      "type": "Flag",
+      "id": "phiding_flag",
+      "name": "Use Ding method for phi"
+    },
+    {
+      "command-line-flag": "-phiexp",
+      "description": "Use exponential method for computing phi",
+      "value-key": "[PHIEXP_FLAG]",
+      "type": "Flag",
+      "id": "phiexp_flag",
+      "name": "Use exponential method for phi"
+    },
+    {
+      "command-line-flag": "-noneg",
+      "description": "Set negative voxels to 0",
+      "value-key": "[NONEG_FLAG]",
+      "type": "Flag",
+      "id": "noneg_flag",
+      "name": "Set negative voxels to 0"
+    },
+    {
+      "command-line-flag": "-setneg",
+      "description": "Set negative voxels to specified value",
+      "value-key": "[SETNEG_VALUE]",
+      "type": "Number",
+      "optional": true,
+      "id": "setneg_value",
+      "name": "Set negative voxels value"
+    },
+    {
+      "command-line-flag": "-edgefraction",
+      "description": "Adjust the fraction of the anisotropic component added (0 to 1, default=0.5)",
+      "value-key": "[EDGEFRACTION]",
+      "type": "Number",
+      "optional": true,
+      "minimum": 0,
+      "maximum": 1,
+      "id": "edgefraction",
+      "name": "Edge fraction"
+    },
+    {
+      "command-line-flag": "-datum",
+      "description": "Specify type for output data (byte, short, float) [default=float]",
+      "value-key": "[DATUM_TYPE]",
+      "type": "String",
+      "optional": true,
+      "id": "datum_type",
+      "name": "Datum type"
+    },
+    {
+      "command-line-flag": "-matchorig",
+      "description": "Match datum type and clip min/max to input data",
+      "value-key": "[MATCHORIG_FLAG]",
+      "type": "Flag",
+      "id": "matchorig_flag",
+      "name": "Match original datatype"
+    },
+    {
+      "command-line-flag": "-help",
+      "description": "Print help message",
+      "value-key": "[HELP_FLAG]",
+      "type": "Flag",
+      "id": "help_flag",
+      "name": "Help flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX]+smooth",
+      "description": "Output dataset after anisotropic smoothing",
+      "id": "output_dataset",
+      "name": "Smoothed dataset"
+    },
+    {
+      "path-template": "Gradient.ITER",
+      "description": "Gradient dataset saved at each iteration",
+      "id": "gradient_data",
+      "name": "Gradient data"
+    },
+    {
+      "path-template": "Eigens.ITER",
+      "description": "Eigens dataset saved at each iteration",
+      "id": "eigens_data",
+      "name": "Eigens data"
+    },
+    {
+      "path-template": "phi.ITER",
+      "description": "Phi dataset saved at each iteration",
+      "id": "phi_data",
+      "name": "Phi data"
+    },
+    {
+      "path-template": "Dtensor.ITER",
+      "description": "Dtensor dataset saved at each iteration",
+      "id": "dtensor_data",
+      "name": "Dtensor data"
+    },
+    {
+      "path-template": "Ematrix.ITER",
+      "description": "Ematrix dataset saved at the first sub-brick iteration",
+      "id": "ematrix_data",
+      "name": "Ematrix data"
+    },
+    {
+      "path-template": "Flux.ITER",
+      "description": "Flux dataset saved at the first sub-brick iteration",
+      "id": "flux_data",
+      "name": "Flux data"
+    },
+    {
+      "path-template": "Gmatrix.ITER",
+      "description": "Gmatrix dataset saved at the first sub-brick iteration",
+      "id": "gmatrix_data",
+      "name": "Gmatrix data"
+    },
+    {
+      "path-template": "Diff_measures.ITER",
+      "description": "Dataset containing FA, MD, Cl, Cp, and Cs values saved at each iteration",
+      "id": "diff_measures_data",
+      "name": "Diff measures data"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "name": "@IsoMasks",
+  "author": "AFNI Developers",
+  "description": "Creates isosurfaces from isovolume envelopes.",
+  "command-line": "@IsoMasks [INPUT_DATASET] [ISOVALS]",
+  "inputs": [
+    {
+      "description": "Input dataset for creating isosurfaces",
+      "value-key": "[INPUT_DATASET]",
+      "command-line-flag": "-mask",
+      "type": "File",
+      "optional": false,
+      "id": "input_dataset",
+      "name": "Input Dataset"
+    },
+    {
+      "description": "Isovalue thresholds for creating isosurfaces",
+      "value-key": "[ISOVALS]",
+      "type": "Number",
+      "list": true,
+      "optional": true,
+      "id": "isovals",
+      "name": "Isovalues"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

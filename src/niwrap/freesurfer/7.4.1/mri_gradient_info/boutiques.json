@@ -1,0 +1,26 @@
+{
+  "name": "mri_gradient_info",
+  "author": "FreeSurfer Developers",
+  "description": "A utility to obtain gradient information from MRI images using FreeSurfer.",
+  "command-line": "mri_gradient_info [INPUT_IMAGE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input MRI image file, typically in .mgz format",
+      "value-key": "[INPUT_IMAGE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_image",
+      "name": "Input image file"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "gradient_info_output.txt",
+      "description": "Text file containing the extracted gradient information.",
+      "id": "gradient_info_output",
+      "name": "Gradient information output"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

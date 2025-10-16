@@ -1,0 +1,128 @@
+{
+  "name": "betsurf",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "BET Surface Finder to extract brain surfaces using T1 and T2 images",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "betsurf [T1_IMAGE] [T2_IMAGE] [BET_MESH] [T1_TO_STANDARD_MAT] [OUTPUT_PREFIX] [HELP_FLAG] [VERBOSE_FLAG] [T1ONLY_FLAG] [OUTLINE_FLAG] [MASK_FLAG] [SKULL_MASK_FLAG] [INCREASED_PRECISION]",
+  "inputs": [
+    {
+      "description": "T1-weighted MRI image",
+      "value-key": "[T1_IMAGE]",
+      "type": "File",
+      "optional": false,
+      "id": "t1_image",
+      "name": "T1 Image"
+    },
+    {
+      "description": "T2-weighted MRI image (optional if using --t1only flag)",
+      "value-key": "[T2_IMAGE]",
+      "type": "File",
+      "optional": true,
+      "id": "t2_image",
+      "name": "T2 Image"
+    },
+    {
+      "description": "BET Mesh File (.vtk)",
+      "value-key": "[BET_MESH]",
+      "type": "File",
+      "optional": false,
+      "id": "bet_mesh",
+      "name": "BET Mesh"
+    },
+    {
+      "description": "Transformation matrix file from T1 to standard space",
+      "value-key": "[T1_TO_STANDARD_MAT]",
+      "type": "File",
+      "optional": false,
+      "id": "t1_to_standard_mat",
+      "name": "T1 to Standard Matrix"
+    },
+    {
+      "description": "Output prefix for generated files",
+      "value-key": "[OUTPUT_PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "output_prefix",
+      "name": "Output Prefix"
+    },
+    {
+      "command-line-flag": "-h",
+      "description": "Displays help message and exits",
+      "value-key": "[HELP_FLAG]",
+      "type": "Flag",
+      "id": "help_flag",
+      "name": "Help Flag"
+    },
+    {
+      "command-line-flag": "-v",
+      "description": "Switch on diagnostic messages",
+      "value-key": "[VERBOSE_FLAG]",
+      "type": "Flag",
+      "id": "verbose_flag",
+      "name": "Verbose Flag"
+    },
+    {
+      "command-line-flag": "-1",
+      "description": "Extraction with T1 only",
+      "value-key": "[T1ONLY_FLAG]",
+      "type": "Flag",
+      "id": "t1only_flag",
+      "name": "T1-only Extraction Flag"
+    },
+    {
+      "command-line-flag": "-o",
+      "description": "Generates all surface outlines",
+      "value-key": "[OUTLINE_FLAG]",
+      "type": "Flag",
+      "id": "outline_flag",
+      "name": "Outline Flag"
+    },
+    {
+      "command-line-flag": "-m",
+      "description": "Generates binary masks from the meshes",
+      "value-key": "[MASK_FLAG]",
+      "type": "Flag",
+      "id": "mask_flag",
+      "name": "Mask Generation Flag"
+    },
+    {
+      "command-line-flag": "-s",
+      "description": "Generates skull binary mask",
+      "value-key": "[SKULL_MASK_FLAG]",
+      "type": "Flag",
+      "id": "skull_mask_flag",
+      "name": "Skull Mask Flag"
+    },
+    {
+      "command-line-flag": "-p",
+      "description": "Retessellates the meshes the indicated number of times (int)",
+      "value-key": "[INCREASED_PRECISION]",
+      "type": "Number",
+      "optional": true,
+      "id": "increased_precision",
+      "name": "Increased Precision",
+      "integer": true
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_PREFIX]_mask.nii.gz",
+      "description": "Generated binary mask",
+      "id": "output_mask",
+      "name": "Output Mask"
+    },
+    {
+      "path-template": "[OUTPUT_PREFIX]_outline.nii.gz",
+      "description": "Generated surface outline",
+      "id": "output_outline",
+      "name": "Output Outline"
+    },
+    {
+      "path-template": "[OUTPUT_PREFIX]_skull.nii.gz",
+      "description": "Generated skull mask",
+      "id": "output_skull",
+      "name": "Output Skull Mask"
+    }
+  ]
+}

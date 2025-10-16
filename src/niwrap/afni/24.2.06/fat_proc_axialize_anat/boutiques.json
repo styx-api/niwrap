@@ -1,0 +1,211 @@
+{
+  "name": "fat_proc_axialize_anat",
+  "author": "AFNI Developers",
+  "description": "Helps align the major axes of an anatomical volume to those of the volumetric field of view.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "fat_proc_axialize_anat [IN_FILE] [REF_FILE] [PREFIX] [MODE_T2W] [MODE_T1W] [WORKDIR] [OUT_MATCH_REF] [DO_CEIL_OUT] [EXTRA_AL_WTMASK] [EXTRA_AL_COST] [EXTRA_AL_OPTS] [FOCUS_MASK] [FOCUS_BY_SS] [REMOVE_INF_SLI] [PRE_ALIGN_CENTER_MASS] [PRE_CENTER_MASS] [POST_LR_SYMM] [NO_PRE_LR_SYMM] [NO_CLEAN] [QC_ULAY_RANGE] [NO_QC_VIEW] [QC_PREFIX]",
+  "inputs": [
+    {
+      "description": "Input anatomical volume full name",
+      "value-key": "[IN_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "in_file",
+      "name": "Input file"
+    },
+    {
+      "description": "Reference volume full name, such as TT or MNI",
+      "value-key": "[REF_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "ref_file",
+      "name": "Reference file"
+    },
+    {
+      "description": "Output prefix for files and snapshots",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "prefix",
+      "name": "Output prefix"
+    },
+    {
+      "command-line-flag": "-mode_t2w",
+      "description": "Switch for T2-weighted image processing",
+      "value-key": "[MODE_T2W]",
+      "type": "Flag",
+      "id": "mode_t2w",
+      "name": "Mode T2w flag"
+    },
+    {
+      "command-line-flag": "-mode_t1w",
+      "description": "Switch for T1-weighted image processing",
+      "value-key": "[MODE_T1W]",
+      "type": "Flag",
+      "id": "mode_t1w",
+      "name": "Mode T1w flag"
+    },
+    {
+      "command-line-flag": "-workdir",
+      "description": "Name of the working subdirectory in the output directory",
+      "value-key": "[WORKDIR]",
+      "type": "String",
+      "optional": true,
+      "id": "workdir",
+      "name": "Working directory"
+    },
+    {
+      "command-line-flag": "-out_match_ref",
+      "description": "Match the final output volume space FOV and spatial resolution to the reference file",
+      "value-key": "[OUT_MATCH_REF]",
+      "type": "Flag",
+      "id": "out_match_ref",
+      "name": "Output match reference space flag"
+    },
+    {
+      "command-line-flag": "-do_ceil_out",
+      "description": "Apply a ceiling based on the 98%ile value within an automasked volume",
+      "value-key": "[DO_CEIL_OUT]",
+      "type": "Flag",
+      "id": "do_ceil_out",
+      "name": "Ceiling output flag"
+    },
+    {
+      "command-line-flag": "-extra_al_wtmask",
+      "description": "Extra weight mask to emphasize specific parts for alignment",
+      "value-key": "[EXTRA_AL_WTMASK]",
+      "type": "File",
+      "optional": true,
+      "id": "extra_al_wtmask",
+      "name": "Extra weight mask file"
+    },
+    {
+      "command-line-flag": "-extra_al_cost",
+      "description": "Specify a cost function for 3dAllineate to use (default 'lpa')",
+      "value-key": "[EXTRA_AL_COST]",
+      "type": "String",
+      "optional": true,
+      "id": "extra_al_cost",
+      "name": "Extra alignment cost function"
+    },
+    {
+      "command-line-flag": "-extra_al_opts",
+      "description": "Extra options for 3dAllineate when applying the warp",
+      "value-key": "[EXTRA_AL_OPTS]",
+      "type": "String",
+      "optional": true,
+      "id": "extra_al_opts",
+      "name": "Extra alignment options"
+    },
+    {
+      "command-line-flag": "-focus_mask",
+      "description": "Input mask to focus processing and alignment",
+      "value-key": "[FOCUS_MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "focus_mask",
+      "name": "Focus mask file"
+    },
+    {
+      "command-line-flag": "-focus_by_ss",
+      "description": "Make a mask by simply skullstripping input data set",
+      "value-key": "[FOCUS_BY_SS]",
+      "type": "Flag",
+      "id": "focus_by_ss",
+      "name": "Focus by skullstrip flag"
+    },
+    {
+      "command-line-flag": "-remove_inf_sli",
+      "description": "Remove a number of slices from the inferior part of the FOV",
+      "value-key": "[REMOVE_INF_SLI]",
+      "type": "Number",
+      "optional": true,
+      "id": "remove_inf_sli",
+      "name": "Remove inferior slices"
+    },
+    {
+      "command-line-flag": "-pre_align_center_mass",
+      "description": "Pre-align the centers of mass of the volumes",
+      "value-key": "[PRE_ALIGN_CENTER_MASS]",
+      "type": "Flag",
+      "id": "pre_align_center_mass",
+      "name": "Pre-align center of mass flag"
+    },
+    {
+      "command-line-flag": "-pre_center_mass",
+      "description": "Pre-recenter input center of mass to (0, 0, 0)",
+      "value-key": "[PRE_CENTER_MASS]",
+      "type": "Flag",
+      "id": "pre_center_mass",
+      "name": "Pre-center mass flag"
+    },
+    {
+      "command-line-flag": "-post_lr_symm",
+      "description": "Apply post-alignment left-right symmetrization",
+      "value-key": "[POST_LR_SYMM]",
+      "type": "Flag",
+      "id": "post_lr_symm",
+      "name": "Post-alignment left-right symmetrization flag"
+    },
+    {
+      "command-line-flag": "-no_pre_lr_symm",
+      "description": "Turn off pre-alignment left-right symmetrization",
+      "value-key": "[NO_PRE_LR_SYMM]",
+      "type": "Flag",
+      "id": "no_pre_lr_symm",
+      "name": "No pre-alignment left-right symmetrization flag"
+    },
+    {
+      "command-line-flag": "-no_clean",
+      "description": "Do not remove working directory '__WORKING_axialize_anat'",
+      "value-key": "[NO_CLEAN]",
+      "type": "Flag",
+      "id": "no_clean",
+      "name": "No clean flag"
+    },
+    {
+      "command-line-flag": "-qc1_ulay_range",
+      "description": "Provide a min (UMIN) and max (UMAX) range for underlay grayscale bar",
+      "value-key": "[QC_ULAY_RANGE]",
+      "type": "Number",
+      "list": true,
+      "min-list-entries": 2,
+      "max-list-entries": 2,
+      "optional": true,
+      "id": "qc_ulay_range",
+      "name": "QC underlay range"
+    },
+    {
+      "command-line-flag": "-no_qc_view",
+      "description": "Turn off default QC image saving/viewing",
+      "value-key": "[NO_QC_VIEW]",
+      "type": "Flag",
+      "id": "no_qc_view",
+      "name": "No QC view flag"
+    },
+    {
+      "command-line-flag": "-qc_prefix",
+      "description": "Provide a prefix for QC outputs separate from the main prefix",
+      "value-key": "[QC_PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "qc_prefix",
+      "name": "QC prefix"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX].nii.gz",
+      "description": "An anatomical data set that is regularly situated within its FOV volume",
+      "id": "output_file",
+      "name": "Output file"
+    },
+    {
+      "path-template": "[WORKDIR]",
+      "description": "The working directory with intermediate files",
+      "id": "working_directory",
+      "name": "Working directory"
+    }
+  ]
+}

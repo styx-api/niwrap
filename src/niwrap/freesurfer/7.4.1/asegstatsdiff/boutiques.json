@@ -1,0 +1,42 @@
+{
+  "name": "asegstatsdiff",
+  "description": "Compute and report percentage differences in aseg morphometry data between two subjects.",
+  "command-line": "asegstatsdiff [SUBJECT1] [SUBJECT2][OUTDIR]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "The first subject to be compared.",
+      "value-key": "[SUBJECT1]",
+      "type": "String",
+      "optional": false,
+      "id": "subject1",
+      "name": "Subject 1"
+    },
+    {
+      "description": "The second subject to be compared.",
+      "value-key": "[SUBJECT2]",
+      "type": "String",
+      "optional": false,
+      "id": "subject2",
+      "name": "Subject 2"
+    },
+    {
+      "description": "Optionally specify a directory to write the output asegstats.txt.",
+      "value-key": "[OUTDIR]",
+      "type": "String",
+      "optional": true,
+      "id": "outdir",
+      "name": "Output Directory"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTDIR]/asegstats.txt",
+      "description": "Output table with percent differences added.",
+      "id": "asegstats_output",
+      "name": "Asegstats Output"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

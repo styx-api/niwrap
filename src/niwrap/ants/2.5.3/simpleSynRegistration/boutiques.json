@@ -1,0 +1,56 @@
+{
+  "name": "simpleSynRegistration",
+  "command-line": "simpleSynRegistration [FIXED_IMAGE] [MOVING_IMAGE] [INITIAL_TRANSFORM] [OUTPUT_PREFIX]",
+  "description": "A simple SyN registration tool.",
+  "url": "https://github.com/ANTsX/ANTs",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "fixed_image",
+      "name": "Fixed Image",
+      "value-key": "[FIXED_IMAGE]",
+      "type": "File",
+      "optional": false,
+      "description": "The fixed image for registration."
+    },
+    {
+      "id": "moving_image",
+      "name": "Moving Image",
+      "value-key": "[MOVING_IMAGE]",
+      "type": "File",
+      "optional": false,
+      "description": "The moving image to be registered."
+    },
+    {
+      "id": "initial_transform",
+      "name": "Initial Transform",
+      "value-key": "[INITIAL_TRANSFORM]",
+      "type": "String",
+      "optional": false,
+      "description": "The initial transform for registration."
+    },
+    {
+      "id": "output_prefix",
+      "name": "Output Prefix",
+      "value-key": "[OUTPUT_PREFIX]",
+      "type": "String",
+      "optional": false,
+      "description": "Prefix for the output file name without any extension."
+    }
+  ],
+  "output-files": [
+    {
+      "id": "registered_image",
+      "name": "Registered Image",
+      "description": "The output registered image.",
+      "path-template": "[OUTPUT_PREFIX]Registered.nii.gz"
+    },
+    {
+      "id": "transform_matrix",
+      "name": "Transform Matrix",
+      "description": "The output transformation matrix.",
+      "path-template": "[OUTPUT_PREFIX]Transform.mat"
+    }
+  ],
+  "author": "ANTs Developers"
+}

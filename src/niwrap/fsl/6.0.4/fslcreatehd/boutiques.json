@@ -1,0 +1,130 @@
+{
+  "name": "fslcreatehd",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Tool to create a new NIfTI header.",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "fslcreatehd [XSIZE] [YSIZE] [ZSIZE] [TSIZE] [XVOXSIZE] [YVOXSIZE] [ZVOXSIZE] [TR] [XORIGIN] [YORIGIN] [ZORIGIN] [DATATYPE] [HEADERNAME] [NIFTI_XML_FILE]",
+  "inputs": [
+    {
+      "description": "Size of the image in the x dimension",
+      "value-key": "[XSIZE]",
+      "type": "Number",
+      "optional": false,
+      "id": "xsize",
+      "name": "Image x size"
+    },
+    {
+      "description": "Size of the image in the y dimension",
+      "value-key": "[YSIZE]",
+      "type": "Number",
+      "optional": false,
+      "id": "ysize",
+      "name": "Image y size"
+    },
+    {
+      "description": "Size of the image in the z dimension",
+      "value-key": "[ZSIZE]",
+      "type": "Number",
+      "optional": false,
+      "id": "zsize",
+      "name": "Image z size"
+    },
+    {
+      "description": "Size of the image in the t dimension (time)",
+      "value-key": "[TSIZE]",
+      "type": "Number",
+      "optional": false,
+      "id": "tsize",
+      "name": "Image t size"
+    },
+    {
+      "description": "Voxel size in the x dimension",
+      "value-key": "[XVOXSIZE]",
+      "type": "Number",
+      "optional": false,
+      "id": "xvoxsize",
+      "name": "Voxel x size"
+    },
+    {
+      "description": "Voxel size in the y dimension",
+      "value-key": "[YVOXSIZE]",
+      "type": "Number",
+      "optional": false,
+      "id": "yvoxsize",
+      "name": "Voxel y size"
+    },
+    {
+      "description": "Voxel size in the z dimension",
+      "value-key": "[ZVOXSIZE]",
+      "type": "Number",
+      "optional": false,
+      "id": "zvoxsize",
+      "name": "Voxel z size"
+    },
+    {
+      "description": "Repetition time (TR) of the image",
+      "value-key": "[TR]",
+      "type": "Number",
+      "optional": false,
+      "id": "tr",
+      "name": "Repetition time"
+    },
+    {
+      "description": "Origin of the image in the x dimension",
+      "value-key": "[XORIGIN]",
+      "type": "Number",
+      "optional": false,
+      "id": "xorigin",
+      "name": "Origin x"
+    },
+    {
+      "description": "Origin of the image in the y dimension",
+      "value-key": "[YORIGIN]",
+      "type": "Number",
+      "optional": false,
+      "id": "yorigin",
+      "name": "Origin y"
+    },
+    {
+      "description": "Origin of the image in the z dimension",
+      "value-key": "[ZORIGIN]",
+      "type": "Number",
+      "optional": false,
+      "id": "zorigin",
+      "name": "Origin z"
+    },
+    {
+      "description": "Datatype of the image (2=char, 4=short, 8=int, 16=float, 64=double)",
+      "value-key": "[DATATYPE]",
+      "type": "Number",
+      "optional": false,
+      "id": "datatype",
+      "name": "Image datatype"
+    },
+    {
+      "description": "Name of the header file to be created",
+      "value-key": "[HEADERNAME]",
+      "type": "String",
+      "optional": false,
+      "id": "headername",
+      "name": "Header file name"
+    },
+    {
+      "description": "NIfTI XML file describing the header configuration (Mutually exclusive with other inputs)",
+      "value-key": "[NIFTI_XML_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "nifti_xml_file",
+      "name": "NIfTI XML file"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[HEADERNAME].nii.gz",
+      "description": "Generated NIfTI header file",
+      "id": "out_headerfile",
+      "name": "Output header file"
+    }
+  ]
+}

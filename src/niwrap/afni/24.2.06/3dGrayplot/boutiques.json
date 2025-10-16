@@ -1,0 +1,143 @@
+{
+  "name": "3dGrayplot",
+  "author": "AFNI Developers",
+  "description": "Make a grayplot from a 3D+time dataset, like a carpet plot. Result is saved to a PNG image.",
+  "command-line": "3dGrayplot [INPUT] [MASK] [PREFIX] [DIMENSIONS] [RESAMPLE_OLD] [POLORT] [FWHM] [PVORDER] [LJORDER] [PEELORDER] [IJKORDER] [RANGE] [PERCENT] [RAW_WITH_BOUNDS]",
+  "inputs": [
+    {
+      "description": "Input dataset",
+      "value-key": "[INPUT]",
+      "type": "File",
+      "optional": false,
+      "id": "input",
+      "name": "Input dataset"
+    },
+    {
+      "command-line-flag": "-mask",
+      "description": "Name of mask dataset. Voxels that are 0 in the mask will not be processed.",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "mask",
+      "name": "Mask dataset"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Name for the output file. Default is Grayplot.png",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Output file"
+    },
+    {
+      "command-line-flag": "-dimen",
+      "description": "Output size of image in pixels: [width height]. Defaults are width=1024 and height=512.",
+      "value-key": "[DIMENSIONS]",
+      "type": "Number",
+      "optional": true,
+      "list": true,
+      "min-list-entries": 2,
+      "max-list-entries": 2,
+      "id": "dimensions",
+      "name": "Output dimensions"
+    },
+    {
+      "command-line-flag": "-oldresam",
+      "description": "Original resampling method for processed dataset.",
+      "value-key": "[RESAMPLE_OLD]",
+      "type": "Flag",
+      "id": "resample_old",
+      "name": "Old resampling method"
+    },
+    {
+      "command-line-flag": "-polort",
+      "description": "Order of polynomials for detrending. Default is 2. Use '-1' if data is already detrended and de-meaned.",
+      "value-key": "[POLORT]",
+      "type": "Number",
+      "optional": true,
+      "id": "polort",
+      "name": "Polynomial order"
+    },
+    {
+      "command-line-flag": "-fwhm",
+      "description": "FWHM of blurring radius to use in the dataset before making the image. Default is 0 mm.",
+      "value-key": "[FWHM]",
+      "type": "Number",
+      "optional": true,
+      "id": "fwhm",
+      "name": "Blurring FWHM"
+    },
+    {
+      "command-line-flag": "-pvorder",
+      "description": "Order the voxels by how well they match the two leading principal components of their partition.",
+      "value-key": "[PVORDER]",
+      "type": "Flag",
+      "id": "pvorder",
+      "name": "PV order"
+    },
+    {
+      "command-line-flag": "-LJorder",
+      "description": "Order the voxels by their Ljung-Box statistics, a measure of temporal correlation.",
+      "value-key": "[LJORDER]",
+      "type": "Flag",
+      "id": "LJorder",
+      "name": "LJ order"
+    },
+    {
+      "command-line-flag": "-peelorder",
+      "description": "Order the voxels by how many 'peel' steps are needed to get from the partition boundary to the voxel.",
+      "value-key": "[PEELORDER]",
+      "type": "Flag",
+      "id": "peelorder",
+      "name": "Peel order"
+    },
+    {
+      "command-line-flag": "-ijkorder",
+      "description": "Default intra-partition ordering by dataset 3D index ('ijk').",
+      "value-key": "[IJKORDER]",
+      "type": "Flag",
+      "id": "ijkorder",
+      "name": "IJK order"
+    },
+    {
+      "command-line-flag": "-range",
+      "description": "Set the range of the data to be plotted. Value of 0 is middle-gray, +X is white, -X is black.",
+      "value-key": "[RANGE]",
+      "type": "Number",
+      "optional": true,
+      "id": "range",
+      "name": "Data range"
+    },
+    {
+      "command-line-flag": "-percent",
+      "description": "Scale values to percent differences from the mean of each voxel timeseries. Suitable for raw time series datasets.",
+      "value-key": "[PERCENT]",
+      "type": "Flag",
+      "id": "percent",
+      "name": "Percent scaling"
+    },
+    {
+      "command-line-flag": "-raw_with_bounds",
+      "description": "Map values <= A to black, values >= B to white, and intermediate values to grays.",
+      "value-key": "[RAW_WITH_BOUNDS]",
+      "type": "Number",
+      "optional": true,
+      "list": true,
+      "min-list-entries": 2,
+      "max-list-entries": 2,
+      "id": "raw_with_bounds",
+      "name": "Raw with bounds"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX]",
+      "description": "Grayplot image file",
+      "id": "grayplot_img",
+      "name": "Grayplot image"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

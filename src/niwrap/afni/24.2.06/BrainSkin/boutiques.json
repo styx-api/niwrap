@@ -1,0 +1,193 @@
+{
+  "name": "BrainSkin",
+  "author": "AFNI Developers",
+  "description": "A program to create an unfolded surface that wraps the brain (skin) and Gyrification Indices.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "BrainSkin [SURFACE] [SKINGRID_VOLUME] [PREFIX] [PLIMIT] [DLIMIT] [SEGDO] [VOXELIZE] [INFILL] [OUT_FILE] [VOL_SKIN] [VOL_HULL] [NO_ZERO_ATTRACTION] [NODE_DBG]",
+  "inputs": [
+    {
+      "description": "Surface to smooth or the domain over which DSET is defined.",
+      "value-key": "[SURFACE]",
+      "type": "String",
+      "optional": false,
+      "id": "surface",
+      "name": "Surface"
+    },
+    {
+      "command-line-flag": "-skingrid",
+      "description": "A high-res volume to provide a grid for voxelization steps.",
+      "value-key": "[SKINGRID_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "skingrid_volume",
+      "name": "Skin grid volume"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Prefix to use for variety of output files.",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "prefix",
+      "name": "Output prefix"
+    },
+    {
+      "command-line-flag": "-plimit",
+      "description": "Maximum length of path along surface in mm for node pairing.",
+      "value-key": "[PLIMIT]",
+      "type": "Number",
+      "optional": true,
+      "id": "plimit",
+      "name": "Path limit"
+    },
+    {
+      "command-line-flag": "-dlimit",
+      "description": "Maximum length of Euclidean distance in mm for node pairing.",
+      "value-key": "[DLIMIT]",
+      "type": "Number",
+      "optional": true,
+      "id": "dlimit",
+      "name": "Distance limit"
+    },
+    {
+      "command-line-flag": "-segdo",
+      "description": "Output a displayable object file that contains segments between paired nodes.",
+      "value-key": "[SEGDO]",
+      "type": "String",
+      "optional": true,
+      "id": "segdo",
+      "name": "Segment display object"
+    },
+    {
+      "command-line-flag": "-voxelize",
+      "description": "Voxelization method. Choose from: slow: Sure footed but slow, fast: Faster and works OK, mask: Fastest and works OK too (default).",
+      "value-key": "[VOXELIZE]",
+      "type": "String",
+      "optional": true,
+      "id": "voxelize",
+      "name": "Voxelize method"
+    },
+    {
+      "command-line-flag": "-infill",
+      "description": "Infill method. Choose from: slow: proper infill, but not needed, fast: brutish infill, all we need (default).",
+      "value-key": "[INFILL]",
+      "type": "String",
+      "optional": true,
+      "id": "infill",
+      "name": "Infill method"
+    },
+    {
+      "command-line-flag": "-out",
+      "description": "Output intermediary results from skin forming step.",
+      "value-key": "[OUT_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "out_file",
+      "name": "Intermediate results file"
+    },
+    {
+      "command-line-flag": "-vol_skin",
+      "description": "Deform an Icosahedron to match the outer boundary of a mask volume.",
+      "value-key": "[VOL_SKIN]",
+      "type": "File",
+      "optional": true,
+      "id": "vol_skin",
+      "name": "Volume skin mask"
+    },
+    {
+      "command-line-flag": "-vol_hull",
+      "description": "Deform an Icosahedron to match the convex hull of a mask volume.",
+      "value-key": "[VOL_HULL]",
+      "type": "File",
+      "optional": true,
+      "id": "vol_hull",
+      "name": "Volume hull mask"
+    },
+    {
+      "command-line-flag": "-no_zero_attraction",
+      "description": "With vol_skin, the surface will try to shrink aggressively, even if there is no promise of non-zero values below.",
+      "value-key": "[NO_ZERO_ATTRACTION]",
+      "type": "Flag",
+      "id": "no_zero_attraction",
+      "name": "No Zero Attraction"
+    },
+    {
+      "command-line-flag": "-node_dbg",
+      "description": "Output debugging information for node N for -vol_skin and -vol_hull options.",
+      "value-key": "[NODE_DBG]",
+      "type": "Number",
+      "optional": true,
+      "id": "node_dbg",
+      "name": "Node Debug"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX].stitch.gii",
+      "description": "A bunch of triangles for closing the surface.",
+      "id": "stitch_surface",
+      "name": "Stitch Surface"
+    },
+    {
+      "path-template": "[PREFIX].skin.gii",
+      "description": "Initial skin surface",
+      "id": "initial_skin_surface",
+      "name": "Initial Skin Surface"
+    },
+    {
+      "path-template": "[PREFIX].skin_simp.gii",
+      "description": "Reduced mesh version of initial skin surface.",
+      "id": "reduced_skin_surface",
+      "name": "Reduced Skin Surface"
+    },
+    {
+      "path-template": "[PREFIX].skin.isotopic.gii",
+      "description": "Original surface inflated inside skin surface.",
+      "id": "inflated_skin_surface",
+      "name": "Inflated Skin Surface"
+    },
+    {
+      "path-template": "[PREFIX].ptchvox+orig",
+      "description": "Surface patching voxels.",
+      "id": "patching_voxels",
+      "name": "Patching Voxels"
+    },
+    {
+      "path-template": "[PREFIX].surfvox+orig",
+      "description": "Voxels inside original surface",
+      "id": "surf_voxels",
+      "name": "Surface Voxels"
+    },
+    {
+      "path-template": "[PREFIX].skinvox+orig",
+      "description": "Mix of ptchvox and surfvox.",
+      "id": "skin_voxels",
+      "name": "Skin Voxels"
+    },
+    {
+      "path-template": "[PREFIX].infilled+orig",
+      "description": "Skin vox dataset filled in.",
+      "id": "infilled_voxels",
+      "name": "Infilled Voxels"
+    },
+    {
+      "path-template": "[PREFIX].niml.dset",
+      "description": "Results of computations for finding node pairs that span sulci.",
+      "id": "node_pairs_results",
+      "name": "Node Pairs Results"
+    },
+    {
+      "path-template": "[PREFIX].areas.niml.dset",
+      "description": "Results of computations for inflating initial surface inside skin surface.",
+      "id": "inflating_surface_results",
+      "name": "Inflating Surface Results"
+    },
+    {
+      "path-template": "[PREFIX].1D.do",
+      "description": "Segments between node pairs spanning sulci.",
+      "id": "segments_display",
+      "name": "Segments Display Object"
+    }
+  ]
+}

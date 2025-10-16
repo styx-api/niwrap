@@ -1,0 +1,62 @@
+{
+  "name": "dicom_hinfo",
+  "author": "AFNI Developers",
+  "description": "Prints selected information from one or more DICOM files to stdout.",
+  "command-line": "dicom_hinfo [TAG] [SEPSTR] [FULL_ENTRY] [NO_NAME] [NAMELAST] [FILES]",
+  "inputs": [
+    {
+      "command-line-flag": "-tag",
+      "description": "Specify one or more DICOM tags to print, in the format aaaa,bbbb where aaaa and bbbb are hexadecimal digits.",
+      "value-key": "[TAG]",
+      "type": "String",
+      "list": true,
+      "optional": false,
+      "id": "tag",
+      "name": "DICOM Tag(s)"
+    },
+    {
+      "command-line-flag": "-sepstr",
+      "description": "Use the specified string to separate fields instead of space.",
+      "value-key": "[SEPSTR]",
+      "type": "String",
+      "optional": true,
+      "id": "sepstr",
+      "name": "Field Separator"
+    },
+    {
+      "command-line-flag": "-full_entry",
+      "description": "Output the full entry if it is more than one word or contains white space.",
+      "value-key": "[FULL_ENTRY]",
+      "type": "Flag",
+      "id": "full_entry",
+      "name": "Full Entry Flag"
+    },
+    {
+      "command-line-flag": "-no_name",
+      "description": "Omit the filename from the output.",
+      "value-key": "[NO_NAME]",
+      "type": "Flag",
+      "id": "no_name",
+      "name": "No Name Flag"
+    },
+    {
+      "command-line-flag": "-namelast",
+      "description": "Place the filename last in the output instead of first.",
+      "value-key": "[NAMELAST]",
+      "type": "Flag",
+      "id": "namelast",
+      "name": "Name Last Flag"
+    },
+    {
+      "description": "DICOM file(s) to process.",
+      "value-key": "[FILES]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "files",
+      "name": "Input Files"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

@@ -1,0 +1,69 @@
+{
+  "name": "fslselectvols",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Select volumes from a 4D time series and output a subset 4D volume",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "fslselectvols [INPUT_FILE] [OUTPUT_FILE] [VOLS_LIST] [OUTPUT_MEAN_FLAG] [OUTPUT_VARIANCE_FLAG] [HELP_FLAG]",
+  "inputs": [
+    {
+      "command-line-flag": "-i",
+      "description": "Input file name (4D image)",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input File"
+    },
+    {
+      "command-line-flag": "-o",
+      "description": "Output file name (4D image)",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_file",
+      "name": "Output File"
+    },
+    {
+      "command-line-flag": "--vols",
+      "description": "List of volumes to extract (comma-separated list or ascii file)",
+      "value-key": "[VOLS_LIST]",
+      "type": "String",
+      "optional": false,
+      "id": "vols_list",
+      "name": "Volumes List"
+    },
+    {
+      "command-line-flag": "-m",
+      "description": "Output mean instead of concatenation",
+      "value-key": "[OUTPUT_MEAN_FLAG]",
+      "type": "Flag",
+      "id": "output_mean_flag",
+      "name": "Output Mean Flag"
+    },
+    {
+      "command-line-flag": "-v",
+      "description": "Output variance instead of concatenation",
+      "value-key": "[OUTPUT_VARIANCE_FLAG]",
+      "type": "Flag",
+      "id": "output_variance_flag",
+      "name": "Output Variance Flag"
+    },
+    {
+      "command-line-flag": "-h",
+      "description": "Display help text",
+      "value-key": "[HELP_FLAG]",
+      "type": "Flag",
+      "id": "help_flag",
+      "name": "Help Flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILE]",
+      "description": "Output 4D image with selected volumes",
+      "id": "output_4d_image",
+      "name": "Output 4D Image"
+    }
+  ]
+}

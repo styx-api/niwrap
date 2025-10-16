@@ -1,0 +1,107 @@
+{
+  "name": "3dLombScargle",
+  "author": "AFNI Developers",
+  "description": "Make a periodogram or amplitude-spectrum of a time series that has a non-constant sampling rate",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dLombScargle [PREFIX] [INSET] [CENSOR_1D] [CENSOR_STRING] [MASK_FILE] [OUT_POW_SPEC] [NYQUIST_MULTIPLIER] [NIFTI]",
+  "inputs": [
+    {
+      "description": "Output prefix name for data volume, time point 1D file, and frequency 1D file",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "prefix",
+      "name": "Prefix",
+      "command-line-flag": "-prefix"
+    },
+    {
+      "description": "Time series of volumes, a 4D volumetric data set",
+      "value-key": "[INSET]",
+      "type": "File",
+      "optional": false,
+      "id": "inset",
+      "name": "Input file",
+      "command-line-flag": "-inset"
+    },
+    {
+      "description": "Single row or column of 1s (keep) and 0s (censored) describing which volumes of FILE are kept in the sampling and which are censored out, respectively. The length of the list of numbers must be of the same length as the number of volumes in FILE. If not entered, then the program will look for subbricks of all-zeros and assume those are censored out.",
+      "command-line-flag": "-censor_1D",
+      "value-key": "[CENSOR_1D]",
+      "type": "File",
+      "optional": true,
+      "id": "censor_1d",
+      "name": "Censor file"
+    },
+    {
+      "description": "AFNI-style selector string of volumes to *keep* in the analysis. Such as: '[0..4,7,10..$]'.",
+      "command-line-flag": "-censor_str",
+      "value-key": "[CENSOR_STRING]",
+      "type": "String",
+      "optional": true,
+      "id": "censor_string",
+      "name": "Censor string"
+    },
+    {
+      "description": "Optional, mask of volume to analyze; additionally, any voxel with uniformly zero values across time will produce a zero-spectrum",
+      "command-line-flag": "-mask",
+      "value-key": "[MASK_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "mask_file",
+      "name": "Mask file"
+    },
+    {
+      "description": "Switch to output the amplitude spectrum of the freqs instead of the periodogram. In the formulation used here, for a time series of length N, the power spectral value S is related to the amplitude value X as: S = (X)**2. (Without this opt, default output is amplitude spectrum.)",
+      "command-line-flag": "-out_pow_spec",
+      "value-key": "[OUT_POW_SPEC]",
+      "type": "Flag",
+      "id": "out_pow_spec",
+      "name": "Output power spectrum flag"
+    },
+    {
+      "description": "L-S periodograms can include frequencies above what would typically be considered Nyquist. By default, the maximum frequency will be what f_N *would* have been if no censoring of points had occurred. Acceptable values are >0. (This sets the 'hifac' parameter).",
+      "command-line-flag": "-nyq_mult",
+      "value-key": "[NYQUIST_MULTIPLIER]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "nyquist_multiplier",
+      "name": "Nyquist multiplier"
+    },
+    {
+      "description": "Switch to output *.nii.gz volume file (default format is BRIK/HEAD).",
+      "command-line-flag": "-nifti",
+      "value-key": "[NIFTI]",
+      "type": "Flag",
+      "id": "nifti",
+      "name": "NIFTI flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX]_time.1D",
+      "description": "1D file of the sampled time points (in units of seconds) of the analyzed data set",
+      "id": "time_points",
+      "name": "Sampled time points file"
+    },
+    {
+      "path-template": "[PREFIX]_freq.1D",
+      "description": "1D file of the frequency sample points (in units of 1/seconds) of the output periodogram/spectrum data set",
+      "id": "frequency_points",
+      "name": "Frequency sample points file"
+    },
+    {
+      "path-template": "[PREFIX]_amp+orig",
+      "description": "Volumetric data set containing a LS-derived amplitude spectrum",
+      "id": "amplitude_spectrum",
+      "name": "Amplitude spectrum file"
+    },
+    {
+      "path-template": "[PREFIX]_pow+orig",
+      "description": "Volumetric data set containing a LS-derived power spectrum",
+      "id": "power_spectrum",
+      "name": "Power spectrum file"
+    }
+  ]
+}

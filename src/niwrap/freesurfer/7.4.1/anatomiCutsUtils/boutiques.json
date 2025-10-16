@@ -1,0 +1,19 @@
+{
+  "name": "anatomiCutsUtils",
+  "author": "FreeSurfer Developers",
+  "description": "A tool for anatomical segmentation using graph-based methods.",
+  "command-line": "anatomiCutsUtils [MODULES]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Specify the modules to import for processing. Ensure necessary modules like 'graph_tools' are installed.",
+      "value-key": "[MODULES]",
+      "type": "String",
+      "optional": true,
+      "id": "modules",
+      "name": "Modules",
+      "list": true
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

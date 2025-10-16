@@ -1,0 +1,51 @@
+{
+  "name": "mris_parcellate_connectivity",
+  "author": "FreeSurfer Developers",
+  "description": "A tool to parcellate brain connectivity using surface and correlation data.",
+  "command-line": "mris_parcellate_connectivity [SMOOTH_ITERATIONS] [INPUT_SURFACE] [INPUT_CORRELATIONS] [OUTPUT_PARCELLATION]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Number of averaging iterations for smoothing correlation matrix.",
+      "command-line-flag": "-n",
+      "value-key": "[SMOOTH_ITERATIONS]",
+      "type": "Number",
+      "optional": true,
+      "id": "smooth_iterations",
+      "name": "Smoothing Iterations"
+    },
+    {
+      "description": "Input surface file.",
+      "value-key": "[INPUT_SURFACE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_surface",
+      "name": "Input Surface"
+    },
+    {
+      "description": "Input correlations file.",
+      "value-key": "[INPUT_CORRELATIONS]",
+      "type": "File",
+      "optional": false,
+      "id": "input_correlations",
+      "name": "Input Correlations"
+    },
+    {
+      "description": "Output parcellation file.",
+      "value-key": "[OUTPUT_PARCELLATION]",
+      "type": "String",
+      "optional": false,
+      "id": "output_parcellation",
+      "name": "Output Parcellation"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_PARCELLATION]",
+      "description": "The resulting output parcellation.",
+      "id": "parcellation_output",
+      "name": "Output Parcellation File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

@@ -1,0 +1,105 @@
+{
+  "name": "cifti_tool",
+  "author": "AFNI Developers",
+  "description": "Example tool for reading/writing CIFTI-2 datasets",
+  "command-line": "cifti_tool [INPUT_FILE] [AS_CEXT] [DISP_CEXT] [EVAL_CEXT] [EVAL_TYPE] [OUTPUT_FILE] [VERBOSE_LEVEL] [VERBOSE_READ_LEVEL] [BOTH_VERBOSE_LEVELS]",
+  "inputs": [
+    {
+      "description": "Specify input dataset",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input file",
+      "command-line-flag": "-input"
+    },
+    {
+      "description": "Where to write output",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "output_file",
+      "name": "Output file",
+      "command-line-flag": "-output"
+    },
+    {
+      "description": "Process the input as just an extension",
+      "value-key": "[AS_CEXT]",
+      "type": "Flag",
+      "id": "as_cext",
+      "name": "As CIFTI extension flag",
+      "command-line-flag": "-as_cext"
+    },
+    {
+      "description": "Display the CIFTI extension",
+      "value-key": "[DISP_CEXT]",
+      "type": "Flag",
+      "id": "disp_cext",
+      "name": "Display CIFTI extension flag",
+      "command-line-flag": "-disp_cext"
+    },
+    {
+      "description": "Evaluate the CIFTI extension",
+      "value-key": "[EVAL_CEXT]",
+      "type": "Flag",
+      "id": "eval_cext",
+      "name": "Evaluate CIFTI extension flag",
+      "command-line-flag": "-eval_cext"
+    },
+    {
+      "description": "Method for evaluation of axml elements",
+      "value-key": "[EVAL_TYPE]",
+      "type": "String",
+      "optional": true,
+      "id": "eval_type",
+      "name": "Evaluation type",
+      "command-line-flag": "-eval_type",
+      "value-choices": [
+        "has_data",
+        "has_bdata",
+        "num_tokens",
+        "show",
+        "show_names",
+        "show_summary",
+        "show_text_data"
+      ]
+    },
+    {
+      "description": "Set the verbose level",
+      "value-key": "[VERBOSE_LEVEL]",
+      "type": "Number",
+      "optional": true,
+      "id": "verbose_level",
+      "name": "Verbose level",
+      "command-line-flag": "-verb"
+    },
+    {
+      "description": "Set verbose level when reading",
+      "value-key": "[VERBOSE_READ_LEVEL]",
+      "type": "Number",
+      "optional": true,
+      "id": "verbose_read_level",
+      "name": "Verbose read level",
+      "command-line-flag": "-verb_read"
+    },
+    {
+      "description": "Apply both -verb options",
+      "value-key": "[BOTH_VERBOSE_LEVELS]",
+      "type": "Number",
+      "optional": true,
+      "id": "both_verbose_levels",
+      "name": "Both verbose levels",
+      "command-line-flag": "-vboth"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILE]",
+      "description": "Output file for results",
+      "id": "output_file",
+      "name": "Output file"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

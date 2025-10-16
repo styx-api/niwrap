@@ -1,0 +1,341 @@
+{
+  "name": "mris_convert",
+  "author": "FreeSurfer Developers",
+  "description": "This program will convert MRI-surface data formats.",
+  "command-line": "mris_convert [INPUT_FILE] [SECOND_INPUT_FILE] [OUTPUT_FILE] [PATCH] [CURV_OVERLAY_FILES] [FUNCTIONAL_DATA_FILE] [ORIG_POSITIONS] [SCALE] [RESCALE] [TALAIRACH_XFM] [NORMALS] [NEIGHBORS] [XYZ] [ANNOTATION_FILE] [PARCSTATS_FILE] [GIFTI_DATAARRAY_NUM] [LABEL_FILE] [LABEL_STATS_FILE] [COMBINE_SURFS] [MERGE_GIFTI] [SPLIT_GIFTI] [GIFTI_OUTDIR] [DELETE_CMDS] [CENTER] [VOL_GEOM] [REMOVE_VOL_GEOM] [TO_SURF] [TO_SCANNER] [TO_TKR] [USEREALRAS] [USESURFRAS] [UPSAMPLE] [VOLUME] [AREA] [ANGLE] [LABEL_TO_MASK] [CRAS_ADD] [CRAS_SUBTRACT]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input filename",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input file"
+    },
+    {
+      "description": "Second input filename to be combined, required for --combinesurfs",
+      "value-key": "[SECOND_INPUT_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "second_input_file",
+      "name": "Second input file"
+    },
+    {
+      "description": "Output filename",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_file",
+      "name": "Output file"
+    },
+    {
+      "command-line-flag": "-p",
+      "description": "Input file is a patch file, not a full surface",
+      "value-key": "[PATCH]",
+      "type": "Flag",
+      "id": "patch",
+      "name": "Patch flag"
+    },
+    {
+      "command-line-flag": "-c",
+      "description": "Input scalar curv overlay files",
+      "value-key": "[CURV_OVERLAY_FILES]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "curv_overlay_files",
+      "name": "Curv overlay files"
+    },
+    {
+      "command-line-flag": "-f",
+      "description": "Input functional time-series or other multi-frame data",
+      "value-key": "[FUNCTIONAL_DATA_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "functional_data_file",
+      "name": "Functional data file"
+    },
+    {
+      "command-line-flag": "-o",
+      "description": "Read orig positions",
+      "value-key": "[ORIG_POSITIONS]",
+      "type": "String",
+      "optional": true,
+      "id": "orig_positions",
+      "name": "Orig positions"
+    },
+    {
+      "command-line-flag": "-s",
+      "description": "Scale vertex xyz by scale",
+      "value-key": "[SCALE]",
+      "type": "Number",
+      "optional": true,
+      "id": "scale",
+      "name": "Scale"
+    },
+    {
+      "command-line-flag": "-r",
+      "description": "Rescale vertex xyz so total area is same as group average",
+      "value-key": "[RESCALE]",
+      "type": "Flag",
+      "id": "rescale",
+      "name": "Rescale flag"
+    },
+    {
+      "command-line-flag": "-t",
+      "description": "Apply talairach xfm of subject to vertex xyz",
+      "value-key": "[TALAIRACH_XFM]",
+      "type": "String",
+      "optional": true,
+      "id": "talairach_xfm",
+      "name": "Talairach xfm"
+    },
+    {
+      "command-line-flag": "-n",
+      "description": "Output ascii file where vertex data is the surface normal vector",
+      "value-key": "[NORMALS]",
+      "type": "Flag",
+      "id": "normals",
+      "name": "Normals flag"
+    },
+    {
+      "command-line-flag": "-v",
+      "description": "Write out neighbors of a vertex in each row",
+      "value-key": "[NEIGHBORS]",
+      "type": "Flag",
+      "id": "neighbors",
+      "name": "Neighbors flag"
+    },
+    {
+      "command-line-flag": "-a",
+      "description": "Print only surface xyz to ascii file",
+      "value-key": "[XYZ]",
+      "type": "Flag",
+      "id": "xyz",
+      "name": "XYZ flag"
+    },
+    {
+      "command-line-flag": "--annot",
+      "description": "Input annotation or gifti label data",
+      "value-key": "[ANNOTATION_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "annotation_file",
+      "name": "Annotation file"
+    },
+    {
+      "command-line-flag": "--parcstats",
+      "description": "Input text file containing label/val pairs for parcellation",
+      "value-key": "[PARCSTATS_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "parcstats_file",
+      "name": "Parcstats file"
+    },
+    {
+      "command-line-flag": "--da_num",
+      "description": "Input gifti dataarray number to use",
+      "value-key": "[GIFTI_DATAARRAY_NUM]",
+      "type": "Number",
+      "optional": true,
+      "id": "gifti_dataarray_num",
+      "name": "Gifti dataarray number"
+    },
+    {
+      "command-line-flag": "--label",
+      "description": "Input .label file and name for this label",
+      "value-key": "[LABEL_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "label_file",
+      "name": "Label file"
+    },
+    {
+      "command-line-flag": "--labelstats",
+      "description": "Output gifti file to which label stats will be written",
+      "value-key": "[LABEL_STATS_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "label_stats_file",
+      "name": "Label stats file"
+    },
+    {
+      "command-line-flag": "--combinesurfs",
+      "description": "Combine surface files, two input surface files required",
+      "value-key": "[COMBINE_SURFS]",
+      "type": "Flag",
+      "id": "combine_surfs",
+      "name": "Combine surfaces flag"
+    },
+    {
+      "command-line-flag": "--mergegifti",
+      "description": "Generate combined gifti file with surface and multiple curvature data",
+      "value-key": "[MERGE_GIFTI]",
+      "type": "Flag",
+      "id": "merge_gifti",
+      "name": "Merge gifti flag"
+    },
+    {
+      "command-line-flag": "--splitgifti",
+      "description": "Separate surface and data array from combined gifti file",
+      "value-key": "[SPLIT_GIFTI]",
+      "type": "Flag",
+      "id": "split_gifti",
+      "name": "Split gifti flag"
+    },
+    {
+      "command-line-flag": "--giftioutdir",
+      "description": "Output directory for generated gifti files",
+      "value-key": "[GIFTI_OUTDIR]",
+      "type": "String",
+      "optional": true,
+      "id": "gifti_outdir",
+      "name": "Gifti output directory"
+    },
+    {
+      "command-line-flag": "--delete-cmds",
+      "description": "Delete command lines in surface",
+      "value-key": "[DELETE_CMDS]",
+      "type": "Flag",
+      "id": "delete_cmds",
+      "name": "Delete cmds flag"
+    },
+    {
+      "command-line-flag": "--center",
+      "description": "Put center of surface at (0,0,0)",
+      "value-key": "[CENTER]",
+      "type": "Flag",
+      "id": "center",
+      "name": "Center flag"
+    },
+    {
+      "command-line-flag": "--vol-geom",
+      "description": "Use MRIVol to set the volume geometry",
+      "value-key": "[VOL_GEOM]",
+      "type": "String",
+      "optional": true,
+      "id": "vol_geom",
+      "name": "Volume geometry"
+    },
+    {
+      "command-line-flag": "--remove-vol-geom",
+      "description": "Set the valid flag in vg to 0",
+      "value-key": "[REMOVE_VOL_GEOM]",
+      "type": "Flag",
+      "id": "remove_vol_geom",
+      "name": "Remove volume geometry flag"
+    },
+    {
+      "command-line-flag": "--to-surf",
+      "description": "Copy coordinates from surfcoords to output (good for patches)",
+      "value-key": "[TO_SURF]",
+      "type": "String",
+      "optional": true,
+      "id": "to_surf",
+      "name": "To surface coordinates"
+    },
+    {
+      "command-line-flag": "--to-scanner",
+      "description": "Convert coordinates from native FS (tkr) coords to scanner coords",
+      "value-key": "[TO_SCANNER]",
+      "type": "Flag",
+      "id": "to_scanner",
+      "name": "To scanner flag"
+    },
+    {
+      "command-line-flag": "--to-tkr",
+      "description": "Convert coordinates from scanner coords to native FS (tkr) coords",
+      "value-key": "[TO_TKR]",
+      "type": "Flag",
+      "id": "to_tkr",
+      "name": "To TKR flag"
+    },
+    {
+      "command-line-flag": "--userealras",
+      "description": "Same as --to-scanner",
+      "value-key": "[USEREALRAS]",
+      "type": "Flag",
+      "id": "userealras",
+      "name": "Use real RAS flag"
+    },
+    {
+      "command-line-flag": "--usesurfras",
+      "description": "Same as --to-tkr",
+      "value-key": "[USESURFRAS]",
+      "type": "Flag",
+      "id": "usesurfras",
+      "name": "Use surf RAS flag"
+    },
+    {
+      "command-line-flag": "--upsample",
+      "description": "Upsample N times by splitting edges/faces",
+      "value-key": "[UPSAMPLE]",
+      "type": "String",
+      "optional": true,
+      "id": "upsample",
+      "name": "Upsample times"
+    },
+    {
+      "command-line-flag": "--volume",
+      "description": "Compute vertex-wise volume",
+      "value-key": "[VOLUME]",
+      "type": "String",
+      "optional": true,
+      "id": "volume",
+      "name": "Volume surface"
+    },
+    {
+      "command-line-flag": "--area",
+      "description": "Compute vertex-wise area",
+      "value-key": "[AREA]",
+      "type": "String",
+      "optional": true,
+      "id": "area",
+      "name": "Area surface"
+    },
+    {
+      "command-line-flag": "--angle",
+      "description": "Compute cortical orientation angles",
+      "value-key": "[ANGLE]",
+      "type": "String",
+      "optional": true,
+      "id": "angle",
+      "name": "Angle surface"
+    },
+    {
+      "command-line-flag": "--label2mask",
+      "description": "Convert a surface-based label to a binary mask",
+      "value-key": "[LABEL_TO_MASK]",
+      "type": "String",
+      "optional": true,
+      "id": "label_to_mask",
+      "name": "Label to mask surface"
+    },
+    {
+      "command-line-flag": "--cras_add",
+      "description": "Shift center to scanner coordinate center",
+      "value-key": "[CRAS_ADD]",
+      "type": "Flag",
+      "id": "cras_add",
+      "name": "CRAS Add flag"
+    },
+    {
+      "command-line-flag": "--cras_subtract",
+      "description": "Shift center from scanner coordinate center",
+      "value-key": "[CRAS_SUBTRACT]",
+      "type": "Flag",
+      "id": "cras_subtract",
+      "name": "CRAS Subtract flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILE]",
+      "description": "Output converted surface file",
+      "id": "converted_surface",
+      "name": "Converted surface output file"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

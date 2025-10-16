@@ -1,0 +1,83 @@
+{
+  "name": "@Quiet_Talkers",
+  "author": "AFNI Developers",
+  "description": "A script to find and kill AFNI processes",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "@Quiet_Talkers [SUDO] [PROG] [NPB_VAL] [NPB_RANGE] [PIF_KEY] [NO_NPB] [LIST] [QUIET]",
+  "inputs": [
+    {
+      "command-line-flag": "-sudo",
+      "description": "Invoke higher powers to kill processes that you do not own",
+      "value-key": "[SUDO]",
+      "type": "Flag",
+      "id": "sudo",
+      "name": "Sudo flag"
+    },
+    {
+      "command-line-flag": "-prog",
+      "description": "Instead of the default program list, only kill the specified program. You can use multiple -prog options",
+      "value-key": "[PROG]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "prog",
+      "name": "Program list"
+    },
+    {
+      "command-line-flag": "-npb_val",
+      "description": "Kill those programs using NIML port block NV",
+      "value-key": "[NPB_VAL]",
+      "type": "Number",
+      "list": true,
+      "optional": true,
+      "id": "npb_val",
+      "name": "NIML port block values"
+    },
+    {
+      "command-line-flag": "-npb_range",
+      "description": "Kill those using NIML port blocks between NV0 and NV1",
+      "value-key": "[NPB_RANGE]",
+      "type": "Number",
+      "list": true,
+      "min-list-entries": 2,
+      "max-list-entries": 2,
+      "optional": true,
+      "id": "npb_range",
+      "name": "NIML port block range"
+    },
+    {
+      "command-line-flag": "-pif",
+      "description": "Kill those programs that have a string matching KEY_STRING in their commandline",
+      "value-key": "[PIF_KEY]",
+      "type": "String",
+      "optional": true,
+      "id": "pif_key",
+      "name": "Key string"
+    },
+    {
+      "command-line-flag": "-no_npb",
+      "description": "Kill any program in the list regardless of -npb options or -pif",
+      "value-key": "[NO_NPB]",
+      "type": "Flag",
+      "id": "no_npb",
+      "name": "No NPB flag"
+    },
+    {
+      "command-line-flag": "-list",
+      "description": "Just list process numbers, don't run kill command",
+      "value-key": "[LIST]",
+      "type": "Flag",
+      "id": "list",
+      "name": "List flag"
+    },
+    {
+      "command-line-flag": "-quiet",
+      "description": "Do it quietly",
+      "value-key": "[QUIET]",
+      "type": "Flag",
+      "id": "quiet",
+      "name": "Quiet flag"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

@@ -1,0 +1,132 @@
+{
+  "name": "SurfToSurf",
+  "author": "AFNI Developers",
+  "description": "Interpolate data from one surface to another",
+  "command-line": "SurfToSurf [INPUT_SURFACE_1] [INPUT_SURFACE_2] [SURFACE_VOLUME] [PREFIX] [OUTPUT_PARAMS] [NODE_INDICES] [PROJ_DIR] [DATA] [NODE_DEBUG] [DEBUG_LEVEL] [MAKE_CONSISTENT] [DSET] [MAPFILE]",
+  "inputs": [
+    {
+      "description": "First input surface file (S1)",
+      "value-key": "[INPUT_SURFACE_1]",
+      "type": "File",
+      "optional": false,
+      "id": "input_surface_1",
+      "name": "Input Surface 1"
+    },
+    {
+      "description": "Second input surface file (S2)",
+      "value-key": "[INPUT_SURFACE_2]",
+      "type": "File",
+      "optional": false,
+      "id": "input_surface_2",
+      "name": "Input Surface 2"
+    },
+    {
+      "command-line-flag": "-sv",
+      "description": "Specify the surface volume (SV1)",
+      "value-key": "[SURFACE_VOLUME]",
+      "type": "File",
+      "optional": true,
+      "id": "surface_volume",
+      "name": "Surface Volume"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Specify prefix for the output file",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Output Prefix"
+    },
+    {
+      "command-line-flag": "-output_params",
+      "description": "List of mapping parameters to include in output",
+      "value-key": "[OUTPUT_PARAMS]",
+      "type": "String",
+      "optional": true,
+      "id": "output_params",
+      "name": "Output Parameters"
+    },
+    {
+      "command-line-flag": "-node_indices",
+      "description": "1D file containing node indices of S1 to consider",
+      "value-key": "[NODE_INDICES]",
+      "type": "File",
+      "optional": true,
+      "id": "node_indices",
+      "name": "Node Indices"
+    },
+    {
+      "command-line-flag": "-proj_dir",
+      "description": "1D file containing projection directions",
+      "value-key": "[PROJ_DIR]",
+      "type": "File",
+      "optional": true,
+      "id": "proj_dir",
+      "name": "Projection Directions"
+    },
+    {
+      "command-line-flag": "-data",
+      "description": "1D file containing data to be interpolated",
+      "value-key": "[DATA]",
+      "type": "File",
+      "optional": true,
+      "id": "data",
+      "name": "Data"
+    },
+    {
+      "command-line-flag": "-node_debug",
+      "description": "Node index for debugging purposes",
+      "value-key": "[NODE_DEBUG]",
+      "type": "Number",
+      "optional": true,
+      "id": "node_debug",
+      "name": "Node Debug"
+    },
+    {
+      "command-line-flag": "-debug",
+      "description": "Debugging level",
+      "value-key": "[DEBUG_LEVEL]",
+      "type": "Number",
+      "optional": true,
+      "id": "debug_level",
+      "name": "Debug Level"
+    },
+    {
+      "command-line-flag": "-make_consistent",
+      "description": "Force a consistency check and correct triangle orientation",
+      "value-key": "[MAKE_CONSISTENT]",
+      "type": "Flag",
+      "id": "make_consistent",
+      "name": "Make Consistent"
+    },
+    {
+      "command-line-flag": "-dset",
+      "description": "Dataset file for data interpolation; mutually exclusive with -data",
+      "value-key": "[DSET]",
+      "type": "File",
+      "optional": true,
+      "id": "dset",
+      "name": "Dataset"
+    },
+    {
+      "command-line-flag": "-mapfile",
+      "description": "File containing mapping parameters between surfaces S2 and S1",
+      "value-key": "[MAPFILE]",
+      "type": "File",
+      "optional": true,
+      "id": "mapfile",
+      "name": "Mapfile"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX].1D",
+      "description": "Output file in 1D format",
+      "id": "output_file",
+      "name": "Output File"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

@@ -1,0 +1,51 @@
+{
+  "name": "mri_linear_align_binary",
+  "author": "FreeSurfer Developers",
+  "description": "A tool for linear alignment of MRI images",
+  "command-line": "mri_linear_align_binary [SOURCE] [TARGET] [OUTPUT_XFORM] [TARGET_LABEL]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Source image file",
+      "value-key": "[SOURCE]",
+      "type": "File",
+      "optional": false,
+      "id": "source",
+      "name": "Source"
+    },
+    {
+      "description": "Target image file",
+      "value-key": "[TARGET]",
+      "type": "File",
+      "optional": false,
+      "id": "target",
+      "name": "Target"
+    },
+    {
+      "description": "Output transformation file",
+      "value-key": "[OUTPUT_XFORM]",
+      "type": "String",
+      "optional": false,
+      "id": "output_xform",
+      "name": "Output Transformation"
+    },
+    {
+      "command-line-flag": "-h",
+      "description": "Target label, assume source is high-resolution hippocampal labeling",
+      "value-key": "[TARGET_LABEL]",
+      "type": "String",
+      "optional": true,
+      "id": "target_label",
+      "name": "Target Label"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_XFORM]",
+      "description": "The output transformation file",
+      "id": "output_xform_file",
+      "name": "Output Transformation"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

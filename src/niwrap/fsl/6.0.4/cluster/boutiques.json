@@ -1,0 +1,394 @@
+{
+  "name": "cluster",
+  "command-line": "cluster [CONNECTIVITY] [COPE_FILE] [DLH] [FIND_MIN] [FRACTIONAL] [IN_FILE] [MINCLUSTERSIZE] [NO_TABLE] [NUM_MAXIMA] [OUT_INDEX_FILE] [OUT_INDEX_FILE_2] [OUT_LOCALMAX_TXT_FILE] [OUT_LOCALMAX_TXT_FILE_2] [OUT_LOCALMAX_VOL_FILE] [OUT_LOCALMAX_VOL_FILE_2] [OUT_MAX_FILE] [OUT_MAX_FILE_2] [OUT_MEAN_FILE] [OUT_MEAN_FILE_2] [OUT_PVAL_FILE] [OUT_PVAL_FILE_2] [OUT_SIZE_FILE] [OUT_SIZE_FILE_2] [OUT_THRESHOLD_FILE] [OUT_THRESHOLD_FILE_2] [OUTPUT_TYPE] [PEAK_DISTANCE] [PTHRESHOLD] [STD_SPACE_FILE] [THRESHOLD] [USE_MM] [VOLUME] [WARPFIELD_FILE] [XFM_FILE]",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Uses FSL cluster to perform clustering on statistical output",
+  "inputs": [
+    {
+      "id": "connectivity",
+      "name": "Connectivity",
+      "type": "Number",
+      "integer": true,
+      "value-key": "[CONNECTIVITY]",
+      "command-line-flag": "--connectivity",
+      "command-line-flag-separator": "=",
+      "description": "The connectivity of voxels (default 26).",
+      "optional": true
+    },
+    {
+      "id": "cope_file",
+      "name": "Cope file",
+      "type": "File",
+      "value-key": "[COPE_FILE]",
+      "command-line-flag": "--cope",
+      "command-line-flag-separator": "=",
+      "description": "Cope volume.",
+      "optional": true
+    },
+    {
+      "id": "dlh",
+      "name": "Dlh",
+      "type": "Number",
+      "value-key": "[DLH]",
+      "command-line-flag": "--dlh",
+      "command-line-flag-separator": "=",
+      "description": "Smoothness estimate = sqrt(det(lambda)).",
+      "optional": true
+    },
+    {
+      "id": "find_min",
+      "name": "Find min",
+      "type": "Flag",
+      "value-key": "[FIND_MIN]",
+      "command-line-flag": "--min",
+      "description": "Find minima instead of maxima.",
+      "default-value": false
+    },
+    {
+      "id": "fractional",
+      "name": "Fractional",
+      "type": "Flag",
+      "value-key": "[FRACTIONAL]",
+      "command-line-flag": "--fractional",
+      "description": "Interprets the threshold as a fraction of the robust range.",
+      "default-value": false
+    },
+    {
+      "id": "in_file",
+      "name": "In file",
+      "type": "File",
+      "value-key": "[IN_FILE]",
+      "command-line-flag": "--in",
+      "command-line-flag-separator": "=",
+      "description": "Input volume.",
+      "optional": false
+    },
+    {
+      "id": "minclustersize",
+      "name": "Minclustersize",
+      "type": "Flag",
+      "value-key": "[MINCLUSTERSIZE]",
+      "command-line-flag": "--minclustersize",
+      "description": "Prints out minimum significant cluster size.",
+      "default-value": false
+    },
+    {
+      "id": "no_table",
+      "name": "No table",
+      "type": "Flag",
+      "value-key": "[NO_TABLE]",
+      "command-line-flag": "--no_table",
+      "description": "Suppresses printing of the table info.",
+      "default-value": false
+    },
+    {
+      "id": "num_maxima",
+      "name": "Num maxima",
+      "type": "Number",
+      "integer": true,
+      "value-key": "[NUM_MAXIMA]",
+      "command-line-flag": "--num",
+      "command-line-flag-separator": "=",
+      "description": "No of local maxima to report.",
+      "optional": true
+    },
+    {
+      "id": "out_index_file",
+      "name": "Out index file",
+      "type": "String",
+      "value-key": "[OUT_INDEX_FILE]",
+      "command-line-flag": "--oindex",
+      "command-line-flag-separator": "=",
+      "description": "A boolean or file. Output of cluster index (in size order)."
+    },
+    {
+      "id": "out_index_file_2",
+      "name": "Out index file",
+      "type": "File",
+      "value-key": "[OUT_INDEX_FILE_2]",
+      "command-line-flag": "--oindex",
+      "command-line-flag-separator": "=",
+      "description": "A boolean or file. Output of cluster index (in size order).",
+      "optional": true
+    },
+    {
+      "id": "out_localmax_txt_file",
+      "name": "Out localmax txt file",
+      "type": "String",
+      "value-key": "[OUT_LOCALMAX_TXT_FILE]",
+      "command-line-flag": "--olmax",
+      "command-line-flag-separator": "=",
+      "description": "A boolean or file. Local maxima text file."
+    },
+    {
+      "id": "out_localmax_txt_file_2",
+      "name": "Out localmax txt file",
+      "type": "File",
+      "value-key": "[OUT_LOCALMAX_TXT_FILE_2]",
+      "command-line-flag": "--olmax",
+      "command-line-flag-separator": "=",
+      "description": "A boolean or file. Local maxima text file.",
+      "optional": true
+    },
+    {
+      "id": "out_localmax_vol_file",
+      "name": "Out localmax vol file",
+      "type": "String",
+      "value-key": "[OUT_LOCALMAX_VOL_FILE]",
+      "command-line-flag": "--olmaxim",
+      "command-line-flag-separator": "=",
+      "description": "A boolean or file. Output of local maxima volume."
+    },
+    {
+      "id": "out_localmax_vol_file_2",
+      "name": "Out localmax vol file",
+      "type": "File",
+      "value-key": "[OUT_LOCALMAX_VOL_FILE_2]",
+      "command-line-flag": "--olmaxim",
+      "command-line-flag-separator": "=",
+      "description": "A boolean or file. Output of local maxima volume.",
+      "optional": true
+    },
+    {
+      "id": "out_max_file",
+      "name": "Out max file",
+      "type": "String",
+      "value-key": "[OUT_MAX_FILE]",
+      "command-line-flag": "--omax",
+      "command-line-flag-separator": "=",
+      "description": "A boolean or file. Filename for output of max image."
+    },
+    {
+      "id": "out_max_file_2",
+      "name": "Out max file",
+      "type": "File",
+      "value-key": "[OUT_MAX_FILE_2]",
+      "command-line-flag": "--omax",
+      "command-line-flag-separator": "=",
+      "description": "A boolean or file. Filename for output of max image.",
+      "optional": true
+    },
+    {
+      "id": "out_mean_file",
+      "name": "Out mean file",
+      "type": "String",
+      "value-key": "[OUT_MEAN_FILE]",
+      "command-line-flag": "--omean",
+      "command-line-flag-separator": "=",
+      "description": "A boolean or file. Filename for output of mean image."
+    },
+    {
+      "id": "out_mean_file_2",
+      "name": "Out mean file",
+      "type": "File",
+      "value-key": "[OUT_MEAN_FILE_2]",
+      "command-line-flag": "--omean",
+      "command-line-flag-separator": "=",
+      "description": "A boolean or file. Filename for output of mean image.",
+      "optional": true
+    },
+    {
+      "id": "out_pval_file",
+      "name": "Out pval file",
+      "type": "String",
+      "value-key": "[OUT_PVAL_FILE]",
+      "command-line-flag": "--opvals",
+      "command-line-flag-separator": "=",
+      "description": "A boolean or file. Filename for image output of log pvals."
+    },
+    {
+      "id": "out_pval_file_2",
+      "name": "Out pval file",
+      "type": "File",
+      "value-key": "[OUT_PVAL_FILE_2]",
+      "command-line-flag": "--opvals",
+      "command-line-flag-separator": "=",
+      "description": "A boolean or file. Filename for image output of log pvals.",
+      "optional": true
+    },
+    {
+      "id": "out_size_file",
+      "name": "Out size file",
+      "type": "String",
+      "value-key": "[OUT_SIZE_FILE]",
+      "command-line-flag": "--osize",
+      "command-line-flag-separator": "=",
+      "description": "A boolean or file. Filename for output of size image."
+    },
+    {
+      "id": "out_size_file_2",
+      "name": "Out size file",
+      "type": "File",
+      "value-key": "[OUT_SIZE_FILE_2]",
+      "command-line-flag": "--osize",
+      "command-line-flag-separator": "=",
+      "description": "A boolean or file. Filename for output of size image.",
+      "optional": true
+    },
+    {
+      "id": "out_threshold_file",
+      "name": "Out threshold file",
+      "type": "String",
+      "value-key": "[OUT_THRESHOLD_FILE]",
+      "command-line-flag": "--othresh",
+      "command-line-flag-separator": "=",
+      "description": "A boolean or file. Thresholded image."
+    },
+    {
+      "id": "out_threshold_file_2",
+      "name": "Out threshold file",
+      "type": "File",
+      "value-key": "[OUT_THRESHOLD_FILE_2]",
+      "command-line-flag": "--othresh",
+      "command-line-flag-separator": "=",
+      "description": "A boolean or file. Thresholded image.",
+      "optional": true
+    },
+    {
+      "id": "output_type",
+      "name": "Output type",
+      "type": "String",
+      "value-key": "[OUTPUT_TYPE]",
+      "description": "'nifti' or 'nifti_pair' or 'nifti_gz' or 'nifti_pair_gz'. Fsl output type.",
+      "optional": true,
+      "value-choices": [
+        "NIFTI",
+        "NIFTI_PAIR",
+        "NIFTI_GZ",
+        "NIFTI_PAIR_GZ"
+      ]
+    },
+    {
+      "id": "peak_distance",
+      "name": "Peak distance",
+      "type": "Number",
+      "value-key": "[PEAK_DISTANCE]",
+      "command-line-flag": "--peakdist",
+      "command-line-flag-separator": "=",
+      "description": "Minimum distance between local maxima/minima, in mm (default 0).",
+      "optional": true
+    },
+    {
+      "id": "pthreshold",
+      "name": "Pthreshold",
+      "type": "Number",
+      "value-key": "[PTHRESHOLD]",
+      "command-line-flag": "--pthresh",
+      "command-line-flag-separator": "=",
+      "description": "P-threshold for clusters.",
+      "optional": true
+    },
+    {
+      "id": "std_space_file",
+      "name": "Std space file",
+      "type": "File",
+      "value-key": "[STD_SPACE_FILE]",
+      "command-line-flag": "--stdvol",
+      "command-line-flag-separator": "=",
+      "description": "Filename for standard-space volume.",
+      "optional": true
+    },
+    {
+      "id": "threshold",
+      "name": "Threshold",
+      "type": "Number",
+      "value-key": "[THRESHOLD]",
+      "command-line-flag": "--thresh",
+      "command-line-flag-separator": "=",
+      "description": "Threshold for input volume.",
+      "optional": false
+    },
+    {
+      "id": "use_mm",
+      "name": "Use mm",
+      "type": "Flag",
+      "value-key": "[USE_MM]",
+      "command-line-flag": "--mm",
+      "description": "Use mm, not voxel, coordinates.",
+      "default-value": false
+    },
+    {
+      "id": "volume",
+      "name": "Volume",
+      "type": "Number",
+      "integer": true,
+      "value-key": "[VOLUME]",
+      "command-line-flag": "--volume",
+      "command-line-flag-separator": "=",
+      "description": "Number of voxels in the mask.",
+      "optional": true
+    },
+    {
+      "id": "warpfield_file",
+      "name": "Warpfield file",
+      "type": "File",
+      "value-key": "[WARPFIELD_FILE]",
+      "command-line-flag": "--warpvol",
+      "command-line-flag-separator": "=",
+      "description": "File containing warpfield.",
+      "optional": true
+    },
+    {
+      "id": "xfm_file",
+      "name": "Xfm file",
+      "type": "File",
+      "value-key": "[XFM_FILE]",
+      "command-line-flag": "--xfm",
+      "command-line-flag-separator": "=",
+      "description": "Filename for linear: input->standard-space transform. non-linear: input->highres transform.",
+      "optional": true
+    }
+  ],
+  "output-files": [
+    {
+      "name": "Index file",
+      "id": "index_file",
+      "path-template": "index_file",
+      "description": "Output of cluster index (in size order)."
+    },
+    {
+      "name": "Localmax txt file",
+      "id": "localmax_txt_file",
+      "path-template": "localmax_txt_file",
+      "description": "Local maxima text file."
+    },
+    {
+      "name": "Localmax vol file",
+      "id": "localmax_vol_file",
+      "path-template": "localmax_vol_file",
+      "description": "Output of local maxima volume."
+    },
+    {
+      "name": "Max file",
+      "id": "max_file",
+      "path-template": "max_file",
+      "description": "Filename for output of max image."
+    },
+    {
+      "name": "Mean file",
+      "id": "mean_file",
+      "path-template": "mean_file",
+      "description": "Filename for output of mean image."
+    },
+    {
+      "name": "Pval file",
+      "id": "pval_file",
+      "path-template": "pval_file",
+      "description": "Filename for image output of log pvals."
+    },
+    {
+      "name": "Size file",
+      "id": "size_file",
+      "path-template": "size_file",
+      "description": "Filename for output of size image."
+    },
+    {
+      "name": "Threshold file",
+      "id": "threshold_file",
+      "path-template": "threshold_file",
+      "description": "Thresholded image."
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

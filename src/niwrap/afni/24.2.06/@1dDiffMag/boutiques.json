@@ -1,0 +1,26 @@
+{
+  "name": "@1dDiffMag",
+  "author": "AFNI Developers",
+  "description": "Computes a magnitude estimate of the first differences of a 1D file.",
+  "command-line": "@1dDiffMag [INFILE]",
+  "inputs": [
+    {
+      "description": "1D input file to compute the magnitude estimate of the first differences.",
+      "value-key": "[INFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "infile",
+      "name": "Input File"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "stdout",
+      "description": "The result as a single number displayed on stdout",
+      "id": "result_stdout",
+      "name": "Result Stdout"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

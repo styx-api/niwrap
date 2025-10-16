@@ -1,0 +1,143 @@
+{
+  "name": "3dICC",
+  "author": "AFNI Developers",
+  "description": "AFNI Program for IntraClass Correlatin (ICC) Analysis",
+  "command-line": "3dICC [MODEL] [PREFIX] [MASK] [DATA_TABLE] [BOUNDS] [JOBS] [QVARS] [QVARCENTERS] [SUBJ] [INPUT_FILE_COLUMN] [TSTAT] [DBGARGS] [CIO] [RIO]",
+  "inputs": [
+    {
+      "description": "Name of output file. For AFNI format, provide prefix only, with no view+suffix needed. Filename for NIfTI format should have .nii attached, while file name for surface data is expected to end with .niml.dset.",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "prefix",
+      "name": "Output file name",
+      "command-line-flag": "-prefix"
+    },
+    {
+      "description": "Path to mask file. Only process voxels inside this mask.",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "mask",
+      "name": "Mask file",
+      "command-line-flag": "-mask"
+    },
+    {
+      "description": "Model structure for all the variables. The expression FORMULA with more than one variable has to be surrounded within quotes. Variable names should be consistent with the ones used in the header of -dataTable.",
+      "value-key": "[MODEL]",
+      "type": "String",
+      "optional": false,
+      "id": "model",
+      "name": "Model structure"
+    },
+    {
+      "description": "List the data structure with a header as the first line. The first column is reserved with label 'Subj', and the last is reserved for 'InputFile'.",
+      "value-key": "[DATA_TABLE]",
+      "type": "String",
+      "optional": false,
+      "id": "data_table",
+      "name": "Data table",
+      "command-line-flag": "-dataTable"
+    },
+    {
+      "command-line-flag": "-bounds",
+      "description": "Bounds for outlier removal. Provide two numbers: the lower bound (lb) and the upper bound (ub). Input data will be confined within [lb, ub]. Any values beyond the bounds will be treated as missing.",
+      "value-key": "[BOUNDS]",
+      "type": "Number",
+      "list": true,
+      "optional": true,
+      "max-list-entries": 2,
+      "min-list-entries": 2,
+      "id": "bounds",
+      "name": "Outlier bounds"
+    },
+    {
+      "command-line-flag": "-jobs",
+      "description": "Number of jobs for parallel computing. Choose 1 for a single-processor computer.",
+      "value-key": "[JOBS]",
+      "type": "Number",
+      "optional": true,
+      "id": "jobs",
+      "name": "Number of jobs"
+    },
+    {
+      "command-line-flag": "-qVars",
+      "description": "Identify quantitative variables with this option. List should be separated with comma and surrounded within quotes.",
+      "value-key": "[QVARS]",
+      "type": "String",
+      "optional": true,
+      "id": "qVars",
+      "name": "Quantitative variables"
+    },
+    {
+      "command-line-flag": "-qVarCenters",
+      "description": "Specify centering values for quantitative variables identified under -qVars. Multiple centers are separated by commas and should be surrounded within quotes.",
+      "value-key": "[QVARCENTERS]",
+      "type": "String",
+      "optional": true,
+      "id": "qVarCenters",
+      "name": "Quantitative variable centers"
+    },
+    {
+      "command-line-flag": "-Subj",
+      "description": "Specify the column name that is designated as the measuring entity variable (usually subject).",
+      "value-key": "[SUBJ]",
+      "type": "String",
+      "optional": true,
+      "id": "subj",
+      "name": "Subject column name"
+    },
+    {
+      "command-line-flag": "-IF",
+      "description": "Specify the last column name that is designated for input files of effect estimate.",
+      "value-key": "[INPUT_FILE_COLUMN]",
+      "type": "String",
+      "optional": true,
+      "id": "input_file_column",
+      "name": "Input file column name"
+    },
+    {
+      "command-line-flag": "-tStat",
+      "description": "Specify the column name that is designated as the t-statistic.",
+      "value-key": "[TSTAT]",
+      "type": "String",
+      "optional": true,
+      "id": "tStat",
+      "name": "t-Statistic column name"
+    },
+    {
+      "command-line-flag": "-dbgArgs",
+      "description": "Enable R to save the parameters in a file called .3dICC.dbg.AFNI.args in the current directory for debugging.",
+      "value-key": "[DBGARGS]",
+      "type": "Flag",
+      "id": "dbgArgs",
+      "name": "Debug Args Flag"
+    },
+    {
+      "command-line-flag": "-cio",
+      "description": "Use AFNI's C io functions. Default is -cio.",
+      "value-key": "[CIO]",
+      "type": "Flag",
+      "id": "cio",
+      "name": "C IO Flag"
+    },
+    {
+      "command-line-flag": "-Rio",
+      "description": "Use R's io functions.",
+      "value-key": "[RIO]",
+      "type": "Flag",
+      "id": "rio",
+      "name": "R IO Flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX]",
+      "description": "Name of the output file",
+      "id": "output_file",
+      "name": "Output File"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

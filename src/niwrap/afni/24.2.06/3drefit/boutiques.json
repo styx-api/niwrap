@@ -1,0 +1,185 @@
+{
+  "name": "3drefit",
+  "command-line": "3drefit [ATRCOPY] [ATRFLOAT] [ATRINT] [ATRSTRING] [DEOBLIQUE] [DUPORIGIN_FILE] [IN_FILE] [NOSAVEATR] [SAVEATR] [SPACE] [XDEL] [XORIGIN] [XYZSCALE] [YDEL] [YORIGIN] [ZDEL] [ZORIGIN]",
+  "author": "AFNI Developers",
+  "description": "Changes some of the information inside a 3D dataset's header",
+  "url": "https://afni.nimh.nih.gov/",
+  "inputs": [
+    {
+      "id": "atrcopy",
+      "name": "Atrcopy",
+      "type": "String",
+      "list": true,
+      "min-list-entries": 2,
+      "max-list-entries": 2,
+      "value-key": "[ATRCOPY]",
+      "command-line-flag": "-atrcopy",
+      "description": "(file, string). Copy afni header attribute from the given file into the header of the dataset(s) being modified. for more information on afni header attributes, see documentation file readme.attributes. more than one '-atrcopy' option can be used. for afni advanced users only. do not use -atrcopy or -atrstring with other modification options. see also -copyaux.",
+      "optional": true
+    },
+    {
+      "id": "atrfloat",
+      "name": "Atrfloat",
+      "type": "String",
+      "list": true,
+      "min-list-entries": 2,
+      "max-list-entries": 2,
+      "value-key": "[ATRFLOAT]",
+      "command-line-flag": "-atrfloat",
+      "description": "(a string, a string). Create or modify floating point attributes. the input values may be specified as a single string in quotes or as a 1d filename or string, example '1 0.2 0 0 -0.2 1 0 0 0 0 1 0' or flipz.1d or '1d:1,0.2,2@0,-0.2,1,2@0,2@0,1,0'.",
+      "optional": true
+    },
+    {
+      "id": "atrint",
+      "name": "Atrint",
+      "type": "String",
+      "list": true,
+      "min-list-entries": 2,
+      "max-list-entries": 2,
+      "value-key": "[ATRINT]",
+      "command-line-flag": "-atrint",
+      "description": "(a string, a string). Create or modify integer attributes. the input values may be specified as a single string in quotes or as a 1d filename or string, example '1 0 0 0 0 1 0 0 0 0 1 0' or flipz.1d or '1d:1,0,2@0,-0,1,2@0,2@0,1,0'.",
+      "optional": true
+    },
+    {
+      "id": "atrstring",
+      "name": "Atrstring",
+      "type": "String",
+      "list": true,
+      "min-list-entries": 2,
+      "max-list-entries": 2,
+      "value-key": "[ATRSTRING]",
+      "command-line-flag": "-atrstring",
+      "description": "(a string, a string). Copy the last given string into the dataset(s) being modified, giving it the attribute name given by the last string.to be safe, the last string should be in quotes.",
+      "optional": true
+    },
+    {
+      "id": "deoblique",
+      "name": "Deoblique",
+      "type": "Flag",
+      "value-key": "[DEOBLIQUE]",
+      "command-line-flag": "-deoblique",
+      "description": "Replace current transformation matrix with cardinal matrix."
+    },
+    {
+      "id": "duporigin_file",
+      "name": "Duporigin file",
+      "type": "File",
+      "value-key": "[DUPORIGIN_FILE]",
+      "command-line-flag": "-duporigin",
+      "description": "Copies the xorigin, yorigin, and zorigin values from the header of the given dataset.",
+      "optional": true
+    },
+    {
+      "id": "in_file",
+      "name": "In file",
+      "type": "File",
+      "value-key": "[IN_FILE]",
+      "description": "Input file to 3drefit.",
+      "optional": false,
+      "mutable": true
+    },
+    {
+      "id": "nosaveatr",
+      "name": "Nosaveatr",
+      "type": "Flag",
+      "value-key": "[NOSAVEATR]",
+      "command-line-flag": "-nosaveatr",
+      "description": "Opposite of -saveatr."
+    },
+    {
+      "id": "saveatr",
+      "name": "Saveatr",
+      "type": "Flag",
+      "value-key": "[SAVEATR]",
+      "command-line-flag": "-saveatr",
+      "description": "(default) copy the attributes that are known to afni into the dset->dblk structure thereby forcing changes to known attributes to be present in the output. this option only makes sense with -atrcopy."
+    },
+    {
+      "id": "space",
+      "name": "Space",
+      "type": "String",
+      "value-key": "[SPACE]",
+      "command-line-flag": "-space",
+      "description": "'tlrc' or 'mni' or 'orig'. Associates the dataset with a specific template type, e.g. tlrc, mni, orig.",
+      "optional": true,
+      "value-choices": [
+        "TLRC",
+        "MNI",
+        "ORIG"
+      ]
+    },
+    {
+      "id": "xdel",
+      "name": "Xdel",
+      "type": "Number",
+      "value-key": "[XDEL]",
+      "command-line-flag": "-xdel",
+      "description": "New x voxel dimension in mm.",
+      "optional": true
+    },
+    {
+      "id": "xorigin",
+      "name": "Xorigin",
+      "type": "String",
+      "value-key": "[XORIGIN]",
+      "command-line-flag": "-xorigin",
+      "description": "X distance for edge voxel offset.",
+      "optional": true
+    },
+    {
+      "id": "xyzscale",
+      "name": "Xyzscale",
+      "type": "Number",
+      "value-key": "[XYZSCALE]",
+      "command-line-flag": "-xyzscale",
+      "description": "Scale the size of the dataset voxels by the given factor.",
+      "optional": true
+    },
+    {
+      "id": "ydel",
+      "name": "Ydel",
+      "type": "Number",
+      "value-key": "[YDEL]",
+      "command-line-flag": "-ydel",
+      "description": "New y voxel dimension in mm.",
+      "optional": true
+    },
+    {
+      "id": "yorigin",
+      "name": "Yorigin",
+      "type": "String",
+      "value-key": "[YORIGIN]",
+      "command-line-flag": "-yorigin",
+      "description": "Y distance for edge voxel offset.",
+      "optional": true
+    },
+    {
+      "id": "zdel",
+      "name": "Zdel",
+      "type": "Number",
+      "value-key": "[ZDEL]",
+      "command-line-flag": "-zdel",
+      "description": "New z voxel dimension in mm.",
+      "optional": true
+    },
+    {
+      "id": "zorigin",
+      "name": "Zorigin",
+      "type": "String",
+      "value-key": "[ZORIGIN]",
+      "command-line-flag": "-zorigin",
+      "description": "Z distance for edge voxel offset.",
+      "optional": true
+    }
+  ],
+  "output-files": [
+    {
+      "name": "Out file",
+      "id": "out_file",
+      "path-template": "out_file",
+      "description": "Output file."
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

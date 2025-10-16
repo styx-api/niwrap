@@ -1,0 +1,115 @@
+{
+  "name": "Surf2VolCoord",
+  "author": "AFNI Developers",
+  "description": "Relates node indices to coordinates given x y z coordinates and returns the nodes closest to them.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "Surf2VolCoord [SURFACE] [GRID_VOL] [GRID_SUBBRICK] [SV] [ONE_NODE] [CLOSEST_NODES] [QUAL] [LPI] [RAI] [VERB_LEVEL] [PREFIX]",
+  "inputs": [
+    {
+      "description": "Specify input surface.",
+      "value-key": "[SURFACE]",
+      "command-line-flag": "-i_TYPE",
+      "type": "String",
+      "optional": false,
+      "id": "surface",
+      "name": "Surface"
+    },
+    {
+      "description": "Specifies the grid for the output volume.",
+      "value-key": "[GRID_VOL]",
+      "command-line-flag": "-grid_parent",
+      "type": "File",
+      "optional": false,
+      "id": "grid_vol",
+      "name": "Grid Volume"
+    },
+    {
+      "description": "Sub-brick from which data are taken.",
+      "value-key": "[GRID_SUBBRICK]",
+      "command-line-flag": "-grid_subbrick",
+      "type": "Number",
+      "optional": true,
+      "id": "grid_subbrick",
+      "name": "Grid Subbrick"
+    },
+    {
+      "description": "Surface Volume file aligning with the surface.",
+      "value-key": "[SV]",
+      "command-line-flag": "-sv",
+      "type": "File",
+      "optional": true,
+      "id": "sv",
+      "name": "Surface Volume"
+    },
+    {
+      "description": "Specify a single node's coordinates.",
+      "value-key": "[ONE_NODE]",
+      "command-line-flag": "-one_node",
+      "type": "String",
+      "optional": true,
+      "id": "one_node",
+      "name": "One Node"
+    },
+    {
+      "description": "A coordinate file specifying coordinates for which the closest nodes will be found.",
+      "value-key": "[CLOSEST_NODES]",
+      "command-line-flag": "-closest_nodes",
+      "type": "File",
+      "optional": false,
+      "id": "closest_nodes",
+      "name": "Closest Nodes"
+    },
+    {
+      "description": "A string of characters that qualify the surface in which the closest node was found.",
+      "value-key": "[QUAL]",
+      "command-line-flag": "-qual",
+      "type": "String",
+      "optional": true,
+      "id": "qual",
+      "name": "Qual string"
+    },
+    {
+      "description": "Coordinate axis direction for values in XYZ.1D are in LPI.",
+      "value-key": "[LPI]",
+      "command-line-flag": "-LPI",
+      "type": "Flag",
+      "id": "lpi",
+      "name": "LPI Flag"
+    },
+    {
+      "description": "Coordinate axis direction for values in XYZ.1D are in RAI (default).",
+      "value-key": "[RAI]",
+      "command-line-flag": "-RAI",
+      "type": "Flag",
+      "id": "rai",
+      "name": "RAI Flag"
+    },
+    {
+      "description": "Verbosity level, default is 0.",
+      "value-key": "[VERB_LEVEL]",
+      "command-line-flag": "-verb",
+      "type": "Number",
+      "optional": true,
+      "id": "verb_level",
+      "name": "Verbosity Level"
+    },
+    {
+      "description": "Output results to file PREFIX (will overwrite). Default is stdout.",
+      "value-key": "[PREFIX]",
+      "command-line-flag": "-prefix",
+      "type": "String",
+      "optional": false,
+      "id": "prefix",
+      "name": "Prefix"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX]",
+      "description": "Output results file.",
+      "id": "results_file",
+      "name": "Results File"
+    }
+  ]
+}

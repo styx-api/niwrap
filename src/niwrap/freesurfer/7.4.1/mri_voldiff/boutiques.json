@@ -1,0 +1,86 @@
+{
+  "name": "mri_voldiff",
+  "author": "FreeSurfer Developers",
+  "description": "Determines whether two volumes are different in terms of pixel data, dimension, precision, resolution, or geometry.",
+  "command-line": "mri_voldiff [VOLUME1] [VOLUME2] [VOX2RAS_THRESH] [PIX_THRESH] [ALLOW_PRECISION] [ALLOW_RESOLUTION] [ALLOW_VOX2RAS] [DEBUG] [CHECKOPTS]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "First input volume",
+      "value-key": "[VOLUME1]",
+      "type": "File",
+      "optional": false,
+      "id": "volume1",
+      "name": "First Volume",
+      "command-line-flag": "-v1"
+    },
+    {
+      "description": "Second input volume",
+      "value-key": "[VOLUME2]",
+      "type": "File",
+      "optional": false,
+      "id": "volume2",
+      "name": "Second Volume",
+      "command-line-flag": "-v2"
+    },
+    {
+      "command-line-flag": "--vox2ras",
+      "description": "Vox2RAS threshold value",
+      "value-key": "[VOX2RAS_THRESH]",
+      "type": "Number",
+      "optional": true,
+      "id": "vox2ras_thresh",
+      "name": "Vox2RAS Threshold"
+    },
+    {
+      "command-line-flag": "--pix",
+      "description": "Pixel threshold value",
+      "value-key": "[PIX_THRESH]",
+      "type": "Number",
+      "optional": true,
+      "id": "pix_thresh",
+      "name": "Pixel Threshold"
+    },
+    {
+      "command-line-flag": "--allow-prec",
+      "description": "Allow differences in precision",
+      "value-key": "[ALLOW_PRECISION]",
+      "type": "Flag",
+      "id": "allow_precision",
+      "name": "Allow Precision Differences"
+    },
+    {
+      "command-line-flag": "--allow-res",
+      "description": "Allow differences in resolution",
+      "value-key": "[ALLOW_RESOLUTION]",
+      "type": "Flag",
+      "id": "allow_resolution",
+      "name": "Allow Resolution Differences"
+    },
+    {
+      "command-line-flag": "--allow-vox2ras",
+      "description": "Allow differences in Vox2RAS",
+      "value-key": "[ALLOW_VOX2RAS]",
+      "type": "Flag",
+      "id": "allow_vox2ras",
+      "name": "Allow Vox2RAS Differences"
+    },
+    {
+      "command-line-flag": "--debug",
+      "description": "Turn on debugging",
+      "value-key": "[DEBUG]",
+      "type": "Flag",
+      "id": "debug",
+      "name": "Debug Flag"
+    },
+    {
+      "command-line-flag": "--checkopts",
+      "description": "Don't run anything, just check options and exit",
+      "value-key": "[CHECKOPTS]",
+      "type": "Flag",
+      "id": "checkopts",
+      "name": "Check Options Flag"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

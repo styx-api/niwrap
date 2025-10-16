@@ -1,0 +1,10 @@
+{
+  "name": "fixel2voxel",
+  "source": {
+    "type": "boutiques",
+    "path": "boutiques.json"
+  },
+  "docs": {
+    "description": "Convert a fixel-based sparse-data image into some form of scalar image.\n\nFixel data can be reduced to voxel data in a number of ways:\n\n- Some statistic computed across all fixel values within a voxel: mean, sum, product, min, max, absmax, magmax\n\n- The number of fixels in each voxel: count\n\n- Some measure of crossing-fibre organisation: complexity, sf ('single-fibre')\n\n- A 4D directionally-encoded colour image: dec_unit, dec_scaled\n\n- A 4D image containing all fixel data values in each voxel unmodified: none\n\nThe -weighted option deals with the case where there is some per-fixel metric of interest that you wish to collapse into a single scalar measure per voxel, but each fixel possesses a different volume, and you wish for those fixels with greater volume to have a greater influence on the calculation than fixels with lesser volume. For instance, when estimating a voxel-based measure of mean axon diameter from per-fixel mean axon diameters, a fixel's mean axon diameter should be weigthed by its relative volume within the voxel in the calculation of that voxel mean.\n\nReferences:\n\n* Reference for 'complexity' operation:\nRiffert, T. W.; Schreiber, J.; Anwander, A. & Knosche, T. R. Beyond Fractional Anisotropy: Extraction of bundle-specific structural metrics from crossing fibre models. NeuroImage, 2014, 100, 176-191"
+  }
+}

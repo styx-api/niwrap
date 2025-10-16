@@ -1,0 +1,71 @@
+{
+  "name": "cblumwmgyri",
+  "author": "FreeSurfer Developers",
+  "description": "Segments cerebellar white matter into gyral and core components using geometrical constraints.",
+  "command-line": "cblumwmgyri [SUBJECT] [SOURCE_SEG] [N_ERODES_DILATES] [OUT_SEG] [NO_SEGSTATS] [SUBJECTS_DIR]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--s",
+      "description": "Subject identifier",
+      "value-key": "[SUBJECT]",
+      "type": "String",
+      "optional": false,
+      "id": "subject",
+      "name": "Subject"
+    },
+    {
+      "command-line-flag": "--seg",
+      "description": "Source segmentation file (default: aparc+aseg.mgz)",
+      "value-key": "[SOURCE_SEG]",
+      "type": "File",
+      "optional": true,
+      "id": "source_seg",
+      "name": "Source segmentation"
+    },
+    {
+      "command-line-flag": "--n",
+      "description": "Number of erosions/dilations (default: 2)",
+      "value-key": "[N_ERODES_DILATES]",
+      "type": "Number",
+      "optional": true,
+      "id": "n_erodes_dilates",
+      "name": "Erosions/Dilations"
+    },
+    {
+      "command-line-flag": "--o",
+      "description": "Output segmentation file (default: sourceseg+cblumwmgyri.mgz)",
+      "value-key": "[OUT_SEG]",
+      "type": "String",
+      "optional": true,
+      "id": "out_seg",
+      "name": "Output segmentation"
+    },
+    {
+      "command-line-flag": "--no-segstats",
+      "description": "Do not compute segmentation statistics",
+      "value-key": "[NO_SEGSTATS]",
+      "type": "Flag",
+      "id": "no_segstats",
+      "name": "No Segstats"
+    },
+    {
+      "command-line-flag": "--sd",
+      "description": "Subjects directory",
+      "value-key": "[SUBJECTS_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "subjects_dir",
+      "name": "Subjects Directory"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUT_SEG]",
+      "description": "Output segmentation file after processing",
+      "id": "output_seg_file",
+      "name": "Output Segmentation File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

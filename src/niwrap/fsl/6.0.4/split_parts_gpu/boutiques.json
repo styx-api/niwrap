@@ -1,0 +1,77 @@
+{
+  "name": "split_parts_gpu",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Splits parts of data for GPU processing",
+  "command-line": "split_parts_gpu [DATAFILE] [MASKFILE] [BVALS_FILE] [BVECS_FILE] [GRAD_FILE] [USE_GRAD_FILE] [TOTAL_NUM_PARTS] [OUTPUT_DIRECTORY]",
+  "inputs": [
+    {
+      "description": "Input data file",
+      "value-key": "[DATAFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "datafile",
+      "name": "Data file"
+    },
+    {
+      "description": "Input mask file",
+      "value-key": "[MASKFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "maskfile",
+      "name": "Mask file"
+    },
+    {
+      "description": "bvals file",
+      "value-key": "[BVALS_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "bvals_file",
+      "name": "bvals file"
+    },
+    {
+      "description": "bvecs file",
+      "value-key": "[BVECS_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "bvecs_file",
+      "name": "bvecs file"
+    },
+    {
+      "description": "Gradient file (can be null)",
+      "value-key": "[GRAD_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "grad_file",
+      "name": "Gradient file"
+    },
+    {
+      "description": "Use gradient file (0 or 1)",
+      "value-key": "[USE_GRAD_FILE]",
+      "type": "Number",
+      "integer": true,
+      "optional": false,
+      "id": "use_grad_file",
+      "name": "Use gradient file"
+    },
+    {
+      "description": "Total number of parts",
+      "value-key": "[TOTAL_NUM_PARTS]",
+      "type": "Number",
+      "integer": true,
+      "optional": false,
+      "id": "total_num_parts",
+      "name": "Total number of parts"
+    },
+    {
+      "description": "Output directory",
+      "value-key": "[OUTPUT_DIRECTORY]",
+      "type": "String",
+      "optional": false,
+      "id": "output_directory",
+      "name": "Output directory"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [],
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

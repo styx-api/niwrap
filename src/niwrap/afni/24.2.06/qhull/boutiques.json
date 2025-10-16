@@ -1,0 +1,188 @@
+{
+  "name": "qhull",
+  "author": "AFNI Developers",
+  "description": "Tool to compute convex hulls and related structures.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "qhull [INPUT_COORDS] [DELAUNAY] [FURTHEST_DELAUNAY] [VORONOI] [FURTHEST_VORONOI] [HALFSPACE_INTERSECTION] [TRIANGULATED_OUTPUT] [JOGGLED_INPUT] [VERIFY] [SUMMARY] [VERTICES_INCIDENT] [NORMALS] [VERTEX_COORDINATES] [HALFSPACE_INTERSECTIONS] [EXTREME_POINTS] [TOTAL_AREA_VOLUME] [OFF_FORMAT] [GEOMVIEW_OUTPUT] [MATHEMATICA_OUTPUT] [PRINT_FACETS] [OUTPUT_FILE]",
+  "inputs": [
+    {
+      "description": "Dimension, number of points, and point coordinates provided via stdin.",
+      "type": "String",
+      "optional": false,
+      "id": "input_coords",
+      "name": "Input Coordinates",
+      "value-key": "[INPUT_COORDS]"
+    },
+    {
+      "command-line-flag": "d",
+      "description": "Compute Delaunay triangulation by lifting points to a paraboloid.",
+      "type": "Flag",
+      "id": "delaunay",
+      "name": "Delaunay Triangulation",
+      "value-key": "[DELAUNAY]"
+    },
+    {
+      "command-line-flag": "d Qu",
+      "description": "Compute furthest-site Delaunay triangulation (upper convex hull).",
+      "type": "Flag",
+      "id": "furthest_delaunay",
+      "name": "Furthest-site Delaunay Triangulation",
+      "value-key": "[FURTHEST_DELAUNAY]"
+    },
+    {
+      "command-line-flag": "v",
+      "description": "Compute Voronoi diagram as the dual of the Delaunay triangulation.",
+      "type": "Flag",
+      "id": "voronoi",
+      "name": "Voronoi Diagram",
+      "value-key": "[VORONOI]"
+    },
+    {
+      "command-line-flag": "v Qu",
+      "description": "Compute furthest-site Voronoi diagram.",
+      "type": "Flag",
+      "id": "furthest_voronoi",
+      "name": "Furthest-site Voronoi Diagram",
+      "value-key": "[FURTHEST_VORONOI]"
+    },
+    {
+      "command-line-flag": "H1,1",
+      "description": "Compute halfspace intersection about [1,1,0,...] via polar duality.",
+      "type": "Flag",
+      "id": "halfspace_intersection",
+      "name": "Halfspace Intersection",
+      "value-key": "[HALFSPACE_INTERSECTION]"
+    },
+    {
+      "command-line-flag": "Qt",
+      "description": "Triangulated output.",
+      "type": "Flag",
+      "id": "triangulated_output",
+      "name": "Triangulated Output",
+      "value-key": "[TRIANGULATED_OUTPUT]"
+    },
+    {
+      "command-line-flag": "QJ",
+      "description": "Joggled input instead of merged facets.",
+      "type": "Flag",
+      "id": "joggled_input",
+      "name": "Joggled Input",
+      "value-key": "[JOGGLED_INPUT]"
+    },
+    {
+      "command-line-flag": "Tv",
+      "description": "Verify result: structure, convexity, and point inclusion.",
+      "type": "Flag",
+      "id": "verify",
+      "name": "Verify Result",
+      "value-key": "[VERIFY]"
+    },
+    {
+      "command-line-flag": "s",
+      "description": "Summary of results.",
+      "type": "Flag",
+      "id": "summary",
+      "name": "Summary of Results",
+      "value-key": "[SUMMARY]"
+    },
+    {
+      "command-line-flag": "i",
+      "description": "Vertices incident to each facet.",
+      "type": "Flag",
+      "id": "vertices_incident",
+      "name": "Vertices Incident",
+      "value-key": "[VERTICES_INCIDENT]"
+    },
+    {
+      "command-line-flag": "n",
+      "description": "Normals with offsets.",
+      "type": "Flag",
+      "id": "normals",
+      "name": "Normals with Offsets",
+      "value-key": "[NORMALS]"
+    },
+    {
+      "command-line-flag": "p",
+      "description": "Vertex coordinates (if 'Qc', includes coplanar points). If 'v', Voronoi vertices.",
+      "type": "Flag",
+      "id": "vertex_coordinates",
+      "name": "Vertex Coordinates",
+      "value-key": "[VERTEX_COORDINATES]"
+    },
+    {
+      "command-line-flag": "Fp",
+      "description": "Halfspace intersections.",
+      "type": "Flag",
+      "id": "halfspace_intersections",
+      "name": "Halfspace Intersections",
+      "value-key": "[HALFSPACE_INTERSECTIONS]"
+    },
+    {
+      "command-line-flag": "Fx",
+      "description": "Extreme points (convex hull vertices).",
+      "type": "Flag",
+      "id": "extreme_points",
+      "name": "Extreme Points",
+      "value-key": "[EXTREME_POINTS]"
+    },
+    {
+      "command-line-flag": "FA",
+      "description": "Compute total area and volume.",
+      "type": "Flag",
+      "id": "total_area_volume",
+      "name": "Total Area and Volume",
+      "value-key": "[TOTAL_AREA_VOLUME]"
+    },
+    {
+      "command-line-flag": "o",
+      "description": "OFF format (if 'v', outputs Voronoi regions).",
+      "type": "Flag",
+      "id": "off_format",
+      "name": "OFF Format",
+      "value-key": "[OFF_FORMAT]"
+    },
+    {
+      "command-line-flag": "G",
+      "description": "Geomview output (2-d, 3-d and 4-d).",
+      "type": "Flag",
+      "id": "geomview_output",
+      "name": "Geomview Output",
+      "value-key": "[GEOMVIEW_OUTPUT]"
+    },
+    {
+      "command-line-flag": "m",
+      "description": "Mathematica output (2-d and 3-d).",
+      "type": "Flag",
+      "id": "mathematica_output",
+      "name": "Mathematica Output",
+      "value-key": "[MATHEMATICA_OUTPUT]"
+    },
+    {
+      "command-line-flag": "QVn",
+      "description": "Print facets that include point n, -n if not.",
+      "type": "String",
+      "optional": true,
+      "id": "print_facets",
+      "name": "Print Facets",
+      "value-key": "[PRINT_FACETS]"
+    },
+    {
+      "command-line-flag": "TO",
+      "description": "Output results to file.",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "output_file",
+      "name": "Output File"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILE].txt",
+      "description": "Output file with the specified results.",
+      "id": "output_results",
+      "name": "Output Results"
+    }
+  ]
+}

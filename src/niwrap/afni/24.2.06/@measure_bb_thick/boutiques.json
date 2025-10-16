@@ -1,0 +1,172 @@
+{
+  "name": "@measure_bb_thick",
+  "author": "AFNI Developers",
+  "description": "Compute thickness of mask using ball and box method",
+  "command-line": "@measure_bb_thick [MASKSET] [SURFSET] [OUTDIR] [RESAMPLE] [INCREMENT] [SURFSMOOTH] [SMOOTHMM] [MAXTHICK] [DEPTH_SEARCH] [KEEP_TEMP_FILES] [BALLS_ONLY] [SURFSMOOTH_METHOD]",
+  "inputs": [
+    {
+      "description": "Mask dataset for input",
+      "value-key": "[MASKSET]",
+      "type": "File",
+      "optional": false,
+      "id": "maskset",
+      "name": "Mask dataset",
+      "command-line-flag": "-maskset"
+    },
+    {
+      "description": "Surface dataset onto which to map thickness (e.g., pial/gray matter surface)",
+      "value-key": "[SURFSET]",
+      "type": "File",
+      "optional": false,
+      "id": "surfset",
+      "name": "Surface dataset",
+      "command-line-flag": "-surfset"
+    },
+    {
+      "description": "Output directory",
+      "value-key": "[OUTDIR]",
+      "type": "String",
+      "optional": true,
+      "id": "outdir",
+      "name": "Output directory",
+      "command-line-flag": "-outdir"
+    },
+    {
+      "command-line-flag": "-resample",
+      "description": "Resample input to mm in millimeters (e.g., half a voxel or 'auto'). No resampling is done by default.",
+      "value-key": "[RESAMPLE]",
+      "type": "String",
+      "optional": true,
+      "id": "resample",
+      "name": "Resample"
+    },
+    {
+      "command-line-flag": "-increment",
+      "description": "Test thickness at increments of sub-voxel distance. Default is 1/4 voxel minimum distance (in-plane).",
+      "value-key": "[INCREMENT]",
+      "type": "Number",
+      "optional": true,
+      "id": "increment",
+      "name": "Increment"
+    },
+    {
+      "command-line-flag": "-surfsmooth",
+      "description": "Smooth surface map of thickness by mm millimeters. Default is 6 mm.",
+      "value-key": "[SURFSMOOTH]",
+      "type": "Number",
+      "optional": true,
+      "id": "surfsmooth",
+      "name": "Surface smooth"
+    },
+    {
+      "command-line-flag": "-smoothmm",
+      "description": "Smooth volume by mm FWHM in mask. Default is 2*voxelsize of mask or resampled mask.",
+      "value-key": "[SMOOTHMM]",
+      "type": "Number",
+      "optional": true,
+      "id": "smoothmm",
+      "name": "Volume smooth"
+    },
+    {
+      "command-line-flag": "-maxthick",
+      "description": "Search for maximum thickness value of mm millimeters. Default is 6 mm.",
+      "value-key": "[MAXTHICK]",
+      "type": "Number",
+      "optional": true,
+      "id": "maxthick",
+      "name": "Maximum thickness"
+    },
+    {
+      "command-line-flag": "-depthsearch",
+      "description": "Map to surface by looking for max along mm millimeter normal vectors. Default is 3 mm.",
+      "value-key": "[DEPTH_SEARCH]",
+      "type": "Number",
+      "optional": true,
+      "id": "depth_search",
+      "name": "Depth search"
+    },
+    {
+      "command-line-flag": "-keep_temp_files",
+      "description": "Do not delete the intermediate files (for testing)",
+      "value-key": "[KEEP_TEMP_FILES]",
+      "type": "Flag",
+      "id": "keep_temp_files",
+      "name": "Keep temp files flag"
+    },
+    {
+      "command-line-flag": "-balls_only",
+      "description": "Calculate only with spheres and skip boxes",
+      "value-key": "[BALLS_ONLY]",
+      "type": "Flag",
+      "id": "balls_only",
+      "name": "Balls only flag"
+    },
+    {
+      "command-line-flag": "-surfsmooth_method",
+      "description": "Heat method used for smoothing surfaces. Default is HEAT_07 but HEAT_05 is also useful for models.",
+      "value-key": "[SURFSMOOTH_METHOD]",
+      "type": "String",
+      "optional": true,
+      "id": "surfsmooth_method",
+      "name": "Surface smooth method"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTDIR]/maxfill.nii.gz",
+      "description": "Thickness/depth dataset",
+      "id": "maxfill",
+      "name": "Output maximum fill thickness file"
+    },
+    {
+      "path-template": "[OUTDIR]/bb_thick.nii.gz",
+      "description": "Volumetric thickness dataset",
+      "id": "bb_thick",
+      "name": "Output volumetric thickness file"
+    },
+    {
+      "path-template": "[OUTDIR]/bb_thick_smooth.nii.gz",
+      "description": "Smoothed volumetric thickness dataset",
+      "id": "bb_thick_smooth",
+      "name": "Output smoothed volumetric thickness file"
+    },
+    {
+      "path-template": "[OUTDIR]/bb_thick.niml.dset",
+      "description": "Unsmoothed thickness mapped to surface nodes",
+      "id": "bb_thick_niml",
+      "name": "Output unsmoothed thickness file"
+    },
+    {
+      "path-template": "[OUTDIR]/bb_thick_smooth.niml.dset",
+      "description": "Smoothed thickness mapped to surface nodes",
+      "id": "bb_thick_smooth_niml",
+      "name": "Output smoothed thickness file"
+    },
+    {
+      "path-template": "[OUTDIR]/maskset.nii.gz",
+      "description": "Mask dataset",
+      "id": "maskset_output",
+      "name": "Output mask dataset file"
+    },
+    {
+      "path-template": "[OUTDIR]/maskset_rs.nii.gz",
+      "description": "Resampled mask dataset",
+      "id": "maskset_resampled",
+      "name": "Output resampled mask dataset file"
+    },
+    {
+      "path-template": "[OUTDIR]/anat.gii",
+      "description": "Surface representation of mask volume",
+      "id": "anat_surface",
+      "name": "Output anatomical surface"
+    },
+    {
+      "path-template": "[OUTDIR]/quick.spec",
+      "description": "Simple specification file for surface to use with suma commands",
+      "id": "quick_spec",
+      "name": "Output surface specification file"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

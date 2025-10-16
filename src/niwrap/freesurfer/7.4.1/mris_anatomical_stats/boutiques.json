@@ -1,0 +1,153 @@
+{
+  "name": "mris_anatomical_stats",
+  "author": "FreeSurfer Developers",
+  "description": "This program computes a number of anatomical properties.",
+  "command-line": "mris_anatomical_stats [SUBJECTNAME] [HEMISPHERE] [SURFACENAME] [THICKNESS_RANGE] [LABEL_FILE] [THICKNESS_FILE] [ANNOTATION_FILE] [TABULAR_OUTPUT] [TABLEFILE] [LOGFILE] [NSMOOTH] [COLOR_TABLE] [NOGLOBAL] [TH3_COMPUTATION]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Subject name",
+      "value-key": "[SUBJECTNAME]",
+      "type": "String",
+      "optional": false,
+      "id": "subjectname",
+      "name": "Subject Name"
+    },
+    {
+      "description": "Hemisphere",
+      "value-key": "[HEMISPHERE]",
+      "type": "String",
+      "optional": false,
+      "id": "hemisphere",
+      "name": "Hemisphere"
+    },
+    {
+      "description": "Surface name",
+      "value-key": "[SURFACENAME]",
+      "type": "String",
+      "optional": true,
+      "id": "surfacename",
+      "name": "Surface Name"
+    },
+    {
+      "command-line-flag": "-i",
+      "description": "Only consider thicknesses in the specified range.",
+      "value-key": "[THICKNESS_RANGE]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 2,
+      "min-list-entries": 2,
+      "optional": true,
+      "id": "thickness_range",
+      "name": "Thickness Range"
+    },
+    {
+      "command-line-flag": "-l",
+      "description": "Limit calculations to specified label",
+      "value-key": "[LABEL_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "label_file",
+      "name": "Label File"
+    },
+    {
+      "command-line-flag": "-t",
+      "description": "Use specified file for computing thickness statistics",
+      "value-key": "[THICKNESS_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "thickness_file",
+      "name": "Thickness File"
+    },
+    {
+      "command-line-flag": "-a",
+      "description": "Compute properties for each label in the annotation file separately",
+      "value-key": "[ANNOTATION_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "annotation_file",
+      "name": "Annotation File"
+    },
+    {
+      "command-line-flag": "-b",
+      "description": "Tabular output",
+      "value-key": "[TABULAR_OUTPUT]",
+      "type": "Flag",
+      "id": "tabular_output",
+      "name": "Tabular Output Flag"
+    },
+    {
+      "command-line-flag": "-f",
+      "description": "Table output to tablefile. Must use -a or -l options to specify input.",
+      "value-key": "[TABLEFILE]",
+      "type": "String",
+      "optional": true,
+      "id": "tablefile",
+      "name": "Table File"
+    },
+    {
+      "command-line-flag": "-log",
+      "description": "Write stats to file named log",
+      "value-key": "[LOGFILE]",
+      "type": "String",
+      "optional": true,
+      "id": "logfile",
+      "name": "Log File"
+    },
+    {
+      "command-line-flag": "-nsmooth",
+      "description": "Smooth thickness map # of iterations before using it",
+      "value-key": "[NSMOOTH]",
+      "type": "Number",
+      "optional": true,
+      "id": "nsmooth",
+      "name": "Number of Smoothing Iterations"
+    },
+    {
+      "command-line-flag": "-c",
+      "description": "Output annotation file's color table to text file",
+      "value-key": "[COLOR_TABLE]",
+      "type": "String",
+      "optional": true,
+      "id": "color_table",
+      "name": "Color Table File"
+    },
+    {
+      "command-line-flag": "-noglobal",
+      "description": "Do not compute global brain stats",
+      "value-key": "[NOGLOBAL]",
+      "type": "Flag",
+      "id": "noglobal",
+      "name": "No Global Stats Flag"
+    },
+    {
+      "command-line-flag": "-th3",
+      "description": "Compute vertex-wise volume by dividing each obliquely truncated trilateral pyramid into three tetrahedra",
+      "value-key": "[TH3_COMPUTATION]",
+      "type": "Flag",
+      "id": "th3_computation",
+      "name": "TH3 Computation Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[LOGFILE].txt",
+      "description": "Output log file of the statistics",
+      "id": "output_log_file",
+      "name": "Output Log File"
+    },
+    {
+      "path-template": "[TABLEFILE].txt",
+      "description": "Tabular output stored in a table file",
+      "id": "output_table_file",
+      "name": "Output Table File"
+    },
+    {
+      "path-template": "[COLOR_TABLE].txt",
+      "description": "Output annotation color table file",
+      "id": "output_ctab_file",
+      "name": "Output Color Table File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

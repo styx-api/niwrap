@@ -1,0 +1,162 @@
+{
+  "name": "find_variance_lines.tcsh",
+  "author": "AFNI Developers",
+  "description": "Look for bars of high variance that might suggest scanner interference in EPI datasets.",
+  "command-line": "find_variance_lines.tcsh [INPUT_FILES] [MASK] [MIN_CVOX] [MIN_NT] [NERODE] [NFIRST] [PERCENTILE] [POLORT] [OUTPUT_DIR] [DO_CLEAN] [DO_IMG] [ECHO] [HELP] [HIST] [VER]",
+  "inputs": [
+    {
+      "description": "Input EPI datasets",
+      "value-key": "[INPUT_FILES]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "input_files",
+      "name": "Input Files"
+    },
+    {
+      "command-line-flag": "-mask",
+      "description": "Mask for computations (default=AUTO)",
+      "value-key": "[MASK]",
+      "type": "String",
+      "optional": true,
+      "id": "mask",
+      "name": "Mask"
+    },
+    {
+      "command-line-flag": "-min_cvox",
+      "description": "Minimum voxels for valid mask column (default=5)",
+      "value-key": "[MIN_CVOX]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "min_cvox",
+      "name": "Min Voxels"
+    },
+    {
+      "command-line-flag": "-min_nt",
+      "description": "Minimum number of time points required (default=10)",
+      "value-key": "[MIN_NT]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "min_nt",
+      "name": "Min Time Points"
+    },
+    {
+      "command-line-flag": "-nerode",
+      "description": "How much to erode input or auto-mask (default=0)",
+      "value-key": "[NERODE]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "nerode",
+      "name": "Erode Levels"
+    },
+    {
+      "command-line-flag": "-nfirst",
+      "description": "Discard the first VAL time points (default=0)",
+      "value-key": "[NFIRST]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "nfirst",
+      "name": "Discard Initial Time Points"
+    },
+    {
+      "command-line-flag": "-perc",
+      "description": "Percentile of variance values to scale to (default=90)",
+      "value-key": "[PERCENTILE]",
+      "type": "Number",
+      "integer": true,
+      "maximum": 99,
+      "minimum": 0,
+      "optional": true,
+      "id": "percentile",
+      "name": "Variance Percentile"
+    },
+    {
+      "command-line-flag": "-polort",
+      "description": "Polynomial detrending degree (default=A)",
+      "value-key": "[POLORT]",
+      "type": "String",
+      "optional": true,
+      "id": "polort",
+      "name": "Polynomial Detrending"
+    },
+    {
+      "command-line-flag": "-rdir",
+      "description": "Name of the output directory (default=vlines.result)",
+      "value-key": "[OUTPUT_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "output_dir",
+      "name": "Output Directory"
+    },
+    {
+      "command-line-flag": "-do_clean",
+      "description": "Do we clean up a little? (default=1)",
+      "value-key": "[DO_CLEAN]",
+      "type": "Number",
+      "integer": true,
+      "maximum": 1,
+      "minimum": 0,
+      "optional": true,
+      "id": "do_clean",
+      "name": "Clean Up"
+    },
+    {
+      "command-line-flag": "-do_img",
+      "description": "Make vline images? (default=1)",
+      "value-key": "[DO_IMG]",
+      "type": "Number",
+      "integer": true,
+      "maximum": 1,
+      "minimum": 0,
+      "optional": true,
+      "id": "do_img",
+      "name": "Generate Images"
+    },
+    {
+      "command-line-flag": "-echo",
+      "description": "Run script with shell 'echo' set (default=no)",
+      "value-key": "[ECHO]",
+      "type": "Flag",
+      "id": "echo",
+      "name": "Shell Echo"
+    },
+    {
+      "command-line-flag": "-help",
+      "description": "Show this help",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help"
+    },
+    {
+      "command-line-flag": "-hist",
+      "description": "Show the version history",
+      "value-key": "[HIST]",
+      "type": "Flag",
+      "id": "hist",
+      "name": "History"
+    },
+    {
+      "command-line-flag": "-ver",
+      "description": "Show the current version",
+      "value-key": "[VER]",
+      "type": "Flag",
+      "id": "ver",
+      "name": "Version"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_DIR]",
+      "description": "Output directory containing maps and reports.",
+      "id": "output_directory",
+      "name": "Output Directory"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

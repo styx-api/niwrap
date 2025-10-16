@@ -1,0 +1,195 @@
+{
+  "name": "mri_aparc2aseg",
+  "author": "FreeSurfer Developers",
+  "description": "Maps the cortical labels from the automatic cortical parcellation to the automatic segmentation volume.",
+  "command-line": "mri_aparc2aseg [SUBJECT] [OUTPUT_VOLFILE] [OLD_RIBBON] [NEW_RIBBON] [A2005S] [A2009S] [ANNOT_NAME] [ANNOT_TABLE] [BASE_OFFSET] [LABEL_WM] [WMPARC_DMAX] [RIP_UNKNOWN] [HYPO_AS_WM] [NO_FIX_PARAHIP] [SMOOTH_NORMALS] [CRS_TEST] [LEFT_HEMISPHERE] [RIGHT_HEMISPHERE] [THREADS] [HELP] [VERSION]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--s",
+      "description": "Name of the subject as found in the SUBJECTS_DIR.",
+      "value-key": "[SUBJECT]",
+      "type": "String",
+      "optional": true,
+      "id": "subject",
+      "name": "Subject name"
+    },
+    {
+      "command-line-flag": "--o",
+      "description": "Full path of file to save the output segmentation in. Default is mri/aparc+aseg.mgz",
+      "value-key": "[OUTPUT_VOLFILE]",
+      "type": "String",
+      "optional": true,
+      "id": "output_volfile",
+      "name": "Output Volume File"
+    },
+    {
+      "command-line-flag": "--old-ribbon",
+      "description": "Use mri/hemi.ribbon.mgz as a mask for the cortex",
+      "value-key": "[OLD_RIBBON]",
+      "type": "Flag",
+      "id": "old_ribbon",
+      "name": "Old Ribbon Flag"
+    },
+    {
+      "command-line-flag": "--new-ribbon",
+      "description": "Mask cortical voxels with mri/ribbon.mgz. Same as --volmask",
+      "value-key": "[NEW_RIBBON]",
+      "type": "Flag",
+      "id": "new_ribbon",
+      "name": "New Ribbon Flag"
+    },
+    {
+      "command-line-flag": "--a2005s",
+      "description": "Use ?h.aparc.a2005s.annot. Output will be aparc.a2005s+aseg.mgz.",
+      "value-key": "[A2005S]",
+      "type": "Flag",
+      "id": "a2005s",
+      "name": "A2005s Flag"
+    },
+    {
+      "command-line-flag": "--a2009s",
+      "description": "Use ?h.aparc.a2009s.annot. Output will be aparc.a2009s+aseg.mgz.",
+      "value-key": "[A2009S]",
+      "type": "Flag",
+      "id": "a2009s",
+      "name": "A2009s Flag"
+    },
+    {
+      "command-line-flag": "--annot",
+      "description": "Use annotname surface annotation. By default, uses ?h.aparc.annot.",
+      "value-key": "[ANNOT_NAME]",
+      "type": "String",
+      "optional": true,
+      "id": "annot_name",
+      "name": "Annotation Name"
+    },
+    {
+      "command-line-flag": "--annot-table",
+      "description": "Annotation table file. Default is $FREESURFER_HOME/Simple_surface_labels2009.txt",
+      "value-key": "[ANNOT_TABLE]",
+      "type": "String",
+      "optional": true,
+      "id": "annot_table",
+      "name": "Annotation Table"
+    },
+    {
+      "command-line-flag": "--base-offset",
+      "description": "Add offset to all segmentation ids.",
+      "value-key": "[BASE_OFFSET]",
+      "type": "Number",
+      "optional": true,
+      "id": "base_offset",
+      "name": "Base Offset"
+    },
+    {
+      "command-line-flag": "--labelwm",
+      "description": "Re-assign white matter voxel labels to the closest cortical point if within distance.",
+      "value-key": "[LABEL_WM]",
+      "type": "Flag",
+      "id": "label_wm",
+      "name": "Label WM Flag"
+    },
+    {
+      "command-line-flag": "--wmparc-dmax",
+      "description": "Max distance (mm) from cortex to be labeled as gyral WM (default 5mm)",
+      "value-key": "[WMPARC_DMAX]",
+      "type": "Number",
+      "optional": true,
+      "id": "wmparc_dmax",
+      "name": "WM Parc DM"
+    },
+    {
+      "command-line-flag": "--rip-unknown",
+      "description": "Do not label WM based on 'unknown' cortical label",
+      "value-key": "[RIP_UNKNOWN]",
+      "type": "Flag",
+      "id": "rip_unknown",
+      "name": "Rip Unknown Flag"
+    },
+    {
+      "command-line-flag": "--hypo-as-wm",
+      "description": "Label hypointensities as WM",
+      "value-key": "[HYPO_AS_WM]",
+      "type": "Flag",
+      "id": "hypo_as_wm",
+      "name": "Hypo as WM Flag"
+    },
+    {
+      "command-line-flag": "--no-fix-parahip",
+      "description": "Do not remove unconnected regions from WM parahip",
+      "value-key": "[NO_FIX_PARAHIP]",
+      "type": "Flag",
+      "id": "no_fix_parahip",
+      "name": "No Fix Parahip Flag"
+    },
+    {
+      "command-line-flag": "--smooth_normals",
+      "description": "Change number of surface normal smoothing steps (default is 10).",
+      "value-key": "[SMOOTH_NORMALS]",
+      "type": "Number",
+      "optional": true,
+      "id": "smooth_normals",
+      "name": "Smooth Normals"
+    },
+    {
+      "command-line-flag": "--crs-test",
+      "description": "Test mapping of column, row, slice",
+      "value-key": "[CRS_TEST]",
+      "type": "String",
+      "optional": true,
+      "id": "crs_test",
+      "name": "CRS Test"
+    },
+    {
+      "command-line-flag": "--lh",
+      "description": "Only process the left hemisphere",
+      "value-key": "[LEFT_HEMISPHERE]",
+      "type": "Flag",
+      "id": "left_hemisphere",
+      "name": "Left Hemisphere Flag"
+    },
+    {
+      "command-line-flag": "--rh",
+      "description": "Only process the right hemisphere",
+      "value-key": "[RIGHT_HEMISPHERE]",
+      "type": "Flag",
+      "id": "right_hemisphere",
+      "name": "Right Hemisphere Flag"
+    },
+    {
+      "command-line-flag": "--threads",
+      "description": "Run in parallel with the specified number of threads",
+      "value-key": "[THREADS]",
+      "type": "Number",
+      "optional": true,
+      "id": "threads",
+      "name": "Threads"
+    },
+    {
+      "command-line-flag": "--help",
+      "description": "Print out information on how to use this program",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help Flag"
+    },
+    {
+      "command-line-flag": "--version",
+      "description": "Print out version and exit",
+      "value-key": "[VERSION]",
+      "type": "Flag",
+      "id": "version",
+      "name": "Version Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "mri/aparc+aseg.mgz",
+      "description": "Output segmentation volume.",
+      "id": "output_volume",
+      "name": "Segmented Volume"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

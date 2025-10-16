@@ -1,0 +1,90 @@
+{
+  "name": "surface-average",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -surface-average [SURFACE_OUT] [OPT_STDDEV_STDDEV_METRIC_OUT] [OPT_UNCERTAINTY_UNCERT_METRIC_OUT] [SURF]",
+  "description": "Average surface files together.\n\nThe 3D sample standard deviation is computed as 'sqrt(sum(squaredlength(xyz - mean(xyz)))/(n - 1))'.\n\nUncertainty is a legacy measure used in caret5, and is computed as 'sum(length(xyz - mean(xyz)))/n'.\n\nWhen weights are used, the 3D sample standard deviation treats them as reliability weights.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "surface_out",
+      "name": "surface_out",
+      "type": "String",
+      "description": "the output averaged surface",
+      "optional": false,
+      "value-key": "[SURFACE_OUT]"
+    },
+    {
+      "id": "opt_stddev_stddev_metric_out",
+      "name": "opt_stddev_stddev_metric_out",
+      "command-line-flag": "-stddev",
+      "description": "compute 3D sample standard deviation: the output metric for 3D sample standard deviation",
+      "optional": true,
+      "value-key": "[OPT_STDDEV_STDDEV_METRIC_OUT]",
+      "type": "String"
+    },
+    {
+      "id": "opt_uncertainty_uncert_metric_out",
+      "name": "opt_uncertainty_uncert_metric_out",
+      "command-line-flag": "-uncertainty",
+      "description": "compute caret5 'uncertainty': the output metric for uncertainty",
+      "optional": true,
+      "value-key": "[OPT_UNCERTAINTY_UNCERT_METRIC_OUT]",
+      "type": "String"
+    },
+    {
+      "id": "surf",
+      "name": "surf",
+      "description": "specify a surface to include in the average",
+      "type": {
+        "id": "surf",
+        "name": "surf",
+        "description": "specify a surface to include in the average",
+        "command-line": "-surf [SURFACE] [OPT_WEIGHT_WEIGHT]",
+        "inputs": [
+          {
+            "id": "surface",
+            "name": "surface",
+            "description": "a surface file to average",
+            "optional": false,
+            "value-key": "[SURFACE]",
+            "type": "File"
+          },
+          {
+            "id": "opt_weight_weight",
+            "name": "opt_weight_weight",
+            "command-line-flag": "-weight",
+            "description": "specify a weighted average: the weight to use (default 1)",
+            "optional": true,
+            "value-key": "[OPT_WEIGHT_WEIGHT]",
+            "type": "Number",
+            "integer": false
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[SURF]",
+      "list": true
+    }
+  ],
+  "output-files": [
+    {
+      "id": "surface_out",
+      "name": "surface_out",
+      "path-template": "[SURFACE_OUT]",
+      "description": "the output averaged surface"
+    },
+    {
+      "id": "opt_stddev_stddev_metric_out",
+      "name": "opt_stddev_stddev_metric_out",
+      "path-template": "[OPT_STDDEV_STDDEV_METRIC_OUT]",
+      "description": "compute 3D sample standard deviation: the output metric for 3D sample standard deviation"
+    },
+    {
+      "id": "opt_uncertainty_uncert_metric_out",
+      "name": "opt_uncertainty_uncert_metric_out",
+      "path-template": "[OPT_UNCERTAINTY_UNCERT_METRIC_OUT]",
+      "description": "compute caret5 'uncertainty': the output metric for uncertainty"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

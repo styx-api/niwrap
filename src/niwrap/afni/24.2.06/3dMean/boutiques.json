@@ -1,0 +1,174 @@
+{
+  "name": "3dMean",
+  "author": "AFNI Developers",
+  "description": "Takes the voxel-by-voxel mean of all input datasets; designed to be faster than 3dcalc.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dMean [INPUT_FILES] [VERBOSE] [PREFIX] [DATUM] [FSCALE] [GSCALE] [NSCALE] [NON_ZERO] [STDEV] [SQR] [SUM] [COUNT] [MAX] [MIN] [ABSMAX] [SIGNED_ABSMAX] [MASK_INTER] [MASK_UNION] [WEIGHTSET]",
+  "inputs": [
+    {
+      "description": "Input datasets",
+      "value-key": "[INPUT_FILES]",
+      "type": "File",
+      "optional": false,
+      "list": true,
+      "id": "input_files",
+      "name": "Input Files"
+    },
+    {
+      "command-line-flag": "-verbose",
+      "description": "Print out some information along the way",
+      "value-key": "[VERBOSE]",
+      "type": "Flag",
+      "id": "verbose",
+      "name": "Verbose Flag"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Sets the prefix of the output dataset",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Prefix"
+    },
+    {
+      "command-line-flag": "-datum",
+      "description": "Sets the datum of the output dataset",
+      "value-key": "[DATUM]",
+      "type": "String",
+      "optional": true,
+      "id": "datum",
+      "name": "Datum"
+    },
+    {
+      "command-line-flag": "-fscale",
+      "description": "Force scaling of the output to the maximum integer range",
+      "value-key": "[FSCALE]",
+      "type": "Flag",
+      "id": "fscale",
+      "name": "Force Scale Flag"
+    },
+    {
+      "command-line-flag": "-gscale",
+      "description": "Force scaling of the output to the maximum integer range, with uniform scaling factor for each sub-brick",
+      "value-key": "[GSCALE]",
+      "type": "Flag",
+      "id": "gscale",
+      "name": "Global Scale Flag"
+    },
+    {
+      "command-line-flag": "-nscale",
+      "description": "Don't do any scaling on output to byte or short datasets. Only use if you want the output dataset to be integer-valued.",
+      "value-key": "[NSCALE]",
+      "type": "Flag",
+      "id": "nscale",
+      "name": "No Scale Flag"
+    },
+    {
+      "command-line-flag": "-non_zero",
+      "description": "Use only non-zero values for calculation of mean, min, max, sum, squares",
+      "value-key": "[NON_ZERO]",
+      "type": "Flag",
+      "id": "non_zero",
+      "name": "Non-zero Values Flag"
+    },
+    {
+      "command-line-flag": "-sd",
+      "description": "Calculate the standard deviation, sqrt(variance), instead of the mean (cannot be used with -sqr, -sum or -non_zero)",
+      "value-key": "[STDEV]",
+      "type": "Flag",
+      "id": "stdev",
+      "name": "Standard Deviation Flag"
+    },
+    {
+      "command-line-flag": "-sqr",
+      "description": "Average the squares, instead of the values",
+      "value-key": "[SQR]",
+      "type": "Flag",
+      "id": "sqr",
+      "name": "Average Squares Flag"
+    },
+    {
+      "command-line-flag": "-sum",
+      "description": "Just take the sum (don't divide by number of datasets)",
+      "value-key": "[SUM]",
+      "type": "Flag",
+      "id": "sum",
+      "name": "Sum Flag"
+    },
+    {
+      "command-line-flag": "-count",
+      "description": "Compute only the count of non-zero voxels",
+      "value-key": "[COUNT]",
+      "type": "Flag",
+      "id": "count",
+      "name": "Count Flag"
+    },
+    {
+      "command-line-flag": "-max",
+      "description": "Find the maximum at each voxel",
+      "value-key": "[MAX]",
+      "type": "Flag",
+      "id": "max",
+      "name": "Max Flag"
+    },
+    {
+      "command-line-flag": "-min",
+      "description": "Find the minimum at each voxel",
+      "value-key": "[MIN]",
+      "type": "Flag",
+      "id": "min",
+      "name": "Min Flag"
+    },
+    {
+      "command-line-flag": "-absmax",
+      "description": "Find maximum absolute value at each voxel",
+      "value-key": "[ABSMAX]",
+      "type": "Flag",
+      "id": "absmax",
+      "name": "Absolute Max Flag"
+    },
+    {
+      "command-line-flag": "-signed_absmax",
+      "description": "Find extremes with maximum absolute value but preserve sign",
+      "value-key": "[SIGNED_ABSMAX]",
+      "type": "Flag",
+      "id": "signed_absmax",
+      "name": "Signed Absolute Max Flag"
+    },
+    {
+      "command-line-flag": "-mask_inter",
+      "description": "Create a simple intersection mask",
+      "value-key": "[MASK_INTER]",
+      "type": "Flag",
+      "id": "mask_inter",
+      "name": "Intersection Mask Flag"
+    },
+    {
+      "command-line-flag": "-mask_union",
+      "description": "Create a simple union mask",
+      "value-key": "[MASK_UNION]",
+      "type": "Flag",
+      "id": "mask_union",
+      "name": "Union Mask Flag"
+    },
+    {
+      "command-line-flag": "-weightset",
+      "description": "Sum of N dsets will be weighted by N volume WSET. This weight dataset must be of type float.",
+      "value-key": "[WEIGHTSET]",
+      "type": "File",
+      "optional": true,
+      "id": "weightset",
+      "name": "Weightset"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX]",
+      "description": "Output dataset",
+      "id": "output_file",
+      "name": "Output File"
+    }
+  ]
+}

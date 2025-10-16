@@ -1,0 +1,55 @@
+{
+  "name": "mris_shrinkwrap",
+  "description": "Generate shrink-wrapped tessellations of the input volume",
+  "command-line": "mris_shrinkwrap [VOLUME] [OUTPUT_NAME] [THRESHOLD]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "volume",
+      "name": "Input Volume",
+      "type": "File",
+      "description": "Input image volume for shrink wrap.",
+      "value-key": "[VOLUME]",
+      "optional": false
+    },
+    {
+      "id": "output_name",
+      "name": "Output Base Name",
+      "type": "String",
+      "description": "Base name for output surface files.",
+      "value-key": "[OUTPUT_NAME]",
+      "optional": false
+    },
+    {
+      "command-line-flag": "-t",
+      "id": "threshold",
+      "name": "Threshold",
+      "type": "Number",
+      "description": "Apply threshold to image before deforming on distance transform.",
+      "value-key": "[THRESHOLD]",
+      "optional": true
+    }
+  ],
+  "output-files": [
+    {
+      "id": "inner_skull",
+      "name": "Inner Skull Surface",
+      "path-template": "[OUTPUT_NAME]_inner_skull.tri",
+      "description": "Output surface file representing the inner skull."
+    },
+    {
+      "id": "outer_skull",
+      "name": "Outer Skull Surface",
+      "path-template": "[OUTPUT_NAME]_outer_skull.tri",
+      "description": "Output surface file representing the outer skull."
+    },
+    {
+      "id": "outer_skin",
+      "name": "Outer Skin Surface",
+      "path-template": "[OUTPUT_NAME]_outer_skin.tri",
+      "description": "Output surface file representing the outer skin."
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

@@ -1,0 +1,73 @@
+{
+  "name": "fiber-dot-products",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -fiber-dot-products [WHITE_SURF] [FIBER_FILE] [MAX_DIST] [DIRECTION] [DOT_METRIC] [F_METRIC]",
+  "description": "Compute dot products of fiber orientations with surface normals.\n\nFor each vertex, this command finds the closest fiber population that satisfies the <direction> test, and computes the absolute value of the dot product of the surface normal and the normalized mean direction of each fiber.  The <direction> test must be one of INSIDE, OUTSIDE, or ANY, which causes the command to only use fiber populations that are inside the surface, outside the surface, or to not care which direction it is from the surface.  Each fiber population is output in a separate metric column.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "white_surf",
+      "name": "white_surf",
+      "description": "the white/gray boundary surface",
+      "optional": false,
+      "value-key": "[WHITE_SURF]",
+      "type": "File"
+    },
+    {
+      "id": "fiber_file",
+      "name": "fiber_file",
+      "description": "the fiber orientation file",
+      "optional": false,
+      "value-key": "[FIBER_FILE]",
+      "type": "File"
+    },
+    {
+      "id": "max_dist",
+      "name": "max_dist",
+      "description": "the maximum distance from any surface vertex a fiber population may be, in mm",
+      "optional": false,
+      "value-key": "[MAX_DIST]",
+      "type": "Number",
+      "integer": false
+    },
+    {
+      "id": "direction",
+      "name": "direction",
+      "description": "test against surface for whether a fiber population should be used",
+      "optional": false,
+      "value-key": "[DIRECTION]",
+      "type": "String"
+    },
+    {
+      "id": "dot_metric",
+      "name": "dot_metric",
+      "type": "String",
+      "description": "the metric of dot products",
+      "optional": false,
+      "value-key": "[DOT_METRIC]"
+    },
+    {
+      "id": "f_metric",
+      "name": "f_metric",
+      "type": "String",
+      "description": "a metric of the f values of the fiber distributions",
+      "optional": false,
+      "value-key": "[F_METRIC]"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "dot_metric",
+      "name": "dot_metric",
+      "path-template": "[DOT_METRIC]",
+      "description": "the metric of dot products"
+    },
+    {
+      "id": "f_metric",
+      "name": "f_metric",
+      "path-template": "[F_METRIC]",
+      "description": "a metric of the f values of the fiber distributions"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

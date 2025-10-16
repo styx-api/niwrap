@@ -1,0 +1,64 @@
+{
+  "name": "3dPVmap",
+  "author": "AFNI Developers",
+  "description": "Computes the first two principal component vectors of a time series dataset, then outputs the R-squared coefficient of each voxel time series with these first two components.",
+  "command-line": "3dPVmap [PREFIX] [MASK] [AUTOMASK] [INPUTDATASET]",
+  "inputs": [
+    {
+      "command-line-flag": "-prefix",
+      "description": "Output prefix for generated files",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Output Prefix"
+    },
+    {
+      "command-line-flag": "-mask",
+      "description": "Mask dataset (e.g., brainmask.nii)",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "mask",
+      "name": "Mask File"
+    },
+    {
+      "command-line-flag": "-automask",
+      "description": "Automatically generate a mask from the input dataset",
+      "value-key": "[AUTOMASK]",
+      "type": "Flag",
+      "id": "automask",
+      "name": "Automask Flag"
+    },
+    {
+      "description": "Input dataset (e.g., fred.nii)",
+      "value-key": "[INPUTDATASET]",
+      "type": "File",
+      "optional": false,
+      "id": "inputdataset",
+      "name": "Input Dataset"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX]+orig.BRIK",
+      "description": "Output PVmap file",
+      "id": "outbrik",
+      "name": "Output PVmap BRIK File"
+    },
+    {
+      "path-template": "[PREFIX]+orig.HEAD",
+      "description": "Output PVmap header file",
+      "id": "outhead",
+      "name": "Output PVmap Head File"
+    },
+    {
+      "path-template": "[PREFIX].1D",
+      "description": "Principal component time series vectors",
+      "id": "pc_vectors",
+      "name": "Principal Component Time Series Vectors"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

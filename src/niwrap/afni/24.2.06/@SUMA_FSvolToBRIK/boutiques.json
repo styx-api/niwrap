@@ -1,0 +1,40 @@
+{
+  "name": "@SUMA_FSvolToBRIK",
+  "author": "AFNI Developers",
+  "description": "A script to convert COR- or .mgz files from FreeSurfer to BRIK format",
+  "command-line": "@SUMA_FSvolToBRIK [FS_VOL_DATA] [PREFIX]",
+  "inputs": [
+    {
+      "description": "Input FreeSurfer volume data (e.g. COR- images or .mgz volume)",
+      "value-key": "[FS_VOL_DATA]",
+      "type": "File",
+      "optional": false,
+      "id": "fs_vol_data",
+      "name": "FreeSurfer Volume Data"
+    },
+    {
+      "description": "Prefix for output BRIK volume",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "prefix",
+      "name": "Output Prefix"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX].BRIK",
+      "description": "Output BRIK volume converted from FreeSurfer data",
+      "id": "out_brik",
+      "name": "Output BRIK file"
+    },
+    {
+      "path-template": "[PREFIX].HEAD",
+      "description": "Header file for the output BRIK volume",
+      "id": "out_head",
+      "name": "Output HEAD file"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

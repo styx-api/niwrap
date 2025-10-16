@@ -1,0 +1,194 @@
+{
+  "name": "cifti-weighted-stats",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -cifti-weighted-stats [CIFTI_IN] [SPATIAL_WEIGHTS] [OPT_CIFTI_WEIGHTS_WEIGHT_CIFTI] [OPT_COLUMN_COLUMN] [ROI] [OPT_MEAN] [STDEV] [OPT_PERCENTILE_PERCENT] [OPT_SUM] [OPT_SHOW_MAP_NAME]",
+  "description": "Weighted statistics along cifti columns.\n\nIf the mapping along column is brain models, for each column of the input, the specified operation is done on each surface and across all voxels, and the results are printed on separate lines.  For other mapping types, the operation is done on each column, and one line per map is printed.  Exactly one of -spatial-weights or -cifti-weights must be specified.  Use -column to only give output for a single column.  If the -roi option is used without -match-maps, then each line will contain as many numbers as there are maps in the ROI file, separated by tab characters.  Exactly one of -mean, -stdev, -percentile or -sum must be specified.\n\nUsing -sum with -spatial-weights (or with -cifti-weights and a cifti containing weights of similar meaning) is equivalent to integrating with respect to area and volume.  When the input is binary ROIs, this will therefore output the area or volume of each ROI.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "cifti_in",
+      "name": "cifti_in",
+      "description": "the input cifti",
+      "optional": false,
+      "value-key": "[CIFTI_IN]",
+      "type": "File"
+    },
+    {
+      "id": "spatial_weights",
+      "name": "spatial_weights",
+      "description": "use vertex area and voxel volume as weights",
+      "type": {
+        "id": "spatial_weights",
+        "name": "spatial_weights",
+        "description": "use vertex area and voxel volume as weights",
+        "command-line": "-spatial-weights [OPT_LEFT_AREA_SURF_LEFT_SURF] [OPT_RIGHT_AREA_SURF_RIGHT_SURF] [OPT_CEREBELLUM_AREA_SURF_CEREBELLUM_SURF] [OPT_LEFT_AREA_METRIC_LEFT_METRIC] [OPT_RIGHT_AREA_METRIC_RIGHT_METRIC] [OPT_CEREBELLUM_AREA_METRIC_CEREBELLUM_METRIC]",
+        "inputs": [
+          {
+            "id": "opt_left_area_surf_left_surf",
+            "name": "opt_left_area_surf_left_surf",
+            "command-line-flag": "-left-area-surf",
+            "description": "use a surface for left vertex areas: the left surface to use, areas are in mm^2",
+            "optional": true,
+            "value-key": "[OPT_LEFT_AREA_SURF_LEFT_SURF]",
+            "type": "File"
+          },
+          {
+            "id": "opt_right_area_surf_right_surf",
+            "name": "opt_right_area_surf_right_surf",
+            "command-line-flag": "-right-area-surf",
+            "description": "use a surface for right vertex areas: the right surface to use, areas are in mm^2",
+            "optional": true,
+            "value-key": "[OPT_RIGHT_AREA_SURF_RIGHT_SURF]",
+            "type": "File"
+          },
+          {
+            "id": "opt_cerebellum_area_surf_cerebellum_surf",
+            "name": "opt_cerebellum_area_surf_cerebellum_surf",
+            "command-line-flag": "-cerebellum-area-surf",
+            "description": "use a surface for cerebellum vertex areas: the cerebellum surface to use, areas are in mm^2",
+            "optional": true,
+            "value-key": "[OPT_CEREBELLUM_AREA_SURF_CEREBELLUM_SURF]",
+            "type": "File"
+          },
+          {
+            "id": "opt_left_area_metric_left_metric",
+            "name": "opt_left_area_metric_left_metric",
+            "command-line-flag": "-left-area-metric",
+            "description": "use a metric file for left vertex areas: metric file containing left vertex areas",
+            "optional": true,
+            "value-key": "[OPT_LEFT_AREA_METRIC_LEFT_METRIC]",
+            "type": "File"
+          },
+          {
+            "id": "opt_right_area_metric_right_metric",
+            "name": "opt_right_area_metric_right_metric",
+            "command-line-flag": "-right-area-metric",
+            "description": "use a metric file for right vertex areas: metric file containing right vertex areas",
+            "optional": true,
+            "value-key": "[OPT_RIGHT_AREA_METRIC_RIGHT_METRIC]",
+            "type": "File"
+          },
+          {
+            "id": "opt_cerebellum_area_metric_cerebellum_metric",
+            "name": "opt_cerebellum_area_metric_cerebellum_metric",
+            "command-line-flag": "-cerebellum-area-metric",
+            "description": "use a metric file for cerebellum vertex areas: metric file containing cerebellum vertex areas",
+            "optional": true,
+            "value-key": "[OPT_CEREBELLUM_AREA_METRIC_CEREBELLUM_METRIC]",
+            "type": "File"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[SPATIAL_WEIGHTS]"
+    },
+    {
+      "id": "opt_cifti_weights_weight_cifti",
+      "name": "opt_cifti_weights_weight_cifti",
+      "command-line-flag": "-cifti-weights",
+      "description": "use a cifti file containing weights: the weights to use, as a cifti file",
+      "optional": true,
+      "value-key": "[OPT_CIFTI_WEIGHTS_WEIGHT_CIFTI]",
+      "type": "File"
+    },
+    {
+      "id": "opt_column_column",
+      "name": "opt_column_column",
+      "command-line-flag": "-column",
+      "description": "only display output for one column: the column to use (1-based)",
+      "optional": true,
+      "value-key": "[OPT_COLUMN_COLUMN]",
+      "type": "Number",
+      "integer": true
+    },
+    {
+      "id": "roi",
+      "name": "roi",
+      "description": "only consider data inside an roi",
+      "type": {
+        "id": "roi",
+        "name": "roi",
+        "description": "only consider data inside an roi",
+        "command-line": "-roi [ROI_CIFTI] [OPT_MATCH_MAPS]",
+        "inputs": [
+          {
+            "id": "roi_cifti",
+            "name": "roi_cifti",
+            "description": "the roi, as a cifti file",
+            "optional": false,
+            "value-key": "[ROI_CIFTI]",
+            "type": "File"
+          },
+          {
+            "id": "opt_match_maps",
+            "name": "opt_match_maps",
+            "command-line-flag": "-match-maps",
+            "description": "each column of input uses the corresponding column from the roi file",
+            "type": "Flag",
+            "value-key": "[OPT_MATCH_MAPS]"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[ROI]"
+    },
+    {
+      "id": "opt_mean",
+      "name": "opt_mean",
+      "command-line-flag": "-mean",
+      "description": "compute weighted mean",
+      "type": "Flag",
+      "value-key": "[OPT_MEAN]"
+    },
+    {
+      "id": "stdev",
+      "name": "stdev",
+      "description": "compute weighted standard deviation",
+      "type": {
+        "id": "stdev",
+        "name": "stdev",
+        "description": "compute weighted standard deviation",
+        "command-line": "-stdev [OPT_SAMPLE]",
+        "inputs": [
+          {
+            "id": "opt_sample",
+            "name": "opt_sample",
+            "command-line-flag": "-sample",
+            "description": "estimate population stdev from the sample",
+            "type": "Flag",
+            "value-key": "[OPT_SAMPLE]"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[STDEV]"
+    },
+    {
+      "id": "opt_percentile_percent",
+      "name": "opt_percentile_percent",
+      "command-line-flag": "-percentile",
+      "description": "compute weighted percentile: the percentile to find, must be between 0 and 100",
+      "optional": true,
+      "value-key": "[OPT_PERCENTILE_PERCENT]",
+      "type": "Number",
+      "integer": false
+    },
+    {
+      "id": "opt_sum",
+      "name": "opt_sum",
+      "command-line-flag": "-sum",
+      "description": "compute weighted sum",
+      "type": "Flag",
+      "value-key": "[OPT_SUM]"
+    },
+    {
+      "id": "opt_show_map_name",
+      "name": "opt_show_map_name",
+      "command-line-flag": "-show-map-name",
+      "description": "print map index and name before each output",
+      "type": "Flag",
+      "value-key": "[OPT_SHOW_MAP_NAME]"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

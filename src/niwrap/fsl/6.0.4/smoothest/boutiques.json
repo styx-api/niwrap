@@ -1,0 +1,54 @@
+{
+  "name": "smoothest",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Tool to estimate smoothness of data from FSL",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "smoothest [DOF] [RESIDUAL_FIT_IMAGE] [ZSTAT_IMAGE] [MASK] [VERBOSE_FLAG]",
+  "inputs": [
+    {
+      "command-line-flag": "-d",
+      "description": "Number of degrees of freedom",
+      "value-key": "[DOF]",
+      "type": "Number",
+      "optional": true,
+      "id": "dof",
+      "name": "Degrees of Freedom"
+    },
+    {
+      "command-line-flag": "-r",
+      "description": "Filename of `residual-fit` image (use -d)",
+      "value-key": "[RESIDUAL_FIT_IMAGE]",
+      "type": "File",
+      "optional": true,
+      "id": "residual_fit_image",
+      "name": "Residual Fit Image"
+    },
+    {
+      "command-line-flag": "-z",
+      "description": "Filename of zstat image (not with -d)",
+      "value-key": "[ZSTAT_IMAGE]",
+      "type": "File",
+      "optional": true,
+      "id": "zstat_image",
+      "name": "Zstat Image"
+    },
+    {
+      "command-line-flag": "-m",
+      "description": "Brain mask volume",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": false,
+      "id": "mask",
+      "name": "Brain Mask"
+    },
+    {
+      "command-line-flag": "-V",
+      "description": "Switch on diagnostic messages",
+      "value-key": "[VERBOSE_FLAG]",
+      "type": "Flag",
+      "id": "verbose_flag",
+      "name": "Verbose Flag"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

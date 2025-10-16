@@ -1,0 +1,80 @@
+{
+  "name": "whirlgif",
+  "author": "AFNI Developers",
+  "description": "A quick program that reads a series of GIF files and produces a single GIF file composed of those images.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "whirlgif [VERBOSE] [LOOP] [TRANSPARENCY_INDEX] [INTER_FRAME_DELAY] [OUTFILE] [INFILE] [GIF_FILES]",
+  "inputs": [
+    {
+      "command-line-flag": "-v",
+      "description": "Verbose mode",
+      "value-key": "[VERBOSE]",
+      "type": "Flag",
+      "id": "verbose",
+      "name": "Verbose Flag"
+    },
+    {
+      "command-line-flag": "-loop",
+      "description": "Add the Netscape 'loop' extension. Optionally specify a loop count.",
+      "value-key": "[LOOP]",
+      "type": "String",
+      "optional": true,
+      "id": "loop",
+      "name": "Loop Flag"
+    },
+    {
+      "command-line-flag": "-trans",
+      "description": "Set the colormap index 'index' to be transparent.",
+      "value-key": "[TRANSPARENCY_INDEX]",
+      "type": "Number",
+      "optional": true,
+      "id": "transparency_index",
+      "name": "Transparency Index"
+    },
+    {
+      "command-line-flag": "-time",
+      "description": "Inter-frame timing delay.",
+      "value-key": "[INTER_FRAME_DELAY]",
+      "type": "Number",
+      "optional": true,
+      "id": "inter_frame_delay",
+      "name": "Inter-frame Delay"
+    },
+    {
+      "command-line-flag": "-o",
+      "description": "Specify the output file to write the results to.",
+      "value-key": "[OUTFILE]",
+      "type": "String",
+      "optional": true,
+      "id": "outfile",
+      "name": "Output File"
+    },
+    {
+      "command-line-flag": "-i",
+      "description": "Read a list of filenames from a file.",
+      "value-key": "[INFILE]",
+      "type": "File",
+      "optional": true,
+      "id": "infile",
+      "name": "Input File List"
+    },
+    {
+      "description": "Input GIF files to be combined into a single GIF file.",
+      "value-key": "[GIF_FILES]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "gif_files",
+      "name": "Input GIF Files"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTFILE]",
+      "description": "The output GIF file",
+      "id": "output_gif",
+      "name": "Output GIF File"
+    }
+  ]
+}

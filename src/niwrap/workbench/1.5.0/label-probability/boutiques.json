@@ -1,0 +1,42 @@
+{
+  "name": "label-probability",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -label-probability [LABEL_MAPS] [PROBABILITY_METRIC_OUT] [OPT_EXCLUDE_UNLABELED]",
+  "description": "Find frequency of surface labels.\n\nThis command outputs a set of soft ROIs, one for each label in the input, where the value is how many of the input maps had that label at that vertex, divided by the number of input maps.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "label_maps",
+      "name": "label_maps",
+      "description": "label file containing individual label maps from many subjects",
+      "optional": false,
+      "value-key": "[LABEL_MAPS]",
+      "type": "File"
+    },
+    {
+      "id": "probability_metric_out",
+      "name": "probability_metric_out",
+      "type": "String",
+      "description": "the relative frequencies of each label at each vertex",
+      "optional": false,
+      "value-key": "[PROBABILITY_METRIC_OUT]"
+    },
+    {
+      "id": "opt_exclude_unlabeled",
+      "name": "opt_exclude_unlabeled",
+      "command-line-flag": "-exclude-unlabeled",
+      "description": "don't make a probability map of the unlabeled key",
+      "type": "Flag",
+      "value-key": "[OPT_EXCLUDE_UNLABELED]"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "probability_metric_out",
+      "name": "probability_metric_out",
+      "path-template": "[PROBABILITY_METRIC_OUT]",
+      "description": "the relative frequencies of each label at each vertex"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

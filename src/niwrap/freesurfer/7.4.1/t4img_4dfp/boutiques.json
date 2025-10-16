@@ -1,0 +1,42 @@
+{
+  "name": "t4img_4dfp",
+  "description": "Transforms a 4dfp image using a specified t4 file.",
+  "command-line": "t4img_4dfp [T4FILE] [IMGFILE] [OUTFILE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Transformation matrix file (t4 file format).",
+      "value-key": "[T4FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "t4file",
+      "name": "T4 File"
+    },
+    {
+      "description": "Input image file (4dfp format).",
+      "value-key": "[IMGFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "imgfile",
+      "name": "Input Image File"
+    },
+    {
+      "description": "Output image file (optional, defaults to <imgfile>t if not provided).",
+      "value-key": "[OUTFILE]",
+      "type": "String",
+      "optional": true,
+      "id": "outfile",
+      "name": "Output Image File"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTFILE].4dfp.img",
+      "description": "The transformed output image file in 4dfp format.",
+      "id": "transformed_image",
+      "name": "Transformed Image"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

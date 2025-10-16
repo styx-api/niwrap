@@ -1,0 +1,78 @@
+{
+  "name": "metric-erode",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -metric-erode [METRIC] [SURFACE] [DISTANCE] [METRIC_OUT] [OPT_ROI_ROI_METRIC] [OPT_COLUMN_COLUMN] [OPT_CORRECTED_AREAS_AREA_METRIC]",
+  "description": "Erode a metric file.\n\nAround each vertex with a value of zero, set surrounding vertices to zero.  The surrounding vertices are all immediate neighbors and all vertices within the specified distance.\n\nNote that the -corrected-areas option uses an approximate correction for distance along the surface.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "metric",
+      "name": "metric",
+      "description": "the metric file to erode",
+      "optional": false,
+      "value-key": "[METRIC]",
+      "type": "File"
+    },
+    {
+      "id": "surface",
+      "name": "surface",
+      "description": "the surface to compute on",
+      "optional": false,
+      "value-key": "[SURFACE]",
+      "type": "File"
+    },
+    {
+      "id": "distance",
+      "name": "distance",
+      "description": "distance in mm to erode",
+      "optional": false,
+      "value-key": "[DISTANCE]",
+      "type": "Number",
+      "integer": false
+    },
+    {
+      "id": "metric_out",
+      "name": "metric_out",
+      "type": "String",
+      "description": "the output metric",
+      "optional": false,
+      "value-key": "[METRIC_OUT]"
+    },
+    {
+      "id": "opt_roi_roi_metric",
+      "name": "opt_roi_roi_metric",
+      "command-line-flag": "-roi",
+      "description": "assume values outside this roi are nonzero: metric file, positive values denote vertices that have data",
+      "optional": true,
+      "value-key": "[OPT_ROI_ROI_METRIC]",
+      "type": "File"
+    },
+    {
+      "id": "opt_column_column",
+      "name": "opt_column_column",
+      "command-line-flag": "-column",
+      "description": "select a single column to erode: the column number or name",
+      "optional": true,
+      "value-key": "[OPT_COLUMN_COLUMN]",
+      "type": "String"
+    },
+    {
+      "id": "opt_corrected_areas_area_metric",
+      "name": "opt_corrected_areas_area_metric",
+      "command-line-flag": "-corrected-areas",
+      "description": "vertex areas to use instead of computing them from the surface: the corrected vertex areas, as a metric",
+      "optional": true,
+      "value-key": "[OPT_CORRECTED_AREAS_AREA_METRIC]",
+      "type": "File"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "metric_out",
+      "name": "metric_out",
+      "path-template": "[METRIC_OUT]",
+      "description": "the output metric"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

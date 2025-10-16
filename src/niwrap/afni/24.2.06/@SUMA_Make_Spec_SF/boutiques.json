@@ -1,0 +1,47 @@
+{
+  "name": "@SUMA_Make_Spec_SF",
+  "author": "AFNI Developers",
+  "description": "Prepare for surface viewing in SUMA",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "@SUMA_Make_Spec_SF [DEBUG_LEVEL] [SURFACE_PATH] [SUBJECT_ID]",
+  "inputs": [
+    {
+      "command-line-flag": "-sid",
+      "description": "Required subject ID for file naming",
+      "value-key": "[SUBJECT_ID]",
+      "type": "String",
+      "optional": false,
+      "id": "subject_id",
+      "name": "Subject ID"
+    },
+    {
+      "command-line-flag": "-debug",
+      "description": "Print debug information along the way",
+      "value-key": "[DEBUG_LEVEL]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "debug_level",
+      "name": "Debug level",
+      "maximum": 2
+    },
+    {
+      "command-line-flag": "-sfpath",
+      "description": "Path to directory containing 'SURFACES' and AFNI volume used in creating the surfaces",
+      "value-key": "[SURFACE_PATH]",
+      "type": "String",
+      "optional": true,
+      "id": "surface_path",
+      "name": "Surface path"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "SURFACES",
+      "description": "All created files are stored in SURFACES directory",
+      "id": "output_directory",
+      "name": "Output Directory"
+    }
+  ]
+}

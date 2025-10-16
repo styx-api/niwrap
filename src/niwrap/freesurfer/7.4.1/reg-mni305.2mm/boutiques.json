@@ -1,0 +1,36 @@
+{
+  "name": "reg-mni305.2mm",
+  "author": "FreeSurfer Developers",
+  "description": "Computes the registration between the FreeSurfer MNI305 2mm space and a subject's FreeSurfer anatomical space.",
+  "command-line": "reg-mni305.2mm [SUBJECT_ID] [REGFILE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--s",
+      "description": "Subject ID for the FreeSurfer anatomical space.",
+      "value-key": "[SUBJECT_ID]",
+      "type": "String",
+      "optional": false,
+      "id": "subject_id",
+      "name": "Subject ID"
+    },
+    {
+      "command-line-flag": "--reg",
+      "description": "tkregister2-style registration matrix file (should have a .dat or .reg extension).",
+      "value-key": "[REGFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "regfile",
+      "name": "Registration file"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[REGFILE]",
+      "description": "tkregister2-style registration matrix output file.",
+      "id": "output_regfile",
+      "name": "Output Registration File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

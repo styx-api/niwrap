@@ -1,0 +1,53 @@
+{
+  "name": "fat_roi_row.py",
+  "author": "AFNI Developers",
+  "description": "Select a single ROI's row out of a connectivity matrix file (*.grid or *.netcc) for viewing and/or further analysis.",
+  "command-line": "fat_roi_row.py [ROI] [MATRIX_FILES] [LIST_FILE] [EXTERN_LABS_NO]",
+  "inputs": [
+    {
+      "command-line-flag": "-r",
+      "description": "Specify which ROI's row of connectivity you want to select out. If labeltables were used, you may select the ROI by either the string label or the ROI mask number.",
+      "value-key": "[ROI]",
+      "type": "String",
+      "optional": false,
+      "id": "roi",
+      "name": "ROI"
+    },
+    {
+      "command-line-flag": "-m",
+      "description": "Provide the set of matrix (*.grid or *.netcc) files by searchable path. This can be a globbable entry in quotes containing wildcard characters.",
+      "value-key": "[MATRIX_FILES]",
+      "type": "String",
+      "optional": true,
+      "id": "matrix_files",
+      "name": "Matrix files"
+    },
+    {
+      "command-line-flag": "-l",
+      "description": "Provide the set of matrix (*.grid or *.netcc) files by explicit path in a text file. The LIST text file must contain at least one column with the path to subject matrix file.",
+      "value-key": "[LIST_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "list_file",
+      "name": "List file"
+    },
+    {
+      "command-line-flag": "-E",
+      "description": "Switch to turn off the writing/usage of user-defined labels in the *.grid/*.netcc files.",
+      "value-key": "[EXTERN_LABS_NO]",
+      "type": "Flag",
+      "id": "extern_labs_no",
+      "name": "Extern Labs No"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "description": "Selected ROI row output file in .row format.",
+      "id": "output_file",
+      "name": "Output file",
+      "path-template": "[ROI]_selected.row"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

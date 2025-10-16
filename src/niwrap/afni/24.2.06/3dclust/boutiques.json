@@ -1,0 +1,187 @@
+{
+  "name": "3dclust",
+  "author": "AFNI Developers",
+  "description": "Performs simple-minded cluster detection in 3D datasets",
+  "command-line": "3dclust [RMM] [VMUL] [DATASETS] [NN1] [NN2] [NN3] [NOABS] [SUMMARIZE] [NOSUM] [VERB] [ONED_FORMAT] [NO_ONED_FORMAT] [QUIET] [MNI] [ISOVALUE] [ISOMERGE] [INMASK] [PREFIX] [SAVEMASK] [BINARY]",
+  "inputs": [
+    {
+      "description": "Cluster connection radius in millimeters.",
+      "value-key": "[RMM]",
+      "type": "Number",
+      "optional": true,
+      "id": "rmm",
+      "name": "Radius in millimeters"
+    },
+    {
+      "description": "Minimum cluster volume in micro-liters or minimum number of voxels if negative.",
+      "value-key": "[VMUL]",
+      "type": "Number",
+      "optional": true,
+      "id": "vmul",
+      "name": "Minimum cluster volume"
+    },
+    {
+      "description": "Input dataset(s). More than one allowed, but only the first sub-brick of the dataset.",
+      "value-key": "[DATASETS]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "datasets",
+      "name": "Input dataset(s)"
+    },
+    {
+      "command-line-flag": "-NN1",
+      "description": "1st nearest-neighbor clustering (faces touching).",
+      "value-key": "[NN1]",
+      "type": "Flag",
+      "id": "nn1",
+      "name": "First nearest neighbor clustering flag"
+    },
+    {
+      "command-line-flag": "-NN2",
+      "description": "2nd nearest-neighbor clustering (edges touching).",
+      "value-key": "[NN2]",
+      "type": "Flag",
+      "id": "nn2",
+      "name": "Second nearest neighbor clustering flag"
+    },
+    {
+      "command-line-flag": "-NN3",
+      "description": "3rd nearest-neighbor clustering (corners touching).",
+      "value-key": "[NN3]",
+      "type": "Flag",
+      "id": "nn3",
+      "name": "Third nearest neighbor clustering flag"
+    },
+    {
+      "command-line-flag": "-noabs",
+      "description": "Use the signed voxel intensities for calculations.",
+      "value-key": "[NOABS]",
+      "type": "Flag",
+      "id": "noabs",
+      "name": "No absolute value flag"
+    },
+    {
+      "command-line-flag": "-summarize",
+      "description": "Write out only the total nonzero voxel count and volume for each dataset.",
+      "value-key": "[SUMMARIZE]",
+      "type": "Flag",
+      "id": "summarize",
+      "name": "Summarize flag"
+    },
+    {
+      "command-line-flag": "-nosum",
+      "description": "Suppress printout of the totals.",
+      "value-key": "[NOSUM]",
+      "type": "Flag",
+      "id": "nosum",
+      "name": "No summarize flag"
+    },
+    {
+      "command-line-flag": "-verb",
+      "description": "Print out a progress report to stderr as computations proceed.",
+      "value-key": "[VERB]",
+      "type": "Flag",
+      "id": "verb",
+      "name": "Verbosity flag"
+    },
+    {
+      "command-line-flag": "-1Dformat",
+      "description": "Write output in 1D format (default).",
+      "value-key": "[ONED_FORMAT]",
+      "type": "Flag",
+      "id": "oned_format",
+      "name": "1D format flag"
+    },
+    {
+      "command-line-flag": "-no_1Dformat",
+      "description": "Do not write output in 1D format.",
+      "value-key": "[NO_ONED_FORMAT]",
+      "type": "Flag",
+      "id": "no_oned_format",
+      "name": "No 1D format flag"
+    },
+    {
+      "command-line-flag": "-quiet",
+      "description": "Suppress all non-essential output.",
+      "value-key": "[QUIET]",
+      "type": "Flag",
+      "id": "quiet",
+      "name": "Quiet flag"
+    },
+    {
+      "command-line-flag": "-mni",
+      "description": "Transform output xyz-coordinates from TLRC to MNI space if the input dataset has the +tlrc view.",
+      "value-key": "[MNI]",
+      "type": "Flag",
+      "id": "mni",
+      "name": "MNI space transformation flag"
+    },
+    {
+      "command-line-flag": "-isovalue",
+      "description": "Clusters will be formed only from contiguous voxels that also have the same value.",
+      "value-key": "[ISOVALUE]",
+      "type": "Flag",
+      "id": "isovalue",
+      "name": "Isovalue clustering flag"
+    },
+    {
+      "command-line-flag": "-isomerge",
+      "description": "Clusters will be formed from each distinct value in the dataset; spatial contiguity will not be used.",
+      "value-key": "[ISOMERGE]",
+      "type": "Flag",
+      "id": "isomerge",
+      "name": "Isomerge clustering flag"
+    },
+    {
+      "command-line-flag": "-inmask",
+      "description": "Use an internal mask from the dataset to eliminate voxels before clustering.",
+      "value-key": "[INMASK]",
+      "type": "Flag",
+      "id": "inmask",
+      "name": "Inmask flag"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Write a new dataset that is a copy of the input, but with all voxels not in a cluster set to zero; provide a prefix for the new dataset.",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Prefix for new dataset"
+    },
+    {
+      "command-line-flag": "-savemask",
+      "description": "Write a new dataset that is an ordered mask where the largest cluster is labeled '1', the next largest '2', and so forth.",
+      "value-key": "[SAVEMASK]",
+      "type": "String",
+      "optional": true,
+      "id": "savemask",
+      "name": "Order mask prefix"
+    },
+    {
+      "command-line-flag": "-binary",
+      "description": "Turn the output of '-savemask' into a binary (0 or 1) mask.",
+      "value-key": "[BINARY]",
+      "type": "Flag",
+      "id": "binary",
+      "name": "Binary mask flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX].nii.gz",
+      "description": "New dataset with clusters set to zero based on prefix.",
+      "id": "prefixed_output",
+      "name": "Prefixed output dataset"
+    },
+    {
+      "path-template": "[SAVEMASK].nii.gz",
+      "description": "Ordered mask dataset based on savemask prefix.",
+      "id": "ordered_mask_output",
+      "name": "Ordered mask output dataset"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

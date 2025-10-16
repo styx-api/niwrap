@@ -1,0 +1,26 @@
+{
+  "name": "help_format",
+  "author": "AFNI Developers",
+  "description": "Formats text by converting URLs into HTML hyperlinks",
+  "command-line": "help_format [STDIN]",
+  "inputs": [
+    {
+      "description": "Standard input text to be formatted",
+      "value-key": "[STDIN]",
+      "type": "String",
+      "optional": false,
+      "id": "stdin",
+      "name": "Standard Input Text"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "formatted_output.html",
+      "description": "The formatted text with hyperlinks",
+      "id": "formatted_output",
+      "name": "Formatted Output"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

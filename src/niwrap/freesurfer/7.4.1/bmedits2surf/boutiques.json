@@ -1,0 +1,130 @@
+{
+  "name": "bmedits2surf",
+  "description": "Computes a binary map of surface locations where the brainmask.mgz has been edited.",
+  "command-line": "bmedits2surf [SUBJECT] [SELF] [OVERWRITE] [TMP_DIR] [CLEANUP] [NO_CLEANUP] [DEBUG] [LEFT_HEMISPHERE] [RIGHT_HEMISPHERE] [NO_SURFS]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "The subject for which the binary map will be computed.",
+      "value-key": "[SUBJECT]",
+      "type": "String",
+      "optional": false,
+      "id": "subject",
+      "name": "Subject",
+      "command-line-flag": "-s"
+    },
+    {
+      "command-line-flag": "--self",
+      "description": "Output will be on self instead of fsaverage.",
+      "value-key": "[SELF]",
+      "type": "Flag",
+      "id": "self",
+      "name": "Self Output Flag"
+    },
+    {
+      "command-line-flag": "--overwrite",
+      "description": "Force overwriting of existing results.",
+      "value-key": "[OVERWRITE]",
+      "type": "Flag",
+      "id": "overwrite",
+      "name": "Overwrite Flag"
+    },
+    {
+      "command-line-flag": "--tmp",
+      "description": "Temporary directory.",
+      "value-key": "[TMP_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "tmp_dir",
+      "name": "Temporary Directory"
+    },
+    {
+      "command-line-flag": "--cleanup",
+      "description": "Clean up temporary files.",
+      "value-key": "[CLEANUP]",
+      "type": "Flag",
+      "id": "cleanup",
+      "name": "Cleanup Flag"
+    },
+    {
+      "command-line-flag": "--no-cleanup",
+      "description": "Do not clean up temporary files.",
+      "value-key": "[NO_CLEANUP]",
+      "type": "Flag",
+      "id": "no_cleanup",
+      "name": "No Cleanup Flag"
+    },
+    {
+      "command-line-flag": "--debug",
+      "description": "Enable debug mode.",
+      "value-key": "[DEBUG]",
+      "type": "Flag",
+      "id": "debug",
+      "name": "Debug Flag"
+    },
+    {
+      "command-line-flag": "--lh",
+      "description": "Perform operation only on the left hemisphere.",
+      "value-key": "[LEFT_HEMISPHERE]",
+      "type": "Flag",
+      "id": "left_hemisphere",
+      "name": "Left Hemisphere Flag"
+    },
+    {
+      "command-line-flag": "--rh",
+      "description": "Perform operation only on the right hemisphere.",
+      "value-key": "[RIGHT_HEMISPHERE]",
+      "type": "Flag",
+      "id": "right_hemisphere",
+      "name": "Right Hemisphere Flag"
+    },
+    {
+      "command-line-flag": "--no-surfs",
+      "description": "Do not compute surfaces, only statistics.",
+      "value-key": "[NO_SURFS]",
+      "type": "Flag",
+      "id": "no_surfs",
+      "name": "No Surfaces Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[SUBJECT]/surf/lh.bmerase.fsa.mgh",
+      "description": "Binary mask of erased surface locations for the left hemisphere in fsaverage space.",
+      "id": "lh_bmerase",
+      "name": "Left Hemisphere Erase Mask"
+    },
+    {
+      "path-template": "[SUBJECT]/surf/rh.bmerase.fsa.mgh",
+      "description": "Binary mask of erased surface locations for the right hemisphere in fsaverage space.",
+      "id": "rh_bmerase",
+      "name": "Right Hemisphere Erase Mask"
+    },
+    {
+      "path-template": "[SUBJECT]/surf/lh.bmclone.fsa.mgh",
+      "description": "Binary mask of cloned surface locations for the left hemisphere in fsaverage space.",
+      "id": "lh_bmclone",
+      "name": "Left Hemisphere Clone Mask"
+    },
+    {
+      "path-template": "[SUBJECT]/surf/rh.bmclone.fsa.mgh",
+      "description": "Binary mask of cloned surface locations for the right hemisphere in fsaverage space.",
+      "id": "rh_bmclone",
+      "name": "Right Hemisphere Clone Mask"
+    },
+    {
+      "path-template": "[SUBJECT]/stats/bmclone.dat",
+      "description": "Statistics about the number of voxels cloned.",
+      "id": "bmclone_stats",
+      "name": "Clone Stats File"
+    },
+    {
+      "path-template": "[SUBJECT]/stats/bmerase.dat",
+      "description": "Statistics about the number of voxels erased.",
+      "id": "bmerase_stats",
+      "name": "Erase Stats File"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

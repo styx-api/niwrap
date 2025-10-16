@@ -1,0 +1,77 @@
+{
+  "name": "featregapply",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Apply registration from FEAT analysis to other images",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "featregapply [FEAT_DIRECTORY] [FORCE_FLAG] [CLEANUP_FLAG] [UPSAMPLE_TRILINEAR] [UPSAMPLE_SPLINE] [STANDARD_SPACE_RES] [EXCLUDE_FILTERED_FUNC_FLAG]",
+  "inputs": [
+    {
+      "description": "FEAT directory from which registration will be taken",
+      "value-key": "[FEAT_DIRECTORY]",
+      "type": "String",
+      "optional": false,
+      "id": "feat_directory",
+      "name": "FEAT Directory"
+    },
+    {
+      "command-line-flag": "-f",
+      "description": "Force featregapply to run even if it has already been run on this FEAT directory",
+      "value-key": "[FORCE_FLAG]",
+      "type": "Flag",
+      "id": "force_flag",
+      "name": "Force Flag"
+    },
+    {
+      "command-line-flag": "-c",
+      "description": "Cleanup, i.e. remove all featregapply output",
+      "value-key": "[CLEANUP_FLAG]",
+      "type": "Flag",
+      "id": "cleanup_flag",
+      "name": "Cleanup Flag"
+    },
+    {
+      "command-line-flag": "-l",
+      "description": "Upsample functional-space image to standard space using trilinear interpolation",
+      "value-key": "[UPSAMPLE_TRILINEAR]",
+      "type": "File",
+      "optional": true,
+      "id": "upsample_trilinear",
+      "name": "Upsample Functional-Space Image (Trilinear)"
+    },
+    {
+      "command-line-flag": "-s",
+      "description": "Upsample functional-space image to standard space using spline (like sinc) interpolation",
+      "value-key": "[UPSAMPLE_SPLINE]",
+      "type": "File",
+      "optional": true,
+      "id": "upsample_spline",
+      "name": "Upsample Functional-Space Image (Spline)"
+    },
+    {
+      "command-line-flag": "-r",
+      "description": "Specify the standard space resolution for melodic (e.g. 3 for 3mm)",
+      "value-key": "[STANDARD_SPACE_RES]",
+      "type": "Number",
+      "optional": true,
+      "id": "standard_space_res",
+      "name": "Standard Space Resolution"
+    },
+    {
+      "command-line-flag": "-e",
+      "description": "Exclude filtered func when processing melodic directories (for FEAT directories filtered func is never processed)",
+      "value-key": "[EXCLUDE_FILTERED_FUNC_FLAG]",
+      "type": "Flag",
+      "id": "exclude_filtered_func_flag",
+      "name": "Exclude Filtered Func Flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[FEAT_DIRECTORY]/reg_standard",
+      "description": "Directory where the output files will be stored",
+      "id": "output_directory",
+      "name": "Output Directory"
+    }
+  ]
+}

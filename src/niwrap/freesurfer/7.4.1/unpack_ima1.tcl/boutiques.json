@@ -1,0 +1,34 @@
+{
+  "name": "unpack_ima1.tcl",
+  "author": "FreeSurfer Developers",
+  "description": "A tool for unpacking images using FreeSurfer",
+  "command-line": "unpack_ima1.tcl [INPUT_DIRECTORY] [OUTPUT_DIRECTORY]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "The directory containing the input files to be unpacked.",
+      "value-key": "[INPUT_DIRECTORY]",
+      "type": "String",
+      "optional": false,
+      "id": "input_directory",
+      "name": "Input Directory"
+    },
+    {
+      "description": "The directory where the unpacked files will be stored.",
+      "value-key": "[OUTPUT_DIRECTORY]",
+      "type": "String",
+      "optional": false,
+      "id": "output_directory",
+      "name": "Output Directory"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_DIRECTORY]",
+      "description": "Output directory containing unpacked files",
+      "id": "output_directory",
+      "name": "Output Directory"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

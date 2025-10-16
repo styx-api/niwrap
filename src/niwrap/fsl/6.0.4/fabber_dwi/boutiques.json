@@ -1,0 +1,322 @@
+{
+  "name": "fabber_dwi",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Fabber diffusion-weighted imaging tool for model-based analysis using forward models and different inference methods.",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "fabber_dwi [OUTPUT_DIR] [METHOD] [MODEL] [DATA_FILE] [HELP_FLAG] [LISTMETHODS_FLAG] [LISTMODELS_FLAG] [LISTPARAMS_FLAG] [DESCPARAMS_FLAG] [LISTOUTPUTS_FLAG] [EVALUATE] [EVALUATE_PARAMS] [EVALUATE_NT] [SIMPLE_OUTPUT_FLAG] [OVERWRITE_FLAG] [LINK_TO_LATEST_FLAG] [LOADMODELS] [MULTIPLE_DATA_FILES] [DATA_ORDER] [MASK_FILE] [MASKED_TIMEPOINTS] [SUPP_DATA] [DUMP_PARAM_NAMES_FLAG] [SAVE_MODEL_FIT_FLAG] [SAVE_RESIDUALS_FLAG] [SAVE_MODEL_EXTRAS_FLAG] [SAVE_MVN_FLAG] [SAVE_MEAN_FLAG] [SAVE_STD_FLAG] [SAVE_VAR_FLAG] [SAVE_ZSTAT_FLAG] [SAVE_NOISE_MEAN_FLAG] [SAVE_NOISE_STD_FLAG] [SAVE_FREE_ENERGY_FLAG] [OPTFILE] [DEBUG_FLAG]",
+  "inputs": [
+    {
+      "command-line-flag": "--output",
+      "description": "Directory for output files (including logfile)",
+      "value-key": "[OUTPUT_DIR]",
+      "type": "String",
+      "optional": false,
+      "id": "output_dir",
+      "name": "Output Directory"
+    },
+    {
+      "command-line-flag": "--method",
+      "description": "Use this inference method",
+      "value-key": "[METHOD]",
+      "type": "String",
+      "optional": false,
+      "id": "method",
+      "name": "Inference Method"
+    },
+    {
+      "command-line-flag": "--model",
+      "description": "Use this forward model",
+      "value-key": "[MODEL]",
+      "type": "String",
+      "optional": false,
+      "id": "model",
+      "name": "Forward Model"
+    },
+    {
+      "command-line-flag": "--data",
+      "description": "Specify a single input data file",
+      "value-key": "[DATA_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "data_file",
+      "name": "Input Data File"
+    },
+    {
+      "command-line-flag": "--help",
+      "description": "Print this usage method. If given with --method or --model, display relevant method/model usage information",
+      "value-key": "[HELP_FLAG]",
+      "type": "Flag",
+      "id": "help_flag",
+      "name": "Help Flag"
+    },
+    {
+      "command-line-flag": "--listmethods",
+      "description": "List all known inference methods",
+      "value-key": "[LISTMETHODS_FLAG]",
+      "type": "Flag",
+      "id": "listmethods_flag",
+      "name": "List Methods Flag"
+    },
+    {
+      "command-line-flag": "--listmodels",
+      "description": "List all known forward models",
+      "value-key": "[LISTMODELS_FLAG]",
+      "type": "Flag",
+      "id": "listmodels_flag",
+      "name": "List Models Flag"
+    },
+    {
+      "command-line-flag": "--listparams",
+      "description": "List model parameters (requires model configuration options to be given)",
+      "value-key": "[LISTPARAMS_FLAG]",
+      "type": "Flag",
+      "id": "listparams_flag",
+      "name": "List Parameters Flag"
+    },
+    {
+      "command-line-flag": "--descparams",
+      "description": "Describe model parameters (name, description, units) - requires model configuration options to be given. Note that not all models provide parameter descriptions",
+      "value-key": "[DESCPARAMS_FLAG]",
+      "type": "Flag",
+      "id": "descparams_flag",
+      "name": "Describe Parameters Flag"
+    },
+    {
+      "command-line-flag": "--listoutputs",
+      "description": "List additional model outputs (requires model configuration options to be given)",
+      "value-key": "[LISTOUTPUTS_FLAG]",
+      "type": "Flag",
+      "id": "listoutputs_flag",
+      "name": "List Outputs Flag"
+    },
+    {
+      "command-line-flag": "--evaluate",
+      "description": "Evaluate the model. Set to name of output required or blank for default output. Requires model configuration options, --evaluate-params and --evaluate-nt",
+      "value-key": "[EVALUATE]",
+      "type": "String",
+      "optional": true,
+      "id": "evaluate",
+      "name": "Evaluate Model"
+    },
+    {
+      "command-line-flag": "--evaluate-params",
+      "description": "List of parameter values for evaluation",
+      "value-key": "[EVALUATE_PARAMS]",
+      "type": "String",
+      "optional": true,
+      "id": "evaluate_params",
+      "name": "Evaluate Parameters"
+    },
+    {
+      "command-line-flag": "--evaluate-nt",
+      "description": "Number of time points for evaluation - must be consistent with model options where appropriate",
+      "value-key": "[EVALUATE_NT]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "evaluate_nt",
+      "name": "Evaluate Number of Time Points"
+    },
+    {
+      "command-line-flag": "--simple-output",
+      "description": "Instead of usual standard output, simply output a series of lines each giving progress as a percentage",
+      "value-key": "[SIMPLE_OUTPUT_FLAG]",
+      "type": "Flag",
+      "id": "simple_output_flag",
+      "name": "Simple Output"
+    },
+    {
+      "command-line-flag": "--overwrite",
+      "description": "If set, will overwrite existing output. If not set, new output directories will be created by appending '+' to the directory name",
+      "value-key": "[OVERWRITE_FLAG]",
+      "type": "Flag",
+      "id": "overwrite_flag",
+      "name": "Overwrite Existing Output"
+    },
+    {
+      "command-line-flag": "--link-to-latest",
+      "description": "Try to create a link to the most recent output directory with the prefix _latest",
+      "value-key": "[LINK_TO_LATEST_FLAG]",
+      "type": "Flag",
+      "id": "link_to_latest_flag",
+      "name": "Link to Latest Output"
+    },
+    {
+      "command-line-flag": "--loadmodels",
+      "description": "Load models dynamically from the specified filename, which should be a DLL/shared library",
+      "value-key": "[LOADMODELS]",
+      "type": "File",
+      "optional": true,
+      "id": "loadmodels",
+      "name": "Load Models"
+    },
+    {
+      "command-line-flag": "--data<n>",
+      "description": "Specify multiple data files for n=1, 2, 3...",
+      "value-key": "[MULTIPLE_DATA_FILES]",
+      "type": "File",
+      "optional": true,
+      "id": "multiple_data_files",
+      "name": "Additional Data Files"
+    },
+    {
+      "command-line-flag": "--data-order",
+      "description": "If multiple data files are specified, how they will be handled: concatenate = one after the other, interleave = first record from each file, then second, etc.",
+      "value-key": "[DATA_ORDER]",
+      "type": "String",
+      "optional": true,
+      "id": "data_order",
+      "name": "Data File Handling Order"
+    },
+    {
+      "command-line-flag": "--mask",
+      "description": "Mask file. Inference will only be performed where mask value > 0",
+      "value-key": "[MASK_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "mask_file",
+      "name": "Mask File"
+    },
+    {
+      "command-line-flag": "--mt<n>",
+      "description": "List of masked time points, indexed from 1. These will be ignored in the parameter updates",
+      "value-key": "[MASKED_TIMEPOINTS]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "masked_timepoints",
+      "name": "Masked Time Points"
+    },
+    {
+      "command-line-flag": "--suppdata",
+      "description": "'Supplemental' timeseries data, required for some models",
+      "value-key": "[SUPP_DATA]",
+      "type": "File",
+      "optional": true,
+      "id": "supp_data",
+      "name": "Supplemental Timeseries Data"
+    },
+    {
+      "command-line-flag": "--dump-param-names",
+      "description": "Write the file paramnames.txt containing the names of the model parameters",
+      "value-key": "[DUMP_PARAM_NAMES_FLAG]",
+      "type": "Flag",
+      "id": "dump_param_names_flag",
+      "name": "Dump Parameter Names"
+    },
+    {
+      "command-line-flag": "--save-model-fit",
+      "description": "Output the model prediction as a 4d volume",
+      "value-key": "[SAVE_MODEL_FIT_FLAG]",
+      "type": "Flag",
+      "id": "save_model_fit_flag",
+      "name": "Save Model Fit"
+    },
+    {
+      "command-line-flag": "--save-residuals",
+      "description": "Output the residuals (difference between the data and the model prediction)",
+      "value-key": "[SAVE_RESIDUALS_FLAG]",
+      "type": "Flag",
+      "id": "save_residuals_flag",
+      "name": "Save Residuals"
+    },
+    {
+      "command-line-flag": "--save-model-extras",
+      "description": "Output any additional model-specific timeseries data",
+      "value-key": "[SAVE_MODEL_EXTRAS_FLAG]",
+      "type": "Flag",
+      "id": "save_model_extras_flag",
+      "name": "Save Model Extras"
+    },
+    {
+      "command-line-flag": "--save-mvn",
+      "description": "Output the final MVN distributions",
+      "value-key": "[SAVE_MVN_FLAG]",
+      "type": "Flag",
+      "id": "save_mvn_flag",
+      "name": "Save MVN Distributions"
+    },
+    {
+      "command-line-flag": "--save-mean",
+      "description": "Output the parameter means",
+      "value-key": "[SAVE_MEAN_FLAG]",
+      "type": "Flag",
+      "id": "save_mean_flag",
+      "name": "Save Parameter Means"
+    },
+    {
+      "command-line-flag": "--save-std",
+      "description": "Output the parameter standard deviations",
+      "value-key": "[SAVE_STD_FLAG]",
+      "type": "Flag",
+      "id": "save_std_flag",
+      "name": "Save Parameter Standard Deviations"
+    },
+    {
+      "command-line-flag": "--save-var",
+      "description": "Output the parameter variances",
+      "value-key": "[SAVE_VAR_FLAG]",
+      "type": "Flag",
+      "id": "save_var_flag",
+      "name": "Save Parameter Variances"
+    },
+    {
+      "command-line-flag": "--save-zstat",
+      "description": "Output the parameter Z stats",
+      "value-key": "[SAVE_ZSTAT_FLAG]",
+      "type": "Flag",
+      "id": "save_zstat_flag",
+      "name": "Save Parameter Zstats"
+    },
+    {
+      "command-line-flag": "--save-noise-mean",
+      "description": "Output the noise means. The noise distribution inferred is the precision of a Gaussian noise source",
+      "value-key": "[SAVE_NOISE_MEAN_FLAG]",
+      "type": "Flag",
+      "id": "save_noise_mean_flag",
+      "name": "Save Noise Means"
+    },
+    {
+      "command-line-flag": "--save-noise-std",
+      "description": "Output the noise standard deviations",
+      "value-key": "[SAVE_NOISE_STD_FLAG]",
+      "type": "Flag",
+      "id": "save_noise_std_flag",
+      "name": "Save Noise Standard Deviations"
+    },
+    {
+      "command-line-flag": "--save-free-energy",
+      "description": "Output the free energy, if calculated",
+      "value-key": "[SAVE_FREE_ENERGY_FLAG]",
+      "type": "Flag",
+      "id": "save_free_energy_flag",
+      "name": "Save Free Energy"
+    },
+    {
+      "command-line-flag": "--optfile",
+      "description": "File containing additional options, one per line, in the same form as specified on the command line",
+      "value-key": "[OPTFILE]",
+      "type": "File",
+      "optional": true,
+      "id": "optfile",
+      "name": "Additional Options File"
+    },
+    {
+      "command-line-flag": "--debug",
+      "description": "Output large amounts of debug information. ONLY USE WITH VERY SMALL NUMBERS OF VOXELS",
+      "value-key": "[DEBUG_FLAG]",
+      "type": "Flag",
+      "id": "debug_flag",
+      "name": "Debug Flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_DIR]",
+      "description": "Specified output directory storing all outputs",
+      "id": "output_files",
+      "name": "Output Files"
+    }
+  ]
+}

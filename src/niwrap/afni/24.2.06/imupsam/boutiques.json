@@ -1,0 +1,53 @@
+{
+  "name": "imupsam",
+  "author": "AFNI Developers",
+  "description": "Upsamples a 2D image by a specified factor",
+  "command-line": "imupsam [ASCII_FLAG] [FACTOR] [INPUT_IMAGE] [OUTPUT_IMAGE]",
+  "inputs": [
+    {
+      "description": "Upsampling factor; must be an integer in the range 2 to 30",
+      "value-key": "[FACTOR]",
+      "type": "Number",
+      "minimum": 2,
+      "maximum": 30,
+      "integer": true,
+      "optional": false,
+      "id": "factor",
+      "name": "Upsampling factor"
+    },
+    {
+      "description": "Path of the input 2D image file",
+      "value-key": "[INPUT_IMAGE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_image",
+      "name": "Input image file"
+    },
+    {
+      "description": "Path of the output upsampled image file. Use '-' to write to stdout.",
+      "value-key": "[OUTPUT_IMAGE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_image",
+      "name": "Output image file"
+    },
+    {
+      "command-line-flag": "-A",
+      "description": "Write the result in ASCII format: all numbers for the file are output, with no header info",
+      "value-key": "[ASCII_FLAG]",
+      "type": "Flag",
+      "id": "ascii_flag",
+      "name": "ASCII output flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_IMAGE]",
+      "description": "Upsampled image output file",
+      "id": "output_image_file",
+      "name": "Output image file"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

@@ -1,0 +1,93 @@
+{
+  "name": "surf2surf",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Conversions between surface formats and/or conventions",
+  "command-line": "surf2surf [INPUT_SURFACE] [OUTPUT_SURFACE] [INPUT_CONVENTION] [OUTPUT_CONVENTION] [INPUT_REF_VOLUME] [OUTPUT_REF_VOLUME] [TRANSFORM] [OUTPUT_TYPE] [OUTPUT_VALUES]",
+  "inputs": [
+    {
+      "description": "Input surface",
+      "value-key": "[INPUT_SURFACE]",
+      "command-line-flag": "--surfin",
+      "command-line-flag-separator": "=",
+      "type": "File",
+      "optional": false,
+      "id": "input_surface",
+      "name": "Input Surface"
+    },
+    {
+      "description": "Output surface",
+      "value-key": "[OUTPUT_SURFACE]",
+      "command-line-flag": "--surfout",
+      "command-line-flag-separator": "=",
+      "type": "File",
+      "optional": false,
+      "id": "output_surface",
+      "name": "Output Surface"
+    },
+    {
+      "description": "Input convention [default=caret] - only used if output convention is different",
+      "value-key": "[INPUT_CONVENTION]",
+      "command-line-flag": "--convin",
+      "type": "String",
+      "optional": true,
+      "id": "input_convention",
+      "name": "Input Convention"
+    },
+    {
+      "description": "Output convention [default=same as input]",
+      "value-key": "[OUTPUT_CONVENTION]",
+      "command-line-flag": "--convout",
+      "type": "String",
+      "optional": true,
+      "id": "output_convention",
+      "name": "Output Convention"
+    },
+    {
+      "description": "Input reference volume - Must set this if changing conventions",
+      "value-key": "[INPUT_REF_VOLUME]",
+      "command-line-flag": "--volin",
+      "type": "File",
+      "optional": true,
+      "id": "input_ref_volume",
+      "name": "Input Reference Volume"
+    },
+    {
+      "description": "Output reference volume [default=same as input]",
+      "value-key": "[OUTPUT_REF_VOLUME]",
+      "command-line-flag": "--volout",
+      "type": "File",
+      "optional": true,
+      "id": "output_ref_volume",
+      "name": "Output Reference Volume"
+    },
+    {
+      "description": "In-to-out ASCII matrix or out-to-in warpfield [default=identity]",
+      "value-key": "[TRANSFORM]",
+      "command-line-flag": "--xfm",
+      "type": "File",
+      "optional": true,
+      "id": "transform",
+      "name": "Transform"
+    },
+    {
+      "description": "Output type: ASCII, VTK, GIFTI_ASCII, GIFTI_BIN, GIFTI_BIN_GZ (default)",
+      "value-key": "[OUTPUT_TYPE]",
+      "command-line-flag": "--outputtype",
+      "type": "String",
+      "optional": true,
+      "id": "output_type",
+      "name": "Output Type"
+    },
+    {
+      "description": "Set output scalar values (e.g. --values=mysurface.func.gii or --values=1)",
+      "value-key": "[OUTPUT_VALUES]",
+      "command-line-flag": "--values",
+      "type": "String",
+      "optional": true,
+      "id": "output_values",
+      "name": "Output Values"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

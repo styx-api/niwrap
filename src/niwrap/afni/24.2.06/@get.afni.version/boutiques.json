@@ -1,0 +1,26 @@
+{
+  "name": "@get.afni.version",
+  "author": "AFNI Developers",
+  "description": "Downloads the source code for a specified AFNI version.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "@get.afni.version [VERSION]",
+  "inputs": [
+    {
+      "description": "AFNI version number to get (e.g., 16.0.01)",
+      "value-key": "[VERSION]",
+      "type": "String",
+      "optional": false,
+      "id": "version",
+      "name": "Version"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "AFNI_[VERSION]/AFNI/src",
+      "description": "Directory containing the downloaded AFNI source code for the specified version.",
+      "id": "src_dir",
+      "name": "Source Directory"
+    }
+  ]
+}

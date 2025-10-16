@@ -1,0 +1,35 @@
+{
+  "name": "bayes_view",
+  "author": "AFNI Developers",
+  "description": "Launch a shiny app to visualize RBA output files. The files must have the .RData extension.",
+  "command-line": "bayes_view [INPUT_FOLDER] [HELP] [SHINY_FOLDER]",
+  "inputs": [
+    {
+      "description": "Path to a folder containing .RData files",
+      "value-key": "[INPUT_FOLDER]",
+      "type": "String",
+      "optional": false,
+      "id": "input_folder",
+      "name": "Input Folder"
+    },
+    {
+      "command-line-flag": "-help",
+      "description": "Show help message",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help Flag"
+    },
+    {
+      "command-line-flag": "-ShinyFolder",
+      "description": "Use a custom shiny folder (for testing purposes)",
+      "value-key": "[SHINY_FOLDER]",
+      "type": "String",
+      "optional": true,
+      "id": "shiny_folder",
+      "name": "Shiny Folder"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

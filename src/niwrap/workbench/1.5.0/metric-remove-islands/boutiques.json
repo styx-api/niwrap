@@ -1,0 +1,51 @@
+{
+  "name": "metric-remove-islands",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -metric-remove-islands [SURFACE] [METRIC_IN] [METRIC_OUT] [OPT_CORRECTED_AREAS_AREA_METRIC]",
+  "description": "Remove islands from an roi metric.\n\nFinds all connected areas in the ROI, and zeros out all but the largest one, in terms of surface area.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "surface",
+      "name": "surface",
+      "description": "the surface to use for neighbor information",
+      "optional": false,
+      "value-key": "[SURFACE]",
+      "type": "File"
+    },
+    {
+      "id": "metric_in",
+      "name": "metric_in",
+      "description": "the input ROI metric",
+      "optional": false,
+      "value-key": "[METRIC_IN]",
+      "type": "File"
+    },
+    {
+      "id": "metric_out",
+      "name": "metric_out",
+      "type": "String",
+      "description": "the output ROI metric",
+      "optional": false,
+      "value-key": "[METRIC_OUT]"
+    },
+    {
+      "id": "opt_corrected_areas_area_metric",
+      "name": "opt_corrected_areas_area_metric",
+      "command-line-flag": "-corrected-areas",
+      "description": "vertex areas to use instead of computing them from the surface: the corrected vertex areas, as a metric",
+      "optional": true,
+      "value-key": "[OPT_CORRECTED_AREAS_AREA_METRIC]",
+      "type": "File"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "metric_out",
+      "name": "metric_out",
+      "path-template": "[METRIC_OUT]",
+      "description": "the output ROI metric"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

@@ -1,0 +1,34 @@
+{
+  "name": "surface-coordinates-to-metric",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -surface-coordinates-to-metric [SURFACE] [METRIC_OUT]",
+  "description": "Make metric file of surface coordinates.\n\nPuts the coordinates of the surface into a 3-map metric file, as x, y, z.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "surface",
+      "name": "surface",
+      "description": "the surface to use the coordinates of",
+      "optional": false,
+      "value-key": "[SURFACE]",
+      "type": "File"
+    },
+    {
+      "id": "metric_out",
+      "name": "metric_out",
+      "type": "String",
+      "description": "the output metric",
+      "optional": false,
+      "value-key": "[METRIC_OUT]"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "metric_out",
+      "name": "metric_out",
+      "path-template": "[METRIC_OUT]",
+      "description": "the output metric"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

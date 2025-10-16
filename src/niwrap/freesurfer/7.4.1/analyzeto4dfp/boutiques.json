@@ -1,0 +1,71 @@
+{
+  "name": "analyzeto4dfp",
+  "command-line": "analyzeto4dfp [ANALYZE_IMAGE] [ROIS_SCALE] [FLIP_X] [FLIP_Y] [FLIP_Z] [ENDIAN] [ORIENTATION]",
+  "description": "Convert ANALYZE image format to 4dfp format with various options",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "analyze_image",
+      "name": "Analyze Image",
+      "type": "File",
+      "value-key": "[ANALYZE_IMAGE]",
+      "description": "Input ANALYZE image file",
+      "optional": false
+    },
+    {
+      "command-line-flag": "-s",
+      "id": "rois_scale",
+      "name": "ROIS Scale Factor",
+      "type": "Flag",
+      "value-key": "[ROIS_SCALE]",
+      "description": "Apply ROIScaleFactor"
+    },
+    {
+      "command-line-flag": "-x",
+      "id": "flip_x",
+      "name": "Flip First Axis",
+      "type": "Flag",
+      "value-key": "[FLIP_X]",
+      "description": "Flip first axis"
+    },
+    {
+      "command-line-flag": "-y",
+      "id": "flip_y",
+      "name": "Flip Second Axis",
+      "type": "Flag",
+      "value-key": "[FLIP_Y]",
+      "description": "Flip second axis"
+    },
+    {
+      "command-line-flag": "-z",
+      "id": "flip_z",
+      "name": "Flip Third Axis",
+      "type": "Flag",
+      "value-key": "[FLIP_Z]",
+      "description": "Flip third axis"
+    },
+    {
+      "command-line-flag": "-@",
+      "id": "endian",
+      "name": "Output Endianness",
+      "type": "String",
+      "value-key": "[ENDIAN]",
+      "description": "Output big or little endian (default CPU endian)",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-O",
+      "id": "orientation",
+      "name": "Orientation Code",
+      "type": "Number",
+      "value-key": "[ORIENTATION]",
+      "description": "Supply orientation code (in range [0-5])",
+      "optional": true,
+      "minimum": 0,
+      "maximum": 5,
+      "integer": true
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

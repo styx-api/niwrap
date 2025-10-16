@@ -1,0 +1,31 @@
+{
+  "name": "@ToRAI",
+  "author": "AFNI Developers",
+  "description": "Tool to change the ORIENT coordinates to RAI",
+  "command-line": "@ToRAI [COORDINATES] [ORIENTATION]",
+  "inputs": [
+    {
+      "command-line-flag": "-xyz",
+      "description": "Specify the X, Y, and Z coordinates",
+      "value-key": "[COORDINATES]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 3,
+      "optional": false,
+      "id": "coordinates",
+      "name": "Coordinates",
+      "min-list-entries": 3
+    },
+    {
+      "command-line-flag": "-or",
+      "description": "Specify the orientation",
+      "value-key": "[ORIENTATION]",
+      "type": "String",
+      "optional": false,
+      "id": "orientation",
+      "name": "Orientation"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

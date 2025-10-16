@@ -1,0 +1,59 @@
+{
+  "name": "3dXYZcat",
+  "author": "AFNI Developers",
+  "description": "Catenates datasets spatially.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dXYZcat [DIRECTION] [PREFIX] [VERBOSE] [DATASETS]",
+  "inputs": [
+    {
+      "description": "Input datasets to concatenate.",
+      "value-key": "[DATASETS]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "datasets",
+      "name": "Input datasets"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Use 'pname' for the output dataset prefix name.",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Output prefix"
+    },
+    {
+      "command-line-flag": "-verb",
+      "description": "Print out some verbositiness as the program proceeds.",
+      "value-key": "[VERBOSE]",
+      "type": "Flag",
+      "id": "verbose",
+      "name": "Verbose"
+    },
+    {
+      "command-line-flag": "-dir",
+      "description": "Catenate along direction 'Q' (X, Y, Z, or their synonyms I, J, K).",
+      "value-key": "[DIRECTION]",
+      "type": "String",
+      "optional": true,
+      "id": "direction",
+      "name": "Direction"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX]+orig.BRIK",
+      "description": "Output concatenated dataset.",
+      "id": "output_brainfile",
+      "name": "Output Brik file"
+    },
+    {
+      "path-template": "[PREFIX]+orig.HEAD",
+      "description": "Output concatenated dataset header.",
+      "id": "output_headerfile",
+      "name": "Output Head file"
+    }
+  ]
+}

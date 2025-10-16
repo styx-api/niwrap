@@ -1,0 +1,59 @@
+{
+  "name": "3dFriedman",
+  "author": "AFNI Developers",
+  "description": "Performs nonparametric Friedman test for randomized complete block design experiments",
+  "command-line": "3dFriedman [LEVELS] [DATASETS] [WORKMEM] [VOXEL_NUM] [OUTPUT_PREFIX]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Number of treatments",
+      "value-key": "[LEVELS]",
+      "type": "Number",
+      "integer": true,
+      "optional": false,
+      "id": "levels",
+      "name": "Number of treatments"
+    },
+    {
+      "description": "Data sets for each treatment",
+      "value-key": "[DATASETS]",
+      "command-line-flag": "-dset",
+      "type": "File",
+      "optional": false,
+      "list": true,
+      "name": "Data sets",
+      "id": "datasets"
+    },
+    {
+      "description": "Number of megabytes of RAM to use for statistical workspace",
+      "value-key": "[WORKMEM]",
+      "command-line-flag": "-workmem",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "workmem",
+      "name": "Workspace memory"
+    },
+    {
+      "description": "Screen output for a specific voxel number",
+      "value-key": "[VOXEL_NUM]",
+      "command-line-flag": "-voxel",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "voxel_num",
+      "name": "Voxel number"
+    },
+    {
+      "description": "Prefix for the output files",
+      "value-key": "[OUTPUT_PREFIX]",
+      "command-line-flag": "-out",
+      "type": "String",
+      "optional": false,
+      "id": "output_prefix",
+      "name": "Output prefix"
+    }
+  ],
+  "output-files": [],
+  "url": "https://afni.nimh.nih.gov/"
+}

@@ -1,0 +1,51 @@
+{
+  "name": "mris_segmentation_stats",
+  "author": "FreeSurfer Developers",
+  "description": "Tool for calculating segmentation statistics",
+  "command-line": "mris_segmentation_stats [OVERLAY_NAME] [SEGMENTATION_LABEL_NAME] [SUBJECTS] [ROC_FILE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Overlay name for segmentation",
+      "value-key": "[OVERLAY_NAME]",
+      "type": "String",
+      "optional": false,
+      "id": "overlay_name",
+      "name": "Overlay Name"
+    },
+    {
+      "description": "Segmentation label name",
+      "value-key": "[SEGMENTATION_LABEL_NAME]",
+      "type": "String",
+      "optional": false,
+      "id": "segmentation_label_name",
+      "name": "Segmentation Label Name"
+    },
+    {
+      "description": "List of subjects to process",
+      "value-key": "[SUBJECTS]",
+      "type": "String",
+      "list": true,
+      "optional": false,
+      "id": "subjects",
+      "name": "Subjects"
+    },
+    {
+      "description": "File for ROC curve output",
+      "value-key": "[ROC_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "roc_file",
+      "name": "ROC File"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[ROC_FILE]",
+      "description": "ROC curve file",
+      "id": "roc_output_file",
+      "name": "ROC Output File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

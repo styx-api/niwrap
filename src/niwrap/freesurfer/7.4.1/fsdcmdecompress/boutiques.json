@@ -1,0 +1,68 @@
+{
+  "name": "fsdcmdecompress",
+  "author": "FreeSurfer Developers",
+  "description": "A tool for decompressing DICOM files using GDCM or DCMTK.",
+  "command-line": "fsdcmdecompress [INDCMFILE] [OUTDCMFILE] [DCMTK] [JPEG] [RLE] [GDCM]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input DICOM file to decompress",
+      "value-key": "[INDCMFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "indcmfile",
+      "name": "Input DICOM file",
+      "command-line-flag": "--i"
+    },
+    {
+      "description": "Output decompressed DICOM file",
+      "value-key": "[OUTDCMFILE]",
+      "type": "String",
+      "optional": false,
+      "id": "outdcmfile",
+      "name": "Output DICOM file",
+      "command-line-flag": "--o"
+    },
+    {
+      "command-line-flag": "--dcmtk",
+      "description": "Use DCMTK for decompression (either dcmdrle.fs or dcmdjpeg.fs)",
+      "value-key": "[DCMTK]",
+      "type": "Flag",
+      "id": "dcmtk",
+      "name": "DCMTK Flag"
+    },
+    {
+      "command-line-flag": "--jpeg",
+      "description": "DICOM is JPEG compressed (ignored without --dcmtk)",
+      "value-key": "[JPEG]",
+      "type": "Flag",
+      "id": "jpeg",
+      "name": "JPEG Compressed Flag"
+    },
+    {
+      "command-line-flag": "--rle",
+      "description": "DICOM is RLE compressed (ignored without --dcmtk)",
+      "value-key": "[RLE]",
+      "type": "Flag",
+      "id": "rle",
+      "name": "RLE Compressed Flag"
+    },
+    {
+      "command-line-flag": "--gdcm",
+      "description": "Use GDCM for decompression (default)",
+      "value-key": "[GDCM]",
+      "type": "Flag",
+      "id": "gdcm",
+      "name": "GDCM Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTDCMFILE]",
+      "description": "The decompressed DICOM file",
+      "id": "out_file",
+      "name": "Output decompressed file"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

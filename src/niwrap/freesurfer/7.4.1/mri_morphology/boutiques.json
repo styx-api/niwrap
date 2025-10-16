@@ -1,0 +1,71 @@
+{
+  "name": "mri_morphology",
+  "author": "FreeSurfer Developers",
+  "description": "MRI Morphology Tool - performs various morphological operations on a volume.",
+  "command-line": "mri_morphology [INPUT_VOLUME] [OPERATION] [NUMBER_ITER] [OUTPUT_VOLUME] [LABEL_OPTION]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input volume file on which operations are to be applied.",
+      "value-key": "[INPUT_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "input_volume",
+      "name": "Input Volume"
+    },
+    {
+      "description": "Morphological operation to be performed. Options include: open, close, dilate, erode, mode, fill_holes, erode_bottom, dilate_thresh, erode_thresh.",
+      "value-key": "[OPERATION]",
+      "type": "String",
+      "optional": false,
+      "id": "operation",
+      "name": "Operation",
+      "value-choices": [
+        "open",
+        "close",
+        "dilate",
+        "erode",
+        "mode",
+        "fill_holes",
+        "erode_bottom",
+        "dilate_thresh",
+        "erode_thresh"
+      ]
+    },
+    {
+      "description": "Number of iterations to apply the operation.",
+      "value-key": "[NUMBER_ITER]",
+      "type": "Number",
+      "optional": false,
+      "id": "number_iter",
+      "name": "Number of Iterations",
+      "integer": true
+    },
+    {
+      "description": "Output volume file to store the results of the operation.",
+      "value-key": "[OUTPUT_VOLUME]",
+      "type": "String",
+      "optional": false,
+      "id": "output_volume",
+      "name": "Output Volume"
+    },
+    {
+      "command-line-flag": "-l",
+      "description": "Only apply operations to the specified label instead of all nonzero voxels.",
+      "value-key": "[LABEL_OPTION]",
+      "type": "Number",
+      "optional": true,
+      "id": "label_option",
+      "name": "Label Option"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_VOLUME]",
+      "description": "The result of the morphological operation applied to the input volume.",
+      "id": "output_file",
+      "name": "Output File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

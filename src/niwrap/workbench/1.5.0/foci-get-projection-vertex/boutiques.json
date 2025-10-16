@@ -1,0 +1,51 @@
+{
+  "name": "foci-get-projection-vertex",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -foci-get-projection-vertex [FOCI] [SURFACE] [METRIC_OUT] [OPT_NAME_NAME]",
+  "description": "Get projection vertex for foci.\n\nFor each focus, a column is created in <metric-out>, and the vertex with the most influence on its projection is assigned a value of 1 in that column, with all other vertices 0.  If -name is used, only one focus will be used.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "foci",
+      "name": "foci",
+      "description": "the foci file",
+      "optional": false,
+      "value-key": "[FOCI]",
+      "type": "File"
+    },
+    {
+      "id": "surface",
+      "name": "surface",
+      "description": "the surface related to the foci file",
+      "optional": false,
+      "value-key": "[SURFACE]",
+      "type": "File"
+    },
+    {
+      "id": "metric_out",
+      "name": "metric_out",
+      "type": "String",
+      "description": "the output metric file",
+      "optional": false,
+      "value-key": "[METRIC_OUT]"
+    },
+    {
+      "id": "opt_name_name",
+      "name": "opt_name_name",
+      "command-line-flag": "-name",
+      "description": "select a focus by name: the name of the focus",
+      "optional": true,
+      "value-key": "[OPT_NAME_NAME]",
+      "type": "String"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "metric_out",
+      "name": "metric_out",
+      "path-template": "[METRIC_OUT]",
+      "description": "the output metric file"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

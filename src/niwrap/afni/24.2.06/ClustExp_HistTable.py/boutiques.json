@@ -1,0 +1,53 @@
+{
+  "name": "ClustExp_HistTable.py",
+  "author": "AFNI Developers",
+  "description": "Script to extract the data table from history of datasets from 3dttest++, 3dMVM, or 3dLME.",
+  "command-line": "ClustExp_HistTable.py [STAT_DSET] [PREFIX] [SESSION] [OVERWRITE]",
+  "inputs": [
+    {
+      "command-line-flag": "-StatDSET",
+      "description": "Statistics dataset.",
+      "value-key": "[STAT_DSET]",
+      "type": "File",
+      "optional": false,
+      "id": "stat_dset",
+      "name": "StatDSET"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Name for output (no path). Default is GroupOut.",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Prefix"
+    },
+    {
+      "command-line-flag": "-session",
+      "description": "Output parent folder if you don't want the current working directory. Default is ./",
+      "value-key": "[SESSION]",
+      "type": "String",
+      "optional": true,
+      "id": "session",
+      "name": "Session"
+    },
+    {
+      "command-line-flag": "-overwrite",
+      "description": "Remove previous folder with same PREFIX",
+      "value-key": "[OVERWRITE]",
+      "type": "Flag",
+      "id": "overwrite",
+      "name": "Overwrite"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX]_GroupTable.csv",
+      "description": "Table with information parsed from the statistics dataset history.",
+      "id": "group_table",
+      "name": "GroupTable"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

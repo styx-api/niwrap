@@ -1,0 +1,114 @@
+{
+  "name": "mris_seg2annot",
+  "author": "FreeSurfer Developers",
+  "description": "Converts a surface-based segmentation into a custom annotation file.",
+  "command-line": "mris_seg2annot [SURFSEG] [COLORTABLE] [AUTO_CTAB] [SUBJECT] [HEMI] [OUTPUT_ANNOTATION] [SURF] [DEBUG] [DEBUG_VERTEX] [CHECKOPTS] [VERSION]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--seg",
+      "description": "Volume-encoded surface segmentation. Values are indices into the color table.",
+      "value-key": "[SURFSEG]",
+      "type": "File",
+      "optional": false,
+      "id": "surfseg",
+      "name": "Surface segmentation file"
+    },
+    {
+      "command-line-flag": "--ctab",
+      "description": "Color table used to map segmentation index to name and color.",
+      "value-key": "[COLORTABLE]",
+      "type": "File",
+      "optional": true,
+      "id": "colortable",
+      "name": "Color table file"
+    },
+    {
+      "command-line-flag": "--ctab-auto",
+      "description": "Create a random color table and optionally save it.",
+      "value-key": "[AUTO_CTAB]",
+      "type": "String",
+      "optional": true,
+      "id": "auto_ctab",
+      "name": "Automatic color table"
+    },
+    {
+      "command-line-flag": "--s",
+      "description": "Subject name.",
+      "value-key": "[SUBJECT]",
+      "type": "String",
+      "optional": false,
+      "id": "subject",
+      "name": "Subject name"
+    },
+    {
+      "command-line-flag": "--h",
+      "description": "Surface hemifield.",
+      "value-key": "[HEMI]",
+      "type": "String",
+      "optional": false,
+      "id": "hemi",
+      "name": "Hemisphere"
+    },
+    {
+      "command-line-flag": "--o",
+      "description": "Output annotation file. E.g., lh.aparc.annot",
+      "value-key": "[OUTPUT_ANNOTATION]",
+      "type": "String",
+      "optional": false,
+      "id": "output_annotation",
+      "name": "Output annotation file"
+    },
+    {
+      "command-line-flag": "--surf",
+      "description": "Surface name, default is white.",
+      "value-key": "[SURF]",
+      "type": "String",
+      "optional": true,
+      "id": "surf",
+      "name": "Surface name"
+    },
+    {
+      "command-line-flag": "--debug",
+      "description": "Turn on debugging.",
+      "value-key": "[DEBUG]",
+      "type": "Flag",
+      "id": "debug",
+      "name": "Debug mode"
+    },
+    {
+      "command-line-flag": "--debug-vertex",
+      "description": "Turn on debugging for vertex.",
+      "value-key": "[DEBUG_VERTEX]",
+      "type": "Number",
+      "optional": true,
+      "id": "debug_vertex",
+      "name": "Debug vertex number"
+    },
+    {
+      "command-line-flag": "--checkopts",
+      "description": "Don't run anything, just check options and exit.",
+      "value-key": "[CHECKOPTS]",
+      "type": "Flag",
+      "id": "checkopts",
+      "name": "Check options"
+    },
+    {
+      "command-line-flag": "--version",
+      "description": "Print out version and exit.",
+      "value-key": "[VERSION]",
+      "type": "Flag",
+      "id": "version",
+      "name": "Version"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_ANNOTATION]",
+      "description": "Output custom annotation file.",
+      "id": "annotation_file",
+      "name": "Annotation file"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

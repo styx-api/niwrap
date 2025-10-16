@@ -1,0 +1,143 @@
+{
+  "name": "fsl_mvlm",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Multivariate Linear Model regression on time courses and/or 3D/4D images using SVD (PCA), PLS, normalised PLS, CVA, SVD-CVA or MLM",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "fsl_mvlm [INPUT_FILE] [BASENAME_OUTPUT_FILES] [ALGORITHM] [DESIGN_MATRIX] [MASK_IMAGE] [DESIGN_NORMALIZATION] [VARIANCE_NORMALISATION] [DEMEAN] [NMF_DIM] [NMF_ITERATIONS] [VERBOSE] [OUT_DATA] [OUT_VNSCALES]",
+  "inputs": [
+    {
+      "description": "Input file (text matrix or 3D/4D image file)",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input file",
+      "command-line-flag": "-i"
+    },
+    {
+      "description": "Basename for output files",
+      "value-key": "[BASENAME_OUTPUT_FILES]",
+      "type": "String",
+      "optional": false,
+      "id": "basename_output_files",
+      "name": "Output basename",
+      "command-line-flag": "-o"
+    },
+    {
+      "command-line-flag": "-a",
+      "description": "Algorithm for decomposition: PCA (or SVD; default), PLS, orthoPLS, CVA, SVD-CVA, MLM, NMF",
+      "value-key": "[ALGORITHM]",
+      "type": "String",
+      "optional": true,
+      "id": "algorithm",
+      "name": "Algorithm"
+    },
+    {
+      "command-line-flag": "-d",
+      "description": "File name of the GLM design matrix (time courses or spatial maps)",
+      "value-key": "[DESIGN_MATRIX]",
+      "type": "File",
+      "optional": true,
+      "id": "design_matrix",
+      "name": "Design matrix file"
+    },
+    {
+      "command-line-flag": "-m",
+      "description": "Mask image file name if input is an image",
+      "value-key": "[MASK_IMAGE]",
+      "type": "File",
+      "optional": true,
+      "id": "mask_image",
+      "name": "Mask image file"
+    },
+    {
+      "command-line-flag": "--des_norm",
+      "description": "Switch on normalisation of the design matrix columns to unit standard deviation",
+      "value-key": "[DESIGN_NORMALIZATION]",
+      "type": "Flag",
+      "id": "design_normalization",
+      "name": "Design normalization flag"
+    },
+    {
+      "command-line-flag": "--vn",
+      "description": "Perform MELODIC variance-normalisation on data",
+      "value-key": "[VARIANCE_NORMALISATION]",
+      "type": "Flag",
+      "id": "variance_normalisation",
+      "name": "Variance normalisation flag"
+    },
+    {
+      "command-line-flag": "--demean",
+      "description": "Switch on de-meaning of design and data",
+      "value-key": "[DEMEAN]",
+      "type": "Flag",
+      "id": "demean",
+      "name": "Demean flag"
+    },
+    {
+      "command-line-flag": "--nmf_dim",
+      "description": "Number of underlying factors for NMF",
+      "value-key": "[NMF_DIM]",
+      "type": "Number",
+      "optional": true,
+      "id": "nmf_dim",
+      "name": "NMF dimension"
+    },
+    {
+      "command-line-flag": "--nmfitt",
+      "description": "Number of NMF iterations (default 100)",
+      "value-key": "[NMF_ITERATIONS]",
+      "type": "Number",
+      "optional": true,
+      "id": "nmf_iterations",
+      "name": "NMF iterations"
+    },
+    {
+      "command-line-flag": "-v",
+      "description": "Switch on verbose output",
+      "value-key": "[VERBOSE]",
+      "type": "Flag",
+      "id": "verbose",
+      "name": "Verbose flag"
+    },
+    {
+      "command-line-flag": "--out_data",
+      "description": "Output file name for pre-processed data",
+      "value-key": "[OUT_DATA]",
+      "type": "String",
+      "optional": true,
+      "id": "out_data",
+      "name": "Output data file"
+    },
+    {
+      "command-line-flag": "--out_vnscales",
+      "description": "Output file name for scaling factors for variance normalisation",
+      "value-key": "[OUT_VNSCALES]",
+      "type": "String",
+      "optional": true,
+      "id": "out_vnscales",
+      "name": "Variance normalisation scales file"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[BASENAME_OUTPUT_FILES]_out.nii.gz",
+      "description": "Processed output file",
+      "id": "outfile",
+      "name": "Output file"
+    },
+    {
+      "path-template": "[OUT_DATA].nii.gz",
+      "description": "Pre-processed data output file",
+      "id": "outdata",
+      "name": "Pre-processed data file"
+    },
+    {
+      "path-template": "[OUT_VNSCALES].txt",
+      "description": "Variance normalisation scales file",
+      "id": "vnscales",
+      "name": "Variance normalisation scales file"
+    }
+  ]
+}

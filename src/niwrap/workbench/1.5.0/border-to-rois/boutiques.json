@@ -1,0 +1,67 @@
+{
+  "name": "border-to-rois",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -border-to-rois [SURFACE] [BORDER_FILE] [METRIC_OUT] [OPT_BORDER_NAME] [OPT_INVERSE] [OPT_INCLUDE_BORDER]",
+  "description": "Make metric rois from borders.\n\nBy default, draws ROIs inside all borders in the border file, as separate metric columns.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "surface",
+      "name": "surface",
+      "description": "the surface the borders are drawn on",
+      "optional": false,
+      "value-key": "[SURFACE]",
+      "type": "File"
+    },
+    {
+      "id": "border_file",
+      "name": "border_file",
+      "description": "the border file",
+      "optional": false,
+      "value-key": "[BORDER_FILE]",
+      "type": "File"
+    },
+    {
+      "id": "metric_out",
+      "name": "metric_out",
+      "type": "String",
+      "description": "the output metric file",
+      "optional": false,
+      "value-key": "[METRIC_OUT]"
+    },
+    {
+      "id": "opt_border_name",
+      "name": "opt_border_name",
+      "command-line-flag": "-border",
+      "description": "create ROI for only one border: the name of the border",
+      "optional": true,
+      "value-key": "[OPT_BORDER_NAME]",
+      "type": "String"
+    },
+    {
+      "id": "opt_inverse",
+      "name": "opt_inverse",
+      "command-line-flag": "-inverse",
+      "description": "use inverse selection (outside border)",
+      "type": "Flag",
+      "value-key": "[OPT_INVERSE]"
+    },
+    {
+      "id": "opt_include_border",
+      "name": "opt_include_border",
+      "command-line-flag": "-include-border",
+      "description": "include vertices the border is closest to",
+      "type": "Flag",
+      "value-key": "[OPT_INCLUDE_BORDER]"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "metric_out",
+      "name": "metric_out",
+      "path-template": "[METRIC_OUT]",
+      "description": "the output metric file"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "cifti-reduce",
+  "source": {
+    "type": "boutiques",
+    "path": "boutiques.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-cifti-reduce"
+  ],
+  "docs": {
+    "description": "Perform reduction operation on a cifti file.\n\nFor the specified direction (default ROW), perform a reduction operation along that direction.  The direction can be either an integer starting from 1, or the strings 'ROW' or 'COLUMN'.  The reduction operators are as follows:\n\nMAX: the maximum value\nMIN: the minimum value\nINDEXMAX: the 1-based index of the maximum value\nINDEXMIN: the 1-based index of the minimum value\nSUM: add all values\nPRODUCT: multiply all values\nMEAN: the mean of the data\nSTDEV: the standard deviation (N denominator)\nSAMPSTDEV: the sample standard deviation (N-1 denominator)\nVARIANCE: the variance of the data\nTSNR: mean divided by sample standard deviation (N-1 denominator)\nCOV: sample standard deviation (N-1 denominator) divided by mean\nL2NORM: square root of sum of squares\nMEDIAN: the median of the data\nMODE: the mode of the data\nCOUNT_NONZERO: the number of nonzero elements in the data\n"
+  }
+}

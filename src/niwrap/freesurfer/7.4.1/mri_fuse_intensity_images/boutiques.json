@@ -1,0 +1,50 @@
+{
+  "name": "mri_fuse_intensity_images",
+  "description": "Fuses intensity images based on given transforms",
+  "command-line": "mri_fuse_intensity_images [LONGITUDINAL_TIME_POINT_FILE] [INPUT_VOLUME] [TRANSFORM_FILE] [OUTPUT_VOLUME]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "File containing the longitudinal time points",
+      "value-key": "[LONGITUDINAL_TIME_POINT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "longitudinal_time_point_file",
+      "name": "Longitudinal Time Point File"
+    },
+    {
+      "description": "Input volume to be fused",
+      "value-key": "[INPUT_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "input_volume",
+      "name": "Input Volume"
+    },
+    {
+      "description": "File containing the transforms",
+      "value-key": "[TRANSFORM_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "transform_file",
+      "name": "Transform File"
+    },
+    {
+      "description": "Output fused volume",
+      "value-key": "[OUTPUT_VOLUME]",
+      "type": "String",
+      "optional": false,
+      "id": "output_volume",
+      "name": "Output Volume"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_VOLUME]",
+      "description": "The resulting fused intensity image",
+      "id": "fused_intensity_image",
+      "name": "Fused Intensity Image"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

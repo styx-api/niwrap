@@ -1,0 +1,329 @@
+{
+  "name": "map_central_sulcus",
+  "author": "FreeSurfer Developers",
+  "description": "Performs all, or any part of, the FreeSurfer cortical reconstruction process.",
+  "command-line": "map_central_sulcus [SUBJID] [PROCESS_DIRECTIVE] [HEMI_FLAG] [EXPERT_PREFS_FILE] [XOPTS_USE] [XOPTS_CLEAN] [XOPTS_OVERWRITE] [WATERSHED_CMD] [XMASK_FILE] [WSLESS] [WSMORE] [WSATLAS] [NO_WSATLAS] [NO_WSGCAATLAS] [WSTHRESH] [WSSEED] [NORM3DITERS] [NORMMAXGRAD] [NORM1_B] [NORM2_B] [NORM1_N] [NORM2_N] [CM_FLAG] [NO_FIX_WITH_GA] [FIX_DIAG_ONLY] [SEG_WLO] [SEG_GHI] [NOTHICKEN] [NO_CA_ALIGN_AFTER] [NO_CA_ALIGN] [DEFACE] [MPRAGE] [WASHU_MPRAGE] [SCHWARTZYA3T_ATLAS] [MAIL_USERNAME] [THREADS]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "FreeSurfer subject identification string which doubles as the name of the reconstruction root directory for the subject.",
+      "value-key": "[SUBJID]",
+      "type": "String",
+      "optional": false,
+      "id": "subjid",
+      "name": "Subject ID",
+      "command-line-flag": "-subjid"
+    },
+    {
+      "description": "Process directive for recon-all (e.g. -all, -autorecon-all, -autorecon1)",
+      "value-key": "[PROCESS_DIRECTIVE]",
+      "type": "String",
+      "optional": false,
+      "id": "process_directive",
+      "name": "Process Directive"
+    },
+    {
+      "command-line-flag": "-hemi",
+      "description": "Specify hemisphere processing (e.g., lh for left hemisphere or rh for right hemisphere)",
+      "value-key": "[HEMI_FLAG]",
+      "type": "String",
+      "optional": true,
+      "id": "hemi_flag",
+      "name": "Hemisphere Process Flag"
+    },
+    {
+      "command-line-flag": "-expert",
+      "description": "Read-in expert options file for processing. Overrides default options.",
+      "value-key": "[EXPERT_PREFS_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "expert_prefs_file",
+      "name": "Expert Preferences File"
+    },
+    {
+      "command-line-flag": "-xopts-use",
+      "description": "Use pre-existing expert options file.",
+      "value-key": "[XOPTS_USE]",
+      "type": "Flag",
+      "id": "xopts_use",
+      "name": "Use Expert Options Flag"
+    },
+    {
+      "command-line-flag": "-xopts-clean",
+      "description": "Delete pre-existing expert options file.",
+      "value-key": "[XOPTS_CLEAN]",
+      "type": "Flag",
+      "id": "xopts_clean",
+      "name": "Clean Expert Options Flag"
+    },
+    {
+      "command-line-flag": "-xopts-overwrite",
+      "description": "Overwrite pre-existing expert options file.",
+      "value-key": "[XOPTS_OVERWRITE]",
+      "type": "Flag",
+      "id": "xopts_overwrite",
+      "name": "Overwrite Expert Options Flag"
+    },
+    {
+      "command-line-flag": "-watershed",
+      "description": "Controls how the skull stripping will be performed.",
+      "value-key": "[WATERSHED_CMD]",
+      "type": "String",
+      "optional": true,
+      "id": "watershed_cmd",
+      "name": "Watershed Command"
+    },
+    {
+      "command-line-flag": "-xmask",
+      "description": "Custom external brain mask to replace automated skullstripping.",
+      "value-key": "[XMASK_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "xmask_file",
+      "name": "External Brain Mask"
+    },
+    {
+      "command-line-flag": "-wsless",
+      "description": "Decrease watershed threshold (leaves less skull, but can strip more brain).",
+      "value-key": "[WSLESS]",
+      "type": "Flag",
+      "id": "wsless",
+      "name": "WSLess Flag"
+    },
+    {
+      "command-line-flag": "-wsmore",
+      "description": "Increase watershed threshold (leaves more skull, but can strip less brain).",
+      "value-key": "[WSMORE]",
+      "type": "Flag",
+      "id": "wsmore",
+      "name": "WSMore Flag"
+    },
+    {
+      "command-line-flag": "-wsatlas",
+      "description": "Use atlas when skull stripping.",
+      "value-key": "[WSATLAS]",
+      "type": "Flag",
+      "id": "wsatlas",
+      "name": "WSAtlas Flag"
+    },
+    {
+      "command-line-flag": "-no-wsatlas",
+      "description": "Do not use atlas when skull stripping.",
+      "value-key": "[NO_WSATLAS]",
+      "type": "Flag",
+      "id": "no_wsatlas",
+      "name": "No WSAtlas Flag"
+    },
+    {
+      "command-line-flag": "-no-wsgcaatlas",
+      "description": "Do not use GCA atlas when skull stripping.",
+      "value-key": "[NO_WSGCAATLAS]",
+      "type": "Flag",
+      "id": "no_wsgcaatlas",
+      "name": "No WSGCAAtlas Flag"
+    },
+    {
+      "command-line-flag": "-wsthresh",
+      "description": "Explicitly set watershed threshold.",
+      "value-key": "[WSTHRESH]",
+      "type": "Number",
+      "optional": true,
+      "id": "wsthresh",
+      "name": "WS Threshold"
+    },
+    {
+      "command-line-flag": "-wsseed",
+      "description": "Specify an index (C, R, S) point in the skull.",
+      "value-key": "[WSSEED]",
+      "type": "String",
+      "optional": true,
+      "id": "wsseed",
+      "name": "WS Seed Point"
+    },
+    {
+      "command-line-flag": "-norm3diters",
+      "description": "Number of 3d iterations for mri_normalize.",
+      "value-key": "[NORM3DITERS]",
+      "type": "Number",
+      "optional": true,
+      "id": "norm3diters",
+      "name": "Norm 3D Iterations"
+    },
+    {
+      "command-line-flag": "-normmaxgrad",
+      "description": "Max grad (-g) for mri_normalize. Default is 1.",
+      "value-key": "[NORMMAXGRAD]",
+      "type": "Number",
+      "optional": true,
+      "id": "normmaxgrad",
+      "name": "Norm Max Grad"
+    },
+    {
+      "command-line-flag": "-norm1-b",
+      "description": "In the first usage of mri_normalize, use control point with intensity N below target (default=10.0).",
+      "value-key": "[NORM1_B]",
+      "type": "Number",
+      "optional": true,
+      "id": "norm1_b",
+      "name": "Norm1 B"
+    },
+    {
+      "command-line-flag": "-norm2-b",
+      "description": "In the second usage of mri_normalize, use control point with intensity N below target (default=10.0).",
+      "value-key": "[NORM2_B]",
+      "type": "Number",
+      "optional": true,
+      "id": "norm2_b",
+      "name": "Norm2 B"
+    },
+    {
+      "command-line-flag": "-norm1-n",
+      "description": "In the first usage of mri_normalize, do N number of iterations.",
+      "value-key": "[NORM1_N]",
+      "type": "Number",
+      "optional": true,
+      "id": "norm1_n",
+      "name": "Norm1 N"
+    },
+    {
+      "command-line-flag": "-norm2-n",
+      "description": "In the second usage of mri_normalize, do N number of iterations.",
+      "value-key": "[NORM2_N]",
+      "type": "Number",
+      "optional": true,
+      "id": "norm2_n",
+      "name": "Norm2 N"
+    },
+    {
+      "command-line-flag": "-cm",
+      "description": "Conform volumes to the min voxel size.",
+      "value-key": "[CM_FLAG]",
+      "type": "Flag",
+      "id": "cm_flag",
+      "name": "Conform Volumes Flag"
+    },
+    {
+      "command-line-flag": "-no-fix-with-ga",
+      "description": "Do not use genetic algorithm when fixing topology.",
+      "value-key": "[NO_FIX_WITH_GA]",
+      "type": "Flag",
+      "id": "no_fix_with_ga",
+      "name": "No Fix with GA Flag"
+    },
+    {
+      "command-line-flag": "-fix-diag-only",
+      "description": "Topology fixer runs until ?h.defect_labels files are created, then stops.",
+      "value-key": "[FIX_DIAG_ONLY]",
+      "type": "Flag",
+      "id": "fix_diag_only",
+      "name": "Fix Diag Only Flag"
+    },
+    {
+      "command-line-flag": "-seg-wlo",
+      "description": "Set wlo value for mri_segment and mris_make_surfaces.",
+      "value-key": "[SEG_WLO]",
+      "type": "Number",
+      "optional": true,
+      "id": "seg_wlo",
+      "name": "Segment WLO"
+    },
+    {
+      "command-line-flag": "-seg-ghi",
+      "description": "Set ghi value for mri_segment and mris_make_surfaces.",
+      "value-key": "[SEG_GHI]",
+      "type": "Number",
+      "optional": true,
+      "id": "seg_ghi",
+      "name": "Segment GHI"
+    },
+    {
+      "command-line-flag": "-nothicken",
+      "description": "Pass '-thicken 0' to mri_segment.",
+      "value-key": "[NOTHICKEN]",
+      "type": "Flag",
+      "id": "nothicken",
+      "name": "No Thicken Flag"
+    },
+    {
+      "command-line-flag": "-no-ca-align-after",
+      "description": "Turn off -align-after with mri_ca_register.",
+      "value-key": "[NO_CA_ALIGN_AFTER]",
+      "type": "Flag",
+      "id": "no_ca_align_after",
+      "name": "No CA Align After Flag"
+    },
+    {
+      "command-line-flag": "-no-ca-align",
+      "description": "Turn off -align with mri_ca_label.",
+      "value-key": "[NO_CA_ALIGN]",
+      "type": "Flag",
+      "id": "no_ca_align",
+      "name": "No CA Align Flag"
+    },
+    {
+      "command-line-flag": "-deface",
+      "description": "Deface subject, written to orig_defaced.mgz.",
+      "value-key": "[DEFACE]",
+      "type": "Flag",
+      "id": "deface",
+      "name": "Deface Flag"
+    },
+    {
+      "command-line-flag": "-mprage",
+      "description": "Assume scan parameters are MGH MP-RAGE protocol.",
+      "value-key": "[MPRAGE]",
+      "type": "Flag",
+      "id": "mprage",
+      "name": "MPRAGE Protocol Flag"
+    },
+    {
+      "command-line-flag": "-washu_mprage",
+      "description": "Assume scan parameters are Wash.U. MP-RAGE protocol.",
+      "value-key": "[WASHU_MPRAGE]",
+      "type": "Flag",
+      "id": "washu_mprage",
+      "name": "WashU MPRAGE Flag"
+    },
+    {
+      "command-line-flag": "-schwartzya3t-atlas",
+      "description": "For tal reg, use special young adult 3T atlas.",
+      "value-key": "[SCHWARTZYA3T_ATLAS]",
+      "type": "Flag",
+      "id": "schwartzya3t_atlas",
+      "name": "Schwartzya 3T Atlas Flag"
+    },
+    {
+      "command-line-flag": "-mail",
+      "description": "Mail user when done.",
+      "value-key": "[MAIL_USERNAME]",
+      "type": "String",
+      "optional": true,
+      "id": "mail_username",
+      "name": "Mail Username"
+    },
+    {
+      "command-line-flag": "-threads",
+      "description": "Set number of threads to use.",
+      "value-key": "[THREADS]",
+      "type": "Number",
+      "optional": true,
+      "id": "threads",
+      "name": "Number of Threads"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[SUBJID]/scripts/recon-all.log",
+      "description": "Log file from recon-all process.",
+      "id": "log_file",
+      "name": "Recon-all Log File"
+    },
+    {
+      "path-template": "[SUBJID]/scripts/recon-all-status.log",
+      "description": "Status log file from recon-all process.",
+      "id": "status_log_file",
+      "name": "Recon-all Status Log File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

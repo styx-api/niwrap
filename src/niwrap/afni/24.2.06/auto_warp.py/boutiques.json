@@ -1,0 +1,290 @@
+{
+  "name": "auto_warp.py",
+  "author": "AFNI Developers",
+  "description": "Nonlinear registration tool.",
+  "command-line": "auto_warp.py [BASE] [INPUT] [SKULL_STRIP_INPUT] [QBLUR] [QWORKHARD] [QW_OPTS] [KEEP_RM_FILES] [PREP_ONLY] [HELP] [HVIEW] [LIMITED_HELP] [OPTION_HELP] [VERSION] [VER] [VERB] [SAVE_SCRIPT] [SKIP_AFFINE] [SKULL_STRIP_BASE] [EX_MODE] [OVERWRITE] [SUFFIX] [CHILD_ANAT] [WARP_DXYZ] [AFFINE_DXYZ] [AFFINE_INPUT_XMAT] [SMOOTH_ANAT] [SMOOTH_BASE] [UNIFIZE_INPUT] [OUTPUT_DIR] [FOLLOWERS] [AFFINE_FOLLOWERS_XMAT] [SKULLSTRIP_OPTS] [AT_OPTS]",
+  "inputs": [
+    {
+      "description": "Name of reference or template volume",
+      "value-key": "[BASE]",
+      "type": "File",
+      "optional": false,
+      "id": "base",
+      "name": "Base Template Volume",
+      "command-line-flag": "-base"
+    },
+    {
+      "description": "Name of dataset to be registered",
+      "value-key": "[INPUT]",
+      "type": "File",
+      "optional": false,
+      "id": "input",
+      "name": "Input Dataset",
+      "command-line-flag": "-input"
+    },
+    {
+      "command-line-flag": "-qblur",
+      "description": "Specify 3dQwarp blurs for base and source volumes",
+      "value-key": "[QBLUR]",
+      "type": "String",
+      "optional": true,
+      "id": "qblur",
+      "name": "QBlur"
+    },
+    {
+      "command-line-flag": "-qworkhard",
+      "description": "Set the two values for 3dQwarp's -workhard option",
+      "value-key": "[QWORKHARD]",
+      "type": "String",
+      "optional": true,
+      "id": "qworkhard",
+      "name": "QWorkhard"
+    },
+    {
+      "command-line-flag": "-qw_opts",
+      "description": "Pass all of OPTS as extra options directly to 3dQwarp",
+      "value-key": "[QW_OPTS]",
+      "type": "String",
+      "optional": true,
+      "id": "qw_opts",
+      "name": "QW Options"
+    },
+    {
+      "command-line-flag": "-keep_rm_files",
+      "description": "Don't delete any of the temporary files created",
+      "value-key": "[KEEP_RM_FILES]",
+      "type": "Flag",
+      "id": "keep_rm_files",
+      "name": "Keep Temporary Files"
+    },
+    {
+      "command-line-flag": "-prep_only",
+      "description": "Do preprocessing steps only without alignment",
+      "value-key": "[PREP_ONLY]",
+      "type": "Flag",
+      "id": "prep_only",
+      "name": "Preprocessing Only"
+    },
+    {
+      "command-line-flag": "-help",
+      "description": "Display help message",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help"
+    },
+    {
+      "command-line-flag": "-hview",
+      "description": "Display help message in a text editor",
+      "value-key": "[HVIEW]",
+      "type": "Flag",
+      "id": "hview",
+      "name": "Help in Editor"
+    },
+    {
+      "command-line-flag": "-limited_help",
+      "description": "Display limited help message",
+      "value-key": "[LIMITED_HELP]",
+      "type": "Flag",
+      "id": "limited_help",
+      "name": "Limited Help"
+    },
+    {
+      "command-line-flag": "-option_help",
+      "description": "Display help for all available options",
+      "value-key": "[OPTION_HELP]",
+      "type": "Flag",
+      "id": "option_help",
+      "name": "Option Help"
+    },
+    {
+      "command-line-flag": "-version",
+      "description": "Show version number and exit",
+      "value-key": "[VERSION]",
+      "type": "Flag",
+      "id": "version",
+      "name": "Version"
+    },
+    {
+      "command-line-flag": "-ver",
+      "description": "Show version number and exit",
+      "value-key": "[VER]",
+      "type": "Flag",
+      "id": "ver",
+      "name": "Ver"
+    },
+    {
+      "command-line-flag": "-verb",
+      "description": "Be verbose in messages and options",
+      "value-key": "[VERB]",
+      "type": "Flag",
+      "id": "verb",
+      "name": "Verbose"
+    },
+    {
+      "command-line-flag": "-save_script",
+      "description": "Save executed script in given file",
+      "value-key": "[SAVE_SCRIPT]",
+      "type": "Flag",
+      "id": "save_script",
+      "name": "Save Script"
+    },
+    {
+      "command-line-flag": "-skip_affine",
+      "description": "Skip the affine registration process",
+      "value-key": "[SKIP_AFFINE]",
+      "type": "Flag",
+      "id": "skip_affine",
+      "name": "Skip Affine"
+    },
+    {
+      "command-line-flag": "-skull_strip_base",
+      "description": "Do not skullstrip base/template dataset",
+      "value-key": "[SKULL_STRIP_BASE]",
+      "type": "Flag",
+      "id": "skull_strip_base",
+      "name": "Skull Strip Base"
+    },
+    {
+      "command-line-flag": "-skull_strip_input",
+      "description": "Do not skullstrip input dataset",
+      "value-key": "[SKULL_STRIP_INPUT]",
+      "type": "Flag",
+      "id": "skull_strip_input",
+      "name": "Skull Strip Input"
+    },
+    {
+      "command-line-flag": "-ex_mode",
+      "description": "Command execution mode: quiet, echo, dry_run, script",
+      "value-key": "[EX_MODE]",
+      "type": "String",
+      "optional": true,
+      "id": "ex_mode",
+      "name": "Execution Mode"
+    },
+    {
+      "command-line-flag": "-overwrite",
+      "description": "Overwrite existing files",
+      "value-key": "[OVERWRITE]",
+      "type": "Flag",
+      "id": "overwrite",
+      "name": "Overwrite Files"
+    },
+    {
+      "command-line-flag": "-suffix",
+      "description": "Suffix to add to output files",
+      "value-key": "[SUFFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "suffix",
+      "name": "Output Suffix"
+    },
+    {
+      "command-line-flag": "-child_anat",
+      "description": "Names of child anatomical datasets",
+      "value-key": "[CHILD_ANAT]",
+      "type": "String",
+      "optional": true,
+      "id": "child_anat",
+      "name": "Child Anatomical Datasets"
+    },
+    {
+      "command-line-flag": "-warp_dxyz",
+      "description": "Resolution used for computing warp (cubic only)",
+      "value-key": "[WARP_DXYZ]",
+      "type": "Number",
+      "optional": true,
+      "id": "warp_dxyz",
+      "name": "Warp Resolution"
+    },
+    {
+      "command-line-flag": "-affine_dxyz",
+      "description": "Resolution used for computing initial transform (cubic only)",
+      "value-key": "[AFFINE_DXYZ]",
+      "type": "Number",
+      "optional": true,
+      "id": "affine_dxyz",
+      "name": "Affine Transform Resolution"
+    },
+    {
+      "command-line-flag": "-affine_input_xmat",
+      "description": "Affine transform to put input in standard space. Special values are: 'AUTO' to use @auto_tlrc, 'ID' to do nothing, 'FILE.1D' for a pre-computed matrix FILE.1D",
+      "value-key": "[AFFINE_INPUT_XMAT]",
+      "type": "String",
+      "optional": true,
+      "id": "affine_input_xmat",
+      "name": "Affine Input Transform"
+    },
+    {
+      "command-line-flag": "-smooth_anat",
+      "description": "Smooth anatomy before registration",
+      "value-key": "[SMOOTH_ANAT]",
+      "type": "Flag",
+      "id": "smooth_anat",
+      "name": "Smooth Anatomy"
+    },
+    {
+      "command-line-flag": "-smooth_base",
+      "description": "Smooth template before registration",
+      "value-key": "[SMOOTH_BASE]",
+      "type": "Flag",
+      "id": "smooth_base",
+      "name": "Smooth Base"
+    },
+    {
+      "command-line-flag": "-unifize_input",
+      "description": "Unifize the input or not",
+      "value-key": "[UNIFIZE_INPUT]",
+      "type": "Flag",
+      "id": "unifize_input",
+      "name": "Unifize Input"
+    },
+    {
+      "command-line-flag": "-output_dir",
+      "description": "Set directory for output datasets",
+      "value-key": "[OUTPUT_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "output_dir",
+      "name": "Output Directory"
+    },
+    {
+      "command-line-flag": "-followers",
+      "description": "Specify follower datasets",
+      "value-key": "[FOLLOWERS]",
+      "type": "String",
+      "optional": true,
+      "id": "followers",
+      "name": "Follower Datasets"
+    },
+    {
+      "command-line-flag": "-affine_followers_xmat",
+      "description": "Specify follower datasets' affine transforms",
+      "value-key": "[AFFINE_FOLLOWERS_XMAT]",
+      "type": "String",
+      "optional": true,
+      "id": "affine_followers_xmat",
+      "name": "Affine Follower Transforms"
+    },
+    {
+      "command-line-flag": "-skullstrip_opts",
+      "description": "3dSkullstrip miscellaneous options",
+      "value-key": "[SKULLSTRIP_OPTS]",
+      "type": "String",
+      "optional": true,
+      "id": "skullstrip_opts",
+      "name": "Skullstrip Options"
+    },
+    {
+      "command-line-flag": "-at_opts",
+      "description": "@auto_tlrc miscellaneous options",
+      "value-key": "[AT_OPTS]",
+      "type": "String",
+      "optional": true,
+      "id": "at_opts",
+      "name": "Auto TLRC Options"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

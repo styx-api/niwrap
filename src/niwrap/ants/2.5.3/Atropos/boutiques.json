@@ -1,0 +1,226 @@
+{
+  "name": "Atropos",
+  "command-line": "Atropos [IMAGE_DIMENSIONALITY] [INTENSITY_IMAGE] [BSPLINE] [INITIALIZATION] [PARTIAL_VOLUME_LABEL_SET] [USE_PARTIAL_VOLUME_LIKELIHOODS] [POSTERIOR_FORMULATION] [MASK_IMAGE] [CONVERGENCE] [LIKELIHOOD_MODEL] [MRF] [ICM] [USE_RANDOM_SEED] [OUTPUT] [MINIMIZE_MEMORY_USAGE] [WINSORIZE_OUTLIERS] [USE_EUCLIDEAN_DISTANCE] [LABEL_PROPAGATION] [VERBOSE]",
+  "author": "ANTs Developers",
+  "description": "Atropos is a finite mixture modeling (FMM) segmentation approach that allows for prior constraints including a prior label image, prior probability images, and/or an MRF prior to enforce spatial smoothing of the labels.",
+  "url": "https://github.com/ANTsX/ANTs",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "image_dimensionality",
+      "name": "Image Dimensionality",
+      "value-key": "[IMAGE_DIMENSIONALITY]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [
+        2,
+        3,
+        4
+      ],
+      "command-line-flag": "--image-dimensionality",
+      "description": "This option forces the image to be treated as a specified-dimensional image. If not specified, Atropos tries to infer the dimensionality from the first input image."
+    },
+    {
+      "id": "intensity_image",
+      "name": "Intensity Image",
+      "value-key": "[INTENSITY_IMAGE]",
+      "type": "String",
+      "optional": false,
+      "command-line-flag": "-a",
+      "description": "One or more scalar images is specified for segmentation. For scenarios with no prior information, the first scalar image is used to order labelings by intensity. The optional adaptive smoothing weight is applicable with prior images, specified between [0,1]."
+    },
+    {
+      "id": "bspline",
+      "name": "B-Spline Parameters",
+      "value-key": "[BSPLINE]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "-b",
+      "description": "Parameters for B-Spline. Adaptive smoothing is applied to intensity images if smoothing weights > 0."
+    },
+    {
+      "id": "initialization",
+      "name": "Initialization",
+      "value-key": "[INITIALIZATION]",
+      "type": "String",
+      "optional": false,
+      "command-line-flag": "-i",
+      "description": "Initialize the FMM parameters. options include Random, Otsu, KMeans, PriorProbabilityImages, and PriorLabelImage."
+    },
+    {
+      "id": "partial_volume_label_set",
+      "name": "Partial Volume Label Set",
+      "value-key": "[PARTIAL_VOLUME_LABEL_SET]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "-s",
+      "description": "Model mixtures of classes within single voxels. Specify labels for each partial volume class."
+    },
+    {
+      "id": "use_partial_volume_likelihoods",
+      "name": "Use Partial Volume Likelihoods",
+      "value-key": "[USE_PARTIAL_VOLUME_LIKELIHOODS]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "command-line-flag": "--use-partial-volume-likelihoods",
+      "description": "Whether to use partial volume likelihoods. A value of 1 considers the partial volume class separate from tissue classes."
+    },
+    {
+      "id": "posterior_formulation",
+      "name": "Posterior Formulation",
+      "value-key": "[POSTERIOR_FORMULATION]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "-p",
+      "description": "Specify posterior probability formulation. Options are Socrates, Plato, Aristotle, or Sigmoid."
+    },
+    {
+      "id": "mask_image",
+      "name": "Mask Image",
+      "value-key": "[MASK_IMAGE]",
+      "type": "File",
+      "optional": false,
+      "command-line-flag": "-x",
+      "description": "The required image mask defines the region to be labeled by Atropos."
+    },
+    {
+      "id": "convergence",
+      "name": "Convergence",
+      "value-key": "[CONVERGENCE]",
+      "type": "String",
+      "optional": false,
+      "command-line-flag": "-c",
+      "description": "Determine convergence based on mean maximum posterior probability over region of interest."
+    },
+    {
+      "id": "likelihood_model",
+      "name": "Likelihood Model",
+      "value-key": "[LIKELIHOOD_MODEL]",
+      "type": "String",
+      "optional": false,
+      "command-line-flag": "-k",
+      "description": "Specify parametric or non-parametric likelihood model. Options include Gaussian, HistogramParzenWindows, ManifoldParzenWindows, among others."
+    },
+    {
+      "id": "mrf",
+      "name": "MRF Parameters",
+      "value-key": "[MRF]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "-m",
+      "description": "Markov Random Field parameters to enforce spatial constraints on segmentation."
+    },
+    {
+      "id": "icm",
+      "name": "ICM Parameters",
+      "value-key": "[ICM]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "-g",
+      "description": "ICM (Iterated Conditional Modes) parameters for asynchronous updating."
+    },
+    {
+      "id": "use_random_seed",
+      "name": "Use Random Seed",
+      "value-key": "[USE_RANDOM_SEED]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "command-line-flag": "-r",
+      "description": "Initialize with a random seed or a constant seed number."
+    },
+    {
+      "id": "output",
+      "name": "Output",
+      "value-key": "[OUTPUT]",
+      "type": "String",
+      "optional": false,
+      "command-line-flag": "-o",
+      "description": "Output labeled image and optionally posterior probability images."
+    },
+    {
+      "id": "minimize_memory_usage",
+      "name": "Minimize Memory Usage",
+      "value-key": "[MINIMIZE_MEMORY_USAGE]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "command-line-flag": "-u",
+      "description": "Minimize memory usage by calculating images on the fly and storing only non-negligible pixel values."
+    },
+    {
+      "id": "winsorize_outliers",
+      "name": "Winsorize Outliers",
+      "value-key": "[WINSORIZE_OUTLIERS]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "-w",
+      "description": "Options to remove effects of outliers in calculations using methods like BoxPlot or GrubbsRosner."
+    },
+    {
+      "id": "use_euclidean_distance",
+      "name": "Use Euclidean Distance",
+      "value-key": "[USE_EUCLIDEAN_DISTANCE]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "command-line-flag": "-e",
+      "description": "Propagate labels throughout the mask using a distance transform."
+    },
+    {
+      "id": "label_propagation",
+      "name": "Label Propagation",
+      "value-key": "[LABEL_PROPAGATION]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "-l",
+      "description": "Control propagation of each prior label by specified lambda and boundary probability."
+    },
+    {
+      "id": "verbose",
+      "name": "Verbose",
+      "value-key": "[VERBOSE]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "command-line-flag": "-v",
+      "description": "Verbose output."
+    }
+  ],
+  "output-files": [
+    {
+      "id": "classified_image",
+      "name": "Classified Image",
+      "description": "The output labeled image with assigned labels for each voxel in the masked region.",
+      "path-template": "[OUTPUT]_classified.nii.gz"
+    },
+    {
+      "id": "posterior_probability_images",
+      "name": "Posterior Probability Images",
+      "description": "Output posterior probability images in specified format.",
+      "path-template": "[POSTERIOR_PROBABILITY_IMAGE_FILE_NAME_FORMAT]"
+    }
+  ]
+}

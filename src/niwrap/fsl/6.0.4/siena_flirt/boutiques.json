@@ -1,0 +1,40 @@
+{
+  "name": "siena_flirt",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Wrapper for FLIRT image registration within the SIENA framework.",
+  "command-line": "siena_flirt [INPUT1_FILEROOT] [INPUT2_FILEROOT]",
+  "inputs": [
+    {
+      "description": "First input file root (e.g. first time-point image root, without file extension)",
+      "value-key": "[INPUT1_FILEROOT]",
+      "type": "String",
+      "optional": false,
+      "id": "input1_fileroot",
+      "name": "Input 1 File Root"
+    },
+    {
+      "description": "Second input file root (e.g. second time-point image root, without file extension)",
+      "value-key": "[INPUT2_FILEROOT]",
+      "type": "String",
+      "optional": false,
+      "id": "input2_fileroot",
+      "name": "Input 2 File Root"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[INPUT1_FILEROOT]_to_[INPUT2_FILEROOT]_flirt.mat",
+      "description": "Output transformation matrix file",
+      "id": "output_transform_matrix",
+      "name": "Output Transformation Matrix"
+    },
+    {
+      "path-template": "[INPUT1_FILEROOT]_to_[INPUT2_FILEROOT]_flirt.nii.gz",
+      "description": "Output registered image",
+      "id": "output_registered_image",
+      "name": "Output Registered Image"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

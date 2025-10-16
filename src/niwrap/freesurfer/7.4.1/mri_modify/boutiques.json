@@ -1,0 +1,138 @@
+{
+  "name": "mri_modify",
+  "command-line": "mri_modify [X_RAS] [Y_RAS] [Z_RAS] [CRAS] [X_SIZE] [Y_SIZE] [Z_SIZE] [TR] [TE] [TI] [FA] [XFORM] [INPUT_VOLUME] [OUTPUT_VOLUME]",
+  "description": "Tool for modifying MRI image headers",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "-xras",
+      "description": "X direction cosines (xr, xa, xs)",
+      "value-key": "[X_RAS]",
+      "type": "Number",
+      "list": true,
+      "optional": false,
+      "id": "x_ras",
+      "name": "X RAS Cosines"
+    },
+    {
+      "command-line-flag": "-yras",
+      "description": "Y direction cosines (yr, ya, ys)",
+      "value-key": "[Y_RAS]",
+      "type": "Number",
+      "list": true,
+      "optional": false,
+      "id": "y_ras",
+      "name": "Y RAS Cosines"
+    },
+    {
+      "command-line-flag": "-zras",
+      "description": "Z direction cosines (zr, za, zs)",
+      "value-key": "[Z_RAS]",
+      "type": "Number",
+      "list": true,
+      "optional": false,
+      "id": "z_ras",
+      "name": "Z RAS Cosines"
+    },
+    {
+      "command-line-flag": "-cras",
+      "description": "Center RAS coordinates (cr, ca, cs)",
+      "value-key": "[CRAS]",
+      "type": "Number",
+      "list": true,
+      "optional": false,
+      "id": "cras",
+      "name": "Center RAS"
+    },
+    {
+      "command-line-flag": "-xsize",
+      "description": "Size of voxel in X dimension",
+      "value-key": "[X_SIZE]",
+      "type": "Number",
+      "optional": false,
+      "id": "x_size",
+      "name": "X Size"
+    },
+    {
+      "command-line-flag": "-ysize",
+      "description": "Size of voxel in Y dimension",
+      "value-key": "[Y_SIZE]",
+      "type": "Number",
+      "optional": false,
+      "id": "y_size",
+      "name": "Y Size"
+    },
+    {
+      "command-line-flag": "-zsize",
+      "description": "Size of voxel in Z dimension",
+      "value-key": "[Z_SIZE]",
+      "type": "Number",
+      "optional": false,
+      "id": "z_size",
+      "name": "Z Size"
+    },
+    {
+      "command-line-flag": "-tr",
+      "description": "Repetition time (TR)",
+      "value-key": "[TR]",
+      "type": "Number",
+      "optional": false,
+      "id": "tr",
+      "name": "Repetition Time"
+    },
+    {
+      "command-line-flag": "-te",
+      "description": "Echo time (TE)",
+      "value-key": "[TE]",
+      "type": "Number",
+      "optional": false,
+      "id": "te",
+      "name": "Echo Time"
+    },
+    {
+      "command-line-flag": "-ti",
+      "description": "Inversion time (TI)",
+      "value-key": "[TI]",
+      "type": "Number",
+      "optional": false,
+      "id": "ti",
+      "name": "Inversion Time"
+    },
+    {
+      "command-line-flag": "-fa",
+      "description": "Flip angle (degrees)",
+      "value-key": "[FA]",
+      "type": "Number",
+      "optional": false,
+      "id": "fa",
+      "name": "Flip Angle"
+    },
+    {
+      "command-line-flag": "-xform",
+      "description": "New transformation file name",
+      "value-key": "[XFORM]",
+      "type": "String",
+      "optional": false,
+      "id": "xform",
+      "name": "Transformation File"
+    },
+    {
+      "description": "Input volume",
+      "value-key": "[INPUT_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "input_volume",
+      "name": "Input Volume"
+    },
+    {
+      "description": "Output volume",
+      "value-key": "[OUTPUT_VOLUME]",
+      "type": "String",
+      "optional": false,
+      "id": "output_volume",
+      "name": "Output Volume"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

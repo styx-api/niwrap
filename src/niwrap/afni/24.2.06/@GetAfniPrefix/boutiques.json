@@ -1,0 +1,26 @@
+{
+  "name": "@GetAfniPrefix",
+  "author": "AFNI Developers",
+  "description": "A tool to extract AFNI prefix from a given file path",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "@GetAfniPrefix [NAME] [SUFFIX]",
+  "inputs": [
+    {
+      "description": "Input file path for which the AFNI prefix will be extracted",
+      "value-key": "[NAME]",
+      "type": "File",
+      "optional": false,
+      "id": "name",
+      "name": "Input file path"
+    },
+    {
+      "description": "Suffix string to append to the returned prefix",
+      "value-key": "[SUFFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "suffix",
+      "name": "Suffix"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

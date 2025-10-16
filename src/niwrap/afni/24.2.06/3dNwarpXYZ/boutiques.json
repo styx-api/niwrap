@@ -1,0 +1,53 @@
+{
+  "name": "3dNwarpXYZ",
+  "author": "AFNI Developers",
+  "description": "Transforms the DICOM xyz coordinates in the input XYZfile.1D based on specified warp.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dNwarpXYZ [XYZFILE] [WARP_SPEC] [IWARP] [OUTPUT_FILE]",
+  "inputs": [
+    {
+      "description": "XYZ coordinate file containing 3 columns",
+      "value-key": "[XYZFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "xyzfile",
+      "name": "Input XYZ file"
+    },
+    {
+      "command-line-flag": "-nwarp",
+      "description": "Warp specification as in 3dNwarpApply",
+      "value-key": "[WARP_SPEC]",
+      "type": "String",
+      "optional": false,
+      "id": "warp_spec",
+      "name": "Warp specification"
+    },
+    {
+      "command-line-flag": "-iwarp",
+      "description": "Compute the inverse warp for each input (x,y,z) triple",
+      "value-key": "[IWARP]",
+      "type": "Flag",
+      "id": "iwarp",
+      "name": "Inverse warp flag"
+    },
+    {
+      "command-line-flag": ">",
+      "command-line-flag-separator": " ",
+      "description": "Warped XYZ coordinates output file",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_file",
+      "name": "Output XYZ file"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILE]",
+      "description": "Warped XYZ coordinates output file",
+      "id": "output_file",
+      "name": "Output XYZ file"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

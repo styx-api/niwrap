@@ -1,0 +1,34 @@
+{
+  "name": "dmri_neighboringRegions",
+  "author": "FreeSurfer Developers",
+  "description": "A tool for diffusion MRI analysis involving neighboring regions.",
+  "command-line": "dmri_neighboringRegions [INPUT_FILE] [OUTPUT_FILE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input image file (e.g. img.nii.gz)",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input file"
+    },
+    {
+      "description": "Output result file (e.g. result.nii.gz)",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_file",
+      "name": "Output file"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILE]",
+      "description": "Resulting output file from dmri_neighboringRegions",
+      "id": "result_file",
+      "name": "Result file"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

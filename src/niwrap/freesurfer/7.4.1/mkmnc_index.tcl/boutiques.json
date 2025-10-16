@@ -1,0 +1,34 @@
+{
+  "name": "mkmnc_index.tcl",
+  "author": "FreeSurfer Developers",
+  "description": "A tool for creating MINC indices.",
+  "command-line": "mkmnc_index.tcl [INFILE] [OUTFILE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input MINC file",
+      "value-key": "[INFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "infile",
+      "name": "Input MINC file"
+    },
+    {
+      "description": "Output index file",
+      "value-key": "[OUTFILE]",
+      "type": "String",
+      "optional": false,
+      "id": "outfile",
+      "name": "Output index file"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTFILE]",
+      "description": "Generated index file",
+      "id": "indexfile",
+      "name": "Index file"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

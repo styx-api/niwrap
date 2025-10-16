@@ -1,0 +1,448 @@
+{
+  "name": "antsApplyTransforms",
+  "command-line": "antsApplyTransforms [DIMENSIONALITY] [INPUT_IMAGE_TYPE] [INPUT_IMAGE] [REFERENCE_IMAGE] [OUTPUT] [INTERPOLATION] [OUTPUT_DATA_TYPE] [TRANSFORM] [DEFAULT_VALUE] [STATIC_CAST_FOR_R] [FLOAT] [VERBOSE]",
+  "author": "ANTs Developers",
+  "description": "antsApplyTransforms, applied to an input image, transforms it according to a reference image and a transform (or a set of transforms).",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "dimensionality",
+      "name": "dimensionality",
+      "type": "Number",
+      "value-key": "[DIMENSIONALITY]",
+      "command-line-flag": "--dimensionality",
+      "description": "This option forces the image to be treated as a specified-dimensional image. if not specified, antswarp tries to infer the dimensionality from the input image.",
+      "optional": true,
+      "integer": true,
+      "value-choices": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": "input_image_type",
+      "name": "Input image type",
+      "type": "Number",
+      "value-key": "[INPUT_IMAGE_TYPE]",
+      "command-line-flag": "--input-image-type",
+      "description": "Option specifying the input image type of scalar (default), vector, tensor, time series, or multi-channel. A time series image is a scalar image defined by an additional dimension for the time component whereas a multi-channel image is a vector image with only spatial dimensions. Five-dimensional images are e.g., AFNI stats image.",
+      "optional": true,
+      "integer": true,
+      "value-choices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "id": "input_image",
+      "name": "Input image",
+      "type": "File",
+      "value-key": "[INPUT_IMAGE]",
+      "command-line-flag": "--input",
+      "description": "Currently, the only input objects supported are image objects. However, the current framework allows for warping of other objects such as meshes and point sets.",
+      "optional": true
+    },
+    {
+      "id": "reference_image",
+      "name": "Reference image",
+      "type": "File",
+      "value-key": "[REFERENCE_IMAGE]",
+      "command-line-flag": "--reference-image",
+      "description": "For warping input images, the reference image defines the spacing, origin, size, and direction of the output warped image.",
+      "optional": false
+    },
+    {
+      "id": "output",
+      "name": "Output",
+      "value-key": "[OUTPUT]",
+      "command-line-flag": "--output",
+      "description": "One can either output the warped image or, if the boolean is set, one can print out the displacement field based on the composite transform and the reference image. A third option is to compose all affine transforms and (if boolean is set) calculate its inverse which is then written to an ITK file.",
+      "optional": false,
+      "type": [
+        {
+          "id": "warpedOutput",
+          "name": "Warped output file name",
+          "command-line": "[OUTPUT]",
+          "description": "Output the warped image.",
+          "inputs": [
+            {
+              "id": "warpedOutputFileName",
+              "name": "Warped output file name",
+              "type": "String",
+              "value-key": "[OUTPUT]",
+              "description": "Output file name."
+            }
+          ],
+          "output-files": [
+            {
+              "name": "Output image",
+              "id": "output_image_outfile",
+              "path-template": "[OUTPUT]",
+              "description": "Warped image."
+            }
+          ]
+        },
+        {
+          "id": "compositeDisplacementFieldOutput",
+          "command-line": "[[OUTPUT][PRINT_OUT_COMPOSITE_WARP_FILE]]",
+          "description": "Print out the displacement field based on the composite transform and the reference image.",
+          "inputs": [
+            {
+              "id": "compositeDisplacementField",
+              "name": "Warped output file name",
+              "type": "String",
+              "value-key": "[OUTPUT]",
+              "description": "Output file name."
+            },
+            {
+              "id": "printOutCompositeWarpFile",
+              "name": "Print out composite warp file",
+              "type": "Number",
+              "command-line-flag": ",printOutCompositeWarpFile=",
+              "command-line-flag-separator": "",
+              "integer": true,
+              "value-key": "[PRINT_OUT_COMPOSITE_WARP_FILE]",
+              "description": "Output a composite warp file instead of a transformed image.",
+              "optional": true,
+              "value-choices": [
+                0,
+                1
+              ]
+            }
+          ],
+          "output-files": [
+            {
+              "name": "Output image",
+              "id": "output_image_outfile",
+              "path-template": "[OUTPUT]",
+              "description": "Warped image."
+            }
+          ]
+        },
+        {
+          "id": "genericAffineTransformOutput",
+          "command-line": "Linear[[OUTPUT][CALCULATE_INVERSE]]",
+          "description": "Compose all affine transforms and (if boolean is set) calculate its inverse which is then written to an ITK file.",
+          "inputs": [
+            {
+              "id": "genericAffineTransformFile",
+              "name": "Generic affine transform file",
+              "type": "String",
+              "value-key": "[OUTPUT]",
+              "description": "Output file name."
+            },
+            {
+              "id": "calculateInverse",
+              "name": "Calculate inverse",
+              "type": "Number",
+              "command-line-flag": ",calculateInverse=",
+              "command-line-flag-separator": "",
+              "integer": true,
+              "value-key": "[CALCULATE_INVERSE]",
+              "description": "Calculate the inverse of the affine transform.",
+              "optional": true,
+              "value-choices": [
+                0,
+                1
+              ]
+            }
+          ],
+          "output-files": [
+            {
+              "name": "Output image",
+              "id": "output_image_outfile",
+              "path-template": "[OUTPUT]",
+              "description": "Warped image."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "interpolation",
+      "name": "Interpolation",
+      "value-key": "[INTERPOLATION]",
+      "command-line-flag": "--interpolation",
+      "description": "Several interpolation options are available in ITK. These have all been made available.",
+      "optional": true,
+      "type": [
+        {
+          "id": "linear",
+          "name": "Linear",
+          "command-line": "Linear",
+          "description": "Linear interpolation."
+        },
+        {
+          "id": "nearestNeighbor",
+          "name": "Nearest neighbor",
+          "command-line": "NearestNeighbor",
+          "description": "Nearest neighbor interpolation."
+        },
+        {
+          "id": "multiLabelnoparams",
+          "name": "Multi label no params",
+          "command-line": "MultiLabel",
+          "description": "Multi label interpolation."
+        },
+        {
+          "id": "multiLabel",
+          "name": "Multi label",
+          "command-line": "MultiLabel[PARAMS]",
+          "description": "Multi label interpolation.",
+          "inputs": [
+            {
+              "id": "params",
+              "name": "Params",
+              "value-key": "[PARAMS]",
+              "type": {
+                "command-line": "[[PARAM]]",
+                "id": "param",
+                "inputs": [
+                  {
+                    "id": "params",
+                    "name": "Params",
+                    "value-key": "[PARAM]",
+                    "list": true,
+                    "list-separator": ",",
+                    "type": [
+                      {
+                        "id": "sigma",
+                        "command-line": "sigma=[SIGMA]",
+                        "description": "Sigma value.",
+                        "inputs": [
+                          {
+                            "id": "sigma",
+                            "name": "Sigma",
+                            "type": "Number",
+                            "value-key": "[SIGMA]",
+                            "description": "Sigma value.",
+                            "optional": false
+                          }
+                        ]
+                      },
+                      {
+                        "id": "alpha",
+                        "command-line": "alpha=[ALPHA]",
+                        "description": "Alpha value.",
+                        "inputs": [
+                          {
+                            "id": "alpha",
+                            "name": "Alpha",
+                            "type": "Number",
+                            "value-key": "[ALPHA]",
+                            "description": "Alpha value.",
+                            "optional": false
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "gaussian",
+          "name": "Gaussian",
+          "command-line": "Gaussian[[SIGMA][ALPHA]]",
+          "description": "Gaussian interpolation.",
+          "inputs": [
+            {
+              "id": "sigma",
+              "name": "Sigma",
+              "type": "Number",
+              "command-line-flag": "sigma=",
+              "command-line-flag-separator": "",
+              "value-key": "[SIGMA]",
+              "description": "Sigma value.",
+              "optional": true
+            },
+            {
+              "id": "alpha",
+              "name": "Alpha",
+              "type": "Number",
+              "command-line-flag": ",alpha=",
+              "command-line-flag-separator": "",
+              "value-key": "[ALPHA]",
+              "description": "Alpha value.",
+              "optional": true
+            }
+          ]
+        },
+        {
+          "id": "bspline",
+          "name": "BSpline",
+          "command-line": "BSpline[[ORDER]]",
+          "description": "BSpline interpolation.",
+          "inputs": [
+            {
+              "id": "order",
+              "name": "Order",
+              "type": "Number",
+              "command-line-flag": "order=",
+              "command-line-flag-separator": "",
+              "value-key": "[ORDER]",
+              "description": "Order value.",
+              "optional": true,
+              "integer": true
+            }
+          ]
+        },
+        {
+          "id": "cosineWindowedSinc",
+          "name": "Cosine windowed sinc",
+          "command-line": "CosineWindowedSinc",
+          "description": "Cosine windowed sinc interpolation."
+        },
+        {
+          "id": "welchWindowedSinc",
+          "name": "Welch windowed sinc",
+          "command-line": "WelchWindowedSinc",
+          "description": "Welch windowed sinc interpolation."
+        },
+        {
+          "id": "hammingWindowedSinc",
+          "name": "Hamming windowed sinc",
+          "command-line": "HammingWindowedSinc",
+          "description": "Hamming windowed sinc interpolation."
+        },
+        {
+          "id": "lanczosWindowedSinc",
+          "name": "Lanczos windowed sinc",
+          "command-line": "LanczosWindowedSinc",
+          "description": "Lanczos windowed sinc interpolation."
+        },
+        {
+          "id": "genericLabel",
+          "name": "Generic label",
+          "command-line": "GenericLabel[[INTERPOLATOR]]",
+          "description": "Generic label interpolation.",
+          "inputs": [
+            {
+              "id": "interpolator",
+              "name": "Interpolator",
+              "type": "String",
+              "command-line-flag": "interpolator=",
+              "command-line-flag-separator": "",
+              "value-key": "[INTERPOLATOR]",
+              "description": "Interpolator value.",
+              "optional": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "output_data_type",
+      "name": "Output data type",
+      "type": "String",
+      "value-key": "[OUTPUT_DATA_TYPE]",
+      "command-line-flag": "--output-data-type",
+      "description": "Output image data type. This is a direct typecast; output values are not rescaled. Default is to use the internal data type (float or double). uchar is unsigned char; others are signed. WARNING: Outputs will be incorrect (overflowed/reinterpreted) if values exceed the range allowed by your choice. Note that some pixel types are not supported by some image formats. e.g. int is not supported by jpg.",
+      "optional": true,
+      "value-choices": [
+        "char",
+        "uchar",
+        "short",
+        "int",
+        "float",
+        "double",
+        "default"
+      ]
+    },
+    {
+      "id": "transform",
+      "name": "Transform",
+      "value-key": "[TRANSFORM]",
+      "command-line-flag": "--transform",
+      "optional": true,
+      "list": true,
+      "description": "Several transform options are supported including all those defined in the ITK library in addition to a deformation field transform. The ordering of the transformations follows the ordering specified on the command line. An identity transform is pushed onto the transformation stack. Each new transform encountered on the command line is also pushed onto the transformation stack. Then, to warp the input object, each point comprising the input object is warped first according to the last transform pushed onto the stack followed by the second to last transform, etc. until the last transform encountered which is the identity transform. Also, it should be noted that the inverse transform can be accommodated with the usual caveat that such an inverse must be defined by the specified transform class.",
+      "type": [
+        {
+          "id": "transformFileName",
+          "name": "Transform file name",
+          "command-line": "[TRANSFORM]",
+          "description": "Transform file name.",
+          "inputs": [
+            {
+              "id": "transformFileName",
+              "name": "Transform file name",
+              "type": "File",
+              "value-key": "[TRANSFORM]",
+              "description": "Transform file name."
+            }
+          ]
+        },
+        {
+          "id": "useInverse",
+          "name": "Use inverse",
+          "command-line": "[[TRANSFORM],useInverse]",
+          "description": "Use inverse.",
+          "inputs": [
+            {
+              "id": "transformFileName",
+              "name": "Transform file name",
+              "type": "File",
+              "value-key": "[TRANSFORM]",
+              "description": "Transform file name."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "default_value",
+      "name": "Default value",
+      "type": "Number",
+      "value-key": "[DEFAULT_VALUE]",
+      "description": "Default voxel value to be used with input images only. Specifies the voxel value when the input point maps outside the output domain. With tensor input images, specifies the default voxel eigenvalues.",
+      "command-line-flag": "--default-value",
+      "optional": true
+    },
+    {
+      "id": "static_cast_for_R",
+      "name": "Static cast for R",
+      "type": "String",
+      "value-key": "[STATIC_CAST_FOR_R]",
+      "command-line-flag": "--static-cast-for-R",
+      "description": "Forces static cast in ReadTransform (for R).",
+      "optional": true
+    },
+    {
+      "id": "float",
+      "name": "Float",
+      "type": "Number",
+      "value-key": "[FLOAT]",
+      "command-line-flag": "--float",
+      "description": "Use float instead of double for computations.",
+      "optional": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "integer": true
+    },
+    {
+      "id": "verbose",
+      "name": "Verbose",
+      "type": "Number",
+      "value-key": "[VERBOSE]",
+      "command-line-flag": "--verbose",
+      "description": "Verbose output.",
+      "optional": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "integer": true
+    }
+  ],
+  "url": "https://github.com/ANTsX/ANTs"
+}

@@ -1,0 +1,165 @@
+{
+  "name": "mris_volmask",
+  "command-line": "mris_volmask [CAP_DISTANCE] [LABEL_BACKGROUND] [LABEL_LEFT_WHITE] [LABEL_LEFT_RIBBON] [LABEL_RIGHT_WHITE] [LABEL_RIGHT_RIBBON] [SURF_WHITE] [SURF_PIAL] [ASEG_NAME] [OUT_ROOT] [SUBJECTS_DIR] [SAVE_DISTANCE] [LH_ONLY] [RH_ONLY] [PARALLEL] [EDIT_ASEG] [SAVE_RIBBON] [IO]",
+  "description": "Computes a volume mask, at the same resolution as the <subject>/mri/brain.mgz. The volume mask contains 4 values: LH_WM (default 10), LH_GM (default 100), RH_WM (default 20), RH_GM (default 200).",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "io",
+      "name": "Positional IO argument",
+      "type": "String",
+      "value-key": "[IO]",
+      "optional": false,
+      "description": "Positional argument that represents input/output settings."
+    },
+    {
+      "command-line-flag": "--cap_distance",
+      "description": "Maximum distance up to which the signed distance function computation is accurate.",
+      "type": "Number",
+      "value-key": "[CAP_DISTANCE]",
+      "optional": true,
+      "id": "cap_distance",
+      "name": "Cap Distance"
+    },
+    {
+      "command-line-flag": "--label_background",
+      "description": "Override default value for background label value (0).",
+      "type": "Number",
+      "value-key": "[LABEL_BACKGROUND]",
+      "optional": true,
+      "id": "label_background",
+      "name": "Label Background"
+    },
+    {
+      "command-line-flag": "--label_left_white",
+      "description": "Override default value for left white matter label (20).",
+      "type": "Number",
+      "value-key": "[LABEL_LEFT_WHITE]",
+      "optional": true,
+      "id": "label_left_white",
+      "name": "Label Left White"
+    },
+    {
+      "command-line-flag": "--label_left_ribbon",
+      "description": "Override default value for left ribbon label (10).",
+      "type": "Number",
+      "value-key": "[LABEL_LEFT_RIBBON]",
+      "optional": true,
+      "id": "label_left_ribbon",
+      "name": "Label Left Ribbon"
+    },
+    {
+      "command-line-flag": "--label_right_white",
+      "description": "Override default value for right white matter label (120).",
+      "type": "Number",
+      "value-key": "[LABEL_RIGHT_WHITE]",
+      "optional": true,
+      "id": "label_right_white",
+      "name": "Label Right White"
+    },
+    {
+      "command-line-flag": "--label_right_ribbon",
+      "description": "Override default value for right ribbon label (110).",
+      "type": "Number",
+      "value-key": "[LABEL_RIGHT_RIBBON]",
+      "optional": true,
+      "id": "label_right_ribbon",
+      "name": "Label Right Ribbon"
+    },
+    {
+      "command-line-flag": "--surf_white",
+      "description": "Surface root name (e.g. <subject>/surf/$hemi.<NAME> - default value is white).",
+      "type": "String",
+      "value-key": "[SURF_WHITE]",
+      "optional": true,
+      "id": "surf_white",
+      "name": "Surface White"
+    },
+    {
+      "command-line-flag": "--surf_pial",
+      "description": "Surface root name (e.g. <subject>/surf/$hemi.<NAME> - default value is pial).",
+      "type": "String",
+      "value-key": "[SURF_PIAL]",
+      "optional": true,
+      "id": "surf_pial",
+      "name": "Surface Pial"
+    },
+    {
+      "command-line-flag": "--aseg_name",
+      "description": "Specify a different name for the aseg input file (default is aseg).",
+      "type": "String",
+      "value-key": "[ASEG_NAME]",
+      "optional": true,
+      "id": "aseg_name",
+      "name": "ASEG Name"
+    },
+    {
+      "command-line-flag": "--out_root",
+      "description": "Output root name (default is ribbon). Output files would be, for example, mri/ribbon.mgz.",
+      "type": "String",
+      "value-key": "[OUT_ROOT]",
+      "optional": true,
+      "id": "out_root",
+      "name": "Output Root"
+    },
+    {
+      "command-line-flag": "--sd",
+      "description": "Specify SUBJECTS_DIR, default is read from environment.",
+      "type": "String",
+      "value-key": "[SUBJECTS_DIR]",
+      "optional": true,
+      "id": "subjects_dir",
+      "name": "Subjects Directory"
+    },
+    {
+      "command-line-flag": "--save_distance",
+      "description": "Save the signed distance function as ?h.dwhite.mgz and ?h.dpial.mgz.",
+      "value-key": "[SAVE_DISTANCE]",
+      "type": "Flag",
+      "id": "save_distance",
+      "name": "Save Distance Function"
+    },
+    {
+      "command-line-flag": "--lh-only",
+      "description": "Only process left hemisphere.",
+      "value-key": "[LH_ONLY]",
+      "type": "Flag",
+      "id": "lh_only",
+      "name": "Left Hemisphere Only"
+    },
+    {
+      "command-line-flag": "--rh-only",
+      "description": "Only process right hemisphere.",
+      "value-key": "[RH_ONLY]",
+      "type": "Flag",
+      "id": "rh_only",
+      "name": "Right Hemisphere Only"
+    },
+    {
+      "command-line-flag": "--parallel",
+      "description": "Run hemispheres in parallel and combine the result.",
+      "value-key": "[PARALLEL]",
+      "type": "Flag",
+      "id": "parallel",
+      "name": "Parallel Processing"
+    },
+    {
+      "command-line-flag": "--edit_aseg",
+      "description": "Edit the aseg using the ribbons and save to aseg.ribbon.mgz.",
+      "value-key": "[EDIT_ASEG]",
+      "type": "Flag",
+      "id": "edit_aseg",
+      "name": "Edit ASEG"
+    },
+    {
+      "command-line-flag": "--save_ribbon",
+      "description": "Save just the ribbon for the hemispheres - in the format ?h.ribbon.mgz.",
+      "value-key": "[SAVE_RIBBON]",
+      "type": "Flag",
+      "id": "save_ribbon",
+      "name": "Save Ribbon"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

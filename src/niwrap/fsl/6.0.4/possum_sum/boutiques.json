@@ -1,0 +1,54 @@
+{
+  "name": "possum_sum",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Sum of output signals from multiple possum processors",
+  "command-line": "possum_sum [INPUT_SIGNAL] [OUTPUT_SIGNAL] [NUM_PROCESSORS] [VERBOSE_FLAG]",
+  "inputs": [
+    {
+      "command-line-flag": "-i",
+      "description": "Input signal for one processor (possum output matrix)",
+      "value-key": "[INPUT_SIGNAL]",
+      "type": "File",
+      "optional": false,
+      "id": "input_signal",
+      "name": "Input signal"
+    },
+    {
+      "command-line-flag": "-o",
+      "description": "Output signal: sum of all the processors (possum matrix form)",
+      "value-key": "[OUTPUT_SIGNAL]",
+      "type": "String",
+      "optional": false,
+      "id": "output_signal",
+      "name": "Output signal"
+    },
+    {
+      "command-line-flag": "-n",
+      "description": "Number of processors",
+      "value-key": "[NUM_PROCESSORS]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "num_processors",
+      "name": "Number of processors"
+    },
+    {
+      "command-line-flag": "-v",
+      "description": "Switch on diagnostic messages",
+      "value-key": "[VERBOSE_FLAG]",
+      "type": "Flag",
+      "id": "verbose_flag",
+      "name": "Verbose Flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_SIGNAL]",
+      "description": "Sum of all input signals from processors",
+      "id": "output_file",
+      "name": "Output file"
+    }
+  ],
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

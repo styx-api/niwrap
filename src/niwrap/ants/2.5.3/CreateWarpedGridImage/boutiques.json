@@ -1,0 +1,67 @@
+{
+  "name": "CreateWarpedGridImage",
+  "command-line": "CreateWarpedGridImage [IMAGE_DIMENSION] [DEFORMATION_FIELD] [OUTPUT_IMAGE] [DIRECTIONS] [GRID_SPACING] [GRID_SIGMA]",
+  "author": "ANTs Developers",
+  "description": "Create a warped grid image based on the specified deformation field.",
+  "url": "https://github.com/ANTsX/ANTs",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "image_dimension",
+      "name": "Image Dimension",
+      "value-key": "[IMAGE_DIMENSION]",
+      "type": "Number",
+      "integer": true,
+      "optional": false,
+      "description": "The dimensionality of the input image."
+    },
+    {
+      "id": "deformation_field",
+      "name": "Deformation Field",
+      "value-key": "[DEFORMATION_FIELD]",
+      "type": "File",
+      "optional": false,
+      "description": "File containing the deformation field to be applied."
+    },
+    {
+      "id": "output_image",
+      "name": "Output Image",
+      "value-key": "[OUTPUT_IMAGE]",
+      "type": "String",
+      "optional": false,
+      "description": "The filename of the output warped grid image."
+    },
+    {
+      "id": "directions",
+      "name": "Directions",
+      "value-key": "[DIRECTIONS]",
+      "type": "String",
+      "optional": true,
+      "description": "Directions for the grid warping, e.g., '1x0x0'."
+    },
+    {
+      "id": "grid_spacing",
+      "name": "Grid Spacing",
+      "value-key": "[GRID_SPACING]",
+      "type": "String",
+      "optional": true,
+      "description": "Spacing of the grid, e.g., '10x10x10'."
+    },
+    {
+      "id": "grid_sigma",
+      "name": "Grid Sigma",
+      "value-key": "[GRID_SIGMA]",
+      "type": "String",
+      "optional": true,
+      "description": "Sigma value for the grid smoothing, e.g., '1x1x1'."
+    }
+  ],
+  "output-files": [
+    {
+      "id": "warped_grid_image",
+      "name": "Warped Grid Image",
+      "description": "The resultant warped grid image.",
+      "path-template": "[OUTPUT_IMAGE]"
+    }
+  ]
+}

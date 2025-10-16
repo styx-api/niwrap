@@ -1,0 +1,170 @@
+{
+  "name": "bet2",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Automated brain extraction tool for FSL",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "bet2 [INPUT_FILEROOT] [OUTPUT_FILEROOT] [FRACTIONAL_INTENSITY] [VERTICAL_GRADIENT] [CENTER_OF_GRAVITY] [OUTLINE_FLAG] [MASK_FLAG] [SKULL_FLAG] [NO_OUTPUT_FLAG] [MESH_FLAG] [HEAD_RADIUS] [SMOOTH_FACTOR] [THRESHOLD_FLAG] [VERBOSE_FLAG] [HELP_FLAG]",
+  "inputs": [
+    {
+      "description": "Input file root (e.g. img)",
+      "value-key": "[INPUT_FILEROOT]",
+      "type": "String",
+      "optional": false,
+      "id": "input_fileroot",
+      "name": "Input file root"
+    },
+    {
+      "description": "Output file root (e.g. img_bet)",
+      "value-key": "[OUTPUT_FILEROOT]",
+      "type": "String",
+      "optional": false,
+      "id": "output_fileroot",
+      "name": "Output file root"
+    },
+    {
+      "command-line-flag": "-f",
+      "description": "Fractional intensity threshold (0->1); default=0.5; smaller values give larger brain outline estimates",
+      "value-key": "[FRACTIONAL_INTENSITY]",
+      "type": "Number",
+      "maximum": 1,
+      "minimum": 0,
+      "integer": false,
+      "optional": true,
+      "id": "fractional_intensity",
+      "name": "Fractional intensity threshold"
+    },
+    {
+      "command-line-flag": "-g",
+      "description": "Vertical gradient in fractional intensity threshold (-1->1); default=0; positive values give larger brain outline at bottom, smaller at top",
+      "value-key": "[VERTICAL_GRADIENT]",
+      "type": "Number",
+      "maximum": 1,
+      "minimum": -1,
+      "integer": false,
+      "optional": true,
+      "id": "vertical_gradient",
+      "name": "Vertical gradient fractional intensity threshold"
+    },
+    {
+      "command-line-flag": "-c",
+      "description": "The xyz coordinates of the center of gravity (voxels, not mm) of initial mesh surface. Must have exactly three numerical entries in the list (3-vector).",
+      "value-key": "[CENTER_OF_GRAVITY]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 3,
+      "optional": true,
+      "id": "center_of_gravity",
+      "min-list-entries": 3,
+      "name": "Center of gravity vector"
+    },
+    {
+      "command-line-flag": "-o",
+      "description": "Generate brain surface outline overlaid onto original image",
+      "value-key": "[OUTLINE_FLAG]",
+      "type": "Flag",
+      "id": "outline_flag",
+      "name": "Outline flag"
+    },
+    {
+      "command-line-flag": "-m",
+      "description": "Generate binary brain mask",
+      "value-key": "[MASK_FLAG]",
+      "type": "Flag",
+      "id": "mask_flag",
+      "name": "Mask flag"
+    },
+    {
+      "command-line-flag": "-s",
+      "description": "Generate approximate skull image",
+      "value-key": "[SKULL_FLAG]",
+      "type": "Flag",
+      "id": "skull_flag",
+      "name": "Skull flag"
+    },
+    {
+      "command-line-flag": "-n",
+      "description": "Don't generate segmented brain image output",
+      "value-key": "[NO_OUTPUT_FLAG]",
+      "type": "Flag",
+      "id": "no_output_flag",
+      "name": "No output flag"
+    },
+    {
+      "command-line-flag": "-e",
+      "description": "Generate brain surface as mesh in vtk format",
+      "value-key": "[MESH_FLAG]",
+      "type": "Flag",
+      "id": "mesh_flag",
+      "name": "Mesh flag"
+    },
+    {
+      "command-line-flag": "-r",
+      "description": "Head radius (mm not voxels); initial surface sphere is set to half of this",
+      "value-key": "[HEAD_RADIUS]",
+      "type": "Number",
+      "optional": true,
+      "id": "head_radius",
+      "name": "Head radius"
+    },
+    {
+      "command-line-flag": "-w",
+      "description": "Smoothness factor; default=1; values smaller than 1 produce more detailed brain surface, values larger than one produce smoother, less detailed surface",
+      "value-key": "[SMOOTH_FACTOR]",
+      "type": "Number",
+      "optional": true,
+      "id": "smooth_factor",
+      "name": "Smoothness factor"
+    },
+    {
+      "command-line-flag": "-t",
+      "description": "Apply thresholding to segmented brain image and mask",
+      "value-key": "[THRESHOLD_FLAG]",
+      "type": "Flag",
+      "id": "threshold_flag",
+      "name": "Threshold flag"
+    },
+    {
+      "command-line-flag": "-v",
+      "description": "Switch on diagnostic messages",
+      "value-key": "[VERBOSE_FLAG]",
+      "type": "Flag",
+      "id": "verbose_flag",
+      "name": "Verbose flag"
+    },
+    {
+      "command-line-flag": "-h",
+      "description": "Display help message and exit",
+      "value-key": "[HELP_FLAG]",
+      "type": "Flag",
+      "id": "help_flag",
+      "name": "Help flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILEROOT]_mask.nii.gz",
+      "description": "Binary brain mask output (if mask flag is set)",
+      "id": "output_mask",
+      "name": "Binary mask file"
+    },
+    {
+      "path-template": "[OUTPUT_FILEROOT]_skull.nii.gz",
+      "description": "Approximate skull image output (if skull flag is set)",
+      "id": "output_skull",
+      "name": "Approximate skull file"
+    },
+    {
+      "path-template": "[OUTPUT_FILEROOT]_mesh.vtk",
+      "description": "Brain surface mesh output in VTK format (if mesh flag is set)",
+      "id": "output_mesh",
+      "name": "VTK format mesh file"
+    },
+    {
+      "path-template": "[OUTPUT_FILEROOT]_overlay.nii.gz",
+      "description": "Brain surface outline overlaid onto original image (if outline flag is set)",
+      "id": "output_overlay",
+      "name": "Brain surface outline file"
+    }
+  ]
+}

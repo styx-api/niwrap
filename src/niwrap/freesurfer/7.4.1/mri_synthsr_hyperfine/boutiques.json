@@ -1,0 +1,62 @@
+{
+  "name": "mri_synthsr_hyperfine",
+  "author": "FreeSurfer Developers",
+  "description": "Implementation of SynthSR that generates a synthetic 1mm MP-RAGE from a pair of T1-T2 standard Hyperfine scans (1.5x1.5x5mm axial)",
+  "command-line": "mri_synthsr_hyperfine [T1_IMAGE] [T2_IMAGE] [OUTPUT] [THREADS] [CPU]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--t1",
+      "description": "T1 image(s) to super-resolve, at native 1.5x1.5x5 axial resolution. Can be a path to an image or to a folder.",
+      "value-key": "[T1_IMAGE]",
+      "type": "File",
+      "optional": false,
+      "id": "t1_image",
+      "name": "T1 Image"
+    },
+    {
+      "command-line-flag": "--t2",
+      "description": "T2 image(s). Must be a folder if --t1 designates a folder. These must be registered to the T1s, in physical coordinates (i.e., with the headers, do NOT resample when registering; see instructions on FreeSurfer wiki)",
+      "value-key": "[T2_IMAGE]",
+      "type": "File",
+      "optional": false,
+      "id": "t2_image",
+      "name": "T2 Image"
+    },
+    {
+      "command-line-flag": "--o",
+      "description": "Output(s), i.e. synthetic 1mm MP-RAGE(s). Must be a folder if --t1 designates a folder.",
+      "value-key": "[OUTPUT]",
+      "type": "String",
+      "optional": false,
+      "id": "output",
+      "name": "Output"
+    },
+    {
+      "command-line-flag": "--threads",
+      "description": "(optional) Number of cores to be used. Default is 1.",
+      "value-key": "[THREADS]",
+      "type": "Number",
+      "optional": true,
+      "id": "threads",
+      "name": "Threads"
+    },
+    {
+      "command-line-flag": "--cpu",
+      "description": "(optional) Enforce running with CPU rather than GPU.",
+      "value-key": "[CPU]",
+      "type": "Flag",
+      "id": "cpu",
+      "name": "CPU Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT]",
+      "description": "Synthetic 1mm MP-RAGE(s) generated from T1 and T2 inputs",
+      "id": "synthetic_mprage",
+      "name": "Synthetic MP-RAGE"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

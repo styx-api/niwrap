@@ -1,0 +1,127 @@
+{
+  "name": "fsl_sub_mgh",
+  "author": "FreeSurfer Developers",
+  "description": "Wrapper for job control system such as SGE, modified for compatibility with the PBS queueing system.",
+  "command-line": "fsl_sub_mgh [ESTIMATED_TIME] [QUEUE_NAME] [ARCHITECTURE] [JOB_PRIORITY] [EMAIL_ADDRESS] [HOLD_JOB] [TASK_FILE] [JOB_NAME] [LOG_DIR] [MAIL_OPTIONS] [FLAGS_IN_SCRIPTS] [VERBOSE] [SHELL_PATH]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "-T",
+      "description": "Estimated job length in minutes, used to auto-set queue name",
+      "value-key": "[ESTIMATED_TIME]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "estimated_time",
+      "name": "Estimated job time"
+    },
+    {
+      "command-line-flag": "-q",
+      "description": "Queue name. Possible values are 'verylong.q', 'long.q' and 'short.q'. Default is 'long.q'.",
+      "value-key": "[QUEUE_NAME]",
+      "type": "String",
+      "optional": true,
+      "id": "queue_name",
+      "name": "Queue name"
+    },
+    {
+      "command-line-flag": "-a",
+      "description": "Architecture [e.g., darwin or lx24-amd64]",
+      "value-key": "[ARCHITECTURE]",
+      "type": "String",
+      "optional": true,
+      "id": "architecture",
+      "name": "Architecture"
+    },
+    {
+      "command-line-flag": "-p",
+      "description": "Job priority [0:-1024]. Default is 0.",
+      "value-key": "[JOB_PRIORITY]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "job_priority",
+      "name": "Job priority"
+    },
+    {
+      "command-line-flag": "-M",
+      "description": "Email address to send notifications. Default is root@fmrib.ox.ac.uk.",
+      "value-key": "[EMAIL_ADDRESS]",
+      "type": "String",
+      "optional": true,
+      "id": "email_address",
+      "name": "Email address"
+    },
+    {
+      "command-line-flag": "-j",
+      "description": "Job ID to place a hold on this task until completion.",
+      "value-key": "[HOLD_JOB]",
+      "type": "String",
+      "optional": true,
+      "id": "hold_job",
+      "name": "Hold job ID"
+    },
+    {
+      "command-line-flag": "-t",
+      "description": "Task file of commands to execute in parallel.",
+      "value-key": "[TASK_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "task_file",
+      "name": "Task file"
+    },
+    {
+      "command-line-flag": "-N",
+      "description": "Specify job name as it will appear on the queue.",
+      "value-key": "[JOB_NAME]",
+      "type": "String",
+      "optional": true,
+      "id": "job_name",
+      "name": "Job name"
+    },
+    {
+      "command-line-flag": "-l",
+      "description": "Output directory for log files.",
+      "value-key": "[LOG_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "log_dir",
+      "name": "Log directory"
+    },
+    {
+      "command-line-flag": "-m",
+      "description": "Change the SGE mail options.",
+      "value-key": "[MAIL_OPTIONS]",
+      "type": "String",
+      "optional": true,
+      "id": "mail_options",
+      "name": "Mail options"
+    },
+    {
+      "command-line-flag": "-F",
+      "description": "Use flags embedded in scripts to set SGE queuing options.",
+      "value-key": "[FLAGS_IN_SCRIPTS]",
+      "type": "Flag",
+      "id": "flags_in_scripts",
+      "name": "Flags in scripts flag"
+    },
+    {
+      "command-line-flag": "-v",
+      "description": "Verbose mode.",
+      "value-key": "[VERBOSE]",
+      "type": "Flag",
+      "id": "verbose",
+      "name": "Verbose flag"
+    },
+    {
+      "command-line-flag": "-s",
+      "description": "Change the PBS shell option.",
+      "value-key": "[SHELL_PATH]",
+      "type": "String",
+      "optional": true,
+      "id": "shell_path",
+      "name": "Shell path"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

@@ -1,0 +1,112 @@
+{
+  "name": "dmri_match",
+  "description": "Tool for matching diffusion MRI parcellations",
+  "command-line": "dmri_match [PARCELLATION1] [PARCELLATION2] [NUM_CLUSTERS] [CLUSTERING_PATH1] [CLUSTERING_PATH2] [LABELS] [EUCLIDEAN] [BOUNDING_BOX] [SYMMETRY] [INTER_HEMI_RATIO_REMOVAL] [OUTPUT]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "-s1",
+      "description": "First parcellation input file",
+      "value-key": "[PARCELLATION1]",
+      "type": "File",
+      "optional": false,
+      "id": "parcellation1",
+      "name": "Parcellation 1"
+    },
+    {
+      "command-line-flag": "-s2",
+      "description": "Second parcellation input file",
+      "value-key": "[PARCELLATION2]",
+      "type": "File",
+      "optional": false,
+      "id": "parcellation2",
+      "name": "Parcellation 2"
+    },
+    {
+      "command-line-flag": "-c",
+      "description": "Number of clusters",
+      "value-key": "[NUM_CLUSTERS]",
+      "type": "Number",
+      "optional": false,
+      "id": "num_clusters",
+      "name": "Number of Clusters"
+    },
+    {
+      "command-line-flag": "-h1",
+      "description": "First clustering path",
+      "value-key": "[CLUSTERING_PATH1]",
+      "type": "File",
+      "optional": false,
+      "id": "clustering_path1",
+      "name": "Clustering Path 1"
+    },
+    {
+      "command-line-flag": "-h2",
+      "description": "Second clustering path",
+      "value-key": "[CLUSTERING_PATH2]",
+      "type": "File",
+      "optional": false,
+      "id": "clustering_path2",
+      "name": "Clustering Path 2"
+    },
+    {
+      "command-line-flag": "-labels",
+      "description": "Use labels (no additional input expected)",
+      "value-key": "[LABELS]",
+      "type": "Flag",
+      "id": "labels",
+      "name": "Labels"
+    },
+    {
+      "command-line-flag": "-euclid",
+      "description": "Use Euclidean distance for matching",
+      "value-key": "[EUCLIDEAN]",
+      "type": "Flag",
+      "id": "euclidean",
+      "name": "Euclidean flag"
+    },
+    {
+      "command-line-flag": "-bb",
+      "description": "Use bounding box constraint (no additional input expected)",
+      "value-key": "[BOUNDING_BOX]",
+      "type": "Flag",
+      "id": "bounding_box",
+      "name": "Bounding Box flag"
+    },
+    {
+      "command-line-flag": "-sym",
+      "description": "Use symmetry constraint (no additional input expected)",
+      "value-key": "[SYMMETRY]",
+      "type": "Flag",
+      "id": "symmetry",
+      "name": "Symmetry flag"
+    },
+    {
+      "description": "Inter-hemispheric ratio cluster removal constraint",
+      "value-key": "[INTER_HEMI_RATIO_REMOVAL]",
+      "type": "String",
+      "optional": true,
+      "id": "inter_hemi_ratio_removal",
+      "name": "InterHemi Ratio Removal"
+    },
+    {
+      "command-line-flag": "-o",
+      "description": "Output file",
+      "value-key": "[OUTPUT]",
+      "type": "String",
+      "optional": false,
+      "id": "output",
+      "name": "Output File"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT]",
+      "description": "Output file from dmri_match",
+      "id": "output_file",
+      "name": "Output"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

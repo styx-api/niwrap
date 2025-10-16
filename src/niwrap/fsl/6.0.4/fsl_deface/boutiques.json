@@ -1,0 +1,182 @@
+{
+  "name": "fsl_deface",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Tool to deface a structural T1w image.",
+  "command-line": "fsl_deface [INFILE] [OUTFILE] [CROPPED_DEFACING_FLAG] [DEFACING_MASK] [CROPPED_STRUC] [ORIG_TO_STD_MAT] [ORIG_TO_CROPPED_MAT] [CROPPED_TO_STD_MAT] [SHIFT_NUD] [FRACTIONAL_INTENSITY] [BIAS_CORRECT_FLAG] [CENTER_OF_GRAVITY] [QC_IMAGES]",
+  "inputs": [
+    {
+      "description": "Input T1w image",
+      "value-key": "[INFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "infile",
+      "name": "Input file"
+    },
+    {
+      "description": "Output defaced T1w image",
+      "value-key": "[OUTFILE]",
+      "type": "String",
+      "optional": false,
+      "id": "outfile",
+      "name": "Output file"
+    },
+    {
+      "command-line-flag": "-k",
+      "description": "Apply the defacing to the cropped image instead of the original image",
+      "value-key": "[CROPPED_DEFACING_FLAG]",
+      "type": "Flag",
+      "id": "cropped_defacing_flag",
+      "name": "Cropped defacing flag"
+    },
+    {
+      "command-line-flag": "-d",
+      "description": "Filename to save the defacing mask",
+      "value-key": "[DEFACING_MASK]",
+      "type": "String",
+      "optional": true,
+      "id": "defacing_mask",
+      "name": "Defacing mask"
+    },
+    {
+      "command-line-flag": "-n",
+      "description": "Filename to save the new cropped struct",
+      "value-key": "[CROPPED_STRUC]",
+      "type": "String",
+      "optional": true,
+      "id": "cropped_struc",
+      "name": "Cropped struct"
+    },
+    {
+      "command-line-flag": "-m13",
+      "description": "Filename to save affine matrix from original struct to std",
+      "value-key": "[ORIG_TO_STD_MAT]",
+      "type": "String",
+      "optional": true,
+      "id": "orig_to_std_mat",
+      "name": "Original to std matrix"
+    },
+    {
+      "command-line-flag": "-m12",
+      "description": "Filename to save affine matrix from original struct to cropped struct",
+      "value-key": "[ORIG_TO_CROPPED_MAT]",
+      "type": "String",
+      "optional": true,
+      "id": "orig_to_cropped_mat",
+      "name": "Original to cropped matrix"
+    },
+    {
+      "command-line-flag": "-m23",
+      "description": "Filename to save affine matrix from cropped struct to std",
+      "value-key": "[CROPPED_TO_STD_MAT]",
+      "type": "String",
+      "optional": true,
+      "id": "cropped_to_std_mat",
+      "name": "Cropped to std matrix"
+    },
+    {
+      "command-line-flag": "-nud",
+      "description": "Shift, in mm, x-, y- and z-directions, to shift face mask by (These matrices will only work if the input has been previously reoriented to std)",
+      "value-key": "[SHIFT_NUD]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 3,
+      "optional": true,
+      "id": "shift_nud",
+      "min-list-entries": 3,
+      "name": "Face mask shift vector"
+    },
+    {
+      "command-line-flag": "-f",
+      "description": "Fractional intensity for bet (0->1); default=0.5",
+      "value-key": "[FRACTIONAL_INTENSITY]",
+      "type": "Number",
+      "maximum": 1,
+      "minimum": 0,
+      "integer": false,
+      "optional": true,
+      "id": "fractional_intensity",
+      "name": "Fractional intensity for bet"
+    },
+    {
+      "command-line-flag": "-B",
+      "description": "Bias-correct the input image (with fast)",
+      "value-key": "[BIAS_CORRECT_FLAG]",
+      "type": "Flag",
+      "id": "bias_correct_flag",
+      "name": "Bias correct flag"
+    },
+    {
+      "command-line-flag": "-c",
+      "description": "Center-of-gravity for bet (voxels, not mm)",
+      "value-key": "[CENTER_OF_GRAVITY]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 3,
+      "optional": true,
+      "id": "center_of_gravity",
+      "min-list-entries": 3,
+      "name": "Center of gravity vector"
+    },
+    {
+      "command-line-flag": "-p",
+      "description": "Generate 2 pngs to show how the defacing worked for QC purposes",
+      "value-key": "[QC_IMAGES]",
+      "type": "String",
+      "optional": true,
+      "id": "qc_images",
+      "name": "QC images base name"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTFILE].nii.gz",
+      "description": "Defaced T1w image",
+      "id": "outfile",
+      "name": "Output defaced file"
+    },
+    {
+      "path-template": "[DEFACING_MASK].nii.gz",
+      "description": "Defacing mask file",
+      "id": "out_defacing_mask",
+      "name": "Output defacing mask file"
+    },
+    {
+      "path-template": "[CROPPED_STRUC].nii.gz",
+      "description": "Cropped structural image file",
+      "id": "out_cropped_struc",
+      "name": "Output cropped struct file"
+    },
+    {
+      "path-template": "[ORIG_TO_STD_MAT].mat",
+      "description": "Affine matrix from original struct to std",
+      "id": "out_orig_to_std_mat",
+      "name": "Output original to std matrix"
+    },
+    {
+      "path-template": "[ORIG_TO_CROPPED_MAT].mat",
+      "description": "Affine matrix from original struct to cropped struct",
+      "id": "out_orig_to_cropped_mat",
+      "name": "Output original to cropped matrix"
+    },
+    {
+      "path-template": "[CROPPED_TO_STD_MAT].mat",
+      "description": "Affine matrix from cropped struct to std",
+      "id": "out_cropped_to_std_mat",
+      "name": "Output cropped to std matrix"
+    },
+    {
+      "path-template": "[QC_IMAGES]_defaced_original.png",
+      "description": "QC image for defacing (original)",
+      "id": "qc_image_original",
+      "name": "QC Image Original"
+    },
+    {
+      "path-template": "[QC_IMAGES]_defaced_cropped.png",
+      "description": "QC image for defacing (cropped)",
+      "id": "qc_image_cropped",
+      "name": "QC Image Cropped"
+    }
+  ],
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

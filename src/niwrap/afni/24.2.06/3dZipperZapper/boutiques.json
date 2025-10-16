@@ -1,0 +1,180 @@
+{
+  "name": "3dZipperZapper",
+  "author": "AFNI Developers",
+  "description": "A basic program to highlight problematic volumes in data sets, especially EPI/DWI data sets with interleaved acquisition.",
+  "command-line": "3dZipperZapper [INPUT_FILE] [OUTPUT_PREFIX] [MASK_FILE] [MIN_SLICE_NVOX] [MIN_STREAK_LEN] [DO_OUT_SLICE_PARAM] [NO_OUT_BAD_MASK] [NO_OUT_TEXT_VALS] [DONT_USE_STREAK] [DONT_USE_DROP] [DONT_USE_CORR] [MIN_STREAK_VAL] [MIN_DROP_FRAC] [MIN_DROP_DIFF] [MIN_CORR_LEN] [MIN_CORR_CORR]",
+  "inputs": [
+    {
+      "description": "Input 3D+time file of DWIs or EPIs.",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input file",
+      "command-line-flag": "-input"
+    },
+    {
+      "description": "Prefix for output file name.",
+      "value-key": "[OUTPUT_PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "output_prefix",
+      "name": "Output prefix",
+      "command-line-flag": "-prefix"
+    },
+    {
+      "command-line-flag": "-mask",
+      "description": "Optional input of a single volume mask file, which gets applied to each volume in the input file.",
+      "value-key": "[MASK_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "mask_file",
+      "name": "Mask file"
+    },
+    {
+      "command-line-flag": "-min_slice_nvox",
+      "description": "Set the minimum number of voxels to be in the mask for a given slice to be included in the calculations.",
+      "value-key": "[MIN_SLICE_NVOX]",
+      "type": "Number",
+      "optional": true,
+      "id": "min_slice_nvox",
+      "name": "Minimum slice voxels"
+    },
+    {
+      "command-line-flag": "-min_streak_len",
+      "description": "Minimum number of slices in a row to look for fluctuations within.",
+      "value-key": "[MIN_STREAK_LEN]",
+      "type": "Number",
+      "optional": true,
+      "id": "min_streak_len",
+      "name": "Minimum streak length"
+    },
+    {
+      "command-line-flag": "-do_out_slice_param",
+      "description": "Output the map of slice parameters.",
+      "value-key": "[DO_OUT_SLICE_PARAM]",
+      "type": "Flag",
+      "id": "do_out_slice_param",
+      "name": "Output slice parameters flag"
+    },
+    {
+      "command-line-flag": "-no_out_bad_mask",
+      "description": "Do not output the mask of 'bad' slices.",
+      "value-key": "[NO_OUT_BAD_MASK]",
+      "type": "Flag",
+      "id": "no_out_bad_mask",
+      "name": "No output bad mask flag"
+    },
+    {
+      "command-line-flag": "-no_out_text_vals",
+      "description": "Do not output the 1D files of the slice parameter values.",
+      "value-key": "[NO_OUT_TEXT_VALS]",
+      "type": "Flag",
+      "id": "no_out_text_vals",
+      "name": "No output text values flag"
+    },
+    {
+      "command-line-flag": "-dont_use_streak",
+      "description": "Turn off the 'streak' criterion for identifying bad slices.",
+      "value-key": "[DONT_USE_STREAK]",
+      "type": "Flag",
+      "id": "dont_use_streak",
+      "name": "Don't use streak flag"
+    },
+    {
+      "command-line-flag": "-dont_use_drop",
+      "description": "Turn off the 'drop' criterion for identifying bad slices.",
+      "value-key": "[DONT_USE_DROP]",
+      "type": "Flag",
+      "id": "dont_use_drop",
+      "name": "Don't use drop flag"
+    },
+    {
+      "command-line-flag": "-dont_use_corr",
+      "description": "Turn off the 'corr' criterion for identifying bad slices.",
+      "value-key": "[DONT_USE_CORR]",
+      "type": "Flag",
+      "id": "dont_use_corr",
+      "name": "Don't use correlation flag"
+    },
+    {
+      "command-line-flag": "-min_streak_val",
+      "description": "Minimum magnitude of voxelwise relative differences to perhaps be problematic.",
+      "value-key": "[MIN_STREAK_VAL]",
+      "type": "Number",
+      "optional": true,
+      "id": "min_streak_val",
+      "name": "Minimum streak value"
+    },
+    {
+      "command-line-flag": "-min_drop_frac",
+      "description": "Minimum fraction for judging if the change in 'slice parameter' differences between neighboring slices might be a sign of badness.",
+      "value-key": "[MIN_DROP_FRAC]",
+      "type": "Number",
+      "optional": true,
+      "id": "min_drop_frac",
+      "name": "Minimum drop fraction"
+    },
+    {
+      "command-line-flag": "-min_drop_diff",
+      "description": "Minimum 'slice parameter' value within a single slice that might be considered a bad sign.",
+      "value-key": "[MIN_DROP_DIFF]",
+      "type": "Number",
+      "optional": true,
+      "id": "min_drop_diff",
+      "name": "Minimum drop difference"
+    },
+    {
+      "command-line-flag": "-min_corr_len",
+      "description": "Minimum number of slices in a row to look for consecutive anticorrelations in brightness differences.",
+      "value-key": "[MIN_CORR_LEN]",
+      "type": "Number",
+      "optional": true,
+      "id": "min_corr_len",
+      "name": "Minimum correlation length"
+    },
+    {
+      "command-line-flag": "-min_corr_corr",
+      "description": "Threshold for the magnitude of anticorrelations to be considered potentially bad.",
+      "value-key": "[MIN_CORR_CORR]",
+      "type": "Number",
+      "optional": true,
+      "id": "min_corr_corr",
+      "name": "Minimum correlation value"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_PREFIX]_badmask.nii.gz",
+      "description": "Mask of potentially bad slices across the input dataset.",
+      "id": "bad_slice_mask",
+      "name": "Bad Slice Mask"
+    },
+    {
+      "path-template": "[OUTPUT_PREFIX]_badvols.1D",
+      "description": "1D file containing a list of the bad volumes.",
+      "id": "bad_volumes_list",
+      "name": "Bad Volumes List"
+    },
+    {
+      "path-template": "[OUTPUT_PREFIX]_param.1D",
+      "description": "1D file of the per-volume parameters used to detect badness.",
+      "id": "per_volume_params",
+      "name": "Per Volume Parameters"
+    },
+    {
+      "path-template": "[OUTPUT_PREFIX]_sli.1D",
+      "description": "1D file of the slices within which calculations were made.",
+      "id": "calculated_slices",
+      "name": "Calculated Slices"
+    },
+    {
+      "path-template": "[OUTPUT_PREFIX]_goodvols.txt",
+      "description": "Text file with the selector string of *good* volumes.",
+      "id": "good_volumes_selector",
+      "name": "Good Volumes Selector"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

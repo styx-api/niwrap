@@ -1,0 +1,35 @@
+{
+  "name": "3dExtractGroupInCorr",
+  "author": "AFNI Developers",
+  "description": "This program breaks the collection of images from a GroupInCorr file back into individual AFNI 3D+time datasets.",
+  "command-line": "3dExtractGroupInCorr [GROUP_IN_CORR_FILE] [PREFIX]",
+  "inputs": [
+    {
+      "description": "GroupInCorr file to extract datasets from (e.g. AAA.grpincorr.niml)",
+      "value-key": "[GROUP_IN_CORR_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "group_in_corr_file",
+      "name": "GroupInCorr File"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Prefix to prepend to dataset labels. Use 'NULL' to skip the use of the prefix.",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Prefix"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX]_[DATASET_LABEL].nii",
+      "description": "Output dataset reconstructed from GroupInCorr data",
+      "id": "output_dataset",
+      "name": "Output Dataset"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

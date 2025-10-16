@@ -1,0 +1,192 @@
+{
+  "name": "probtrackx-dot-convert",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -probtrackx-dot-convert [DOT_FILE] [CIFTI_OUT] [ROW_VOXELS] [OPT_ROW_SURFACE_ROI_METRIC] [ROW_CIFTI] [COL_VOXELS] [OPT_COL_SURFACE_ROI_METRIC] [COL_CIFTI] [OPT_TRANSPOSE] [OPT_MAKE_SYMMETRIC]",
+  "description": "Convert a .dot file from probtrackx to cifti.\n\nNOTE: exactly one -row option and one -col option must be used.\n\nIf the input file does not have its indexes sorted in the correct ordering, this command may take longer than expected.  Specifying -transpose will transpose the input matrix before trying to put its values into the cifti file, which is currently needed for at least matrix2 in order to display it as intended.  How the cifti file is displayed is based on which -row option is specified: if -row-voxels is specified, then it will display data on volume slices.  The label names in the label volume(s) must have the following names, other names are ignored:\n\n\nCORTEX_LEFT\nCORTEX_RIGHT\nCEREBELLUM\nACCUMBENS_LEFT\nACCUMBENS_RIGHT\nALL_GREY_MATTER\nALL_WHITE_MATTER\nAMYGDALA_LEFT\nAMYGDALA_RIGHT\nBRAIN_STEM\nCAUDATE_LEFT\nCAUDATE_RIGHT\nCEREBELLAR_WHITE_MATTER_LEFT\nCEREBELLAR_WHITE_MATTER_RIGHT\nCEREBELLUM_LEFT\nCEREBELLUM_RIGHT\nCEREBRAL_WHITE_MATTER_LEFT\nCEREBRAL_WHITE_MATTER_RIGHT\nCORTEX\nDIENCEPHALON_VENTRAL_LEFT\nDIENCEPHALON_VENTRAL_RIGHT\nHIPPOCAMPUS_LEFT\nHIPPOCAMPUS_RIGHT\nINVALID\nOTHER\nOTHER_GREY_MATTER\nOTHER_WHITE_MATTER\nPALLIDUM_LEFT\nPALLIDUM_RIGHT\nPUTAMEN_LEFT\nPUTAMEN_RIGHT\nTHALAMUS_LEFT\nTHALAMUS_RIGHT",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "dot_file",
+      "name": "dot_file",
+      "description": "input .dot file",
+      "optional": false,
+      "value-key": "[DOT_FILE]",
+      "type": "String"
+    },
+    {
+      "id": "cifti_out",
+      "name": "cifti_out",
+      "type": "String",
+      "description": "output cifti file",
+      "optional": false,
+      "value-key": "[CIFTI_OUT]"
+    },
+    {
+      "id": "row_voxels",
+      "name": "row_voxels",
+      "description": "the output mapping along a row will be voxels",
+      "type": {
+        "id": "row_voxels",
+        "name": "row_voxels",
+        "description": "the output mapping along a row will be voxels",
+        "command-line": "-row-voxels [VOXEL_LIST_FILE] [LABEL_VOL]",
+        "inputs": [
+          {
+            "id": "voxel_list_file",
+            "name": "voxel_list_file",
+            "description": "a text file containing IJK indices for the voxels used",
+            "optional": false,
+            "value-key": "[VOXEL_LIST_FILE]",
+            "type": "String"
+          },
+          {
+            "id": "label_vol",
+            "name": "label_vol",
+            "description": "a label volume with the dimensions and sform used, with structure labels",
+            "optional": false,
+            "value-key": "[LABEL_VOL]",
+            "type": "File"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[ROW_VOXELS]"
+    },
+    {
+      "id": "opt_row_surface_roi_metric",
+      "name": "opt_row_surface_roi_metric",
+      "command-line-flag": "-row-surface",
+      "description": "the output mapping along a row will be surface vertices: a metric file with positive values on all vertices used",
+      "optional": true,
+      "value-key": "[OPT_ROW_SURFACE_ROI_METRIC]",
+      "type": "File"
+    },
+    {
+      "id": "row_cifti",
+      "name": "row_cifti",
+      "description": "take the mapping along a row from a cifti file",
+      "type": {
+        "id": "row_cifti",
+        "name": "row_cifti",
+        "description": "take the mapping along a row from a cifti file",
+        "command-line": "-row-cifti [CIFTI] [DIRECTION]",
+        "inputs": [
+          {
+            "id": "cifti",
+            "name": "cifti",
+            "description": "the cifti file to take the mapping from",
+            "optional": false,
+            "value-key": "[CIFTI]",
+            "type": "File"
+          },
+          {
+            "id": "direction",
+            "name": "direction",
+            "description": "which dimension to take the mapping along, ROW or COLUMN",
+            "optional": false,
+            "value-key": "[DIRECTION]",
+            "type": "String"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[ROW_CIFTI]"
+    },
+    {
+      "id": "col_voxels",
+      "name": "col_voxels",
+      "description": "the output mapping along a column will be voxels",
+      "type": {
+        "id": "col_voxels",
+        "name": "col_voxels",
+        "description": "the output mapping along a column will be voxels",
+        "command-line": "-col-voxels [VOXEL_LIST_FILE] [LABEL_VOL]",
+        "inputs": [
+          {
+            "id": "voxel_list_file",
+            "name": "voxel_list_file",
+            "description": "a text file containing IJK indices for the voxels used",
+            "optional": false,
+            "value-key": "[VOXEL_LIST_FILE]",
+            "type": "String"
+          },
+          {
+            "id": "label_vol",
+            "name": "label_vol",
+            "description": "a label volume with the dimensions and sform used, with structure labels",
+            "optional": false,
+            "value-key": "[LABEL_VOL]",
+            "type": "File"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[COL_VOXELS]"
+    },
+    {
+      "id": "opt_col_surface_roi_metric",
+      "name": "opt_col_surface_roi_metric",
+      "command-line-flag": "-col-surface",
+      "description": "the output mapping along a column will be surface vertices: a metric file with positive values on all vertices used",
+      "optional": true,
+      "value-key": "[OPT_COL_SURFACE_ROI_METRIC]",
+      "type": "File"
+    },
+    {
+      "id": "col_cifti",
+      "name": "col_cifti",
+      "description": "take the mapping along a column from a cifti file",
+      "type": {
+        "id": "col_cifti",
+        "name": "col_cifti",
+        "description": "take the mapping along a column from a cifti file",
+        "command-line": "-col-cifti [CIFTI] [DIRECTION]",
+        "inputs": [
+          {
+            "id": "cifti",
+            "name": "cifti",
+            "description": "the cifti file to take the mapping from",
+            "optional": false,
+            "value-key": "[CIFTI]",
+            "type": "File"
+          },
+          {
+            "id": "direction",
+            "name": "direction",
+            "description": "which dimension to take the mapping along, ROW or COLUMN",
+            "optional": false,
+            "value-key": "[DIRECTION]",
+            "type": "String"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[COL_CIFTI]"
+    },
+    {
+      "id": "opt_transpose",
+      "name": "opt_transpose",
+      "command-line-flag": "-transpose",
+      "description": "transpose the input matrix",
+      "type": "Flag",
+      "value-key": "[OPT_TRANSPOSE]"
+    },
+    {
+      "id": "opt_make_symmetric",
+      "name": "opt_make_symmetric",
+      "command-line-flag": "-make-symmetric",
+      "description": "transform half-square input into full matrix output",
+      "type": "Flag",
+      "value-key": "[OPT_MAKE_SYMMETRIC]"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "cifti_out",
+      "name": "cifti_out",
+      "path-template": "[CIFTI_OUT]",
+      "description": "output cifti file"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

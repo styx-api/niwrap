@@ -1,0 +1,253 @@
+{
+  "name": "volume-create",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -volume-create [I_DIM] [J_DIM] [K_DIM] [VOLUME_OUT] [PLUMB] [SFORM]",
+  "description": "Create a blank volume file.\n\nCreates a volume file full of zeros.  Exactly one of -plumb or -sform must be specified.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "i_dim",
+      "name": "i_dim",
+      "description": "length of first dimension",
+      "optional": false,
+      "value-key": "[I_DIM]",
+      "type": "Number",
+      "integer": true
+    },
+    {
+      "id": "j_dim",
+      "name": "j_dim",
+      "description": "length of second dimension",
+      "optional": false,
+      "value-key": "[J_DIM]",
+      "type": "Number",
+      "integer": true
+    },
+    {
+      "id": "k_dim",
+      "name": "k_dim",
+      "description": "length of third dimension",
+      "optional": false,
+      "value-key": "[K_DIM]",
+      "type": "Number",
+      "integer": true
+    },
+    {
+      "id": "volume_out",
+      "name": "volume_out",
+      "type": "String",
+      "description": "the output volume",
+      "optional": false,
+      "value-key": "[VOLUME_OUT]"
+    },
+    {
+      "id": "plumb",
+      "name": "plumb",
+      "description": "set via axis order and spacing/offset",
+      "type": {
+        "id": "plumb",
+        "name": "plumb",
+        "description": "set via axis order and spacing/offset",
+        "command-line": "-plumb [AXIS_ORDER] [X_SPACING] [Y_SPACING] [Z_SPACING] [X_OFFSET] [Y_OFFSET] [Z_OFFSET]",
+        "inputs": [
+          {
+            "id": "axis_order",
+            "name": "axis_order",
+            "description": "a string like 'XYZ' that specifies which index is along which spatial dimension",
+            "optional": false,
+            "value-key": "[AXIS_ORDER]",
+            "type": "String"
+          },
+          {
+            "id": "x_spacing",
+            "name": "x_spacing",
+            "description": "change in x-coordinate from incrementing the relevant index",
+            "optional": false,
+            "value-key": "[X_SPACING]",
+            "type": "Number",
+            "integer": false
+          },
+          {
+            "id": "y_spacing",
+            "name": "y_spacing",
+            "description": "change in y-coordinate from incrementing the relevant index",
+            "optional": false,
+            "value-key": "[Y_SPACING]",
+            "type": "Number",
+            "integer": false
+          },
+          {
+            "id": "z_spacing",
+            "name": "z_spacing",
+            "description": "change in z-coordinate from incrementing the relevant index",
+            "optional": false,
+            "value-key": "[Z_SPACING]",
+            "type": "Number",
+            "integer": false
+          },
+          {
+            "id": "x_offset",
+            "name": "x_offset",
+            "description": "the x-coordinate of the center of the first voxel",
+            "optional": false,
+            "value-key": "[X_OFFSET]",
+            "type": "Number",
+            "integer": false
+          },
+          {
+            "id": "y_offset",
+            "name": "y_offset",
+            "description": "the y-coordinate of the center of the first voxel",
+            "optional": false,
+            "value-key": "[Y_OFFSET]",
+            "type": "Number",
+            "integer": false
+          },
+          {
+            "id": "z_offset",
+            "name": "z_offset",
+            "description": "the z-coordinate of the center of the first voxel",
+            "optional": false,
+            "value-key": "[Z_OFFSET]",
+            "type": "Number",
+            "integer": false
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[PLUMB]"
+    },
+    {
+      "id": "sform",
+      "name": "sform",
+      "description": "set via a nifti sform",
+      "type": {
+        "id": "sform",
+        "name": "sform",
+        "description": "set via a nifti sform",
+        "command-line": "-sform [XI_SPACING] [XJ_SPACING] [XK_SPACING] [X_OFFSET] [YI_SPACING] [YJ_SPACING] [YK_SPACING] [Y_OFFSET] [ZI_SPACING] [ZJ_SPACING] [ZK_SPACING] [Z_OFFSET]",
+        "inputs": [
+          {
+            "id": "xi_spacing",
+            "name": "xi_spacing",
+            "description": "increase in x coordinate from incrementing the i index",
+            "optional": false,
+            "value-key": "[XI_SPACING]",
+            "type": "Number",
+            "integer": false
+          },
+          {
+            "id": "xj_spacing",
+            "name": "xj_spacing",
+            "description": "increase in x coordinate from incrementing the j index",
+            "optional": false,
+            "value-key": "[XJ_SPACING]",
+            "type": "Number",
+            "integer": false
+          },
+          {
+            "id": "xk_spacing",
+            "name": "xk_spacing",
+            "description": "increase in x coordinate from incrementing the k index",
+            "optional": false,
+            "value-key": "[XK_SPACING]",
+            "type": "Number",
+            "integer": false
+          },
+          {
+            "id": "x_offset",
+            "name": "x_offset",
+            "description": "x coordinate of first voxel",
+            "optional": false,
+            "value-key": "[X_OFFSET]",
+            "type": "Number",
+            "integer": false
+          },
+          {
+            "id": "yi_spacing",
+            "name": "yi_spacing",
+            "description": "increase in y coordinate from incrementing the i index",
+            "optional": false,
+            "value-key": "[YI_SPACING]",
+            "type": "Number",
+            "integer": false
+          },
+          {
+            "id": "yj_spacing",
+            "name": "yj_spacing",
+            "description": "increase in y coordinate from incrementing the j index",
+            "optional": false,
+            "value-key": "[YJ_SPACING]",
+            "type": "Number",
+            "integer": false
+          },
+          {
+            "id": "yk_spacing",
+            "name": "yk_spacing",
+            "description": "increase in y coordinate from incrementing the k index",
+            "optional": false,
+            "value-key": "[YK_SPACING]",
+            "type": "Number",
+            "integer": false
+          },
+          {
+            "id": "y_offset",
+            "name": "y_offset",
+            "description": "y coordinate of first voxel",
+            "optional": false,
+            "value-key": "[Y_OFFSET]",
+            "type": "Number",
+            "integer": false
+          },
+          {
+            "id": "zi_spacing",
+            "name": "zi_spacing",
+            "description": "increase in z coordinate from incrementing the i index",
+            "optional": false,
+            "value-key": "[ZI_SPACING]",
+            "type": "Number",
+            "integer": false
+          },
+          {
+            "id": "zj_spacing",
+            "name": "zj_spacing",
+            "description": "increase in z coordinate from incrementing the j index",
+            "optional": false,
+            "value-key": "[ZJ_SPACING]",
+            "type": "Number",
+            "integer": false
+          },
+          {
+            "id": "zk_spacing",
+            "name": "zk_spacing",
+            "description": "increase in z coordinate from incrementing the k index",
+            "optional": false,
+            "value-key": "[ZK_SPACING]",
+            "type": "Number",
+            "integer": false
+          },
+          {
+            "id": "z_offset",
+            "name": "z_offset",
+            "description": "z coordinate of first voxel",
+            "optional": false,
+            "value-key": "[Z_OFFSET]",
+            "type": "Number",
+            "integer": false
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[SFORM]"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "volume_out",
+      "name": "volume_out",
+      "path-template": "[VOLUME_OUT]",
+      "description": "the output volume"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

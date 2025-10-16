@@ -1,0 +1,54 @@
+{
+  "name": "mri_extract",
+  "author": "FreeSurfer Developers",
+  "description": "MRI data extraction tool for FreeSurfer",
+  "command-line": "mri_extract [LIKE_TEMPLATE] [SRC_VOLUME] [DST_VOLUME] [COORDINATES]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "-like",
+      "description": "Extract region like the given template volume.",
+      "value-key": "[LIKE_TEMPLATE]",
+      "type": "File",
+      "optional": true,
+      "id": "like_template",
+      "name": "Template Volume"
+    },
+    {
+      "description": "Source MRI volume file from which data will be extracted.",
+      "value-key": "[SRC_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "src_volume",
+      "name": "Source Volume"
+    },
+    {
+      "description": "The destination file where the extracted data will be saved.",
+      "value-key": "[DST_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "dst_volume",
+      "name": "Destination Volume"
+    },
+    {
+      "description": "Coordinates and size of the extraction box: x0 y0 z0 dx dy dz.",
+      "value-key": "[COORDINATES]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 6,
+      "min-list-entries": 6,
+      "optional": true,
+      "id": "coordinates",
+      "name": "Extraction Coordinates"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[DST_VOLUME]",
+      "description": "Output file with extracted MRI data.",
+      "id": "output_extracted_volume",
+      "name": "Output Extracted Volume"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

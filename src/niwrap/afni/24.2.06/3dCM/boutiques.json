@@ -1,0 +1,95 @@
+{
+  "name": "3dCM",
+  "author": "AFNI Developers",
+  "description": "Tool for computing the center of mass of a dataset",
+  "command-line": "3dCM [DSET] [MASK] [AUTOMASK] [SET_ORIGIN] [LOCAL_IJK] [ROI_VALS] [ALL_ROIS] [ICENT] [DCENT]",
+  "stdout-output": {
+    "id": "stdout",
+    "description": "center of mass of the dataset",
+    "name": "stdout"
+  },
+  "inputs": [
+    {
+      "description": "Input dataset.",
+      "value-key": "[DSET]",
+      "type": "File",
+      "optional": false,
+      "id": "dset",
+      "name": "Input file"
+    },
+    {
+      "command-line-flag": "-mask",
+      "description": "Use the specified dataset as a mask. Only voxels with nonzero values in 'mset' will be averaged from 'dataset'. Both datasets must have the same number of voxels.",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "mask",
+      "name": "Mask file"
+    },
+    {
+      "command-line-flag": "-automask",
+      "description": "Generate the mask automatically.",
+      "value-key": "[AUTOMASK]",
+      "type": "Flag",
+      "id": "automask",
+      "name": "Automask flag"
+    },
+    {
+      "command-line-flag": "-set",
+      "description": "After computing the CM of the dataset, set the origin fields in the header so that the CM will be at (x,y,z) in DICOM coordinates.",
+      "value-key": "[SET_ORIGIN]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 3,
+      "min-list-entries": 3,
+      "optional": true,
+      "id": "set_origin",
+      "name": "Set origin"
+    },
+    {
+      "command-line-flag": "-local_ijk",
+      "description": "Output values as (i,j,k) in local orientation.",
+      "value-key": "[LOCAL_IJK]",
+      "type": "Flag",
+      "id": "local_ijk",
+      "name": "Local IJK flag"
+    },
+    {
+      "command-line-flag": "-roi_vals",
+      "description": "Compute center of mass for each blob with specified voxel values.",
+      "value-key": "[ROI_VALS]",
+      "type": "Number",
+      "list": true,
+      "optional": true,
+      "id": "roi_vals",
+      "name": "ROI values"
+    },
+    {
+      "command-line-flag": "-all_rois",
+      "description": "Automatically find all ROI values and compute their centers of mass.",
+      "value-key": "[ALL_ROIS]",
+      "type": "Flag",
+      "id": "all_rois",
+      "name": "All ROIs flag"
+    },
+    {
+      "command-line-flag": "-Icent",
+      "description": "Compute Internal Center, which finds the center voxel closest to the center of mass.",
+      "value-key": "[ICENT]",
+      "type": "Flag",
+      "id": "icent",
+      "name": "Internal Center flag"
+    },
+    {
+      "command-line-flag": "-Dcent",
+      "description": "Compute Distance Center, the center voxel with the shortest average distance to all other voxels. This is computationally expensive.",
+      "value-key": "[DCENT]",
+      "type": "Flag",
+      "id": "dcent",
+      "name": "Distance Center flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [],
+  "url": "https://afni.nimh.nih.gov/"
+}

@@ -1,0 +1,40 @@
+{
+  "name": "register_child",
+  "description": "A tool used for registering MR volumes with a child's atlas in Freesurfer.",
+  "command-line": "register_child [INPUT_VOLUME] [OUTPUT_DIRECTORY]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input MR volume to be used for registration.",
+      "value-key": "[INPUT_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "input_volume",
+      "name": "Input Volume"
+    },
+    {
+      "description": "Directory where output files will be written.",
+      "value-key": "[OUTPUT_DIRECTORY]",
+      "type": "String",
+      "optional": false,
+      "id": "output_directory",
+      "name": "Output Directory"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_DIRECTORY]/fsamples",
+      "description": "File where transformed control points are written.",
+      "id": "transformed_control_points",
+      "name": "Transformed Control Points"
+    },
+    {
+      "path-template": "[OUTPUT_DIRECTORY]/norm",
+      "description": "File where intensity normalized volume is written.",
+      "id": "intensity_normalized_volume",
+      "name": "Intensity Normalized Volume"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

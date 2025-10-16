@@ -1,0 +1,68 @@
+{
+  "name": "cifti-label-import",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -cifti-label-import [INPUT] [LABEL_LIST_FILE] [OUTPUT] [OPT_DISCARD_OTHERS] [OPT_UNLABELED_VALUE_VALUE] [OPT_DROP_UNUSED_LABELS]",
+  "description": "Make a cifti label file from a cifti file.\n\nCreates a cifti label file from a cifti file with label-like values.  You may specify the empty string (use \"\") for <label-list-file>, which will be treated as if it is an empty file.  The label list file must have the following format (2 lines per label):\n\n<labelname>\n<key> <red> <green> <blue> <alpha>\n...\n\nLabel names are specified on a separate line from their value and color, in order to let label names contain spaces.  Whitespace is trimmed from both ends of the label name, but is kept if it is in the middle of a label.  Do not specify the \"unlabeled\" key in the file, it is assumed that 0 means not labeled unless -unlabeled-value is specified.  The value of <key> specifies what value in the imported file should be used as this label (these same key values are also used in the output file).  The values of <red>, <green>, <blue> and <alpha> must be integers from 0 to 255, and will specify the color the label is drawn as (alpha of 255 means fully opaque, which is probably what you want).\n\nBy default, it will create new label names with names like LABEL_5 for any values encountered that are not mentioned in the list file, specify -discard-others to instead set these values to the \"unlabeled\" key.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "input",
+      "name": "input",
+      "description": "the input cifti file",
+      "optional": false,
+      "value-key": "[INPUT]",
+      "type": "File"
+    },
+    {
+      "id": "label_list_file",
+      "name": "label_list_file",
+      "description": "text file containing the values and names for labels",
+      "optional": false,
+      "value-key": "[LABEL_LIST_FILE]",
+      "type": "String"
+    },
+    {
+      "id": "output",
+      "name": "output",
+      "type": "String",
+      "description": "the output cifti label file",
+      "optional": false,
+      "value-key": "[OUTPUT]"
+    },
+    {
+      "id": "opt_discard_others",
+      "name": "opt_discard_others",
+      "command-line-flag": "-discard-others",
+      "description": "set any values not mentioned in the label list to the ??? label",
+      "type": "Flag",
+      "value-key": "[OPT_DISCARD_OTHERS]"
+    },
+    {
+      "id": "opt_unlabeled_value_value",
+      "name": "opt_unlabeled_value_value",
+      "command-line-flag": "-unlabeled-value",
+      "description": "set the value that will be interpreted as unlabeled: the numeric value for unlabeled (default 0)",
+      "optional": true,
+      "value-key": "[OPT_UNLABELED_VALUE_VALUE]",
+      "type": "Number",
+      "integer": true
+    },
+    {
+      "id": "opt_drop_unused_labels",
+      "name": "opt_drop_unused_labels",
+      "command-line-flag": "-drop-unused-labels",
+      "description": "remove any unused label values from the label table",
+      "type": "Flag",
+      "value-key": "[OPT_DROP_UNUSED_LABELS]"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "output",
+      "name": "output",
+      "path-template": "[OUTPUT]",
+      "description": "the output cifti label file"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

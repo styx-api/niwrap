@@ -1,0 +1,186 @@
+{
+  "name": "annot2std",
+  "author": "FreeSurfer Developers",
+  "description": "Creates an average annotation in a standard space based on transforming the annotations of the individual subjects to the standard space through the surface registration.",
+  "command-line": "annot2std [OUTPUT_ANNOT_PATH] [SUBJECTS] [FSGD_FILE] [SUBJECT_LIST_FILE] [TARGET] [LEFT_HEMISPHERE] [RIGHT_HEMISPHERE] [XHEMI] [SURFREG] [SRCSURFREG] [TRGSURFREG] [ANNOTNAME] [APARC] [A2009S] [SEGMENTATION] [STACK] [HELP] [VERSION]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--o",
+      "description": "Full output annotation path (also creates outannotpath.p.mgh)",
+      "value-key": "[OUTPUT_ANNOT_PATH]",
+      "type": "String",
+      "optional": false,
+      "id": "output_annot_path",
+      "name": "Output annotation path"
+    },
+    {
+      "command-line-flag": "--s",
+      "description": "Input subject(s), specify each subject with --s subj",
+      "value-key": "[SUBJECTS]",
+      "type": "String",
+      "list": true,
+      "optional": false,
+      "id": "subjects",
+      "name": "Subjects"
+    },
+    {
+      "command-line-flag": "--fsgd",
+      "description": "FSGD file for group descriptor",
+      "value-key": "[FSGD_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "fsgd_file",
+      "name": "FSGD file"
+    },
+    {
+      "command-line-flag": "--f",
+      "description": "Subject list file",
+      "value-key": "[SUBJECT_LIST_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "subject_list_file",
+      "name": "Subject list file"
+    },
+    {
+      "command-line-flag": "--t",
+      "description": "Target subject (e.g., fsaverage)",
+      "value-key": "[TARGET]",
+      "type": "String",
+      "optional": true,
+      "id": "target",
+      "name": "Target subject"
+    },
+    {
+      "command-line-flag": "--lh",
+      "description": "Use left hemisphere",
+      "value-key": "[LEFT_HEMISPHERE]",
+      "type": "Flag",
+      "id": "left_hemisphere",
+      "name": "Left hemisphere flag"
+    },
+    {
+      "command-line-flag": "--rh",
+      "description": "Use right hemisphere",
+      "value-key": "[RIGHT_HEMISPHERE]",
+      "type": "Flag",
+      "id": "right_hemisphere",
+      "name": "Right hemisphere flag"
+    },
+    {
+      "command-line-flag": "--xhemi",
+      "description": "For interhemispheric analysis",
+      "value-key": "[XHEMI]",
+      "type": "Flag",
+      "id": "xhemi",
+      "name": "Interhemispheric analysis flag"
+    },
+    {
+      "command-line-flag": "--surfreg",
+      "description": "Surface registration type (default is sphere.reg)",
+      "value-key": "[SURFREG]",
+      "type": "String",
+      "optional": true,
+      "id": "surfreg",
+      "name": "Surface registration"
+    },
+    {
+      "command-line-flag": "--srcsurfreg",
+      "description": "Source surface registration type (default is sphere.reg)",
+      "value-key": "[SRCSURFREG]",
+      "type": "String",
+      "optional": true,
+      "id": "srcsurfreg",
+      "name": "Source surface registration"
+    },
+    {
+      "command-line-flag": "--trgsurfreg",
+      "description": "Target surface registration type (default is sphere.reg)",
+      "value-key": "[TRGSURFREG]",
+      "type": "String",
+      "optional": true,
+      "id": "trgsurfreg",
+      "name": "Target surface registration"
+    },
+    {
+      "command-line-flag": "--a",
+      "description": "Input annotation name (?h.annotname.annot)",
+      "value-key": "[ANNOTNAME]",
+      "type": "String",
+      "optional": true,
+      "id": "annotname",
+      "name": "Annotation name"
+    },
+    {
+      "command-line-flag": "--aparc",
+      "description": "Annotation name set to aparc",
+      "value-key": "[APARC]",
+      "type": "Flag",
+      "id": "aparc",
+      "name": "Aparc annotation name"
+    },
+    {
+      "command-line-flag": "--a2009s",
+      "description": "Annotation name set to aparc.a2009s",
+      "value-key": "[A2009S]",
+      "type": "Flag",
+      "id": "a2009s",
+      "name": "Aparc a2009s annotation name"
+    },
+    {
+      "command-line-flag": "--seg",
+      "description": "Save output as a surface segmentation (2 frames, second = p)",
+      "value-key": "[SEGMENTATION]",
+      "type": "String",
+      "optional": true,
+      "id": "segmentation",
+      "name": "Output segmentation"
+    },
+    {
+      "command-line-flag": "--stack",
+      "description": "Stack of individual annotations as segmentation",
+      "value-key": "[STACK]",
+      "type": "String",
+      "optional": true,
+      "id": "stack",
+      "name": "Segmentation stack"
+    },
+    {
+      "command-line-flag": "--help",
+      "description": "Display help",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help flag"
+    },
+    {
+      "command-line-flag": "--version",
+      "description": "Display version",
+      "value-key": "[VERSION]",
+      "type": "Flag",
+      "id": "version",
+      "name": "Version flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_ANNOT_PATH]",
+      "description": "Main output annotation file",
+      "id": "out_annot_file",
+      "name": "Output annotation file"
+    },
+    {
+      "path-template": "[OUTPUT_ANNOT_PATH].p.mgh",
+      "description": "Output annotation probability map file",
+      "id": "out_prob_map_file",
+      "name": "Output probability map"
+    },
+    {
+      "path-template": "[SEGMENTATION]",
+      "description": "Output surface segmentation file",
+      "id": "output_surface_segmentation",
+      "name": "Output segmentation file"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

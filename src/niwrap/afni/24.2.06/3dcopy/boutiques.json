@@ -1,0 +1,51 @@
+{
+  "name": "3dcopy",
+  "author": "AFNI Developers",
+  "description": "3dcopy copies datasets with or without altering prefixes and converting formats.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dcopy [VERBOSE] [DENOTE] [OLD_PREFIX][VIEW] [NEW_PREFIX]",
+  "inputs": [
+    {
+      "description": "Old dataset prefix (and view if specific dataset view is to be copied).",
+      "value-key": "[OLD_PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "old_prefix",
+      "name": "Old Prefix"
+    },
+    {
+      "command-line-flag": "+",
+      "description": "Specified view (orig, acpc, tlrc).",
+      "value-key": "[VIEW]",
+      "type": "String",
+      "optional": true,
+      "id": "view",
+      "name": "Specified View"
+    },
+    {
+      "description": "New dataset prefix or directory path.",
+      "value-key": "[NEW_PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "new_prefix",
+      "name": "New Prefix"
+    },
+    {
+      "command-line-flag": "-verb",
+      "description": "Print progress reports.",
+      "value-key": "[VERBOSE]",
+      "type": "Flag",
+      "id": "verbose",
+      "name": "Verbose Flag"
+    },
+    {
+      "command-line-flag": "-denote",
+      "description": "Remove any Notes from the file.",
+      "value-key": "[DENOTE]",
+      "type": "Flag",
+      "id": "denote",
+      "name": "Denote Flag"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

@@ -1,0 +1,95 @@
+{
+  "name": "mris_inflate",
+  "author": "FreeSurfer Developers",
+  "description": "Cortical surface inflation tool",
+  "command-line": "mris_inflate [INPUT_SURFACE] [OUTPUT_SURFACE] [MAX_ITERATIONS] [SNAPSHOT_INTERVAL] [DIST_COEFFICIENT] [NO_SAVE_SULC] [SULCNAME] [MM_FLAG] [SCALE_FLAG]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input surface file",
+      "value-key": "[INPUT_SURFACE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_surface",
+      "name": "Input Surface"
+    },
+    {
+      "description": "Output surface file",
+      "value-key": "[OUTPUT_SURFACE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_surface",
+      "name": "Output Surface"
+    },
+    {
+      "command-line-flag": "-n",
+      "description": "Set the maximum number of iterations (default: 10)",
+      "value-key": "[MAX_ITERATIONS]",
+      "type": "Number",
+      "optional": true,
+      "id": "max_iterations",
+      "name": "Max Iterations"
+    },
+    {
+      "command-line-flag": "-w",
+      "description": "Write out a snapshot of the inflation every specified time step",
+      "value-key": "[SNAPSHOT_INTERVAL]",
+      "type": "Number",
+      "optional": true,
+      "id": "snapshot_interval",
+      "name": "Snapshot Interval"
+    },
+    {
+      "command-line-flag": "-dist",
+      "description": "Specify the relative strength of the metric preserving term in the cost functional versus the smoothing term (default: 0.1)",
+      "value-key": "[DIST_COEFFICIENT]",
+      "type": "Number",
+      "optional": true,
+      "id": "dist_coefficient",
+      "name": "Distance Coefficient"
+    },
+    {
+      "command-line-flag": "-no-save-sulc",
+      "description": "Do not save ?h.sulc",
+      "value-key": "[NO_SAVE_SULC]",
+      "type": "Flag",
+      "id": "no_save_sulc",
+      "name": "No Save Sulc Flag"
+    },
+    {
+      "command-line-flag": "-sulc",
+      "description": "Save to ?h.sulcname",
+      "value-key": "[SULCNAME]",
+      "type": "String",
+      "optional": true,
+      "id": "sulcname",
+      "name": "Sulc Name"
+    },
+    {
+      "command-line-flag": "-mm",
+      "description": "Compute sulc in mm without zero meaning or scaling",
+      "value-key": "[MM_FLAG]",
+      "type": "Flag",
+      "id": "mm_flag",
+      "name": "MM Flag"
+    },
+    {
+      "command-line-flag": "-scale",
+      "description": "Disable or enable scaling of inflated brain",
+      "value-key": "[SCALE_FLAG]",
+      "type": "Number",
+      "optional": true,
+      "id": "scale_flag",
+      "name": "Scale Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_SURFACE]",
+      "description": "Output surface file",
+      "id": "output_surface_file",
+      "name": "Output Surface File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

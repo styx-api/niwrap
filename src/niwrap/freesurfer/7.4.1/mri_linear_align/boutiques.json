@@ -1,0 +1,34 @@
+{
+  "name": "mri_linear_align",
+  "author": "FreeSurfer Developers",
+  "description": "MRI Linear Alignment Tool for Freesurfer",
+  "command-line": "mri_linear_align [SOURCE] [TARGET] [OUTPUT_XFORM]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "source",
+      "name": "Source Image",
+      "type": "File",
+      "value-key": "[SOURCE]",
+      "description": "Source image file for alignment",
+      "optional": false
+    },
+    {
+      "id": "target",
+      "name": "Target Image",
+      "type": "File",
+      "value-key": "[TARGET]",
+      "description": "Target image file for alignment",
+      "optional": false
+    },
+    {
+      "id": "output_xform",
+      "name": "Output Transform",
+      "type": "String",
+      "value-key": "[OUTPUT_XFORM]",
+      "description": "Output transformation file",
+      "optional": false
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

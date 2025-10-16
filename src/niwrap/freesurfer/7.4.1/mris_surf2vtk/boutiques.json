@@ -1,0 +1,36 @@
+{
+  "name": "mris_surf2vtk",
+  "author": "FreeSurfer Developers",
+  "description": "Conversion tool to convert surface files to VTK format",
+  "command-line": "mris_surf2vtk [INPUT_SURFACE] [OUTPUT_SURFACE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "-i",
+      "description": "Input surface file",
+      "value-key": "[INPUT_SURFACE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_surface",
+      "name": "Input Surface"
+    },
+    {
+      "command-line-flag": "-o",
+      "description": "Output surface file in VTK format",
+      "value-key": "[OUTPUT_SURFACE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_surface",
+      "name": "Output Surface"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_SURFACE]",
+      "description": "Output surface file converted to VTK format",
+      "id": "vtk_surface",
+      "name": "VTK Surface File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

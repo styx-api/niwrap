@@ -1,0 +1,355 @@
+{
+  "name": "@auto_tlrc",
+  "author": "AFNI Developers",
+  "description": "A script to transform an anatomical dataset to align with some standard space template and to apply the same TLRC transform obtained with @auto_tlrc in Usage 1 mode to other datasets.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "@auto_tlrc [BASE_TEMPLATE] [INPUT_ANAT] [NO_SS] [WARP_ORIG_VOL] [DXYZ] [DX] [DY] [DZ] [PAD_BASE] [KEEP_TMP] [CLEAN] [XFORM] [NO_AVOID_EYES] [NCR] [ONEPASS] [TWOPASS] [MAXITE] [NOT_OK_MAXITE] [INWEIGHT] [RIGID_EQUIV] [INIT_XFORM] [NO_PRE] [OUT_SPACE] [3DALLINEATE] [3DALCOST] [OVERWRITE] [APAR] [INPUT_DATASET] [PAD_INPUT] [ONEWARP] [TWOWARP] [RMODE] [PREFIX] [SUFFIX] [KEEP_VIEW] [BASE_COPY] [BASE_LIST] [USE_GZ] [VERB]",
+  "inputs": [
+    {
+      "id": "base_template",
+      "name": "Base Template",
+      "description": "Reference anatomical volume. Usually this volume is in some standard space like TLRC or MNI space.",
+      "command-line-flag": "-base",
+      "optional": false,
+      "type": "File",
+      "value-key": "[BASE_TEMPLATE]"
+    },
+    {
+      "id": "input_anat",
+      "name": "Input Anatomical Volume",
+      "description": "Original anatomical volume (+orig). The skull is removed by this script unless instructed otherwise (-no_ss).",
+      "command-line-flag": "-input",
+      "optional": false,
+      "type": "File",
+      "value-key": "[INPUT_ANAT]"
+    },
+    {
+      "id": "no_ss",
+      "name": "No Skull Stripping",
+      "description": "Do not strip skull of input data set because the skull has already been removed or because the template still has the skull.",
+      "command-line-flag": "-no_ss",
+      "type": "Flag",
+      "value-key": "[NO_SS]"
+    },
+    {
+      "id": "warp_orig_vol",
+      "name": "Warp Original Volume",
+      "description": "Produce a TLRC version of the input volume, rather than a TLRC version of the skull-stripped input.",
+      "command-line-flag": "-warp_orig_vol",
+      "type": "Flag",
+      "value-key": "[WARP_ORIG_VOL]"
+    },
+    {
+      "id": "dxyz",
+      "name": "Cubic Voxel Size",
+      "description": "Cubic voxel size of output DSET in TLRC space. Default is the resolution of the template.",
+      "command-line-flag": "-dxyz",
+      "optional": true,
+      "type": "Number",
+      "value-key": "[DXYZ]"
+    },
+    {
+      "id": "dx",
+      "name": "Voxel Size in X Direction",
+      "description": "Size of voxel in the x direction (Right-Left). Default is 1mm.",
+      "command-line-flag": "-dx",
+      "optional": true,
+      "type": "Number",
+      "value-key": "[DX]"
+    },
+    {
+      "id": "dy",
+      "name": "Voxel Size in Y Direction",
+      "description": "Size of voxel in the y direction (Anterior-Posterior). Default is 1mm.",
+      "command-line-flag": "-dy",
+      "optional": true,
+      "type": "Number",
+      "value-key": "[DY]"
+    },
+    {
+      "id": "dz",
+      "name": "Voxel Size in Z Direction",
+      "description": "Size of voxel in the z direction (Inferior-Superior). Default is 1mm.",
+      "command-line-flag": "-dz",
+      "optional": true,
+      "type": "Number",
+      "value-key": "[DZ]"
+    },
+    {
+      "id": "pad_base",
+      "name": "Pad Base Dataset",
+      "description": "Pad the base dataset by MM mm in each direction. Default is 15 mm.",
+      "command-line-flag": "-pad_base",
+      "optional": true,
+      "type": "Number",
+      "value-key": "[PAD_BASE]"
+    },
+    {
+      "id": "keep_tmp",
+      "name": "Keep Temporary Files",
+      "description": "Keep temporary files.",
+      "command-line-flag": "-keep_tmp",
+      "type": "Flag",
+      "value-key": "[KEEP_TMP]"
+    },
+    {
+      "id": "clean",
+      "name": "Clean Temporary Files",
+      "description": "Clean all temporary files, likely left from -keep_tmp option then exit.",
+      "command-line-flag": "-clean",
+      "type": "Flag",
+      "value-key": "[CLEAN]"
+    },
+    {
+      "id": "xform",
+      "name": "Transform for Warping",
+      "description": "Transform to use for warping: Choose from affine_general or shift_rotate_scale. Default is affine_general.",
+      "command-line-flag": "-xform",
+      "optional": true,
+      "type": "String",
+      "value-key": "[XFORM]"
+    },
+    {
+      "id": "no_avoid_eyes",
+      "name": "No Avoid Eyes",
+      "description": "An option that gets passed to 3dSkullStrip. Use it when parts of the frontal lobes get clipped.",
+      "command-line-flag": "-no_avoid_eyes",
+      "type": "Flag",
+      "value-key": "[NO_AVOID_EYES]"
+    },
+    {
+      "id": "ncr",
+      "name": "No Coarse Rotation",
+      "description": "Do not use -coarserot option for 3dWarpDrive, which is a default.",
+      "command-line-flag": "-ncr",
+      "type": "Flag",
+      "value-key": "[NCR]"
+    },
+    {
+      "id": "onepass",
+      "name": "Single Pass Registration",
+      "description": "Turns off -twopass option for 3dWarpDrive. This will speed up the registration but might fail if the datasets are far apart.",
+      "command-line-flag": "-onepass",
+      "type": "Flag",
+      "value-key": "[ONEPASS]"
+    },
+    {
+      "id": "twopass",
+      "name": "Two Pass Registration",
+      "description": "Opposite of -onepass, default.",
+      "command-line-flag": "-twopass",
+      "type": "Flag",
+      "value-key": "[TWOPASS]"
+    },
+    {
+      "id": "maxite",
+      "name": "Maximum Number of Iterations",
+      "description": "Maximum number of iterations for 3dWarpDrive. Default is 50 for first pass and then doubled to 100 in second pass.",
+      "command-line-flag": "-maxite",
+      "optional": true,
+      "type": "Number",
+      "value-key": "[MAXITE]"
+    },
+    {
+      "id": "not_OK_maxite",
+      "name": "Not OK Maximum Iterations",
+      "description": "Continue running even if maximum iterations is reached.",
+      "command-line-flag": "-not_OK_maxite",
+      "type": "Flag",
+      "value-key": "[NOT_OK_MAXITE]"
+    },
+    {
+      "id": "inweight",
+      "name": "Input Weight",
+      "description": "Apply -weight INPUT (in 3dWarpDrive). By default, 3dWarpDrive uses the BASE dataset to weight the alignment cost.",
+      "command-line-flag": "-inweight",
+      "type": "Flag",
+      "value-key": "[INWEIGHT]"
+    },
+    {
+      "id": "rigid_equiv",
+      "name": "Rigid Body Alignment",
+      "description": "Output the rigid-body version of the alignment. Resultant volume is NOT in TLRC space.",
+      "command-line-flag": "-rigid_equiv",
+      "type": "Flag",
+      "value-key": "[RIGID_EQUIV]"
+    },
+    {
+      "id": "init_xform",
+      "name": "Initial Transform",
+      "description": "Apply affine transform in XFORM0.1D before beginning registration and then include XFORM0.1D in the final transform.",
+      "command-line-flag": "-init_xform",
+      "optional": true,
+      "type": "String",
+      "value-key": "[INIT_XFORM]"
+    },
+    {
+      "id": "no_pre",
+      "name": "Delete Temporary Dataset",
+      "description": "Delete temporary dataset created by -init_xform",
+      "command-line-flag": "-no_pre",
+      "type": "Flag",
+      "value-key": "[NO_PRE]"
+    },
+    {
+      "id": "out_space",
+      "name": "Output Space",
+      "description": "Set the output to a particular space.",
+      "command-line-flag": "-out_space",
+      "optional": true,
+      "type": "String",
+      "value-key": "[OUT_SPACE]"
+    },
+    {
+      "id": "3dAllineate",
+      "name": "Use 3dAllineate",
+      "description": "Use 3dAllineate with the lpa+ZZ cost function instead of 3dWarpDrive.",
+      "command-line-flag": "-3dAllineate",
+      "type": "Flag",
+      "value-key": "[3DALLINEATE]"
+    },
+    {
+      "id": "3dAlcost",
+      "name": "Cost function for 3dAllineate",
+      "description": "Use another cost function like nmi for 3dAllineate.",
+      "command-line-flag": "-3dAlcost",
+      "optional": true,
+      "type": "String",
+      "value-key": "[3DALCOST]"
+    },
+    {
+      "id": "overwrite",
+      "name": "Overwrite Output",
+      "description": "Overwrite existing output.",
+      "command-line-flag": "-overwrite",
+      "type": "Flag",
+      "value-key": "[OVERWRITE]"
+    },
+    {
+      "id": "apar",
+      "name": "Anatomical Dataset Parent",
+      "description": "An anatomical dataset in TLRC space created using Usage 1 of @auto_tlrc.",
+      "command-line-flag": "-apar",
+      "optional": false,
+      "type": "File",
+      "value-key": "[APAR]"
+    },
+    {
+      "id": "input_dataset",
+      "name": "Input Dataset",
+      "description": "Dataset (typically EPI time series or statistical dataset) to transform to TLRC space per the transform in TLRC_parent",
+      "command-line-flag": "-input",
+      "optional": false,
+      "type": "File",
+      "value-key": "[INPUT_DATASET]"
+    },
+    {
+      "id": "pad_input",
+      "name": "Pad Input Dataset",
+      "description": "Pad the input dataset by MM mm in each direction.",
+      "command-line-flag": "-pad_input",
+      "optional": true,
+      "type": "Number",
+      "value-key": "[PAD_INPUT]"
+    },
+    {
+      "id": "onewarp",
+      "name": "Single Interpolation Step",
+      "description": "Create follower data with one interpolation step, instead of two. This option reduces blurring of the output data.",
+      "command-line-flag": "-onewarp",
+      "type": "Flag",
+      "value-key": "[ONEWARP]"
+    },
+    {
+      "id": "twowarp",
+      "name": "Two Interpolation Steps",
+      "description": "Create follower data with two interpolations step, instead of one. This option is for backward compatibility.",
+      "command-line-flag": "-twowarp",
+      "type": "Flag",
+      "value-key": "[TWOWARP]"
+    },
+    {
+      "id": "rmode",
+      "name": "Resampling Mode",
+      "description": "Resampling mode. Choose from: linear, cubic, NN or quintic. Default for 'Usage 1' is cubic.",
+      "command-line-flag": "-rmode",
+      "optional": true,
+      "type": "String",
+      "value-key": "[RMODE]"
+    },
+    {
+      "id": "prefix",
+      "name": "Output Prefix",
+      "description": "Name of the output dataset.",
+      "command-line-flag": "-prefix",
+      "optional": true,
+      "type": "String",
+      "value-key": "[PREFIX]"
+    },
+    {
+      "id": "suffix",
+      "name": "Output Suffix",
+      "description": "Name the output dataset by appending this suffix to the prefix of the input data.",
+      "command-line-flag": "-suffix",
+      "optional": true,
+      "type": "String",
+      "value-key": "[SUFFIX]"
+    },
+    {
+      "id": "keep_view",
+      "name": "Keep Output View",
+      "description": "Do not mark output dataset as +tlrc.",
+      "command-line-flag": "-keep_view",
+      "type": "Flag",
+      "value-key": "[KEEP_VIEW]"
+    },
+    {
+      "id": "base_copy",
+      "name": "Copy Base Dataset",
+      "description": "Copy base (template) dataset into COPY_PREFIX.",
+      "command-line-flag": "-base_copy",
+      "optional": true,
+      "type": "String",
+      "value-key": "[BASE_COPY]"
+    },
+    {
+      "id": "base_list",
+      "name": "List Base Dataset Path",
+      "description": "List the full path of the base dataset.",
+      "command-line-flag": "-base_list",
+      "type": "Flag",
+      "value-key": "[BASE_LIST]"
+    },
+    {
+      "id": "use_gz",
+      "name": "Use GZIP Compression",
+      "description": "When using '-suffix ..', behave as if you had provided a prefix with '*.gz' at the end.",
+      "command-line-flag": "-use_gz",
+      "type": "Flag",
+      "value-key": "[USE_GZ]"
+    },
+    {
+      "id": "verb",
+      "name": "Verbose",
+      "description": "Increase verbosity of the script.",
+      "command-line-flag": "-verb",
+      "type": "Flag",
+      "value-key": "[VERB]"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX].nii.gz",
+      "description": "Transformed anatomical volume dataset in TLRC space.",
+      "id": "output_dataset",
+      "name": "Transformed Anatomical Dataset"
+    },
+    {
+      "path-template": "[PREFIX].Xat.1D",
+      "description": "Transform used to align the anatomical dataset to the template.",
+      "id": "transform_file",
+      "name": "Transformation File"
+    }
+  ]
+}

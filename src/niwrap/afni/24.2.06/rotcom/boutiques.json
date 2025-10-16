@@ -1,0 +1,34 @@
+{
+  "name": "rotcom",
+  "author": "AFNI Developers",
+  "description": "Prints to stdout the 4x3 transformation matrix+vector that would be applied by 3drotate to the given dataset.",
+  "command-line": "rotcom [ROTATE_ASHIFT] [DATASET]",
+  "inputs": [
+    {
+      "description": "Combination of rotate and ashift options in a single quoted string (e.g., '-rotate 10I 0R 0A -ashift 5S 0 0')",
+      "value-key": "[ROTATE_ASHIFT]",
+      "type": "String",
+      "optional": false,
+      "id": "rotate_ashift",
+      "name": "Rotate and Ashift Options"
+    },
+    {
+      "description": "Input dataset for determining coordinate order",
+      "value-key": "[DATASET]",
+      "type": "File",
+      "optional": true,
+      "id": "dataset",
+      "name": "Input Dataset"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "stdout",
+      "description": "The 4x3 transformation matrix+vector output",
+      "id": "stdout",
+      "name": "Transformation Matrix Output"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

@@ -1,0 +1,27 @@
+{
+  "name": "mri_strip_subject_info",
+  "command-line": "mri_strip_subject_info [INPUT_FILES] [OUTPUT_DIRECTORY]",
+  "schema-version": "0.5+styx",
+  "description": "A tool to strip subject information from MRI data files",
+  "inputs": [
+    {
+      "id": "input_files",
+      "name": "Input Files",
+      "type": "File",
+      "list": true,
+      "value-key": "[INPUT_FILES]",
+      "description": "Input file(s) containing MRI data",
+      "optional": false
+    },
+    {
+      "id": "output_directory",
+      "name": "Output Directory",
+      "type": "String",
+      "value-key": "[OUTPUT_DIRECTORY]",
+      "description": "Directory where stripped files will be saved",
+      "optional": false
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

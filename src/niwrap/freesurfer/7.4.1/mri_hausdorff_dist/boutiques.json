@@ -1,0 +1,85 @@
+{
+  "name": "mri_hausdorff_dist",
+  "author": "FreeSurfer Developers",
+  "description": "Tool for computing the mean or max of the minimum distances between point sets in 3D volumes.",
+  "command-line": "mri_hausdorff_dist [VOL1] [VOL2] [OUTPUT_TEXT_FILE] [THRESHOLD] [INPUT_FILE_FLAG] [BLUR_SIGMA] [MAX_FLAG] [LABEL_INDEX]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "First input volume",
+      "value-key": "[VOL1]",
+      "type": "File",
+      "optional": false,
+      "id": "vol1",
+      "name": "Volume 1"
+    },
+    {
+      "description": "Second input volume",
+      "value-key": "[VOL2]",
+      "type": "File",
+      "optional": false,
+      "id": "vol2",
+      "name": "Volume 2"
+    },
+    {
+      "description": "Output text file",
+      "value-key": "[OUTPUT_TEXT_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_text_file",
+      "name": "Output Text File"
+    },
+    {
+      "command-line-flag": "-b",
+      "description": "Binarize input volumes with given threshold",
+      "value-key": "[THRESHOLD]",
+      "type": "Number",
+      "optional": true,
+      "id": "threshold",
+      "name": "Binarize Threshold"
+    },
+    {
+      "command-line-flag": "-F",
+      "description": "Read volumes from an input file (first argument is the input filename)",
+      "value-key": "[INPUT_FILE_FLAG]",
+      "type": "Flag",
+      "id": "input_file_flag",
+      "name": "Input File Flag"
+    },
+    {
+      "command-line-flag": "-g",
+      "description": "Blur the input image with Gaussian of specified sigma",
+      "value-key": "[BLUR_SIGMA]",
+      "type": "Number",
+      "optional": true,
+      "id": "blur_sigma",
+      "name": "Gaussian Blur Sigma"
+    },
+    {
+      "command-line-flag": "-max",
+      "description": "Compute the maximum of the minimum distances instead of the mean",
+      "value-key": "[MAX_FLAG]",
+      "type": "Flag",
+      "id": "max_flag",
+      "name": "Max Distance Flag"
+    },
+    {
+      "command-line-flag": "-l",
+      "description": "Use specified label index as the target label",
+      "value-key": "[LABEL_INDEX]",
+      "type": "Number",
+      "optional": true,
+      "id": "label_index",
+      "name": "Label Index"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_TEXT_FILE]",
+      "description": "Output text file containing the results of Hausdorff distance calculation",
+      "id": "output_text",
+      "name": "Output Text File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

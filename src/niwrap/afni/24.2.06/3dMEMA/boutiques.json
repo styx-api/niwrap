@@ -1,0 +1,253 @@
+{
+  "name": "3dMEMA",
+  "author": "AFNI Developers",
+  "description": "3dMEMA is a program for performing Mixed Effects Meta Analysis at group level that models both within- and across-subjects variability.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dMEMA [PREFIX] [JOBS] [SET] [COVARIATES] [COVARIATES_CENTER] [COVARIATES_MODEL] [COVARIATES_NAME] [GROUPS] [CIO] [HKTEST] [MASK] [MAX_ZEROS] [MISSING_DATA] [MODEL_OUTLIERS] [N_NONZERO] [NO_HKTEST] [NO_MODEL_OUTLIERS] [NO_RESIDUAL_Z] [RESIDUAL_Z] [RIO] [EQUAL_VARIANCE] [UNEQUAL_VARIANCE] [VERB] [DBGARGS] [HELP] [CONDITIONS] [NO_TSTAT]",
+  "inputs": [
+    {
+      "description": "Output prefix (just prefix, no view+suffix needed)",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "prefix",
+      "name": "Output prefix",
+      "command-line-flag": "-prefix"
+    },
+    {
+      "description": "Number of jobs for parallel computing",
+      "value-key": "[JOBS]",
+      "type": "Number",
+      "optional": true,
+      "id": "jobs",
+      "name": "Number of jobs",
+      "command-line-flag": "-jobs"
+    },
+    {
+      "description": "Set data for one of the test variables",
+      "value-key": "[SET]",
+      "type": "String",
+      "list": true,
+      "optional": false,
+      "id": "set",
+      "name": "Set data",
+      "command-line-flag": "-set"
+    },
+    {
+      "description": "Specify the name of a text file containing a table for the covariate(s).",
+      "value-key": "[COVARIATES]",
+      "type": "File",
+      "optional": true,
+      "id": "covariates",
+      "name": "Covariates file",
+      "command-line-flag": "-covariates"
+    },
+    {
+      "description": "Specify the center values for covariates.",
+      "value-key": "[COVARIATES_CENTER]",
+      "type": "String",
+      "optional": true,
+      "id": "covariates_center",
+      "name": "Covariates center",
+      "command-line-flag": "-covariates_center"
+    },
+    {
+      "description": "Specify how covariates should be modeled.",
+      "value-key": "[COVARIATES_MODEL]",
+      "type": "String",
+      "optional": true,
+      "id": "covariates_model",
+      "name": "Covariates model",
+      "command-line-flag": "-covariates_model"
+    },
+    {
+      "description": "Specify the name of each covariate.",
+      "value-key": "[COVARIATES_NAME]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "covariates_name",
+      "name": "Covariates name",
+      "command-line-flag": "-covariates_name"
+    },
+    {
+      "description": "Label of groups, used for output naming.",
+      "value-key": "[GROUPS]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "groups",
+      "name": "Groups",
+      "command-line-flag": "-groups"
+    },
+    {
+      "description": "Use AFNI's C io functions.",
+      "value-key": "[CIO]",
+      "type": "Flag",
+      "id": "cio",
+      "name": "C IO functions flag",
+      "command-line-flag": "-cio"
+    },
+    {
+      "description": "Perform Hartung-Knapp adjustment for the output t-statistic.",
+      "value-key": "[HKTEST]",
+      "type": "Flag",
+      "id": "HKtest",
+      "name": "H-K test flag",
+      "command-line-flag": "-HKtest"
+    },
+    {
+      "description": "Only process voxels inside the specified mask.",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "mask",
+      "name": "Mask file",
+      "command-line-flag": "-mask"
+    },
+    {
+      "description": "Specify how many beta/t-statistics can be zero.",
+      "value-key": "[MAX_ZEROS]",
+      "type": "Number",
+      "optional": true,
+      "id": "max_zeros",
+      "name": "Maximum zeros allowed",
+      "command-line-flag": "-max_zeros"
+    },
+    {
+      "description": "Specify missing data handling.",
+      "value-key": "[MISSING_DATA]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "missing_data",
+      "name": "Missing data",
+      "command-line-flag": "-missing_data"
+    },
+    {
+      "description": "Model outliers with a Laplace distribution.",
+      "value-key": "[MODEL_OUTLIERS]",
+      "type": "Flag",
+      "id": "model_outliers",
+      "name": "Model outliers flag",
+      "command-line-flag": "-model_outliers"
+    },
+    {
+      "description": "Number of non-zero beta values required.",
+      "value-key": "[N_NONZERO]",
+      "type": "Number",
+      "optional": true,
+      "id": "n_nonzero",
+      "name": "Minimum non-zero betas",
+      "command-line-flag": "-n_nonzero"
+    },
+    {
+      "description": "Specify not to use Hartung-Knapp adjustment.",
+      "value-key": "[NO_HKTEST]",
+      "type": "Flag",
+      "id": "no_HKtest",
+      "name": "No H-K test flag",
+      "command-line-flag": "-no_HKtest"
+    },
+    {
+      "description": "Specify not to model outliers.",
+      "value-key": "[NO_MODEL_OUTLIERS]",
+      "type": "Flag",
+      "id": "no_model_outliers",
+      "name": "No model outliers flag",
+      "command-line-flag": "-no_model_outliers"
+    },
+    {
+      "description": "Do not output residuals and their Z values.",
+      "value-key": "[NO_RESIDUAL_Z]",
+      "type": "Flag",
+      "id": "no_residual_Z",
+      "name": "No residual Z flag",
+      "command-line-flag": "-no_residual_Z"
+    },
+    {
+      "description": "Output residuals and their Z values.",
+      "value-key": "[RESIDUAL_Z]",
+      "type": "Flag",
+      "id": "residual_Z",
+      "name": "Residual Z flag",
+      "command-line-flag": "-residual_Z"
+    },
+    {
+      "description": "Use R's io functions.",
+      "value-key": "[RIO]",
+      "type": "Flag",
+      "id": "Rio",
+      "name": "R IO functions flag",
+      "command-line-flag": "-Rio"
+    },
+    {
+      "description": "Assume same cross-subjects variability between groups.",
+      "value-key": "[EQUAL_VARIANCE]",
+      "type": "Flag",
+      "id": "equal_variance",
+      "name": "Equal variance flag",
+      "command-line-flag": "-equal_variance"
+    },
+    {
+      "description": "Model cross-subject variability difference between groups.",
+      "value-key": "[UNEQUAL_VARIANCE]",
+      "type": "Flag",
+      "id": "unequal_variance",
+      "name": "Unequal variance flag",
+      "command-line-flag": "-unequal_variance"
+    },
+    {
+      "description": "Specify verbosity level",
+      "value-key": "[VERB]",
+      "type": "Number",
+      "optional": true,
+      "id": "verb",
+      "name": "Verbosity level",
+      "command-line-flag": "-verb"
+    },
+    {
+      "description": "Output missing data debug file.",
+      "value-key": "[DBGARGS]",
+      "type": "Flag",
+      "id": "dbgArgs",
+      "name": "Debug arguments flag",
+      "command-line-flag": "-dbgArgs"
+    },
+    {
+      "description": "Show help message",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help flag",
+      "command-line-flag": "-help"
+    },
+    {
+      "description": "Name of 1 or 2 conditions, tasks, or GLTs",
+      "value-key": "[CONDITIONS]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "conditions",
+      "name": "Conditions",
+      "command-line-flag": "-conditions"
+    },
+    {
+      "description": "Do not compute t-statistics",
+      "value-key": "[NO_TSTAT]",
+      "type": "Flag",
+      "id": "no_tstat",
+      "name": "No t-stat flag",
+      "command-line-flag": "-no_tstat"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX].nii.gz",
+      "description": "Output file from the analysis",
+      "id": "output_file",
+      "name": "Output file"
+    }
+  ]
+}

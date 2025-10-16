@@ -1,0 +1,93 @@
+{
+  "name": "3dBlurToFWHM",
+  "command-line": "3dBlurToFWHM [AUTOMASK] [BLURMASTER] [FWHM] [FWHMXY] [IN_FILE] [MASK] [OUTPUTTYPE] [PREFIX]",
+  "author": "AFNI Developers",
+  "description": "Blurs a 'master' dataset until it reaches a specified FWHM smoothness (approximately).",
+  "url": "https://afni.nimh.nih.gov/",
+  "inputs": [
+    {
+      "id": "automask",
+      "name": "Automask",
+      "type": "Flag",
+      "value-key": "[AUTOMASK]",
+      "command-line-flag": "-automask",
+      "description": "Create an automask from the input dataset."
+    },
+    {
+      "id": "blurmaster",
+      "name": "Blurmaster",
+      "type": "File",
+      "value-key": "[BLURMASTER]",
+      "command-line-flag": "-blurmaster",
+      "description": "The dataset whose smoothness controls the process.",
+      "optional": true
+    },
+    {
+      "id": "fwhm",
+      "name": "Fwhm",
+      "type": "Number",
+      "value-key": "[FWHM]",
+      "command-line-flag": "-FWHM",
+      "description": "Blur until the 3d fwhm reaches this value (in mm).",
+      "optional": true
+    },
+    {
+      "id": "fwhmxy",
+      "name": "Fwhmxy",
+      "type": "Number",
+      "value-key": "[FWHMXY]",
+      "command-line-flag": "-FWHMxy",
+      "description": "Blur until the 2d (x,y)-plane fwhm reaches this value (in mm).",
+      "optional": true
+    },
+    {
+      "id": "in_file",
+      "name": "In file",
+      "type": "File",
+      "value-key": "[IN_FILE]",
+      "command-line-flag": "-input",
+      "description": "The dataset that will be smoothed.",
+      "optional": false
+    },
+    {
+      "id": "mask",
+      "name": "Mask",
+      "type": "File",
+      "value-key": "[MASK]",
+      "command-line-flag": "-mask",
+      "description": "Mask dataset, if desired. voxels not in mask will be set to zero in output.",
+      "optional": true
+    },
+    {
+      "id": "outputtype",
+      "name": "Outputtype",
+      "type": "String",
+      "value-key": "[OUTPUTTYPE]",
+      "description": "'nifti' or 'afni' or 'nifti_gz'. Afni output filetype.",
+      "optional": true,
+      "value-choices": [
+        "NIFTI",
+        "AFNI",
+        "NIFTI_GZ"
+      ]
+    },
+    {
+      "id": "prefix",
+      "name": "Prefix",
+      "type": "String",
+      "value-key": "[PREFIX]",
+      "command-line-flag": "-prefix",
+      "description": "Prefix for output dataset.",
+      "optional": true
+    }
+  ],
+  "output-files": [
+    {
+      "name": "Out file",
+      "id": "out_file",
+      "description": "Output image file name.",
+      "path-template": "[PREFIX]"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

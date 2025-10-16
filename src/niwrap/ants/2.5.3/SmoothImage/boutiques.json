@@ -1,0 +1,73 @@
+{
+  "name": "SmoothImage",
+  "command-line": "SmoothImage [IMAGE_DIMENSION] [IMAGE_EXT] [SMOOTHING_SIGMA] [OUT_IMAGE_EXT] [SIGMA_UNITS] [MEDIAN_FILTER]",
+  "description": "SmoothImage allows smoothing of images with adjustable sigma values, offering optional median filtering functionality.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "image_dimension",
+      "name": "Image Dimension",
+      "value-key": "[IMAGE_DIMENSION]",
+      "type": "Number",
+      "integer": true,
+      "description": "Specifies the dimensionality of the image."
+    },
+    {
+      "id": "image_ext",
+      "name": "Image File",
+      "value-key": "[IMAGE_EXT]",
+      "type": "File",
+      "description": "The input image file to be smoothed."
+    },
+    {
+      "id": "smoothing_sigma",
+      "name": "Smoothing Sigma",
+      "value-key": "[SMOOTHING_SIGMA]",
+      "type": "String",
+      "description": "The sigma value for smoothing. A separate sigma may be specified for each dimension, e.g., '1.5x1x2'."
+    },
+    {
+      "id": "out_image_ext",
+      "name": "Output Image File",
+      "value-key": "[OUT_IMAGE_EXT]",
+      "type": "String",
+      "description": "The output smoothed image file."
+    },
+    {
+      "id": "sigma_units",
+      "name": "Sigma Units",
+      "value-key": "[SIGMA_UNITS]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "description": "Determines if sigma is in spacing units (1) or not (0). Default is 0."
+    },
+    {
+      "id": "median_filter",
+      "name": "Use Median Filter",
+      "value-key": "[MEDIAN_FILTER]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "description": "Whether to use median filter. Default is 0. If using median filter, sigma represents the radius in voxels."
+    }
+  ],
+  "output-files": [
+    {
+      "id": "smoothed_image",
+      "name": "Smoothed Image",
+      "description": "The output smoothed image file.",
+      "path-template": "[OUT_IMAGE_EXT]"
+    }
+  ],
+  "author": "ANTs Developers",
+  "url": "https://github.com/ANTsX/ANTs"
+}

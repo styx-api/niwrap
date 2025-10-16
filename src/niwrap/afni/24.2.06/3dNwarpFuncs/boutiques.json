@@ -1,0 +1,68 @@
+{
+  "name": "3dNwarpFuncs",
+  "description": "Compute functions of 3D warp displacements, such as bulk volume change, shear energy, and vorticity energy.",
+  "author": "AFNI Developers",
+  "command-line": "3dNwarpFuncs [INPUT_WARP] [OUTPUT_PREFIX] [BULK_FLAG] [SHEAR_FLAG] [VORTICITY_FLAG] [ALL_FLAG]",
+  "inputs": [
+    {
+      "id": "input_warp",
+      "name": "Input Warp",
+      "type": "File",
+      "value-key": "[INPUT_WARP]",
+      "description": "'www' is the name of the 3D warp dataset (mandatory option).",
+      "command-line-flag": "-nwarp",
+      "optional": false
+    },
+    {
+      "id": "output_prefix",
+      "name": "Output Prefix",
+      "type": "String",
+      "value-key": "[OUTPUT_PREFIX]",
+      "description": "'ppp' is the name of the new output dataset.",
+      "command-line-flag": "-prefix",
+      "optional": false
+    },
+    {
+      "id": "bulk_flag",
+      "name": "Bulk Volume Change Flag",
+      "type": "Flag",
+      "value-key": "[BULK_FLAG]",
+      "description": "Compute the (fractional) bulk volume change (Jacobian determinant minus 1).",
+      "command-line-flag": "-bulk"
+    },
+    {
+      "id": "shear_flag",
+      "name": "Shear Energy Flag",
+      "type": "Flag",
+      "value-key": "[SHEAR_FLAG]",
+      "description": "Compute the shear energy.",
+      "command-line-flag": "-shear"
+    },
+    {
+      "id": "vorticity_flag",
+      "name": "Vorticity Energy Flag",
+      "type": "Flag",
+      "value-key": "[VORTICITY_FLAG]",
+      "description": "Compute the vorticity energy.",
+      "command-line-flag": "-vorticity"
+    },
+    {
+      "id": "all_flag",
+      "name": "Compute All Functions",
+      "type": "Flag",
+      "value-key": "[ALL_FLAG]",
+      "description": "Compute all 3 functions: bulk, shear, and vorticity.",
+      "command-line-flag": "-all"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "output_file",
+      "name": "Output Dataset",
+      "path-template": "[OUTPUT_PREFIX]_output.nii.gz",
+      "description": "The output dataset with the computed functions."
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

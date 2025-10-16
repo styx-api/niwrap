@@ -1,0 +1,26 @@
+{
+  "name": "3dEntropy",
+  "author": "AFNI Developers",
+  "description": "Computes entropy for a 3D dataset",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dEntropy [ZSKIP] [INPUT_DATASET]",
+  "inputs": [
+    {
+      "description": "Input dataset (stored as 16 bit shorts)",
+      "value-key": "[INPUT_DATASET]",
+      "type": "File",
+      "optional": false,
+      "id": "input_dataset",
+      "name": "Input dataset"
+    },
+    {
+      "command-line-flag": "-zskip",
+      "description": "Skip 0 values in the entropy computation",
+      "value-key": "[ZSKIP]",
+      "type": "Flag",
+      "id": "zskip",
+      "name": "Skip zero values flag"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

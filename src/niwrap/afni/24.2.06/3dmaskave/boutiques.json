@@ -1,0 +1,71 @@
+{
+  "name": "3dmaskave",
+  "command-line": "3dmaskave [IN_FILE] [MASK] [NUM_THREADS] [OUTPUTTYPE] [QUIET]",
+  "author": "AFNI Developers",
+  "description": "Computes average of all voxels in the input dataset which satisfy the criterion in the options list",
+  "url": "https://afni.nimh.nih.gov/",
+  "inputs": [
+    {
+      "id": "in_file",
+      "name": "In file",
+      "type": "File",
+      "value-key": "[IN_FILE]",
+      "description": "Input file to 3dmaskave.",
+      "optional": false
+    },
+    {
+      "id": "mask",
+      "name": "Mask",
+      "type": "File",
+      "value-key": "[MASK]",
+      "command-line-flag": "-mask",
+      "description": "Matrix to align input file.",
+      "optional": true
+    },
+    {
+      "id": "num_threads",
+      "name": "Num threads",
+      "type": "Number",
+      "integer": true,
+      "value-key": "[NUM_THREADS]",
+      "description": "Set number of threads.",
+      "optional": true
+    },
+    {
+      "id": "outputtype",
+      "name": "Outputtype",
+      "type": "String",
+      "value-key": "[OUTPUTTYPE]",
+      "description": "'nifti' or 'afni' or 'nifti_gz'. Afni output filetype.",
+      "optional": true,
+      "value-choices": [
+        "NIFTI",
+        "AFNI",
+        "NIFTI_GZ"
+      ]
+    },
+    {
+      "id": "quiet",
+      "name": "Quiet",
+      "type": "Flag",
+      "value-key": "[QUIET]",
+      "command-line-flag": "-quiet",
+      "description": "Matrix to align input file."
+    }
+  ],
+  "output-files": [
+    {
+      "name": "Out file",
+      "id": "out_file",
+      "description": "Output image file name.",
+      "path-template": "[IN_FILE]_maskave.1D"
+    },
+    {
+      "name": "Out file",
+      "id": "out_file",
+      "path-template": "out_file",
+      "description": "Output file."
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

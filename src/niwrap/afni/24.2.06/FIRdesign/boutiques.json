@@ -1,0 +1,69 @@
+{
+  "name": "FIRdesign",
+  "author": "AFNI Developers",
+  "description": "Uses the Remez algorithm to calculate the FIR filter weights for a bandpass filter; results are written to stdout in an unadorned (no header) column of numbers.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "FIRdesign [FBOT] [FTOP] [NTAP] [TR] [ALTERNATIVE_BAND] [ALTERNATIVE_NTAP]",
+  "inputs": [
+    {
+      "description": "Lowest frequency in the pass band.",
+      "value-key": "[FBOT]",
+      "type": "Number",
+      "minimum": 0,
+      "optional": false,
+      "id": "fbot",
+      "name": "Low Passband Frequency"
+    },
+    {
+      "description": "Highest frequency in the pass band, must be higher than fbot and <= 0.5/TR.",
+      "value-key": "[FTOP]",
+      "type": "Number",
+      "minimum": 0,
+      "optional": false,
+      "id": "ftop",
+      "name": "High Passband Frequency"
+    },
+    {
+      "description": "Number of filter weights (AKA 'taps') to use, must be in the range 8..2000 (inclusive).",
+      "value-key": "[NTAP]",
+      "type": "Number",
+      "minimum": 8,
+      "maximum": 2000,
+      "optional": false,
+      "id": "ntap",
+      "name": "Number of Taps"
+    },
+    {
+      "command-line-flag": "-TR",
+      "description": "Set time grid spacing to 'dd' [default is 1.0]",
+      "value-key": "[TR]",
+      "type": "Number",
+      "optional": true,
+      "id": "tr",
+      "name": "Time Grid Spacing"
+    },
+    {
+      "command-line-flag": "-band",
+      "description": "Alternative way to specify the passband",
+      "value-key": "[ALTERNATIVE_BAND]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 2,
+      "optional": true,
+      "id": "alternative_band",
+      "name": "Alternative Passband"
+    },
+    {
+      "command-line-flag": "-ntap",
+      "description": "Alternative way to specify the number of taps",
+      "value-key": "[ALTERNATIVE_NTAP]",
+      "type": "Number",
+      "minimum": 8,
+      "maximum": 2000,
+      "optional": true,
+      "id": "alternative_ntap",
+      "name": "Alternative Number of Taps"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

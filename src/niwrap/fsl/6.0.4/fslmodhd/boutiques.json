@@ -1,0 +1,34 @@
+{
+  "name": "fslmodhd",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "A tool for modifying header information of NIfTI images",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "fslmodhd [IMAGE] [KEYWORD] [VALUE]",
+  "inputs": [
+    {
+      "description": "Input image file (e.g. image.nii.gz)",
+      "value-key": "[IMAGE]",
+      "type": "File",
+      "optional": false,
+      "id": "image",
+      "name": "Input image"
+    },
+    {
+      "description": "Header keyword to modify (e.g. 'dim', 'pixdim')",
+      "value-key": "[KEYWORD]",
+      "type": "String",
+      "optional": false,
+      "id": "keyword",
+      "name": "Header keyword"
+    },
+    {
+      "description": "New value for the given header keyword",
+      "value-key": "[VALUE]",
+      "type": "String",
+      "optional": false,
+      "id": "value",
+      "name": "New value"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

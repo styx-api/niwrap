@@ -1,0 +1,506 @@
+{
+  "name": "mri_robust_register",
+  "author": "FreeSurfer Developers",
+  "description": "Inverse consistent registration of two volumes using robust and standard cost functions.",
+  "command-line": "mri_robust_register [MOVABLE_VOLUME] [TARGET_VOLUME] [OUTPUT_REGISTRATION] [OUTLIER_SENSITIVITY] [SATIT] [MAPPED_MOVABLE] [MAPPED_MOVABLE_HDR] [WEIGHTS] [ONEMINUS_W] [ISCALE] [ISCALE_ONLY] [ISCALE_OUT] [ISCALE_IN] [TRANS_ONLY] [AFFINE] [IXFORM] [INIT_ORIENT] [NO_INIT] [VOX2VOX] [COST] [ENT_RADIUS] [ENT_CORRECTION] [ENT_BALL] [ENT_MOV] [POWELL_TOLERANCE] [SOBEL] [NO_SYM] [MAXIMUM_ITERATIONS] [ENT_DST] [HIGH_ITER] [EPS_ITERATION] [NO_MULTISCALE] [MAX_SIZE] [MIN_SIZE] [W_LIMIT] [SUB_SAMPLE] [FLOAT_TYPE] [WHITE_BG_MOV] [WHITE_BG_DST] [UCHAR] [MASK_MOV] [MASK_DST] [HALF_MOV] [HALF_DST] [HALF_WEIGHTS] [HALF_MOV_LTA] [HALF_DST_LTA] [DEBUG] [VERBOSE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input movable volume to be aligned to target.",
+      "value-key": "[MOVABLE_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "movable_volume",
+      "name": "Movable Volume",
+      "command-line-flag": "-mov"
+    },
+    {
+      "description": "Input target volume.",
+      "value-key": "[TARGET_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "target_volume",
+      "name": "Target Volume",
+      "command-line-flag": "-dst"
+    },
+    {
+      "description": "Output registration (transform from mov to dst).",
+      "value-key": "[OUTPUT_REGISTRATION]",
+      "type": "String",
+      "optional": false,
+      "id": "output_registration",
+      "name": "Output Registration",
+      "command-line-flag": "-lta"
+    },
+    {
+      "command-line-flag": "--sat",
+      "description": "Set outlier sensitivity manually for robust cost functions. Higher values mean less sensitivity.",
+      "value-key": "[OUTLIER_SENSITIVITY]",
+      "type": "Number",
+      "optional": true,
+      "id": "outlier_sensitivity",
+      "name": "Outlier Sensitivity"
+    },
+    {
+      "command-line-flag": "--satit",
+      "description": "Auto-detect good sensitivity for robust cost functions.",
+      "value-key": "[SATIT]",
+      "type": "Flag",
+      "id": "satit",
+      "name": "Automatic Sensitivity Detection"
+    },
+    {
+      "command-line-flag": "--mapmov",
+      "description": "Output image: movable mapped and resampled at destination.",
+      "value-key": "[MAPPED_MOVABLE]",
+      "type": "String",
+      "optional": true,
+      "id": "mapped_movable",
+      "name": "Mapped Movable"
+    },
+    {
+      "command-line-flag": "--mapmovhdr",
+      "description": "Output image: movable aligned to destination (no resampling, only adjusting header vox2ras).",
+      "value-key": "[MAPPED_MOVABLE_HDR]",
+      "type": "String",
+      "optional": true,
+      "id": "mapped_movable_hdr",
+      "name": "Mapped Movable Header"
+    },
+    {
+      "command-line-flag": "--weights",
+      "description": "Output weights (outlier probabilities) in destination space (0=regular,1=outlier).",
+      "value-key": "[WEIGHTS]",
+      "type": "String",
+      "optional": true,
+      "id": "weights",
+      "name": "Weights Output"
+    },
+    {
+      "command-line-flag": "--oneminusw",
+      "description": "Weights (outlier) map will be inverted (0=outlier), as in earlier versions.",
+      "value-key": "[ONEMINUS_W]",
+      "type": "Flag",
+      "id": "oneminus_w",
+      "name": "Invert Weights Map"
+    },
+    {
+      "command-line-flag": "--iscale",
+      "description": "Estimate intensity scale factor.",
+      "value-key": "[ISCALE]",
+      "type": "Flag",
+      "id": "iscale",
+      "name": "Intensity Scale"
+    },
+    {
+      "command-line-flag": "--iscaleonly",
+      "description": "Only perform intensity scaling (no transformation).",
+      "value-key": "[ISCALE_ONLY]",
+      "type": "Flag",
+      "id": "iscale_only",
+      "name": "Intensity Scale Only"
+    },
+    {
+      "command-line-flag": "--iscaleout",
+      "description": "Output text file for iscale value.",
+      "value-key": "[ISCALE_OUT]",
+      "type": "String",
+      "optional": true,
+      "id": "iscale_out",
+      "name": "Intensity Scale Output File"
+    },
+    {
+      "command-line-flag": "--iscalein",
+      "description": "Initial input text file for iscale value.",
+      "value-key": "[ISCALE_IN]",
+      "type": "String",
+      "optional": true,
+      "id": "iscale_in",
+      "name": "Intensity Scale Input File"
+    },
+    {
+      "command-line-flag": "--transonly",
+      "description": "Find 3 parameter translation only.",
+      "value-key": "[TRANS_ONLY]",
+      "type": "Flag",
+      "id": "trans_only",
+      "name": "Translation Only"
+    },
+    {
+      "command-line-flag": "--affine",
+      "description": "Find 12 parameter affine transform.",
+      "value-key": "[AFFINE]",
+      "type": "Flag",
+      "id": "affine",
+      "name": "Affine Transform"
+    },
+    {
+      "command-line-flag": "--ixform",
+      "description": "Use initial transform LTA on source.",
+      "value-key": "[IXFORM]",
+      "type": "String",
+      "optional": true,
+      "id": "ixform",
+      "name": "Initial Transform File"
+    },
+    {
+      "command-line-flag": "--initorient",
+      "description": "Use moments for orientation initialization.",
+      "value-key": "[INIT_ORIENT]",
+      "type": "Flag",
+      "id": "init_orient",
+      "name": "Initialize Orientation"
+    },
+    {
+      "command-line-flag": "--noinit",
+      "description": "Skip automatic transform initialization.",
+      "value-key": "[NO_INIT]",
+      "type": "Flag",
+      "id": "no_init",
+      "name": "No Initial Transform"
+    },
+    {
+      "command-line-flag": "--vox2vox",
+      "description": "Output VOX2VOX LTA file.",
+      "value-key": "[VOX2VOX]",
+      "type": "Flag",
+      "id": "vox2vox",
+      "name": "Vox2Vox Output"
+    },
+    {
+      "command-line-flag": "--cost",
+      "description": "Set cost function for registration.",
+      "value-key": "[COST]",
+      "type": "String",
+      "optional": true,
+      "id": "cost",
+      "name": "Cost Function"
+    },
+    {
+      "command-line-flag": "--entradius",
+      "description": "With ROBENT: specify box radius for entropy computation.",
+      "value-key": "[ENT_RADIUS]",
+      "type": "Number",
+      "optional": true,
+      "id": "ent_radius",
+      "name": "Entropy Radius"
+    },
+    {
+      "command-line-flag": "--entcorrection",
+      "description": "With ROBENT: use better entropy computation that works on smaller boxes.",
+      "value-key": "[ENT_CORRECTION]",
+      "type": "Flag",
+      "id": "ent_correction",
+      "name": "Entropy Correction"
+    },
+    {
+      "command-line-flag": "--entball",
+      "description": "With ROBENT: use ball around voxel instead of box.",
+      "value-key": "[ENT_BALL]",
+      "type": "Flag",
+      "id": "ent_ball",
+      "name": "Entropy Ball"
+    },
+    {
+      "command-line-flag": "--entmov",
+      "description": "With ROBENT: write movable entropy image.",
+      "value-key": "[ENT_MOV]",
+      "type": "String",
+      "optional": true,
+      "id": "ent_mov",
+      "name": "Entropy Movable File"
+    },
+    {
+      "command-line-flag": "--powelltol",
+      "description": "With MI, NMI etc: set Powell tolerance.",
+      "value-key": "[POWELL_TOLERANCE]",
+      "type": "Number",
+      "optional": true,
+      "id": "powell_tolerance",
+      "name": "Powell Tolerance"
+    },
+    {
+      "command-line-flag": "--sobel",
+      "description": "Register Sobel magnitude images.",
+      "value-key": "[SOBEL]",
+      "type": "Flag",
+      "id": "sobel",
+      "name": "Sobel Image Registration"
+    },
+    {
+      "command-line-flag": "--nosym",
+      "description": "Do not map to half way space.",
+      "value-key": "[NO_SYM]",
+      "type": "Flag",
+      "id": "no_sym",
+      "name": "No Symmetry Mapping"
+    },
+    {
+      "command-line-flag": "--maxit",
+      "description": "Maximum number of iterations on each resolution.",
+      "value-key": "[MAXIMUM_ITERATIONS]",
+      "type": "Number",
+      "optional": true,
+      "id": "maximum_iterations",
+      "name": "Maximum Iterations"
+    },
+    {
+      "command-line-flag": "--entdst",
+      "description": "With ROBENT: write target entropy image.",
+      "value-key": "[ENT_DST]",
+      "type": "String",
+      "optional": true,
+      "id": "ent_dst",
+      "name": "Entropy Destination File"
+    },
+    {
+      "command-line-flag": "--highit",
+      "description": "Maximum number of iterations on highest resolution.",
+      "value-key": "[HIGH_ITER]",
+      "type": "Number",
+      "optional": true,
+      "id": "high_iter",
+      "name": "High Iterations Max"
+    },
+    {
+      "command-line-flag": "--epsit",
+      "description": "Stop iterations when transform update falls below specified RMS distance.",
+      "value-key": "[EPS_ITERATION]",
+      "type": "Number",
+      "optional": true,
+      "id": "eps_iteration",
+      "name": "EPS Iterations"
+    },
+    {
+      "command-line-flag": "--nomulti",
+      "description": "Process highest resolution only (no multiscale).",
+      "value-key": "[NO_MULTISCALE]",
+      "type": "Flag",
+      "id": "no_multiscale",
+      "name": "No Multiscale"
+    },
+    {
+      "command-line-flag": "--maxsize",
+      "description": "Specify largest voxel dimension for gaussian pyramid.",
+      "value-key": "[MAX_SIZE]",
+      "type": "Number",
+      "optional": true,
+      "id": "max_size",
+      "name": "Max Size"
+    },
+    {
+      "command-line-flag": "--minsize",
+      "description": "Specify smallest voxel dimension for gaussian pyramid.",
+      "value-key": "[MIN_SIZE]",
+      "type": "Number",
+      "optional": true,
+      "id": "min_size",
+      "name": "Min Size"
+    },
+    {
+      "command-line-flag": "--wlimit",
+      "description": "(Expert) sets maximal outlier limit for --satit.",
+      "value-key": "[W_LIMIT]",
+      "type": "Number",
+      "optional": true,
+      "id": "w_limit",
+      "name": "Weight Limit"
+    },
+    {
+      "command-line-flag": "--subsample",
+      "description": "Subsample if dimension is greater than the specified value on all axes.",
+      "value-key": "[SUB_SAMPLE]",
+      "type": "Number",
+      "optional": true,
+      "id": "sub_sample",
+      "name": "Subsample Dimension Limit"
+    },
+    {
+      "command-line-flag": "--floattype",
+      "description": "Convert images to float internally.",
+      "value-key": "[FLOAT_TYPE]",
+      "type": "Flag",
+      "id": "float_type",
+      "name": "Convert to Float"
+    },
+    {
+      "command-line-flag": "--whitebgmov",
+      "description": "Assume white background in MOV for padding.",
+      "value-key": "[WHITE_BG_MOV]",
+      "type": "Flag",
+      "id": "white_bg_mov",
+      "name": "White Background Movable"
+    },
+    {
+      "command-line-flag": "--whitebgdst",
+      "description": "Assume white background in DST for padding.",
+      "value-key": "[WHITE_BG_DST]",
+      "type": "Flag",
+      "id": "white_bg_dst",
+      "name": "White Background Destination"
+    },
+    {
+      "command-line-flag": "--uchar",
+      "description": "Convert inputs to UCHAR with rescale and histogram cropping.",
+      "value-key": "[UCHAR]",
+      "type": "Flag",
+      "id": "uchar",
+      "name": "Convert to UCHAR"
+    },
+    {
+      "command-line-flag": "--maskmov",
+      "description": "Mask movable image with mask file.",
+      "value-key": "[MASK_MOV]",
+      "type": "File",
+      "optional": true,
+      "id": "mask_mov",
+      "name": "Mask Movable"
+    },
+    {
+      "command-line-flag": "--maskdst",
+      "description": "Mask destination image with mask file.",
+      "value-key": "[MASK_DST]",
+      "type": "File",
+      "optional": true,
+      "id": "mask_dst",
+      "name": "Mask Destination"
+    },
+    {
+      "command-line-flag": "--halfmov",
+      "description": "Outputs half-way movable (resampled in halfway space).",
+      "value-key": "[HALF_MOV]",
+      "type": "String",
+      "optional": true,
+      "id": "half_mov",
+      "name": "Half Movable"
+    },
+    {
+      "command-line-flag": "--halfdst",
+      "description": "Outputs half-way destination (resampled in halfway space).",
+      "value-key": "[HALF_DST]",
+      "type": "String",
+      "optional": true,
+      "id": "half_dst",
+      "name": "Half Destination"
+    },
+    {
+      "command-line-flag": "--halfweights",
+      "description": "Outputs half-way weights (resampled in halfway space).",
+      "value-key": "[HALF_WEIGHTS]",
+      "type": "String",
+      "optional": true,
+      "id": "half_weights",
+      "name": "Half Weights"
+    },
+    {
+      "command-line-flag": "--halfmovlta",
+      "description": "Outputs transform from movable to half-way space.",
+      "value-key": "[HALF_MOV_LTA]",
+      "type": "String",
+      "optional": true,
+      "id": "half_mov_lta",
+      "name": "Half Movable LTA"
+    },
+    {
+      "command-line-flag": "--halfdstlta",
+      "description": "Outputs transform from destination to half-way space.",
+      "value-key": "[HALF_DST_LTA]",
+      "type": "String",
+      "optional": true,
+      "id": "half_dst_lta",
+      "name": "Half Destination LTA"
+    },
+    {
+      "command-line-flag": "--debug",
+      "description": "Show debug output.",
+      "value-key": "[DEBUG]",
+      "type": "Flag",
+      "id": "debug",
+      "name": "Debug Mode"
+    },
+    {
+      "command-line-flag": "--verbose",
+      "description": "Verbosity level: 0 (quiet), 1 (normal), 2 (detail).",
+      "value-key": "[VERBOSE]",
+      "type": "Number",
+      "optional": true,
+      "id": "verbose",
+      "name": "Verbosity Level"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_REGISTRATION]",
+      "description": "Registration output file containing the transformation from movable to destination.",
+      "id": "reg_output",
+      "name": "Registration Output"
+    },
+    {
+      "path-template": "[MAPPED_MOVABLE]",
+      "description": "Movable volume mapped and resampled at destination.",
+      "id": "mapped_output",
+      "name": "Mapped Movable Output"
+    },
+    {
+      "path-template": "[MAPPED_MOVABLE_HDR]",
+      "description": "Movable volume aligned to destination (header only).",
+      "id": "mapped_hdr_output",
+      "name": "Mapped Movable Header Output"
+    },
+    {
+      "path-template": "[WEIGHTS]",
+      "description": "Weights indicating outlier probabilities in destination space.",
+      "id": "weights_output_file",
+      "name": "Weights Output File"
+    },
+    {
+      "path-template": "[ISCALE_OUT]",
+      "description": "Output text file containing the intensity scale value.",
+      "id": "iscale_out_file",
+      "name": "Intensity Scale Output File"
+    },
+    {
+      "path-template": "[HALF_MOV]",
+      "description": "Half-way movable volume resampled.",
+      "id": "half_mov_file",
+      "name": "Half Movable Volume"
+    },
+    {
+      "path-template": "[HALF_DST]",
+      "description": "Half-way destination volume resampled.",
+      "id": "half_dst_file",
+      "name": "Half Destination Volume"
+    },
+    {
+      "path-template": "[HALF_WEIGHTS]",
+      "description": "Half-way weights resampled in halfway space.",
+      "id": "half_weights_file",
+      "name": "Half Weights File"
+    },
+    {
+      "path-template": "[HALF_MOV_LTA]",
+      "description": "Transform output from movable to half-way space.",
+      "id": "half_mov_lta_file",
+      "name": "Half Movable LTA File"
+    },
+    {
+      "path-template": "[HALF_DST_LTA]",
+      "description": "Transform output from destination to half-way space.",
+      "id": "half_dst_lta_file",
+      "name": "Half Destination LTA File"
+    },
+    {
+      "path-template": "[ENT_MOV]",
+      "description": "Movable entropy image for ROBENT cost function.",
+      "id": "ent_mov_file",
+      "name": "Movable Entropy Image"
+    },
+    {
+      "path-template": "[ENT_DST]",
+      "description": "Target entropy image for ROBENT cost function.",
+      "id": "ent_dst_file",
+      "name": "Destination Entropy Image"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

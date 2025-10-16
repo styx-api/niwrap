@@ -1,0 +1,143 @@
+{
+  "name": "ccops",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "ccops - Clustering of Connectomes Using Probabilistic Tractography",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "ccops [BASENAME] [INFILE] [TRACT_DIR] [EXCLUSION_MASK] [REORDER_SEEDSPACE] [REORDER_TRACTSPACE] [TRACT_REORD] [CONNEXITY_CONSTRAINT] [BINARISE_VAL] [MATRIX_POWER] [BRAIN_MASK] [SCHEME] [NCLUSTERS] [HELP]",
+  "inputs": [
+    {
+      "description": "Output basename",
+      "value-key": "[BASENAME]",
+      "command-line-flag": "--basename",
+      "type": "String",
+      "optional": false,
+      "id": "basename",
+      "name": "Basename"
+    },
+    {
+      "description": "Input matrix",
+      "value-key": "[INFILE]",
+      "command-line-flag": "--in",
+      "type": "File",
+      "optional": true,
+      "id": "infile",
+      "name": "Input file"
+    },
+    {
+      "description": "Tractography Results Directory",
+      "value-key": "[TRACT_DIR]",
+      "command-line-flag": "--dir",
+      "type": "String",
+      "optional": true,
+      "id": "tract_dir",
+      "name": "Tractography Results Directory"
+    },
+    {
+      "description": "Exclusion mask (in tract space)",
+      "value-key": "[EXCLUSION_MASK]",
+      "command-line-flag": "-x",
+      "type": "File",
+      "optional": true,
+      "id": "exclusion_mask",
+      "name": "Exclusion Mask"
+    },
+    {
+      "description": "Do seedspace reordering (default no)",
+      "value-key": "[REORDER_SEEDSPACE]",
+      "command-line-flag": "--r1",
+      "type": "Flag",
+      "id": "reorder_seedspace",
+      "name": "Reorder Seedspace"
+    },
+    {
+      "description": "Do tractspace reordering (default no)",
+      "value-key": "[REORDER_TRACTSPACE]",
+      "command-line-flag": "--r2",
+      "type": "Flag",
+      "id": "reorder_tractspace",
+      "name": "Reorder Tractspace"
+    },
+    {
+      "description": "Propagate seed reordering onto tract space",
+      "value-key": "[TRACT_REORD]",
+      "command-line-flag": "--tractreord",
+      "type": "Flag",
+      "id": "tract_reord",
+      "name": "Tract Reordering"
+    },
+    {
+      "description": "Add connexity constraint - value between 0 and 1 (0 is no constraint). Default is 0",
+      "value-key": "[CONNEXITY_CONSTRAINT]",
+      "command-line-flag": "--con",
+      "type": "Number",
+      "maximum": 1,
+      "minimum": 0,
+      "integer": false,
+      "optional": true,
+      "id": "connexity_constraint",
+      "name": "Connexity Constraint"
+    },
+    {
+      "description": "Binarise at (default 0 - no binarisation)",
+      "value-key": "[BINARISE_VAL]",
+      "command-line-flag": "--bin",
+      "type": "Number",
+      "optional": true,
+      "id": "binarise_val",
+      "name": "Binarisation"
+    },
+    {
+      "description": "Power to raise the correlation matrix to (default 1)",
+      "value-key": "[MATRIX_POWER]",
+      "command-line-flag": "--power",
+      "type": "Number",
+      "optional": true,
+      "id": "matrix_power",
+      "name": "Matrix Power"
+    },
+    {
+      "description": "Brain mask used to output the clustered ROI mask (not necessary if --dir set)",
+      "value-key": "[BRAIN_MASK]",
+      "command-line-flag": "--mask",
+      "type": "File",
+      "optional": true,
+      "id": "brain_mask",
+      "name": "Brain Mask"
+    },
+    {
+      "description": "Reordering algorithm. Can be either spectral (default), kmeans or fuzzy",
+      "value-key": "[SCHEME]",
+      "command-line-flag": "--scheme",
+      "type": "String",
+      "optional": true,
+      "id": "scheme",
+      "name": "Reordering Algorithm"
+    },
+    {
+      "description": "Number of clusters to be used in kmeans or fuzzy",
+      "value-key": "[NCLUSTERS]",
+      "command-line-flag": "--nclusters",
+      "type": "Number",
+      "optional": true,
+      "id": "nclusters",
+      "name": "Number of Clusters"
+    },
+    {
+      "description": "Display this help message",
+      "value-key": "[HELP]",
+      "command-line-flag": "--help",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[BASENAME]_output.nii.gz",
+      "description": "Output clustered ROI mask",
+      "id": "outfile",
+      "name": "Output Mask File"
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "name": "mri_maps2csd",
+  "author": "FreeSurfer Developers",
+  "description": "Tool to create CSD files and PDFs from input maps and apply them.",
+  "command-line": "mri_maps2csd [INPUT_FILES] [CSD_FILE] [PDF_FILE] [SUBJECT_HEMI_SURF] [THRESH] [SIGN] [CSD_APPLY_FILE] [APPLY_OUT] [SUBJECTS_DIR] [DEBUG] [CHECKOPTS]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--i",
+      "description": "Input file(s) or specify them directly on the command line",
+      "value-key": "[INPUT_FILES]",
+      "type": "String",
+      "list": true,
+      "optional": false,
+      "id": "input_files",
+      "name": "Input Files"
+    },
+    {
+      "command-line-flag": "--csd",
+      "description": "Output CSD file",
+      "value-key": "[CSD_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "csd_file",
+      "name": "CSD File"
+    },
+    {
+      "command-line-flag": "--pdf",
+      "description": "PDF file created from CSD",
+      "value-key": "[PDF_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "pdf_file",
+      "name": "PDF File"
+    },
+    {
+      "command-line-flag": "--s",
+      "description": "Subject name, hemisphere, and surface specification",
+      "value-key": "[SUBJECT_HEMI_SURF]",
+      "type": "String",
+      "optional": true,
+      "id": "subject_hemi_surf",
+      "name": "Subject Hemisphere Surface"
+    },
+    {
+      "command-line-flag": "--thresh",
+      "description": "Threshold for cluster-forming (-log10 scale)",
+      "value-key": "[THRESH]",
+      "type": "Number",
+      "optional": true,
+      "id": "thresh",
+      "name": "Threshold"
+    },
+    {
+      "command-line-flag": "--sign",
+      "description": "Sign adjustment for threshold (+1, -1 or 0)",
+      "value-key": "[SIGN]",
+      "type": "String",
+      "optional": true,
+      "id": "sign",
+      "name": "Sign Adjustment"
+    },
+    {
+      "command-line-flag": "--csd-apply",
+      "description": "Apply a CSD file to inputs, return p-value of max cluster",
+      "value-key": "[CSD_APPLY_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "csd_apply_file",
+      "name": "CSD Apply File"
+    },
+    {
+      "value-key": "[APPLY_OUT]",
+      "type": "String",
+      "optional": true,
+      "id": "apply_out",
+      "name": "Apply Output"
+    },
+    {
+      "command-line-flag": "--sd",
+      "description": "Subjects directory",
+      "value-key": "[SUBJECTS_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "subjects_dir",
+      "name": "Subjects Directory"
+    },
+    {
+      "command-line-flag": "--debug",
+      "description": "Turn on debugging",
+      "value-key": "[DEBUG]",
+      "type": "Flag",
+      "id": "debug",
+      "name": "Debug Flag"
+    },
+    {
+      "command-line-flag": "--checkopts",
+      "description": "Don't run, just check options then exit",
+      "value-key": "[CHECKOPTS]",
+      "type": "Flag",
+      "id": "checkopts",
+      "name": "Check Options Flag"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

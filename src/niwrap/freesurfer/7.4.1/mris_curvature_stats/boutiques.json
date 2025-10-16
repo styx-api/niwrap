@@ -1,0 +1,327 @@
+{
+  "name": "mris_curvature_stats",
+  "author": "FreeSurfer Developers",
+  "description": "Tool for calculating statistics on surface curvature values.",
+  "command-line": "mris_curvature_stats [SUBJECT_NAME] [HEMISPHERE] [CURVATURE_FILES] [NUMBER_OF_AVERAGES] [PRINCIPAL_CURVATURES] [DISCRETE_METHOD] [CONTINUOUS_METHOD] [SIGNED_PRINCIPALS] [VERTEX_AREA_WEIGH] [VERTEX_AREA_NORMALIZE] [VERTEX_AREA_WEIGH_FRAC] [VERTEX_AREA_NORMALIZE_FRAC] [POST_SCALE] [WRITE_CURVATURE_FILES] [SHAPE_INDEX] [OUTPUT_FILE_STEM] [HISTOGRAM_BINS] [PERCENTAGE_HISTOGRAM_BINS] [BIN_SIZE] [BIN_START_CURVATURE] [BIN_END_CURVATURE] [LABEL_FILE] [REGIONAL_PERCENTAGES] [HIGH_PASS_FILTER] [LOW_PASS_FILTER] [HIGH_PASS_FILTER_GAUSSIAN] [LOW_PASS_FILTER_GAUSSIAN] [FILTER_LABEL] [MIN_MAX_INFO] [NORMALIZE_CURVATURE] [SUMMARY_CONDITION] [MIN_CURVATURE_SCALE] [MAX_CURVATURE_SCALE] [SCALE_FACTOR] [VERSION] [SET_ZERO_VERTEX] [MAX_ULPS]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Subject name defined in the SUBJECTS_DIR",
+      "value-key": "[SUBJECT_NAME]",
+      "type": "String",
+      "optional": false,
+      "id": "subject_name",
+      "name": "Subject Name"
+    },
+    {
+      "description": "Hemisphere, can be 'lh' or 'rh'",
+      "value-key": "[HEMISPHERE]",
+      "type": "String",
+      "optional": false,
+      "id": "hemisphere",
+      "name": "Hemisphere"
+    },
+    {
+      "description": "Optional list of curvature files to process",
+      "value-key": "[CURVATURE_FILES]",
+      "type": "File",
+      "optional": true,
+      "id": "curvature_files",
+      "name": "Curvature Files",
+      "list": true
+    },
+    {
+      "command-line-flag": "-a",
+      "description": "Average the curvature number of times.",
+      "value-key": "[NUMBER_OF_AVERAGES]",
+      "type": "Number",
+      "optional": true,
+      "id": "number_of_averages",
+      "name": "Number of Averages"
+    },
+    {
+      "command-line-flag": "-G",
+      "description": "Calculate principal curvatures and derived maps.",
+      "type": "Flag",
+      "id": "principal_curvatures",
+      "name": "Principal Curvatures Flag",
+      "value-key": "[PRINCIPAL_CURVATURES]"
+    },
+    {
+      "command-line-flag": "--discrete",
+      "description": "Use discrete calculation method for principal curvatures.",
+      "type": "Flag",
+      "id": "discrete_method",
+      "name": "Discrete Method Flag",
+      "value-key": "[DISCRETE_METHOD]"
+    },
+    {
+      "command-line-flag": "--continuous",
+      "description": "Use continuous calculation method for principal curvatures.",
+      "type": "Flag",
+      "id": "continuous_method",
+      "name": "Continuous Method Flag",
+      "value-key": "[CONTINUOUS_METHOD]"
+    },
+    {
+      "command-line-flag": "--signedPrincipals",
+      "description": "Assign signed max and min to principal curvature K1 and K2.",
+      "type": "Flag",
+      "id": "signed_principals",
+      "name": "Signed Principals Flag",
+      "value-key": "[SIGNED_PRINCIPALS]"
+    },
+    {
+      "command-line-flag": "--vertexAreaWeigh",
+      "description": "Multiply curvature value by the area of its vertex.",
+      "type": "Flag",
+      "id": "vertex_area_weigh",
+      "name": "Vertex Area Weigh Flag",
+      "value-key": "[VERTEX_AREA_WEIGH]"
+    },
+    {
+      "command-line-flag": "--vertexAreaNormalize",
+      "description": "Divide curvature value by the area of its vertex.",
+      "type": "Flag",
+      "id": "vertex_area_normalize",
+      "name": "Vertex Area Normalize Flag",
+      "value-key": "[VERTEX_AREA_NORMALIZE]"
+    },
+    {
+      "command-line-flag": "--vertexAreaWeighFrac",
+      "description": "Weigh curvature by the fractional vertex area.",
+      "type": "Flag",
+      "id": "vertex_area_weigh_frac",
+      "name": "Vertex Area Weigh Fractional Flag",
+      "value-key": "[VERTEX_AREA_WEIGH_FRAC]"
+    },
+    {
+      "command-line-flag": "--vertexAreaNormalizeFrac",
+      "description": "Normalize curvature by the fractional vertex area.",
+      "type": "Flag",
+      "id": "vertex_area_normalize_frac",
+      "name": "Vertex Area Normalize Fractional Flag",
+      "value-key": "[VERTEX_AREA_NORMALIZE_FRAC]"
+    },
+    {
+      "command-line-flag": "--postScale",
+      "description": "Scale the mean and areaNorm integrals by a factor.",
+      "value-key": "[POST_SCALE]",
+      "type": "Number",
+      "optional": true,
+      "id": "post_scale",
+      "name": "Post Scale Factor"
+    },
+    {
+      "command-line-flag": "--writeCurvatureFiles",
+      "description": "Write the calculated curvature values to files in FreeSurfer format.",
+      "type": "Flag",
+      "id": "write_curvature_files",
+      "name": "Write Curvature Files Flag",
+      "value-key": "[WRITE_CURVATURE_FILES]"
+    },
+    {
+      "command-line-flag": "--shapeIndex",
+      "description": "Calculate shape index despite potential atan issues.",
+      "type": "Flag",
+      "id": "shape_index",
+      "name": "Shape Index Flag",
+      "value-key": "[SHAPE_INDEX]"
+    },
+    {
+      "command-line-flag": "-o",
+      "description": "Output file stem for results.",
+      "value-key": "[OUTPUT_FILE_STEM]",
+      "type": "String",
+      "optional": true,
+      "id": "output_file_stem",
+      "name": "Output File Stem"
+    },
+    {
+      "command-line-flag": "-h",
+      "description": "Number of bins for curvature histogram.",
+      "value-key": "[HISTOGRAM_BINS]",
+      "type": "Number",
+      "optional": true,
+      "id": "histogram_bins",
+      "name": "Histogram Bins"
+    },
+    {
+      "command-line-flag": "-p",
+      "description": "Number of bins for percentage-based curvature histogram.",
+      "value-key": "[PERCENTAGE_HISTOGRAM_BINS]",
+      "type": "Number",
+      "optional": true,
+      "id": "percentage_histogram_bins",
+      "name": "Percentage Histogram Bins"
+    },
+    {
+      "command-line-flag": "-b",
+      "description": "Size of each histogram bin.",
+      "value-key": "[BIN_SIZE]",
+      "type": "Number",
+      "optional": true,
+      "id": "bin_size",
+      "name": "Histogram Bin Size"
+    },
+    {
+      "command-line-flag": "-i",
+      "description": "Histogram bin start value.",
+      "value-key": "[BIN_START_CURVATURE]",
+      "type": "Number",
+      "optional": true,
+      "id": "bin_start_curvature",
+      "name": "Histogram Bin Start"
+    },
+    {
+      "command-line-flag": "-j",
+      "description": "Histogram bin end value.",
+      "value-key": "[BIN_END_CURVATURE]",
+      "type": "Number",
+      "optional": true,
+      "id": "bin_end_curvature",
+      "name": "Histogram Bin End"
+    },
+    {
+      "command-line-flag": "-l",
+      "description": "Label file to constrain statistics to a region.",
+      "value-key": "[LABEL_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "label_file",
+      "name": "Label File"
+    },
+    {
+      "command-line-flag": "--regionalPercentages",
+      "description": "Report integral percentages relative to the region.",
+      "type": "Flag",
+      "id": "regional_percentages",
+      "name": "Regional Percentages Flag",
+      "value-key": "[REGIONAL_PERCENTAGES]"
+    },
+    {
+      "command-line-flag": "--highPassFilter",
+      "description": "High pass filter for curvature values.",
+      "value-key": "[HIGH_PASS_FILTER]",
+      "type": "Number",
+      "optional": true,
+      "id": "high_pass_filter",
+      "name": "High Pass Filter"
+    },
+    {
+      "command-line-flag": "--lowPassFilter",
+      "description": "Low pass filter for curvature values.",
+      "value-key": "[LOW_PASS_FILTER]",
+      "type": "Number",
+      "optional": true,
+      "id": "low_pass_filter",
+      "name": "Low Pass Filter"
+    },
+    {
+      "command-line-flag": "--highPassFilterGaussian",
+      "description": "High pass filter for Gaussian curvature values.",
+      "value-key": "[HIGH_PASS_FILTER_GAUSSIAN]",
+      "type": "Number",
+      "optional": true,
+      "id": "high_pass_filter_gaussian",
+      "name": "High Pass Filter Gaussian"
+    },
+    {
+      "command-line-flag": "--lowPassFilterGaussian",
+      "description": "Low pass filter for Gaussian curvature values.",
+      "value-key": "[LOW_PASS_FILTER_GAUSSIAN]",
+      "type": "Number",
+      "optional": true,
+      "id": "low_pass_filter_gaussian",
+      "name": "Low Pass Filter Gaussian"
+    },
+    {
+      "command-line-flag": "--filterLabel",
+      "description": "Store processed surface vertices in a label file.",
+      "value-key": "[FILTER_LABEL]",
+      "type": "File",
+      "optional": true,
+      "id": "filter_label",
+      "name": "Filter Label File"
+    },
+    {
+      "command-line-flag": "-m",
+      "description": "Output min/max information for the processed curvature.",
+      "type": "Flag",
+      "id": "min_max_info",
+      "name": "Min/Max Info Flag",
+      "value-key": "[MIN_MAX_INFO]"
+    },
+    {
+      "command-line-flag": "-n",
+      "description": "Normalize the curvature before computation.",
+      "type": "Flag",
+      "id": "normalize_curvature",
+      "name": "Normalize Curvature Flag",
+      "value-key": "[NORMALIZE_CURVATURE]"
+    },
+    {
+      "command-line-flag": "-s",
+      "description": "Write out stats as a summary condition.",
+      "value-key": "[SUMMARY_CONDITION]",
+      "type": "String",
+      "optional": true,
+      "id": "summary_condition",
+      "name": "Summary Condition"
+    },
+    {
+      "command-line-flag": "-d",
+      "description": "Scale curvature values between min and max curvature.",
+      "value-key": "[MIN_CURVATURE_SCALE]",
+      "type": "Number",
+      "optional": true,
+      "id": "min_curvature_scale",
+      "name": "Min Curvature Scale"
+    },
+    {
+      "command-line-flag": "-e",
+      "description": "End value for curvature scaling.",
+      "value-key": "[MAX_CURVATURE_SCALE]",
+      "type": "Number",
+      "optional": true,
+      "id": "max_curvature_scale",
+      "name": "Max Curvature Scale"
+    },
+    {
+      "command-line-flag": "-c",
+      "description": "Scale curvature values with a factor.",
+      "value-key": "[SCALE_FACTOR]",
+      "type": "Number",
+      "optional": true,
+      "id": "scale_factor",
+      "name": "Scale Factor"
+    },
+    {
+      "command-line-flag": "-version",
+      "description": "Print out version number.",
+      "type": "Flag",
+      "id": "version",
+      "name": "Version Flag",
+      "value-key": "[VERSION]"
+    },
+    {
+      "command-line-flag": "-z",
+      "description": "Sets the curvature values at that index to zero.",
+      "value-key": "[SET_ZERO_VERTEX]",
+      "type": "Number",
+      "optional": true,
+      "id": "set_zero_vertex",
+      "name": "Set Zero Vertex"
+    },
+    {
+      "command-line-flag": "-q",
+      "description": "Toggle a more rigorous floating point comparison operation.",
+      "value-key": "[MAX_ULPS]",
+      "type": "Number",
+      "optional": true,
+      "id": "max_ulps",
+      "name": "Max Ulps"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

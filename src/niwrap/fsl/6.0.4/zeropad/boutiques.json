@@ -1,0 +1,34 @@
+{
+  "name": "zeropad",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Tool for zero-padding numbers to a specified length",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "zeropad [INPUT_NUMBER] [LENGTH]",
+  "inputs": [
+    {
+      "description": "Input number to be zero-padded",
+      "value-key": "[INPUT_NUMBER]",
+      "type": "String",
+      "optional": false,
+      "id": "input_number",
+      "name": "Input Number"
+    },
+    {
+      "description": "Desired length of the output string",
+      "value-key": "[LENGTH]",
+      "type": "Number",
+      "optional": false,
+      "id": "length",
+      "name": "Output Length"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "padded_output.txt",
+      "description": "File containing the zero-padded output",
+      "id": "output_file",
+      "name": "Zero-padded Output File"
+    }
+  ]
+}

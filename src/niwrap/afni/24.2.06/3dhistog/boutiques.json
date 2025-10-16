@@ -1,0 +1,173 @@
+{
+  "name": "3dhistog",
+  "author": "AFNI Developers",
+  "description": "Compute histogram of a 3D dataset",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dhistog [DATASET] [NBIN] [DIND] [OMIT] [MASK] [ROI_MASK] [DOALL] [NOEMPTY] [NOTITLE] [LOG10] [PDF] [MIN] [MAX] [IGFAC] [INT] [FLOAT] [UNQ] [PREFIX]",
+  "inputs": [
+    {
+      "description": "Input dataset",
+      "value-key": "[DATASET]",
+      "type": "File",
+      "optional": false,
+      "id": "dataset",
+      "name": "Dataset"
+    },
+    {
+      "command-line-flag": "-nbin",
+      "description": "Use specified number of bins",
+      "value-key": "[NBIN]",
+      "type": "Number",
+      "optional": true,
+      "id": "nbin",
+      "name": "Number of Bins"
+    },
+    {
+      "command-line-flag": "-dind",
+      "description": "Use data from specified sub-brick index",
+      "value-key": "[DIND]",
+      "type": "Number",
+      "optional": true,
+      "id": "dind",
+      "name": "Sub-brick Index"
+    },
+    {
+      "command-line-flag": "-omit",
+      "description": "Omit specified value from the count",
+      "value-key": "[OMIT]",
+      "type": "Number",
+      "optional": true,
+      "list": true,
+      "max-list-entries": 100,
+      "id": "omit",
+      "name": "Omit Value"
+    },
+    {
+      "command-line-flag": "-mask",
+      "description": "Use mask dataset to determine which voxels to use",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "mask",
+      "name": "Mask Dataset"
+    },
+    {
+      "command-line-flag": "-roi_mask",
+      "description": "Create histogram for each non-zero value in 'r' dataset",
+      "value-key": "[ROI_MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "roi_mask",
+      "name": "ROI Mask"
+    },
+    {
+      "command-line-flag": "-doall",
+      "description": "Include all sub-bricks in the calculation",
+      "value-key": "[DOALL]",
+      "type": "Flag",
+      "id": "doall",
+      "name": "Do All"
+    },
+    {
+      "command-line-flag": "-noempty",
+      "description": "Only output bins that are not empty",
+      "value-key": "[NOEMPTY]",
+      "type": "Flag",
+      "id": "noempty",
+      "name": "No Empty Bins"
+    },
+    {
+      "command-line-flag": "-notitle",
+      "description": "Leave the title line off the output",
+      "value-key": "[NOTITLE]",
+      "type": "Flag",
+      "id": "notitle",
+      "name": "No Title"
+    },
+    {
+      "command-line-flag": "-log10",
+      "description": "Output log10() of the counts",
+      "value-key": "[LOG10]",
+      "type": "Flag",
+      "id": "log10",
+      "name": "Log10 Output"
+    },
+    {
+      "command-line-flag": "-pdf",
+      "description": "Output the counts divided by the number of samples",
+      "value-key": "[PDF]",
+      "type": "Flag",
+      "id": "pdf",
+      "name": "PDF Output"
+    },
+    {
+      "command-line-flag": "-min",
+      "description": "Specify minimum (inclusive) of histogram",
+      "value-key": "[MIN]",
+      "type": "Number",
+      "optional": true,
+      "id": "min",
+      "name": "Minimum Value"
+    },
+    {
+      "command-line-flag": "-max",
+      "description": "Specify maximum (inclusive) of histogram",
+      "value-key": "[MAX]",
+      "type": "Number",
+      "optional": true,
+      "id": "max",
+      "name": "Maximum Value"
+    },
+    {
+      "command-line-flag": "-igfac",
+      "description": "Ignore sub-brick scale factors and histogram-ize the 'raw' data",
+      "value-key": "[IGFAC]",
+      "type": "Flag",
+      "id": "igfac",
+      "name": "Ignore Scale Factors"
+    },
+    {
+      "command-line-flag": "-int",
+      "description": "Treat data and output as integers",
+      "value-key": "[INT]",
+      "type": "Flag",
+      "id": "int",
+      "name": "Integer Data"
+    },
+    {
+      "command-line-flag": "-float",
+      "description": "Treat data and output as floats",
+      "value-key": "[FLOAT]",
+      "type": "Flag",
+      "id": "float",
+      "name": "Float Data"
+    },
+    {
+      "command-line-flag": "-unq",
+      "description": "Writes out the sorted unique values to file",
+      "value-key": "[UNQ]",
+      "type": "String",
+      "optional": true,
+      "id": "unq",
+      "name": "Unique Values File"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Write a copy of the histogram into specified file",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Prefix"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "HOUT.1D",
+      "description": "Histogram output when -prefix option is used",
+      "id": "histogram_output",
+      "name": "Histogram Output"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

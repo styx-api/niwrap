@@ -1,0 +1,34 @@
+{
+  "name": "@GetAfniOrient",
+  "author": "AFNI Developers",
+  "description": "Returns the orient code of AFNI datasets",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "@GetAfniOrient [EXPLORATORY] [INFILE]",
+  "inputs": [
+    {
+      "description": "Input AFNI dataset (e.g. Hello+orig.HEAD)",
+      "value-key": "[INFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "infile",
+      "name": "Input file"
+    },
+    {
+      "command-line-flag": "-exp",
+      "description": "Exploratory flag for additional functionalities",
+      "value-key": "[EXPLORATORY]",
+      "type": "Flag",
+      "id": "exploratory",
+      "name": "Exploratory flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[INFILE]_orient_code.txt",
+      "description": "File containing the orientation code",
+      "id": "output_orient_code",
+      "name": "Orientation Code File"
+    }
+  ]
+}

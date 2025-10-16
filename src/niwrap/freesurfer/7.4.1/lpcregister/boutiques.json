@@ -1,0 +1,135 @@
+{
+  "name": "lpcregister",
+  "description": "Registers a volume to its FreeSurfer anatomical using Local Pearson Correlation (LPC) (the AFNI lpc_align.py program). Creates a FreeSurfer register.dat file.",
+  "command-line": "lpcregister [SUBJECT_ID] [MOV_VOLUME] [REG_FILE] [DOF_9] [DOF_12] [FRAME_NUMBER] [MID_FRAME] [FSVOL] [OUTPUT_VOLUME] [TMP_DIR] [NO_CLEANUP] [VERSION] [HELP]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Subject ID found in SUBJECTS_DIR. The reference volume is the mri/brain volume (modifiable with --fsvol). Converted to analyze using mri_convert.",
+      "value-key": "[SUBJECT_ID]",
+      "type": "String",
+      "optional": false,
+      "id": "subject_id",
+      "name": "Subject ID",
+      "command-line-flag": "--s"
+    },
+    {
+      "description": "Volume identifier of the movable volume. Must be specified suitably for mri_convert. Uses first frame unless --frame is specified.",
+      "value-key": "[MOV_VOLUME]",
+      "type": "String",
+      "optional": false,
+      "id": "mov_volume",
+      "name": "Movable Volume",
+      "command-line-flag": "--mov"
+    },
+    {
+      "description": "Output registration file mapping RAS in the reference to RAS in the movable. The file/matrix format is understood by freesurfer.",
+      "value-key": "[REG_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "reg_file",
+      "name": "Registration File",
+      "command-line-flag": "--reg"
+    },
+    {
+      "description": "Use 9 degrees of freedom; default is 6.",
+      "value-key": "[DOF_9]",
+      "type": "Flag",
+      "id": "dof_9",
+      "name": "9 DOF Flag",
+      "command-line-flag": "--9"
+    },
+    {
+      "description": "Use 12 degrees of freedom; default is 6.",
+      "value-key": "[DOF_12]",
+      "type": "Flag",
+      "id": "dof_12",
+      "name": "12 DOF Flag",
+      "command-line-flag": "--12"
+    },
+    {
+      "description": "Specify the frame number other than the first. For SPM analyze, specify the file corresponding to the desired frame as each file only has one frame.",
+      "value-key": "[FRAME_NUMBER]",
+      "type": "Number",
+      "optional": true,
+      "id": "frame_number",
+      "name": "Frame Number",
+      "command-line-flag": "--frame"
+    },
+    {
+      "description": "Register to the middle frame of the mov volume as the template. Cannot be used with --frame.",
+      "value-key": "[MID_FRAME]",
+      "type": "Flag",
+      "id": "mid_frame",
+      "name": "Mid Frame Flag",
+      "command-line-flag": "--mid-frame"
+    },
+    {
+      "description": "Use FreeSurfer volume id; default is brainmask.",
+      "value-key": "[FSVOL]",
+      "type": "String",
+      "optional": true,
+      "id": "fsvol",
+      "name": "FreeSurfer Volume",
+      "command-line-flag": "--fsvol"
+    },
+    {
+      "description": "Output volume file for resampled mov.",
+      "value-key": "[OUTPUT_VOLUME]",
+      "type": "String",
+      "optional": true,
+      "id": "output_volume",
+      "name": "Output Volume",
+      "command-line-flag": "--o"
+    },
+    {
+      "description": "Specify temporary directory (implies --nocleanup).",
+      "value-key": "[TMP_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "tmp_dir",
+      "name": "Temporary Directory",
+      "command-line-flag": "--tmp"
+    },
+    {
+      "description": "Do not delete temporary files.",
+      "value-key": "[NO_CLEANUP]",
+      "type": "Flag",
+      "id": "no_cleanup",
+      "name": "No Cleanup Flag",
+      "command-line-flag": "--nocleanup"
+    },
+    {
+      "description": "Print the version and exit.",
+      "value-key": "[VERSION]",
+      "type": "Flag",
+      "id": "version",
+      "name": "Version Flag",
+      "command-line-flag": "--version"
+    },
+    {
+      "description": "Print help information and exit.",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help Flag",
+      "command-line-flag": "--help"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "register.dat",
+      "description": "Output registration file in FreeSurfer format.",
+      "id": "output_reg_file",
+      "name": "Output Registration File"
+    },
+    {
+      "path-template": "[OUTPUT_VOLUME]",
+      "description": "The resampled movable volume if --o is specified.",
+      "id": "resampled_volume",
+      "name": "Resampled Volume"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

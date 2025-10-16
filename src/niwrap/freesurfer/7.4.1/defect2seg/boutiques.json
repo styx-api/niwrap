@@ -1,0 +1,99 @@
+{
+  "name": "defect2seg",
+  "author": "FreeSurfer Developers",
+  "description": "Converts surface defect labels into a segmentation volume and pointsets",
+  "command-line": "defect2seg [OUTPUT_SEG] [TEMPLATE] [LEFT_HEMISPHERE] [RIGHT_HEMISPHERE] [SUBJECT] [LH_ONLY] [RH_ONLY] [CORTEX] [NO_CORTEX]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--o",
+      "description": "Output segmentation volume",
+      "value-key": "[OUTPUT_SEG]",
+      "type": "String",
+      "optional": false,
+      "id": "output_seg",
+      "name": "Output Segmentation"
+    },
+    {
+      "command-line-flag": "--t",
+      "description": "Template for segmentation",
+      "value-key": "[TEMPLATE]",
+      "type": "File",
+      "optional": false,
+      "id": "template",
+      "name": "Template"
+    },
+    {
+      "command-line-flag": "--lh",
+      "description": "Left hemisphere inputs: surface, defect labels, pointset, and offset",
+      "value-key": "[LEFT_HEMISPHERE]",
+      "type": "String",
+      "list": true,
+      "max-list-entries": 4,
+      "optional": true,
+      "id": "left_hemisphere",
+      "name": "Left Hemisphere Inputs"
+    },
+    {
+      "command-line-flag": "--rh",
+      "description": "Right hemisphere inputs: surface, defect labels, pointset, and offset",
+      "value-key": "[RIGHT_HEMISPHERE]",
+      "type": "String",
+      "list": true,
+      "max-list-entries": 4,
+      "optional": true,
+      "id": "right_hemisphere",
+      "name": "Right Hemisphere Inputs"
+    },
+    {
+      "command-line-flag": "--s",
+      "description": "Subject identifier, sets default values for other parameters",
+      "value-key": "[SUBJECT]",
+      "type": "String",
+      "optional": true,
+      "id": "subject",
+      "name": "Subject"
+    },
+    {
+      "command-line-flag": "--lh-only",
+      "description": "Consider only left hemisphere defects",
+      "value-key": "[LH_ONLY]",
+      "type": "Flag",
+      "id": "lh_only",
+      "name": "Left Hemisphere Only"
+    },
+    {
+      "command-line-flag": "--rh-only",
+      "description": "Consider only right hemisphere defects",
+      "value-key": "[RH_ONLY]",
+      "type": "Flag",
+      "id": "rh_only",
+      "name": "Right Hemisphere Only"
+    },
+    {
+      "command-line-flag": "--cortex",
+      "description": "Constrain defects to within cortex",
+      "value-key": "[CORTEX]",
+      "type": "Flag",
+      "id": "cortex",
+      "name": "Cortex Constraint"
+    },
+    {
+      "command-line-flag": "--no-cortex",
+      "description": "Allow defects outside of cortex",
+      "value-key": "[NO_CORTEX]",
+      "type": "Flag",
+      "id": "no_cortex",
+      "name": "No Cortex Constraint"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_SEG]",
+      "description": "Resulting defect segmentation volume",
+      "id": "output_segmentation",
+      "name": "Output Segmentation"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

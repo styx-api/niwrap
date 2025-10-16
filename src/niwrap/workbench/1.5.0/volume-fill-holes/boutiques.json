@@ -1,0 +1,34 @@
+{
+  "name": "volume-fill-holes",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -volume-fill-holes [VOLUME_IN] [VOLUME_OUT]",
+  "description": "Fill holes in an roi volume.\n\nFinds all face-connected parts that are not included in the ROI, and fills all but the largest one with ones.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "volume_in",
+      "name": "volume_in",
+      "description": "the input ROI volume",
+      "optional": false,
+      "value-key": "[VOLUME_IN]",
+      "type": "File"
+    },
+    {
+      "id": "volume_out",
+      "name": "volume_out",
+      "type": "String",
+      "description": "the output ROI volume",
+      "optional": false,
+      "value-key": "[VOLUME_OUT]"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "volume_out",
+      "name": "volume_out",
+      "path-template": "[VOLUME_OUT]",
+      "description": "the output ROI volume"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

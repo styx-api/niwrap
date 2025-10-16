@@ -1,0 +1,101 @@
+{
+  "name": "invwarp",
+  "command-line": "invwarp [WARP] [OUT_IMG] [REF_IMG] [ABSOLUTE] [RELATIVE] [NOCONSTRAINT] [JACOBIAN_MIN] [JACOBIAN_MAX] [DEBUG]",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "\nUse FSL Invwarp to invert a FNIRT warp",
+  "inputs": [
+    {
+      "id": "warp",
+      "name": "Warp",
+      "type": "File",
+      "value-key": "[WARP]",
+      "command-line-flag": "--warp",
+      "command-line-flag-separator": "=",
+      "description": "Filename for warp/shiftmap transform (volume).",
+      "optional": false
+    },
+    {
+      "id": "out_img",
+      "name": "Output image",
+      "type": "String",
+      "value-key": "[OUT_IMG]",
+      "command-line-flag": "--out",
+      "command-line-flag-separator": "=",
+      "description": "Filename for output (inverse warped) image.",
+      "optional": false
+    },
+    {
+      "id": "ref_img",
+      "name": "Reference image",
+      "type": "File",
+      "value-key": "[REF_IMG]",
+      "command-line-flag": "--ref",
+      "command-line-flag-separator": "=",
+      "description": "Filename for new reference image.",
+      "optional": false
+    },
+    {
+      "id": "absolute",
+      "name": "Absolute warp convention",
+      "type": "Flag",
+      "value-key": "[ABSOLUTE]",
+      "command-line-flag": "--abs",
+      "description": "Use absolute warp convention (default): x' = w(x)."
+    },
+    {
+      "id": "relative",
+      "name": "Absolute warp convention",
+      "type": "Flag",
+      "value-key": "[RELATIVE]",
+      "command-line-flag": "--rel",
+      "description": "Use relative warp convention (default): x' = x + w(x)."
+    },
+    {
+      "id": "jacobian_max",
+      "name": "Jacobian max",
+      "type": "Number",
+      "value-key": "[JACOBIAN_MAX]",
+      "command-line-flag": "--jmax",
+      "command-line-flag-separator": "=",
+      "description": "Maximum acceptable jacobian value for constraint (default 100.0).",
+      "optional": true
+    },
+    {
+      "id": "jacobian_min",
+      "name": "Jacobian min",
+      "type": "Number",
+      "value-key": "[JACOBIAN_MIN]",
+      "command-line-flag": "--jmin",
+      "command-line-flag-separator": "=",
+      "description": "Minimum acceptable jacobian value for constraint (default 0.01).",
+      "optional": true
+    },
+    {
+      "id": "noconstraint",
+      "name": "No constraint",
+      "type": "Flag",
+      "value-key": "[NOCONSTRAINT]",
+      "command-line-flag": "--noconstraint",
+      "description": "Do not apply jacobian constraint."
+    },
+    {
+      "id": "debug",
+      "name": "Debug",
+      "type": "Flag",
+      "value-key": "[DEBUG]",
+      "command-line-flag": "--debug",
+      "description": "Turn on debugging output.",
+      "default-value": false
+    }
+  ],
+  "output-files": [
+    {
+      "name": "Inverse warp",
+      "id": "inverse_warp",
+      "description": "Name of output file, containing warps that are the \"reverse\" of those in --warp. this will be a field-file (rather than a file of spline coefficients), and it will have any affine component included as part of the displacements.",
+      "path-template": "[OUT_IMG]"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

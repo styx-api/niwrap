@@ -1,0 +1,118 @@
+{
+  "name": "mris_register_to_label",
+  "description": "Register a surface to a volume using a label",
+  "command-line": "mris_register_to_label [SURFACE] [REGFILE] [MRI_REG] [MOV_VOLUME] [RESOLUTION] [MAX_ROT] [MAX_TRANS] [SUBJECT] [LABEL] [OUT_REG] [DOWNSAMPLE] [COST_FILE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--surf",
+      "description": "Surface file for registration",
+      "value-key": "[SURFACE]",
+      "type": "File",
+      "optional": false,
+      "id": "surface",
+      "name": "Surface File"
+    },
+    {
+      "command-line-flag": "--reg",
+      "description": "Registration file",
+      "value-key": "[REGFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "regfile",
+      "name": "Registration File"
+    },
+    {
+      "command-line-flag": "--mri_reg",
+      "description": "Volume for MRI registration",
+      "value-key": "[MRI_REG]",
+      "type": "File",
+      "optional": false,
+      "id": "mri_reg",
+      "name": "MRI Registration Volume"
+    },
+    {
+      "command-line-flag": "--mov",
+      "description": "Volume on which label points are specified",
+      "value-key": "[MOV_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "mov_volume",
+      "name": "Movement Volume"
+    },
+    {
+      "command-line-flag": "--res",
+      "description": "Resolution for calculations",
+      "value-key": "[RESOLUTION]",
+      "type": "Number",
+      "optional": false,
+      "id": "resolution",
+      "name": "Resolution"
+    },
+    {
+      "command-line-flag": "--max_rot",
+      "description": "Maximum angle (degrees) to search over for rotation",
+      "value-key": "[MAX_ROT]",
+      "type": "Number",
+      "optional": true,
+      "id": "max_rot",
+      "name": "Maximum Rotation Angle"
+    },
+    {
+      "command-line-flag": "--max_trans",
+      "description": "Maximum translation (mm) to search over",
+      "value-key": "[MAX_TRANS]",
+      "type": "Number",
+      "optional": true,
+      "id": "max_trans",
+      "name": "Maximum Translation Distance"
+    },
+    {
+      "command-line-flag": "--s",
+      "description": "Specify name of subject for register.dat file",
+      "value-key": "[SUBJECT]",
+      "type": "String",
+      "optional": true,
+      "id": "subject",
+      "name": "Subject Name"
+    },
+    {
+      "command-line-flag": "--label",
+      "description": "Load label and limit calculations to it",
+      "value-key": "[LABEL]",
+      "type": "String",
+      "optional": true,
+      "id": "label",
+      "name": "Label"
+    },
+    {
+      "command-line-flag": "--out-reg",
+      "description": "Output registration at lowest cost",
+      "value-key": "[OUT_REG]",
+      "type": "String",
+      "optional": true,
+      "id": "out_reg",
+      "name": "Output Registration"
+    },
+    {
+      "command-line-flag": "--downsample",
+      "description": "Downsample input volume by a factor",
+      "value-key": "[DOWNSAMPLE]",
+      "type": "Number",
+      "optional": true,
+      "id": "downsample",
+      "name": "Downsample Factor"
+    },
+    {
+      "command-line-flag": "--cost",
+      "description": "Cost file for registration",
+      "value-key": "[COST_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "cost_file",
+      "name": "Cost File"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

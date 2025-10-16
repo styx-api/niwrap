@@ -1,0 +1,239 @@
+{
+  "name": "mri_mcsim",
+  "author": "FreeSurfer Developers",
+  "description": "Monte Carlo simulation tool for surface-based multiple comparisons",
+  "command-line": "mri_mcsim [TOP_OUTPUT_DIR] [BASE_NAME] [SURFACE] [NUM_REPETITIONS] [FWHM_VALUES] [FWHM_MAX] [AVG_VERTEX_AREA] [RANDOM_SEED] [LABEL_FILE] [MASK_FILE] [NO_LABEL] [NO_SAVE_MASK] [SURFACE_NAME] [LOG_FILE] [DONE_FILE] [STOP_FILE] [SAVE_FILE] [SAVE_ITER] [SUBJECTS_DIR] [DEBUG] [CHECK_OPTS] [HELP] [VERSION]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--o",
+      "description": "Top output directory",
+      "value-key": "[TOP_OUTPUT_DIR]",
+      "type": "String",
+      "optional": false,
+      "id": "top_output_dir",
+      "name": "Top Output Directory"
+    },
+    {
+      "command-line-flag": "--base",
+      "description": "Base name for CSD files",
+      "value-key": "[BASE_NAME]",
+      "type": "String",
+      "optional": false,
+      "id": "base_name",
+      "name": "Base Name"
+    },
+    {
+      "command-line-flag": "--surface",
+      "description": "Subject name and hemisphere for the surface (e.g., subjectname lh)",
+      "value-key": "[SURFACE]",
+      "type": "String",
+      "optional": false,
+      "id": "surface",
+      "name": "Surface Subject and Hemisphere",
+      "list": true,
+      "max-list-entries": 2,
+      "min-list-entries": 2
+    },
+    {
+      "command-line-flag": "--nreps",
+      "description": "Number of repetitions for the simulation",
+      "value-key": "[NUM_REPETITIONS]",
+      "type": "Number",
+      "optional": false,
+      "id": "num_repetitions",
+      "name": "Number of Repetitions"
+    },
+    {
+      "command-line-flag": "--fwhm",
+      "description": "Full Width at Half Maximum values for smoothing",
+      "value-key": "[FWHM_VALUES]",
+      "type": "Number",
+      "optional": true,
+      "id": "fwhm_values",
+      "name": "FWHM Values",
+      "list": true
+    },
+    {
+      "command-line-flag": "--fwhm-max",
+      "description": "Maximum FWHM for simulation (default 30)",
+      "value-key": "[FWHM_MAX]",
+      "type": "Number",
+      "optional": true,
+      "id": "fwhm_max",
+      "name": "FWHM Max"
+    },
+    {
+      "command-line-flag": "--avgvtxarea",
+      "description": "Report cluster area based on average vertex area",
+      "value-key": "[AVG_VERTEX_AREA]",
+      "type": "Flag",
+      "id": "avg_vertex_area",
+      "name": "Average Vertex Area Flag"
+    },
+    {
+      "command-line-flag": "--seed",
+      "description": "Random seed value (default is based on Time of Day)",
+      "value-key": "[RANDOM_SEED]",
+      "type": "Number",
+      "optional": true,
+      "id": "random_seed",
+      "name": "Random Seed"
+    },
+    {
+      "command-line-flag": "--label",
+      "description": "Label file for masking (default is ?h.cortex.label)",
+      "value-key": "[LABEL_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "label_file",
+      "name": "Label File"
+    },
+    {
+      "command-line-flag": "--mask",
+      "description": "Mask file instead of label",
+      "value-key": "[MASK_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "mask_file",
+      "name": "Mask File"
+    },
+    {
+      "command-line-flag": "--no-label",
+      "description": "Do not use a label to mask",
+      "value-key": "[NO_LABEL]",
+      "type": "Flag",
+      "id": "no_label",
+      "name": "No Label Flag"
+    },
+    {
+      "command-line-flag": "--no-save-mask",
+      "description": "Do not save mask to output",
+      "value-key": "[NO_SAVE_MASK]",
+      "type": "Flag",
+      "id": "no_save_mask",
+      "name": "No Save Mask Flag"
+    },
+    {
+      "command-line-flag": "--surfname",
+      "description": "Surface name (default is white)",
+      "value-key": "[SURFACE_NAME]",
+      "type": "String",
+      "optional": true,
+      "id": "surface_name",
+      "name": "Surface Name"
+    },
+    {
+      "command-line-flag": "--log",
+      "description": "Log file for the output",
+      "value-key": "[LOG_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "log_file",
+      "name": "Log File"
+    },
+    {
+      "command-line-flag": "--done",
+      "description": "Done file to create when finished",
+      "value-key": "[DONE_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "done_file",
+      "name": "Done File"
+    },
+    {
+      "command-line-flag": "--stop",
+      "description": "Stop file (default is ourdir/mri_mcsim.stop)",
+      "value-key": "[STOP_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "stop_file",
+      "name": "Stop File"
+    },
+    {
+      "command-line-flag": "--save",
+      "description": "Save file (default is ourdir/mri_mcsim.save)",
+      "value-key": "[SAVE_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "save_file",
+      "name": "Save File"
+    },
+    {
+      "command-line-flag": "--save-iter",
+      "description": "Save output after each iteration",
+      "value-key": "[SAVE_ITER]",
+      "type": "Flag",
+      "id": "save_iter",
+      "name": "Save Iterations Flag"
+    },
+    {
+      "command-line-flag": "--sd",
+      "description": "Subjects directory",
+      "value-key": "[SUBJECTS_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "subjects_dir",
+      "name": "Subjects Directory"
+    },
+    {
+      "command-line-flag": "--debug",
+      "description": "Turn on debugging",
+      "value-key": "[DEBUG]",
+      "type": "Flag",
+      "id": "debug",
+      "name": "Debug Flag"
+    },
+    {
+      "command-line-flag": "--checkopts",
+      "description": "Check options do not run",
+      "value-key": "[CHECK_OPTS]",
+      "type": "Flag",
+      "id": "check_opts",
+      "name": "Check Options Flag"
+    },
+    {
+      "command-line-flag": "--help",
+      "description": "Display help message",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help Flag"
+    },
+    {
+      "command-line-flag": "--version",
+      "description": "Display version and exit",
+      "value-key": "[VERSION]",
+      "type": "Flag",
+      "id": "version",
+      "name": "Version Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[TOP_OUTPUT_DIR]/[BASE_NAME].csd",
+      "description": "Output CSD files based on the base name",
+      "id": "csd_output",
+      "name": "CSD Output"
+    },
+    {
+      "path-template": "[TOP_OUTPUT_DIR]/done/[DONE_FILE]",
+      "description": "Done file created upon completion",
+      "id": "done_output",
+      "name": "Done Output"
+    },
+    {
+      "path-template": "[TOP_OUTPUT_DIR]/[SAVE_FILE]",
+      "description": "Iteration save file",
+      "id": "iteration_save",
+      "name": "Iteration Save File"
+    },
+    {
+      "path-template": "[TOP_OUTPUT_DIR]/log/[LOG_FILE]",
+      "description": "Log file generated during execution",
+      "id": "log_output",
+      "name": "Log Output"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

@@ -1,0 +1,43 @@
+{
+  "name": "mris_merge_parcellations",
+  "description": "This program computes the Hausdorff distance between two labels on the surface.",
+  "command-line": "mris_merge_parcellations [SURFACE] [LABEL1] [LABEL2] [ANNOT_NAME]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Surface file to analyze",
+      "value-key": "[SURFACE]",
+      "type": "File",
+      "optional": false,
+      "id": "surface",
+      "name": "Surface"
+    },
+    {
+      "description": "First label file",
+      "value-key": "[LABEL1]",
+      "type": "File",
+      "optional": false,
+      "id": "label1",
+      "name": "Label 1"
+    },
+    {
+      "description": "Second label file",
+      "value-key": "[LABEL2]",
+      "type": "File",
+      "optional": false,
+      "id": "label2",
+      "name": "Label 2"
+    },
+    {
+      "command-line-flag": "-a",
+      "description": "Compute pairwise Hausdorff distance between all annotations",
+      "value-key": "[ANNOT_NAME]",
+      "type": "String",
+      "optional": true,
+      "id": "annot_name",
+      "name": "Annotation Name"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

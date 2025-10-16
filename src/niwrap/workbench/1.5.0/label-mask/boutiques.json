@@ -1,0 +1,51 @@
+{
+  "name": "label-mask",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -label-mask [LABEL] [MASK] [LABEL_OUT] [OPT_COLUMN_COLUMN]",
+  "description": "Mask a label file.\n\nBy default, the output label is a copy of the input label, but with the 'unused' label wherever the mask metric is zero or negative.  if -column is specified, the output contains only one column, the masked version of the specified input column.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "label",
+      "name": "label",
+      "description": "the label file to mask",
+      "optional": false,
+      "value-key": "[LABEL]",
+      "type": "File"
+    },
+    {
+      "id": "mask",
+      "name": "mask",
+      "description": "the mask metric",
+      "optional": false,
+      "value-key": "[MASK]",
+      "type": "File"
+    },
+    {
+      "id": "label_out",
+      "name": "label_out",
+      "type": "String",
+      "description": "the output label file",
+      "optional": false,
+      "value-key": "[LABEL_OUT]"
+    },
+    {
+      "id": "opt_column_column",
+      "name": "opt_column_column",
+      "command-line-flag": "-column",
+      "description": "select a single column: the column number or name",
+      "optional": true,
+      "value-key": "[OPT_COLUMN_COLUMN]",
+      "type": "String"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "label_out",
+      "name": "label_out",
+      "path-template": "[LABEL_OUT]",
+      "description": "the output label file"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

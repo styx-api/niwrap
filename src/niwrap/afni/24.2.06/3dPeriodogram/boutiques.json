@@ -1,0 +1,61 @@
+{
+  "name": "3dPeriodogram",
+  "author": "AFNI Developers",
+  "description": "Computes the periodogram of each voxel time series. The periodogram is a crude estimate of the power spectrum.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dPeriodogram [PREFIX] [TAPER] [NFFT] [DATASET]",
+  "inputs": [
+    {
+      "description": "Input dataset",
+      "value-key": "[DATASET]",
+      "type": "File",
+      "optional": false,
+      "id": "dataset",
+      "name": "Dataset"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Prefix for the output dataset",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Output prefix"
+    },
+    {
+      "command-line-flag": "-taper",
+      "description": "Fraction of data to taper",
+      "value-key": "[TAPER]",
+      "type": "Number",
+      "optional": true,
+      "minimum": 0,
+      "maximum": 1,
+      "id": "taper",
+      "name": "Taper fraction"
+    },
+    {
+      "command-line-flag": "-nfft",
+      "description": "Set FFT length to a specific number of points",
+      "value-key": "[NFFT]",
+      "type": "Number",
+      "optional": true,
+      "id": "nfft",
+      "name": "FFT length"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX].HEAD",
+      "description": "Output dataset header file",
+      "id": "output_header",
+      "name": "Output header file"
+    },
+    {
+      "path-template": "[PREFIX].BRIK",
+      "description": "Output dataset brick file",
+      "id": "output_brick",
+      "name": "Output brick file"
+    }
+  ]
+}

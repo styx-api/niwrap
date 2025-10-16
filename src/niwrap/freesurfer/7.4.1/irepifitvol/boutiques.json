@@ -1,0 +1,35 @@
+{
+  "name": "irepifitvol",
+  "description": "A tool for 3D volume fitting",
+  "command-line": "irepifitvol [INPUT_FILE] [OUTPUT_FILE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input volume file for fitting",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input file"
+    },
+    {
+      "description": "Output volume file after fitting",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_file",
+      "name": "Output file",
+      "default-value": "fitted_output"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILE].ext",
+      "description": "The resulting volume file after fitting",
+      "id": "fitted_output",
+      "name": "Fitted output file"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

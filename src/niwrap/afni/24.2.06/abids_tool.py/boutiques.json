@@ -1,0 +1,61 @@
+{
+  "name": "abids_tool.py",
+  "author": "AFNI Developers",
+  "description": "A tool to work with BIDS formatted datasets created with dcm2niix_afni or dcm2niix, mainly to pull information from the matching JSON file and refit the input dataset using 3drefit.",
+  "command-line": "abids_tool.py [INPUT_FILES] [TR_MATCH] [ADD_TR] [ADD_SLICE_TIMES] [COPY_PREFIX] [HELP_FLAG]",
+  "inputs": [
+    {
+      "description": "At least one 3d+time dataset in NIFTI format.",
+      "value-key": "[INPUT_FILES]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "input_files",
+      "name": "Input Files"
+    },
+    {
+      "command-line-flag": "-TR_match",
+      "description": "Check if the TR in the json file matches the TR from input dataset header. (Returns 1 if match)",
+      "value-key": "[TR_MATCH]",
+      "type": "Flag",
+      "id": "tr_match",
+      "name": "TR Match"
+    },
+    {
+      "command-line-flag": "-add_TR",
+      "description": "Add the TR from the BIDS json file to the input dataset using 3drefit.",
+      "value-key": "[ADD_TR]",
+      "type": "Flag",
+      "id": "add_tr",
+      "name": "Add TR"
+    },
+    {
+      "command-line-flag": "-add_slice_times",
+      "description": "Add the slice times from the BIDS json file to the input dataset using 3drefit.",
+      "value-key": "[ADD_SLICE_TIMES]",
+      "type": "Flag",
+      "id": "add_slice_times",
+      "name": "Add Slice Times"
+    },
+    {
+      "command-line-flag": "-copy",
+      "description": "Copy both the NIFTI dataset(s) and matching .json file(s) to PREFIX. Must have the same number of prefixes as datasets.",
+      "value-key": "[COPY_PREFIX]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "copy_prefix",
+      "name": "Copy Prefix"
+    },
+    {
+      "command-line-flag": "-help",
+      "description": "Show help information and exit.",
+      "value-key": "[HELP_FLAG]",
+      "type": "Flag",
+      "id": "help_flag",
+      "name": "Help Flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

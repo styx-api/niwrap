@@ -1,0 +1,35 @@
+{
+  "name": "sliceanimate",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "A tool for animating slices of an image using whirlgif",
+  "command-line": "sliceanimate [OUTPUT_FILE] [INPUT_FILES]",
+  "inputs": [
+    {
+      "description": "Output animated GIF file",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_file",
+      "name": "Output File"
+    },
+    {
+      "description": "Input image files for animation",
+      "value-key": "[INPUT_FILES]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "input_files",
+      "name": "Input Files"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILE]",
+      "description": "Generated animated GIF",
+      "id": "animated_gif",
+      "name": "Animated GIF"
+    }
+  ],
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

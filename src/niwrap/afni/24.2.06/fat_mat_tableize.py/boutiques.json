@@ -1,0 +1,111 @@
+{
+  "name": "fat_mat_tableize.py",
+  "description": "Make tables for AFNI group analysis programs from 3dNetCorr (*.netcc) and 3dTrackID (*.grid) outputs, with optional additional subject information from CSV files.",
+  "author": "AFNI Developers",
+  "command-line": "fat_mat_tableize.py [INPUT_MATRICES] [INPUT_CSV] [INPUT_LIST] [OUTPUT_PREFIX] [PARAMETERS] [VERSION] [DATE] [HELP] [HELP_SHORT] [HELP_VIEW]",
+  "inputs": [
+    {
+      "id": "input_matrices",
+      "name": "Input Matrices",
+      "type": "String",
+      "description": "Names of *.netcc or *.grid files with matrices to be used to make table; can be provided using wildcard chars.",
+      "command-line-flag": "-in_mat",
+      "value-key": "[INPUT_MATRICES]",
+      "list": true,
+      "optional": false
+    },
+    {
+      "id": "input_csv",
+      "name": "Input CSV",
+      "type": "File",
+      "description": "Name of a CSV file to include in the table. The first column must have subject ID labels that match with the input matrix files.",
+      "command-line-flag": "-in_csv",
+      "value-key": "[INPUT_CSV]",
+      "optional": true
+    },
+    {
+      "id": "input_list",
+      "name": "Input List File",
+      "type": "File",
+      "description": "File containing paths to subject matrices and optionally CSV IDs for matching.",
+      "command-line-flag": "-in_listfile",
+      "value-key": "[INPUT_LIST]",
+      "optional": true
+    },
+    {
+      "id": "output_prefix",
+      "name": "Output Prefix",
+      "type": "String",
+      "description": "Output basename for the table and log files. Suffix and file extensions will be added for the outputs.",
+      "command-line-flag": "-prefix",
+      "value-key": "[OUTPUT_PREFIX]",
+      "optional": false
+    },
+    {
+      "id": "parameters",
+      "name": "List of Parameters",
+      "type": "String",
+      "description": "List of matrices to be included in the table, identified by their parameter name.",
+      "command-line-flag": "-pars",
+      "value-key": "[PARAMETERS]",
+      "list": true,
+      "optional": true
+    },
+    {
+      "id": "version",
+      "name": "Show Version",
+      "type": "Flag",
+      "description": "Display current version.",
+      "command-line-flag": "-ver",
+      "value-key": "[VERSION]"
+    },
+    {
+      "id": "date",
+      "name": "Show Date",
+      "type": "Flag",
+      "description": "Display release/editing date of current version.",
+      "command-line-flag": "-date",
+      "value-key": "[DATE]"
+    },
+    {
+      "id": "help",
+      "name": "Show Help",
+      "type": "Flag",
+      "description": "Display help in terminal.",
+      "command-line-flag": "-help",
+      "value-key": "[HELP]"
+    },
+    {
+      "id": "help_short",
+      "name": "Show Help (Short Flag)",
+      "type": "Flag",
+      "description": "Display help in terminal (short flag).",
+      "command-line-flag": "-h",
+      "value-key": "[HELP_SHORT]"
+    },
+    {
+      "id": "help_view",
+      "name": "Show Help in Editor",
+      "type": "Flag",
+      "description": "Display help in a separate text editor.",
+      "command-line-flag": "-hview",
+      "value-key": "[HELP_VIEW]"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_PREFIX]_tbl.txt",
+      "description": "Table file usable in AFNI group analysis programs.",
+      "name": "Table File",
+      "id": "output_table"
+    },
+    {
+      "path-template": "[OUTPUT_PREFIX]_prep.log",
+      "description": "Log file reporting inputs, matching, and aspects of creating the table file.",
+      "name": "Log File",
+      "id": "output_log"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

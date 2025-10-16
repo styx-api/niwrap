@@ -1,0 +1,150 @@
+{
+  "name": "@afni_refacer_run",
+  "author": "AFNI Developers",
+  "description": "This script re-faces one input dataset, using a master shell dataset to write over the subject's 'face' region.",
+  "command-line": "@afni_refacer_run [INPUT_FILE] [MODE_DEFACE] [MODE_REFACE] [MODE_REFACE_PLUS] [MODE_ALL] [PREFIX] [ANONYMIZE_OUTPUT] [COST_FUNCTION] [SHELL_OPTION] [NO_CLEAN] [NO_IMAGES] [OVERWRITE] [VERBOSE]",
+  "inputs": [
+    {
+      "description": "Name of input dataset; can contain path information.",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input File",
+      "command-line-flag": "-input"
+    },
+    {
+      "command-line-flag": "-mode_deface",
+      "description": "Replace the computed face+ears voxels with all zeros instead of the artificial face (ears are also removed)",
+      "value-key": "[MODE_DEFACE]",
+      "type": "Flag",
+      "id": "mode_deface",
+      "name": "Mode Deface"
+    },
+    {
+      "command-line-flag": "-mode_reface",
+      "description": "Replace the subject's face+ears with a scaled set of artificial values",
+      "value-key": "[MODE_REFACE]",
+      "type": "Flag",
+      "id": "mode_reface",
+      "name": "Mode Reface"
+    },
+    {
+      "command-line-flag": "-mode_reface_plus",
+      "description": "Replace the subject's face+ears+skull with a scaled set of artificial values (i.e., like 'refacing', but replacing a more complete shell around the subject's brain)",
+      "value-key": "[MODE_REFACE_PLUS]",
+      "type": "Flag",
+      "id": "mode_reface_plus",
+      "name": "Mode Reface Plus"
+    },
+    {
+      "command-line-flag": "-mode_all",
+      "description": "Output three volumes: one defaced, one refaced and one reface_plused",
+      "value-key": "[MODE_ALL]",
+      "type": "Flag",
+      "id": "mode_all",
+      "name": "Mode All"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Name of output dataset",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "prefix",
+      "name": "Output Prefix"
+    },
+    {
+      "command-line-flag": "-anonymize_output",
+      "description": "Use 3drefit and nifti_tool to anonymize the output datasets",
+      "value-key": "[ANONYMIZE_OUTPUT]",
+      "type": "Flag",
+      "id": "anonymize_output",
+      "name": "Anonymize Output"
+    },
+    {
+      "command-line-flag": "-cost",
+      "description": "Specify any cost function that is allowed by 3dAllineate (default: lpa)",
+      "value-key": "[COST_FUNCTION]",
+      "type": "String",
+      "optional": true,
+      "id": "cost_function",
+      "name": "Cost Function"
+    },
+    {
+      "command-line-flag": "-shell",
+      "description": "Specify which shell to use. Options: afni_refacer_shell_sym_1.0.nii.gz (traditional), afni_refacer_shell_sym_2.0.nii.gz (more face/neck removal). Default: afni_refacer_shell_sym_1.0.nii.gz",
+      "value-key": "[SHELL_OPTION]",
+      "type": "String",
+      "optional": true,
+      "id": "shell_option",
+      "name": "Shell Option"
+    },
+    {
+      "command-line-flag": "-no_clean",
+      "description": "Don't delete temp working directory (default: remove working directory)",
+      "value-key": "[NO_CLEAN]",
+      "type": "Flag",
+      "id": "no_clean",
+      "name": "No Clean"
+    },
+    {
+      "command-line-flag": "-no_images",
+      "description": "Don't make pretty images to automatically view the results of re/defacing",
+      "value-key": "[NO_IMAGES]",
+      "type": "Flag",
+      "id": "no_images",
+      "name": "No Images"
+    },
+    {
+      "command-line-flag": "-overwrite",
+      "description": "Final two file outputs will overwrite any existing files of the same name (default: don't do this). NB: this option does not apply to the working directory",
+      "value-key": "[OVERWRITE]",
+      "type": "Flag",
+      "id": "overwrite",
+      "name": "Overwrite"
+    },
+    {
+      "command-line-flag": "-verb_allin",
+      "description": "Run the 3dAllineate part herein with '-verb' (for verbosity)",
+      "value-key": "[VERBOSE]",
+      "type": "Flag",
+      "id": "verbose",
+      "name": "Verbose"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX].deface.nii.gz",
+      "description": "Defaced volume (face+ears replaced with zeros)",
+      "id": "output_deface",
+      "name": "Output Deface File"
+    },
+    {
+      "path-template": "[PREFIX].reface.nii.gz",
+      "description": "Refaced volume (face+ears replaced with artificial values)",
+      "id": "output_reface",
+      "name": "Output Reface File"
+    },
+    {
+      "path-template": "[PREFIX].reface_plus.nii.gz",
+      "description": "Reface_plused volume (face+ears+skull replaced with artificial values)",
+      "id": "output_reface_plus",
+      "name": "Output Reface Plus File"
+    },
+    {
+      "path-template": "[PREFIX].face.nii.gz",
+      "description": "Face+ears used to replace or remove subject data",
+      "id": "output_face",
+      "name": "Output Face File"
+    },
+    {
+      "path-template": "[PREFIX].face_plus.nii.gz",
+      "description": "Face+ears+skull used to replace subject data",
+      "id": "output_face_plus",
+      "name": "Output Face Plus File"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

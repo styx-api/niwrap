@@ -1,0 +1,94 @@
+{
+  "name": "uber_align_test.py",
+  "author": "AFNI Developers",
+  "description": "Generate script to test anatomical/EPI alignment",
+  "command-line": "uber_align_test.py [NO_GUI] [PRINT_SCRIPT] [SAVE_SCRIPT] [USER_VARIABLE] [QT_OPTS] [HELP] [HELP_GUI] [HISTORY] [SHOW_VALID_OPTS] [VERSION]",
+  "inputs": [
+    {
+      "command-line-flag": "-no_gui",
+      "description": "Run without the graphical user interface (GUI)",
+      "type": "Flag",
+      "id": "no_gui",
+      "name": "No GUI",
+      "value-key": "[NO_GUI]"
+    },
+    {
+      "command-line-flag": "-print_script",
+      "description": "Print the generated script to standard output",
+      "type": "Flag",
+      "id": "print_script",
+      "name": "Print Script",
+      "value-key": "[PRINT_SCRIPT]"
+    },
+    {
+      "command-line-flag": "-save_script",
+      "description": "Save the generated script to the specified file",
+      "value-key": "[SAVE_SCRIPT]",
+      "type": "String",
+      "optional": true,
+      "id": "save_script",
+      "name": "Save Script"
+    },
+    {
+      "command-line-flag": "-uvar",
+      "description": "Specify user variables for alignment",
+      "value-key": "[USER_VARIABLE]",
+      "type": "String",
+      "optional": true,
+      "list": true,
+      "id": "user_variable",
+      "name": "User Variables"
+    },
+    {
+      "command-line-flag": "-qt_opts",
+      "description": "Pass PyQt4 options directly to the GUI",
+      "value-key": "[QT_OPTS]",
+      "type": "String",
+      "optional": true,
+      "id": "qt_opts",
+      "name": "QT Options"
+    },
+    {
+      "command-line-flag": "-help",
+      "description": "Show help information",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help",
+      "value-key": "[HELP]"
+    },
+    {
+      "command-line-flag": "-help_gui",
+      "description": "Show help information for the GUI",
+      "type": "Flag",
+      "id": "help_gui",
+      "name": "GUI Help",
+      "value-key": "[HELP_GUI]"
+    },
+    {
+      "command-line-flag": "-hist",
+      "description": "Show command history",
+      "type": "Flag",
+      "id": "history",
+      "name": "History",
+      "value-key": "[HISTORY]"
+    },
+    {
+      "command-line-flag": "-show_valid_opts",
+      "description": "Show valid options",
+      "type": "Flag",
+      "id": "show_valid_opts",
+      "name": "Show Valid Options",
+      "value-key": "[SHOW_VALID_OPTS]"
+    },
+    {
+      "command-line-flag": "-ver",
+      "description": "Show version information",
+      "type": "Flag",
+      "id": "version",
+      "name": "Version",
+      "value-key": "[VERSION]"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

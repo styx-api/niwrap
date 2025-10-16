@@ -1,0 +1,26 @@
+{
+  "name": "@GetAfniDims",
+  "author": "AFNI Developers",
+  "description": "A utility tool to return dimensions of AFNI dataset",
+  "command-line": "@GetAfniDims [INPUT_DSET]",
+  "inputs": [
+    {
+      "description": "Input AFNI dataset",
+      "value-key": "[INPUT_DSET]",
+      "type": "File",
+      "optional": false,
+      "id": "input_dset",
+      "name": "Input dataset"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "dims_output.txt",
+      "description": "Text file containing the dimensions of the input dataset",
+      "id": "dims_output",
+      "name": "Dimensions output file"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

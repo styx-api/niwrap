@@ -1,0 +1,267 @@
+{
+  "name": "mris_register_to_volume",
+  "description": "Aligns cortical surfaces to a volumetric template.",
+  "command-line": "mris_register_to_volume [SURFACE] [PIAL] [PIAL_ONLY] [REG] [NOGLOBAL] [MEDIAN] [MRI_REG] [TX_MMD] [TY_MMD] [TZ_MMD] [AX_MMD] [AY_MMD] [AZ_MMD] [COST] [INTERP] [NOISE] [SEED] [SKIP] [SIGMA] [CNR] [MAX_ROT] [MAX_TRANS] [BORDER] [SUBJECT] [DILATE] [PATCH] [LABEL] [OUT_REG]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "surface",
+      "name": "Surface",
+      "description": "The main surface file.",
+      "type": "String",
+      "command-line-flag": "--surf",
+      "value-key": "[SURFACE]",
+      "optional": false
+    },
+    {
+      "id": "pial",
+      "name": "Pial Surface",
+      "description": "Pial surface name.",
+      "type": "String",
+      "command-line-flag": "--pial",
+      "value-key": "[PIAL]",
+      "optional": false
+    },
+    {
+      "id": "pial_only",
+      "name": "Pial Surface Only",
+      "description": "Pial surface name (only).",
+      "type": "String",
+      "command-line-flag": "--pial_only",
+      "value-key": "[PIAL_ONLY]",
+      "optional": true
+    },
+    {
+      "id": "reg",
+      "name": "Register File",
+      "description": "Registration file.",
+      "type": "String",
+      "command-line-flag": "--reg",
+      "value-key": "[REG]",
+      "optional": false
+    },
+    {
+      "id": "noglobal",
+      "name": "No Global",
+      "description": "Do not use global optimization.",
+      "type": "Flag",
+      "command-line-flag": "--noglobal",
+      "value-key": "[NOGLOBAL]"
+    },
+    {
+      "id": "median",
+      "name": "Median Filtering",
+      "description": "Use median filtering.",
+      "type": "Flag",
+      "command-line-flag": "--median",
+      "value-key": "[MEDIAN]"
+    },
+    {
+      "id": "mri_reg",
+      "name": "MRI Register",
+      "description": "MRI volume registration file.",
+      "type": "String",
+      "command-line-flag": "--mri_reg",
+      "value-key": "[MRI_REG]",
+      "optional": false
+    },
+    {
+      "id": "tx_mmd",
+      "name": "Translation X",
+      "description": "Translation in x (min, max, delta).",
+      "type": "Number",
+      "command-line-flag": "--tx-mmd",
+      "value-key": "[TX_MMD]",
+      "list": true,
+      "optional": true
+    },
+    {
+      "id": "ty_mmd",
+      "name": "Translation Y",
+      "description": "Translation in y (min, max, delta).",
+      "type": "Number",
+      "command-line-flag": "--ty-mmd",
+      "value-key": "[TY_MMD]",
+      "list": true,
+      "optional": true
+    },
+    {
+      "id": "tz_mmd",
+      "name": "Translation Z",
+      "description": "Translation in z (min, max, delta).",
+      "type": "Number",
+      "command-line-flag": "--tz-mmd",
+      "value-key": "[TZ_MMD]",
+      "list": true,
+      "optional": true
+    },
+    {
+      "id": "ax_mmd",
+      "name": "Rotation X",
+      "description": "Rotation about x (min, max, delta).",
+      "type": "Number",
+      "command-line-flag": "--ax-mmd",
+      "value-key": "[AX_MMD]",
+      "list": true,
+      "optional": true
+    },
+    {
+      "id": "ay_mmd",
+      "name": "Rotation Y",
+      "description": "Rotation about y (min, max, delta).",
+      "type": "Number",
+      "command-line-flag": "--ay-mmd",
+      "value-key": "[AY_MMD]",
+      "list": true,
+      "optional": true
+    },
+    {
+      "id": "az_mmd",
+      "name": "Rotation Z",
+      "description": "Rotation about z (min, max, delta).",
+      "type": "Number",
+      "command-line-flag": "--az-mmd",
+      "value-key": "[AZ_MMD]",
+      "list": true,
+      "optional": true
+    },
+    {
+      "id": "cost",
+      "name": "Cost File",
+      "description": "Cost file.",
+      "type": "String",
+      "command-line-flag": "--cost",
+      "value-key": "[COST]",
+      "optional": true
+    },
+    {
+      "id": "interp",
+      "name": "Interpolation Type",
+      "description": "Interpolation type: trilinear or nearest.",
+      "type": "String",
+      "command-line-flag": "--interp",
+      "value-key": "[INTERP]",
+      "optional": true
+    },
+    {
+      "id": "noise",
+      "name": "Noise Standard Deviation",
+      "description": "Add noise with stddev for testing sensitivity.",
+      "type": "Number",
+      "command-line-flag": "--noise",
+      "value-key": "[NOISE]",
+      "optional": true
+    },
+    {
+      "id": "seed",
+      "name": "Random Seed",
+      "description": "Random seed for use with noise.",
+      "type": "Number",
+      "command-line-flag": "--seed",
+      "value-key": "[SEED]",
+      "optional": true
+    },
+    {
+      "id": "skip",
+      "name": "Vertices Skip",
+      "description": "Number of vertices to skip.",
+      "type": "Number",
+      "command-line-flag": "--skip",
+      "value-key": "[SKIP]",
+      "list": true,
+      "optional": true
+    },
+    {
+      "id": "sigma",
+      "name": "Blurring Kernel Size",
+      "description": "Size of blurring kernels to use.",
+      "type": "Number",
+      "command-line-flag": "--sigma",
+      "value-key": "[SIGMA]",
+      "list": true,
+      "optional": true
+    },
+    {
+      "id": "cnr",
+      "name": "CNR Similarity Function",
+      "description": "Use CNR-based similarity function.",
+      "type": "Flag",
+      "command-line-flag": "--CNR",
+      "value-key": "[CNR]"
+    },
+    {
+      "id": "max_rot",
+      "name": "Max Rotation",
+      "description": "Max angle (degrees) to search over.",
+      "type": "Number",
+      "command-line-flag": "--max_rot",
+      "value-key": "[MAX_ROT]",
+      "optional": true
+    },
+    {
+      "id": "max_trans",
+      "name": "Max Translation",
+      "description": "Max translation (mm) to search over.",
+      "type": "Number",
+      "command-line-flag": "--max_trans",
+      "value-key": "[MAX_TRANS]",
+      "optional": true
+    },
+    {
+      "id": "border",
+      "name": "Border Size",
+      "description": "Size of the border region to ignore.",
+      "type": "Number",
+      "command-line-flag": "--border",
+      "value-key": "[BORDER]",
+      "optional": true
+    },
+    {
+      "id": "subject",
+      "name": "Subject Name",
+      "description": "Specify name of subject (for register.dat file).",
+      "type": "String",
+      "command-line-flag": "--s",
+      "value-key": "[SUBJECT]",
+      "optional": true
+    },
+    {
+      "id": "dilate",
+      "name": "Dilate Ripflags",
+      "description": "Dilate ripflags ndil times.",
+      "type": "Number",
+      "command-line-flag": "--dilate",
+      "value-key": "[DILATE]",
+      "optional": true
+    },
+    {
+      "id": "patch",
+      "name": "Load Patch",
+      "description": "Load patch and limit calculations.",
+      "type": "String",
+      "command-line-flag": "--patch",
+      "value-key": "[PATCH]",
+      "optional": true
+    },
+    {
+      "id": "label",
+      "name": "Load Label",
+      "description": "Load label and limit calculations.",
+      "type": "String",
+      "command-line-flag": "--label",
+      "value-key": "[LABEL]",
+      "optional": true
+    },
+    {
+      "id": "out_reg",
+      "name": "Output Registration",
+      "description": "Output registration at lowest cost.",
+      "type": "String",
+      "command-line-flag": "--out-reg",
+      "value-key": "[OUT_REG]",
+      "optional": true
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

@@ -1,0 +1,484 @@
+{
+  "name": "mri_ca_label",
+  "command-line": "mri_ca_label [INPUT_VOLUMES] [TRANSFORM_FILE] [GCA_FILE] [OUTPUT_VOLUME] [CROSS_SEQUENCE] [NO_GIBBS] [WM_SEGMENTATION] [CONFORM] [TOPO_DIST_THRESH] [TOPO_VOLUME_THRESH1] [TOPO_VOLUME_THRESH2] [NORM_PD] [THIN_TEMPORAL_LOBE] [DEBUG_VOXEL] [DEBUG_NODE] [DEBUG_LABEL] [TR] [TE] [ALPHA] [EXAMPLE] [PTHRESH] [NITER] [WRITE_PROBS] [NOVAR] [REGULARIZE] [NOHIPPO] [FIXED_WHITE_MATTER] [MRI] [HISTOGRAM_EQUALIZATION] [RENORM] [FLASH] [FLASH_PARAMS] [RENORMALIZE] [SET_INPUT_VOLUME] [HISTOGRAM_NORMALIZE] [MEAN_FILTER] [WRITE_SNAPSHOTS] [MASK_FINAL_LABELING] [EXPAND] [MAX_ITERATIONS] [FILTER_LABELED_VOLUME] [LONGITUDINAL_PROCESSING] [RELABEL_UNLIKELY] [DISABLES_WMSA] [FIX_VENTRICLE] [INSERT_WM_BET_PUTCTX] [SA_INSERT_WM_BET_PUTCTX] [INSERT_FROM_SEG] [SA_INSERT_FROM_SEG] [CBLUM_FROM_SEG] [SA_CBLUM_FROM_SEG] [THREADS]",
+  "description": "MRI cortical annotation labeler using atlas prior (GCA).",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "input_volumes",
+      "name": "Input Volumes",
+      "type": "File",
+      "list": true,
+      "description": "Input MRI volumes.",
+      "value-key": "[INPUT_VOLUMES]",
+      "optional": false
+    },
+    {
+      "id": "transform_file",
+      "name": "Transform File",
+      "type": "File",
+      "description": "Transform file for the registration.",
+      "value-key": "[TRANSFORM_FILE]",
+      "optional": false
+    },
+    {
+      "id": "gca_file",
+      "name": "GCA File",
+      "type": "File",
+      "description": "GCA file for the atlas.",
+      "value-key": "[GCA_FILE]",
+      "optional": false
+    },
+    {
+      "id": "output_volume",
+      "name": "Output Volume",
+      "type": "String",
+      "description": "Output labeled volume.",
+      "value-key": "[OUTPUT_VOLUME]",
+      "optional": false
+    },
+    {
+      "command-line-flag": "-cross-sequence",
+      "description": "Label a volume acquired with sequence different than atlas",
+      "id": "cross_sequence",
+      "name": "Cross Sequence",
+      "value-key": "[CROSS_SEQUENCE]",
+      "type": "Flag"
+    },
+    {
+      "command-line-flag": "-nogibbs",
+      "description": "Disable gibbs priors",
+      "id": "no_gibbs",
+      "name": "No Gibbs",
+      "value-key": "[NO_GIBBS]",
+      "type": "Flag"
+    },
+    {
+      "command-line-flag": "-wm",
+      "description": "Use wm segmentation",
+      "id": "wm_segmentation",
+      "name": "White Matter Segmentation",
+      "value-key": "[WM_SEGMENTATION]",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-conform",
+      "description": "Interpolate volume to be isotropic 1mm^3",
+      "id": "conform",
+      "name": "Conform",
+      "value-key": "[CONFORM]",
+      "type": "Flag"
+    },
+    {
+      "command-line-flag": "-topo_dist_thresh",
+      "description": "Ventricle segments distance threshold",
+      "id": "topo_dist_thresh",
+      "name": "Topo Distance Threshold",
+      "value-key": "[TOPO_DIST_THRESH]",
+      "type": "Number",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-topo_volume_thresh1",
+      "description": "First ventricle segments volume threshold",
+      "id": "topo_volume_thresh1",
+      "name": "Topo Volume Threshold 1",
+      "value-key": "[TOPO_VOLUME_THRESH1]",
+      "type": "Number",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-topo_volume_thresh2",
+      "description": "Second ventricle segments volume threshold",
+      "id": "topo_volume_thresh2",
+      "name": "Topo Volume Threshold 2",
+      "value-key": "[TOPO_VOLUME_THRESH2]",
+      "type": "Number",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-normpd",
+      "description": "Normalize PD image to GCA means",
+      "id": "norm_pd",
+      "name": "Normalize PD",
+      "value-key": "[NORM_PD]",
+      "type": "Flag"
+    },
+    {
+      "command-line-flag": "-tl",
+      "description": "Use file to label thin temporal lobe",
+      "id": "thin_temporal_lobe",
+      "name": "Thin Temporal Lobe Labeling",
+      "value-key": "[THIN_TEMPORAL_LOBE]",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-debug_voxel",
+      "description": "Debug voxel coordinates",
+      "id": "debug_voxel",
+      "name": "Debug Voxel",
+      "value-key": "[DEBUG_VOXEL]",
+      "type": "Number",
+      "list": true,
+      "min-list-entries": 3,
+      "max-list-entries": 3,
+      "optional": true
+    },
+    {
+      "command-line-flag": "-debug_node",
+      "description": "Debug node coordinates",
+      "id": "debug_node",
+      "name": "Debug Node",
+      "value-key": "[DEBUG_NODE]",
+      "type": "Number",
+      "list": true,
+      "min-list-entries": 3,
+      "max-list-entries": 3,
+      "optional": true
+    },
+    {
+      "command-line-flag": "-debug_label",
+      "description": "Debug label",
+      "id": "debug_label",
+      "name": "Debug Label",
+      "value-key": "[DEBUG_LABEL]",
+      "type": "Number",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-tr",
+      "description": "Set TR in msec",
+      "id": "tr",
+      "name": "TR",
+      "value-key": "[TR]",
+      "type": "Number",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-te",
+      "description": "Set TE in msec",
+      "id": "te",
+      "name": "TE",
+      "value-key": "[TE]",
+      "type": "Number",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-alpha",
+      "description": "Set alpha in radians",
+      "id": "alpha",
+      "name": "Alpha",
+      "value-key": "[ALPHA]",
+      "type": "Number",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-example",
+      "description": "Use T1 and segmentation as example",
+      "id": "example",
+      "name": "Example Volume",
+      "value-key": "[EXAMPLE]",
+      "type": "File",
+      "list": true,
+      "min-list-entries": 2,
+      "max-list-entries": 2,
+      "optional": true
+    },
+    {
+      "command-line-flag": "-pthresh",
+      "description": "P threshold for adaptive renormalization",
+      "id": "pthresh",
+      "name": "P Threshold",
+      "value-key": "[PTHRESH]",
+      "type": "Number",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-niter",
+      "description": "Number of iterations for max likelihood",
+      "id": "niter",
+      "name": "Number of Iterations",
+      "value-key": "[NITER]",
+      "type": "Number",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-write_probs",
+      "description": "Write label probabilities to filename",
+      "id": "write_probs",
+      "name": "Write Probabilities",
+      "value-key": "[WRITE_PROBS]",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-novar",
+      "description": "Do not use variance in classification",
+      "id": "novar",
+      "name": "No Variance",
+      "value-key": "[NOVAR]",
+      "type": "Flag"
+    },
+    {
+      "command-line-flag": "-regularize",
+      "description": "Regularize variance to be sigma+nC(noise)",
+      "id": "regularize",
+      "name": "Regularize",
+      "value-key": "[REGULARIZE]",
+      "type": "Number",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-nohippo",
+      "description": "Do not auto-edit hippocampus",
+      "id": "nohippo",
+      "name": "No Hippocampus",
+      "value-key": "[NOHIPPO]",
+      "type": "Flag"
+    },
+    {
+      "command-line-flag": "-fwm",
+      "description": "Use fixed white matter segmentation",
+      "id": "fixed_white_matter",
+      "name": "Fixed White Matter",
+      "value-key": "[FIXED_WHITE_MATTER]",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-mri",
+      "description": "Write most likely MR volume to file",
+      "id": "mri",
+      "name": "Output MR Volume",
+      "value-key": "[MRI]",
+      "type": "File",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-heq",
+      "description": "Use histogram equalization from volume",
+      "id": "histogram_equalization",
+      "name": "Histogram Equalization",
+      "value-key": "[HISTOGRAM_EQUALIZATION]",
+      "type": "File",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-renorm",
+      "description": "Renormalize using predicted intensity values",
+      "id": "renorm",
+      "name": "Renormalize",
+      "value-key": "[RENORM]",
+      "type": "File",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-flash",
+      "description": "Use FLASH forward model to predict intensity values",
+      "id": "flash",
+      "name": "FLASH Model",
+      "value-key": "[FLASH]",
+      "type": "Flag"
+    },
+    {
+      "command-line-flag": "-flash_params",
+      "description": "Use FLASH forward model and tissue params to predict",
+      "id": "flash_params",
+      "name": "FLASH Parameters",
+      "value-key": "[FLASH_PARAMS]",
+      "type": "File",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-renormalize",
+      "description": "Renormalize class means iter times after initial label with window of wsize",
+      "id": "renormalize",
+      "name": "Renormalize Class",
+      "value-key": "[RENORMALIZE]",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-r",
+      "description": "Set input volume",
+      "id": "set_input_volume",
+      "name": "Set Input Volume",
+      "value-key": "[SET_INPUT_VOLUME]",
+      "type": "File",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-h",
+      "description": "Use GCA to histogram normalize input image",
+      "id": "histogram_normalize",
+      "name": "Histogram Normalize",
+      "value-key": "[HISTOGRAM_NORMALIZE]",
+      "type": "Flag"
+    },
+    {
+      "command-line-flag": "-a",
+      "description": "Mean filter n time to conditional densities",
+      "id": "mean_filter",
+      "name": "Mean Filter",
+      "value-key": "[MEAN_FILTER]",
+      "type": "Number",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-w",
+      "description": "Write snapshots of gibbs process every n times to filename",
+      "id": "write_snapshots",
+      "name": "Write Snapshots",
+      "value-key": "[WRITE_SNAPSHOTS]",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-m",
+      "description": "Use mri_vol to mask final labeling",
+      "id": "mask_final_labeling",
+      "name": "Mask Final Labeling",
+      "value-key": "[MASK_FINAL_LABELING]",
+      "type": "File",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-e",
+      "description": "Expand",
+      "id": "expand",
+      "name": "Expand",
+      "value-key": "[EXPAND]",
+      "type": "Number",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-n",
+      "description": "Set max iterations",
+      "id": "max_iterations",
+      "name": "Max Iterations",
+      "value-key": "[MAX_ITERATIONS]",
+      "type": "Number",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-f",
+      "description": "Filter labeled volume with threshold t",
+      "id": "filter_labeled_volume",
+      "name": "Filter Labeled Volume",
+      "value-key": "[FILTER_LABELED_VOLUME]",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-L",
+      "description": "Longitudinal processing with registrations",
+      "id": "longitudinal_processing",
+      "name": "Longitudinal Processing",
+      "value-key": "[LONGITUDINAL_PROCESSING]",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-RELABEL_UNLIKELY",
+      "description": "Reclassify unlikely voxels",
+      "id": "relabel_unlikely",
+      "name": "Relabel Unlikely",
+      "value-key": "[RELABEL_UNLIKELY]",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-nowmsa",
+      "description": "Disables WMSA labels",
+      "id": "disables_wmsa",
+      "name": "Disables WMSA",
+      "value-key": "[DISABLES_WMSA]",
+      "type": "Flag"
+    },
+    {
+      "command-line-flag": "-vent-fix",
+      "description": "Fix underlabeled ventricle",
+      "id": "fix_ventricle",
+      "name": "Fix Ventricle",
+      "value-key": "[FIX_VENTRICLE]",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-insert-wm-bet-putctx",
+      "description": "Insert WM between putamen and cortex",
+      "id": "insert_wm_bet_putctx",
+      "name": "Insert WM between Putamen and Cortex",
+      "value-key": "[INSERT_WM_BET_PUTCTX]",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-sa-insert-wm-bet-putctx",
+      "description": "Stand-alone operation to insert WM between putamen and cortex",
+      "id": "sa_insert_wm_bet_putctx",
+      "name": "Stand-alone Insert WM between Putamen and Cortex",
+      "value-key": "[SA_INSERT_WM_BET_PUTCTX]",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-insert-from-seg",
+      "description": "Insert given indices from segmentation volume",
+      "id": "insert_from_seg",
+      "name": "Insert from Segmentation",
+      "value-key": "[INSERT_FROM_SEG]",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-sa-insert-from-seg",
+      "description": "Stand-alone insert given indices from segmentation volume",
+      "id": "sa_insert_from_seg",
+      "name": "Stand-alone Insert from Segmentation",
+      "value-key": "[SA_INSERT_FROM_SEG]",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-cblum-from-seg",
+      "description": "Insert indices into segmentation volume with default label set",
+      "id": "cblum_from_seg",
+      "name": "Insert Indices into Segmentation with Default Label Set",
+      "value-key": "[CBLUM_FROM_SEG]",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-sa-cblum-from-seg",
+      "description": "Stand-alone operation to insert indices into segmentation with default label set",
+      "id": "sa_cblum_from_seg",
+      "name": "Stand-alone Insert Indices into Segmentation with Default Label Set",
+      "value-key": "[SA_CBLUM_FROM_SEG]",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "command-line-flag": "-threads",
+      "description": "Set the number of open mp threads",
+      "id": "threads",
+      "name": "Number of Threads",
+      "value-key": "[THREADS]",
+      "type": "Number",
+      "integer": true,
+      "optional": true
+    }
+  ],
+  "output-files": [
+    {
+      "id": "output_vol",
+      "name": "Output Volume",
+      "path-template": "[OUTPUT_VOLUME]",
+      "description": "Output labeled volume."
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

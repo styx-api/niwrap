@@ -1,0 +1,256 @@
+{
+  "name": "fim2",
+  "author": "AFNI Developers",
+  "description": "Functional Imaging Mapping Tool",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "fim2 [IMAGE_FILES] [PCNT] [PCTHRESH] [IM1] [NUM] [NON] [COEF] [ORT] [IDEAL] [POLREF] [FIMFILE] [CORR] [CORFILE] [CNRFILE] [SIGFILE] [FITFILE] [SUBORT] [FLIM] [CLEAN] [CLIP] [Q] [DFSPACE] [REGBASE]",
+  "inputs": [
+    {
+      "description": "Input MRI image files",
+      "value-key": "[IMAGE_FILES]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "image_files",
+      "name": "Image files"
+    },
+    {
+      "command-line-flag": "-pcnt",
+      "description": "Correlation coefficient threshold will be 1 - 0.01 * #",
+      "value-key": "[PCNT]",
+      "type": "Number",
+      "integer": false,
+      "optional": true,
+      "id": "pcnt",
+      "name": "Percent Correlation Threshold"
+    },
+    {
+      "command-line-flag": "-pcthresh",
+      "description": "Correlation coefficient threshold will be #",
+      "value-key": "[PCTHRESH]",
+      "type": "Number",
+      "integer": false,
+      "optional": true,
+      "id": "pcthresh",
+      "name": "Coefficient Threshold"
+    },
+    {
+      "command-line-flag": "-im1",
+      "description": "Index of image file to use as first in time series; default is 1",
+      "value-key": "[IM1]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "im1",
+      "name": "First Image Index"
+    },
+    {
+      "command-line-flag": "-num",
+      "description": "Number of images to actually use; default is to use all images",
+      "value-key": "[NUM]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "num",
+      "name": "Number of Images"
+    },
+    {
+      "command-line-flag": "-non",
+      "description": "Turn off default normalization of the output activation image",
+      "value-key": "[NON]",
+      "type": "Flag",
+      "id": "non",
+      "name": "Disable Normalization"
+    },
+    {
+      "command-line-flag": "-coef",
+      "description": "Scaling factor to convert the activation output from floats to short ints",
+      "value-key": "[COEF]",
+      "type": "Number",
+      "integer": false,
+      "optional": true,
+      "id": "coef",
+      "name": "Scaling Factor"
+    },
+    {
+      "command-line-flag": "-ort",
+      "description": "Filename of a time series to which the image data will be orthogonalized before correlations are computed",
+      "value-key": "[ORT]",
+      "type": "File",
+      "list": true,
+      "optional": true,
+      "id": "ort",
+      "name": "Orthogonalization Time Series"
+    },
+    {
+      "command-line-flag": "-ideal",
+      "description": "Filename of a time series to which the image data is to be correlated",
+      "value-key": "[IDEAL]",
+      "type": "File",
+      "list": true,
+      "optional": true,
+      "id": "ideal",
+      "name": "Ideal Time Series"
+    },
+    {
+      "command-line-flag": "-polref",
+      "description": "Use polynomials of order 0..# as extra 'orts'; default is 0",
+      "value-key": "[POLREF]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "polref",
+      "name": "Polynomial Order"
+    },
+    {
+      "command-line-flag": "-fimfile",
+      "description": "Filename to save activation magnitudes in",
+      "value-key": "[FIMFILE]",
+      "type": "String",
+      "optional": true,
+      "id": "fimfile",
+      "name": "FIM File"
+    },
+    {
+      "command-line-flag": "-corr",
+      "description": "Indicates to write correlation output to image file 'fimfile.CORR'",
+      "value-key": "[CORR]",
+      "type": "Flag",
+      "id": "corr",
+      "name": "Correlation Output Flag"
+    },
+    {
+      "command-line-flag": "-corfile",
+      "description": "Filename to save correlation image in",
+      "value-key": "[CORFILE]",
+      "type": "String",
+      "optional": true,
+      "id": "corfile",
+      "name": "Correlation File"
+    },
+    {
+      "command-line-flag": "-cnrfile",
+      "description": "Filename to save contrast-to-noise image in",
+      "value-key": "[CNRFILE]",
+      "type": "String",
+      "optional": true,
+      "id": "cnrfile",
+      "name": "CNR File"
+    },
+    {
+      "command-line-flag": "-sigfile",
+      "description": "Filename to save standard deviation image in",
+      "value-key": "[SIGFILE]",
+      "type": "String",
+      "optional": true,
+      "id": "sigfile",
+      "name": "Standard Deviation File"
+    },
+    {
+      "command-line-flag": "-fitfile",
+      "description": "Image files of the least squares fit coefficients of all the -ort and -polref time series",
+      "value-key": "[FITFILE]",
+      "type": "String",
+      "optional": true,
+      "id": "fitfile",
+      "name": "Least Squares Fit Coefficients File"
+    },
+    {
+      "command-line-flag": "-subort",
+      "description": "Filename of the new timeseries of images with the orts and polrefs subtracted out",
+      "value-key": "[SUBORT]",
+      "type": "String",
+      "optional": true,
+      "id": "subort",
+      "name": "Subtracted Ortho Reference Time Series"
+    },
+    {
+      "command-line-flag": "-flim",
+      "description": "Write outputs in mrilib 'float' format",
+      "value-key": "[FLIM]",
+      "type": "Flag",
+      "id": "flim",
+      "name": "Floating-Point Output Flag"
+    },
+    {
+      "command-line-flag": "-clean",
+      "description": "Output images won't have the +/- 10000 values forced into their corners for scaling purposes",
+      "value-key": "[CLEAN]",
+      "type": "Flag",
+      "id": "clean",
+      "name": "Clean Output Flag"
+    },
+    {
+      "command-line-flag": "-clip",
+      "description": "Set to zero regions of low intensity in output correlations, etc.",
+      "value-key": "[CLIP]",
+      "type": "Flag",
+      "id": "clip",
+      "name": "Clip Low Intensity Output Flag"
+    },
+    {
+      "command-line-flag": "-q",
+      "description": "Quiet operation mode",
+      "value-key": "[Q]",
+      "type": "Flag",
+      "id": "q",
+      "name": "Quiet Flag"
+    },
+    {
+      "command-line-flag": "-dfspace",
+      "description": "Use the 'dfspace' filter to register the images spatially before filtering.",
+      "value-key": "[DFSPACE]",
+      "type": "Flag",
+      "id": "dfspace",
+      "name": "DF Space Filter Flag"
+    },
+    {
+      "command-line-flag": "-regbase",
+      "description": "Read image in file 'fname' as the base image for registration",
+      "value-key": "[REGBASE]",
+      "type": "String",
+      "optional": true,
+      "id": "regbase",
+      "name": "Base Registration Image"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[FIMFILE]",
+      "description": "Activation magnitudes output file",
+      "id": "activation_magnitudes",
+      "name": "Activation Magnitudes File"
+    },
+    {
+      "path-template": "[CORFILE]",
+      "description": "Correlation image output file",
+      "id": "correlation_image",
+      "name": "Correlation Image File"
+    },
+    {
+      "path-template": "[CNRFILE]",
+      "description": "Contrast-to-noise image output file",
+      "id": "contrast_to_noise_image",
+      "name": "Contrast-to-Noise Image File"
+    },
+    {
+      "path-template": "[SIGFILE]",
+      "description": "Standard deviation image output file",
+      "id": "std_deviation_image",
+      "name": "Standard Deviation Image File"
+    },
+    {
+      "path-template": "[FITFILE]",
+      "description": "Least squares fit coefficients image files",
+      "id": "ls_fit_coefficients",
+      "name": "LS Fit Coefficients Files"
+    },
+    {
+      "path-template": "[SUBORT]",
+      "description": "Subtracted ortho reference time series images",
+      "id": "subtracted_references",
+      "name": "Subtracted References Time Series Files"
+    }
+  ]
+}

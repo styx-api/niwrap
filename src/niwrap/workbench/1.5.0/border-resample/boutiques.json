@@ -1,0 +1,50 @@
+{
+  "name": "border-resample",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -border-resample [BORDER_IN] [CURRENT_SPHERE] [NEW_SPHERE] [BORDER_OUT]",
+  "description": "Resample a border file to a different mesh.\n\nResamples a border file, given two spherical surfaces that are in register.  Only borders that have the same structure as current-sphere will be resampled.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "border_in",
+      "name": "border_in",
+      "description": "the border file to resample",
+      "optional": false,
+      "value-key": "[BORDER_IN]",
+      "type": "File"
+    },
+    {
+      "id": "current_sphere",
+      "name": "current_sphere",
+      "description": "a sphere surface with the mesh that the metric is currently on",
+      "optional": false,
+      "value-key": "[CURRENT_SPHERE]",
+      "type": "File"
+    },
+    {
+      "id": "new_sphere",
+      "name": "new_sphere",
+      "description": "a sphere surface that is in register with <current-sphere> and has the desired output mesh",
+      "optional": false,
+      "value-key": "[NEW_SPHERE]",
+      "type": "File"
+    },
+    {
+      "id": "border_out",
+      "name": "border_out",
+      "type": "String",
+      "description": "the output border file",
+      "optional": false,
+      "value-key": "[BORDER_OUT]"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "border_out",
+      "name": "border_out",
+      "path-template": "[BORDER_OUT]",
+      "description": "the output border file"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

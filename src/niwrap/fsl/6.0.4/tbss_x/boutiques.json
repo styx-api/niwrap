@@ -1,0 +1,26 @@
+{
+  "name": "tbss_x",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "TBSS cross-subject script for processing scalar and vector directories.",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "tbss_x [SCALAR_DIRS] [VECTOR_DIRS]",
+  "inputs": [
+    {
+      "description": "List of scalar directories (e.g., F1, F2)",
+      "value-key": "[SCALAR_DIRS]",
+      "type": "String",
+      "list": true,
+      "id": "scalar_dirs",
+      "name": "Scalar directories"
+    },
+    {
+      "description": "List of vector directories (e.g., D1, D2)",
+      "value-key": "[VECTOR_DIRS]",
+      "type": "String",
+      "list": true,
+      "id": "vector_dirs",
+      "name": "Vector directories"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

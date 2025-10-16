@@ -1,0 +1,105 @@
+{
+  "name": "label-merge",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -label-merge [LABEL_OUT] [LABEL]",
+  "description": "Merge label files into a new file.\n\nTakes one or more label files and constructs a new label file by concatenating columns from them.  The input files must have the same number of vertices and the same structure.\n\nExample: wb_command -label-merge out.label.gii -label first.label.gii -column 1 -label second.label.gii\n\nThis example would take the first column from first.label.gii and all subvolumes from second.label.gii, and write these to out.label.gii.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "label_out",
+      "name": "label_out",
+      "type": "String",
+      "description": "the output label",
+      "optional": false,
+      "value-key": "[LABEL_OUT]"
+    },
+    {
+      "id": "label",
+      "name": "label",
+      "description": "specify an input label",
+      "type": {
+        "id": "label",
+        "name": "label",
+        "description": "specify an input label",
+        "command-line": "-label [LABEL_IN] [COLUMN]",
+        "inputs": [
+          {
+            "id": "label_in",
+            "name": "label_in",
+            "description": "a label file to use columns from",
+            "optional": false,
+            "value-key": "[LABEL_IN]",
+            "type": "File"
+          },
+          {
+            "id": "column",
+            "name": "column",
+            "description": "select a single column to use",
+            "type": {
+              "id": "column",
+              "name": "column",
+              "description": "select a single column to use",
+              "command-line": "-column [COLUMN] [UP_TO]",
+              "inputs": [
+                {
+                  "id": "column",
+                  "name": "column",
+                  "description": "the column number or name",
+                  "optional": false,
+                  "value-key": "[COLUMN]",
+                  "type": "String"
+                },
+                {
+                  "id": "up_to",
+                  "name": "up_to",
+                  "description": "use an inclusive range of columns",
+                  "type": {
+                    "id": "up_to",
+                    "name": "up_to",
+                    "description": "use an inclusive range of columns",
+                    "command-line": "-up-to [LAST_COLUMN] [OPT_REVERSE]",
+                    "inputs": [
+                      {
+                        "id": "last_column",
+                        "name": "last_column",
+                        "description": "the number or name of the last column to include",
+                        "optional": false,
+                        "value-key": "[LAST_COLUMN]",
+                        "type": "String"
+                      },
+                      {
+                        "id": "opt_reverse",
+                        "name": "opt_reverse",
+                        "command-line-flag": "-reverse",
+                        "description": "use the range in reverse order",
+                        "type": "Flag",
+                        "value-key": "[OPT_REVERSE]"
+                      }
+                    ]
+                  },
+                  "optional": true,
+                  "value-key": "[UP_TO]"
+                }
+              ]
+            },
+            "optional": true,
+            "value-key": "[COLUMN]",
+            "list": true
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[LABEL]",
+      "list": true
+    }
+  ],
+  "output-files": [
+    {
+      "id": "label_out",
+      "name": "label_out",
+      "path-template": "[LABEL_OUT]",
+      "description": "the output label"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

@@ -1,0 +1,55 @@
+{
+  "name": "3dSkullStrip",
+  "command-line": "3dSkullStrip [IN_FILE] [NUM_THREADS] [OUTPUTTYPE]",
+  "author": "AFNI Developers",
+  "description": "A program to extract the brain from surrounding tissue from MRI T1-weighted images.",
+  "url": "https://afni.nimh.nih.gov/",
+  "inputs": [
+    {
+      "id": "in_file",
+      "name": "In file",
+      "type": "File",
+      "value-key": "[IN_FILE]",
+      "command-line-flag": "-input",
+      "description": "Input file to 3dskullstrip.",
+      "optional": false
+    },
+    {
+      "id": "num_threads",
+      "name": "Num threads",
+      "type": "Number",
+      "integer": true,
+      "value-key": "[NUM_THREADS]",
+      "description": "Set number of threads.",
+      "optional": true
+    },
+    {
+      "id": "outputtype",
+      "name": "Outputtype",
+      "type": "String",
+      "value-key": "[OUTPUTTYPE]",
+      "description": "'nifti' or 'afni' or 'nifti_gz'. Afni output filetype.",
+      "optional": true,
+      "value-choices": [
+        "NIFTI",
+        "AFNI",
+        "NIFTI_GZ"
+      ]
+    }
+  ],
+  "output-files": [
+    {
+      "name": "Out file",
+      "id": "out_file",
+      "description": "Output image file name.",
+      "path-template": "[IN_FILE]_skullstrip"
+    },
+    {
+      "name": "Out file",
+      "id": "out_file",
+      "path-template": "out_file",
+      "description": "Output file."
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

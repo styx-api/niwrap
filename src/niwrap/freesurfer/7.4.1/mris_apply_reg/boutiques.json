@@ -1,0 +1,217 @@
+{
+  "name": "mris_apply_reg",
+  "author": "FreeSurfer Developers",
+  "description": "Apply surface registration in FreeSurfer.",
+  "command-line": "mris_apply_reg [SRC_INPUT] [TRG_OUTPUT] [STREG_PAIR] [SRC_LABEL] [SRC_ANNOTATION] [SRC_XYZ] [JACOBIAN] [NO_REVERSE] [RAND_NOISE] [REPLACE_ONES] [CENTER_OUTPUT] [CURV_FORMAT] [LTA_TRANSFORM] [LTA_PATCH_TRANSFORM] [REVERSE_SURFACE] [PATCH_APPLY] [SAVE_VERTEX_PAIR] [M3Z_TRANSFORM] [INV_M3Z_TRANSFORM] [SRC_REG_SCALE] [TRG_REG_SCALE] [DEBUG_MODE] [CHECK_OPTIONS]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--src",
+      "description": "Source values (surface overlay)",
+      "value-key": "[SRC_INPUT]",
+      "type": "File",
+      "optional": false,
+      "id": "src_input",
+      "name": "Source Input"
+    },
+    {
+      "command-line-flag": "--trg",
+      "description": "Target output file",
+      "value-key": "[TRG_OUTPUT]",
+      "type": "String",
+      "optional": false,
+      "id": "trg_output",
+      "name": "Target Output"
+    },
+    {
+      "command-line-flag": "--streg",
+      "description": "Source and target registration file pair",
+      "value-key": "[STREG_PAIR]",
+      "type": "String",
+      "optional": false,
+      "id": "streg_pair",
+      "name": "Source-Target Registration"
+    },
+    {
+      "command-line-flag": "--src-label",
+      "description": "Source label file (implies --no-rev)",
+      "value-key": "[SRC_LABEL]",
+      "type": "File",
+      "optional": true,
+      "id": "src_label",
+      "name": "Source Label"
+    },
+    {
+      "command-line-flag": "--src-annot",
+      "description": "Source annotation file (implies --no-rev)",
+      "value-key": "[SRC_ANNOTATION]",
+      "type": "File",
+      "optional": true,
+      "id": "src_annotation",
+      "name": "Source Annotation"
+    },
+    {
+      "command-line-flag": "--src-xyz",
+      "description": "XYZ coordinates from the given surface file as input",
+      "value-key": "[SRC_XYZ]",
+      "type": "File",
+      "optional": true,
+      "id": "src_xyz",
+      "name": "Source XYZ"
+    },
+    {
+      "command-line-flag": "--jac",
+      "description": "Use jacobian correction",
+      "value-key": "[JACOBIAN]",
+      "type": "Flag",
+      "id": "jacobian",
+      "name": "Jacobian Correction Flag"
+    },
+    {
+      "command-line-flag": "--no-rev",
+      "description": "Do not do reverse mapping",
+      "value-key": "[NO_REVERSE]",
+      "type": "Flag",
+      "id": "no_reverse",
+      "name": "No Reverse Mapping Flag"
+    },
+    {
+      "command-line-flag": "--randn",
+      "description": "Replace input with white Gaussian noise",
+      "value-key": "[RAND_NOISE]",
+      "type": "Flag",
+      "id": "rand_noise",
+      "name": "Random Noise Flag"
+    },
+    {
+      "command-line-flag": "--ones",
+      "description": "Replace input with ones",
+      "value-key": "[REPLACE_ONES]",
+      "type": "Flag",
+      "id": "replace_ones",
+      "name": "Replace with Ones Flag"
+    },
+    {
+      "command-line-flag": "--center",
+      "description": "Place the center of the output surface at (0,0,0)",
+      "value-key": "[CENTER_OUTPUT]",
+      "type": "Flag",
+      "id": "center_output",
+      "name": "Center Output Flag"
+    },
+    {
+      "command-line-flag": "--curv",
+      "description": "Save output in curvature file format",
+      "value-key": "[CURV_FORMAT]",
+      "type": "Flag",
+      "id": "curv_format",
+      "name": "Curvature Format Flag"
+    },
+    {
+      "command-line-flag": "--lta",
+      "description": "Apply LTA transform to the surface",
+      "value-key": "[LTA_TRANSFORM]",
+      "type": "String",
+      "optional": true,
+      "id": "lta_transform",
+      "name": "LTA Transform"
+    },
+    {
+      "command-line-flag": "--lta-patch",
+      "description": "Apply LTA transform to surface patch",
+      "value-key": "[LTA_PATCH_TRANSFORM]",
+      "type": "String",
+      "optional": true,
+      "id": "lta_patch_transform",
+      "name": "LTA Patch Transform"
+    },
+    {
+      "command-line-flag": "--reverse",
+      "description": "LR reverse surface with optional patch",
+      "value-key": "[REVERSE_SURFACE]",
+      "type": "String",
+      "optional": true,
+      "id": "reverse_surface",
+      "name": "Reverse Surface"
+    },
+    {
+      "command-line-flag": "--patch",
+      "description": "Apply patch for each --streg",
+      "value-key": "[PATCH_APPLY]",
+      "type": "String",
+      "optional": true,
+      "id": "patch_apply",
+      "name": "Patch Apply"
+    },
+    {
+      "command-line-flag": "--stvpair",
+      "description": "Save vertex pairs from source and target surfaces",
+      "value-key": "[SAVE_VERTEX_PAIR]",
+      "type": "File",
+      "optional": true,
+      "id": "save_vertex_pair",
+      "name": "Save Vertex Pair"
+    },
+    {
+      "command-line-flag": "--m3z",
+      "description": "Apply M3Z transform",
+      "value-key": "[M3Z_TRANSFORM]",
+      "type": "String",
+      "optional": true,
+      "id": "m3z_transform",
+      "name": "M3Z Transform"
+    },
+    {
+      "command-line-flag": "--inv-m3z",
+      "description": "Apply inverse M3Z transform",
+      "value-key": "[INV_M3Z_TRANSFORM]",
+      "type": "String",
+      "optional": true,
+      "id": "inv_m3z_transform",
+      "name": "Inverse M3Z Transform"
+    },
+    {
+      "command-line-flag": "--src-reg-scale",
+      "description": "Scale the coordinates of the first surface",
+      "value-key": "[SRC_REG_SCALE]",
+      "type": "Number",
+      "optional": true,
+      "id": "src_reg_scale",
+      "name": "Source Registration Scale"
+    },
+    {
+      "command-line-flag": "--trg-reg-scale",
+      "description": "Scale the coordinates of the last surface",
+      "value-key": "[TRG_REG_SCALE]",
+      "type": "Number",
+      "optional": true,
+      "id": "trg_reg_scale",
+      "name": "Target Registration Scale"
+    },
+    {
+      "command-line-flag": "--debug",
+      "description": "Turn on debugging",
+      "value-key": "[DEBUG_MODE]",
+      "type": "Flag",
+      "id": "debug_mode",
+      "name": "Debug Mode Flag"
+    },
+    {
+      "command-line-flag": "--checkopts",
+      "description": "Check options without executing anything",
+      "value-key": "[CHECK_OPTIONS]",
+      "type": "Flag",
+      "id": "check_options",
+      "name": "Check Options Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[TRG_OUTPUT]",
+      "description": "The output file resulting from registration",
+      "id": "output_result",
+      "name": "Registered Output File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

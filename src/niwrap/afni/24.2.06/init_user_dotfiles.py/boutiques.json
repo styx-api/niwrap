@@ -1,0 +1,157 @@
+{
+  "name": "init_user_dotfiles.py",
+  "author": "AFNI Developers",
+  "description": "Initialize or evaluate user dot files (.cshrc, .bashrc, ...) for system settings.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "init_user_dotfiles.py [HELP] [HELP_DOTFILES_ALL] [HELP_DOTFILES_MOD] [HELP_SHELLS] [HIST] [SHOW_VALID_OPTS] [VER] [DOT_FILES_LIST] [DIR_BIN] [DIR_DOT] [DO_UPDATES] [DRY_RUN] [FORCE] [MAKE_BACKUP] [SHELL_LIST] [TEST] [VERBOSITY_LEVEL]",
+  "inputs": [
+    {
+      "command-line-flag": "-help",
+      "description": "Show this help",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help Flag"
+    },
+    {
+      "command-line-flag": "-help_dotfiles_all",
+      "description": "Display dot files known by the program",
+      "value-key": "[HELP_DOTFILES_ALL]",
+      "type": "Flag",
+      "id": "help_dotfiles_all",
+      "name": "Help dot files all flag"
+    },
+    {
+      "command-line-flag": "-help_dotfiles_mod",
+      "description": "Display modifiable dot files",
+      "value-key": "[HELP_DOTFILES_MOD]",
+      "type": "Flag",
+      "id": "help_dotfiles_mod",
+      "name": "Help dot files mod flag"
+    },
+    {
+      "command-line-flag": "-help_shells",
+      "description": "Display shells known by the program",
+      "value-key": "[HELP_SHELLS]",
+      "type": "Flag",
+      "id": "help_shells",
+      "name": "Help shells flag"
+    },
+    {
+      "command-line-flag": "-hist",
+      "description": "Show module history",
+      "value-key": "[HIST]",
+      "type": "Flag",
+      "id": "hist",
+      "name": "History Flag"
+    },
+    {
+      "command-line-flag": "-show_valid_opts",
+      "description": "List valid options",
+      "value-key": "[SHOW_VALID_OPTS]",
+      "type": "Flag",
+      "id": "show_valid_opts",
+      "name": "Show valid options flag"
+    },
+    {
+      "command-line-flag": "-ver",
+      "description": "Show current version",
+      "value-key": "[VER]",
+      "type": "Flag",
+      "id": "ver",
+      "name": "Version Flag"
+    },
+    {
+      "command-line-flag": "-dflist",
+      "description": "Specify dot files to focus on (default from -help_dotfiles_mod)",
+      "value-key": "[DOT_FILES_LIST]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "dot_files_list",
+      "name": "Dot files list"
+    },
+    {
+      "command-line-flag": "-dir_bin",
+      "description": "Specify bin directory to add to PATH (default comes from `which afni_proc.py`)",
+      "value-key": "[DIR_BIN]",
+      "type": "String",
+      "optional": true,
+      "id": "dir_bin",
+      "name": "Bin Directory"
+    },
+    {
+      "command-line-flag": "-dir_dot",
+      "description": "Specify directory containing dot files.",
+      "value-key": "[DIR_DOT]",
+      "type": "String",
+      "optional": true,
+      "id": "dir_dot",
+      "name": "Dot Directory"
+    },
+    {
+      "command-line-flag": "-do_updates",
+      "description": "Specify which updates to make (default is nothing)",
+      "value-key": "[DO_UPDATES]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "do_updates",
+      "name": "Updates List"
+    },
+    {
+      "command-line-flag": "-dry_run",
+      "description": "Do not modify files, but see what would happen",
+      "value-key": "[DRY_RUN]",
+      "type": "Flag",
+      "id": "dry_run",
+      "name": "Dry Run Flag"
+    },
+    {
+      "command-line-flag": "-force",
+      "description": "Force edits, whether they seem needed or not",
+      "value-key": "[FORCE]",
+      "type": "Flag",
+      "id": "force",
+      "name": "Force Flag"
+    },
+    {
+      "command-line-flag": "-make_backup",
+      "description": "Specify whether to make backups of originals (default is yes)",
+      "value-key": "[MAKE_BACKUP]",
+      "type": "String",
+      "optional": true,
+      "id": "make_backup",
+      "name": "Make Backup"
+    },
+    {
+      "command-line-flag": "-shell_list",
+      "description": "Specify shells instead of using -dflist",
+      "value-key": "[SHELL_LIST]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "shell_list",
+      "name": "Shell List"
+    },
+    {
+      "command-line-flag": "-test",
+      "description": "Just test the files for potential changes",
+      "value-key": "[TEST]",
+      "type": "Flag",
+      "id": "test",
+      "name": "Test Flag"
+    },
+    {
+      "command-line-flag": "-verb",
+      "description": "Set the verbosity level (default 1)",
+      "value-key": "[VERBOSITY_LEVEL]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "verbosity_level",
+      "name": "Verbosity Level"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

@@ -1,0 +1,28 @@
+{
+  "name": "@toMNI_Awarp",
+  "author": "AFNI Developers",
+  "description": "Transforms skull-stripped datasets to 1x1x1 mm MNI space using an affine transformation.",
+  "command-line": "@toMNI_Awarp [DIRECTORY] [DATASETS]",
+  "inputs": [
+    {
+      "description": "Name of the directory to be created where results will be stored.",
+      "value-key": "[DIRECTORY]",
+      "type": "String",
+      "optional": false,
+      "id": "directory",
+      "name": "Directory"
+    },
+    {
+      "description": "List of datasets to be transformed.",
+      "value-key": "[DATASETS]",
+      "type": "File",
+      "optional": false,
+      "id": "datasets",
+      "name": "Datasets",
+      "list": true
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [],
+  "url": "https://afni.nimh.nih.gov/"
+}

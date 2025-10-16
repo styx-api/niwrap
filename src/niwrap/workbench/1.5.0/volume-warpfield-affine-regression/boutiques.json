@@ -1,0 +1,75 @@
+{
+  "name": "volume-warpfield-affine-regression",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -volume-warpfield-affine-regression [WARPFIELD] [AFFINE_OUT] [OPT_ROI_ROI_VOL] [OPT_FNIRT_SOURCE_VOLUME] [FLIRT_OUT]",
+  "description": "Regress affine from warpfield.\n\nFor all voxels in the warpfield, do a regression that predicts the post-warp coordinate from the source coordinate.  When -roi is specified, only consider voxels with a value greater than 0 in <roi-vol>.\n\nThe default is to expect the warpfield to be in relative world coordinates (mm space), and to write the output as a world affine (mm space to mm space).  If you are using FSL-created files and utilities, specify -fnirt and -flirt as needed, as their coordinate conventions are different.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "warpfield",
+      "name": "warpfield",
+      "description": "the input warpfield",
+      "optional": false,
+      "value-key": "[WARPFIELD]",
+      "type": "String"
+    },
+    {
+      "id": "affine_out",
+      "name": "affine_out",
+      "description": "output - the output affine file",
+      "optional": false,
+      "value-key": "[AFFINE_OUT]",
+      "type": "String"
+    },
+    {
+      "id": "opt_roi_roi_vol",
+      "name": "opt_roi_roi_vol",
+      "command-line-flag": "-roi",
+      "description": "only consider voxels within a mask (e.g., a brain mask): the mask volume",
+      "optional": true,
+      "value-key": "[OPT_ROI_ROI_VOL]",
+      "type": "File"
+    },
+    {
+      "id": "opt_fnirt_source_volume",
+      "name": "opt_fnirt_source_volume",
+      "command-line-flag": "-fnirt",
+      "description": "input is a fnirt warpfield: the source volume used when generating the fnirt warpfield",
+      "optional": true,
+      "value-key": "[OPT_FNIRT_SOURCE_VOLUME]",
+      "type": "String"
+    },
+    {
+      "id": "flirt_out",
+      "name": "flirt_out",
+      "description": "write output as a flirt matrix rather than a world coordinate transform",
+      "type": {
+        "id": "flirt_out",
+        "name": "flirt_out",
+        "description": "write output as a flirt matrix rather than a world coordinate transform",
+        "command-line": "-flirt-out [SOURCE_VOLUME] [TARGET_VOLUME]",
+        "inputs": [
+          {
+            "id": "source_volume",
+            "name": "source_volume",
+            "description": "the volume you want to apply the transform to",
+            "optional": false,
+            "value-key": "[SOURCE_VOLUME]",
+            "type": "String"
+          },
+          {
+            "id": "target_volume",
+            "name": "target_volume",
+            "description": "the target space you want the transformed volume to match",
+            "optional": false,
+            "value-key": "[TARGET_VOLUME]",
+            "type": "String"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[FLIRT_OUT]"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

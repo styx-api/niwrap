@@ -1,0 +1,34 @@
+{
+  "name": "mris_init_global_tractography",
+  "description": "Initializes global tractography for a given subject and parcellation.",
+  "command-line": "mris_init_global_tractography [SUBJECT] [PARCELLATION] [OUTPUT_VOLUME]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "The subject on which to perform tractography.",
+      "value-key": "[SUBJECT]",
+      "type": "String",
+      "optional": false,
+      "id": "subject",
+      "name": "Subject"
+    },
+    {
+      "description": "The parcellation to use for tractography.",
+      "value-key": "[PARCELLATION]",
+      "type": "String",
+      "optional": false,
+      "id": "parcellation",
+      "name": "Parcellation"
+    },
+    {
+      "description": "Output volume of the initialized global tractography.",
+      "value-key": "[OUTPUT_VOLUME]",
+      "type": "String",
+      "optional": false,
+      "id": "output_volume",
+      "name": "Output Volume"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

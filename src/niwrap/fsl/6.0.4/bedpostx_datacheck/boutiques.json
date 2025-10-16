@@ -1,0 +1,18 @@
+{
+  "name": "bedpostx_datacheck",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Check the data directory for BEDPOSTX compatibility",
+  "command-line": "bedpostx_datacheck [DATA_DIR]",
+  "inputs": [
+    {
+      "description": "Data directory to check for BEDPOSTX compatibility",
+      "value-key": "[DATA_DIR]",
+      "type": "String",
+      "optional": false,
+      "id": "data_dir",
+      "name": "Data directory"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

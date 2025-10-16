@@ -1,0 +1,197 @@
+{
+  "name": "make_bianca_mask",
+  "description": "A script for generating BIANCA masks",
+  "command-line": "make_bianca_mask [INPUT_IMAGE] [OUTPUT_IMAGE] [OVERLAY_FLAG] [BINARY_MASK_FLAG] [APPROX_SKULL_FLAG] [NO_SEG_OUTPUT_FLAG] [FRACTIONAL_INTENSITY] [VG_FRACTIONAL_INTENSITY] [HEAD_RADIUS] [CENTER_OF_GRAVITY] [THRESHOLDING_FLAG] [VTK_MESH] [ROBUST_ITERS_FLAG] [RESIDUAL_OPTIC_CLEANUP_FLAG] [REDUCE_BIAS_FLAG] [SLICE_PADDING_FLAG] [WHOLE_SET_MASK_FLAG] [ADDITIONAL_SURFACES_FLAG] [ADDITIONAL_SURFACES_T2] [VERBOSE_FLAG] [DEBUG_FLAG]",
+  "inputs": [
+    {
+      "description": "Input image",
+      "value-key": "[INPUT_IMAGE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_image",
+      "name": "Input Image"
+    },
+    {
+      "description": "Output image",
+      "value-key": "[OUTPUT_IMAGE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_image",
+      "name": "Output Image"
+    },
+    {
+      "command-line-flag": "-o",
+      "description": "Generate brain surface outline overlaid onto original image",
+      "value-key": "[OVERLAY_FLAG]",
+      "type": "Flag",
+      "id": "overlay_flag",
+      "name": "Overlay flag"
+    },
+    {
+      "command-line-flag": "-m",
+      "description": "Generate binary brain mask",
+      "value-key": "[BINARY_MASK_FLAG]",
+      "type": "Flag",
+      "id": "binary_mask_flag",
+      "name": "Binary mask flag"
+    },
+    {
+      "command-line-flag": "-s",
+      "description": "Generate approximate skull image",
+      "value-key": "[APPROX_SKULL_FLAG]",
+      "type": "Flag",
+      "id": "approx_skull_flag",
+      "name": "Approximate skull flag"
+    },
+    {
+      "command-line-flag": "-n",
+      "description": "Don't generate segmented brain image output",
+      "value-key": "[NO_SEG_OUTPUT_FLAG]",
+      "type": "Flag",
+      "id": "no_seg_output_flag",
+      "name": "No segmented brain image flag"
+    },
+    {
+      "command-line-flag": "-f",
+      "description": "Fractional intensity threshold (0->1); default=0.5; smaller values give larger brain outline estimates",
+      "value-key": "[FRACTIONAL_INTENSITY]",
+      "type": "Number",
+      "maximum": 1,
+      "minimum": 0,
+      "integer": false,
+      "optional": true,
+      "id": "fractional_intensity",
+      "name": "Fractional intensity threshold"
+    },
+    {
+      "command-line-flag": "-g",
+      "description": "Vertical gradient in fractional intensity threshold (-1->1); default=0; positive values give larger brain outline at bottom, smaller at top",
+      "value-key": "[VG_FRACTIONAL_INTENSITY]",
+      "type": "Number",
+      "maximum": 1,
+      "minimum": -1,
+      "integer": false,
+      "optional": true,
+      "id": "vg_fractional_intensity",
+      "name": "Vertical gradient fractional intensity threshold"
+    },
+    {
+      "command-line-flag": "-r",
+      "description": "Head radius (mm not voxels); initial surface sphere is set to half of this",
+      "value-key": "[HEAD_RADIUS]",
+      "type": "Number",
+      "optional": true,
+      "id": "head_radius",
+      "name": "Head Radius"
+    },
+    {
+      "command-line-flag": "-c",
+      "description": "Centre-of-gravity (voxels not mm) of initial mesh surface.",
+      "value-key": "[CENTER_OF_GRAVITY]",
+      "type": "String",
+      "optional": true,
+      "id": "center_of_gravity",
+      "name": "Center of Gravity"
+    },
+    {
+      "command-line-flag": "-t",
+      "description": "Apply thresholding to segmented brain image and mask",
+      "value-key": "[THRESHOLDING_FLAG]",
+      "type": "Flag",
+      "id": "thresholding_flag",
+      "name": "Threshold segmented image flag"
+    },
+    {
+      "command-line-flag": "-e",
+      "description": "Generates brain surface as mesh in .vtk format",
+      "value-key": "[VTK_MESH]",
+      "type": "Flag",
+      "id": "vtk_mesh",
+      "name": "VTK format brain surface mesh flag"
+    },
+    {
+      "command-line-flag": "-R",
+      "description": "Robust brain center estimation (iterates BET several times)",
+      "value-key": "[ROBUST_ITERS_FLAG]",
+      "type": "Flag",
+      "id": "robust_iters_flag",
+      "name": "Robust iterations flag"
+    },
+    {
+      "command-line-flag": "-S",
+      "description": "Eye & optic nerve cleanup (can be useful in SIENA - disables -o option)",
+      "value-key": "[RESIDUAL_OPTIC_CLEANUP_FLAG]",
+      "type": "Flag",
+      "id": "residual_optic_cleanup_flag",
+      "name": "Residual optic cleanup flag"
+    },
+    {
+      "command-line-flag": "-B",
+      "description": "Bias field & neck cleanup (can be useful in SIENA)",
+      "value-key": "[REDUCE_BIAS_FLAG]",
+      "type": "Flag",
+      "id": "reduce_bias_flag",
+      "name": "Bias reduction flag"
+    },
+    {
+      "command-line-flag": "-Z",
+      "description": "Improve BET if FOV is very small in Z (by temporarily padding end slices)",
+      "value-key": "[SLICE_PADDING_FLAG]",
+      "type": "Flag",
+      "id": "slice_padding_flag",
+      "name": "Slice padding flag"
+    },
+    {
+      "command-line-flag": "-F",
+      "description": "Apply to 4D FMRI data (uses -f 0.3 and dilates brain mask slightly)",
+      "value-key": "[WHOLE_SET_MASK_FLAG]",
+      "type": "Flag",
+      "id": "whole_set_mask_flag",
+      "name": "Mask-whole-set flag"
+    },
+    {
+      "command-line-flag": "-A",
+      "description": "Run bet2 and then betsurf to get additional skull and scalp surfaces (includes registrations)",
+      "value-key": "[ADDITIONAL_SURFACES_FLAG]",
+      "type": "Flag",
+      "id": "additional_surfaces_flag",
+      "name": "Additional surfaces flag"
+    },
+    {
+      "command-line-flag": "-A2",
+      "description": "As with -A, when also feeding in non-brain-extracted T2 (includes registrations)",
+      "value-key": "[ADDITIONAL_SURFACES_T2]",
+      "type": "File",
+      "optional": true,
+      "id": "additional_surfaces_t2",
+      "name": "Additional surfaces with T2"
+    },
+    {
+      "command-line-flag": "-v",
+      "description": "Verbose (switch on diagnostic messages)",
+      "value-key": "[VERBOSE_FLAG]",
+      "type": "Flag",
+      "id": "verbose_flag",
+      "name": "Verbose Flag"
+    },
+    {
+      "command-line-flag": "-d",
+      "description": "Debug (don't delete temporary intermediate images)",
+      "value-key": "[DEBUG_FLAG]",
+      "type": "Flag",
+      "id": "debug_flag",
+      "name": "Debug Flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_IMAGE]",
+      "description": "Output image",
+      "id": "output_image",
+      "name": "Output Image"
+    }
+  ],
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

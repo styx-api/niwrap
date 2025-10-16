@@ -1,0 +1,430 @@
+{
+  "name": "3dNLfim",
+  "author": "AFNI Developers",
+  "description": "Nonlinear regression for each voxel of the input AFNI 3d+time data set",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dNLfim [INPUT_FILE] [SIGNAL_MODEL] [NOISE_MODEL] [MASK] [IGNORE] [INTR] [TR] [TIME_FILE] [SCONSTR] [NCONSTR] [NABS] [NRAND] [NBEST] [RMSMIN] [FDISP] [PROGRESS] [VOXEL_COUNT] [SIMPLEX] [POWELL] [BOTH] [FREG] [FRSQR] [FSMAX] [FTMAX] [FPSMAX] [FAREA] [FPAREA] [FSCOEF] [FNCOEF] [TSCOEF] [TNCOEF] [BUCKET] [BRICK] [NOFDR] [SFIT] [SNFIT] [JOBS]",
+  "inputs": [
+    {
+      "description": "Filename of 3d+time data file for input",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input file",
+      "command-line-flag": "-input"
+    },
+    {
+      "description": "Name of the nonlinear signal model",
+      "value-key": "[SIGNAL_MODEL]",
+      "type": "String",
+      "optional": false,
+      "id": "signal_model",
+      "name": "Signal model",
+      "command-line-flag": "-signal"
+    },
+    {
+      "description": "Name of the linear noise model",
+      "value-key": "[NOISE_MODEL]",
+      "type": "String",
+      "optional": false,
+      "id": "noise_model",
+      "name": "Noise model",
+      "command-line-flag": "-noise"
+    },
+    {
+      "command-line-flag": "-mask",
+      "description": "Use the 0 sub-brick of dataset 'mset' as a mask to indicate which voxels to analyze",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "mask",
+      "name": "Mask file"
+    },
+    {
+      "command-line-flag": "-ignore",
+      "description": "Skip this number of initial images in the time series for regression analysis; default = 0",
+      "value-key": "[IGNORE]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "ignore",
+      "name": "Ignore initial images"
+    },
+    {
+      "command-line-flag": "-inTR",
+      "description": "Set the TR of the input 3d+time dataset",
+      "value-key": "[INTR]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "intr",
+      "name": "Input TR"
+    },
+    {
+      "command-line-flag": "-TR",
+      "description": "Directly set the TR of the time series model",
+      "value-key": "[TR]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "tr",
+      "name": "Time series TR"
+    },
+    {
+      "command-line-flag": "-time",
+      "description": "ASCII file containing each time point in the time series.",
+      "value-key": "[TIME_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "time_file",
+      "name": "Time file"
+    },
+    {
+      "command-line-flag": "-sconstr",
+      "description": "Constraints for signal parameters; c <= gs[k] <= d",
+      "value-key": "[SCONSTR]",
+      "type": "String",
+      "optional": true,
+      "id": "sconstr",
+      "name": "Signal parameter constraints"
+    },
+    {
+      "command-line-flag": "-nconstr",
+      "description": "Constraints for noise parameters; c+b[k] <= gn[k] <= d+b[k]",
+      "value-key": "[NCONSTR]",
+      "type": "String",
+      "optional": true,
+      "id": "nconstr",
+      "name": "Noise parameter constraints"
+    },
+    {
+      "command-line-flag": "-nabs",
+      "description": "Use absolute constraints for noise parameters; c <= gn[k] <= d",
+      "value-key": "[NABS]",
+      "type": "Flag",
+      "id": "nabs",
+      "name": "Absolute constraints flag"
+    },
+    {
+      "command-line-flag": "-nrand",
+      "description": "Number of random test points; default=19999",
+      "value-key": "[NRAND]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "nrand",
+      "name": "Number of random test points"
+    },
+    {
+      "command-line-flag": "-nbest",
+      "description": "Use b best test points to start; default=9",
+      "value-key": "[NBEST]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "nbest",
+      "name": "Best test points to start"
+    },
+    {
+      "command-line-flag": "-rmsmin",
+      "description": "Minimum RMS error to reject reduced model",
+      "value-key": "[RMSMIN]",
+      "type": "Number",
+      "optional": true,
+      "id": "rmsmin",
+      "name": "Minimum RMS error"
+    },
+    {
+      "command-line-flag": "-fdisp",
+      "description": "Display results for those voxels whose F-statistic is greater than fval; default=999.0",
+      "value-key": "[FDISP]",
+      "type": "Number",
+      "optional": true,
+      "id": "fdisp",
+      "name": "Display F-statistic threshold"
+    },
+    {
+      "command-line-flag": "-progress",
+      "description": "Display results every ival number of voxels",
+      "value-key": "[PROGRESS]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "progress",
+      "name": "Progress interval"
+    },
+    {
+      "command-line-flag": "-voxel_count",
+      "description": "Display the current voxel index",
+      "value-key": "[VOXEL_COUNT]",
+      "type": "Flag",
+      "id": "voxel_count",
+      "name": "Voxel count flag"
+    },
+    {
+      "command-line-flag": "-SIMPLEX",
+      "description": "Use Nelder-Mead simplex method for least-square minimization (default)",
+      "value-key": "[SIMPLEX]",
+      "type": "Flag",
+      "id": "simplex",
+      "name": "Nelder-Mead simplex method"
+    },
+    {
+      "command-line-flag": "-POWELL",
+      "description": "Use Powell's NEWUOA method instead of Nelder-Mead simplex method",
+      "value-key": "[POWELL]",
+      "type": "Flag",
+      "id": "powell",
+      "name": "Powell's NEWUOA method"
+    },
+    {
+      "command-line-flag": "-BOTH",
+      "description": "Use both Powell's and Nelder-Mead method",
+      "value-key": "[BOTH]",
+      "type": "Flag",
+      "id": "both",
+      "name": "Use both minimization methods"
+    },
+    {
+      "command-line-flag": "-freg",
+      "description": "Perform F-test for significance of the regression; output 'fift' is written to prefix filename fname",
+      "value-key": "[FREG]",
+      "type": "String",
+      "optional": true,
+      "id": "freg",
+      "name": "F-test regression filename prefix"
+    },
+    {
+      "command-line-flag": "-frsqr",
+      "description": "Calculate R^2 (coef. of multiple determination); store along with F-test for regression; output 'fift' is written to prefix filename fname",
+      "value-key": "[FRSQR]",
+      "type": "String",
+      "optional": true,
+      "id": "frsqr",
+      "name": "R^2 calculation filename prefix"
+    },
+    {
+      "command-line-flag": "-fsmax",
+      "description": "Estimate signed maximum of signal; store along with F-test for regression; output 'fift' is written to prefix filename fname",
+      "value-key": "[FSMAX]",
+      "type": "String",
+      "optional": true,
+      "id": "fsmax",
+      "name": "Signed maximum signal estimate filename prefix"
+    },
+    {
+      "command-line-flag": "-ftmax",
+      "description": "Estimate time of signed maximum; store along with F-test for regression; output 'fift' is written to prefix filename fname",
+      "value-key": "[FTMAX]",
+      "type": "String",
+      "optional": true,
+      "id": "ftmax",
+      "name": "Time of signed maximum estimate filename prefix"
+    },
+    {
+      "command-line-flag": "-fpsmax",
+      "description": "Calculate (signed) maximum percentage change of signal from baseline; output 'fift' is written to prefix filename fname",
+      "value-key": "[FPSMAX]",
+      "type": "String",
+      "optional": true,
+      "id": "fpsmax",
+      "name": "Maximum percentage change filename prefix"
+    },
+    {
+      "command-line-flag": "-farea",
+      "description": "Calculate area between signal and baseline; store with F-test for regression; output 'fift' is written to prefix filename fname",
+      "value-key": "[FAREA]",
+      "type": "String",
+      "optional": true,
+      "id": "farea",
+      "name": "Area between signal and baseline filename prefix"
+    },
+    {
+      "command-line-flag": "-fparea",
+      "description": "Percentage area of signal relative to baseline; store with F-test for regression; output 'fift' is written to prefix filename fname",
+      "value-key": "[FPAREA]",
+      "type": "String",
+      "optional": true,
+      "id": "fparea",
+      "name": "Percentage area of signal filename prefix"
+    },
+    {
+      "command-line-flag": "-fscoef",
+      "description": "Estimate kth signal parameter gs[k]; store along with F-test for regression; output 'fift' is written to prefix filename fname",
+      "value-key": "[FSCOEF]",
+      "type": "String",
+      "optional": true,
+      "id": "fscoef",
+      "name": "Signal parameter estimate filename prefix"
+    },
+    {
+      "command-line-flag": "-fncoef",
+      "description": "Estimate kth noise parameter gn[k]; store along with F-test for regression; output 'fift' is written to prefix filename fname",
+      "value-key": "[FNCOEF]",
+      "type": "String",
+      "optional": true,
+      "id": "fncoef",
+      "name": "Noise parameter estimate filename prefix"
+    },
+    {
+      "command-line-flag": "-tscoef",
+      "description": "Perform t-test for significance of kth signal parameter gs[k]; output 'fitt' is written to prefix filename fname",
+      "value-key": "[TSCOEF]",
+      "type": "String",
+      "optional": true,
+      "id": "tscoef",
+      "name": "T-test significance for signal parameter filename prefix"
+    },
+    {
+      "command-line-flag": "-tncoef",
+      "description": "Perform t-test for significance of kth noise parameter gn[k]; output 'fitt' is written to prefix filename fname",
+      "value-key": "[TNCOEF]",
+      "type": "String",
+      "optional": true,
+      "id": "tncoef",
+      "name": "T-test significance for noise parameter filename prefix"
+    },
+    {
+      "command-line-flag": "-bucket",
+      "description": "Create one AFNI 'bucket' dataset containing n sub-bricks; n=0 creates default output; output 'bucket' is written to prefixname",
+      "value-key": "[BUCKET]",
+      "type": "String",
+      "optional": true,
+      "id": "bucket",
+      "name": "AFNI 'bucket' dataset prefix"
+    },
+    {
+      "command-line-flag": "-brick",
+      "description": "Specify sub-brick contents for 'bucket' dataset",
+      "value-key": "[BRICK]",
+      "type": "String",
+      "optional": true,
+      "id": "brick",
+      "name": "Sub-brick specification"
+    },
+    {
+      "command-line-flag": "-noFDR",
+      "description": "Don't write the FDR (q vs. threshold) curves into the output dataset.",
+      "value-key": "[NOFDR]",
+      "type": "Flag",
+      "id": "nofdr",
+      "name": "No FDR flag"
+    },
+    {
+      "command-line-flag": "-sfit",
+      "description": "Prefix for output 3d+time signal model fit",
+      "value-key": "[SFIT]",
+      "type": "String",
+      "optional": true,
+      "id": "sfit",
+      "name": "Signal fit prefix"
+    },
+    {
+      "command-line-flag": "-snfit",
+      "description": "Prefix for output 3d+time signal+noise fit",
+      "value-key": "[SNFIT]",
+      "type": "String",
+      "optional": true,
+      "id": "snfit",
+      "name": "Signal+noise fit prefix"
+    },
+    {
+      "command-line-flag": "-jobs",
+      "description": "Run the program with 'J' jobs (sub-processes). 1 to 32.",
+      "value-key": "[JOBS]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "jobs",
+      "name": "Number of jobs"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[FREG].fift",
+      "description": "F-test for significance of the regression",
+      "id": "freg_outfile",
+      "name": "F-test output file"
+    },
+    {
+      "path-template": "[FRSQR].fift",
+      "description": "R^2 calculation for regression",
+      "id": "frsqr_outfile",
+      "name": "R^2 output file"
+    },
+    {
+      "path-template": "[FSMAX].fift",
+      "description": "Signed maximum signal estimate",
+      "id": "fsmax_outfile",
+      "name": "Signed maximum signal output file"
+    },
+    {
+      "path-template": "[FTMAX].fift",
+      "description": "Time of signed maximum estimate",
+      "id": "ftmax_outfile",
+      "name": "Time of signed maximum output file"
+    },
+    {
+      "path-template": "[FPSMAX].fift",
+      "description": "Maximum percentage change estimate",
+      "id": "fpsmax_outfile",
+      "name": "Maximum percentage change output file"
+    },
+    {
+      "path-template": "[FAREA].fift",
+      "description": "Area between signal and baseline",
+      "id": "farea_outfile",
+      "name": "Area between signal and baseline output file"
+    },
+    {
+      "path-template": "[FPAREA].fift",
+      "description": "Percentage area of signal estimate",
+      "id": "fparea_outfile",
+      "name": "Percentage area output file"
+    },
+    {
+      "path-template": "[FSCOEF].fift",
+      "description": "Signal parameter estimate",
+      "id": "fscoef_outfile",
+      "name": "Signal parameter estimate output file"
+    },
+    {
+      "path-template": "[FNCOEF].fift",
+      "description": "Noise parameter estimate",
+      "id": "fncoef_outfile",
+      "name": "Noise parameter estimate output file"
+    },
+    {
+      "path-template": "[TSCOEF].fitt",
+      "description": "T-test for significance of signal parameter",
+      "id": "tscoef_outfile",
+      "name": "Signal parameter T-test output file"
+    },
+    {
+      "path-template": "[TNCOEF].fitt",
+      "description": "T-test for significance of noise parameter",
+      "id": "tncoef_outfile",
+      "name": "Noise parameter T-test output file"
+    },
+    {
+      "path-template": "[BUCKET].bucket",
+      "description": "AFNI 'bucket' dataset",
+      "id": "bucket_outfile",
+      "name": "AFNI bucket"
+    },
+    {
+      "path-template": "[SFIT].sfit",
+      "description": "Output 3d+time signal model fit",
+      "id": "sfit_outfile",
+      "name": "Signal fit output file"
+    },
+    {
+      "path-template": "[SNFIT].snfit",
+      "description": "Output 3d+time signal+noise fit",
+      "id": "snfit_outfile",
+      "name": "Signal+noise fit output file"
+    }
+  ]
+}

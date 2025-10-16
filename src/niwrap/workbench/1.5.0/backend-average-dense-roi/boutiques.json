@@ -1,0 +1,26 @@
+{
+  "name": "backend-average-dense-roi",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -backend-average-dense-roi [INDEX_LIST] [OUT_FILE]",
+  "description": "Connectome db backend command for cifti average dense roi.\n\nThis command is probably not the one you are looking for, try -cifti-average-dense-roi.  It takes the list of cifti files to average from standard input, and writes its output as little endian, 32-bit integer of row size followed by the row as 32-bit floats.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "index_list",
+      "name": "index_list",
+      "description": "comma separated list of cifti indexes to average",
+      "optional": false,
+      "value-key": "[INDEX_LIST]",
+      "type": "String"
+    },
+    {
+      "id": "out_file",
+      "name": "out_file",
+      "description": "file to write the average row to",
+      "optional": false,
+      "value-key": "[OUT_FILE]",
+      "type": "String"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

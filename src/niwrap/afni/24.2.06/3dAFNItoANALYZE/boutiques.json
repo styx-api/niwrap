@@ -1,0 +1,69 @@
+{
+  "name": "3dAFNItoANALYZE",
+  "author": "AFNI Developers",
+  "description": "Writes AFNI dataset to ANALYZE 7.5 format .hdr/.img file pairs.",
+  "command-line": "3dAFNItoANALYZE [4D_OPTION] [ORIENT_OPTION] [OUTPUT_NAME] [AFNI_DATASET]",
+  "inputs": [
+    {
+      "description": "Output ANALYZE file base name (e.g., aname)",
+      "value-key": "[OUTPUT_NAME]",
+      "type": "String",
+      "optional": false,
+      "id": "output_name",
+      "name": "Output name"
+    },
+    {
+      "description": "Input AFNI dataset",
+      "value-key": "[AFNI_DATASET]",
+      "type": "File",
+      "optional": false,
+      "id": "afni_dataset",
+      "name": "Input dataset"
+    },
+    {
+      "command-line-flag": "-4D",
+      "description": "Write all data to one big ANALYZE file pair named aname.hdr/aname.img",
+      "value-key": "[4D_OPTION]",
+      "type": "Flag",
+      "id": "4d_option",
+      "name": "4D flag"
+    },
+    {
+      "command-line-flag": "-orient",
+      "description": "Flip the dataset to a different orientation when writing to ANALYZE files (e.g., LPI)",
+      "value-key": "[ORIENT_OPTION]",
+      "type": "String",
+      "optional": true,
+      "id": "orient_option",
+      "name": "Orientation code"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_NAME]_[INDEX].hdr",
+      "description": "ANALYZE header file for each sub-brick",
+      "id": "output_hdr_file",
+      "name": "Output header file"
+    },
+    {
+      "path-template": "[OUTPUT_NAME]_[INDEX].img",
+      "description": "ANALYZE image file for each sub-brick",
+      "id": "output_img_file",
+      "name": "Output image file"
+    },
+    {
+      "path-template": "[OUTPUT_NAME].hdr",
+      "description": "Single ANALYZE header file if using -4D option",
+      "id": "output_4d_hdr_file",
+      "name": "Output 4D header file"
+    },
+    {
+      "path-template": "[OUTPUT_NAME].img",
+      "description": "Single ANALYZE image file if using -4D option",
+      "id": "output_4d_img_file",
+      "name": "Output 4D image file"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

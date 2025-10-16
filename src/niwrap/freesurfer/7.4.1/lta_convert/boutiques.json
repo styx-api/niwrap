@@ -1,0 +1,203 @@
+{
+  "name": "lta_convert",
+  "description": "This program converts between different linear transform formats.",
+  "command-line": "lta_convert [IN_LTA] [IN_FSL] [IN_MNI] [IN_REG] [IN_NIFTYREG] [IN_ITK] [IN_VOX] [OUT_LTA] [OUT_FSL] [OUT_MNI] [OUT_REG] [OUT_NIFTYREG] [OUT_ITK] [OUT_VOX] [INVERT] [LTAVOX2VOX] [LTATKREG] [SRC_GEOMETRY] [TRG_GEOMETRY] [TRG_CONFORM] [SUBJECT_NAME]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--inlta",
+      "description": "Input transform of LTA type",
+      "value-key": "[IN_LTA]",
+      "type": "File",
+      "optional": true,
+      "id": "in_lta",
+      "name": "Input LTA Transform"
+    },
+    {
+      "command-line-flag": "--infsl",
+      "description": "Input transform of FSL type",
+      "value-key": "[IN_FSL]",
+      "type": "File",
+      "optional": true,
+      "id": "in_fsl",
+      "name": "Input FSL Transform"
+    },
+    {
+      "command-line-flag": "--inmni",
+      "description": "Input transform of MNI / XFM type",
+      "value-key": "[IN_MNI]",
+      "type": "File",
+      "optional": true,
+      "id": "in_mni",
+      "name": "Input MNI Transform"
+    },
+    {
+      "command-line-flag": "--inreg",
+      "description": "Input transform of TK REG type (deprecated format)",
+      "value-key": "[IN_REG]",
+      "type": "File",
+      "optional": true,
+      "id": "in_reg",
+      "name": "Input REG Transform"
+    },
+    {
+      "command-line-flag": "--inniftyreg",
+      "description": "Input transform of NiftyReg type (inverse RAS2RAS)",
+      "value-key": "[IN_NIFTYREG]",
+      "type": "File",
+      "optional": true,
+      "id": "in_niftyreg",
+      "name": "Input NiftyReg Transform"
+    },
+    {
+      "command-line-flag": "--initk",
+      "description": "Input ITK transform (inverse LPS2LPS).",
+      "value-key": "[IN_ITK]",
+      "type": "File",
+      "optional": true,
+      "id": "in_itk",
+      "name": "Input ITK Transform"
+    },
+    {
+      "command-line-flag": "--invox",
+      "description": "Input transform in source image space (inverse VOX2VOX)",
+      "value-key": "[IN_VOX]",
+      "type": "File",
+      "optional": true,
+      "id": "in_vox",
+      "name": "Input VOX Transform"
+    },
+    {
+      "command-line-flag": "--outlta",
+      "description": "Output linear transform (LTA FreeSurfer format)",
+      "value-key": "[OUT_LTA]",
+      "type": "String",
+      "optional": true,
+      "id": "out_lta",
+      "name": "Output LTA Transform"
+    },
+    {
+      "command-line-flag": "--outfsl",
+      "description": "Output transform in FSL format",
+      "value-key": "[OUT_FSL]",
+      "type": "String",
+      "optional": true,
+      "id": "out_fsl",
+      "name": "Output FSL Transform"
+    },
+    {
+      "command-line-flag": "--outmni",
+      "description": "Output transform in MNI/XFM format",
+      "value-key": "[OUT_MNI]",
+      "type": "String",
+      "optional": true,
+      "id": "out_mni",
+      "name": "Output MNI Transform"
+    },
+    {
+      "command-line-flag": "--outreg",
+      "description": "Output transform in REG DAT format",
+      "value-key": "[OUT_REG]",
+      "type": "String",
+      "optional": true,
+      "id": "out_reg",
+      "name": "Output REG Transform"
+    },
+    {
+      "command-line-flag": "--outniftyreg",
+      "description": "Output transform in NiftyReg format (inverse RAS2RAS)",
+      "value-key": "[OUT_NIFTYREG]",
+      "type": "String",
+      "optional": true,
+      "id": "out_niftyreg",
+      "name": "Output NiftyReg Transform"
+    },
+    {
+      "command-line-flag": "--outitk",
+      "description": "Output transform in ITK TXT format (inverse LPS2LPS)",
+      "value-key": "[OUT_ITK]",
+      "type": "String",
+      "optional": true,
+      "id": "out_itk",
+      "name": "Output ITK Transform"
+    },
+    {
+      "command-line-flag": "--outvox",
+      "description": "Output transform in source image space (inverse VOX2VOX)",
+      "value-key": "[OUT_VOX]",
+      "type": "String",
+      "optional": true,
+      "id": "out_vox",
+      "name": "Output VOX Transform"
+    },
+    {
+      "command-line-flag": "--invert",
+      "description": "Inverts transform",
+      "value-key": "[INVERT]",
+      "type": "Flag",
+      "id": "invert",
+      "name": "Invert Transform"
+    },
+    {
+      "command-line-flag": "--ltavox2vox",
+      "description": "Output type VOX2VOX (default RAS2RAS) with --ltaout",
+      "value-key": "[LTAVOX2VOX]",
+      "type": "Flag",
+      "id": "ltavox2vox",
+      "name": "LTA VOX2VOX Output"
+    },
+    {
+      "command-line-flag": "--ltatkreg",
+      "description": "Output type REGISTER_DAT (default RAS2RAS) with --ltaout",
+      "value-key": "[LTATKREG]",
+      "type": "Flag",
+      "id": "ltatkreg",
+      "name": "LTA REGISTER_DAT Output"
+    },
+    {
+      "command-line-flag": "--src",
+      "description": "Specify src image geometry (mov volume for TKREG/register.dat)",
+      "value-key": "[SRC_GEOMETRY]",
+      "type": "File",
+      "optional": true,
+      "id": "src_geometry",
+      "name": "Source Geometry Image"
+    },
+    {
+      "command-line-flag": "--trg",
+      "description": "Specify trg image geometry",
+      "value-key": "[TRG_GEOMETRY]",
+      "type": "File",
+      "optional": true,
+      "id": "trg_geometry",
+      "name": "Target Geometry Image"
+    },
+    {
+      "command-line-flag": "--trgconform",
+      "description": "Conform trg image geometry (COR standard)",
+      "value-key": "[TRG_CONFORM]",
+      "type": "Flag",
+      "id": "trg_conform",
+      "name": "Conform Target Geometry"
+    },
+    {
+      "command-line-flag": "--subject",
+      "description": "Specify subject name (overrides if input has subject name defined)",
+      "value-key": "[SUBJECT_NAME]",
+      "type": "String",
+      "optional": true,
+      "id": "subject_name",
+      "name": "Subject Name"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUT_VOX]",
+      "description": "Output transformed file.",
+      "id": "output_transform_file",
+      "name": "Output Transform File"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

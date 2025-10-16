@@ -1,0 +1,106 @@
+{
+  "name": "eddy_quad",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "QUality Assessment for DMRI",
+  "command-line": "eddy_quad [EDDYBASE] [EDDYINDEX] [EDDYPARAMS] [MASK] [BVALS] [BVECS] [OUTPUT_DIR] [FIELD] [SLSPEC] [VERBOSE]",
+  "inputs": [
+    {
+      "id": "eddyBase",
+      "name": "Eddy base",
+      "description": "Basename (including path) specified when running EDDY",
+      "type": "String",
+      "value-key": "[EDDYBASE]",
+      "optional": false
+    },
+    {
+      "id": "eddyIndex",
+      "name": "Eddy index",
+      "description": "File containing indices for all volumes into acquisition parameters",
+      "type": "File",
+      "value-key": "[EDDYINDEX]",
+      "optional": false,
+      "command-line-flag": "--eddyIdx"
+    },
+    {
+      "id": "eddyParams",
+      "name": "Eddy parameters",
+      "description": "File containing acquisition parameters",
+      "type": "File",
+      "value-key": "[EDDYPARAMS]",
+      "optional": false,
+      "command-line-flag": "--eddyParams"
+    },
+    {
+      "id": "mask",
+      "name": "Binary mask file",
+      "description": "Binary mask file",
+      "type": "File",
+      "value-key": "[MASK]",
+      "optional": false,
+      "command-line-flag": "--mask"
+    },
+    {
+      "id": "bvals",
+      "name": "b-values file",
+      "description": "b-values file",
+      "type": "File",
+      "value-key": "[BVALS]",
+      "optional": false,
+      "command-line-flag": "--bvals"
+    },
+    {
+      "id": "bvecs",
+      "name": "b-vectors file",
+      "description": "b-vectors file - only used when <eddyBase>.eddy_residuals file is present",
+      "type": "File",
+      "value-key": "[BVECS]",
+      "optional": true,
+      "command-line-flag": "--bvecs"
+    },
+    {
+      "id": "output_dir",
+      "name": "Output directory",
+      "description": "Output directory - default = '<eddyBase>.qc'",
+      "type": "String",
+      "value-key": "[OUTPUT_DIR]",
+      "optional": true,
+      "command-line-flag": "--output-dir"
+    },
+    {
+      "id": "field",
+      "name": "Estimated field",
+      "description": "TOPUP estimated field (in Hz)",
+      "type": "File",
+      "value-key": "[FIELD]",
+      "optional": true,
+      "command-line-flag": "--field"
+    },
+    {
+      "id": "slspec",
+      "name": "Slice/group acquisition specification",
+      "description": "Text file specifying slice/group acquisition",
+      "type": "File",
+      "value-key": "[SLSPEC]",
+      "optional": true,
+      "command-line-flag": "--slspec"
+    },
+    {
+      "id": "verbose",
+      "name": "Verbose",
+      "description": "Display debug messages",
+      "type": "Flag",
+      "value-key": "[VERBOSE]",
+      "command-line-flag": "--verbose"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "id": "output_dir_qc",
+      "name": "QC output directory",
+      "description": "Quality control data outputs",
+      "path-template": "[OUTPUT_DIR]"
+    }
+  ],
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

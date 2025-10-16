@@ -1,0 +1,66 @@
+{
+  "name": "prompt_popup",
+  "author": "AFNI Developers",
+  "description": "A command-line tool that pops up a window prompting user interaction with a message and buttons.",
+  "command-line": "prompt_popup [MESSAGE] [MESSAGE_PAUSE] [BUTTONS] [BUTTONS_B] [TIMEOUT] [TIMEOUT_TO]",
+  "inputs": [
+    {
+      "command-line-flag": "-message",
+      "description": "Pops a window prompting the user with MESSAGE. If MESSAGE is '-', it is read from stdin.",
+      "value-key": "[MESSAGE]",
+      "optional": false,
+      "type": "String",
+      "id": "message",
+      "name": "Message"
+    },
+    {
+      "command-line-flag": "-pause",
+      "description": "Same as -message to match the old prompt_user.",
+      "value-key": "[MESSAGE_PAUSE]",
+      "optional": true,
+      "type": "String",
+      "id": "message_pause",
+      "name": "Pause Message"
+    },
+    {
+      "command-line-flag": "-button",
+      "description": "What do you want the buttons to say? You can give up to three -button for three buttons. Returns integer 1, 2, or 3. If there is no -button, there will be one button 'Ok'.",
+      "value-key": "[BUTTONS]",
+      "optional": true,
+      "type": "String",
+      "list": true,
+      "id": "buttons",
+      "name": "Button Labels"
+    },
+    {
+      "command-line-flag": "-b",
+      "description": "Same as -button.",
+      "value-key": "[BUTTONS_B]",
+      "optional": true,
+      "type": "String",
+      "list": true,
+      "id": "buttons_b",
+      "name": "Button Labels (alias)"
+    },
+    {
+      "command-line-flag": "-timeout",
+      "description": "Timeout in seconds of prompt message. Default answer is returned if TT seconds elapse without user input.",
+      "value-key": "[TIMEOUT]",
+      "optional": true,
+      "type": "Number",
+      "id": "timeout",
+      "name": "Timeout in seconds"
+    },
+    {
+      "command-line-flag": "-to",
+      "description": "Same as -timeout TT.",
+      "value-key": "[TIMEOUT_TO]",
+      "optional": true,
+      "type": "Number",
+      "id": "timeout_to",
+      "name": "Timeout in seconds (alias)"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

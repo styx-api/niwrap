@@ -1,0 +1,146 @@
+{
+  "name": "volume-weighted-stats",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -volume-weighted-stats [VOLUME_IN] [WEIGHT_VOLUME] [OPT_SUBVOLUME_SUBVOLUME] [ROI] [OPT_MEAN] [STDEV] [OPT_PERCENTILE_PERCENT] [OPT_SUM] [OPT_SHOW_MAP_NAME]",
+  "description": "Weighted spatial statistics on a volume file.\n\nFor each subvolume of the input, a line of text is printed, resulting from the specified operation.  If -weight-volume is not specified, each voxel's volume is used.  Use -subvolume to only give output for a single subvolume.  If the -roi option is used without -match-maps, then each line will contain as many numbers as there are maps in the ROI file, separated by tab characters.  Exactly one of -mean, -stdev, -percentile or -sum must be specified.\n\nUsing -sum without -weight-volume is equivalent to integrating with respect to volume.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "volume_in",
+      "name": "volume_in",
+      "description": "the input volume",
+      "optional": false,
+      "value-key": "[VOLUME_IN]",
+      "type": "File"
+    },
+    {
+      "id": "weight_volume",
+      "name": "weight_volume",
+      "description": "use weights from a volume file",
+      "type": {
+        "id": "weight_volume",
+        "name": "weight_volume",
+        "description": "use weights from a volume file",
+        "command-line": "-weight-volume [WEIGHT_VOLUME] [OPT_MATCH_MAPS]",
+        "inputs": [
+          {
+            "id": "weight_volume",
+            "name": "weight_volume",
+            "description": "volume file containing the weights",
+            "optional": false,
+            "value-key": "[WEIGHT_VOLUME]",
+            "type": "File"
+          },
+          {
+            "id": "opt_match_maps",
+            "name": "opt_match_maps",
+            "command-line-flag": "-match-maps",
+            "description": "each subvolume of input uses the corresponding subvolume from the weights file",
+            "type": "Flag",
+            "value-key": "[OPT_MATCH_MAPS]"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[WEIGHT_VOLUME]"
+    },
+    {
+      "id": "opt_subvolume_subvolume",
+      "name": "opt_subvolume_subvolume",
+      "command-line-flag": "-subvolume",
+      "description": "only display output for one subvolume: the subvolume number or name",
+      "optional": true,
+      "value-key": "[OPT_SUBVOLUME_SUBVOLUME]",
+      "type": "String"
+    },
+    {
+      "id": "roi",
+      "name": "roi",
+      "description": "only consider data inside an roi",
+      "type": {
+        "id": "roi",
+        "name": "roi",
+        "description": "only consider data inside an roi",
+        "command-line": "-roi [ROI_VOLUME] [OPT_MATCH_MAPS]",
+        "inputs": [
+          {
+            "id": "roi_volume",
+            "name": "roi_volume",
+            "description": "the roi, as a volume file",
+            "optional": false,
+            "value-key": "[ROI_VOLUME]",
+            "type": "File"
+          },
+          {
+            "id": "opt_match_maps",
+            "name": "opt_match_maps",
+            "command-line-flag": "-match-maps",
+            "description": "each subvolume of input uses the corresponding subvolume from the roi file",
+            "type": "Flag",
+            "value-key": "[OPT_MATCH_MAPS]"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[ROI]"
+    },
+    {
+      "id": "opt_mean",
+      "name": "opt_mean",
+      "command-line-flag": "-mean",
+      "description": "compute weighted mean",
+      "type": "Flag",
+      "value-key": "[OPT_MEAN]"
+    },
+    {
+      "id": "stdev",
+      "name": "stdev",
+      "description": "compute weighted standard deviation",
+      "type": {
+        "id": "stdev",
+        "name": "stdev",
+        "description": "compute weighted standard deviation",
+        "command-line": "-stdev [OPT_SAMPLE]",
+        "inputs": [
+          {
+            "id": "opt_sample",
+            "name": "opt_sample",
+            "command-line-flag": "-sample",
+            "description": "estimate population stdev from the sample",
+            "type": "Flag",
+            "value-key": "[OPT_SAMPLE]"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[STDEV]"
+    },
+    {
+      "id": "opt_percentile_percent",
+      "name": "opt_percentile_percent",
+      "command-line-flag": "-percentile",
+      "description": "compute weighted percentile: the percentile to find, must be between 0 and 100",
+      "optional": true,
+      "value-key": "[OPT_PERCENTILE_PERCENT]",
+      "type": "Number",
+      "integer": false
+    },
+    {
+      "id": "opt_sum",
+      "name": "opt_sum",
+      "command-line-flag": "-sum",
+      "description": "compute weighted sum",
+      "type": "Flag",
+      "value-key": "[OPT_SUM]"
+    },
+    {
+      "id": "opt_show_map_name",
+      "name": "opt_show_map_name",
+      "command-line-flag": "-show-map-name",
+      "description": "print map index and name before each output",
+      "type": "Flag",
+      "value-key": "[OPT_SHOW_MAP_NAME]"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

@@ -1,0 +1,95 @@
+{
+  "name": "mris_curvature2image",
+  "description": "Tool to convert surface curvature data to an image using FreeSurfer.",
+  "command-line": "mris_curvature2image [SURFACE] [MASK] [OUTPUT_OVERLAY] [OUTPUT_DISTANCE] [OVERLAY] [LABEL] [INVERT_FLAG] [RADIUS]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "-s",
+      "description": "Input surface file.",
+      "value-key": "[SURFACE]",
+      "type": "File",
+      "id": "surface",
+      "name": "Surface File",
+      "optional": false
+    },
+    {
+      "command-line-flag": "-m",
+      "description": "Input mask file.",
+      "value-key": "[MASK]",
+      "type": "File",
+      "id": "mask",
+      "name": "Mask File",
+      "optional": false
+    },
+    {
+      "command-line-flag": "-o",
+      "description": "Output overlay image file.",
+      "value-key": "[OUTPUT_OVERLAY]",
+      "type": "String",
+      "id": "output_overlay",
+      "name": "Output Overlay Image",
+      "optional": false
+    },
+    {
+      "command-line-flag": "-d",
+      "description": "Output distance image file.",
+      "value-key": "[OUTPUT_DISTANCE]",
+      "type": "String",
+      "id": "output_distance",
+      "name": "Output Distance Image",
+      "optional": false
+    },
+    {
+      "command-line-flag": "-c",
+      "description": "Overlay file.",
+      "value-key": "[OVERLAY]",
+      "type": "File",
+      "id": "overlay",
+      "name": "Overlay File",
+      "optional": false
+    },
+    {
+      "command-line-flag": "-l",
+      "description": "Label file.",
+      "value-key": "[LABEL]",
+      "type": "File",
+      "id": "label",
+      "name": "Label File",
+      "optional": false
+    },
+    {
+      "command-line-flag": "-inv",
+      "description": "Flag to invert the curvature values.",
+      "value-key": "[INVERT_FLAG]",
+      "type": "Flag",
+      "id": "invert_flag",
+      "name": "Invert Flag"
+    },
+    {
+      "command-line-flag": "-r",
+      "description": "Radius value for processing.",
+      "value-key": "[RADIUS]",
+      "type": "Number",
+      "id": "radius",
+      "name": "Radius",
+      "optional": false
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_OVERLAY]",
+      "description": "Generated overlay image file.",
+      "id": "output_overlay_img",
+      "name": "Output Overlay Image File"
+    },
+    {
+      "path-template": "[OUTPUT_DISTANCE]",
+      "description": "Generated distance image file.",
+      "id": "output_distance_img",
+      "name": "Output Distance Image File"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

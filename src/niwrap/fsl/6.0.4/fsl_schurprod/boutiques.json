@@ -1,0 +1,87 @@
+{
+  "name": "fsl_schurprod",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Generates element-wise matrix products or product of matrices against vectors from 4D data",
+  "command-line": "fsl_schurprod [INPUT_FILE] [DESIGN_FILE] [OUTPUT_FILE] [REGRESSION_FLAG] [INDEX] [MASK_FILE] [VERBOSE_FLAG] [HELP_FLAG]",
+  "inputs": [
+    {
+      "description": "Input file name (4D image file)",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input file",
+      "command-line-flag": "-i"
+    },
+    {
+      "description": "ASCII text matrix of time series to be correlated",
+      "value-key": "[DESIGN_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "design_file",
+      "name": "Design file",
+      "command-line-flag": "-d"
+    },
+    {
+      "description": "Output file base name",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_file",
+      "name": "Output file",
+      "command-line-flag": "-o"
+    },
+    {
+      "command-line-flag": "-r",
+      "description": "Use regression rather than correlation",
+      "value-key": "[REGRESSION_FLAG]",
+      "type": "Flag",
+      "id": "regression_flag",
+      "name": "Regression flag"
+    },
+    {
+      "command-line-flag": "-i",
+      "description": "Index of column in the design to be used for matrix product calculation",
+      "value-key": "[INDEX]",
+      "type": "Number",
+      "optional": true,
+      "id": "index",
+      "name": "Index"
+    },
+    {
+      "command-line-flag": "-m",
+      "description": "Mask image file name",
+      "value-key": "[MASK_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "mask_file",
+      "name": "Mask file"
+    },
+    {
+      "command-line-flag": "-v",
+      "description": "Switch on diagnostic messages",
+      "value-key": "[VERBOSE_FLAG]",
+      "type": "Flag",
+      "id": "verbose_flag",
+      "name": "Verbose flag"
+    },
+    {
+      "command-line-flag": "-h",
+      "description": "Display this help text",
+      "value-key": "[HELP_FLAG]",
+      "type": "Flag",
+      "id": "help_flag",
+      "name": "Help flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILE].nii.gz",
+      "description": "Generated matrix product output file",
+      "id": "output_matrix_product",
+      "name": "Output matrix product file"
+    }
+  ],
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

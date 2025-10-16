@@ -1,0 +1,153 @@
+{
+  "name": "mris_autodet_gwstats",
+  "description": "Manages the computation of the gray/white statistics used to place the white and pial surfaces.",
+  "command-line": "mris_autodet_gwstats [OUTPUT_FILE] [T1W_VOLUME] [WM_VOLUME] [SURF] [LHSURF] [RHSURF] [SUBJECT] [SUBJECTS_DIR] [MIN_BORDER_WHITE] [MAX_BORDER_WHITE] [MIN_GRAY_AT_WHITE_BORDER] [MAX_GRAY] [MAX_GRAY_AT_CSF_BORDER] [MIN_GRAY_AT_CSF_BORDER] [MAX_CSF]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--o",
+      "description": "Output text file with stats",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_file",
+      "name": "Output file"
+    },
+    {
+      "command-line-flag": "--i",
+      "description": "T1 weighted volume (usually brain.finalsurfs.mgz)",
+      "value-key": "[T1W_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "t1w_volume",
+      "name": "T1 weighted volume"
+    },
+    {
+      "command-line-flag": "--wm",
+      "description": "White matter volume (usually wm.mgz)",
+      "value-key": "[WM_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "wm_volume",
+      "name": "White matter volume"
+    },
+    {
+      "command-line-flag": "--surf",
+      "description": "Surface (usually ?h.orig)",
+      "value-key": "[SURF]",
+      "type": "File",
+      "optional": false,
+      "id": "surf",
+      "name": "Surface"
+    },
+    {
+      "command-line-flag": "--lh-surf",
+      "description": "Left hemisphere surface",
+      "value-key": "[LHSURF]",
+      "type": "File",
+      "optional": true,
+      "id": "lhsurf",
+      "name": "Left hemisphere surface"
+    },
+    {
+      "command-line-flag": "--rh-surf",
+      "description": "Right hemisphere surface",
+      "value-key": "[RHSURF]",
+      "type": "File",
+      "optional": true,
+      "id": "rhsurf",
+      "name": "Right hemisphere surface"
+    },
+    {
+      "command-line-flag": "--s",
+      "description": "Subject: reads in brain.finalsurfs.mgz, wm.mgz, lh.orig and rh.orig",
+      "value-key": "[SUBJECT]",
+      "type": "String",
+      "optional": false,
+      "id": "subject",
+      "name": "Subject"
+    },
+    {
+      "command-line-flag": "--sd",
+      "description": "SUBJECTS_DIR",
+      "value-key": "[SUBJECTS_DIR]",
+      "type": "String",
+      "optional": false,
+      "id": "subjects_dir",
+      "name": "Subjects directory"
+    },
+    {
+      "command-line-flag": "--min_border_white",
+      "description": "Minimum border white (MinBW)",
+      "value-key": "[MIN_BORDER_WHITE]",
+      "type": "Number",
+      "optional": true,
+      "id": "min_border_white",
+      "name": "Min border white"
+    },
+    {
+      "command-line-flag": "--max_border_white",
+      "description": "Maximum border white (MaxBW)",
+      "value-key": "[MAX_BORDER_WHITE]",
+      "type": "Number",
+      "optional": true,
+      "id": "max_border_white",
+      "name": "Max border white"
+    },
+    {
+      "command-line-flag": "--min_gray_at_white_border",
+      "description": "Minimum gray at white border (MinGWB)",
+      "value-key": "[MIN_GRAY_AT_WHITE_BORDER]",
+      "type": "Number",
+      "optional": true,
+      "id": "min_gray_at_white_border",
+      "name": "Min gray at white border"
+    },
+    {
+      "command-line-flag": "--max_gray",
+      "description": "Maximum gray (MaxG)",
+      "value-key": "[MAX_GRAY]",
+      "type": "Number",
+      "optional": true,
+      "id": "max_gray",
+      "name": "Max gray"
+    },
+    {
+      "command-line-flag": "--max_gray_at_csf_border",
+      "description": "Maximum gray at CSF border (MaxGCSFB)",
+      "value-key": "[MAX_GRAY_AT_CSF_BORDER]",
+      "type": "Number",
+      "optional": true,
+      "id": "max_gray_at_csf_border",
+      "name": "Max gray at CSF border"
+    },
+    {
+      "command-line-flag": "--min_gray_at_csf_border",
+      "description": "Minimum gray at CSF border (MinGCSFB)",
+      "value-key": "[MIN_GRAY_AT_CSF_BORDER]",
+      "type": "Number",
+      "optional": true,
+      "id": "min_gray_at_csf_border",
+      "name": "Min gray at CSF border"
+    },
+    {
+      "command-line-flag": "--max_csf",
+      "description": "Maximum CSF (MaxCSF)",
+      "value-key": "[MAX_CSF]",
+      "type": "Number",
+      "optional": true,
+      "id": "max_csf",
+      "name": "Max CSF"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILE]",
+      "description": "Output text file with gray/white statistics",
+      "id": "output_file",
+      "name": "Output statistics file"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

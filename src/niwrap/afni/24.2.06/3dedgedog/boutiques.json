@@ -1,0 +1,146 @@
+{
+  "name": "3dedgedog",
+  "author": "AFNI Developers",
+  "description": "Calculate edges in an image using the Difference of Gaussians (DOG) method with extensions/tweaks of the Marr-Hildreth algorithm.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dedgedog [INPUT] [PREFIX] [MASK] [AUTOMASK] [SIGMA_RAD] [SIGMA_NVOX] [RATIO_SIGMA] [OUTPUT_INTERMED] [EDGE_BND_NN] [EDGE_BND_SIDE] [EDGE_BND_SCALE] [ONLY2D]",
+  "inputs": [
+    {
+      "description": "Input dataset",
+      "value-key": "[INPUT]",
+      "type": "File",
+      "optional": false,
+      "id": "input",
+      "name": "Input dataset"
+    },
+    {
+      "description": "Output prefix name",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "prefix",
+      "name": "Output prefix"
+    },
+    {
+      "command-line-flag": "-mask",
+      "description": "Mask dataset applied after Euclidean Distance Transform calculation",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "mask",
+      "name": "Mask dataset"
+    },
+    {
+      "command-line-flag": "-automask",
+      "description": "Calculate mask automatically. Optionally, you can provide an integer X to dilate the initial automask X times (e.g., -automask+X)",
+      "value-key": "[AUTOMASK]",
+      "type": "String",
+      "optional": true,
+      "id": "automask",
+      "name": "Automask"
+    },
+    {
+      "command-line-flag": "-sigma_rad",
+      "description": "Radius for 'inner' Gaussian, in mm; must be greater than 0 (default: 1.40)",
+      "value-key": "[SIGMA_RAD]",
+      "type": "Number",
+      "optional": true,
+      "id": "sigma_rad",
+      "name": "Sigma radius"
+    },
+    {
+      "command-line-flag": "-sigma_nvox",
+      "description": "Define radius for 'inner' Gaussian by providing a multiplicative factor for voxel edge length greater than 0 (default: use sigma_rad)",
+      "value-key": "[SIGMA_NVOX]",
+      "type": "Number",
+      "optional": true,
+      "id": "sigma_nvox",
+      "name": "Sigma number of voxels"
+    },
+    {
+      "command-line-flag": "-ratio_sigma",
+      "description": "Ratio of inner and outer Gaussian sigma values (default: 1.40)",
+      "value-key": "[RATIO_SIGMA]",
+      "type": "Number",
+      "optional": true,
+      "id": "ratio_sigma",
+      "name": "Ratio sigma"
+    },
+    {
+      "command-line-flag": "-output_intermed",
+      "description": "Output intermediate datasets: DOG, EDT2, BLURS (default: not output)",
+      "value-key": "[OUTPUT_INTERMED]",
+      "type": "Flag",
+      "id": "output_intermed",
+      "name": "Output intermediates flag"
+    },
+    {
+      "command-line-flag": "-edge_bnd_NN",
+      "description": "Nearest neighbor (NN) value for connectedness of boundaries; must be 1 (face only), 2 (face+edge), or 3 (face+edge+node) (default: 1)",
+      "value-key": "[EDGE_BND_NN]",
+      "type": "Number",
+      "optional": true,
+      "id": "edge_bnd_nn",
+      "name": "Edge boundary NN"
+    },
+    {
+      "command-line-flag": "-edge_bnd_side",
+      "description": "Specify boundary layer to use: NEG, POS, BOTH, BOTH_SIGN (default: NEG)",
+      "value-key": "[EDGE_BND_SIDE]",
+      "type": "String",
+      "optional": true,
+      "id": "edge_bnd_side",
+      "name": "Edge boundary side"
+    },
+    {
+      "command-line-flag": "-edge_bnd_scale",
+      "description": "Scale edge values to have relative magnitude between 0 and 100 (default: edge locations have value=1)",
+      "value-key": "[EDGE_BND_SCALE]",
+      "type": "Flag",
+      "id": "edge_bnd_scale",
+      "name": "Edge boundary scale flag"
+    },
+    {
+      "command-line-flag": "-only2D",
+      "description": "Calculate edges in 2D per plane specified by SLI: 'axi', 'cor', 'sag'",
+      "value-key": "[ONLY2D]",
+      "type": "String",
+      "optional": true,
+      "id": "only2d",
+      "name": "Only 2D slice"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX]_edge.nii.gz",
+      "description": "Output edge dataset",
+      "id": "out_edge",
+      "name": "Output edge dataset"
+    },
+    {
+      "path-template": "[PREFIX]_dog.nii.gz",
+      "description": "Output difference of Gaussian dataset",
+      "id": "out_dog",
+      "name": "Output DOG dataset"
+    },
+    {
+      "path-template": "[PREFIX]_edt2.nii.gz",
+      "description": "Output Euclidean Distance Transform squared dataset",
+      "id": "out_edt2",
+      "name": "Output EDT2 dataset"
+    },
+    {
+      "path-template": "[PREFIX]_blur_inner.nii.gz",
+      "description": "Output inner Gaussian blurred dataset",
+      "id": "out_blur_inner",
+      "name": "Output inner blur dataset"
+    },
+    {
+      "path-template": "[PREFIX]_blur_outer.nii.gz",
+      "description": "Output outer Gaussian blurred dataset",
+      "id": "out_blur_outer",
+      "name": "Output outer blur dataset"
+    }
+  ]
+}

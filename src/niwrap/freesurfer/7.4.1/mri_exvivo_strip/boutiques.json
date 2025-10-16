@@ -1,0 +1,136 @@
+{
+  "name": "mri_exvivo_strip",
+  "description": "Tool for processing MRI volumes for ex vivo data",
+  "command-line": "mri_exvivo_strip [INVOL] [OUTVOL] [HEMI] [PRED] [NORM] [FV] [UTHRESH] [BORDER] [MULTICHANNEL] [MODEL] [WTS] [GPU]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input MRI volume",
+      "value-key": "[INVOL]",
+      "type": "File",
+      "command-line-flag": "-i",
+      "optional": false,
+      "id": "invol",
+      "name": "Input Volume"
+    },
+    {
+      "description": "Output MRI volume",
+      "value-key": "[OUTVOL]",
+      "type": "String",
+      "command-line-flag": "-o",
+      "optional": false,
+      "id": "outvol",
+      "name": "Output Volume"
+    },
+    {
+      "description": "Hemi to process",
+      "value-key": "[HEMI]",
+      "type": "String",
+      "command-line-flag": "--hemi",
+      "optional": false,
+      "id": "hemi",
+      "name": "Hemi"
+    },
+    {
+      "description": "Write prediction volume",
+      "value-key": "[PRED]",
+      "type": "File",
+      "command-line-flag": "--pred",
+      "optional": true,
+      "id": "pred",
+      "name": "Prediction Volume"
+    },
+    {
+      "description": "Write normalized volume",
+      "value-key": "[NORM]",
+      "type": "File",
+      "command-line-flag": "--norm",
+      "optional": true,
+      "id": "norm",
+      "name": "Normalized Volume"
+    },
+    {
+      "description": "Bring up freeview to show results",
+      "value-key": "[FV]",
+      "type": "Flag",
+      "command-line-flag": "--fv",
+      "id": "fv",
+      "name": "FreeView Flag"
+    },
+    {
+      "description": "Specify threshold to erase above",
+      "value-key": "[UTHRESH]",
+      "type": "Number",
+      "command-line-flag": "--uthresh",
+      "optional": true,
+      "id": "uthresh",
+      "name": "Threshold"
+    },
+    {
+      "description": "Number of border voxels to set threshold at",
+      "value-key": "[BORDER]",
+      "type": "Number",
+      "command-line-flag": "--border",
+      "optional": true,
+      "id": "border",
+      "name": "Border"
+    },
+    {
+      "description": "Specify that data has multiple channels",
+      "value-key": "[MULTICHANNEL]",
+      "type": "Flag",
+      "command-line-flag": "--multichannel",
+      "id": "multichannel",
+      "name": "Multichannel Flag"
+    },
+    {
+      "description": "Use alternative model file",
+      "value-key": "[MODEL]",
+      "type": "File",
+      "command-line-flag": "--model",
+      "optional": true,
+      "id": "model",
+      "name": "Model File"
+    },
+    {
+      "description": "Weight filename",
+      "value-key": "[WTS]",
+      "type": "File",
+      "command-line-flag": "--wts",
+      "optional": true,
+      "id": "wts",
+      "name": "Weights File"
+    },
+    {
+      "description": "GPU number - if not supplied, CPU is used",
+      "value-key": "[GPU]",
+      "type": "Number",
+      "command-line-flag": "--gpu",
+      "optional": true,
+      "id": "gpu",
+      "name": "GPU Number"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTVOL]",
+      "description": "Processed output MRI volume",
+      "id": "output_file",
+      "name": "Output File"
+    },
+    {
+      "path-template": "[PRED]",
+      "description": "Prediction volume if specified",
+      "id": "prediction_output",
+      "name": "Prediction Volume File"
+    },
+    {
+      "path-template": "[NORM]",
+      "description": "Normalized volume if specified",
+      "id": "normalized_output",
+      "name": "Normalized Volume File"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

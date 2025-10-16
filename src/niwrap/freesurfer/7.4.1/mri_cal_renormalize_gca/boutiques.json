@@ -1,0 +1,58 @@
+{
+  "name": "mri_cal_renormalize_gca",
+  "description": "Tool for atlas renormalization in FreeSurfer",
+  "command-line": "mri_cal_renormalize_gca [TIMEPOINT_FILE] [IN_VOL] [INPUT_ATLAS] [TRANSFORM_FILE] [OUTPUT_ATLAS]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Longitudinal time point file",
+      "value-key": "[TIMEPOINT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "timepoint_file",
+      "name": "Timepoint file"
+    },
+    {
+      "description": "Input volume",
+      "value-key": "[IN_VOL]",
+      "type": "File",
+      "optional": false,
+      "id": "in_vol",
+      "name": "Input volume"
+    },
+    {
+      "description": "Input atlas",
+      "value-key": "[INPUT_ATLAS]",
+      "type": "File",
+      "optional": false,
+      "id": "input_atlas",
+      "name": "Input atlas"
+    },
+    {
+      "description": "Transform file",
+      "value-key": "[TRANSFORM_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "transform_file",
+      "name": "Transform file"
+    },
+    {
+      "description": "Output atlas",
+      "value-key": "[OUTPUT_ATLAS]",
+      "type": "String",
+      "optional": false,
+      "id": "output_atlas",
+      "name": "Output atlas"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_ATLAS]",
+      "description": "Renormalized output atlas",
+      "id": "output_atlas_file",
+      "name": "Output atlas file"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

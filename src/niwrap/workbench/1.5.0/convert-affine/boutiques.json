@@ -1,0 +1,169 @@
+{
+  "name": "convert-affine",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -convert-affine [FROM_WORLD] [OPT_FROM_ITK_INPUT] [FROM_FLIRT] [TO_WORLD] [OPT_TO_ITK_OUTPUT] [TO_FLIRT]",
+  "description": "Convert an affine file between conventions.\n\nNIFTI world matrices can be used directly on mm coordinates via matrix multiplication, they use the NIFTI coordinate system, that is, positive X is right, positive Y is anterior, and positive Z is superior.  Note that wb_command assumes that world matrices transform source coordinates to target coordinates, while other tools may use affines that transform target coordinates to source coordinates.\n\nThe ITK format is used by ANTS.\n\nYou must specify exactly one -from option, but you may specify multiple -to options, and -to-flirt may be specified more than once.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "from_world",
+      "name": "from_world",
+      "description": "input is a NIFTI 'world' affine",
+      "type": {
+        "id": "from_world",
+        "name": "from_world",
+        "description": "input is a NIFTI 'world' affine",
+        "command-line": "-from-world [INPUT] [OPT_INVERSE]",
+        "inputs": [
+          {
+            "id": "input",
+            "name": "input",
+            "description": "the input affine",
+            "optional": false,
+            "value-key": "[INPUT]",
+            "type": "String"
+          },
+          {
+            "id": "opt_inverse",
+            "name": "opt_inverse",
+            "command-line-flag": "-inverse",
+            "description": "for files that use 'target to source' convention",
+            "type": "Flag",
+            "value-key": "[OPT_INVERSE]"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[FROM_WORLD]"
+    },
+    {
+      "id": "opt_from_itk_input",
+      "name": "opt_from_itk_input",
+      "command-line-flag": "-from-itk",
+      "description": "input is an ITK matrix: the input affine",
+      "optional": true,
+      "value-key": "[OPT_FROM_ITK_INPUT]",
+      "type": "String"
+    },
+    {
+      "id": "from_flirt",
+      "name": "from_flirt",
+      "description": "input is a flirt matrix",
+      "type": {
+        "id": "from_flirt",
+        "name": "from_flirt",
+        "description": "input is a flirt matrix",
+        "command-line": "-from-flirt [INPUT] [SOURCE_VOLUME] [TARGET_VOLUME]",
+        "inputs": [
+          {
+            "id": "input",
+            "name": "input",
+            "description": "the input affine",
+            "optional": false,
+            "value-key": "[INPUT]",
+            "type": "String"
+          },
+          {
+            "id": "source_volume",
+            "name": "source_volume",
+            "description": "the source volume used when generating the input affine",
+            "optional": false,
+            "value-key": "[SOURCE_VOLUME]",
+            "type": "String"
+          },
+          {
+            "id": "target_volume",
+            "name": "target_volume",
+            "description": "the target volume used when generating the input affine",
+            "optional": false,
+            "value-key": "[TARGET_VOLUME]",
+            "type": "String"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[FROM_FLIRT]"
+    },
+    {
+      "id": "to_world",
+      "name": "to_world",
+      "description": "write output as a NIFTI 'world' affine",
+      "type": {
+        "id": "to_world",
+        "name": "to_world",
+        "description": "write output as a NIFTI 'world' affine",
+        "command-line": "-to-world [OUTPUT] [OPT_INVERSE]",
+        "inputs": [
+          {
+            "id": "output",
+            "name": "output",
+            "description": "output - the output affine",
+            "optional": false,
+            "value-key": "[OUTPUT]",
+            "type": "String"
+          },
+          {
+            "id": "opt_inverse",
+            "name": "opt_inverse",
+            "command-line-flag": "-inverse",
+            "description": "write file using 'target to source' convention",
+            "type": "Flag",
+            "value-key": "[OPT_INVERSE]"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[TO_WORLD]"
+    },
+    {
+      "id": "opt_to_itk_output",
+      "name": "opt_to_itk_output",
+      "command-line-flag": "-to-itk",
+      "description": "write output as an ITK affine: output - the output affine",
+      "optional": true,
+      "value-key": "[OPT_TO_ITK_OUTPUT]",
+      "type": "String"
+    },
+    {
+      "id": "to_flirt",
+      "name": "to_flirt",
+      "description": "write output as a flirt matrix",
+      "type": {
+        "id": "to_flirt",
+        "name": "to_flirt",
+        "description": "write output as a flirt matrix",
+        "command-line": "-to-flirt [OUTPUT] [SOURCE_VOLUME] [TARGET_VOLUME]",
+        "inputs": [
+          {
+            "id": "output",
+            "name": "output",
+            "description": "output - the output affine",
+            "optional": false,
+            "value-key": "[OUTPUT]",
+            "type": "String"
+          },
+          {
+            "id": "source_volume",
+            "name": "source_volume",
+            "description": "the volume you want to apply the transform to",
+            "optional": false,
+            "value-key": "[SOURCE_VOLUME]",
+            "type": "String"
+          },
+          {
+            "id": "target_volume",
+            "name": "target_volume",
+            "description": "the target space you want the transformed volume to match",
+            "optional": false,
+            "value-key": "[TARGET_VOLUME]",
+            "type": "String"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[TO_FLIRT]",
+      "list": true
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

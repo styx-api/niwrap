@@ -1,0 +1,44 @@
+{
+  "name": "@djunct_anonymize",
+  "author": "AFNI Developers",
+  "description": "Helper program to anonymize files",
+  "command-line": "@djunct_anonymize [INPUT] [ADD_NOTE] [COPY_TO] [OVERWRITE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input dataset",
+      "value-key": "[INPUT]",
+      "type": "File",
+      "optional": false,
+      "id": "input",
+      "name": "Input file"
+    },
+    {
+      "command-line-flag": "-add_note",
+      "description": "Add a note to the history after anonymizing",
+      "value-key": "[ADD_NOTE]",
+      "type": "String",
+      "optional": true,
+      "id": "add_note",
+      "name": "Add Note"
+    },
+    {
+      "command-line-flag": "-copy_to",
+      "description": "Copy the input to a new file, which is then anonymized",
+      "value-key": "[COPY_TO]",
+      "type": "File",
+      "optional": true,
+      "id": "copy_to",
+      "name": "Copy To"
+    },
+    {
+      "command-line-flag": "-overwrite",
+      "description": "Overwrite the existing file if using -copy_to",
+      "value-key": "[OVERWRITE]",
+      "type": "Flag",
+      "id": "overwrite",
+      "name": "Overwrite"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

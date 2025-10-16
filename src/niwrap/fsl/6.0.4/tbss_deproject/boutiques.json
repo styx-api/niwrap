@@ -1,0 +1,49 @@
+{
+  "name": "tbss_deproject",
+  "description": "Tool to deproject images from skeleton space to final space",
+  "command-line": "tbss_deproject [SKELETON_SPACE_INPUT_IMAGE] [FINAL_SPACE_OPTION] [INDEX_IMAGE_FLAG]",
+  "inputs": [
+    {
+      "description": "Skeleton space input image.",
+      "value-key": "[SKELETON_SPACE_INPUT_IMAGE]",
+      "type": "File",
+      "optional": false,
+      "id": "skeleton_space_input_image",
+      "name": "Skeleton space input image"
+    },
+    {
+      "description": "Final space option.",
+      "value-key": "[FINAL_SPACE_OPTION]",
+      "type": "Number",
+      "integer": true,
+      "optional": false,
+      "id": "final_space_option",
+      "name": "Final space option"
+    },
+    {
+      "command-line-flag": "-n",
+      "description": "Assume that the skeleton space input image contains one or more integer index numbers and ensure that those exact values are deprojected without being changed by interpolations.",
+      "value-key": "[INDEX_IMAGE_FLAG]",
+      "type": "Flag",
+      "id": "index_image_flag",
+      "name": "Index image flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "stats/[SKELETON_SPACE_INPUT_IMAGE]",
+      "description": "Output in stats directory.",
+      "id": "stats_output",
+      "name": "Stats output"
+    },
+    {
+      "path-template": "FA/[SKELETON_SPACE_INPUT_IMAGE]",
+      "description": "Output in FA directory.",
+      "id": "fa_output",
+      "name": "FA output"
+    }
+  ],
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

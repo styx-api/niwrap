@@ -1,0 +1,50 @@
+{
+  "name": "3dABoverlap",
+  "author": "AFNI Developers",
+  "description": "Counts various metrics about how the automasks of datasets A and B overlap or don't overlap",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dABoverlap [DATASET_A] [DATASET_B] [NO_AUTOMASK] [QUIET] [VERBOSE]",
+  "inputs": [
+    {
+      "description": "First input dataset",
+      "value-key": "[DATASET_A]",
+      "type": "File",
+      "optional": false,
+      "id": "dataset_a",
+      "name": "Dataset A"
+    },
+    {
+      "description": "Second input dataset",
+      "value-key": "[DATASET_B]",
+      "type": "File",
+      "optional": false,
+      "id": "dataset_b",
+      "name": "Dataset B"
+    },
+    {
+      "command-line-flag": "-no_automask",
+      "description": "Consider input datasets as masks (automask does not work on mask datasets)",
+      "value-key": "[NO_AUTOMASK]",
+      "type": "Flag",
+      "id": "no_automask",
+      "name": "No automask"
+    },
+    {
+      "command-line-flag": "-quiet",
+      "description": "Be as quiet as possible (without being entirely mute)",
+      "value-key": "[QUIET]",
+      "type": "Flag",
+      "id": "quiet",
+      "name": "Quiet mode"
+    },
+    {
+      "command-line-flag": "-verb",
+      "description": "Print out some progress reports (to stderr)",
+      "value-key": "[VERBOSE]",
+      "type": "Flag",
+      "id": "verbose",
+      "name": "Verbose mode"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

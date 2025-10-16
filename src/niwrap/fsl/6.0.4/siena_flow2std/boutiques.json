@@ -1,0 +1,43 @@
+{
+  "name": "siena_flow2std",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Convert edge flow to standard space",
+  "command-line": "siena_flow2std [FILEROOT1] [FILEROOT2] [SIGMA] [DEBUG_FLAG]",
+  "inputs": [
+    {
+      "description": "Input file root 1",
+      "value-key": "[FILEROOT1]",
+      "type": "String",
+      "optional": false,
+      "id": "fileroot1",
+      "name": "Input file root 1"
+    },
+    {
+      "description": "Input file root 2",
+      "value-key": "[FILEROOT2]",
+      "type": "String",
+      "optional": false,
+      "id": "fileroot2",
+      "name": "Input file root 2"
+    },
+    {
+      "command-line-flag": "-s",
+      "description": "Spatial smoothing of standard-space edge-flow image, sigma (HWHM) in mm (default=5)",
+      "value-key": "[SIGMA]",
+      "type": "Number",
+      "optional": true,
+      "id": "sigma",
+      "name": "Spatial smoothing sigma"
+    },
+    {
+      "command-line-flag": "-d",
+      "description": "Debug (don't delete intermediate files)",
+      "value-key": "[DEBUG_FLAG]",
+      "type": "Flag",
+      "id": "debug_flag",
+      "name": "Debug Flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

@@ -1,0 +1,102 @@
+{
+  "name": "uber_skel.py",
+  "author": "AFNI Developers",
+  "description": "Sample uber processing program for initializing user and control variables, with options for both GUI and non-GUI modes.",
+  "command-line": "uber_skel.py [QT_OPTIONS] [NO_GUI_FLAG] [PRINT_SCRIPT] [SAVE_SCRIPT] [USER_VAR] [HELP_HOWTO_PROGRAM] [HELP] [HELP_GUI] [HISTORY] [SHOW_VALID_OPTS] [VERSION]",
+  "inputs": [
+    {
+      "command-line-flag": "-qt_opts",
+      "description": "Pass PyQt4 options directly to the GUI",
+      "value-key": "[QT_OPTIONS]",
+      "type": "String",
+      "optional": true,
+      "id": "qt_options",
+      "name": "Qt Options"
+    },
+    {
+      "command-line-flag": "-no_gui",
+      "description": "Run without the GUI",
+      "value-key": "[NO_GUI_FLAG]",
+      "type": "Flag",
+      "id": "no_gui_flag",
+      "name": "No GUI Flag"
+    },
+    {
+      "command-line-flag": "-print_script",
+      "description": "Print the script",
+      "value-key": "[PRINT_SCRIPT]",
+      "type": "Flag",
+      "id": "print_script",
+      "name": "Print Script Flag"
+    },
+    {
+      "command-line-flag": "-save_script",
+      "description": "Save the script",
+      "value-key": "[SAVE_SCRIPT]",
+      "type": "String",
+      "optional": true,
+      "id": "save_script",
+      "name": "Save Script"
+    },
+    {
+      "command-line-flag": "-uvar",
+      "description": "Initialize user variables. Usage: -uvar <name> <value>",
+      "value-key": "[USER_VAR]",
+      "type": "String",
+      "optional": true,
+      "id": "user_var",
+      "name": "User Variable",
+      "list": true
+    },
+    {
+      "command-line-flag": "-help_howto_program",
+      "description": "Show programming comments",
+      "value-key": "[HELP_HOWTO_PROGRAM]",
+      "type": "Flag",
+      "id": "help_howto_program",
+      "name": "Help How to Program Flag"
+    },
+    {
+      "command-line-flag": "-help",
+      "description": "Show help",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help Flag"
+    },
+    {
+      "command-line-flag": "-help_gui",
+      "description": "Show help for the GUI",
+      "value-key": "[HELP_GUI]",
+      "type": "Flag",
+      "id": "help_gui",
+      "name": "Help GUI Flag"
+    },
+    {
+      "command-line-flag": "-hist",
+      "description": "Show history",
+      "value-key": "[HISTORY]",
+      "type": "Flag",
+      "id": "history",
+      "name": "History Flag"
+    },
+    {
+      "command-line-flag": "-show_valid_opts",
+      "description": "Show valid options",
+      "value-key": "[SHOW_VALID_OPTS]",
+      "type": "Flag",
+      "id": "show_valid_opts",
+      "name": "Show Valid Options Flag"
+    },
+    {
+      "command-line-flag": "-ver",
+      "description": "Show version",
+      "value-key": "[VERSION]",
+      "type": "Flag",
+      "id": "version",
+      "name": "Version Flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

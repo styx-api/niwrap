@@ -1,0 +1,66 @@
+{
+  "name": "SurfRetinoMap",
+  "author": "AFNI Developers",
+  "description": "Tool for retinotopic mapping on cortical surfaces.",
+  "command-line": "SurfRetinoMap [SURFACE] [POLAR] [ECCENTRICITY] [PREFIX] [NODE_DEBUG]",
+  "inputs": [
+    {
+      "description": "Surface on which distances are computed. See 'Specifying input surfaces' section for syntax.",
+      "value-key": "[SURFACE]",
+      "type": "String",
+      "optional": false,
+      "id": "surface",
+      "name": "Input Surface"
+    },
+    {
+      "description": "Retinotopic dataset: polar angle dataset.",
+      "value-key": "[POLAR]",
+      "type": "String",
+      "optional": false,
+      "id": "polar",
+      "name": "Polar Angle Dataset"
+    },
+    {
+      "description": "Retinotopic dataset: eccentricity angle dataset.",
+      "value-key": "[ECCENTRICITY]",
+      "type": "String",
+      "optional": false,
+      "id": "eccentricity",
+      "name": "Eccentricity Angle Dataset"
+    },
+    {
+      "command-line-flag": "--prefix",
+      "description": "Prefix for output datasets.",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Output Prefix"
+    },
+    {
+      "command-line-flag": "--node_dbg",
+      "description": "Index of node number for which debugging information is output.",
+      "value-key": "[NODE_DEBUG]",
+      "type": "Number",
+      "optional": true,
+      "id": "node_debug",
+      "name": "Node Debugging Index"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX]_VFR.nii.gz",
+      "description": "Output Visual Field Ratio (VFR) dataset.",
+      "id": "vfr_output",
+      "name": "VFR Output"
+    },
+    {
+      "path-template": "[PREFIX]_threshold_max.nii.gz",
+      "description": "Maximum threshold at each node in the input datasets.",
+      "id": "threshold_max_output",
+      "name": "Threshold Max Output"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

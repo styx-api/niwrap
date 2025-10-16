@@ -1,0 +1,107 @@
+{
+  "name": "bblabel",
+  "author": "FreeSurfer Developers",
+  "description": "Applies a bounding box to a label, copying only the label points within the specified box to the output.",
+  "command-line": "bblabel [LABELFILE] [XMIN] [XMAX] [YMIN] [YMAX] [ZMIN] [ZMAX] [OUTLABELFILE] [DEBUG] [UMASK]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--l",
+      "description": "Input label file.",
+      "value-key": "[LABELFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "labelfile",
+      "name": "Label file"
+    },
+    {
+      "command-line-flag": "--xmin",
+      "description": "Minimum x-coordinate for bounding box.",
+      "value-key": "[XMIN]",
+      "type": "Number",
+      "optional": true,
+      "id": "xmin",
+      "name": "X minimum"
+    },
+    {
+      "command-line-flag": "--xmax",
+      "description": "Maximum x-coordinate for bounding box.",
+      "value-key": "[XMAX]",
+      "type": "Number",
+      "optional": true,
+      "id": "xmax",
+      "name": "X maximum"
+    },
+    {
+      "command-line-flag": "--ymin",
+      "description": "Minimum y-coordinate for bounding box.",
+      "value-key": "[YMIN]",
+      "type": "Number",
+      "optional": true,
+      "id": "ymin",
+      "name": "Y minimum"
+    },
+    {
+      "command-line-flag": "--ymax",
+      "description": "Maximum y-coordinate for bounding box.",
+      "value-key": "[YMAX]",
+      "type": "Number",
+      "optional": true,
+      "id": "ymax",
+      "name": "Y maximum"
+    },
+    {
+      "command-line-flag": "--zmin",
+      "description": "Minimum z-coordinate for bounding box.",
+      "value-key": "[ZMIN]",
+      "type": "Number",
+      "optional": true,
+      "id": "zmin",
+      "name": "Z minimum"
+    },
+    {
+      "command-line-flag": "--zmax",
+      "description": "Maximum z-coordinate for bounding box.",
+      "value-key": "[ZMAX]",
+      "type": "Number",
+      "optional": true,
+      "id": "zmax",
+      "name": "Z maximum"
+    },
+    {
+      "command-line-flag": "--o",
+      "description": "Output label file.",
+      "value-key": "[OUTLABELFILE]",
+      "type": "String",
+      "optional": false,
+      "id": "outlabelfile",
+      "name": "Output label file"
+    },
+    {
+      "command-line-flag": "--debug",
+      "description": "Enable debug mode.",
+      "value-key": "[DEBUG]",
+      "type": "Flag",
+      "id": "debug",
+      "name": "Debug flag"
+    },
+    {
+      "command-line-flag": "--umask",
+      "description": "Set Unix file permission mask.",
+      "value-key": "[UMASK]",
+      "type": "String",
+      "optional": true,
+      "id": "umask",
+      "name": "Umask"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTLABELFILE]",
+      "description": "Output file with the label points within the specified bounding box.",
+      "id": "output_file",
+      "name": "Output label file"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

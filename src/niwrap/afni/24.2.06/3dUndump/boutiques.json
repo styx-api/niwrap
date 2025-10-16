@@ -1,0 +1,159 @@
+{
+  "name": "3dUndump",
+  "author": "AFNI Developers",
+  "description": "Assembles a 3D dataset from an ASCII list of coordinates and optionally values.",
+  "command-line": "3dUndump [INPUT_FILES] [PREFIX] [MASTER] [DIMENSIONS] [MASK] [DATATYPE] [DVAL] [FVAL] [IJK] [XYZ] [SPHERE_RADIUS] [CUBE_MODE] [ORIENT] [HEAD_ONLY] [ROIMASK] [ALLOW_NAN]",
+  "inputs": [
+    {
+      "description": "Input ASCII file(s), with one voxel specification per line.",
+      "value-key": "[INPUT_FILES]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "input_files",
+      "name": "Input file(s)"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "'ppp' is the prefix for the output dataset [default = undump].",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Output prefix"
+    },
+    {
+      "command-line-flag": "-master",
+      "description": "'mmm' is the master dataset, whose geometry will determine the geometry of the output.",
+      "value-key": "[MASTER]",
+      "type": "File",
+      "optional": true,
+      "id": "master",
+      "name": "Master dataset"
+    },
+    {
+      "command-line-flag": "-dimen",
+      "description": "Sets the dimensions of the output dataset to be I by J by K voxels.",
+      "value-key": "[DIMENSIONS]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 3,
+      "optional": true,
+      "id": "dimensions",
+      "name": "Dimensions"
+    },
+    {
+      "command-line-flag": "-mask",
+      "description": "Specifies a mask dataset 'MMM', which will control which voxels are allowed to get values set.",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "mask",
+      "name": "Mask dataset"
+    },
+    {
+      "command-line-flag": "-datum",
+      "description": "'type' determines the voxel data type of the output, which may be byte, short, or float [default = short].",
+      "value-key": "[DATATYPE]",
+      "type": "String",
+      "optional": true,
+      "id": "datatype",
+      "name": "Data type"
+    },
+    {
+      "command-line-flag": "-dval",
+      "description": "'vvv' is the default value stored in each input voxel that does not have a value supplied in the input file [default = 1].",
+      "value-key": "[DVAL]",
+      "type": "Number",
+      "optional": true,
+      "id": "dval",
+      "name": "Default voxel value"
+    },
+    {
+      "command-line-flag": "-fval",
+      "description": "'fff' is the fill value, used for each voxel in the output dataset that is NOT listed in the input file [default = 0].",
+      "value-key": "[FVAL]",
+      "type": "Number",
+      "optional": true,
+      "id": "fval",
+      "name": "Fill value"
+    },
+    {
+      "command-line-flag": "-ijk",
+      "description": "Coordinates in the input file are (i,j,k) index triples.",
+      "value-key": "[IJK]",
+      "type": "Flag",
+      "id": "ijk",
+      "name": "IJK coordinates"
+    },
+    {
+      "command-line-flag": "-xyz",
+      "description": "Coordinates in the input file are (x,y,z) spatial coordinates, in mm.",
+      "value-key": "[XYZ]",
+      "type": "Flag",
+      "id": "xyz",
+      "name": "XYZ coordinates"
+    },
+    {
+      "command-line-flag": "-srad",
+      "description": "Specifies that a sphere of radius 'rrr' will be filled about each input (x,y,z) or (i,j,k) voxel.",
+      "value-key": "[SPHERE_RADIUS]",
+      "type": "Number",
+      "optional": true,
+      "id": "sphere_radius",
+      "name": "Sphere radius"
+    },
+    {
+      "command-line-flag": "-cubes",
+      "description": "Put cubes down instead of spheres. The 'radius' then is half the length of a side.",
+      "value-key": "[CUBE_MODE]",
+      "type": "Flag",
+      "id": "cube_mode",
+      "name": "Cube mode"
+    },
+    {
+      "command-line-flag": "-orient",
+      "description": "Specifies the coordinate order used by -xyz. The code must be 3 letters, one each from the pairs {R,L} {A,P} {I,S}.",
+      "value-key": "[ORIENT]",
+      "type": "String",
+      "optional": true,
+      "id": "orient",
+      "name": "Orientation code"
+    },
+    {
+      "command-line-flag": "-head_only",
+      "description": "Creates only the .HEAD file.",
+      "value-key": "[HEAD_ONLY]",
+      "type": "Flag",
+      "id": "head_only",
+      "name": "Head only"
+    },
+    {
+      "command-line-flag": "-ROImask",
+      "description": "Specifies which voxels get what numbers by using a dataset 'rrr', instead of coordinates.",
+      "value-key": "[ROIMASK]",
+      "type": "File",
+      "optional": true,
+      "id": "roimask",
+      "name": "ROI mask"
+    },
+    {
+      "command-line-flag": "-allow_NaN",
+      "description": "Allow NaN (not-a-number) values to be entered.",
+      "value-key": "[ALLOW_NAN]",
+      "type": "Flag",
+      "id": "allow_nan",
+      "name": "Allow NaNs"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX].nii.gz",
+      "description": "Main output dataset",
+      "id": "outfile",
+      "name": "Output dataset"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

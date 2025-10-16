@@ -1,0 +1,160 @@
+{
+  "name": "SurfSmooth",
+  "author": "AFNI Developers",
+  "description": "Tool for smoothing data on surfaces using various methods.",
+  "command-line": "SurfSmooth [SURFACE] [METHOD] [INPUT_DATA] [TARGET_FWHM] [FWHM] [NUMBER_ITERATIONS] [OUTPUT_FILE] [BAND_PASS_FREQUENCY] [LAMBDA_MU] [INTERP_WEIGHTS] [NODE_MASK] [SURFACE_OUTPUT] [DBG_NODE] [USE_NEIGHBORS_OUTSIDE_MASK] [TALK_SUMA] [REFRESH_RATE]",
+  "inputs": [
+    {
+      "id": "surface",
+      "name": "Surface File",
+      "type": "String",
+      "description": "Option for specifying the surface to smooth or the domain over which DSET is defined.",
+      "command-line-flag": "-SURF_1",
+      "optional": false,
+      "value-key": "[SURFACE]"
+    },
+    {
+      "id": "method",
+      "name": "Smoothing Method",
+      "type": "String",
+      "description": "Name of smoothing method to use. Choose from: HEAT_07, HEAT_05, LM, NN_geom",
+      "command-line-flag": "-met",
+      "optional": false,
+      "value-key": "[METHOD]"
+    },
+    {
+      "id": "input_data",
+      "name": "Input Data",
+      "type": "File",
+      "description": "File containing data (in 1D or NIML format). Required for HEAT_05 and HEAT_07 methods.",
+      "command-line-flag": "-input",
+      "optional": true,
+      "value-key": "[INPUT_DATA]"
+    },
+    {
+      "id": "target_fwhm",
+      "name": "Target FWHM",
+      "type": "Number",
+      "description": "Blur so that the final FWHM of the data is TF mm. Only for HEAT_07 method.",
+      "command-line-flag": "-target_fwhm",
+      "optional": true,
+      "value-key": "[TARGET_FWHM]"
+    },
+    {
+      "id": "fwhm",
+      "name": "FWHM",
+      "type": "Number",
+      "description": "Effective Full Width at Half Maximum for smoothing. Required for HEAT_05 and optional for HEAT_07 methods.",
+      "command-line-flag": "-fwhm",
+      "optional": true,
+      "value-key": "[FWHM]"
+    },
+    {
+      "id": "number_iterations",
+      "name": "Number of Iterations",
+      "type": "Number",
+      "description": "Number of smoothing iterations (default is 100 for LM and NN_geom, -1 for HEAT methods).",
+      "command-line-flag": "-Niter",
+      "optional": true,
+      "value-key": "[NUMBER_ITERATIONS]"
+    },
+    {
+      "id": "output_file",
+      "name": "Output File",
+      "type": "String",
+      "description": "Name of output file. Default based on method being used.",
+      "command-line-flag": "-output",
+      "optional": true,
+      "value-key": "[OUTPUT_FILE]"
+    },
+    {
+      "id": "band_pass_frequency",
+      "name": "Bandpass Frequency",
+      "type": "Number",
+      "description": "Bandpass frequency for LM method (0 < k < 10).",
+      "command-line-flag": "-kpb",
+      "optional": true,
+      "value-key": "[BAND_PASS_FREQUENCY]"
+    },
+    {
+      "id": "lambda_mu",
+      "name": "Lambda and Mu parameters",
+      "type": "String",
+      "description": "Lambda and Mu parameters for LM method. Sample values are: 0.6307 and -0.6732.",
+      "command-line-flag": "-lm",
+      "optional": true,
+      "value-key": "[LAMBDA_MU]"
+    },
+    {
+      "id": "interp_weights",
+      "name": "Interpolation Weights",
+      "type": "String",
+      "description": "Set interpolation weights for LM method. Options: Equal, Fujiwara, Desbrun.",
+      "command-line-flag": "-iw",
+      "optional": true,
+      "value-key": "[INTERP_WEIGHTS]"
+    },
+    {
+      "id": "node_mask",
+      "name": "Node Mask",
+      "type": "File",
+      "description": "Apply operations only to nodes listed in the given mask.",
+      "command-line-flag": "-MASK",
+      "optional": true,
+      "value-key": "[NODE_MASK]"
+    },
+    {
+      "id": "surface_output",
+      "name": "Surface Output",
+      "type": "File",
+      "description": "Writes the surface with smoothed coordinates to disk. For LM and NN_geom methods.",
+      "command-line-flag": "-surf_out",
+      "optional": true,
+      "value-key": "[SURFACE_OUTPUT]"
+    },
+    {
+      "id": "dbg_node",
+      "name": "Debug Node",
+      "type": "Number",
+      "description": "Output debug information for node 'node'.",
+      "command-line-flag": "-dbg_n",
+      "optional": true,
+      "value-key": "[DBG_NODE]"
+    },
+    {
+      "id": "use_neighbors_outside_mask",
+      "name": "Use Neighbors Outside Mask",
+      "type": "Flag",
+      "description": "Allow value from a node neighboring node n to contribute to the value at n even if the neighbor is not in the mask.",
+      "command-line-flag": "-use_neighbors_outside_mask",
+      "value-key": "[USE_NEIGHBORS_OUTSIDE_MASK]"
+    },
+    {
+      "id": "talk_suma",
+      "name": "Talk to SUMA",
+      "type": "Flag",
+      "description": "Send progress with each iteration to SUMA for real-time visualization.",
+      "command-line-flag": "-talk_suma",
+      "value-key": "[TALK_SUMA]"
+    },
+    {
+      "id": "refresh_rate",
+      "name": "Refresh Rate",
+      "type": "Number",
+      "description": "Maximum number of updates to SUMA per second.",
+      "command-line-flag": "-refresh_rate",
+      "optional": true,
+      "value-key": "[REFRESH_RATE]"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "out_file",
+      "name": "Output File",
+      "path-template": "[OUTPUT_FILE]",
+      "description": "Name of the output file."
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

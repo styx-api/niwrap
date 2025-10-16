@@ -1,0 +1,113 @@
+{
+  "name": "surface-distortion",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -surface-distortion [SURFACE_REFERENCE] [SURFACE_DISTORTED] [METRIC_OUT] [SMOOTH] [OPT_CARET5_METHOD] [OPT_EDGE_METHOD] [LOCAL_AFFINE_METHOD]",
+  "description": "Measure distortion between surfaces.\n\nThis command, when not using -caret5-method, -edge-method, or -local-affine-method, is equivalent to using -surface-vertex-areas on each surface, smoothing both output metrics with the GEO_GAUSS_EQUAL method on the surface they came from if -smooth is specified, and then using the formula 'ln(distorted/reference)/ln(2)' on the smoothed results.\n\nWhen using -caret5-method, it uses the surface distortion method from caret5, which takes the base 2 log of the ratio of tile areas, then averages those results at each vertex, and then smooths the result on the reference surface.\n\nWhen using -edge-method, the -smooth option is ignored, and the output at each vertex is the average of 'abs(ln(refEdge/distortEdge)/ln(2))' over all edges connected to the vertex.\n\nWhen using -local-affine-method, the -smooth option is ignored.  The output is two columns, the first is the area distortion ratio, and the second is anisotropic strain.  These are calculated by an affine transform between matching triangles, and then averaged across the triangles of a vertex.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "surface_reference",
+      "name": "surface_reference",
+      "description": "the reference surface",
+      "optional": false,
+      "value-key": "[SURFACE_REFERENCE]",
+      "type": "File"
+    },
+    {
+      "id": "surface_distorted",
+      "name": "surface_distorted",
+      "description": "the distorted surface",
+      "optional": false,
+      "value-key": "[SURFACE_DISTORTED]",
+      "type": "File"
+    },
+    {
+      "id": "metric_out",
+      "name": "metric_out",
+      "type": "String",
+      "description": "the output distortion metric",
+      "optional": false,
+      "value-key": "[METRIC_OUT]"
+    },
+    {
+      "id": "smooth",
+      "name": "smooth",
+      "description": "smooth the area data",
+      "type": {
+        "id": "smooth",
+        "name": "smooth",
+        "description": "smooth the area data",
+        "command-line": "-smooth [SIGMA] [OPT_FWHM]",
+        "inputs": [
+          {
+            "id": "sigma",
+            "name": "sigma",
+            "description": "the size of the smoothing kernel in mm, as sigma by default",
+            "optional": false,
+            "value-key": "[SIGMA]",
+            "type": "Number",
+            "integer": false
+          },
+          {
+            "id": "opt_fwhm",
+            "name": "opt_fwhm",
+            "command-line-flag": "-fwhm",
+            "description": "kernel size is FWHM, not sigma",
+            "type": "Flag",
+            "value-key": "[OPT_FWHM]"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[SMOOTH]"
+    },
+    {
+      "id": "opt_caret5_method",
+      "name": "opt_caret5_method",
+      "command-line-flag": "-caret5-method",
+      "description": "use the surface distortion method from caret5",
+      "type": "Flag",
+      "value-key": "[OPT_CARET5_METHOD]"
+    },
+    {
+      "id": "opt_edge_method",
+      "name": "opt_edge_method",
+      "command-line-flag": "-edge-method",
+      "description": "calculate distortion of edge lengths rather than areas",
+      "type": "Flag",
+      "value-key": "[OPT_EDGE_METHOD]"
+    },
+    {
+      "id": "local_affine_method",
+      "name": "local_affine_method",
+      "description": "calculate distortion by the local affines between triangles",
+      "type": {
+        "id": "local_affine_method",
+        "name": "local_affine_method",
+        "description": "calculate distortion by the local affines between triangles",
+        "command-line": "-local-affine-method [OPT_LOG2]",
+        "inputs": [
+          {
+            "id": "opt_log2",
+            "name": "opt_log2",
+            "command-line-flag": "-log2",
+            "description": "apply base-2 log transform",
+            "type": "Flag",
+            "value-key": "[OPT_LOG2]"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[LOCAL_AFFINE_METHOD]"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "metric_out",
+      "name": "metric_out",
+      "path-template": "[METRIC_OUT]",
+      "description": "the output distortion metric"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

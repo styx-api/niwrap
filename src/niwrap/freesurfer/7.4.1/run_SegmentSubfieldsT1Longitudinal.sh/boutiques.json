@@ -1,0 +1,26 @@
+{
+  "name": "run_SegmentSubfieldsT1Longitudinal.sh",
+  "description": "Script for segmenting subfields from T1-weighted longitudinal data using FreeSurfer.",
+  "command-line": "run_SegmentSubfieldsT1Longitudinal.sh [DEPLOYED_MCR_ROOT] [ADDITIONAL_ARGS]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Root directory for the deployed MATLAB Runtime environment.",
+      "value-key": "[DEPLOYED_MCR_ROOT]",
+      "type": "String",
+      "optional": false,
+      "id": "deployed_mcr_root",
+      "name": "Deployed MCR Root"
+    },
+    {
+      "description": "Additional arguments for the script.",
+      "value-key": "[ADDITIONAL_ARGS]",
+      "type": "String",
+      "optional": true,
+      "id": "additional_args",
+      "name": "Additional Arguments"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

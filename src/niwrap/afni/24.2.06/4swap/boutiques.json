@@ -1,0 +1,27 @@
+{
+  "name": "4swap",
+  "author": "AFNI Developers",
+  "description": "Swaps byte quadruples on the listed files.",
+  "command-line": "4swap [FILES] [QUIET]",
+  "inputs": [
+    {
+      "description": "List of files to process.",
+      "value-key": "[FILES]",
+      "type": "File",
+      "list": true,
+      "id": "files",
+      "name": "Input Files",
+      "optional": false
+    },
+    {
+      "command-line-flag": "-q",
+      "description": "Work quietly; suppress output messages.",
+      "value-key": "[QUIET]",
+      "type": "Flag",
+      "id": "quiet",
+      "name": "Quiet Flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

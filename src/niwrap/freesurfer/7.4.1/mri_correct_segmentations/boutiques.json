@@ -1,0 +1,26 @@
+{
+  "name": "mri_correct_segmentations",
+  "description": "Tool for correcting automated infant segmentations.",
+  "command-line": "mri_correct_segmentations [INPUT_FILE_1] [INPUT_FILE_2]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "First input file for correction (e.g. segmentation file).",
+      "value-key": "[INPUT_FILE_1]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file_1",
+      "name": "Input File 1"
+    },
+    {
+      "description": "Second input file for correction (e.g. reference file).",
+      "value-key": "[INPUT_FILE_2]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file_2",
+      "name": "Input File 2"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

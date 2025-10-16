@@ -1,0 +1,58 @@
+{
+  "name": "make_dyadic_vectors",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Generate dyadic vectors from theta and phi volumes.",
+  "command-line": "make_dyadic_vectors [THETA_VOL] [PHI_VOL] [MASK] [OUTPUT] [PERC]",
+  "inputs": [
+    {
+      "description": "Theta volume input file",
+      "value-key": "[THETA_VOL]",
+      "type": "File",
+      "optional": false,
+      "id": "theta_vol",
+      "name": "Theta Volume File"
+    },
+    {
+      "description": "Phi volume input file",
+      "value-key": "[PHI_VOL]",
+      "type": "File",
+      "optional": false,
+      "id": "phi_vol",
+      "name": "Phi Volume File"
+    },
+    {
+      "description": "Mask input file (optional)",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "mask",
+      "name": "Mask File"
+    },
+    {
+      "description": "Output file",
+      "value-key": "[OUTPUT]",
+      "type": "String",
+      "optional": false,
+      "id": "output",
+      "name": "Output File"
+    },
+    {
+      "description": "Percentage angle of the output cone of uncertainty (output will be in degrees)",
+      "value-key": "[PERC]",
+      "type": "Number",
+      "optional": true,
+      "id": "perc",
+      "name": "Percentage Angle"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT]",
+      "description": "Output file containing the generated dyadic vectors",
+      "id": "output_file",
+      "name": "Dyadic Vectors Output File"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

@@ -1,0 +1,136 @@
+{
+  "name": "FSread_annot",
+  "author": "AFNI Developers",
+  "description": "Reads a FreeSurfer annotation file and outputs an equivalent ROI file and/or a colormap file for use with SUMA.",
+  "command-line": "FSread_annot [INFILE] [HEMI] [FSCMAP] [FSCMAP_RANGE] [FSVERSION] [COL_1D] [ROI_1D] [CMAP_1D] [SHOW_FSCMAP] [DSET] [HELP]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Binary formatted FreeSurfer annotation file.",
+      "value-key": "[INFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "infile",
+      "name": "Input file",
+      "command-line-flag": "-input"
+    },
+    {
+      "command-line-flag": "-hemi",
+      "description": "Specify hemisphere. HEMI is one of lh or rh. Program guesses by default.",
+      "value-key": "[HEMI]",
+      "type": "String",
+      "optional": true,
+      "id": "hemi",
+      "name": "Hemisphere"
+    },
+    {
+      "command-line-flag": "-FScmap",
+      "description": "Get the colormap from the Freesurfer colormap file CMAPFILE. Colormaps inside the ANNOTFILE would be ignored.",
+      "value-key": "[FSCMAP]",
+      "type": "File",
+      "optional": true,
+      "id": "fscmap",
+      "name": "Freesurfer Colormap File"
+    },
+    {
+      "command-line-flag": "-FScmaprange",
+      "description": "CMAPFILE contains multiple types of labels. The annotation values in ANNOTFILE can map to multiple labels if you do not restrict the range with iMin and iMax.",
+      "value-key": "[FSCMAP_RANGE]",
+      "type": "Number",
+      "list": true,
+      "min-list-entries": 2,
+      "max-list-entries": 2,
+      "optional": true,
+      "id": "fscmap_range",
+      "name": "Freesurfer Colormap Range"
+    },
+    {
+      "command-line-flag": "-FSversion",
+      "description": "VER is the annotation file vintage. Choose from 2009 or 2005.",
+      "value-key": "[FSVERSION]",
+      "type": "String",
+      "optional": true,
+      "id": "fsversion",
+      "name": "Freesurfer Version"
+    },
+    {
+      "command-line-flag": "-col_1D",
+      "description": "Write a 4-column 1D color file.",
+      "value-key": "[COL_1D]",
+      "type": "String",
+      "optional": true,
+      "id": "col_1d",
+      "name": "1D Color File"
+    },
+    {
+      "command-line-flag": "-roi_1D",
+      "description": "Write a 5-column 1D roi file.",
+      "value-key": "[ROI_1D]",
+      "type": "String",
+      "optional": true,
+      "id": "roi_1d",
+      "name": "1D ROI File"
+    },
+    {
+      "command-line-flag": "-dset",
+      "description": "Write the annotation and colormap as a niml formatted Label Dset.",
+      "value-key": "[DSET]",
+      "type": "String",
+      "optional": true,
+      "id": "dset",
+      "name": "NIML Dataset"
+    },
+    {
+      "command-line-flag": "-cmap_1D",
+      "description": "Write a 4-column 1D color map file.",
+      "value-key": "[CMAP_1D]",
+      "type": "String",
+      "optional": true,
+      "id": "cmap_1d",
+      "name": "1D Color Map File"
+    },
+    {
+      "command-line-flag": "-show_FScmap",
+      "description": "Show the info of the colormap in the ANNOT file.",
+      "value-key": "[SHOW_FSCMAP]",
+      "type": "Flag",
+      "id": "show_fscmap",
+      "name": "Show Freesurfer Colormap Flag"
+    },
+    {
+      "command-line-flag": "-help",
+      "description": "Display help message.",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "annot.1D.col",
+      "description": "Output 4-column 1D color file.",
+      "id": "out_col_1d",
+      "name": "Output 1D Color File"
+    },
+    {
+      "path-template": "annot.1D.roi",
+      "description": "Output 5-column 1D ROI file.",
+      "id": "out_roi_1d",
+      "name": "Output 1D ROI File"
+    },
+    {
+      "path-template": "annot.niml.dset",
+      "description": "Output niml formatted label dataset.",
+      "id": "out_niml_dset",
+      "name": "Output NIML Dset"
+    },
+    {
+      "path-template": "annot.1D.cmap",
+      "description": "Output 4-column 1D color map file.",
+      "id": "out_cmap_1d",
+      "name": "Output 1D Color Map File"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

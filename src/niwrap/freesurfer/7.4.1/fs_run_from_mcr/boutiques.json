@@ -1,0 +1,43 @@
+{
+  "name": "fs_run_from_mcr",
+  "description": "Replace the shell with the given command.",
+  "command-line": "fs_run_from_mcr [NAME] [COMMAND] [ZEROTH_FLAG] [EMPTY_ENV_FLAG]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "-a",
+      "description": "Pass NAME as the zeroth argument to COMMAND",
+      "value-key": "[NAME]",
+      "type": "String",
+      "optional": true,
+      "id": "name",
+      "name": "Name"
+    },
+    {
+      "description": "The command to execute",
+      "value-key": "[COMMAND]",
+      "type": "String",
+      "optional": true,
+      "id": "command",
+      "name": "Command"
+    },
+    {
+      "command-line-flag": "-l",
+      "description": "Place a dash in the zeroth argument to COMMAND",
+      "value-key": "[ZEROTH_FLAG]",
+      "type": "Flag",
+      "id": "zeroth_flag",
+      "name": "Zeroth Argument Flag"
+    },
+    {
+      "command-line-flag": "-c",
+      "description": "Execute COMMAND with an empty environment",
+      "value-key": "[EMPTY_ENV_FLAG]",
+      "type": "Flag",
+      "id": "empty_env_flag",
+      "name": "Empty Environment Flag"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

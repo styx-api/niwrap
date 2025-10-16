@@ -1,0 +1,125 @@
+{
+  "name": "3dTSgen",
+  "author": "AFNI Developers",
+  "description": "This program generates an AFNI 3d+time data set based on user-specified signal and noise models for each voxel.",
+  "command-line": "3dTSgen [INPUT_FILE] [IN_TR_FLAG] [SIGNAL_LABEL] [NOISE_LABEL] [SIGNAL_CONSTR] [NOISE_CONSTR] [SIGMA_VALUE] [VOXEL_NUMBER] [OUTPUT_FILE] [SIGNAL_COEF] [NOISE_COEF] [BUCKET_CONFIG] [BRICK_CONFIG]",
+  "inputs": [
+    {
+      "description": "Filename of prototype 3d + time data file",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input file"
+    },
+    {
+      "command-line-flag": "-inTR",
+      "description": "Set the TR of the created timeseries to be the TR of the prototype dataset. The default is TR = 1.",
+      "value-key": "[IN_TR_FLAG]",
+      "type": "Flag",
+      "id": "in_tr_flag",
+      "name": "In-TR Flag"
+    },
+    {
+      "command-line-flag": "-signal",
+      "description": "Name of the (non-linear) signal model",
+      "value-key": "[SIGNAL_LABEL]",
+      "type": "String",
+      "optional": false,
+      "id": "signal_label",
+      "name": "Signal label"
+    },
+    {
+      "command-line-flag": "-noise",
+      "description": "Name of the (linear) noise model",
+      "value-key": "[NOISE_LABEL]",
+      "type": "String",
+      "optional": false,
+      "id": "noise_label",
+      "name": "Noise label"
+    },
+    {
+      "command-line-flag": "-sconstr",
+      "description": "Constraints for kth signal parameter. Format: k c d where c <= gs[k] <= d",
+      "value-key": "[SIGNAL_CONSTR]",
+      "type": "String",
+      "optional": true,
+      "id": "signal_constr",
+      "name": "Signal constraints"
+    },
+    {
+      "command-line-flag": "-nconstr",
+      "description": "Constraints for kth noise parameter. Format: k c d where c+b[k] <= gn[k] <= d+b[k]",
+      "value-key": "[NOISE_CONSTR]",
+      "type": "String",
+      "optional": true,
+      "id": "noise_constr",
+      "name": "Noise constraints"
+    },
+    {
+      "command-line-flag": "-sigma",
+      "description": "Standard deviation of additive Gaussian noise",
+      "value-key": "[SIGMA_VALUE]",
+      "type": "Number",
+      "optional": false,
+      "id": "sigma_value",
+      "name": "Sigma value"
+    },
+    {
+      "command-line-flag": "-voxel",
+      "description": "Screen output for voxel number",
+      "value-key": "[VOXEL_NUMBER]",
+      "type": "Number",
+      "optional": true,
+      "id": "voxel_number",
+      "name": "Voxel number"
+    },
+    {
+      "command-line-flag": "-output",
+      "description": "Filename of output 3d + time data file",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_file",
+      "name": "Output file"
+    },
+    {
+      "command-line-flag": "-scoef",
+      "description": "Write kth signal parameter gs[k]. Output 'fim' is written to prefix filename",
+      "value-key": "[SIGNAL_COEF]",
+      "type": "String",
+      "optional": true,
+      "id": "signal_coef",
+      "name": "Signal coefficient file"
+    },
+    {
+      "command-line-flag": "-ncoef",
+      "description": "Write kth noise parameter gn[k]. Output 'fim' is written to prefix filename",
+      "value-key": "[NOISE_COEF]",
+      "type": "String",
+      "optional": true,
+      "id": "noise_coef",
+      "name": "Noise coefficient file"
+    },
+    {
+      "command-line-flag": "-bucket",
+      "description": "Create one AFNI 'bucket' dataset containing n sub-bricks. n=0 creates the default output. Output 'bucket' is written to prefixname",
+      "value-key": "[BUCKET_CONFIG]",
+      "type": "String",
+      "optional": true,
+      "id": "bucket_config",
+      "name": "Bucket configuration"
+    },
+    {
+      "command-line-flag": "-brick",
+      "description": "Specify content for sub-brick in the form 'm t k label' where m is the sub-brick number, t is 'scoef' or 'ncoef', k is parameter index, and label is a descriptive label.",
+      "value-key": "[BRICK_CONFIG]",
+      "type": "String",
+      "optional": true,
+      "id": "brick_config",
+      "name": "Brick configuration"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

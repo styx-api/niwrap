@@ -1,0 +1,78 @@
+{
+  "name": "dmri_projectEndPoints",
+  "command-line": "dmri_projectEndPoints [STREAMLINE_FILE] [LEFT_SURFACE_FILE] [RIGHT_SURFACE_FILE] [LEFT_OVERLAY_FILE] [RIGHT_OVERLAY_FILE] [REFERENCE_IMAGE]",
+  "schema-version": "0.5+styx",
+  "description": "A tool for projecting the endpoints of streamlines onto cortical surfaces, producing overlay files for visualization.",
+  "inputs": [
+    {
+      "command-line-flag": "-i",
+      "description": "Input streamline file (e.g. streamlineFile.trk)",
+      "id": "streamline_file",
+      "name": "Streamline File",
+      "type": "File",
+      "optional": false,
+      "value-key": "[STREAMLINE_FILE]"
+    },
+    {
+      "command-line-flag": "-sl",
+      "description": "Left hemisphere surface file (e.g. surfaceFile_lh.orig)",
+      "id": "left_surface_file",
+      "name": "Left Surface File",
+      "type": "File",
+      "optional": false,
+      "value-key": "[LEFT_SURFACE_FILE]"
+    },
+    {
+      "command-line-flag": "-sr",
+      "description": "Right hemisphere surface file (e.g. surfaceFile_rh.orig)",
+      "id": "right_surface_file",
+      "name": "Right Surface File",
+      "type": "File",
+      "optional": false,
+      "value-key": "[RIGHT_SURFACE_FILE]"
+    },
+    {
+      "command-line-flag": "-ol",
+      "description": "Output overlay file for left hemisphere",
+      "id": "left_overlay_file",
+      "name": "Left Overlay File",
+      "type": "String",
+      "optional": false,
+      "value-key": "[LEFT_OVERLAY_FILE]"
+    },
+    {
+      "command-line-flag": "-or",
+      "description": "Output overlay file for right hemisphere",
+      "id": "right_overlay_file",
+      "name": "Right Overlay File",
+      "type": "String",
+      "optional": false,
+      "value-key": "[RIGHT_OVERLAY_FILE]"
+    },
+    {
+      "command-line-flag": "-ri",
+      "description": "Reference image for the projections",
+      "id": "reference_image",
+      "name": "Reference Image",
+      "type": "File",
+      "optional": false,
+      "value-key": "[REFERENCE_IMAGE]"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[LEFT_OVERLAY_FILE]",
+      "description": "Overlay file for left hemisphere surface",
+      "id": "out_left_overlay",
+      "name": "Output Left Overlay File"
+    },
+    {
+      "path-template": "[RIGHT_OVERLAY_FILE]",
+      "description": "Overlay file for right hemisphere surface",
+      "id": "out_right_overlay",
+      "name": "Output Right Overlay File"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

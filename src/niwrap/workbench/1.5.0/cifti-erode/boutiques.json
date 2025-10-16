@@ -1,0 +1,164 @@
+{
+  "name": "cifti-erode",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -cifti-erode [CIFTI_IN] [DIRECTION] [SURFACE_DISTANCE] [VOLUME_DISTANCE] [CIFTI_OUT] [LEFT_SURFACE] [RIGHT_SURFACE] [CEREBELLUM_SURFACE] [OPT_MERGED_VOLUME]",
+  "description": "Erode a cifti file.\n\nFor all data values that are empty (for label data, unlabeled, for other data, zero), set the surrounding values to empty.  The surrounding values are defined as the immediate neighbors and all values in the same structure within the specified distance (-merged-volume treats all voxels as one structure).\n\nThe -*-corrected-areas options are intended for eroding on group average surfaces, but it is only an approximate correction.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "cifti_in",
+      "name": "cifti_in",
+      "description": "the input cifti file",
+      "optional": false,
+      "value-key": "[CIFTI_IN]",
+      "type": "File"
+    },
+    {
+      "id": "direction",
+      "name": "direction",
+      "description": "which dimension to dilate along, ROW or COLUMN",
+      "optional": false,
+      "value-key": "[DIRECTION]",
+      "type": "String"
+    },
+    {
+      "id": "surface_distance",
+      "name": "surface_distance",
+      "description": "the distance to dilate on surfaces, in mm",
+      "optional": false,
+      "value-key": "[SURFACE_DISTANCE]",
+      "type": "Number",
+      "integer": false
+    },
+    {
+      "id": "volume_distance",
+      "name": "volume_distance",
+      "description": "the distance to dilate in the volume, in mm",
+      "optional": false,
+      "value-key": "[VOLUME_DISTANCE]",
+      "type": "Number",
+      "integer": false
+    },
+    {
+      "id": "cifti_out",
+      "name": "cifti_out",
+      "type": "String",
+      "description": "the output cifti file",
+      "optional": false,
+      "value-key": "[CIFTI_OUT]"
+    },
+    {
+      "id": "left_surface",
+      "name": "left_surface",
+      "description": "specify the left surface to use",
+      "type": {
+        "id": "left_surface",
+        "name": "left_surface",
+        "description": "specify the left surface to use",
+        "command-line": "-left-surface [SURFACE] [OPT_LEFT_CORRECTED_AREAS_AREA_METRIC]",
+        "inputs": [
+          {
+            "id": "surface",
+            "name": "surface",
+            "description": "the left surface file",
+            "optional": false,
+            "value-key": "[SURFACE]",
+            "type": "File"
+          },
+          {
+            "id": "opt_left_corrected_areas_area_metric",
+            "name": "opt_left_corrected_areas_area_metric",
+            "command-line-flag": "-left-corrected-areas",
+            "description": "vertex areas to use instead of computing them from the left surface: the corrected vertex areas, as a metric",
+            "optional": true,
+            "value-key": "[OPT_LEFT_CORRECTED_AREAS_AREA_METRIC]",
+            "type": "File"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[LEFT_SURFACE]"
+    },
+    {
+      "id": "right_surface",
+      "name": "right_surface",
+      "description": "specify the right surface to use",
+      "type": {
+        "id": "right_surface",
+        "name": "right_surface",
+        "description": "specify the right surface to use",
+        "command-line": "-right-surface [SURFACE] [OPT_RIGHT_CORRECTED_AREAS_AREA_METRIC]",
+        "inputs": [
+          {
+            "id": "surface",
+            "name": "surface",
+            "description": "the right surface file",
+            "optional": false,
+            "value-key": "[SURFACE]",
+            "type": "File"
+          },
+          {
+            "id": "opt_right_corrected_areas_area_metric",
+            "name": "opt_right_corrected_areas_area_metric",
+            "command-line-flag": "-right-corrected-areas",
+            "description": "vertex areas to use instead of computing them from the right surface: the corrected vertex areas, as a metric",
+            "optional": true,
+            "value-key": "[OPT_RIGHT_CORRECTED_AREAS_AREA_METRIC]",
+            "type": "File"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[RIGHT_SURFACE]"
+    },
+    {
+      "id": "cerebellum_surface",
+      "name": "cerebellum_surface",
+      "description": "specify the cerebellum surface to use",
+      "type": {
+        "id": "cerebellum_surface",
+        "name": "cerebellum_surface",
+        "description": "specify the cerebellum surface to use",
+        "command-line": "-cerebellum-surface [SURFACE] [OPT_CEREBELLUM_CORRECTED_AREAS_AREA_METRIC]",
+        "inputs": [
+          {
+            "id": "surface",
+            "name": "surface",
+            "description": "the cerebellum surface file",
+            "optional": false,
+            "value-key": "[SURFACE]",
+            "type": "File"
+          },
+          {
+            "id": "opt_cerebellum_corrected_areas_area_metric",
+            "name": "opt_cerebellum_corrected_areas_area_metric",
+            "command-line-flag": "-cerebellum-corrected-areas",
+            "description": "vertex areas to use instead of computing them from the cerebellum surface: the corrected vertex areas, as a metric",
+            "optional": true,
+            "value-key": "[OPT_CEREBELLUM_CORRECTED_AREAS_AREA_METRIC]",
+            "type": "File"
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[CEREBELLUM_SURFACE]"
+    },
+    {
+      "id": "opt_merged_volume",
+      "name": "opt_merged_volume",
+      "command-line-flag": "-merged-volume",
+      "description": "treat volume components as if they were a single component",
+      "type": "Flag",
+      "value-key": "[OPT_MERGED_VOLUME]"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "cifti_out",
+      "name": "cifti_out",
+      "path-template": "[CIFTI_OUT]",
+      "description": "the output cifti file"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

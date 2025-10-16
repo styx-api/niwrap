@@ -1,0 +1,69 @@
+{
+  "name": "mri_tessellate",
+  "author": "FreeSurfer Developers",
+  "description": "This program creates a surface by tessellating a given input volume.",
+  "command-line": "mri_tessellate [INPUT_VOLUME] [LABEL_VALUE] [OUTPUT_SURF] [DIFFERENT_LABELS] [MAX_VERTICES] [REAL_RAS]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input volume (e.g., a filled MRI image).",
+      "value-key": "[INPUT_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "input_volume",
+      "name": "Input volume"
+    },
+    {
+      "description": "Label value for the tessellation. Integer value, if input is filled volume, 127 is rh, 255 is lh.",
+      "value-key": "[LABEL_VALUE]",
+      "type": "Number",
+      "integer": true,
+      "optional": false,
+      "id": "label_value",
+      "name": "Label value"
+    },
+    {
+      "description": "Binary surface of the tessellation, output file.",
+      "value-key": "[OUTPUT_SURF]",
+      "type": "String",
+      "optional": false,
+      "id": "output_surf",
+      "name": "Output surface"
+    },
+    {
+      "command-line-flag": "-a",
+      "description": "Tessellate the surface of all voxels with different labels.",
+      "value-key": "[DIFFERENT_LABELS]",
+      "type": "Flag",
+      "id": "different_labels",
+      "name": "Different labels flag"
+    },
+    {
+      "command-line-flag": "-maxv",
+      "description": "Set the max number of vertices to nvertices, and the max number of faces to (2 * nvertices).",
+      "value-key": "[MAX_VERTICES]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "max_vertices",
+      "name": "Max vertices"
+    },
+    {
+      "command-line-flag": "-n",
+      "description": "Save surface with real RAS coordinates where c_(r,a,s) != 0.",
+      "value-key": "[REAL_RAS]",
+      "type": "Flag",
+      "id": "real_ras",
+      "name": "Real RAS flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_SURF]",
+      "description": "Output file of the tessellation surface, typically ?h.orig.",
+      "id": "output_surface_file",
+      "name": "Output surface file"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

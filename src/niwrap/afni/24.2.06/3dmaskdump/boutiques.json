@@ -1,0 +1,196 @@
+{
+  "name": "3dmaskdump",
+  "author": "AFNI Developers",
+  "description": "Outputs voxel values from AFNI datasets satisfying mask criteria to an ASCII file.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dmaskdump [INPUT_FILES] [MASK_DATASET] [MASK_RANGE] [OUTPUT_INDEX] [OUTPUT_NOIJK] [OUTPUT_XYZ] [OUTPUT_FILENAME] [CALC_MASK_OPTS] [XBOX_COORDS] [DBOX_COORDS] [NBOX_COORDS] [IBOX_COORDS] [XBALL_COORDS] [DBALL_COORDS] [NBALL_COORDS] [NOZERO_OUTPUT] [RANDOM_VOXELS] [RANDOM_SEED] [OUTPUT_NIML] [QUIET_MODE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input datasets to dump voxel values",
+      "value-key": "[INPUT_FILES]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "input_files",
+      "name": "Input datasets"
+    },
+    {
+      "command-line-flag": "-mask",
+      "description": "Use the dataset as a mask. Only voxels with nonzero values in the mask will be printed from the input dataset.",
+      "value-key": "[MASK_DATASET]",
+      "type": "File",
+      "optional": true,
+      "id": "mask_dataset",
+      "name": "Mask dataset"
+    },
+    {
+      "command-line-flag": "-mrange",
+      "description": "Further restrict the voxels from mask dataset to those mask values between 'a' and 'b' (inclusive).",
+      "value-key": "[MASK_RANGE]",
+      "type": "String",
+      "list": true,
+      "min-list-entries": 2,
+      "max-list-entries": 2,
+      "optional": true,
+      "id": "mask_range",
+      "name": "Mask range"
+    },
+    {
+      "command-line-flag": "-index",
+      "description": "Write out the dataset index values.",
+      "value-key": "[OUTPUT_INDEX]",
+      "type": "Flag",
+      "id": "output_index",
+      "name": "Output index values"
+    },
+    {
+      "command-line-flag": "-noijk",
+      "description": "Do not write out the i,j,k values.",
+      "value-key": "[OUTPUT_NOIJK]",
+      "type": "Flag",
+      "id": "output_noijk",
+      "name": "Exclude i,j,k values"
+    },
+    {
+      "command-line-flag": "-xyz",
+      "description": "Write the x,y,z coordinates from the first input dataset at the start of each output line.",
+      "value-key": "[OUTPUT_XYZ]",
+      "type": "Flag",
+      "id": "output_xyz",
+      "name": "Output x,y,z coordinates"
+    },
+    {
+      "command-line-flag": "-o",
+      "description": "Write output to specified file.",
+      "value-key": "[OUTPUT_FILENAME]",
+      "type": "String",
+      "optional": true,
+      "id": "output_filename",
+      "name": "Output filename"
+    },
+    {
+      "command-line-flag": "-cmask",
+      "description": "Execute options enclosed as a 3dcalc-like program to produce a mask from the resulting 3D brick.",
+      "value-key": "[CALC_MASK_OPTS]",
+      "type": "String",
+      "optional": true,
+      "id": "calc_mask_opts",
+      "name": "3dcalc-like mask options"
+    },
+    {
+      "command-line-flag": "-xbox",
+      "description": "Put a 'mask' at dataset coordinates 'x y z' mm.",
+      "value-key": "[XBOX_COORDS]",
+      "type": "String",
+      "optional": true,
+      "id": "xbox_coords",
+      "name": "Dataset coordinates for mask"
+    },
+    {
+      "command-line-flag": "-dbox",
+      "description": "Put a 'mask' at RAI/DICOM coordinates of 'x y z' mm.",
+      "value-key": "[DBOX_COORDS]",
+      "type": "String",
+      "optional": true,
+      "id": "dbox_coords",
+      "name": "RAI/DICOM coordinates for mask"
+    },
+    {
+      "command-line-flag": "-nbox",
+      "description": "Put a 'mask' at LPI/SPM coordinates of 'x y z' mm.",
+      "value-key": "[NBOX_COORDS]",
+      "type": "String",
+      "optional": true,
+      "id": "nbox_coords",
+      "name": "LPI/SPM coordinates for mask"
+    },
+    {
+      "command-line-flag": "-ibox",
+      "description": "Put a 'mask' at voxel indexes 'i j k'.",
+      "value-key": "[IBOX_COORDS]",
+      "type": "String",
+      "optional": true,
+      "id": "ibox_coords",
+      "name": "Voxel indexes for mask"
+    },
+    {
+      "command-line-flag": "-xball",
+      "description": "Put a ball (sphere) mask at dataset coordinates (x,y,z) with radius r.",
+      "value-key": "[XBALL_COORDS]",
+      "type": "String",
+      "optional": true,
+      "id": "xball_coords",
+      "name": "Coordinates and radius for ball mask"
+    },
+    {
+      "command-line-flag": "-dball",
+      "description": "Put a ball (sphere) mask at RAI/DICOM coordinates (x,y,z) with radius r.",
+      "value-key": "[DBALL_COORDS]",
+      "type": "String",
+      "optional": true,
+      "id": "dball_coords",
+      "name": "RAI/DICOM Coordinates and radius for ball mask"
+    },
+    {
+      "command-line-flag": "-nball",
+      "description": "Put a ball (sphere) mask at LPI/SPM coordinates (x,y,z) with radius r.",
+      "value-key": "[NBALL_COORDS]",
+      "type": "String",
+      "optional": true,
+      "id": "nball_coords",
+      "name": "LPI/SPM Coordinates and radius for ball mask"
+    },
+    {
+      "command-line-flag": "-nozero",
+      "description": "Skip output of any voxel where all the data values are zero.",
+      "value-key": "[NOZERO_OUTPUT]",
+      "type": "Flag",
+      "id": "nozero_output",
+      "name": "Exclude zero values"
+    },
+    {
+      "command-line-flag": "-n_rand",
+      "description": "Keep only N_RAND randomly selected voxels from what would have been the output.",
+      "value-key": "[RANDOM_VOXELS]",
+      "type": "Number",
+      "optional": true,
+      "id": "random_voxels",
+      "name": "Number of random voxels"
+    },
+    {
+      "command-line-flag": "-n_randseed",
+      "description": "Seed the random number generator with SEED.",
+      "value-key": "[RANDOM_SEED]",
+      "type": "Number",
+      "optional": true,
+      "id": "random_seed",
+      "name": "Random seed"
+    },
+    {
+      "command-line-flag": "-niml",
+      "description": "Output data in the XML/NIML format compatible with input back to AFNI via the READ_NIML_FILE command.",
+      "value-key": "[OUTPUT_NIML]",
+      "type": "String",
+      "optional": true,
+      "id": "output_niml",
+      "name": "NIML format output"
+    },
+    {
+      "command-line-flag": "-quiet",
+      "description": "Do not print progress messages to stderr.",
+      "value-key": "[QUIET_MODE]",
+      "type": "Flag",
+      "id": "quiet_mode",
+      "name": "Quiet mode"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILENAME]",
+      "description": "Output ASCII file with voxel values",
+      "id": "output_file",
+      "name": "Output file"
+    }
+  ]
+}

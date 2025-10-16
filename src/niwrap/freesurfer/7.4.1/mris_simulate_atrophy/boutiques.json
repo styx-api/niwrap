@@ -1,0 +1,76 @@
+{
+  "name": "mris_simulate_atrophy",
+  "description": "Simulate atrophy on brain structures.",
+  "command-line": "mris_simulate_atrophy [SUBJECT] [HEMI] [LABEL] [ATROPHY_FRACTION] [OUTPUT_VOLUME] [ATROPHY_PERCENT] [NOISE_LEVEL]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Subject identifier",
+      "value-key": "[SUBJECT]",
+      "type": "String",
+      "optional": false,
+      "id": "subject",
+      "name": "Subject"
+    },
+    {
+      "description": "Hemisphere (e.g. lh or rh)",
+      "value-key": "[HEMI]",
+      "type": "String",
+      "optional": false,
+      "id": "hemi",
+      "name": "Hemisphere"
+    },
+    {
+      "description": "Label of the brain region",
+      "value-key": "[LABEL]",
+      "type": "String",
+      "optional": false,
+      "id": "label",
+      "name": "Label"
+    },
+    {
+      "description": "Target atrophy fraction",
+      "value-key": "[ATROPHY_FRACTION]",
+      "type": "Number",
+      "optional": false,
+      "id": "atrophy_fraction",
+      "name": "Atrophy Fraction"
+    },
+    {
+      "description": "Output volume file",
+      "value-key": "[OUTPUT_VOLUME]",
+      "type": "String",
+      "optional": false,
+      "id": "output_volume",
+      "name": "Output Volume"
+    },
+    {
+      "command-line-flag": "-a",
+      "description": "Percentage atrophy to simulate of structure",
+      "value-key": "[ATROPHY_PERCENT]",
+      "type": "Number",
+      "optional": true,
+      "id": "atrophy_percent",
+      "name": "Atrophy Percentage"
+    },
+    {
+      "command-line-flag": "-n",
+      "description": "Gaussian noise level to add",
+      "value-key": "[NOISE_LEVEL]",
+      "type": "Number",
+      "optional": true,
+      "id": "noise_level",
+      "name": "Noise Level"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_VOLUME]",
+      "description": "Atrophy simulation output volume.",
+      "id": "output_file",
+      "name": "Output File"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

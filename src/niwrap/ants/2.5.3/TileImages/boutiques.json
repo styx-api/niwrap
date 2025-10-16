@@ -1,0 +1,49 @@
+{
+  "name": "TileImages",
+  "command-line": "TileImages [IMAGE_DIMENSION] [OUTPUT_IMAGE] [LAYOUT] [INPUT_IMAGES]",
+  "description": "TileImages allows assembling images into a multi-dimensional array, producing a single output image. The input images must have a dimension less than or equal to the specified output image dimension.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "image_dimension",
+      "name": "Image Dimension",
+      "value-key": "[IMAGE_DIMENSION]",
+      "type": "Number",
+      "integer": true,
+      "description": "Dimensionality of the output image."
+    },
+    {
+      "id": "output_image",
+      "name": "Output Image",
+      "value-key": "[OUTPUT_IMAGE]",
+      "type": "String",
+      "description": "The path for the output tiled image."
+    },
+    {
+      "id": "layout",
+      "name": "Layout",
+      "value-key": "[LAYOUT]",
+      "type": "String",
+      "description": "Defines the structure of the tiled output image. The layout dictates the number and arrangement of input images in the output image."
+    },
+    {
+      "id": "input_images",
+      "name": "Input Images",
+      "value-key": "[INPUT_IMAGES]",
+      "type": "File",
+      "list": true,
+      "description": "Input images to be tiled into the output image. The number of input images should match the layout specification.",
+      "min-list-entries": 1
+    }
+  ],
+  "output-files": [
+    {
+      "id": "tiled_image",
+      "name": "Tiled Image",
+      "description": "The final tiled output image.",
+      "path-template": "[OUTPUT_IMAGE]"
+    }
+  ],
+  "author": "ANTs Developers",
+  "url": "https://github.com/ANTsX/ANTs"
+}

@@ -1,0 +1,214 @@
+{
+  "name": "3dLMEr",
+  "author": "AFNI Developers",
+  "description": "Program for Voxelwise Linear Mixed-Effects (LME) Analysis",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dLMEr [BOUND_LOWER] [BOUND_UPPER] [CIO] [DATA_TABLE] [DEBUG_ARGS] [GLF_CODE] [GLT_CODE] [HELP] [INPUT_FILE_COLUMN] [JOBS] [MASK] [MODEL] [PREFIX] [QVAR_CENTERS] [QVARS] [RESID] [RIO] [SHOW_OPTIONS] [SS_TYPE] [TRR] [VVAR_CENTERS] [VVARS]",
+  "inputs": [
+    {
+      "description": "Specify the lower and upper bounds for outlier removal",
+      "value-key": "[BOUND_LOWER]",
+      "type": "Number",
+      "optional": true,
+      "id": "bound_lower",
+      "name": "Lower Bound"
+    },
+    {
+      "description": "Specify the lower and upper bounds for outlier removal",
+      "value-key": "[BOUND_UPPER]",
+      "type": "Number",
+      "optional": true,
+      "id": "bound_upper",
+      "name": "Upper Bound"
+    },
+    {
+      "command-line-flag": "-cio",
+      "description": "Use AFNI's C io functions",
+      "value-key": "[CIO]",
+      "type": "Flag",
+      "id": "cio",
+      "name": "Use CIO"
+    },
+    {
+      "command-line-flag": "-dataTable",
+      "description": "List the data structure with a header as the first line",
+      "value-key": "[DATA_TABLE]",
+      "type": "File",
+      "optional": false,
+      "id": "data_table",
+      "name": "Input Data Table"
+    },
+    {
+      "command-line-flag": "-dbgArgs",
+      "description": "Enable R to save the parameters for debugging",
+      "value-key": "[DEBUG_ARGS]",
+      "type": "Flag",
+      "id": "debug_args",
+      "name": "Debug Arguments"
+    },
+    {
+      "command-line-flag": "-glfCode",
+      "description": "Specify a general linear F-style (GLF) formulation",
+      "value-key": "[GLF_CODE]",
+      "type": "String",
+      "optional": true,
+      "id": "glf_code",
+      "name": "GLF Code"
+    },
+    {
+      "command-line-flag": "-gltCode",
+      "description": "Specify the label and weights of interest in a general linear t-style (GLT) formulation",
+      "value-key": "[GLT_CODE]",
+      "type": "String",
+      "optional": true,
+      "id": "glt_code",
+      "name": "GLT Code"
+    },
+    {
+      "command-line-flag": "-help",
+      "description": "Display the help message",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help"
+    },
+    {
+      "command-line-flag": "-IF",
+      "description": "Specify the column name for input files of effect estimate",
+      "value-key": "[INPUT_FILE_COLUMN]",
+      "type": "String",
+      "optional": true,
+      "id": "input_file_column",
+      "name": "Input File Column"
+    },
+    {
+      "command-line-flag": "-jobs",
+      "description": "Number of jobs for parallel computing",
+      "value-key": "[JOBS]",
+      "type": "Number",
+      "optional": true,
+      "id": "jobs",
+      "name": "Number of Jobs"
+    },
+    {
+      "command-line-flag": "-mask",
+      "description": "Process voxels inside this mask only",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "mask",
+      "name": "Mask File"
+    },
+    {
+      "command-line-flag": "-model",
+      "description": "Specify the model structure for all the variables",
+      "value-key": "[MODEL]",
+      "type": "String",
+      "optional": false,
+      "id": "model",
+      "name": "Model Formula"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Output file name",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "prefix",
+      "name": "Output Prefix"
+    },
+    {
+      "command-line-flag": "-qVarCenters",
+      "description": "Specify centering values for quantitative variables",
+      "value-key": "[QVAR_CENTERS]",
+      "type": "String",
+      "optional": true,
+      "id": "qvar_centers",
+      "name": "QVar Centers"
+    },
+    {
+      "command-line-flag": "-qVars",
+      "description": "Identify quantitative variables (or covariates)",
+      "value-key": "[QVARS]",
+      "type": "String",
+      "optional": true,
+      "id": "qvars",
+      "name": "Quantitative Variables"
+    },
+    {
+      "command-line-flag": "-resid",
+      "description": "Output file name for the residuals",
+      "value-key": "[RESID]",
+      "type": "String",
+      "optional": true,
+      "id": "resid",
+      "name": "Residuals Output Prefix"
+    },
+    {
+      "command-line-flag": "-Rio",
+      "description": "Use R's io functions",
+      "value-key": "[RIO]",
+      "type": "Flag",
+      "id": "rio",
+      "name": "Use RIO"
+    },
+    {
+      "command-line-flag": "-show_allowed_options",
+      "description": "List of allowed options",
+      "value-key": "[SHOW_OPTIONS]",
+      "type": "Flag",
+      "id": "show_options",
+      "name": "Show Allowed Options"
+    },
+    {
+      "command-line-flag": "-SS_type",
+      "description": "Specify the type for sums of squares in the F-statistics",
+      "value-key": "[SS_TYPE]",
+      "type": "Number",
+      "optional": true,
+      "id": "ss_type",
+      "name": "Sums of Squares Type"
+    },
+    {
+      "command-line-flag": "-TRR",
+      "description": "Perform test-retest reliability analysis",
+      "value-key": "[TRR]",
+      "type": "Flag",
+      "id": "trr",
+      "name": "Test-Retest Reliability"
+    },
+    {
+      "command-line-flag": "-vVarCenters",
+      "description": "Specify centering values for voxel-wise covariates",
+      "value-key": "[VVAR_CENTERS]",
+      "type": "String",
+      "optional": true,
+      "id": "vvar_centers",
+      "name": "VVar Centers"
+    },
+    {
+      "command-line-flag": "-vVars",
+      "description": "Identify voxel-wise covariates",
+      "value-key": "[VVARS]",
+      "type": "String",
+      "optional": true,
+      "id": "vvars",
+      "name": "Voxel-wise Variables"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX].nii.gz",
+      "description": "Output file",
+      "id": "output_file",
+      "name": "Output file"
+    },
+    {
+      "path-template": "[RESID].nii.gz",
+      "description": "Output residuals file",
+      "id": "residuals_file",
+      "name": "Residuals Output file"
+    }
+  ]
+}

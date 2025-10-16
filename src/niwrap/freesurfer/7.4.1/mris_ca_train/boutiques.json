@@ -1,0 +1,240 @@
+{
+  "name": "mris_ca_train",
+  "description": "Creates a cortical parcellation atlas file based on one or more annotated subjects using probabilistic information.",
+  "command-line": "mris_ca_train [HEMI] [CANONSURF] [ANNOT_FILE] [SUBJECTS] [OUTPUT_FILE] [SDIR] [NBRS] [ORIG] [NORM1] [NORM2] [NORM3] [IC] [SULC] [SULCONLY] [A] [PARCELLATION_TABLE] [N] [VERBOSE] [DEBUG_VERTEX] [GCS_MEANS] [GCS_PRIORS] [GCS_DIFF] [NFILL] [NO_FILL] [HELP] [VERSION]",
+  "inputs": [
+    {
+      "value-key": "[HEMI]",
+      "type": "String",
+      "description": "Hemisphere: rh or lh",
+      "optional": false,
+      "id": "hemi",
+      "name": "Hemisphere"
+    },
+    {
+      "value-key": "[CANONSURF]",
+      "type": "File",
+      "description": "Canonical surface filename",
+      "optional": false,
+      "id": "canonsurf",
+      "name": "Canonical Surface"
+    },
+    {
+      "value-key": "[ANNOT_FILE]",
+      "type": "File",
+      "description": "Annotation filename",
+      "optional": false,
+      "id": "annot_file",
+      "name": "Annotation File"
+    },
+    {
+      "value-key": "[SUBJECTS]",
+      "type": "String",
+      "description": "List of subject ids",
+      "list": true,
+      "optional": false,
+      "id": "subjects",
+      "name": "Subject IDs"
+    },
+    {
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "description": "Classifier array output file",
+      "optional": false,
+      "id": "output_file",
+      "name": "Output File"
+    },
+    {
+      "command-line-flag": "-sdir",
+      "value-key": "[SDIR]",
+      "type": "String",
+      "description": "Directory as subjects directory (default: $SUBJECTS_DIR)",
+      "optional": true,
+      "id": "sdir",
+      "name": "Subjects Directory"
+    },
+    {
+      "command-line-flag": "-nbrs",
+      "value-key": "[NBRS]",
+      "type": "Number",
+      "description": "Neighborhood size (default=2)",
+      "optional": true,
+      "id": "nbrs",
+      "name": "Neighborhood Size"
+    },
+    {
+      "command-line-flag": "-orig",
+      "value-key": "[ORIG]",
+      "type": "File",
+      "description": "Filename of original surface (default=smoothwm)",
+      "optional": true,
+      "id": "orig",
+      "name": "Original Surface File"
+    },
+    {
+      "command-line-flag": "-norm1",
+      "value-key": "[NORM1]",
+      "type": "Flag",
+      "description": "GCSA normalize input #1 after reading (default: disabled)",
+      "id": "norm1",
+      "name": "Normalize Input 1"
+    },
+    {
+      "command-line-flag": "-norm2",
+      "value-key": "[NORM2]",
+      "type": "Flag",
+      "description": "GCSA normalize input #2 after reading (default: disabled)",
+      "id": "norm2",
+      "name": "Normalize Input 2"
+    },
+    {
+      "command-line-flag": "-norm3",
+      "value-key": "[NORM3]",
+      "type": "Flag",
+      "description": "GCSA normalize input #3 after reading (default: disabled)",
+      "id": "norm3",
+      "name": "Normalize Input 3"
+    },
+    {
+      "command-line-flag": "-ic",
+      "value-key": "[IC]",
+      "type": "String",
+      "description": "Parameters passed to the classifier routine (default: -ic 7 4)",
+      "optional": true,
+      "id": "ic",
+      "name": "Classifier Parameters"
+    },
+    {
+      "command-line-flag": "-sulc",
+      "value-key": "[SULC]",
+      "type": "Flag",
+      "description": "Specify sulc as only input (default: sulcus and curvature)",
+      "id": "sulc",
+      "name": "Sulcus Only"
+    },
+    {
+      "command-line-flag": "-sulconly",
+      "value-key": "[SULCONLY]",
+      "type": "Flag",
+      "description": "Same as -sulc",
+      "id": "sulconly",
+      "name": "Sulcus Only Flag"
+    },
+    {
+      "command-line-flag": "-a",
+      "value-key": "[A]",
+      "type": "Number",
+      "description": "Number of nearest neighbor smoothing iterations to apply to input 1 (default=5)",
+      "optional": true,
+      "id": "a",
+      "name": "Smoothing Iterations"
+    },
+    {
+      "command-line-flag": "-t",
+      "value-key": "[PARCELLATION_TABLE]",
+      "type": "File",
+      "description": "Parcellation table input file (default: none)",
+      "optional": true,
+      "id": "parcellation_table",
+      "name": "Parcellation Table"
+    },
+    {
+      "command-line-flag": "-n",
+      "value-key": "[N]",
+      "type": "Number",
+      "description": "Number of inputs (default=1,max=3)",
+      "optional": true,
+      "id": "n",
+      "name": "Number of Inputs"
+    },
+    {
+      "command-line-flag": "-v",
+      "value-key": "[VERBOSE]",
+      "type": "Number",
+      "description": "Diagnostic level (default=0)",
+      "optional": true,
+      "id": "verbose",
+      "name": "Verbose Level"
+    },
+    {
+      "command-line-flag": "-debug-vertex",
+      "value-key": "[DEBUG_VERTEX]",
+      "type": "Number",
+      "description": "Debug diagnostic level for a specific vertex (default=0)",
+      "optional": true,
+      "id": "debug_vertex",
+      "name": "Debug Vertex"
+    },
+    {
+      "command-line-flag": "-gcs-means",
+      "value-key": "[GCS_MEANS]",
+      "type": "String",
+      "description": "Extract likelihood means for all classes for given input",
+      "optional": true,
+      "id": "gcs_means",
+      "name": "GCS Means"
+    },
+    {
+      "command-line-flag": "-gcs-priors",
+      "value-key": "[GCS_PRIORS]",
+      "type": "String",
+      "description": "Extract priors for all classes for given input",
+      "optional": true,
+      "id": "gcs_priors",
+      "name": "GCS Priors"
+    },
+    {
+      "command-line-flag": "-gcs-diff",
+      "value-key": "[GCS_DIFF]",
+      "type": "String",
+      "description": "Determine whether GCSAs are different",
+      "optional": true,
+      "id": "gcs_diff",
+      "name": "GCS Difference"
+    },
+    {
+      "command-line-flag": "-nfill",
+      "value-key": "[NFILL]",
+      "type": "Number",
+      "description": "Set the max number of iterations for filling empty vertices",
+      "optional": true,
+      "id": "nfill",
+      "name": "Max Fill Iterations"
+    },
+    {
+      "command-line-flag": "-no-fill",
+      "value-key": "[NO_FILL]",
+      "type": "Flag",
+      "description": "Do not fill at all",
+      "id": "no_fill",
+      "name": "No Fill Flag"
+    },
+    {
+      "command-line-flag": "--help",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "description": "Print help info",
+      "id": "help",
+      "name": "Help Flag"
+    },
+    {
+      "command-line-flag": "--version",
+      "value-key": "[VERSION]",
+      "type": "Flag",
+      "description": "Print version info",
+      "id": "version",
+      "name": "Version Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILE]",
+      "description": "Classifier array output file generated by mris_ca_train",
+      "id": "output_file",
+      "name": "Classifier Array Output"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

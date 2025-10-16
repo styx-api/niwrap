@@ -1,0 +1,925 @@
+{
+  "name": "3dinfo",
+  "author": "AFNI Developers",
+  "description": "Prints out sort-of-useful information from a 3D dataset's header",
+  "command-line": "3dinfo [ORIENT] [LEXTENT] [REXTENT] [AEXTENT] [PEXTENT] [IEXTENT] [SEXTENT] [ALL_NAMES] [VERB] [VERY_VERBOSE] [SHORT] [NO_HIST] [H] [HELP] [EXTREME_HELP] [H_VIEW] [H_WEB] [H_FIND] [H_RAW] [H_SPX] [H_ASPX] [ALL_OPTS] [LABEL2INDEX] [NIML_HDR] [SUBBRICK_INFO] [EXISTS] [ID] [IS_ATLAS] [IS_ATLAS_OR_LABELTABLE] [IS_NIFTI] [DSET_EXTENSION] [STORAGE_MODE] [SPACE] [GEN_SPACE] [AV_SPACE] [NIFTI_CODE] [IS_OBLIQUE] [HANDEDNESS] [OBLIQUITY] [PREFIX] [PREFIX_NOEXT] [NI] [NJ] [NK] [NIJK] [NV] [NT] [N4] [NVI] [NTI] [NTIMES] [MAX_NODE] [DI] [DJ] [DK] [D3] [ADI] [ADJ] [ADK] [AD3] [VOXVOL] [OI] [OJ] [OK] [O3] [DCX] [DCY] [DCZ] [DC3] [TR] [DMIN] [DMAX] [DMINUS] [DMAXUS] [SMODE] [HEADER_NAME] [BRICK_NAME] [INAME] [EXTENT] [FAC] [LABEL] [DATUM] [MIN] [MAX] [MINUS] [MAXUS] [LABELTABLE] [LABELTABLE_AS_ATLAS_POINTS] [ATLAS_POINTS] [HISTORY] [SLICE_TIMING] [HEADER_LINE] [HDR] [SB_DELIM] [NA_FLAG] [ATR_DELIM] [AFORM_REAL] [AFORM_REAL_ONELINE] [AFORM_REAL_REFIT_ORI] [IS_AFORM_REAL_ORTH] [AFORM_ORTH] [PERM_TO_ORIENT] [SAME_GRID] [SAME_DIM] [SAME_DELTA] [SAME_ORIENT] [SAME_CENTER] [SAME_OBL] [SAME_ALL_GRID] [VAL_DIFF] [SVAL_DIFF] [MONOG_PAIRS] [DATASET]",
+  "inputs": [
+    {
+      "description": "Datasets to retrieve information from",
+      "value-key": "[DATASET]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "dataset",
+      "name": "Dataset"
+    },
+    {
+      "command-line-flag": "-verb",
+      "description": "Print out lots of information",
+      "value-key": "[VERB]",
+      "type": "Flag",
+      "id": "verb",
+      "name": "Verbose"
+    },
+    {
+      "command-line-flag": "-VERB",
+      "description": "Print out even more information including slice time offsets",
+      "value-key": "[VERY_VERBOSE]",
+      "type": "Flag",
+      "id": "very_verbose",
+      "name": "Very Verbose"
+    },
+    {
+      "command-line-flag": "-short",
+      "description": "Print out less information (default)",
+      "value-key": "[SHORT]",
+      "type": "Flag",
+      "id": "short",
+      "name": "Short"
+    },
+    {
+      "command-line-flag": "-no_hist",
+      "description": "Omit the HISTORY text",
+      "value-key": "[NO_HIST]",
+      "type": "Flag",
+      "id": "no_hist",
+      "name": "No History"
+    },
+    {
+      "command-line-flag": "-h",
+      "description": "Mini help",
+      "value-key": "[H]",
+      "type": "Flag",
+      "id": "h",
+      "name": "Help"
+    },
+    {
+      "command-line-flag": "-help",
+      "description": "Display entire help output",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Full Help"
+    },
+    {
+      "command-line-flag": "-HELP",
+      "description": "Extreme help",
+      "value-key": "[EXTREME_HELP]",
+      "type": "Flag",
+      "id": "extreme_help",
+      "name": "Extreme Help"
+    },
+    {
+      "command-line-flag": "-h_view",
+      "description": "Open help in text editor",
+      "value-key": "[H_VIEW]",
+      "type": "Flag",
+      "id": "h_view",
+      "name": "Help View"
+    },
+    {
+      "command-line-flag": "-h_web",
+      "description": "Open help in web browser",
+      "value-key": "[H_WEB]",
+      "type": "Flag",
+      "id": "h_web",
+      "name": "Help Web"
+    },
+    {
+      "command-line-flag": "-h_find",
+      "description": "Look for lines in help output that match WORD",
+      "value-key": "[H_FIND]",
+      "type": "String",
+      "optional": true,
+      "id": "h_find",
+      "name": "Help Find"
+    },
+    {
+      "command-line-flag": "-h_raw",
+      "description": "Display unedited help string",
+      "value-key": "[H_RAW]",
+      "type": "Flag",
+      "id": "h_raw",
+      "name": "Help Raw"
+    },
+    {
+      "command-line-flag": "-h_spx",
+      "description": "Help string in sphinx format without autoformatting options",
+      "value-key": "[H_SPX]",
+      "type": "Flag",
+      "id": "h_spx",
+      "name": "Help SPX"
+    },
+    {
+      "command-line-flag": "-h_aspx",
+      "description": "Help string in sphinx format with autoformatting options",
+      "value-key": "[H_ASPX]",
+      "type": "Flag",
+      "id": "h_aspx",
+      "name": "Help ASPX"
+    },
+    {
+      "command-line-flag": "-all_opts",
+      "description": "Try to identify all options for the program from the help output",
+      "value-key": "[ALL_OPTS]",
+      "type": "Flag",
+      "id": "all_opts",
+      "name": "All Options"
+    },
+    {
+      "command-line-flag": "-label2index",
+      "description": "Output index corresponding to label",
+      "value-key": "[LABEL2INDEX]",
+      "type": "String",
+      "optional": true,
+      "id": "label2index",
+      "name": "Label to Index"
+    },
+    {
+      "command-line-flag": "-niml_hdr",
+      "description": "Output entire NIML-formatted header",
+      "value-key": "[NIML_HDR]",
+      "type": "Flag",
+      "id": "niml_hdr",
+      "name": "NIML Header"
+    },
+    {
+      "command-line-flag": "-subbrick_info",
+      "description": "Output only sub-brick part of information",
+      "value-key": "[SUBBRICK_INFO]",
+      "type": "Flag",
+      "id": "subbrick_info",
+      "name": "Sub-brick Info"
+    },
+    {
+      "command-line-flag": "-exists",
+      "description": "1 if dset is loadable, 0 otherwise. This works on prefix also.",
+      "value-key": "[EXISTS]",
+      "type": "Flag",
+      "id": "exists",
+      "name": "Exists"
+    },
+    {
+      "command-line-flag": "-id",
+      "description": "Idcodestring of dset",
+      "value-key": "[ID]",
+      "type": "Flag",
+      "id": "id",
+      "name": "ID"
+    },
+    {
+      "command-line-flag": "-is_atlas",
+      "description": "1 if dset is an atlas.",
+      "value-key": "[IS_ATLAS]",
+      "type": "Flag",
+      "id": "is_atlas",
+      "name": "Is Atlas"
+    },
+    {
+      "command-line-flag": "-is_atlas_or_labeltable",
+      "description": "1 if dset has an atlas or labeltable.",
+      "value-key": "[IS_ATLAS_OR_LABELTABLE]",
+      "type": "Flag",
+      "id": "is_atlas_or_labeltable",
+      "name": "Is Atlas or Labeltable"
+    },
+    {
+      "command-line-flag": "-is_nifti",
+      "description": "1 if dset is NIFTI format, 0 otherwise",
+      "value-key": "[IS_NIFTI]",
+      "type": "Flag",
+      "id": "is_nifti",
+      "name": "Is NIFTI"
+    },
+    {
+      "command-line-flag": "-dset_extension",
+      "description": "Show filename extension for valid dataset (e.g. .nii.gz)",
+      "value-key": "[DSET_EXTENSION]",
+      "type": "Flag",
+      "id": "dset_extension",
+      "name": "Dataset Extension"
+    },
+    {
+      "command-line-flag": "-storage_mode",
+      "description": "Show internal storage mode of dataset (e.g. NIFTI)",
+      "value-key": "[STORAGE_MODE]",
+      "type": "Flag",
+      "id": "storage_mode",
+      "name": "Storage Mode"
+    },
+    {
+      "command-line-flag": "-space",
+      "description": "Dataset's space",
+      "value-key": "[SPACE]",
+      "type": "Flag",
+      "id": "space",
+      "name": "Space"
+    },
+    {
+      "command-line-flag": "-gen_space",
+      "description": "Dataset's generic space",
+      "value-key": "[GEN_SPACE]",
+      "type": "Flag",
+      "id": "gen_space",
+      "name": "Generic Space"
+    },
+    {
+      "command-line-flag": "-av_space",
+      "description": "AFNI format's view extension for the space",
+      "value-key": "[AV_SPACE]",
+      "type": "Flag",
+      "id": "av_space",
+      "name": "AFNI View Space"
+    },
+    {
+      "command-line-flag": "-nifti_code",
+      "description": "What AFNI would use for an output NIFTI (q)sform_code",
+      "value-key": "[NIFTI_CODE]",
+      "type": "Flag",
+      "id": "nifti_code",
+      "name": "NIFTI Code"
+    },
+    {
+      "command-line-flag": "-is_oblique",
+      "description": "1 if dset is oblique",
+      "value-key": "[IS_OBLIQUE]",
+      "type": "Flag",
+      "id": "is_oblique",
+      "name": "Is Oblique"
+    },
+    {
+      "command-line-flag": "-handedness",
+      "description": "L if orientation is Left handed, R if it is right handed",
+      "value-key": "[HANDEDNESS]",
+      "type": "Flag",
+      "id": "handedness",
+      "name": "Handedness"
+    },
+    {
+      "command-line-flag": "-obliquity",
+      "description": "Angle from plumb direction. Angles of 0 (or close) are for cardinal orientations",
+      "value-key": "[OBLIQUITY]",
+      "type": "Flag",
+      "id": "obliquity",
+      "name": "Obliquity"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Return the prefix",
+      "value-key": "[PREFIX]",
+      "type": "Flag",
+      "id": "prefix",
+      "name": "Prefix"
+    },
+    {
+      "command-line-flag": "-prefix_noext",
+      "description": "Return the prefix without extensions",
+      "value-key": "[PREFIX_NOEXT]",
+      "type": "Flag",
+      "id": "prefix_noext",
+      "name": "Prefix No Extension"
+    },
+    {
+      "command-line-flag": "-ni",
+      "description": "Return the number of voxels in i dimension",
+      "value-key": "[NI]",
+      "type": "Flag",
+      "id": "ni",
+      "name": "Number of Voxels in i"
+    },
+    {
+      "command-line-flag": "-nj",
+      "description": "Return the number of voxels in j dimension",
+      "value-key": "[NJ]",
+      "type": "Flag",
+      "id": "nj",
+      "name": "Number of Voxels in j"
+    },
+    {
+      "command-line-flag": "-nk",
+      "description": "Return the number of voxels in k dimension",
+      "value-key": "[NK]",
+      "type": "Flag",
+      "id": "nk",
+      "name": "Number of Voxels in k"
+    },
+    {
+      "command-line-flag": "-nijk",
+      "description": "Return ni*nj*nk",
+      "value-key": "[NIJK]",
+      "type": "Flag",
+      "id": "nijk",
+      "name": "Number of Voxels in i*j*k"
+    },
+    {
+      "command-line-flag": "-nv",
+      "description": "Return number of points in time or the number of sub-bricks",
+      "value-key": "[NV]",
+      "type": "Flag",
+      "id": "nv",
+      "name": "Number of Points in Time"
+    },
+    {
+      "command-line-flag": "-nt",
+      "description": "Same as -nv",
+      "value-key": "[NT]",
+      "type": "Flag",
+      "id": "nt",
+      "name": "Number of Points in Time (Alias)"
+    },
+    {
+      "command-line-flag": "-n4",
+      "description": "Same as -ni -nj -nk -nv",
+      "value-key": "[N4]",
+      "type": "Flag",
+      "id": "n4",
+      "name": "Number of Voxels in i*j*k and Points in Time"
+    },
+    {
+      "command-line-flag": "-nvi",
+      "description": "The maximum sub-brick index (= nv -1 )",
+      "value-key": "[NVI]",
+      "type": "Flag",
+      "id": "nvi",
+      "name": "Maximum Sub-brick Index"
+    },
+    {
+      "command-line-flag": "-nti",
+      "description": "Same as -nvi",
+      "value-key": "[NTI]",
+      "type": "Flag",
+      "id": "nti",
+      "name": "Maximum Sub-brick Index (Alias)"
+    },
+    {
+      "command-line-flag": "-ntimes",
+      "description": "Return number of sub-bricks points in time. This is an option for debugging use, stay away from it.",
+      "value-key": "[NTIMES]",
+      "type": "Flag",
+      "id": "ntimes",
+      "name": "Number of Sub-bricks Points in Time"
+    },
+    {
+      "command-line-flag": "-max_node",
+      "description": "For a surface-based dset, return the maximum node index",
+      "value-key": "[MAX_NODE]",
+      "type": "Flag",
+      "id": "max_node",
+      "name": "Maximum Node Index"
+    },
+    {
+      "command-line-flag": "-di",
+      "description": "Signed displacement per voxel along i direction, aka dx",
+      "value-key": "[DI]",
+      "type": "Flag",
+      "id": "di",
+      "name": "Displacement in i"
+    },
+    {
+      "command-line-flag": "-dj",
+      "description": "Signed displacement per voxel along j direction, aka dy",
+      "value-key": "[DJ]",
+      "type": "Flag",
+      "id": "dj",
+      "name": "Displacement in j"
+    },
+    {
+      "command-line-flag": "-dk",
+      "description": "Signed displacement per voxel along k direction, aka dz",
+      "value-key": "[DK]",
+      "type": "Flag",
+      "id": "dk",
+      "name": "Displacement in k"
+    },
+    {
+      "command-line-flag": "-d3",
+      "description": "Same as -di -dj -dk",
+      "value-key": "[D3]",
+      "type": "Flag",
+      "id": "d3",
+      "name": "Displacement in i, j, k"
+    },
+    {
+      "command-line-flag": "-adi",
+      "description": "Voxel size along i direction (abs(di))",
+      "value-key": "[ADI]",
+      "type": "Flag",
+      "id": "adi",
+      "name": "Voxel Size in i"
+    },
+    {
+      "command-line-flag": "-adj",
+      "description": "Voxel size along j direction (abs(dj))",
+      "value-key": "[ADJ]",
+      "type": "Flag",
+      "id": "adj",
+      "name": "Voxel Size in j"
+    },
+    {
+      "command-line-flag": "-adk",
+      "description": "Voxel size along k direction (abs(dk))",
+      "value-key": "[ADK]",
+      "type": "Flag",
+      "id": "adk",
+      "name": "Voxel Size in k"
+    },
+    {
+      "command-line-flag": "-ad3",
+      "description": "Same as -adi -adj -adk",
+      "value-key": "[AD3]",
+      "type": "Flag",
+      "id": "ad3",
+      "name": "Voxel Size in i, j, k"
+    },
+    {
+      "command-line-flag": "-voxvol",
+      "description": "Voxel volume in cubic millimeters",
+      "value-key": "[VOXVOL]",
+      "type": "Flag",
+      "id": "voxvol",
+      "name": "Voxel Volume"
+    },
+    {
+      "command-line-flag": "-oi",
+      "description": "Volume origin along the i direction",
+      "value-key": "[OI]",
+      "type": "Flag",
+      "id": "oi",
+      "name": "Origin in i"
+    },
+    {
+      "command-line-flag": "-oj",
+      "description": "Volume origin along the j direction",
+      "value-key": "[OJ]",
+      "type": "Flag",
+      "id": "oj",
+      "name": "Origin in j"
+    },
+    {
+      "command-line-flag": "-ok",
+      "description": "Volume origin along the k direction",
+      "value-key": "[OK]",
+      "type": "Flag",
+      "id": "ok",
+      "name": "Origin in k"
+    },
+    {
+      "command-line-flag": "-o3",
+      "description": "Same as -oi -oj -ok",
+      "value-key": "[O3]",
+      "type": "Flag",
+      "id": "o3",
+      "name": "Origin in i, j, k"
+    },
+    {
+      "command-line-flag": "-dcx",
+      "description": "Volumetric center in x direction (DICOM coordinates)",
+      "value-key": "[DCX]",
+      "type": "Flag",
+      "id": "dcx",
+      "name": "Center in x"
+    },
+    {
+      "command-line-flag": "-dcy",
+      "description": "Volumetric center in y direction (DICOM coordinates)",
+      "value-key": "[DCY]",
+      "type": "Flag",
+      "id": "dcy",
+      "name": "Center in y"
+    },
+    {
+      "command-line-flag": "-dcz",
+      "description": "Volumetric center in z direction (DICOM coordinates)",
+      "value-key": "[DCZ]",
+      "type": "Flag",
+      "id": "dcz",
+      "name": "Center in z"
+    },
+    {
+      "command-line-flag": "-dc3",
+      "description": "Same as -dcx -dcy -dcz",
+      "value-key": "[DC3]",
+      "type": "Flag",
+      "id": "dc3",
+      "name": "Center in x, y, z"
+    },
+    {
+      "command-line-flag": "-tr",
+      "description": "The TR value in seconds.",
+      "value-key": "[TR]",
+      "type": "Flag",
+      "id": "tr",
+      "name": "TR Value"
+    },
+    {
+      "command-line-flag": "-dmin",
+      "description": "The dataset's minimum value, scaled by fac",
+      "value-key": "[DMIN]",
+      "type": "Flag",
+      "id": "dmin",
+      "name": "Minimum Value (Scaled)"
+    },
+    {
+      "command-line-flag": "-dmax",
+      "description": "The dataset's maximum value, scaled by fac",
+      "value-key": "[DMAX]",
+      "type": "Flag",
+      "id": "dmax",
+      "name": "Maximum Value (Scaled)"
+    },
+    {
+      "command-line-flag": "-dminus",
+      "description": "The dataset's minimum value, unscaled.",
+      "value-key": "[DMINUS]",
+      "type": "Flag",
+      "id": "dminus",
+      "name": "Minimum Value (Unscaled)"
+    },
+    {
+      "command-line-flag": "-dmaxus",
+      "description": "The dataset's maximum value, unscaled.",
+      "value-key": "[DMAXUS]",
+      "type": "Flag",
+      "id": "dmaxus",
+      "name": "Maximum Value (Unscaled)"
+    },
+    {
+      "command-line-flag": "-smode",
+      "description": "Dset storage mode string.",
+      "value-key": "[SMODE]",
+      "type": "Flag",
+      "id": "smode",
+      "name": "Storage Mode String"
+    },
+    {
+      "command-line-flag": "-header_name",
+      "description": "Value of dset structure (sub)field 'header_name'",
+      "value-key": "[HEADER_NAME]",
+      "type": "Flag",
+      "id": "header_name",
+      "name": "Header Name"
+    },
+    {
+      "command-line-flag": "-brick_name",
+      "description": "Value of dset structure (sub)field 'brick_name'",
+      "value-key": "[BRICK_NAME]",
+      "type": "Flag",
+      "id": "brick_name",
+      "name": "Brick Name"
+    },
+    {
+      "command-line-flag": "-iname",
+      "description": "Name of dset as input on the command line",
+      "value-key": "[INAME]",
+      "type": "Flag",
+      "id": "iname",
+      "name": "Input Name"
+    },
+    {
+      "command-line-flag": "-orient",
+      "description": "Value of orientation string. For example, LPI means: i direction grows from Left(negative) to Right(positive). j direction grows from Posterior (neg.) to Anterior (pos.) k direction grows from Inferior (neg.) to Superior (pos.)",
+      "value-key": "[ORIENT]",
+      "type": "Flag",
+      "id": "orient",
+      "name": "Orientation"
+    },
+    {
+      "command-line-flag": "-extent",
+      "description": "The spatial extent of the dataset along R, L, A, P, I and S",
+      "value-key": "[EXTENT]",
+      "type": "Flag",
+      "id": "extent",
+      "name": "Spatial Extent"
+    },
+    {
+      "command-line-flag": "-Rextent",
+      "description": "Extent along R",
+      "value-key": "[REXTENT]",
+      "type": "Flag",
+      "id": "Rextent",
+      "name": "Extent along R"
+    },
+    {
+      "command-line-flag": "-Lextent",
+      "description": "Extent along L",
+      "value-key": "[LEXTENT]",
+      "type": "Flag",
+      "id": "Lextent",
+      "name": "Extent along L"
+    },
+    {
+      "command-line-flag": "-Aextent",
+      "description": "Extent along A",
+      "value-key": "[AEXTENT]",
+      "type": "Flag",
+      "id": "Aextent",
+      "name": "Extent along A"
+    },
+    {
+      "command-line-flag": "-Pextent",
+      "description": "Extent along P",
+      "value-key": "[PEXTENT]",
+      "type": "Flag",
+      "id": "Pextent",
+      "name": "Extent along P"
+    },
+    {
+      "command-line-flag": "-Iextent",
+      "description": "Extent along I",
+      "value-key": "[IEXTENT]",
+      "type": "Flag",
+      "id": "Iextent",
+      "name": "Extent along I"
+    },
+    {
+      "command-line-flag": "-Sextent",
+      "description": "Extent along S",
+      "value-key": "[SEXTENT]",
+      "type": "Flag",
+      "id": "Sextent",
+      "name": "Extent along S"
+    },
+    {
+      "command-line-flag": "-all_names",
+      "description": "Value of various dset structures handling filenames",
+      "value-key": "[ALL_NAMES]",
+      "type": "Flag",
+      "id": "all_names",
+      "name": "All Names"
+    },
+    {
+      "command-line-flag": "-fac",
+      "description": "Return the float scaling factor",
+      "value-key": "[FAC]",
+      "type": "Flag",
+      "id": "fac",
+      "name": "Float Scaling Factor"
+    },
+    {
+      "command-line-flag": "-label",
+      "description": "The label of each sub-brick",
+      "value-key": "[LABEL]",
+      "type": "Flag",
+      "id": "label",
+      "name": "Sub-brick Label"
+    },
+    {
+      "command-line-flag": "-datum",
+      "description": "The data storage type",
+      "value-key": "[DATUM]",
+      "type": "Flag",
+      "id": "datum",
+      "name": "Data Storage Type"
+    },
+    {
+      "command-line-flag": "-min",
+      "description": "The minimum value, scaled by fac",
+      "value-key": "[MIN]",
+      "type": "Flag",
+      "id": "min",
+      "name": "Minimum Value (Scaled)"
+    },
+    {
+      "command-line-flag": "-max",
+      "description": "The maximum value, scaled by fac",
+      "value-key": "[MAX]",
+      "type": "Flag",
+      "id": "max",
+      "name": "Maximum Value (Scaled)"
+    },
+    {
+      "command-line-flag": "-minus",
+      "description": "The minimum value, unscaled",
+      "value-key": "[MINUS]",
+      "type": "Flag",
+      "id": "minus",
+      "name": "Minimum Value (Unscaled)"
+    },
+    {
+      "command-line-flag": "-maxus",
+      "description": "The maximum value, unscaled",
+      "value-key": "[MAXUS]",
+      "type": "Flag",
+      "id": "maxus",
+      "name": "Maximum Value (Unscaled)"
+    },
+    {
+      "command-line-flag": "-labeltable",
+      "description": "Show label table, if any",
+      "value-key": "[LABELTABLE]",
+      "type": "Flag",
+      "id": "labeltable",
+      "name": "Label Table"
+    },
+    {
+      "command-line-flag": "-labeltable_as_atlas_points",
+      "description": "Show label table in atlas point format",
+      "value-key": "[LABELTABLE_AS_ATLAS_POINTS]",
+      "type": "Flag",
+      "id": "labeltable_as_atlas_points",
+      "name": "Label Table as Atlas Points"
+    },
+    {
+      "command-line-flag": "-atlas_points",
+      "description": "Show atlas points list, if any",
+      "value-key": "[ATLAS_POINTS]",
+      "type": "Flag",
+      "id": "atlas_points",
+      "name": "Atlas Points"
+    },
+    {
+      "command-line-flag": "-history",
+      "description": "History note",
+      "value-key": "[HISTORY]",
+      "type": "Flag",
+      "id": "history",
+      "name": "History Note"
+    },
+    {
+      "command-line-flag": "-slice_timing",
+      "description": "Show slice timing",
+      "value-key": "[SLICE_TIMING]",
+      "type": "Flag",
+      "id": "slice_timing",
+      "name": "Slice Timing"
+    },
+    {
+      "command-line-flag": "-header_line",
+      "description": "Output as the first line the names of attributes in each field (column)",
+      "value-key": "[HEADER_LINE]",
+      "type": "Flag",
+      "id": "header_line",
+      "name": "Header Line"
+    },
+    {
+      "command-line-flag": "-hdr",
+      "description": "Same as -header_line",
+      "value-key": "[HDR]",
+      "type": "Flag",
+      "id": "hdr",
+      "name": "Header Line"
+    },
+    {
+      "command-line-flag": "-sb_delim",
+      "description": "Delimiter string between sub-brick values. Default SB_DELIM is '|'",
+      "value-key": "[SB_DELIM]",
+      "type": "String",
+      "optional": true,
+      "id": "sb_delim",
+      "name": "Sub-brick Delimiter"
+    },
+    {
+      "command-line-flag": "-NA_flag",
+      "description": "String to use when a field is not found or not applicable. Default is 'NA'",
+      "value-key": "[NA_FLAG]",
+      "type": "String",
+      "optional": true,
+      "id": "NA_flag",
+      "name": "NA Flag"
+    },
+    {
+      "command-line-flag": "-atr_delim",
+      "description": "Delimiter string between attributes. Default ATR_DELIM is the tab character",
+      "value-key": "[ATR_DELIM]",
+      "type": "String",
+      "optional": true,
+      "id": "atr_delim",
+      "name": "Attribute Delimiter"
+    },
+    {
+      "command-line-flag": "-aform_real",
+      "description": "Display full 3x4 'aform_real' matrix (AFNI's RAI equivalent of the sform matrix in NIFTI, may contain obliquity info), with comment line first",
+      "value-key": "[AFORM_REAL]",
+      "type": "Flag",
+      "id": "aform_real",
+      "name": "Aform Real Matrix"
+    },
+    {
+      "command-line-flag": "-aform_real_oneline",
+      "description": "Display full 'aform_real' matrix (see '-aform_real') as 1 row of 12 numbers. No additional comment",
+      "value-key": "[AFORM_REAL_ONELINE]",
+      "type": "Flag",
+      "id": "aform_real_oneline",
+      "name": "Aform Real Matrix (One Line)"
+    },
+    {
+      "command-line-flag": "-aform_real_refit_ori",
+      "description": "Display full 3x4 'aform_real' matrix (see '-aform_real') *if* the dset were reoriented (via 3drefit) to new orient XXX. Includes comment line first",
+      "value-key": "[AFORM_REAL_REFIT_ORI]",
+      "type": "Flag",
+      "id": "aform_real_refit_ori",
+      "name": "Aform Real Matrix (Refit Orientation)"
+    },
+    {
+      "command-line-flag": "-is_aform_real_orth",
+      "description": "If true, aform_real == aform_orth, which should be a very common occurrence",
+      "value-key": "[IS_AFORM_REAL_ORTH]",
+      "type": "Flag",
+      "id": "is_aform_real_orth",
+      "name": "Is Aform Real Orthogonal"
+    },
+    {
+      "command-line-flag": "-aform_orth",
+      "description": "Display full 3x4 'aform_orth' matrix (AFNI's RAI matrix equivalent of the NIFTI quaternion, which may contain obliquity info), with comment line first. This matrix is the orthogonalized form of aform_real, and very often AFNI-produced dsets, we will have: aform_orth == aform_real",
+      "value-key": "[AFORM_ORTH]",
+      "type": "Flag",
+      "id": "aform_orth",
+      "name": "Aform Orthogonal Matrix"
+    },
+    {
+      "command-line-flag": "-perm_to_orient",
+      "description": "Display 3x3 permutation matrix to go from the dset's current orientation to the YYY orient",
+      "value-key": "[PERM_TO_ORIENT]",
+      "type": "String",
+      "optional": true,
+      "id": "perm_to_orient",
+      "name": "Permutation to Orientation"
+    },
+    {
+      "command-line-flag": "-same_grid",
+      "description": "Output 1 if the grid is identical between two dsets, 0 otherwise. For -same_grid to be 1, all of -same_dim, -same_delta, -same_orient, -same_center, and -same_obl must return 1",
+      "value-key": "[SAME_GRID]",
+      "type": "Flag",
+      "id": "same_grid",
+      "name": "Same Grid"
+    },
+    {
+      "command-line-flag": "-same_dim",
+      "description": "1 if dimensions (nx, ny, nz) are the same between dset pairs",
+      "value-key": "[SAME_DIM]",
+      "type": "Flag",
+      "id": "same_dim",
+      "name": "Same Dimensions"
+    },
+    {
+      "command-line-flag": "-same_delta",
+      "description": "1 if voxel sizes are the same between dset pairs",
+      "value-key": "[SAME_DELTA]",
+      "type": "Flag",
+      "id": "same_delta",
+      "name": "Same Voxel Sizes"
+    },
+    {
+      "command-line-flag": "-same_orient",
+      "description": "1 if orientation is the same between dset pairs",
+      "value-key": "[SAME_ORIENT]",
+      "type": "Flag",
+      "id": "same_orient",
+      "name": "Same Orientation"
+    },
+    {
+      "command-line-flag": "-same_center",
+      "description": "1 if geometric center is the same between dset pairs",
+      "value-key": "[SAME_CENTER]",
+      "type": "Flag",
+      "id": "same_center",
+      "name": "Same Geometric Center"
+    },
+    {
+      "command-line-flag": "-same_obl",
+      "description": "1 if obliquity is the same between dset pairs",
+      "value-key": "[SAME_OBL]",
+      "type": "Flag",
+      "id": "same_obl",
+      "name": "Same Obliquity"
+    },
+    {
+      "command-line-flag": "-same_all_grid",
+      "description": "Equivalent to listing all of -same_dim, -same_delta, -same_orient, -same_center, and -same_obl on the command line",
+      "value-key": "[SAME_ALL_GRID]",
+      "type": "Flag",
+      "id": "same_all_grid",
+      "name": "Same All Grid"
+    },
+    {
+      "command-line-flag": "-val_diff",
+      "description": "Output the sum of absolute differences of all voxels in the dataset pair. A -1.0 value indicates a grid mismatch between volume pairs",
+      "value-key": "[VAL_DIFF]",
+      "type": "Flag",
+      "id": "val_diff",
+      "name": "Value Difference"
+    },
+    {
+      "command-line-flag": "-sval_diff",
+      "description": "Same as -val_diff, but the sum is divided (scaled) by the total number of voxels that are not zero in at least one of the two datasets",
+      "value-key": "[SVAL_DIFF]",
+      "type": "Flag",
+      "id": "sval_diff",
+      "name": "Scaled Value Difference"
+    },
+    {
+      "command-line-flag": "-monog_pairs",
+      "description": "Instead of pairing each dset with the first, pair each couple separately. This requires you to have an even number of dsets on the command line",
+      "value-key": "[MONOG_PAIRS]",
+      "type": "Flag",
+      "id": "monog_pairs",
+      "name": "Monogamous Pairs"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/",
+  "stdout-output": {
+    "id": "info",
+    "description": "Sort-of-useful information from a 3D dataset's header"
+  }
+}

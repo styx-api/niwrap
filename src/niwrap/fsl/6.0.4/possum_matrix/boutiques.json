@@ -1,0 +1,78 @@
+{
+  "name": "possum_matrix",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Event matrix generator for POSSUM simulation in FSL",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "possum_matrix [PULSE_SEQUENCE] [MOTION_MATRIX] [OUTPUT_MATRIX] [VERBOSE_FLAG] [HELP_FLAG] [OLD_VERSION_FLAG] [SEGMENT_SIZE]",
+  "inputs": [
+    {
+      "command-line-flag": "-p",
+      "description": "Pulse sequence - all additional files with extensions .posx, .posy, etc., expected to be in the same directory",
+      "value-key": "[PULSE_SEQUENCE]",
+      "type": "String",
+      "optional": false,
+      "id": "pulse_sequence",
+      "name": "Pulse sequence file"
+    },
+    {
+      "command-line-flag": "-m",
+      "description": "Motion matrix [time(s) Tx(m) Ty(m) Tz(m) Rx(rad) Ry(rad) Rz(rad)]",
+      "value-key": "[MOTION_MATRIX]",
+      "type": "String",
+      "optional": false,
+      "id": "motion_matrix",
+      "name": "Motion matrix file"
+    },
+    {
+      "command-line-flag": "-o",
+      "description": "Main event matrix [t(s), rf_ang(rad), rf_freq_band(Hz), (4)=rf_cent_freq(Hz), read(1/0), Gx, Gy, Gz(T/m), Tx, Ty, Tz(m), angle_of_rot B(rad), rot_axis Bx, By, Bz(m), angle_of_rot A(rad), rot_axis Ax, Ay, Az(m)]",
+      "value-key": "[OUTPUT_MATRIX]",
+      "type": "String",
+      "optional": false,
+      "id": "output_matrix",
+      "name": "Output main event matrix file"
+    },
+    {
+      "command-line-flag": "-v",
+      "description": "Switch on diagnostic messages",
+      "value-key": "[VERBOSE_FLAG]",
+      "type": "Flag",
+      "id": "verbose_flag",
+      "name": "Verbose flag"
+    },
+    {
+      "command-line-flag": "-h",
+      "description": "Display this help message",
+      "value-key": "[HELP_FLAG]",
+      "type": "Flag",
+      "id": "help_flag",
+      "name": "Help flag"
+    },
+    {
+      "command-line-flag": "--old",
+      "description": "Allows for the old version of the sorter to run",
+      "value-key": "[OLD_VERSION_FLAG]",
+      "type": "Flag",
+      "id": "old_version_flag",
+      "name": "Old version flag"
+    },
+    {
+      "command-line-flag": "--seg",
+      "description": "Setting the size of the segment of the matrix that is read in one at a time",
+      "value-key": "[SEGMENT_SIZE]",
+      "type": "Number",
+      "optional": true,
+      "id": "segment_size",
+      "name": "Segment size"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_MATRIX]",
+      "description": "Main event matrix output file",
+      "id": "output_main_matrix",
+      "name": "Output Main Matrix File"
+    }
+  ]
+}

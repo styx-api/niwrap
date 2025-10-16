@@ -1,0 +1,92 @@
+{
+  "name": "swi_preprocess",
+  "author": "FreeSurfer Developers",
+  "description": "Pre-process the Susceptibility-weighted images and write out nifti files for feeding into PRELUDE (Phase Unwrapping Library of FSL).",
+  "command-line": "swi_preprocess [SCANNER] [GE_FILE] [PHILIPS_FILE] [SIEMENS_MAGNITUDE] [SIEMENS_PHASE] [OUT_MAGNITUDE] [OUT_PHASE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--scanner",
+      "description": "Name of the scanner (one of ge, siemens or philips)",
+      "value-key": "[SCANNER]",
+      "type": "String",
+      "optional": false,
+      "id": "scanner",
+      "name": "Scanner name",
+      "value-choices": [
+        "ge",
+        "siemens",
+        "philips"
+      ]
+    },
+    {
+      "command-line-flag": "--ge_file",
+      "description": "Name of the input GE file (only compatible with --scanner ge option)",
+      "value-key": "[GE_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "ge_file",
+      "name": "GE input file"
+    },
+    {
+      "command-line-flag": "--philips_file",
+      "description": "Name of the input Philips file (only compatible with --scanner philips option)",
+      "value-key": "[PHILIPS_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "philips_file",
+      "name": "Philips input file"
+    },
+    {
+      "command-line-flag": "--siemens_mag",
+      "description": "Name of the input Siemens magnitude file (only compatible with --scanner siemens option)",
+      "value-key": "[SIEMENS_MAGNITUDE]",
+      "type": "File",
+      "optional": true,
+      "id": "siemens_magnitude",
+      "name": "Siemens magnitude file"
+    },
+    {
+      "command-line-flag": "--siemens_phase",
+      "description": "Name of the input Siemens phase file (only compatible with --scanner siemens option)",
+      "value-key": "[SIEMENS_PHASE]",
+      "type": "File",
+      "optional": true,
+      "id": "siemens_phase",
+      "name": "Siemens phase file"
+    },
+    {
+      "command-line-flag": "--out_magnitude",
+      "description": "Name of the output magnitude file after preprocessing. Ensure it has a .nii suffix",
+      "value-key": "[OUT_MAGNITUDE]",
+      "type": "String",
+      "optional": false,
+      "id": "out_magnitude",
+      "name": "Output magnitude file"
+    },
+    {
+      "command-line-flag": "--out_phase",
+      "description": "Name of the output phase file after preprocessing. Ensure it has a .nii suffix",
+      "value-key": "[OUT_PHASE]",
+      "type": "String",
+      "optional": false,
+      "id": "out_phase",
+      "name": "Output phase file"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUT_MAGNITUDE]",
+      "description": "Output magnitude file in NIfTI format.",
+      "id": "output_magnitude_file",
+      "name": "Output Magnitude File"
+    },
+    {
+      "path-template": "[OUT_PHASE]",
+      "description": "Output phase file in NIfTI format.",
+      "id": "output_phase_file",
+      "name": "Output Phase File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

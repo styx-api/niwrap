@@ -1,0 +1,84 @@
+{
+  "name": "fsl_reg",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Image registration using FSL tools",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "fsl_reg [INPUT_FILE] [REFERENCE_FILE] [OUTPUT_FILE] [ESTIMATE_ONLY_FLAG] [AFFINE_ONLY_FLAG] [FNIRT_FA_CONFIG_FLAG] [FLIRT_OPTIONS] [FNIRT_OPTIONS]",
+  "inputs": [
+    {
+      "description": "Input image file",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input file"
+    },
+    {
+      "description": "Reference image file",
+      "value-key": "[REFERENCE_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "reference_file",
+      "name": "Reference file"
+    },
+    {
+      "description": "Output transformation file",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_file",
+      "name": "Output file"
+    },
+    {
+      "command-line-flag": "-e",
+      "description": "Estimate transformation but don't apply it",
+      "value-key": "[ESTIMATE_ONLY_FLAG]",
+      "type": "Flag",
+      "id": "estimate_only_flag",
+      "name": "Estimate only flag"
+    },
+    {
+      "command-line-flag": "-a",
+      "description": "Affine-only registration",
+      "value-key": "[AFFINE_ONLY_FLAG]",
+      "type": "Flag",
+      "id": "affine_only_flag",
+      "name": "Affine-only flag"
+    },
+    {
+      "command-line-flag": "-FA",
+      "description": "Use FNIRT config file optimised for FA data",
+      "value-key": "[FNIRT_FA_CONFIG_FLAG]",
+      "type": "Flag",
+      "id": "fnirt_fa_config_flag",
+      "name": "FNIRT FA config flag"
+    },
+    {
+      "command-line-flag": "-flirt",
+      "description": "Options to be passed onto flirt (inside double-quotes)",
+      "value-key": "[FLIRT_OPTIONS]",
+      "type": "String",
+      "optional": true,
+      "id": "flirt_options",
+      "name": "FLIRT options"
+    },
+    {
+      "command-line-flag": "-fnirt",
+      "description": "Options to be passed onto fnirt (inside double-quotes)",
+      "value-key": "[FNIRT_OPTIONS]",
+      "type": "String",
+      "optional": true,
+      "id": "fnirt_options",
+      "name": "FNIRT options"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILE]",
+      "description": "Output transformation file",
+      "id": "output_transform_file",
+      "name": "Output transformation file"
+    }
+  ]
+}

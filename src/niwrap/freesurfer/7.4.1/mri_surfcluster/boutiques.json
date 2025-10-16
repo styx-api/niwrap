@@ -1,0 +1,411 @@
+{
+  "name": "mri_surfcluster",
+  "command-line": "mri_surfcluster [INFILE] [THMIN] [SIGN] [NO_ADJUST_FLAG] [FDR] [SUBJECT] [HEMI] [SURF] [SURFPATH] [ANNOT] [FRAME] [CSD] [VWSIG] [CWSIG] [MAXCWPVAL] [BONFERRONI] [SIG2P_MAX_FLAG] [BONFERRONI_MAX] [CSDPDF] [CSDPDF_ONLY_FLAG] [CSD_OUT] [CWPVALTHRESH] [FWHM] [FWHMDAT] [CLABEL] [CORTEX_FLAG] [MASK] [MASK_INV_FLAG] [CENTROID_FLAG] [SUM] [POINTSET] [MAXAREAFILE] [O] [OCN] [OLAB] [OANNOT] [MINAREA] [XFM] [NO_FIXMNI_FLAG] [SD] [THMAX]",
+  "schema-version": "0.5+styx",
+  "description": "A tool for clustering vertices on a cortical surface based on intensity values.",
+  "inputs": [
+    {
+      "id": "infile",
+      "name": "Input File",
+      "type": "File",
+      "description": "Source of surface values",
+      "value-key": "[INFILE]",
+      "command-line-flag": "--in",
+      "optional": false
+    },
+    {
+      "id": "thmin",
+      "name": "Minimum Intensity Threshold",
+      "type": "Number",
+      "description": "Minimum intensity threshold",
+      "value-key": "[THMIN]",
+      "command-line-flag": "--thmin",
+      "optional": true
+    },
+    {
+      "id": "sign",
+      "name": "Threshold Sign",
+      "type": "String",
+      "description": "Sign of threshold criteria (abs, pos, neg)",
+      "value-key": "[SIGN]",
+      "command-line-flag": "--sign",
+      "optional": true
+    },
+    {
+      "id": "no_adjust_flag",
+      "name": "No Adjust Flag",
+      "type": "Flag",
+      "description": "Do not adjust threshold for one-tailed tests",
+      "value-key": "[NO_ADJUST_FLAG]",
+      "command-line-flag": "--no-adjust"
+    },
+    {
+      "id": "fdr",
+      "name": "False Discovery Rate",
+      "type": "Number",
+      "description": "Set thmin with False Discovery Rate",
+      "value-key": "[FDR]",
+      "command-line-flag": "--fdr",
+      "optional": true
+    },
+    {
+      "id": "subject",
+      "name": "Subject ID",
+      "type": "String",
+      "description": "Source surface subject (can be ico)",
+      "value-key": "[SUBJECT]",
+      "command-line-flag": "--subject",
+      "optional": true
+    },
+    {
+      "id": "hemi",
+      "name": "Hemisphere",
+      "type": "String",
+      "description": "Cortical hemisphere, either lh or rh",
+      "value-key": "[HEMI]",
+      "command-line-flag": "--hemi",
+      "optional": true
+    },
+    {
+      "id": "surf",
+      "name": "Surface",
+      "type": "String",
+      "description": "Coordinates from surface (e.g., white)",
+      "value-key": "[SURF]",
+      "command-line-flag": "--surf",
+      "optional": true
+    },
+    {
+      "id": "surfpath",
+      "name": "Surface Path",
+      "type": "String",
+      "description": "Full path to surface",
+      "value-key": "[SURFPATH]",
+      "command-line-flag": "--surfpath",
+      "optional": true
+    },
+    {
+      "id": "annot",
+      "name": "Annotation Name",
+      "type": "String",
+      "description": "Report annotation for max vertex (e.g., aparc)",
+      "value-key": "[ANNOT]",
+      "command-line-flag": "--annot",
+      "optional": true
+    },
+    {
+      "id": "frame",
+      "name": "Frame Number",
+      "type": "Number",
+      "description": "0-based frame number of the input file",
+      "value-key": "[FRAME]",
+      "command-line-flag": "--frame",
+      "optional": true
+    },
+    {
+      "id": "csd",
+      "name": "CSD File(s)",
+      "type": "File",
+      "description": "Load one or more CSD files",
+      "value-key": "[CSD]",
+      "command-line-flag": "--csd",
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "vwsig",
+      "name": "Voxel-wise Significances Map",
+      "type": "String",
+      "description": "Map of corrected voxel-wise significances",
+      "value-key": "[VWSIG]",
+      "command-line-flag": "--vwsig",
+      "optional": true
+    },
+    {
+      "id": "cwsig",
+      "name": "Cluster-wise Significances Map",
+      "type": "String",
+      "description": "Map of cluster-wise significances",
+      "value-key": "[CWSIG]",
+      "command-line-flag": "--cwsig",
+      "optional": true
+    },
+    {
+      "id": "maxcwpval",
+      "name": "Max Cluster P-Value File",
+      "type": "String",
+      "description": "Save p-value of the largest (max) cluster",
+      "value-key": "[MAXCWPVAL]",
+      "command-line-flag": "--maxcwpval",
+      "optional": true
+    },
+    {
+      "id": "bonferroni",
+      "name": "Bonferroni Correction",
+      "type": "Number",
+      "description": "Apply Bonferroni correction across N spaces",
+      "value-key": "[BONFERRONI]",
+      "command-line-flag": "--bonferroni",
+      "optional": true
+    },
+    {
+      "id": "sig2p_max_flag",
+      "name": "Sig to P Max Flag",
+      "type": "Flag",
+      "description": "Convert max from sig to p",
+      "value-key": "[SIG2P_MAX_FLAG]",
+      "command-line-flag": "--sig2p-max"
+    },
+    {
+      "id": "bonferroni_max",
+      "name": "Bonferroni Max Value",
+      "type": "Number",
+      "description": "Apply Bonferroni correction to maximum",
+      "value-key": "[BONFERRONI_MAX]",
+      "command-line-flag": "--bonferroni-max",
+      "optional": true
+    },
+    {
+      "id": "csdpdf",
+      "name": "CSD PDF File",
+      "type": "String",
+      "description": "Compute PDF/CDF of CSD data and save",
+      "value-key": "[CSDPDF]",
+      "command-line-flag": "--csdpdf",
+      "optional": true
+    },
+    {
+      "id": "csdpdf_only_flag",
+      "name": "CSD PDF Only Flag",
+      "type": "Flag",
+      "description": "Only write the CSD PDF file",
+      "value-key": "[CSDPDF_ONLY_FLAG]",
+      "command-line-flag": "--csdpdf-only"
+    },
+    {
+      "id": "csd_out",
+      "name": "Merged CSD Output File",
+      "type": "File",
+      "description": "Write out merged CSD files as one",
+      "value-key": "[CSD_OUT]",
+      "command-line-flag": "--csd-out",
+      "optional": true
+    },
+    {
+      "id": "cwpvalthresh",
+      "name": "Cluster-wise P-Value Threshold",
+      "type": "Number",
+      "description": "Cluster-wise threshold",
+      "value-key": "[CWPVALTHRESH]",
+      "command-line-flag": "--cwpvalthresh",
+      "optional": true
+    },
+    {
+      "id": "fwhm",
+      "name": "FWHM",
+      "type": "Number",
+      "description": "FWHM in mm^2 for GRF",
+      "value-key": "[FWHM]",
+      "command-line-flag": "--fwhm",
+      "optional": true
+    },
+    {
+      "id": "fwhmdat",
+      "name": "FWHM Data File",
+      "type": "String",
+      "description": "Text file with FWHM in mm^2 for GRF",
+      "value-key": "[FWHMDAT]",
+      "command-line-flag": "--fwhmdat",
+      "optional": true
+    },
+    {
+      "id": "clabel",
+      "name": "Constrain Label File",
+      "type": "File",
+      "description": "Constrain cluster search to be inside or outside clabel",
+      "value-key": "[CLABEL]",
+      "command-line-flag": "--clabel",
+      "optional": true
+    },
+    {
+      "id": "cortex_flag",
+      "name": "Cortex Flag",
+      "type": "Flag",
+      "description": "Set clabel to be subject/label/hemi.cortex.label",
+      "value-key": "[CORTEX_FLAG]",
+      "command-line-flag": "--cortex"
+    },
+    {
+      "id": "mask",
+      "name": "Mask File",
+      "type": "File",
+      "description": "Constrain to be within mask",
+      "value-key": "[MASK]",
+      "command-line-flag": "--mask",
+      "optional": true
+    },
+    {
+      "id": "mask_inv_flag",
+      "name": "Mask Inversion Flag",
+      "type": "Flag",
+      "description": "Constrain cluster search to be outside mask or clabel",
+      "value-key": "[MASK_INV_FLAG]",
+      "command-line-flag": "--mask-inv"
+    },
+    {
+      "id": "centroid_flag",
+      "name": "Centroid Flag",
+      "type": "Flag",
+      "description": "Report centroid instead of location of maximum stat",
+      "value-key": "[CENTROID_FLAG]",
+      "command-line-flag": "--centroid"
+    },
+    {
+      "id": "sum",
+      "name": "Summary File",
+      "type": "File",
+      "description": "Text file to store cluster summary",
+      "value-key": "[SUM]",
+      "command-line-flag": "--sum",
+      "optional": true
+    },
+    {
+      "id": "pointset",
+      "name": "Pointset File",
+      "type": "File",
+      "description": "File that can be read into Freeview with -c",
+      "value-key": "[POINTSET]",
+      "command-line-flag": "--pointset",
+      "optional": true
+    },
+    {
+      "id": "maxareafile",
+      "name": "Max Area File",
+      "type": "String",
+      "description": "Write area of largest cluster to this file",
+      "value-key": "[MAXAREAFILE]",
+      "command-line-flag": "--maxareafile",
+      "optional": true
+    },
+    {
+      "id": "o",
+      "name": "Output ID",
+      "type": "String",
+      "description": "Output file with non-clusters set to 0",
+      "value-key": "[O]",
+      "command-line-flag": "--o",
+      "optional": true
+    },
+    {
+      "id": "ocn",
+      "name": "Output Cluster Number ID",
+      "type": "String",
+      "description": "Output file where value is cluster number",
+      "value-key": "[OCN]",
+      "command-line-flag": "--ocn",
+      "optional": true
+    },
+    {
+      "id": "olab",
+      "name": "Output Labels Base",
+      "type": "String",
+      "description": "Output clusters as labels",
+      "value-key": "[OLAB]",
+      "command-line-flag": "--olab",
+      "optional": true
+    },
+    {
+      "id": "oannot",
+      "name": "Output Annotation Name",
+      "type": "String",
+      "description": "Output clusters as an annotation",
+      "value-key": "[OANNOT]",
+      "command-line-flag": "--oannot",
+      "optional": true
+    },
+    {
+      "id": "minarea",
+      "name": "Minimum Area",
+      "type": "Number",
+      "description": "Area threshold for a cluster (mm^2)",
+      "value-key": "[MINAREA]",
+      "command-line-flag": "--minarea",
+      "optional": true
+    },
+    {
+      "id": "xfm",
+      "name": "Transform File",
+      "type": "File",
+      "description": "Talairach transform file",
+      "value-key": "[XFM]",
+      "command-line-flag": "--xfm",
+      "optional": true
+    },
+    {
+      "id": "no_fixmni_flag",
+      "name": "No Fix MNI Flag",
+      "type": "Flag",
+      "description": "Do not fix MNI Talairach coordinates",
+      "value-key": "[NO_FIXMNI_FLAG]",
+      "command-line-flag": "--nofixmni"
+    },
+    {
+      "id": "sd",
+      "name": "Subjects Directory",
+      "type": "String",
+      "description": "FreeSurfer subjects directory",
+      "value-key": "[SD]",
+      "command-line-flag": "--sd",
+      "optional": true
+    },
+    {
+      "id": "thmax",
+      "name": "Maximum Intensity Threshold",
+      "type": "Number",
+      "description": "Maximum intensity threshold",
+      "value-key": "[THMAX]",
+      "command-line-flag": "--thmax",
+      "optional": true
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[O]",
+      "name": "Clustered Surface File",
+      "description": "Filtered surface file with non-cluster vertices set to 0",
+      "id": "output_surface_file"
+    },
+    {
+      "path-template": "[OCN]",
+      "name": "Cluster Number Surface File",
+      "description": "Surface file with cluster number per vertex",
+      "id": "output_cluster_number_file"
+    },
+    {
+      "path-template": "[OLAB]-[OCN].label",
+      "name": "Cluster Labels",
+      "description": "Label files for clusters",
+      "id": "output_labels"
+    },
+    {
+      "path-template": "[SUM]",
+      "name": "Summary File",
+      "description": "Text summary file of clustering results",
+      "id": "output_summary_file"
+    },
+    {
+      "path-template": "[POINTSET]",
+      "name": "Pointset File",
+      "description": "Pointset file for visualization in Freeview",
+      "id": "output_pointset_file"
+    },
+    {
+      "path-template": "[MAXAREAFILE]",
+      "name": "Max Area Summary",
+      "description": "File containing the area of the largest cluster",
+      "id": "output_max_area_file"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

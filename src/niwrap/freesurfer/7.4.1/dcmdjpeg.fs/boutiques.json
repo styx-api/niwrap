@@ -1,0 +1,352 @@
+{
+  "name": "dcmdjpeg.fs",
+  "author": "FreeSurfer Developers",
+  "description": "A tool to decode JPEG-compressed DICOM files.",
+  "command-line": "dcmdjpeg.fs [INPUT_FILE] [OUTPUT_FILE] [HELP] [VERSION] [ARGUMENTS] [QUIET] [VERBOSE] [DEBUG] [LOG_LEVEL] [LOG_CONFIG] [READ_FILE] [READ_FILE_ONLY] [READ_DATASET] [CONV_PHOTOMETRIC] [CONV_LOSSY] [CONV_GUESS] [CONV_GUESS_LOSSY] [CONV_ALWAYS] [CONV_NEVER] [PLANAR_AUTO] [COLOR_BY_PIXEL] [COLOR_BY_PLANE] [UID_DEFAULT] [UID_ALWAYS] [WORKAROUND_PRED6] [WORKAROUND_INCPL] [WRITE_FILE] [WRITE_DATASET] [WRITE_XFER_LITTLE] [WRITE_XFER_BIG] [WRITE_XFER_IMPLICIT] [ENABLE_NEW_VR] [DISABLE_NEW_VR] [GROUP_LENGTH_RECALC] [GROUP_LENGTH_CREATE] [GROUP_LENGTH_REMOVE] [LENGTH_EXPLICIT] [LENGTH_UNDEFINED] [PADDING_RETAIN] [PADDING_OFF] [PADDING_CREATE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "DICOM input filename to be converted",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input File"
+    },
+    {
+      "description": "DICOM output filename",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_file",
+      "name": "Output File"
+    },
+    {
+      "command-line-flag": "-h",
+      "description": "Print this help text and exit",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help Flag"
+    },
+    {
+      "command-line-flag": "--version",
+      "description": "Print version information and exit",
+      "value-key": "[VERSION]",
+      "type": "Flag",
+      "id": "version",
+      "name": "Version Flag"
+    },
+    {
+      "command-line-flag": "--arguments",
+      "description": "Print expanded command line arguments",
+      "value-key": "[ARGUMENTS]",
+      "type": "Flag",
+      "id": "arguments",
+      "name": "Arguments Flag"
+    },
+    {
+      "command-line-flag": "-q",
+      "description": "Quiet mode, print no warnings and errors",
+      "value-key": "[QUIET]",
+      "type": "Flag",
+      "id": "quiet",
+      "name": "Quiet Flag"
+    },
+    {
+      "command-line-flag": "-v",
+      "description": "Verbose mode, print processing details",
+      "value-key": "[VERBOSE]",
+      "type": "Flag",
+      "id": "verbose",
+      "name": "Verbose Flag"
+    },
+    {
+      "command-line-flag": "-d",
+      "description": "Debug mode, print debug information",
+      "value-key": "[DEBUG]",
+      "type": "Flag",
+      "id": "debug",
+      "name": "Debug Flag"
+    },
+    {
+      "command-line-flag": "-ll",
+      "description": "Use level l for the logger (fatal, error, warn, info, debug, trace)",
+      "value-key": "[LOG_LEVEL]",
+      "type": "String",
+      "optional": true,
+      "id": "log_level",
+      "name": "Log Level"
+    },
+    {
+      "command-line-flag": "-lc",
+      "description": "Use config file f for the logger",
+      "value-key": "[LOG_CONFIG]",
+      "type": "File",
+      "optional": true,
+      "id": "log_config",
+      "name": "Log Config"
+    },
+    {
+      "command-line-flag": "+f",
+      "description": "Read file format or data set (default)",
+      "value-key": "[READ_FILE]",
+      "type": "Flag",
+      "id": "read_file",
+      "name": "Read File Flag"
+    },
+    {
+      "command-line-flag": "+fo",
+      "description": "Read file format only",
+      "value-key": "[READ_FILE_ONLY]",
+      "type": "Flag",
+      "id": "read_file_only",
+      "name": "Read File Only Flag"
+    },
+    {
+      "command-line-flag": "-f",
+      "description": "Read data set without file meta information",
+      "value-key": "[READ_DATASET]",
+      "type": "Flag",
+      "id": "read_dataset",
+      "name": "Read Dataset Flag"
+    },
+    {
+      "command-line-flag": "+cp",
+      "description": "Convert if YCbCr photometric interpretation (default)",
+      "value-key": "[CONV_PHOTOMETRIC]",
+      "type": "Flag",
+      "id": "conv_photometric",
+      "name": "Conv Photometric Flag"
+    },
+    {
+      "command-line-flag": "+cl",
+      "description": "Convert YCbCr to RGB if lossy JPEG",
+      "value-key": "[CONV_LOSSY]",
+      "type": "Flag",
+      "id": "conv_lossy",
+      "name": "Conv Lossy Flag"
+    },
+    {
+      "command-line-flag": "+cg",
+      "description": "Convert to RGB if YCbCr is guessed by library",
+      "value-key": "[CONV_GUESS]",
+      "type": "Flag",
+      "id": "conv_guess",
+      "name": "Conv Guess Flag"
+    },
+    {
+      "command-line-flag": "+cgl",
+      "description": "Convert to RGB if lossy JPEG and YCbCr is guessed",
+      "value-key": "[CONV_GUESS_LOSSY]",
+      "type": "Flag",
+      "id": "conv_guess_lossy",
+      "name": "Conv Guess Lossy Flag"
+    },
+    {
+      "command-line-flag": "+ca",
+      "description": "Always convert YCbCr to RGB",
+      "value-key": "[CONV_ALWAYS]",
+      "type": "Flag",
+      "id": "conv_always",
+      "name": "Conv Always Flag"
+    },
+    {
+      "command-line-flag": "+cn",
+      "description": "Never convert color space",
+      "value-key": "[CONV_NEVER]",
+      "type": "Flag",
+      "id": "conv_never",
+      "name": "Conv Never Flag"
+    },
+    {
+      "command-line-flag": "+pa",
+      "description": "Automatically determine planar configuration from SOP class and color space (default)",
+      "value-key": "[PLANAR_AUTO]",
+      "type": "Flag",
+      "id": "planar_auto",
+      "name": "Planar Auto Flag"
+    },
+    {
+      "command-line-flag": "+px",
+      "description": "Always store color-by-pixel",
+      "value-key": "[COLOR_BY_PIXEL]",
+      "type": "Flag",
+      "id": "color_by_pixel",
+      "name": "Color by Pixel Flag"
+    },
+    {
+      "command-line-flag": "+pl",
+      "description": "Always store color-by-plane",
+      "value-key": "[COLOR_BY_PLANE]",
+      "type": "Flag",
+      "id": "color_by_plane",
+      "name": "Color by Plane Flag"
+    },
+    {
+      "command-line-flag": "+ud",
+      "description": "Keep same SOP Instance UID (default)",
+      "value-key": "[UID_DEFAULT]",
+      "type": "Flag",
+      "id": "uid_default",
+      "name": "UID Default Flag"
+    },
+    {
+      "command-line-flag": "+ua",
+      "description": "Always assign new UID",
+      "value-key": "[UID_ALWAYS]",
+      "type": "Flag",
+      "id": "uid_always",
+      "name": "UID Always Flag"
+    },
+    {
+      "command-line-flag": "+w6",
+      "description": "Enable workaround for JPEG lossless images with overflow in predictor 6",
+      "value-key": "[WORKAROUND_PRED6]",
+      "type": "Flag",
+      "id": "workaround_pred6",
+      "name": "Workaround Pred6 Flag"
+    },
+    {
+      "command-line-flag": "+wi",
+      "description": "Enable workaround for incomplete JPEG data",
+      "value-key": "[WORKAROUND_INCPL]",
+      "type": "Flag",
+      "id": "workaround_incpl",
+      "name": "Workaround Incomplete JPEG Data Flag"
+    },
+    {
+      "command-line-flag": "+F",
+      "description": "Write file format (default)",
+      "value-key": "[WRITE_FILE]",
+      "type": "Flag",
+      "id": "write_file",
+      "name": "Write File Flag"
+    },
+    {
+      "command-line-flag": "-F",
+      "description": "Write data set without file meta information",
+      "value-key": "[WRITE_DATASET]",
+      "type": "Flag",
+      "id": "write_dataset",
+      "name": "Write Dataset Flag"
+    },
+    {
+      "command-line-flag": "+te",
+      "description": "Write with explicit VR little endian (default)",
+      "value-key": "[WRITE_XFER_LITTLE]",
+      "type": "Flag",
+      "id": "write_xfer_little",
+      "name": "Write Xfer Little Flag"
+    },
+    {
+      "command-line-flag": "+tb",
+      "description": "Write with explicit VR big endian TS",
+      "value-key": "[WRITE_XFER_BIG]",
+      "type": "Flag",
+      "id": "write_xfer_big",
+      "name": "Write Xfer Big Flag"
+    },
+    {
+      "command-line-flag": "+ti",
+      "description": "Write with implicit VR little endian TS",
+      "value-key": "[WRITE_XFER_IMPLICIT]",
+      "type": "Flag",
+      "id": "write_xfer_implicit",
+      "name": "Write Xfer Implicit Flag"
+    },
+    {
+      "command-line-flag": "+u",
+      "description": "Enable support for new VRs (UN/UT) (default)",
+      "value-key": "[ENABLE_NEW_VR]",
+      "type": "Flag",
+      "id": "enable_new_vr",
+      "name": "Enable New VR Flag"
+    },
+    {
+      "command-line-flag": "-u",
+      "description": "Disable support for new VRs, convert to OB",
+      "value-key": "[DISABLE_NEW_VR]",
+      "type": "Flag",
+      "id": "disable_new_vr",
+      "name": "Disable New VR Flag"
+    },
+    {
+      "command-line-flag": "+g=",
+      "description": "Recalculate group lengths if present (default)",
+      "value-key": "[GROUP_LENGTH_RECALC]",
+      "type": "Flag",
+      "id": "group_length_recalc",
+      "name": "Group Length Recalc Flag"
+    },
+    {
+      "command-line-flag": "+g",
+      "description": "Always write with group length elements",
+      "value-key": "[GROUP_LENGTH_CREATE]",
+      "type": "Flag",
+      "id": "group_length_create",
+      "name": "Group Length Create Flag"
+    },
+    {
+      "command-line-flag": "-g",
+      "description": "Always write without group length elements",
+      "value-key": "[GROUP_LENGTH_REMOVE]",
+      "type": "Flag",
+      "id": "group_length_remove",
+      "name": "Group Length Remove Flag"
+    },
+    {
+      "command-line-flag": "+e",
+      "description": "Write with explicit lengths (default)",
+      "value-key": "[LENGTH_EXPLICIT]",
+      "type": "Flag",
+      "id": "length_explicit",
+      "name": "Length Explicit Flag"
+    },
+    {
+      "command-line-flag": "-e",
+      "description": "Write with undefined lengths",
+      "value-key": "[LENGTH_UNDEFINED]",
+      "type": "Flag",
+      "id": "length_undefined",
+      "name": "Length Undefined Flag"
+    },
+    {
+      "command-line-flag": "-p=",
+      "description": "Do not change padding (default if not --write-dataset)",
+      "value-key": "[PADDING_RETAIN]",
+      "type": "Flag",
+      "id": "padding_retain",
+      "name": "Padding Retain Flag"
+    },
+    {
+      "command-line-flag": "-p",
+      "description": "No padding (implicit if --write-dataset)",
+      "value-key": "[PADDING_OFF]",
+      "type": "Flag",
+      "id": "padding_off",
+      "name": "Padding Off Flag"
+    },
+    {
+      "command-line-flag": "+p",
+      "description": "Align file on multiple of f bytes and items on multiple of i bytes",
+      "value-key": "[PADDING_CREATE]",
+      "type": "Number",
+      "optional": true,
+      "id": "padding_create",
+      "name": "Padding Create",
+      "list": true,
+      "min-list-entries": 2,
+      "max-list-entries": 2
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILE]",
+      "description": "DICOM output file",
+      "id": "output_file",
+      "name": "Output File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

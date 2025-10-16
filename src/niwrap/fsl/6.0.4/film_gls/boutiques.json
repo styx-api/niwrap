@@ -1,0 +1,231 @@
+{
+  "name": "film_gls",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "General Linear Model fitting with autocorrelation in FMRI",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "film_gls [INFILE] [AC_FLAG] [THRESHOLD] [AR_FLAG] [NOEST_FLAG] [OUTPUTPW_FLAG] [PAVA_FLAG] [SA_FLAG] [VERBOSE_FLAG] [RESULTS_DIR] [MODE] [INPUT_SURFACE] [MEAN_FUNC_FILE] [MIN_TIMEPOINT_FILE] [PARADIGM_FILE] [T_CONTRASTS_FILE] [F_CONTRASTS_FILE] [EPITH] [MS] [TUKEY] [MT] [VEN] [VEF]",
+  "inputs": [
+    {
+      "description": "Input data file (NIFTI for volumetric, GIFTI for surface)",
+      "value-key": "[INFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "infile",
+      "name": "Input file"
+    },
+    {
+      "command-line-flag": "--ac",
+      "description": "Perform autocorrelation estimation only",
+      "value-key": "[AC_FLAG]",
+      "type": "Flag",
+      "id": "ac_flag",
+      "name": "Autocorrelation estimation only"
+    },
+    {
+      "command-line-flag": "--thr",
+      "description": "Initial threshold to apply to input data",
+      "value-key": "[THRESHOLD]",
+      "type": "Number",
+      "optional": true,
+      "id": "threshold",
+      "name": "Initial threshold"
+    },
+    {
+      "command-line-flag": "--ar",
+      "description": "Fits autoregressive model - default is to use tukey with M=sqrt(numvols)",
+      "value-key": "[AR_FLAG]",
+      "type": "Flag",
+      "id": "ar_flag",
+      "name": "Autoregressive model flag"
+    },
+    {
+      "command-line-flag": "--noest",
+      "description": "Do not estimate autocorrelations",
+      "value-key": "[NOEST_FLAG]",
+      "type": "Flag",
+      "id": "noest_flag",
+      "name": "No autocorrelation estimation flag"
+    },
+    {
+      "command-line-flag": "--outputPWdata",
+      "description": "Output prewhitened data and average design matrix",
+      "value-key": "[OUTPUTPW_FLAG]",
+      "type": "Flag",
+      "id": "outputPW_flag",
+      "name": "Output PW data"
+    },
+    {
+      "command-line-flag": "--pava",
+      "description": "Estimates autocorrelation using PAVA - default is to use tukey with M=sqrt(numvols)",
+      "value-key": "[PAVA_FLAG]",
+      "type": "Flag",
+      "id": "pava_flag",
+      "name": "PAVA autocorrelation estimation"
+    },
+    {
+      "command-line-flag": "--sa",
+      "description": "Smooths autocorrelation estimates",
+      "value-key": "[SA_FLAG]",
+      "type": "Flag",
+      "id": "sa_flag",
+      "name": "Smooth autocorrelation estimates flag"
+    },
+    {
+      "command-line-flag": "-v",
+      "description": "Outputs full data",
+      "value-key": "[VERBOSE_FLAG]",
+      "type": "Flag",
+      "id": "verbose_flag",
+      "name": "Verbose flag"
+    },
+    {
+      "command-line-flag": "--rn",
+      "description": "Directory name to store results in, default is results",
+      "value-key": "[RESULTS_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "results_dir",
+      "name": "Results directory"
+    },
+    {
+      "command-line-flag": "--mode",
+      "description": "Analysis mode, options are volumetric (default) or surface. Caution: surface-based functionality is still BETA",
+      "value-key": "[MODE]",
+      "type": "String",
+      "optional": true,
+      "id": "mode",
+      "name": "Analysis mode"
+    },
+    {
+      "command-line-flag": "--in2",
+      "description": "Input surface for autocorrelation smoothing in surface-based analyses",
+      "value-key": "[INPUT_SURFACE]",
+      "type": "File",
+      "optional": true,
+      "id": "input_surface",
+      "name": "Input surface file"
+    },
+    {
+      "command-line-flag": "--mf",
+      "description": "Re-estimate mean_func baseline - for use with perfusion subtraction",
+      "value-key": "[MEAN_FUNC_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "mean_func_file",
+      "name": "Mean function file"
+    },
+    {
+      "command-line-flag": "--mft",
+      "description": "Minimum timepoint file",
+      "value-key": "[MIN_TIMEPOINT_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "min_timepoint_file",
+      "name": "Minimum timepoint file"
+    },
+    {
+      "command-line-flag": "--pd",
+      "description": "Paradigm file",
+      "value-key": "[PARADIGM_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "paradigm_file",
+      "name": "Paradigm file"
+    },
+    {
+      "command-line-flag": "--con",
+      "description": "T-contrasts file",
+      "value-key": "[T_CONTRASTS_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "t_contrasts_file",
+      "name": "T-contrasts file"
+    },
+    {
+      "command-line-flag": "--fcon",
+      "description": "F-contrasts file",
+      "value-key": "[F_CONTRASTS_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "f_contrasts_file",
+      "name": "F-contrasts file"
+    },
+    {
+      "command-line-flag": "--epith",
+      "description": "SUSAN brightness threshold for volumetric analysis/smoothing sigma for surface analysis",
+      "value-key": "[EPITH]",
+      "type": "Number",
+      "optional": true,
+      "id": "epith",
+      "name": "SUSAN brightness threshold"
+    },
+    {
+      "command-line-flag": "--ms",
+      "description": "SUSAN mask size for volumetric analysis/smoothing extent for surface analysis",
+      "value-key": "[MS]",
+      "type": "Number",
+      "optional": true,
+      "id": "ms",
+      "name": "SUSAN mask size"
+    },
+    {
+      "command-line-flag": "--tukey",
+      "description": "Uses tukey window to estimate autocorrelation with window size num - default is to use tukey with M=sqrt(numvols)",
+      "value-key": "[TUKEY]",
+      "type": "Number",
+      "optional": true,
+      "id": "tukey",
+      "name": "Tukey window size"
+    },
+    {
+      "command-line-flag": "--mt",
+      "description": "Uses multitapering with slepian tapers and num is the time-bandwidth product - default is to use tukey with M=sqrt(numvols)",
+      "value-key": "[MT]",
+      "type": "Number",
+      "optional": true,
+      "id": "mt",
+      "name": "Multitapering time-bandwidth product"
+    },
+    {
+      "command-line-flag": "--ven",
+      "description": "List of numbers indicating voxelwise EVs position in the design matrix (list order corresponds to files in vxf option). Caution BETA option, only use with volumetric analysis.",
+      "value-key": "[VEN]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "ven",
+      "name": "Voxelwise EVs positions"
+    },
+    {
+      "command-line-flag": "--vef",
+      "description": "List of 4D images containing voxelwise EVs (list order corresponds to numbers in vxl option). Caution BETA option, only use with volumetric analysis.",
+      "value-key": "[VEF]",
+      "type": "File",
+      "list": true,
+      "optional": true,
+      "id": "vef",
+      "name": "Voxelwise EVs files"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[rn]/prewhitened_data.nii.gz",
+      "description": "Prewhitened data output",
+      "id": "prewhitened_data",
+      "name": "Prewhitened data output"
+    },
+    {
+      "path-template": "[rn]/average_design_matrix.txt",
+      "description": "Average design matrix output",
+      "id": "average_design_matrix",
+      "name": "Average design matrix output"
+    },
+    {
+      "path-template": "[rn]/results.txt",
+      "description": "Results output",
+      "id": "results_data",
+      "name": "Results output"
+    }
+  ]
+}

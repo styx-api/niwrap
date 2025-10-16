@@ -1,0 +1,43 @@
+{
+  "name": "recon-all-clinical.sh",
+  "author": "FreeSurfer Developers",
+  "description": "Recon-all-like stream for processing clinical brain MRI scans of arbitrary orientation, resolution, and contrast using SynthSeg and SynthSR.",
+  "command-line": "recon-all-clinical.sh [INPUT_SCAN] [SUBJECT_ID] [THREADS] [SUBJECT_DIR]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input scan file to be processed.",
+      "value-key": "[INPUT_SCAN]",
+      "type": "File",
+      "optional": false,
+      "id": "input_scan",
+      "name": "Input scan"
+    },
+    {
+      "description": "Identifier for the subject being processed.",
+      "value-key": "[SUBJECT_ID]",
+      "type": "String",
+      "optional": false,
+      "id": "subject_id",
+      "name": "Subject ID"
+    },
+    {
+      "description": "Number of threads to use for processing.",
+      "value-key": "[THREADS]",
+      "type": "Number",
+      "integer": true,
+      "optional": false,
+      "id": "threads",
+      "name": "Threads"
+    },
+    {
+      "description": "Optional subjects directory. Only necessary if the environment variable SUBJECTS_DIR is not set or needs to be overridden.",
+      "value-key": "[SUBJECT_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "subject_dir",
+      "name": "Subject directory"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

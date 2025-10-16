@@ -1,0 +1,125 @@
+{
+  "name": "mri_easyreg",
+  "author": "FreeSurfer Developers",
+  "description": "EasyReg: deep learning registration simple and easy",
+  "command-line": "mri_easyreg [REFERENCE_IMAGE] [REFERENCE_SEGMENTATION] [FLOATING_IMAGE] [FLOATING_SEGMENTATION] [REGISTERED_REFERENCE] [REGISTERED_FLOATING] [FORWARD_FIELD] [INVERSE_FIELD] [AFFINE_ONLY] [THREADS]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--ref",
+      "description": "Reference image",
+      "value-key": "[REFERENCE_IMAGE]",
+      "type": "File",
+      "optional": false,
+      "id": "reference_image",
+      "name": "Reference Image"
+    },
+    {
+      "command-line-flag": "--ref_seg",
+      "description": "Reference SynthSeg segmentation (will be created if it does not exist)",
+      "value-key": "[REFERENCE_SEGMENTATION]",
+      "type": "File",
+      "optional": true,
+      "id": "reference_segmentation",
+      "name": "Reference Segmentation"
+    },
+    {
+      "command-line-flag": "--flo",
+      "description": "Floating image",
+      "value-key": "[FLOATING_IMAGE]",
+      "type": "File",
+      "optional": false,
+      "id": "floating_image",
+      "name": "Floating Image"
+    },
+    {
+      "command-line-flag": "--flo_seg",
+      "description": "Floating SynthSeg segmentation (will be created if it does not exist)",
+      "value-key": "[FLOATING_SEGMENTATION]",
+      "type": "File",
+      "optional": true,
+      "id": "floating_segmentation",
+      "name": "Floating Segmentation"
+    },
+    {
+      "command-line-flag": "--ref_reg",
+      "description": "(optional) Registered reference",
+      "value-key": "[REGISTERED_REFERENCE]",
+      "type": "File",
+      "optional": true,
+      "id": "registered_reference",
+      "name": "Registered Reference"
+    },
+    {
+      "command-line-flag": "--flo_reg",
+      "description": "(optional) Registered floating images (in space of reference)",
+      "value-key": "[REGISTERED_FLOATING]",
+      "type": "File",
+      "optional": true,
+      "id": "registered_floating",
+      "name": "Registered Floating"
+    },
+    {
+      "command-line-flag": "--fwd_field",
+      "description": "(optional) Forward field",
+      "value-key": "[FORWARD_FIELD]",
+      "type": "File",
+      "optional": true,
+      "id": "forward_field",
+      "name": "Forward Field"
+    },
+    {
+      "command-line-flag": "--bak_field",
+      "description": "(optional) Inverse field",
+      "value-key": "[INVERSE_FIELD]",
+      "type": "File",
+      "optional": true,
+      "id": "inverse_field",
+      "name": "Inverse Field"
+    },
+    {
+      "command-line-flag": "--affine_only",
+      "description": "(optional) Skips nonlinear part",
+      "value-key": "[AFFINE_ONLY]",
+      "type": "Flag",
+      "id": "affine_only",
+      "name": "Affine Only Flag"
+    },
+    {
+      "command-line-flag": "--threads",
+      "description": "(optional) Number of cores to be used. Default is 1. You can use -1 to use all available cores",
+      "value-key": "[THREADS]",
+      "type": "Number",
+      "optional": true,
+      "id": "threads",
+      "name": "Number of Threads"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "registered_reference.nii.gz",
+      "description": "Output registered reference image",
+      "id": "registered_reference_output",
+      "name": "Registered Reference Output"
+    },
+    {
+      "path-template": "registered_floating.nii.gz",
+      "description": "Output registered floating image",
+      "id": "registered_floating_output",
+      "name": "Registered Floating Output"
+    },
+    {
+      "path-template": "forward_field.nii.gz",
+      "description": "Output forward field file",
+      "id": "forward_field_output",
+      "name": "Forward Field Output"
+    },
+    {
+      "path-template": "inverse_field.nii.gz",
+      "description": "Output inverse field file",
+      "id": "inverse_field_output",
+      "name": "Inverse Field Output"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

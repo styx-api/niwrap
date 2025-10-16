@@ -1,0 +1,50 @@
+{
+  "name": "mris_deform",
+  "author": "FreeSurfer Developers",
+  "description": "A tool for deforming surface meshes using volumetric information from an auxiliary volume.",
+  "command-line": "mris_deform [INPUT_SURFACE] [INPUT_VOLUME] [XFORM] [OUTPUT_SURFACE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input surface file (e.g., lh.white)",
+      "value-key": "[INPUT_SURFACE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_surface",
+      "name": "Input Surface"
+    },
+    {
+      "description": "Input volume file (e.g., brain.mgz)",
+      "value-key": "[INPUT_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "input_volume",
+      "name": "Input Volume"
+    },
+    {
+      "description": "Transformation file (e.g., talairach.xfm)",
+      "value-key": "[XFORM]",
+      "type": "File",
+      "optional": false,
+      "id": "xform",
+      "name": "Transformation File"
+    },
+    {
+      "description": "Output surface file (e.g., lh.white.deformed)",
+      "value-key": "[OUTPUT_SURFACE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_surface",
+      "name": "Output Surface"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_SURFACE]",
+      "description": "Deformed surface file output by mris_deform",
+      "id": "deformed_surface",
+      "name": "Deformed Surface"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

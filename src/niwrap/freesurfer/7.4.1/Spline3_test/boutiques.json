@@ -1,0 +1,51 @@
+{
+  "name": "Spline3_test",
+  "description": "A tool for cubic spline interpolation.",
+  "command-line": "Spline3_test [X_VALUES] [Y_VALUES] [X_NEW_VALUES]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Original x values for interpolation.",
+      "value-key": "[X_VALUES]",
+      "type": "Number",
+      "list": true,
+      "optional": false,
+      "id": "x_values",
+      "name": "X values"
+    },
+    {
+      "description": "Original y values corresponding to x values.",
+      "value-key": "[Y_VALUES]",
+      "type": "Number",
+      "list": true,
+      "optional": false,
+      "id": "y_values",
+      "name": "Y values"
+    },
+    {
+      "description": "New x values where interpolation is evaluated.",
+      "value-key": "[X_NEW_VALUES]",
+      "type": "Number",
+      "list": true,
+      "optional": false,
+      "id": "x_new_values",
+      "name": "X new values"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "Ynew.txt",
+      "description": "Interpolated y values at new x positions.",
+      "id": "output_ynew",
+      "name": "Output Ynew values"
+    },
+    {
+      "path-template": "Ynewarr.txt",
+      "description": "Array format of interpolated y values at new x positions.",
+      "id": "output_ynewarr",
+      "name": "Output Ynewarr values"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

@@ -1,0 +1,34 @@
+{
+  "name": "fiducials_correction",
+  "description": "A tool for correcting fiducial markers in imaging data. Note: This command has dependency issues with the Qt platform plugin 'xcb'. Ensure dependencies are properly configured.",
+  "command-line": "fiducials_correction [INPUT_FILE] [OUTPUT_FILE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input file containing imaging data with fiducial markers to correct.",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input File"
+    },
+    {
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "description": "Output file with corrected fiducial markers.",
+      "optional": false,
+      "id": "output_file",
+      "name": "Output File"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_FILE]",
+      "description": "Output file with corrected fiducial markers.",
+      "id": "output_file",
+      "name": "Output File"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

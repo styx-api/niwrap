@@ -1,0 +1,84 @@
+{
+  "name": "3dAttribute",
+  "author": "AFNI Developers",
+  "description": "Prints the value of the attribute 'aname' from the header of the dataset 'dset'.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dAttribute [ALL] [NAME] [CENTER] [SSEP] [SPREP] [QUOTE] [ANAME] [DSET]",
+  "inputs": [
+    {
+      "description": "Attribute name to be printed from the dataset",
+      "value-key": "[ANAME]",
+      "type": "String",
+      "optional": false,
+      "id": "aname",
+      "name": "Attribute name"
+    },
+    {
+      "description": "Dataset from which the attribute value will be printed",
+      "value-key": "[DSET]",
+      "type": "File",
+      "optional": false,
+      "id": "dset",
+      "name": "Dataset"
+    },
+    {
+      "command-line-flag": "-all",
+      "description": "Print all attributes from the dataset",
+      "value-key": "[ALL]",
+      "type": "Flag",
+      "id": "all",
+      "name": "Print all attributes flag"
+    },
+    {
+      "command-line-flag": "-name",
+      "description": "Include attribute name in the output",
+      "value-key": "[NAME]",
+      "type": "Flag",
+      "id": "name",
+      "name": "Include attribute name flag"
+    },
+    {
+      "command-line-flag": "-center",
+      "description": "Print the center of volume in RAI coordinates",
+      "value-key": "[CENTER]",
+      "type": "Flag",
+      "id": "center",
+      "name": "Center of volume flag"
+    },
+    {
+      "command-line-flag": "-ssep",
+      "description": "Use string SSEP as a separator between strings for multiple sub-bricks",
+      "value-key": "[SSEP]",
+      "type": "String",
+      "optional": true,
+      "id": "ssep",
+      "name": "String separator"
+    },
+    {
+      "command-line-flag": "-sprep",
+      "description": "Use string SPREP to replace blank space in string attributes",
+      "value-key": "[SPREP]",
+      "type": "String",
+      "optional": true,
+      "id": "sprep",
+      "name": "String blank space replacement"
+    },
+    {
+      "command-line-flag": "-quote",
+      "description": "Use single quote around each string",
+      "value-key": "[QUOTE]",
+      "type": "Flag",
+      "id": "quote",
+      "name": "Use quotes flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "stdout",
+      "description": "Output of the attribute value",
+      "id": "stdout",
+      "name": "Standard output"
+    }
+  ]
+}

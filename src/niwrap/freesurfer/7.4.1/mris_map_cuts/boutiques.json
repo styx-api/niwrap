@@ -1,0 +1,26 @@
+{
+  "name": "mris_map_cuts",
+  "command-line": "mris_map_cuts [INPUT_PATCH] [OUTPUT_PATCH]",
+  "description": "Tool for mapping cortical surface data onto cuts.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "input_patch",
+      "name": "Input Patch",
+      "type": "File",
+      "value-key": "[INPUT_PATCH]",
+      "description": "Input patch file",
+      "optional": false
+    },
+    {
+      "id": "output_patch",
+      "name": "Output Patch",
+      "type": "String",
+      "value-key": "[OUTPUT_PATCH]",
+      "description": "Output patch file",
+      "optional": false
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

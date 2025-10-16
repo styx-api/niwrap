@@ -1,0 +1,95 @@
+{
+  "name": "PTA",
+  "author": "AFNI Developers",
+  "description": "Program for Profile Tracking Analysis - estimates nonlinear trajectories through smoothing splines.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "PTA [PREFIX] [INPUT_FILE] [MODEL_FORMULA] [VT_FORMULATION] [PREDICTION_TABLE] [VERBOSITY_LEVEL] [RESPONSE_VAR] [DBG_ARGS]",
+  "inputs": [
+    {
+      "description": "Prefix for output files",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "prefix",
+      "name": "Output prefix",
+      "command-line-flag": "-prefix"
+    },
+    {
+      "description": "Input data file in table format (data frame structure of long format in R)",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input file",
+      "command-line-flag": "-input"
+    },
+    {
+      "description": "Model formulation through multilevel smoothing splines",
+      "value-key": "[MODEL_FORMULA]",
+      "type": "String",
+      "optional": false,
+      "id": "model_formula",
+      "name": "Model formula",
+      "command-line-flag": "-model"
+    },
+    {
+      "description": "Specify varying smoothing terms. Two components are required: the first one 'var' indicates the variable (e.g., subject) around which the smoothing will vary while the second component specifies the smoothing formulation (e.g., s(age,subject)).",
+      "value-key": "[VT_FORMULATION]",
+      "type": "String",
+      "optional": true,
+      "id": "vt_formulation",
+      "name": "Varying terms formulation",
+      "command-line-flag": "-vt"
+    },
+    {
+      "description": "Data table to generate predicted values for graphical illustration",
+      "value-key": "[PREDICTION_TABLE]",
+      "type": "File",
+      "optional": true,
+      "id": "prediction_table",
+      "name": "Prediction table",
+      "command-line-flag": "-prediction"
+    },
+    {
+      "description": "Verbosity level (0 for quiet, 1 or more for talkative)",
+      "value-key": "[VERBOSITY_LEVEL]",
+      "type": "Number",
+      "optional": true,
+      "id": "verbosity_level",
+      "name": "Verbosity level",
+      "command-line-flag": "-verb"
+    },
+    {
+      "description": "Column name designated as the response/outcome variable (default is 'Y')",
+      "value-key": "[RESPONSE_VAR]",
+      "type": "String",
+      "optional": true,
+      "id": "response_var",
+      "name": "Response variable",
+      "command-line-flag": "-Y"
+    },
+    {
+      "description": "Enable R to save parameters for debugging",
+      "value-key": "[DBG_ARGS]",
+      "type": "Flag",
+      "id": "dbg_args",
+      "name": "Debug Args",
+      "command-line-flag": "-dbgArgs"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX]-stat.txt",
+      "description": "Statistical evidence output of PTA",
+      "id": "stat_output",
+      "name": "Statistical Output"
+    },
+    {
+      "path-template": "[PREFIX]-prediction.txt",
+      "description": "Predicted values and their standard errors",
+      "id": "prediction_output",
+      "name": "Prediction Output"
+    }
+  ]
+}

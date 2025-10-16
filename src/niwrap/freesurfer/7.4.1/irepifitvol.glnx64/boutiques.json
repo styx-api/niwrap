@@ -1,0 +1,34 @@
+{
+  "name": "irepifitvol.glnx64",
+  "description": "This tool is a part of the FreeSurfer toolkit, designed for certain volume fitting tasks.",
+  "command-line": "irepifitvol.glnx64 [INPUT_FILE] [OUTPUT_FILE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "name": "Input file",
+      "type": "File",
+      "value-key": "[INPUT_FILE]",
+      "description": "The input volume file to be processed.",
+      "id": "input_file",
+      "optional": false
+    },
+    {
+      "name": "Output file",
+      "type": "String",
+      "value-key": "[OUTPUT_FILE]",
+      "description": "The path to save the output volume file after fitting.",
+      "id": "output_file",
+      "optional": false
+    }
+  ],
+  "output-files": [
+    {
+      "name": "Fitted Volume Output",
+      "path-template": "[OUTPUT_FILE]",
+      "description": "The fitted volume output from the irepifitvol process.",
+      "id": "output_volume"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

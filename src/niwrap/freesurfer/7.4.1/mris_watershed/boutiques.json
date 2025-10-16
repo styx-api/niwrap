@@ -1,0 +1,60 @@
+{
+  "name": "mris_watershed",
+  "author": "FreeSurfer Developers",
+  "description": "This program computes the watershed transform on the surface of an intensity gradient and writes the resulting measurement into a .annot file.",
+  "command-line": "mris_watershed [INPUT_SURFACE] [INPUT_GRADIENT_FIELD] [OUTPUT_ANNOTATION] [MAX_CLUSTERS] [MASK_LABEL]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input surface file",
+      "value-key": "[INPUT_SURFACE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_surface",
+      "name": "Input Surface File"
+    },
+    {
+      "description": "Input gradient field file",
+      "value-key": "[INPUT_GRADIENT_FIELD]",
+      "type": "File",
+      "optional": false,
+      "id": "input_gradient_field",
+      "name": "Input Gradient Field File"
+    },
+    {
+      "description": "Output annotation file",
+      "value-key": "[OUTPUT_ANNOTATION]",
+      "type": "String",
+      "optional": false,
+      "id": "output_annotation",
+      "name": "Output Annotation File"
+    },
+    {
+      "command-line-flag": "-M",
+      "description": "Set the number of maximum clusters",
+      "value-key": "[MAX_CLUSTERS]",
+      "type": "Number",
+      "optional": true,
+      "id": "max_clusters",
+      "name": "Maximum Clusters"
+    },
+    {
+      "command-line-flag": "-mask_label",
+      "description": "Read in and mask the input volume that is not in the specified label",
+      "value-key": "[MASK_LABEL]",
+      "type": "String",
+      "optional": true,
+      "id": "mask_label",
+      "name": "Mask Label"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_ANNOTATION]",
+      "description": "The resulting annotation file from the watershed transform",
+      "id": "output_annotation_file",
+      "name": "Output Annotation File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

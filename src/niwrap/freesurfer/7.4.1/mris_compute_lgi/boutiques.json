@@ -1,0 +1,70 @@
+{
+  "name": "mris_compute_lgi",
+  "author": "FreeSurfer Developers",
+  "description": "Computes local measurements of gyrification at thousands of points over the entire cortical surface.",
+  "command-line": "mris_compute_lgi [INPUT_SURFACE] [CLOSE_SPHERE_SIZE] [SMOOTH_ITERS] [STEP_SIZE] [ECHO] [DONTRUN]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--i",
+      "description": "Input surface file, typically lh.pial or rh.pial",
+      "value-key": "[INPUT_SURFACE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_surface",
+      "name": "Input surface file"
+    },
+    {
+      "command-line-flag": "--close_sphere_size",
+      "description": "Use sphere of specified size in mm for morph closing operation (default: 15mm)",
+      "value-key": "[CLOSE_SPHERE_SIZE]",
+      "type": "Number",
+      "optional": true,
+      "id": "close_sphere_size",
+      "name": "Close sphere size"
+    },
+    {
+      "command-line-flag": "--smooth_iters",
+      "description": "Smooth outer-surface specified number of iterations (default: 30)",
+      "value-key": "[SMOOTH_ITERS]",
+      "type": "Number",
+      "optional": true,
+      "id": "smooth_iters",
+      "name": "Smooth iterations"
+    },
+    {
+      "command-line-flag": "--step_size",
+      "description": "Skip every specified number of vertices when computing lGI (default: 100)",
+      "value-key": "[STEP_SIZE]",
+      "type": "Number",
+      "optional": true,
+      "id": "step_size",
+      "name": "Step size"
+    },
+    {
+      "command-line-flag": "--echo",
+      "description": "Enable command echo, for debug",
+      "value-key": "[ECHO]",
+      "type": "Flag",
+      "id": "echo",
+      "name": "Echo flag"
+    },
+    {
+      "command-line-flag": "--dontrun",
+      "description": "Just show commands (don't run them)",
+      "value-key": "[DONTRUN]",
+      "type": "Flag",
+      "id": "dontrun",
+      "name": "Don't run flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[INPUT_SURFACE]_lgi",
+      "description": "Surface map file containing local gyrification measures",
+      "id": "output_surface_map",
+      "name": "Output surface map file"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

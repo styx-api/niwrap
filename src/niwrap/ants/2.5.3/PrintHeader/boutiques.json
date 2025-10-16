@@ -1,0 +1,42 @@
+{
+  "name": "PrintHeader",
+  "command-line": "PrintHeader [IMAGE] [WHAT_INFORMATION]",
+  "author": "ANTs Developers",
+  "description": "A utility to print header information from an image file.",
+  "url": "https://github.com/ANTsX/ANTs",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "image",
+      "name": "Image",
+      "value-key": "[IMAGE]",
+      "type": "File",
+      "optional": false,
+      "description": "The image file to extract header information from. Supported extension: .ext."
+    },
+    {
+      "id": "what_information",
+      "name": "What Information",
+      "value-key": "[WHAT_INFORMATION]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "description": "Specify the type of information to print: 0 for origin, 1 for spacing, 2 for size, 3 for index, 4 for direction."
+    }
+  ],
+  "output-files": [
+    {
+      "id": "output",
+      "name": "Output",
+      "description": "The printed header information from the specified image.",
+      "path-template": "header_info.txt"
+    }
+  ]
+}

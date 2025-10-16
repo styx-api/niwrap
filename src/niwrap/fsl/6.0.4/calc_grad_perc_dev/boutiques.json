@@ -1,0 +1,44 @@
+{
+  "name": "calc_grad_perc_dev",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Compute the gradient percent deviation based on a full warp image from gradient_unwarp.py",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "calc_grad_perc_dev [FULLWARP_IMAGE] [OUT_BASENAME] [VERBOSE_FLAG] [HELP_FLAG]",
+  "inputs": [
+    {
+      "command-line-flag": "--fullwarp",
+      "description": "Full warp image from gradient_unwarp.py",
+      "value-key": "[FULLWARP_IMAGE]",
+      "type": "File",
+      "optional": false,
+      "id": "fullwarp_image",
+      "name": "Full warp image"
+    },
+    {
+      "command-line-flag": "-o,--out",
+      "description": "Output basename",
+      "value-key": "[OUT_BASENAME]",
+      "type": "String",
+      "optional": false,
+      "id": "out_basename",
+      "name": "Output basename"
+    },
+    {
+      "command-line-flag": "-v,--verbose",
+      "description": "Switch on diagnostic messages",
+      "value-key": "[VERBOSE_FLAG]",
+      "type": "Flag",
+      "id": "verbose_flag",
+      "name": "Verbose Flag"
+    },
+    {
+      "command-line-flag": "-h,--help",
+      "description": "Display the help message",
+      "value-key": "[HELP_FLAG]",
+      "type": "Flag",
+      "id": "help_flag",
+      "name": "Help Flag"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

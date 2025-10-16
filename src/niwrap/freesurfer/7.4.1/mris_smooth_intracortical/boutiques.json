@@ -1,0 +1,111 @@
+{
+  "name": "mris_smooth_intracortical",
+  "author": "FreeSurfer Developers",
+  "description": "Smooths data overlaid onto cortical surface meshes using specified tangential and radial extents.",
+  "command-line": "mris_smooth_intracortical [SURF_DIR] [SURF_NAME] [OVERLAY_DIR] [OVERLAY_NAME] [[OUTPUT_DIR]] [[OUTPUT_NAME]] [[TAN_SIZE]] [[RAD_SIZE]] [[RAD_START]] [[TAN_WEIGHTS]]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--surf_dir",
+      "description": "Directory with surface meshes.",
+      "value-key": "[SURF_DIR]",
+      "type": "String",
+      "optional": false,
+      "id": "surf_dir",
+      "name": "Surface Directory"
+    },
+    {
+      "command-line-flag": "--surf_name",
+      "description": "Name of a surface file(s). Use * and ? to pass multiple names (max 20).",
+      "value-key": "[SURF_NAME]",
+      "type": "String",
+      "optional": false,
+      "id": "surf_name",
+      "name": "Surface Name"
+    },
+    {
+      "command-line-flag": "--overlay_dir",
+      "description": "Directory with surface mesh overlays.",
+      "value-key": "[OVERLAY_DIR]",
+      "type": "String",
+      "optional": false,
+      "id": "overlay_dir",
+      "name": "Overlay Directory"
+    },
+    {
+      "command-line-flag": "--overlay_name",
+      "description": "Name of an overlay file(s). Use * and ? to pass multiple names (max 20).",
+      "value-key": "[OVERLAY_NAME]",
+      "type": "String",
+      "optional": false,
+      "id": "overlay_name",
+      "name": "Overlay Name"
+    },
+    {
+      "command-line-flag": "--output_dir",
+      "description": "Path to the output directory. Default is same as overlay directory.",
+      "value-key": "[OUTPUT_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "output_dir",
+      "name": "Output Directory"
+    },
+    {
+      "command-line-flag": "--output_name",
+      "description": "Name of the output overlay file.",
+      "value-key": "[OUTPUT_NAME]",
+      "type": "String",
+      "optional": true,
+      "id": "output_name",
+      "name": "Output Name"
+    },
+    {
+      "command-line-flag": "--tan-size",
+      "description": "Tangential extent of the smoothing kernel. Default = 0, Max = 6.",
+      "value-key": "[TAN_SIZE]",
+      "type": "Number",
+      "maximum": 6,
+      "minimum": 0,
+      "integer": true,
+      "optional": true,
+      "id": "tan_size",
+      "name": "Tangential Size"
+    },
+    {
+      "command-line-flag": "--rad-size",
+      "description": "Radial extent of the intracortical smoothing kernel.",
+      "value-key": "[RAD_SIZE]",
+      "type": "Number",
+      "optional": true,
+      "id": "rad_size",
+      "name": "Radial Size"
+    },
+    {
+      "command-line-flag": "--rad-start",
+      "description": "Starting surface mesh of the intracortical smoothing kernel in the radial direction.",
+      "value-key": "[RAD_START]",
+      "type": "Number",
+      "optional": true,
+      "id": "rad_start",
+      "name": "Radial Start"
+    },
+    {
+      "command-line-flag": "--tan-weights",
+      "description": "Weighting function for tangential smoothing. 'gauss' or 'distance'.",
+      "value-key": "[TAN_WEIGHTS]",
+      "type": "String",
+      "optional": true,
+      "id": "tan_weights",
+      "name": "Tangential Weights"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_DIR]/[OUTPUT_NAME]",
+      "description": "Output overlay file.",
+      "id": "output_overlay",
+      "name": "Output Overlay File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

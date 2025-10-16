@@ -1,0 +1,157 @@
+{
+  "name": "3dPolyfit",
+  "author": "AFNI Developers",
+  "description": "Fits a polynomial in space to the input dataset and outputs that fitted dataset. You can also add your own basis datasets to the fitting mix.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dPolyfit [INPUT_DATASET] [POLY_ORDER] [BLUR] [MEDIAN_RADIUS] [OUTPUT_PREFIX] [RESID_PREFIX] [COEFF_OUTPUT] [AUTOMASK] [MASK_DATASET] [MEAN_SCALE] [CLIP_BOX] [FIT_METHOD] [BASE_DATASET] [VERBOSE]",
+  "inputs": [
+    {
+      "description": "Input dataset (e.g., data.nii.gz)",
+      "value-key": "[INPUT_DATASET]",
+      "type": "File",
+      "optional": false,
+      "id": "input_dataset",
+      "name": "Input dataset"
+    },
+    {
+      "command-line-flag": "-nord",
+      "description": "Maximum polynomial order (0..9); [default=3]; [n=0 is the constant 1]; [n=-1 means only use volumes from '-base']",
+      "value-key": "[POLY_ORDER]",
+      "type": "Number",
+      "maximum": 9,
+      "minimum": -1,
+      "integer": true,
+      "optional": true,
+      "id": "poly_order",
+      "name": "Polynomial order"
+    },
+    {
+      "command-line-flag": "-blur",
+      "description": "Gaussian blur input dataset (inside mask) with FWHM='f' (mm)",
+      "value-key": "[BLUR]",
+      "type": "Number",
+      "optional": true,
+      "id": "blur",
+      "name": "Blur FWHM"
+    },
+    {
+      "command-line-flag": "-mrad",
+      "description": "Radius (voxels) of preliminary median filter of input; default is no blurring",
+      "value-key": "[MEDIAN_RADIUS]",
+      "type": "Number",
+      "optional": true,
+      "id": "median_radius",
+      "name": "Median filter radius"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Use 'pp' for prefix of output dataset (the fit); default prefix is 'Polyfit'; use NULL to skip this output",
+      "value-key": "[OUTPUT_PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "output_prefix",
+      "name": "Output prefix"
+    },
+    {
+      "command-line-flag": "-resid",
+      "description": "Use 'rr' for the prefix of the residual dataset; default is not to output residuals",
+      "value-key": "[RESID_PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "resid_prefix",
+      "name": "Residual prefix"
+    },
+    {
+      "command-line-flag": "-1Dcoef",
+      "description": "Save coefficients of fit into text file cc.1D; default is not to save these coefficients",
+      "value-key": "[COEFF_OUTPUT]",
+      "type": "String",
+      "optional": true,
+      "id": "coeff_output",
+      "name": "Coefficient output"
+    },
+    {
+      "command-line-flag": "-automask",
+      "description": "Create a mask (a la 3dAutomask)",
+      "value-key": "[AUTOMASK]",
+      "type": "Flag",
+      "id": "automask",
+      "name": "Automask flag"
+    },
+    {
+      "command-line-flag": "-mask",
+      "description": "Create a mask from nonzero voxels in 'mset'; default is not to use a mask",
+      "value-key": "[MASK_DATASET]",
+      "type": "File",
+      "optional": true,
+      "id": "mask_dataset",
+      "name": "Mask dataset"
+    },
+    {
+      "command-line-flag": "-mone",
+      "description": "Scale the mean value of the fit (inside the mask) to 1; probably this option is not useful for anything",
+      "value-key": "[MEAN_SCALE]",
+      "type": "Flag",
+      "id": "mean_scale",
+      "name": "Mean scale flag"
+    },
+    {
+      "command-line-flag": "-mclip",
+      "description": "Clip fit values outside the rectilinear box containing the mask to the edge of that box, to avoid weird artifacts",
+      "value-key": "[CLIP_BOX]",
+      "type": "Flag",
+      "id": "clip_box",
+      "name": "Clip box flag"
+    },
+    {
+      "command-line-flag": "-meth",
+      "description": "Set 'mm' to 2 for least squares fit; set it to 1 for L1 fit [default method=2]; [Note that L1 fitting is slower than L2 fitting]",
+      "value-key": "[FIT_METHOD]",
+      "type": "Number",
+      "maximum": 2,
+      "minimum": 1,
+      "integer": true,
+      "optional": true,
+      "id": "fit_method",
+      "name": "Fit method"
+    },
+    {
+      "command-line-flag": "-base",
+      "description": "In addition to the polynomial fit, also use the volumes in dataset 'bb' as extra basis functions",
+      "value-key": "[BASE_DATASET]",
+      "type": "File",
+      "optional": true,
+      "id": "base_dataset",
+      "name": "Base dataset"
+    },
+    {
+      "command-line-flag": "-verb",
+      "description": "Print fun and useful progress reports",
+      "value-key": "[VERBOSE]",
+      "type": "Flag",
+      "id": "verbose",
+      "name": "Verbose flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_PREFIX].nii.gz",
+      "description": "Fitted output dataset",
+      "id": "output_file",
+      "name": "Output file"
+    },
+    {
+      "path-template": "[RESID_PREFIX].nii.gz",
+      "description": "Residual dataset",
+      "id": "resid_file",
+      "name": "Residual file"
+    },
+    {
+      "path-template": "[COEFF_OUTPUT].1D",
+      "description": "Coefficient output file",
+      "id": "coeff_file",
+      "name": "Coefficient file"
+    }
+  ]
+}

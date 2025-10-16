@@ -1,0 +1,46 @@
+{
+  "name": "mris_thickness_comparison",
+  "command-line": "mris_thickness_comparison [SUBJECT] [HEMI] [THICKNESS_FILE] [W_FILE] [LABELS]",
+  "description": "Tool to compare cortical thickness measurements between two or more specified labels.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "subject",
+      "name": "Subject",
+      "type": "String",
+      "description": "Subject identifier.",
+      "value-key": "[SUBJECT]"
+    },
+    {
+      "id": "hemi",
+      "name": "Hemisphere",
+      "type": "String",
+      "description": "Hemisphere (e.g., lh or rh).",
+      "value-key": "[HEMI]"
+    },
+    {
+      "id": "thickness_file",
+      "name": "Thickness File",
+      "type": "File",
+      "description": "File containing thickness measurements.",
+      "value-key": "[THICKNESS_FILE]"
+    },
+    {
+      "id": "w_file",
+      "name": "W File",
+      "type": "File",
+      "description": "W file for cortical thickness comparison.",
+      "value-key": "[W_FILE]"
+    },
+    {
+      "id": "labels",
+      "name": "Labels",
+      "type": "String",
+      "description": "List of labels to compare, separated by spaces.",
+      "value-key": "[LABELS]",
+      "list": true
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

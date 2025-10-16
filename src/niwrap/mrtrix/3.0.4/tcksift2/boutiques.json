@@ -1,0 +1,364 @@
+{
+  "name": "tcksift2",
+  "description": "Optimise per-streamline cross-section multipliers to match a whole-brain tractogram to fixel-wise fibre densities.\n\n\n\nReferences:\n\nSmith, R. E.; Tournier, J.-D.; Calamante, F. & Connelly, A. SIFT2: Enabling dense quantitative assessment of brain white matter connectivity using streamlines tractography. NeuroImage, 2015, 119, 338-351\n\n* If using the -linear option: \nSmith, RE; Raffelt, D; Tournier, J-D; Connelly, A. Quantitative Streamlines Tractography: Methods and Inter-Subject Normalisation. Open Science Framework, https://doi.org/10.31219/osf.io/c67kn.",
+  "author": "MRTrix3 Developers",
+  "schema-version": "0.5+styx",
+  "command-line": "tcksift2 [OPTIONS_FOR_SETTING_THE_PROCESSING_MASK_FOR_THE_SIFT_FIXEL_STREAMLINES_COMPARISON_MODEL_PROC_MASK] [OPTIONS_FOR_SETTING_THE_PROCESSING_MASK_FOR_THE_SIFT_FIXEL_STREAMLINES_COMPARISON_MODEL_ACT] [OPTIONS_AFFECTING_THE_SIFT_MODEL_FD_SCALE_GM] [OPTIONS_AFFECTING_THE_SIFT_MODEL_NO_DILATE_LUT] [OPTIONS_AFFECTING_THE_SIFT_MODEL_MAKE_NULL_LOBES] [OPTIONS_AFFECTING_THE_SIFT_MODEL_REMOVE_UNTRACKED] [OPTIONS_AFFECTING_THE_SIFT_MODEL_FD_THRESH] [OPTIONS_TO_MAKE_SIFT_PROVIDE_ADDITIONAL_OUTPUT_FILES_CSV] [OPTIONS_TO_MAKE_SIFT_PROVIDE_ADDITIONAL_OUTPUT_FILES_OUT_MU] [OPTIONS_TO_MAKE_SIFT_PROVIDE_ADDITIONAL_OUTPUT_FILES_OUTPUT_DEBUG] [OPTIONS_TO_MAKE_SIFT_PROVIDE_ADDITIONAL_OUTPUT_FILES_OUT_COEFFS] [REGULARISATION_OPTIONS_FOR_SIFT2_REG_TIKHONOV] [REGULARISATION_OPTIONS_FOR_SIFT2_REG_TV] [OPTIONS_FOR_CONTROLLING_THE_SIFT2_OPTIMISATION_ALGORITHM_MIN_TD_FRAC] [OPTIONS_FOR_CONTROLLING_THE_SIFT2_OPTIMISATION_ALGORITHM_MIN_ITERS] [OPTIONS_FOR_CONTROLLING_THE_SIFT2_OPTIMISATION_ALGORITHM_MAX_ITERS] [OPTIONS_FOR_CONTROLLING_THE_SIFT2_OPTIMISATION_ALGORITHM_MIN_FACTOR] [OPTIONS_FOR_CONTROLLING_THE_SIFT2_OPTIMISATION_ALGORITHM_MIN_COEFF] [OPTIONS_FOR_CONTROLLING_THE_SIFT2_OPTIMISATION_ALGORITHM_MAX_FACTOR] [OPTIONS_FOR_CONTROLLING_THE_SIFT2_OPTIMISATION_ALGORITHM_MAX_COEFF] [OPTIONS_FOR_CONTROLLING_THE_SIFT2_OPTIMISATION_ALGORITHM_MAX_COEFF_STEP] [OPTIONS_FOR_CONTROLLING_THE_SIFT2_OPTIMISATION_ALGORITHM_MIN_CF_DECREASE] [OPTIONS_FOR_CONTROLLING_THE_SIFT2_OPTIMISATION_ALGORITHM_LINEAR] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION] [IN_TRACKS] [IN_FOD] [OUT_WEIGHTS]",
+  "inputs": [
+    {
+      "id": "in_tracks",
+      "name": "in_tracks",
+      "value-key": "[IN_TRACKS]",
+      "description": "the input track file",
+      "type": "File",
+      "optional": false
+    },
+    {
+      "id": "in_fod",
+      "name": "in_fod",
+      "value-key": "[IN_FOD]",
+      "description": "input image containing the spherical harmonics of the fibre orientation distributions",
+      "type": "File",
+      "optional": false
+    },
+    {
+      "id": "out_weights",
+      "name": "out_weights",
+      "value-key": "[OUT_WEIGHTS]",
+      "description": "output text file containing the weighting factor for each streamline",
+      "type": "String",
+      "optional": false
+    },
+    {
+      "id": "proc_mask",
+      "name": "proc_mask",
+      "command-line-flag": "-proc_mask",
+      "value-key": "[OPTIONS_FOR_SETTING_THE_PROCESSING_MASK_FOR_THE_SIFT_FIXEL_STREAMLINES_COMPARISON_MODEL_PROC_MASK]",
+      "description": "provide an image containing the processing mask weights for the model; image spatial dimensions must match the fixel image",
+      "type": "File",
+      "optional": true
+    },
+    {
+      "id": "act",
+      "name": "act",
+      "command-line-flag": "-act",
+      "value-key": "[OPTIONS_FOR_SETTING_THE_PROCESSING_MASK_FOR_THE_SIFT_FIXEL_STREAMLINES_COMPARISON_MODEL_ACT]",
+      "description": "use an ACT five-tissue-type segmented anatomical image to derive the processing mask",
+      "type": "File",
+      "optional": true
+    },
+    {
+      "id": "fd_scale_gm",
+      "name": "fd_scale_gm",
+      "command-line-flag": "-fd_scale_gm",
+      "value-key": "[OPTIONS_AFFECTING_THE_SIFT_MODEL_FD_SCALE_GM]",
+      "description": "provide this option (in conjunction with -act) to heuristically downsize the fibre density estimates based on the presence of GM in the voxel. This can assist in reducing tissue interface effects when using a single-tissue deconvolution algorithm",
+      "type": "Flag"
+    },
+    {
+      "id": "no_dilate_lut",
+      "name": "no_dilate_lut",
+      "command-line-flag": "-no_dilate_lut",
+      "value-key": "[OPTIONS_AFFECTING_THE_SIFT_MODEL_NO_DILATE_LUT]",
+      "description": "do NOT dilate FOD lobe lookup tables; only map streamlines to FOD lobes if the precise tangent lies within the angular spread of that lobe",
+      "type": "Flag"
+    },
+    {
+      "id": "make_null_lobes",
+      "name": "make_null_lobes",
+      "command-line-flag": "-make_null_lobes",
+      "value-key": "[OPTIONS_AFFECTING_THE_SIFT_MODEL_MAKE_NULL_LOBES]",
+      "description": "add an additional FOD lobe to each voxel, with zero integral, that covers all directions with zero / negative FOD amplitudes",
+      "type": "Flag"
+    },
+    {
+      "id": "remove_untracked",
+      "name": "remove_untracked",
+      "command-line-flag": "-remove_untracked",
+      "value-key": "[OPTIONS_AFFECTING_THE_SIFT_MODEL_REMOVE_UNTRACKED]",
+      "description": "remove FOD lobes that do not have any streamline density attributed to them; this improves filtering slightly, at the expense of longer computation time (and you can no longer do quantitative comparisons between reconstructions if this is enabled)",
+      "type": "Flag"
+    },
+    {
+      "id": "fd_thresh",
+      "name": "fd_thresh",
+      "command-line-flag": "-fd_thresh",
+      "value-key": "[OPTIONS_AFFECTING_THE_SIFT_MODEL_FD_THRESH]",
+      "description": "fibre density threshold; exclude an FOD lobe from filtering processing if its integral is less than this amount (streamlines will still be mapped to it, but it will not contribute to the cost function or the filtering)",
+      "type": "Number",
+      "optional": true,
+      "integer": false
+    },
+    {
+      "id": "csv",
+      "name": "csv",
+      "command-line-flag": "-csv",
+      "value-key": "[OPTIONS_TO_MAKE_SIFT_PROVIDE_ADDITIONAL_OUTPUT_FILES_CSV]",
+      "description": "output statistics of execution per iteration to a .csv file",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "out_mu",
+      "name": "out_mu",
+      "command-line-flag": "-out_mu",
+      "value-key": "[OPTIONS_TO_MAKE_SIFT_PROVIDE_ADDITIONAL_OUTPUT_FILES_OUT_MU]",
+      "description": "output the final value of SIFT proportionality coefficient mu to a text file",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "output_debug",
+      "name": "output_debug",
+      "command-line-flag": "-output_debug",
+      "value-key": "[OPTIONS_TO_MAKE_SIFT_PROVIDE_ADDITIONAL_OUTPUT_FILES_OUTPUT_DEBUG]",
+      "description": "provide various output images for assessing & debugging performance etc.",
+      "type": "Flag"
+    },
+    {
+      "id": "out_coeffs",
+      "name": "out_coeffs",
+      "command-line-flag": "-out_coeffs",
+      "value-key": "[OPTIONS_TO_MAKE_SIFT_PROVIDE_ADDITIONAL_OUTPUT_FILES_OUT_COEFFS]",
+      "description": "output text file containing the weighting coefficient for each streamline",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "reg_tikhonov",
+      "name": "reg_tikhonov",
+      "command-line-flag": "-reg_tikhonov",
+      "value-key": "[REGULARISATION_OPTIONS_FOR_SIFT2_REG_TIKHONOV]",
+      "description": "provide coefficient for regularising streamline weighting coefficients (Tikhonov regularisation) (default: 0)",
+      "type": "Number",
+      "optional": true,
+      "integer": false
+    },
+    {
+      "id": "reg_tv",
+      "name": "reg_tv",
+      "command-line-flag": "-reg_tv",
+      "value-key": "[REGULARISATION_OPTIONS_FOR_SIFT2_REG_TV]",
+      "description": "provide coefficient for regularising variance of streamline weighting coefficient to fixels along its length (Total Variation regularisation) (default: 0.1)",
+      "type": "Number",
+      "optional": true,
+      "integer": false
+    },
+    {
+      "id": "min_td_frac",
+      "name": "min_td_frac",
+      "command-line-flag": "-min_td_frac",
+      "value-key": "[OPTIONS_FOR_CONTROLLING_THE_SIFT2_OPTIMISATION_ALGORITHM_MIN_TD_FRAC]",
+      "description": "minimum fraction of the FOD integral reconstructed by streamlines; if the reconstructed streamline density is below this fraction, the fixel is excluded from optimisation (default: 0.1)",
+      "type": "Number",
+      "optional": true,
+      "integer": false
+    },
+    {
+      "id": "min_iters",
+      "name": "min_iters",
+      "command-line-flag": "-min_iters",
+      "value-key": "[OPTIONS_FOR_CONTROLLING_THE_SIFT2_OPTIMISATION_ALGORITHM_MIN_ITERS]",
+      "description": "minimum number of iterations to run before testing for convergence; this can prevent premature termination at early iterations if the cost function increases slightly (default: 10)",
+      "type": "Number",
+      "optional": true,
+      "integer": true
+    },
+    {
+      "id": "max_iters",
+      "name": "max_iters",
+      "command-line-flag": "-max_iters",
+      "value-key": "[OPTIONS_FOR_CONTROLLING_THE_SIFT2_OPTIMISATION_ALGORITHM_MAX_ITERS]",
+      "description": "maximum number of iterations to run before terminating program",
+      "type": "Number",
+      "optional": true,
+      "integer": true
+    },
+    {
+      "id": "min_factor",
+      "name": "min_factor",
+      "command-line-flag": "-min_factor",
+      "value-key": "[OPTIONS_FOR_CONTROLLING_THE_SIFT2_OPTIMISATION_ALGORITHM_MIN_FACTOR]",
+      "description": "minimum weighting factor for an individual streamline; if the factor falls below this number the streamline will be rejected entirely (factor set to zero) (default: 0)",
+      "type": "Number",
+      "optional": true,
+      "integer": false
+    },
+    {
+      "id": "min_coeff",
+      "name": "min_coeff",
+      "command-line-flag": "-min_coeff",
+      "value-key": "[OPTIONS_FOR_CONTROLLING_THE_SIFT2_OPTIMISATION_ALGORITHM_MIN_COEFF]",
+      "description": "minimum weighting coefficient for an individual streamline; similar to the '-min_factor' option, but using the exponential coefficient basis of the SIFT2 model; these parameters are related as: factor = e^(coeff). Note that the -min_factor and -min_coeff options are mutually exclusive - you can only provide one. (default: -inf)",
+      "type": "Number",
+      "optional": true,
+      "integer": false
+    },
+    {
+      "id": "max_factor",
+      "name": "max_factor",
+      "command-line-flag": "-max_factor",
+      "value-key": "[OPTIONS_FOR_CONTROLLING_THE_SIFT2_OPTIMISATION_ALGORITHM_MAX_FACTOR]",
+      "description": "maximum weighting factor that can be assigned to any one streamline (default: inf)",
+      "type": "Number",
+      "optional": true,
+      "integer": false
+    },
+    {
+      "id": "max_coeff",
+      "name": "max_coeff",
+      "command-line-flag": "-max_coeff",
+      "value-key": "[OPTIONS_FOR_CONTROLLING_THE_SIFT2_OPTIMISATION_ALGORITHM_MAX_COEFF]",
+      "description": "maximum weighting coefficient for an individual streamline; similar to the '-max_factor' option, but using the exponential coefficient basis of the SIFT2 model; these parameters are related as: factor = e^(coeff). Note that the -max_factor and -max_coeff options are mutually exclusive - you can only provide one. (default: inf)",
+      "type": "Number",
+      "optional": true,
+      "integer": false
+    },
+    {
+      "id": "max_coeff_step",
+      "name": "max_coeff_step",
+      "command-line-flag": "-max_coeff_step",
+      "value-key": "[OPTIONS_FOR_CONTROLLING_THE_SIFT2_OPTIMISATION_ALGORITHM_MAX_COEFF_STEP]",
+      "description": "maximum change to a streamline's weighting coefficient in a single iteration (default: 1)",
+      "type": "Number",
+      "optional": true,
+      "integer": false
+    },
+    {
+      "id": "min_cf_decrease",
+      "name": "min_cf_decrease",
+      "command-line-flag": "-min_cf_decrease",
+      "value-key": "[OPTIONS_FOR_CONTROLLING_THE_SIFT2_OPTIMISATION_ALGORITHM_MIN_CF_DECREASE]",
+      "description": "minimum decrease in the cost function (as a fraction of the initial value) that must occur each iteration for the algorithm to continue (default: 2.5e-05)",
+      "type": "Number",
+      "optional": true,
+      "integer": false
+    },
+    {
+      "id": "linear",
+      "name": "linear",
+      "command-line-flag": "-linear",
+      "value-key": "[OPTIONS_FOR_CONTROLLING_THE_SIFT2_OPTIMISATION_ALGORITHM_LINEAR]",
+      "description": "perform a linear estimation of streamline weights, rather than the standard non-linear optimisation (typically does not provide as accurate a model fit; but only requires a single pass)",
+      "type": "Flag"
+    },
+    {
+      "id": "info",
+      "name": "info",
+      "command-line-flag": "-info",
+      "value-key": "[__STANDARD_OPTIONS_INFO]",
+      "description": "display information messages.",
+      "type": "Flag"
+    },
+    {
+      "id": "quiet",
+      "name": "quiet",
+      "command-line-flag": "-quiet",
+      "value-key": "[__STANDARD_OPTIONS_QUIET]",
+      "description": "do not display information messages or progress status; alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string.",
+      "type": "Flag"
+    },
+    {
+      "id": "debug",
+      "name": "debug",
+      "command-line-flag": "-debug",
+      "value-key": "[__STANDARD_OPTIONS_DEBUG]",
+      "description": "display debugging messages.",
+      "type": "Flag"
+    },
+    {
+      "id": "force",
+      "name": "force",
+      "command-line-flag": "-force",
+      "value-key": "[__STANDARD_OPTIONS_FORCE]",
+      "description": "force overwrite of output files (caution: using the same file as input and output might cause unexpected behaviour).",
+      "type": "Flag"
+    },
+    {
+      "id": "nthreads",
+      "name": "nthreads",
+      "command-line-flag": "-nthreads",
+      "value-key": "[__STANDARD_OPTIONS_NTHREADS]",
+      "description": "use this number of threads in multi-threaded applications (set to 0 to disable multi-threading).",
+      "type": "Number",
+      "optional": true,
+      "integer": true
+    },
+    {
+      "id": "config",
+      "name": "config",
+      "value-key": "[__STANDARD_OPTIONS_CONFIG]",
+      "description": "temporarily set the value of an MRtrix config file entry.",
+      "type": {
+        "id": "config",
+        "name": "config",
+        "description": "temporarily set the value of an MRtrix config file entry.",
+        "command-line": "-config [KEY] [VALUE]",
+        "inputs": [
+          {
+            "id": "key",
+            "name": "key",
+            "value-key": "[KEY]",
+            "description": "temporarily set the value of an MRtrix config file entry.",
+            "type": "String",
+            "optional": false
+          },
+          {
+            "id": "value",
+            "name": "value",
+            "value-key": "[VALUE]",
+            "description": "temporarily set the value of an MRtrix config file entry.",
+            "type": "String",
+            "optional": false
+          }
+        ],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "help",
+      "name": "help",
+      "command-line-flag": "-help",
+      "value-key": "[__STANDARD_OPTIONS_HELP]",
+      "description": "display this information page and exit.",
+      "type": "Flag"
+    },
+    {
+      "id": "version",
+      "name": "version",
+      "command-line-flag": "-version",
+      "value-key": "[__STANDARD_OPTIONS_VERSION]",
+      "description": "display version information and exit.",
+      "type": "Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "out_weights",
+      "name": "out_weights",
+      "path-template": "[OUT_WEIGHTS]",
+      "description": "output text file containing the weighting factor for each streamline"
+    },
+    {
+      "id": "csv",
+      "name": "csv",
+      "path-template": "[OPTIONS_TO_MAKE_SIFT_PROVIDE_ADDITIONAL_OUTPUT_FILES_CSV]",
+      "description": "output statistics of execution per iteration to a .csv file "
+    },
+    {
+      "id": "out_mu",
+      "name": "out_mu",
+      "path-template": "[OPTIONS_TO_MAKE_SIFT_PROVIDE_ADDITIONAL_OUTPUT_FILES_OUT_MU]",
+      "description": "output the final value of SIFT proportionality coefficient mu to a text file "
+    },
+    {
+      "id": "out_coeffs",
+      "name": "out_coeffs",
+      "path-template": "[OPTIONS_TO_MAKE_SIFT_PROVIDE_ADDITIONAL_OUTPUT_FILES_OUT_COEFFS]",
+      "description": "output text file containing the weighting coefficient for each streamline "
+    }
+  ],
+  "url": "https://www.mrtrix.org/"
+}

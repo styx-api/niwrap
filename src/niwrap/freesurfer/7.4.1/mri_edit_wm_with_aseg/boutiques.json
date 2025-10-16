@@ -1,0 +1,137 @@
+{
+  "name": "mri_edit_wm_with_aseg",
+  "author": "FreeSurfer Developers",
+  "description": "A tool for editing white matter with anatomical segmentation.",
+  "command-line": "mri_edit_wm_with_aseg [INPUT_WM] [INPUT_T1_BRAIN] [ASEG] [OUTPUT_WM] [FILLVEN] [FIX_SCM_HA] [FIX_SCM_HA_ONLY] [KEEP] [KEEP_IN] [LH] [RH] [FIX_ENTO_WM] [SA_FIX_ENTO_WM] [DEBUG_VOXEL]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input white matter file",
+      "value-key": "[INPUT_WM]",
+      "type": "File",
+      "optional": false,
+      "id": "input_wm",
+      "name": "Input white matter file"
+    },
+    {
+      "description": "Input T1/brain file",
+      "value-key": "[INPUT_T1_BRAIN]",
+      "type": "File",
+      "optional": false,
+      "id": "input_t1_brain",
+      "name": "Input T1/brain file"
+    },
+    {
+      "description": "Anatomical segmentation file",
+      "value-key": "[ASEG]",
+      "type": "File",
+      "optional": false,
+      "id": "aseg",
+      "name": "Anatomical segmentation file"
+    },
+    {
+      "description": "Output white matter file",
+      "value-key": "[OUTPUT_WM]",
+      "type": "String",
+      "optional": false,
+      "id": "output_wm",
+      "name": "Output file"
+    },
+    {
+      "command-line-flag": "-fillven",
+      "description": "Fill ventricular system",
+      "value-key": "[FILLVEN]",
+      "type": "Flag",
+      "id": "fillven",
+      "name": "Fill ven flag"
+    },
+    {
+      "command-line-flag": "-fix-scm-ha",
+      "description": "Remove voxels in amygdala, ILV, and parts of hippocampus",
+      "value-key": "[FIX_SCM_HA]",
+      "type": "Number",
+      "optional": true,
+      "id": "fix_scm_ha",
+      "name": "Fix SCM-HA",
+      "integer": true
+    },
+    {
+      "command-line-flag": "-fix-scm-ha-only",
+      "description": "Standalone: fix SCM using aseg.presurf.mgz",
+      "value-key": "[FIX_SCM_HA_ONLY]",
+      "type": "String",
+      "optional": true,
+      "id": "fix_scm_ha_only",
+      "name": "Fix SCM-HA only"
+    },
+    {
+      "command-line-flag": "-keep",
+      "description": "Keep edits as found in output volume",
+      "value-key": "[KEEP]",
+      "type": "Flag",
+      "id": "keep",
+      "name": "Keep flag"
+    },
+    {
+      "command-line-flag": "-keep-in",
+      "description": "Keep edits as found in input volume",
+      "value-key": "[KEEP_IN]",
+      "type": "Flag",
+      "id": "keep_in",
+      "name": "Keep in flag"
+    },
+    {
+      "command-line-flag": "-lh",
+      "description": "Erase right hemisphere labels from output",
+      "value-key": "[LH]",
+      "type": "Flag",
+      "id": "lh",
+      "name": "Left hemisphere flag"
+    },
+    {
+      "command-line-flag": "-rh",
+      "description": "Erase left hemisphere labels from output",
+      "value-key": "[RH]",
+      "type": "Flag",
+      "id": "rh",
+      "name": "Right hemisphere flag"
+    },
+    {
+      "command-line-flag": "-fix-ento-wm",
+      "description": "Insert lhval rhval where {3,4}006 and {3,4}201 in entowm volume",
+      "value-key": "[FIX_ENTO_WM]",
+      "type": "String",
+      "optional": true,
+      "id": "fix_ento_wm",
+      "name": "Fix ento-WM"
+    },
+    {
+      "command-line-flag": "-sa-fix-ento-wm",
+      "description": "Standalone version of fix ento-WM",
+      "value-key": "[SA_FIX_ENTO_WM]",
+      "type": "String",
+      "optional": true,
+      "id": "sa_fix_ento_wm",
+      "name": "Standalone fix ento-WM"
+    },
+    {
+      "command-line-flag": "-debug_voxel",
+      "description": "Specify a voxel to edit with coordinates Gx Gy Gz",
+      "value-key": "[DEBUG_VOXEL]",
+      "type": "Number",
+      "list": true,
+      "optional": true,
+      "id": "debug_voxel",
+      "name": "Debug voxel"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_WM]",
+      "description": "Edited white matter output file",
+      "id": "output_wm_file",
+      "name": "Output WM file"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

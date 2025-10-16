@@ -1,0 +1,45 @@
+{
+  "name": "mris_rf_train",
+  "command-line": "mris_rf_train [SUBJECTS] [OUTPUT_NAME] [HEMI] [SURF]",
+  "schema-version": "0.5+styx",
+  "description": "Tool for training a random forest classifier using MRIS surface data.",
+  "inputs": [
+    {
+      "value-key": "[SUBJECTS]",
+      "description": "List of subjects to process",
+      "type": "String",
+      "list": true,
+      "optional": false,
+      "id": "subjects",
+      "name": "Subjects"
+    },
+    {
+      "value-key": "[OUTPUT_NAME]",
+      "description": "Output name for the trained model",
+      "type": "String",
+      "optional": false,
+      "id": "output_name",
+      "name": "Output Name"
+    },
+    {
+      "command-line-flag": "--hemi",
+      "value-key": "[HEMI]",
+      "description": "Process specified hemisphere instead of the default 'lh'.",
+      "type": "String",
+      "optional": true,
+      "id": "hemi",
+      "name": "Hemisphere"
+    },
+    {
+      "command-line-flag": "--surf",
+      "value-key": "[SURF]",
+      "description": "Change the default surface name from 'white' to the specified surface.",
+      "type": "String",
+      "optional": true,
+      "id": "surf",
+      "name": "Surface"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

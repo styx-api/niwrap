@@ -1,0 +1,27 @@
+{
+  "name": "2swap",
+  "author": "AFNI Developers",
+  "description": "Swaps byte pairs on the files listed",
+  "command-line": "2swap [QUIET] [INPUT_FILES]",
+  "inputs": [
+    {
+      "description": "Input files",
+      "value-key": "[INPUT_FILES]",
+      "type": "File",
+      "id": "input_files",
+      "name": "Input files",
+      "list": true,
+      "optional": false
+    },
+    {
+      "command-line-flag": "-q",
+      "description": "Work quietly",
+      "value-key": "[QUIET]",
+      "type": "Flag",
+      "id": "quiet",
+      "name": "Quiet flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

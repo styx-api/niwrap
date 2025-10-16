@@ -1,0 +1,70 @@
+{
+  "name": "p2dsetstat",
+  "author": "AFNI Developers",
+  "description": "Convert a p-value to a statistic of choice with reference to a specific dataset.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "p2dsetstat [DATASET] [PVALUE] [BISIDED] [TWOSIDED] [ONESIDED] [QUIET]",
+  "inputs": [
+    {
+      "command-line-flag": "-inset",
+      "description": "Specify a dataset DDD and, if it has multiple sub-bricks, the [i]th subbrick with the statistic of interest MUST be selected explicitly; note the use of quotation marks around the brick selector (because of the square-brackets). 'i' can be either a number or a string label selector.",
+      "id": "dataset",
+      "name": "Dataset",
+      "type": "String",
+      "optional": false,
+      "value-key": "[DATASET]"
+    },
+    {
+      "command-line-flag": "-pval",
+      "description": "Input p-value P, which MUST be in the interval [0,1].",
+      "id": "pvalue",
+      "name": "P-Value",
+      "type": "Number",
+      "minimum": 0,
+      "maximum": 1,
+      "optional": false,
+      "value-key": "[PVALUE]"
+    },
+    {
+      "command-line-flag": "-bisided",
+      "description": "Two-sided test.",
+      "id": "bisided",
+      "name": "Two-sided",
+      "type": "Flag",
+      "value-key": "[BISIDED]"
+    },
+    {
+      "command-line-flag": "-2sided",
+      "description": "Two-sided test.",
+      "id": "twosided",
+      "name": "Two-sided",
+      "type": "Flag",
+      "value-key": "[TWOSIDED]"
+    },
+    {
+      "command-line-flag": "-1sided",
+      "description": "One-sided test.",
+      "id": "onesided",
+      "name": "One-sided",
+      "type": "Flag",
+      "value-key": "[ONESIDED]"
+    },
+    {
+      "command-line-flag": "-quiet",
+      "description": "Output only the final statistic value.",
+      "id": "quiet",
+      "name": "Quiet",
+      "type": "Flag",
+      "value-key": "[QUIET]"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "description": "The converted statistic value.",
+      "id": "stat_value",
+      "name": "Statistic Value",
+      "path-template": "stdout"
+    }
+  ]
+}

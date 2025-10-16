@@ -1,0 +1,78 @@
+{
+  "name": "mris_transmantle_dysplasia_paths",
+  "author": "FreeSurfer Developers",
+  "description": "Tool for transmantle dysplasia path computation",
+  "command-line": "mris_transmantle_dysplasia_paths [SURFACE] [ASEG_VOLUME] [INTENSITY_VOLUME] [XFORM] [OUTPUT_VOLUME] [FILTER] [NOISE_SENSITIVITY]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Surface file",
+      "value-key": "[SURFACE]",
+      "type": "File",
+      "optional": false,
+      "id": "surface",
+      "name": "Surface"
+    },
+    {
+      "description": "ASEG volume file",
+      "value-key": "[ASEG_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "aseg_volume",
+      "name": "ASEG Volume"
+    },
+    {
+      "description": "Intensity volume file",
+      "value-key": "[INTENSITY_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "intensity_volume",
+      "name": "Intensity Volume"
+    },
+    {
+      "description": "Transformation file",
+      "value-key": "[XFORM]",
+      "type": "File",
+      "optional": false,
+      "id": "xform",
+      "name": "Transformation"
+    },
+    {
+      "description": "Output volume file",
+      "value-key": "[OUTPUT_VOLUME]",
+      "type": "String",
+      "optional": false,
+      "id": "output_volume",
+      "name": "Output Volume"
+    },
+    {
+      "command-line-flag": "-f",
+      "description": "Apply specified filter with low and high values (not implemented yet)",
+      "value-key": "[FILTER]",
+      "type": "Number",
+      "optional": true,
+      "list": true,
+      "max-list-entries": 2,
+      "min-list-entries": 2,
+      "id": "filter",
+      "name": "Filter Low High"
+    },
+    {
+      "command-line-flag": "-n",
+      "description": "Noise-sensitivity normalize inverse (default=1)",
+      "value-key": "[NOISE_SENSITIVITY]",
+      "type": "Flag",
+      "id": "noise_sensitivity",
+      "name": "Noise Sensitivity"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_VOLUME]",
+      "description": "Output volume file",
+      "id": "output_file",
+      "name": "Output Volume"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

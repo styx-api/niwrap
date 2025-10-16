@@ -1,0 +1,42 @@
+{
+  "name": "perfusion_subtract",
+  "description": "Subtract control images from tag images in 4D perfusion data.",
+  "command-line": "perfusion_subtract [FOUR_D_INPUT] [FOUR_D_OUTPUT] [CONTROL_FIRST_FLAG]",
+  "inputs": [
+    {
+      "description": "Input 4D perfusion image (e.g. perfusion.nii.gz)",
+      "value-key": "[FOUR_D_INPUT]",
+      "type": "File",
+      "optional": false,
+      "id": "four_d_input",
+      "name": "4D Input Image"
+    },
+    {
+      "description": "Output 4D image with subtraction results (e.g. perfusion_subtracted.nii.gz)",
+      "value-key": "[FOUR_D_OUTPUT]",
+      "type": "String",
+      "optional": false,
+      "id": "four_d_output",
+      "name": "4D Output Image"
+    },
+    {
+      "command-line-flag": "-c",
+      "description": "First timepoint is control instead of tag. Default is tag first.",
+      "value-key": "[CONTROL_FIRST_FLAG]",
+      "type": "Flag",
+      "id": "control_first_flag",
+      "name": "Control First Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[FOUR_D_OUTPUT].nii.gz",
+      "description": "Output 4D image with subtraction results",
+      "id": "output_file",
+      "name": "Output 4D Image"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

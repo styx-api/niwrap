@@ -1,0 +1,69 @@
+{
+  "name": "3dTORTOISEtoHere",
+  "author": "AFNI Developers",
+  "description": "Convert standard TORTOISE DTs (diagonal-first format) to standard AFNI (lower triangular, row-wise) format.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dTORTOISEtoHere [DT_TORT] [PREFIX] [SCALE_FACTOR] [FLIP_X] [FLIP_Y] [FLIP_Z]",
+  "inputs": [
+    {
+      "description": "Diffusion tensor file with six bricks of DT components ordered in the TORTOISE manner (Dxx, Dyy, Dzz, Dxy, Dxz, Dyz).",
+      "value-key": "[DT_TORT]",
+      "type": "File",
+      "optional": false,
+      "id": "dt_tort",
+      "command-line-flag": "-dt_tort",
+      "name": "DT file"
+    },
+    {
+      "description": "Output file name prefix. Will have N+1 bricks when GRADFILE has N rows of gradients.",
+      "command-line-flag": "-prefix",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "prefix",
+      "name": "Prefix"
+    },
+    {
+      "description": "Optional switch to rescale the DT elements, dividing by a number X>0.",
+      "command-line-flag": "-scale_fac",
+      "value-key": "[SCALE_FACTOR]",
+      "type": "Number",
+      "optional": true,
+      "id": "scale_factor",
+      "name": "Scale factor"
+    },
+    {
+      "description": "Change sign of the first element of (inner) eigenvectors.",
+      "command-line-flag": "-flip_x",
+      "value-key": "[FLIP_X]",
+      "type": "Flag",
+      "id": "flip_x",
+      "name": "Flip X"
+    },
+    {
+      "description": "Change sign of the second element of (inner) eigenvectors.",
+      "command-line-flag": "-flip_y",
+      "value-key": "[FLIP_Y]",
+      "type": "Flag",
+      "id": "flip_y",
+      "name": "Flip Y"
+    },
+    {
+      "description": "Change sign of the third element of (inner) eigenvectors.",
+      "command-line-flag": "-flip_z",
+      "value-key": "[FLIP_Z]",
+      "type": "Flag",
+      "id": "flip_z",
+      "name": "Flip Z"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX].nii.gz",
+      "description": "Output AFNI-style DT file with the following ordering of the 6 bricks: Dxx, Dxy, Dyy, Dxz, Dyz, Dzz.",
+      "id": "output_dt_file",
+      "name": "Output DT file"
+    }
+  ]
+}

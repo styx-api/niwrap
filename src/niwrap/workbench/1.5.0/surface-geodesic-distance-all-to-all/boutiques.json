@@ -1,0 +1,70 @@
+{
+  "name": "surface-geodesic-distance-all-to-all",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -surface-geodesic-distance-all-to-all [SURFACE] [CIFTI_OUT] [OPT_ROI_ROI_METRIC] [OPT_LIMIT_LIMIT_MM] [OPT_CORRECTED_AREAS_AREA_METRIC] [OPT_NAIVE]",
+  "description": "Compute geodesic distances from all vertices.\n\nComputes geodesic distance from every vertex to every vertex, outputting a single-hemisphere dconn file.  If you are only interested in a few vertices, see -surface-geodesic-distance.  When -limit is specified, any vertex beyond the limit is assigned the value -1.\n\nThe -roi option makes the output file smaller by not outputting distances to or from vertices outside the ROI, but paths are still allowed to go outside the ROI when finding distances to other vertices.\n\nThe -corrected-areas option should be used when the input is a group average surface - group average surfaces have significantly less surface area than individual surfaces do, and therefore distances measured on them would be smaller than measuring them on individual surfaces.  In this case, the input to this option should be a group average of the output of -surface-vertex-areas for each subject.\n\nIf -naive is not specified, the algorithm uses not just immediate neighbors, but also neighbors derived from crawling across pairs of triangles that share an edge.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "surface",
+      "name": "surface",
+      "description": "the surface to compute on",
+      "optional": false,
+      "value-key": "[SURFACE]",
+      "type": "File"
+    },
+    {
+      "id": "cifti_out",
+      "name": "cifti_out",
+      "type": "String",
+      "description": "single-hemisphere dconn containing the distances",
+      "optional": false,
+      "value-key": "[CIFTI_OUT]"
+    },
+    {
+      "id": "opt_roi_roi_metric",
+      "name": "opt_roi_roi_metric",
+      "command-line-flag": "-roi",
+      "description": "only output distances for vertices inside an ROI: the ROI as a metric file",
+      "optional": true,
+      "value-key": "[OPT_ROI_ROI_METRIC]",
+      "type": "File"
+    },
+    {
+      "id": "opt_limit_limit_mm",
+      "name": "opt_limit_limit_mm",
+      "command-line-flag": "-limit",
+      "description": "stop at a specified distance: distance in mm to stop at",
+      "optional": true,
+      "value-key": "[OPT_LIMIT_LIMIT_MM]",
+      "type": "Number",
+      "integer": false
+    },
+    {
+      "id": "opt_corrected_areas_area_metric",
+      "name": "opt_corrected_areas_area_metric",
+      "command-line-flag": "-corrected-areas",
+      "description": "vertex areas to use instead of computing them from the surface: the corrected vertex areas, as a metric",
+      "optional": true,
+      "value-key": "[OPT_CORRECTED_AREAS_AREA_METRIC]",
+      "type": "File"
+    },
+    {
+      "id": "opt_naive",
+      "name": "opt_naive",
+      "command-line-flag": "-naive",
+      "description": "use only neighbors, don't crawl triangles (not recommended)",
+      "type": "Flag",
+      "value-key": "[OPT_NAIVE]"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "cifti_out",
+      "name": "cifti_out",
+      "path-template": "[CIFTI_OUT]",
+      "description": "single-hemisphere dconn containing the distances"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

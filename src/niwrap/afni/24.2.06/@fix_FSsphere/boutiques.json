@@ -1,0 +1,71 @@
+{
+  "name": "@fix_FSsphere",
+  "author": "AFNI Developers",
+  "description": "Tool for fixing errors in FreeSurfer spherical surfaces",
+  "command-line": "@fix_FSsphere [SPEC_FILE] [SPHERE_FILE] [NUM_ITERATIONS] [EXTENT_LIM] [PROJECT_FIRST] [KEEP_TEMP]",
+  "inputs": [
+    {
+      "command-line-flag": "-spec",
+      "description": "Spec file",
+      "value-key": "[SPEC_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "spec_file",
+      "name": "Spec File"
+    },
+    {
+      "command-line-flag": "-sphere",
+      "description": "SPHERE.asc is the sphere to be used",
+      "value-key": "[SPHERE_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "sphere_file",
+      "name": "Sphere File"
+    },
+    {
+      "command-line-flag": "-niter",
+      "description": "Number of local smoothing operations. Default is 3000",
+      "value-key": "[NUM_ITERATIONS]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "num_iterations",
+      "name": "Number of Iterations"
+    },
+    {
+      "command-line-flag": "-lim",
+      "description": "Extent, in mm, by which troubled sections are fattened. Default is 6",
+      "value-key": "[EXTENT_LIM]",
+      "type": "Number",
+      "optional": true,
+      "id": "extent_lim",
+      "name": "Extent Limit"
+    },
+    {
+      "command-line-flag": "-project_first",
+      "description": "Project to a sphere, before smoothing. Default is 0",
+      "value-key": "[PROJECT_FIRST]",
+      "type": "Flag",
+      "id": "project_first",
+      "name": "Project First Flag"
+    },
+    {
+      "command-line-flag": "-keep_temp",
+      "description": "Keep temporary files",
+      "value-key": "[KEEP_TEMP]",
+      "type": "Flag",
+      "id": "keep_temp",
+      "name": "Keep Temporary Files Flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[SPHERE]_fxd.asc",
+      "description": "Corrected surface",
+      "id": "corrected_surface",
+      "name": "Corrected Surface File"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

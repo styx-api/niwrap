@@ -1,0 +1,67 @@
+{
+  "name": "map_all_labels",
+  "author": "FreeSurfer Developers",
+  "description": "Tool for mapping labels onto subject surfaces",
+  "command-line": "map_all_labels [WHICH] [FNAME] [HEMI] [SPHERICAL_SURF] [SUBJECTS] [OUTPUT]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Select what to map (e.g. coords, label, vals, curv, area)",
+      "value-key": "[WHICH]",
+      "type": "String",
+      "optional": false,
+      "id": "which",
+      "name": "Which to map"
+    },
+    {
+      "description": "Filename related to the mapping",
+      "value-key": "[FNAME]",
+      "type": "String",
+      "optional": false,
+      "id": "fname",
+      "name": "Filename"
+    },
+    {
+      "description": "Hemisphere to process (e.g. lh, rh)",
+      "value-key": "[HEMI]",
+      "type": "String",
+      "optional": false,
+      "id": "hemi",
+      "name": "Hemisphere"
+    },
+    {
+      "description": "Spherical surface to use",
+      "value-key": "[SPHERICAL_SURF]",
+      "type": "String",
+      "optional": false,
+      "id": "spherical_surf",
+      "name": "Spherical surface"
+    },
+    {
+      "description": "List of subject identifiers",
+      "value-key": "[SUBJECTS]",
+      "type": "String",
+      "optional": false,
+      "list": true,
+      "id": "subjects",
+      "name": "Subjects"
+    },
+    {
+      "description": "Output path",
+      "value-key": "[OUTPUT]",
+      "type": "String",
+      "optional": false,
+      "id": "output",
+      "name": "Output"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT]",
+      "description": "The output of the mapping process",
+      "id": "output_file",
+      "name": "Output file"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

@@ -1,0 +1,42 @@
+{
+  "name": "ztop",
+  "description": "Converts a z-score to a p-value.",
+  "command-line": "ztop [Z_SCORE] [TAIL_FLAG] [GRF_FLAG] [NUMBER_OF_RESELS]",
+  "inputs": [
+    {
+      "description": "Input z-score",
+      "value-key": "[Z_SCORE]",
+      "type": "Number",
+      "optional": false,
+      "id": "z_score",
+      "name": "Z-Score"
+    },
+    {
+      "command-line-flag": "-2",
+      "description": "Use 2-tailed conversion (default is 1-tailed)",
+      "value-key": "[TAIL_FLAG]",
+      "type": "Flag",
+      "id": "tail_flag",
+      "name": "Tail Conversion Flag"
+    },
+    {
+      "command-line-flag": "-g",
+      "description": "Use GRF maximum-height theory instead of Gaussian PDF",
+      "value-key": "[GRF_FLAG]",
+      "type": "Flag",
+      "id": "grf_flag",
+      "name": "GRF Theory Flag"
+    },
+    {
+      "description": "Number of resels (resolution elements) for GRF correction",
+      "value-key": "[NUMBER_OF_RESELS]",
+      "type": "Number",
+      "optional": true,
+      "id": "number_of_resels",
+      "name": "Number of Resels"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

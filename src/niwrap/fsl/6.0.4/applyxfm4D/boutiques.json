@@ -1,0 +1,84 @@
+{
+  "name": "applyxfm4D",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Applies 4D transformation matrices to 4D volumes",
+  "command-line": "applyxfm4D [INPUT_VOLUME] [REF_VOLUME] [OUTPUT_VOLUME] [TRANSFORMATION_MATRIX] [INTERPOLATION_METHOD] [SINGLE_MATRIX_FLAG] [FOUR_DIGIT_FLAG] [USER_PREFIX]",
+  "inputs": [
+    {
+      "description": "Input 4D volume (e.g. img.nii.gz)",
+      "value-key": "[INPUT_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "input_volume",
+      "name": "Input volume"
+    },
+    {
+      "description": "Reference volume (e.g. ref.nii.gz)",
+      "value-key": "[REF_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "ref_volume",
+      "name": "Reference volume"
+    },
+    {
+      "description": "Output volume after applying transformation (e.g. output.nii.gz)",
+      "value-key": "[OUTPUT_VOLUME]",
+      "type": "String",
+      "optional": false,
+      "id": "output_volume",
+      "name": "Output volume"
+    },
+    {
+      "description": "Transformation matrix file or directory",
+      "value-key": "[TRANSFORMATION_MATRIX]",
+      "type": "String",
+      "optional": false,
+      "id": "transformation_matrix",
+      "name": "Transformation matrix"
+    },
+    {
+      "command-line-flag": "--interp, -interp",
+      "description": "Interpolation method; options are nearestneighbour (or nn), trilinear, spline, sinc; default is sinc",
+      "value-key": "[INTERPOLATION_METHOD]",
+      "type": "String",
+      "optional": true,
+      "id": "interpolation_method",
+      "name": "Interpolation method"
+    },
+    {
+      "command-line-flag": "--singlematrix, -singlematrix",
+      "description": "Flag to specify a single transformation matrix",
+      "value-key": "[SINGLE_MATRIX_FLAG]",
+      "type": "Flag",
+      "id": "single_matrix_flag",
+      "name": "Single matrix flag"
+    },
+    {
+      "command-line-flag": "--fourdigit, -fourdigit",
+      "description": "Flag to use four digits in naming files",
+      "value-key": "[FOUR_DIGIT_FLAG]",
+      "type": "Flag",
+      "id": "four_digit_flag",
+      "name": "Four digit flag"
+    },
+    {
+      "command-line-flag": "--userprefix, -userprefix",
+      "description": "User-defined prefix for output files",
+      "value-key": "[USER_PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "user_prefix",
+      "name": "User prefix"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_VOLUME].nii.gz",
+      "description": "Transformed 4D volume output",
+      "id": "output_file",
+      "name": "Output volume file"
+    }
+  ],
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

@@ -1,0 +1,68 @@
+{
+  "name": "mri_threshold",
+  "description": "This program will lower threshold an input volume",
+  "command-line": "mri_threshold [INPUT_VOL] [THRESHOLD] [OUTPUT_VOL] [BINARIZE] [UPPER_THRESHOLD] [FRAME_NUMBER]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input volume file",
+      "value-key": "[INPUT_VOL]",
+      "type": "File",
+      "optional": false,
+      "id": "input_vol",
+      "name": "Input Volume"
+    },
+    {
+      "description": "Threshold value for the volume",
+      "value-key": "[THRESHOLD]",
+      "type": "Number",
+      "optional": false,
+      "id": "threshold",
+      "name": "Threshold"
+    },
+    {
+      "description": "Output volume file",
+      "value-key": "[OUTPUT_VOL]",
+      "type": "String",
+      "optional": false,
+      "id": "output_vol",
+      "name": "Output Volume"
+    },
+    {
+      "command-line-flag": "-B",
+      "description": "Binarize the output volume with specified bval",
+      "value-key": "[BINARIZE]",
+      "type": "Number",
+      "optional": true,
+      "id": "binarize",
+      "name": "Binarize Flag"
+    },
+    {
+      "command-line-flag": "-U",
+      "description": "Upper threshold the volume instead of lower thresholding",
+      "value-key": "[UPPER_THRESHOLD]",
+      "type": "Flag",
+      "id": "upper_threshold",
+      "name": "Upper Threshold Flag"
+    },
+    {
+      "command-line-flag": "-F",
+      "description": "Apply thresholding to a specific frame indexed by fnum",
+      "value-key": "[FRAME_NUMBER]",
+      "type": "Number",
+      "optional": true,
+      "id": "frame_number",
+      "name": "Frame Number"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_VOL]",
+      "description": "Thresholded output volume",
+      "id": "output_vol_file",
+      "name": "Output Volume File"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

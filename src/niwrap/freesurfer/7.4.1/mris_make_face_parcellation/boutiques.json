@@ -1,0 +1,51 @@
+{
+  "name": "mris_make_face_parcellation",
+  "author": "FreeSurfer Developers",
+  "description": "Generates a parcellation based on which icosahedral face each vertex maps to.",
+  "command-line": "mris_make_face_parcellation [INPUT_SURFACE] [ICO_FILE] [OUTPUT_ANNOT] [COLORTABLE]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input surface file (e.g. lh.sphere or lh.sphere.reg)",
+      "value-key": "[INPUT_SURFACE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_surface",
+      "name": "Input Surface"
+    },
+    {
+      "description": "Icosahedron file (e.g. ic3.tri)",
+      "value-key": "[ICO_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "ico_file",
+      "name": "ICO File"
+    },
+    {
+      "description": "Output annotation file (e.g. lh.ic3.annot)",
+      "value-key": "[OUTPUT_ANNOT]",
+      "type": "String",
+      "optional": false,
+      "id": "output_annot",
+      "name": "Output Annotation"
+    },
+    {
+      "command-line-flag": "-ctab",
+      "description": "Color table file (e.g. colortable.txt)",
+      "value-key": "[COLORTABLE]",
+      "type": "File",
+      "optional": true,
+      "id": "colortable",
+      "name": "Color Table File"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_ANNOT]",
+      "description": "Generated annotation file based on the icosahedral face mapping.",
+      "id": "annot_file",
+      "name": "Annotation File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

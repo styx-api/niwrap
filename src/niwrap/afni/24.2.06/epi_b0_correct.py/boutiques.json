@@ -1,0 +1,252 @@
+{
+  "name": "epi_b0_correct.py",
+  "author": "AFNI Developers",
+  "description": "B0 distortion correction tool using an acquired frequency (phase) image.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "epi_b0_correct.py [PREFIX] [INPUT_FREQ] [INPUT_EPI] [INPUT_MASK] [INPUT_MAGN] [INPUT_ANAT] [INPUT_JSON] [EPI_PE_DIR] [EPI_PE_BWPP] [EPI_PE_ECHO_SP] [EPI_PE_VOX_DIM] [SCALE_FREQ] [OUT_CMDS] [OUT_PARS] [WDIR_NAME] [BLUR_SIGMA] [DO_RECENTER_FREQ] [MASK_DILATE] [NO_CLEAN] [QC_BOX_FOCUS_ULAY] [NO_QC_IMAGE] [HELP] [VER] [DATE]",
+  "inputs": [
+    {
+      "description": "Prefix of output files; can include path.",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "prefix",
+      "name": "Output prefix"
+    },
+    {
+      "command-line-flag": "-in_freq",
+      "description": "Phase dataset (frequency volume); should be at similar resolution and FOV as the EPI dataset; must be scaled appropriately.",
+      "value-key": "[INPUT_FREQ]",
+      "type": "File",
+      "optional": false,
+      "id": "input_freq",
+      "name": "Input frequency dataset"
+    },
+    {
+      "command-line-flag": "-in_epi",
+      "description": "EPI dataset to which B0 distortion correction will be applied.",
+      "value-key": "[INPUT_EPI]",
+      "type": "File",
+      "optional": false,
+      "id": "input_epi",
+      "name": "Input EPI dataset"
+    },
+    {
+      "command-line-flag": "-in_mask",
+      "description": "Mask of brain volume.",
+      "value-key": "[INPUT_MASK]",
+      "type": "File",
+      "optional": true,
+      "id": "input_mask",
+      "name": "Input mask dataset"
+    },
+    {
+      "command-line-flag": "-in_magn",
+      "description": "Magnitude dataset from which to estimate brain mask; can be used for QC imaging.",
+      "value-key": "[INPUT_MAGN]",
+      "type": "File",
+      "optional": true,
+      "id": "input_magn",
+      "name": "Input magnitude dataset"
+    },
+    {
+      "command-line-flag": "-in_anat",
+      "description": "Anatomical dataset to be used as underlay for QC images (optional).",
+      "value-key": "[INPUT_ANAT]",
+      "type": "File",
+      "optional": true,
+      "id": "input_anat",
+      "name": "Input anatomical dataset"
+    },
+    {
+      "command-line-flag": "-in_epi_json",
+      "description": "JSON file containing parameters about the EPI dataset.",
+      "value-key": "[INPUT_JSON]",
+      "type": "File",
+      "optional": true,
+      "id": "input_json",
+      "name": "Input EPI JSON"
+    },
+    {
+      "command-line-flag": "-epi_pe_dir",
+      "description": "Direction (axis) of phase encoding, e.g., AP, PA, RL, ...",
+      "value-key": "[EPI_PE_DIR]",
+      "type": "String",
+      "optional": false,
+      "id": "epi_pe_dir",
+      "name": "EPI PE direction"
+    },
+    {
+      "command-line-flag": "-epi_pe_bwpp",
+      "description": "Bandwidth per pixel (in Hz) in the EPI dataset along the phase encode direction.",
+      "value-key": "[EPI_PE_BWPP]",
+      "type": "Number",
+      "optional": true,
+      "id": "epi_pe_bwpp",
+      "name": "EPI PE bandwidth per pixel"
+    },
+    {
+      "command-line-flag": "-epi_pe_echo_sp",
+      "description": "Effective TE spacing of the phase encoded volume, in seconds.",
+      "value-key": "[EPI_PE_ECHO_SP]",
+      "type": "Number",
+      "optional": true,
+      "id": "epi_pe_echo_sp",
+      "name": "EPI PE echo spacing"
+    },
+    {
+      "command-line-flag": "-epi_pe_voxdim",
+      "description": "Voxel size along the EPI dataset's phase encode axis, in mm.",
+      "value-key": "[EPI_PE_VOX_DIM]",
+      "type": "Number",
+      "optional": true,
+      "id": "epi_pe_vox_dim",
+      "name": "EPI PE voxel dimension"
+    },
+    {
+      "command-line-flag": "-scale_freq",
+      "description": "Scale to apply to frequency volume to match units (def: SF=1.0).",
+      "value-key": "[SCALE_FREQ]",
+      "type": "Number",
+      "optional": true,
+      "id": "scale_freq",
+      "name": "Scale frequency"
+    },
+    {
+      "command-line-flag": "-out_cmds",
+      "description": "Name for output script recording commands (def: PREFIX_cmds.tcsh).",
+      "value-key": "[OUT_CMDS]",
+      "type": "String",
+      "optional": true,
+      "id": "out_cmds",
+      "name": "Output commands script"
+    },
+    {
+      "command-line-flag": "-out_pars",
+      "description": "Name for output text file recording relevant parameters (def: PREFIX_pars.txt).",
+      "value-key": "[OUT_PARS]",
+      "type": "String",
+      "optional": true,
+      "id": "out_pars",
+      "name": "Output parameters file"
+    },
+    {
+      "command-line-flag": "-wdir_name",
+      "description": "Working directory name (def: automatic name).",
+      "value-key": "[WDIR_NAME]",
+      "type": "String",
+      "optional": true,
+      "id": "wdir_name",
+      "name": "Working directory name"
+    },
+    {
+      "command-line-flag": "-blur_sigma",
+      "description": "Amount of blurring to apply to masked phase encode dataset (def: BS=9).",
+      "value-key": "[BLUR_SIGMA]",
+      "type": "Number",
+      "optional": true,
+      "id": "blur_sigma",
+      "name": "Blur sigma"
+    },
+    {
+      "command-line-flag": "-do_recenter_freq",
+      "description": "Method to recenter the phase volume within the brain mask (def: MC=mode).",
+      "value-key": "[DO_RECENTER_FREQ]",
+      "type": "String",
+      "optional": true,
+      "id": "do_recenter_freq",
+      "name": "Recenter frequency method"
+    },
+    {
+      "command-line-flag": "-mask_dilate",
+      "description": "Erosion and dilation parameters for automask (when using magnitude image).",
+      "value-key": "[MASK_DILATE]",
+      "type": "Number",
+      "list": true,
+      "optional": true,
+      "id": "mask_dilate",
+      "name": "Mask dilation parameters"
+    },
+    {
+      "command-line-flag": "-no_clean",
+      "description": "Don't remove the temporary directory of intermediate files.",
+      "value-key": "[NO_CLEAN]",
+      "type": "Flag",
+      "id": "no_clean",
+      "name": "No clean temporary files"
+    },
+    {
+      "command-line-flag": "-qc_box_focus_ulay",
+      "description": "Focus the QC images on an automask region of the underlay dataset.",
+      "value-key": "[QC_BOX_FOCUS_ULAY]",
+      "type": "Flag",
+      "id": "qc_box_focus_ulay",
+      "name": "QC box focus underlay"
+    },
+    {
+      "command-line-flag": "-no_qc_image",
+      "description": "Don't generate QC images.",
+      "value-key": "[NO_QC_IMAGE]",
+      "type": "Flag",
+      "id": "no_qc_image",
+      "name": "No QC images"
+    },
+    {
+      "command-line-flag": "-help",
+      "description": "Display program help in terminal.",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help"
+    },
+    {
+      "command-line-flag": "-ver",
+      "description": "Display program version number in terminal.",
+      "value-key": "[VER]",
+      "type": "Flag",
+      "id": "ver",
+      "name": "Version"
+    },
+    {
+      "command-line-flag": "-date",
+      "description": "Display date of program's last update in terminal.",
+      "value-key": "[DATE]",
+      "type": "Flag",
+      "id": "date",
+      "name": "Date"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX]_WARP.nii.gz",
+      "description": "Warp dataset containing the warp along the phase encode axis.",
+      "id": "warp_dset",
+      "name": "Warp dataset"
+    },
+    {
+      "path-template": "[PREFIX]_cmds.tcsh",
+      "description": "Script of the commands used to generate the warp and process the EPI.",
+      "id": "cmds_script",
+      "name": "Commands script"
+    },
+    {
+      "path-template": "[PREFIX]_pars.txt",
+      "description": "Text file of parameters input or derived from datasets.",
+      "id": "params_txt",
+      "name": "Parameters text file"
+    },
+    {
+      "path-template": "[PREFIX]_unwarped.nii.gz",
+      "description": "EPI dataset with estimated distortion correction applied.",
+      "id": "unwarped_epi",
+      "name": "Unwarped EPI dataset"
+    },
+    {
+      "path-template": "[PREFIX]_QC/",
+      "description": "Directory containing QC images.",
+      "id": "qc_image_dir",
+      "name": "QC images directory"
+    }
+  ]
+}

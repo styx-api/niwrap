@@ -1,0 +1,105 @@
+{
+  "name": "mris_register_label_map",
+  "author": "FreeSurfer Developers",
+  "description": "Tool for registering label maps in Freesurfer.",
+  "command-line": "mris_register_label_map [SUBJECTS_LIST] [TARGET_SUBJECT] [PRIOR] [LABEL] [TEMPLATE_VOLUME] [DEBUG] [CHECK_OPTS] [HELP] [SUBJECTS_DIR] [VERSION] [VNO]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--subjects",
+      "description": "List of training subjects",
+      "value-key": "[SUBJECTS_LIST]",
+      "type": "String",
+      "optional": false,
+      "id": "subjects_list",
+      "name": "Subjects list"
+    },
+    {
+      "command-line-flag": "--trgsubject",
+      "description": "Name of target subject",
+      "value-key": "[TARGET_SUBJECT]",
+      "type": "String",
+      "optional": false,
+      "id": "target_subject",
+      "name": "Target subject"
+    },
+    {
+      "command-line-flag": "--prior",
+      "description": "Name of prior surface overlay",
+      "value-key": "[PRIOR]",
+      "type": "String",
+      "optional": false,
+      "id": "prior",
+      "name": "Prior"
+    },
+    {
+      "command-line-flag": "--label",
+      "description": "Name of label for each subject",
+      "value-key": "[LABEL]",
+      "type": "String",
+      "optional": false,
+      "id": "label",
+      "name": "Label"
+    },
+    {
+      "command-line-flag": "--temp-vol",
+      "description": "Template volume file",
+      "value-key": "[TEMPLATE_VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "template_volume",
+      "name": "Template volume"
+    },
+    {
+      "command-line-flag": "--debug",
+      "description": "Turn on debugging",
+      "value-key": "[DEBUG]",
+      "type": "Flag",
+      "id": "debug",
+      "name": "Debug flag"
+    },
+    {
+      "command-line-flag": "--checkopts",
+      "description": "Don't run anything, just check options and exit",
+      "value-key": "[CHECK_OPTS]",
+      "type": "Flag",
+      "id": "check_opts",
+      "name": "Check options flag"
+    },
+    {
+      "command-line-flag": "--help",
+      "description": "Print out information on how to use this program",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help flag"
+    },
+    {
+      "command-line-flag": "--sdir",
+      "description": "SUBJECTS_DIR",
+      "value-key": "[SUBJECTS_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "subjects_dir",
+      "name": "Subjects directory"
+    },
+    {
+      "command-line-flag": "--version",
+      "description": "Print out version and exit",
+      "value-key": "[VERSION]",
+      "type": "Flag",
+      "id": "version",
+      "name": "Version flag"
+    },
+    {
+      "command-line-flag": "--v",
+      "description": "Debug this vertex",
+      "value-key": "[VNO]",
+      "type": "Number",
+      "optional": true,
+      "id": "vno",
+      "name": "Vertex number"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

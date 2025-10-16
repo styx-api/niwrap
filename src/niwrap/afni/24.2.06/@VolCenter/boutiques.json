@@ -1,0 +1,28 @@
+{
+  "name": "@VolCenter",
+  "author": "AFNI Developers",
+  "description": "Tool to return the center of volume for a given dataset",
+  "command-line": "@VolCenter [DSET] [ORIENT]",
+  "inputs": [
+    {
+      "description": "Input volume dataset",
+      "value-key": "[DSET]",
+      "type": "File",
+      "optional": false,
+      "id": "dset",
+      "name": "Input Dataset",
+      "command-line-flag": "-dset"
+    },
+    {
+      "description": "Output coordinate system orientation (e.g., RAI)",
+      "value-key": "[ORIENT]",
+      "type": "String",
+      "optional": true,
+      "id": "orient",
+      "name": "Orientation",
+      "command-line-flag": "-or"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

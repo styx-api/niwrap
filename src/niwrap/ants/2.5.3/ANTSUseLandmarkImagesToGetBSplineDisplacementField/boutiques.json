@@ -1,0 +1,85 @@
+{
+  "name": "ANTSUseLandmarkImagesToGetBSplineDisplacementField",
+  "command-line": "ANTSUseLandmarkImagesToGetBSplineDisplacementField [FIXED_IMAGE_WITH_LABELED_LANDMARKS] [MOVING_IMAGE_WITH_LABELED_LANDMARKS] [OUTPUT_DISPLACEMENT_FIELD] [MESH_SIZE] [NUMBER_OF_LEVELS] [ORDER] [ENFORCE_STATIONARY_BOUNDARIES] [LANDMARK_WEIGHTS]",
+  "author": "ANTs Developers",
+  "description": "We expect the input images to be (1) N-ary (2) in the same physical space as the images you want to register and (3) to have the same landmark points defined within them. Landmarks will be defined from the center of mass of the labels in the input images. You can use ITK-snap to generate the label images. The optional landmarks weights are read from a text file where each row is either: \"label,labelWeight\" or \"labelWeight\". If the latter format is used, the label weights are assumed to be arranged in ascending order by label.",
+  "url": "https://github.com/ANTsX/ANTs",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "fixed_image_with_labeled_landmarks",
+      "name": "Fixed Image With Labeled Landmarks",
+      "value-key": "[FIXED_IMAGE_WITH_LABELED_LANDMARKS]",
+      "type": "File",
+      "optional": false,
+      "description": "The fixed image with labeled landmarks."
+    },
+    {
+      "id": "moving_image_with_labeled_landmarks",
+      "name": "Moving Image With Labeled Landmarks",
+      "value-key": "[MOVING_IMAGE_WITH_LABELED_LANDMARKS]",
+      "type": "File",
+      "optional": false,
+      "description": "The moving image with labeled landmarks."
+    },
+    {
+      "id": "output_displacement_field",
+      "name": "Output Displacement Field",
+      "value-key": "[OUTPUT_DISPLACEMENT_FIELD]",
+      "type": "String",
+      "optional": false,
+      "description": "The output displacement field file."
+    },
+    {
+      "id": "mesh_size",
+      "name": "Mesh Size",
+      "value-key": "[MESH_SIZE]",
+      "type": "String",
+      "optional": false,
+      "description": "The mesh size specified as meshSize[0]xmeshSize[1]x..."
+    },
+    {
+      "id": "number_of_levels",
+      "name": "Number of Levels",
+      "value-key": "[NUMBER_OF_LEVELS]",
+      "type": "Number",
+      "integer": true,
+      "optional": false,
+      "description": "The number of levels in the B-spline hierarchy."
+    },
+    {
+      "id": "order",
+      "name": "Polynomial Order",
+      "value-key": "[ORDER]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "description": "The order of the B-spline (default is 3)."
+    },
+    {
+      "id": "enforce_stationary_boundaries",
+      "name": "Enforce Stationary Boundaries",
+      "value-key": "[ENFORCE_STATIONARY_BOUNDARIES]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "description": "Whether to enforce stationary boundaries (default is 1)."
+    },
+    {
+      "id": "landmark_weights",
+      "name": "Landmark Weights",
+      "value-key": "[LANDMARK_WEIGHTS]",
+      "type": "File",
+      "optional": true,
+      "description": "Optional text file containing landmark weights. Each row is either \"label,labelWeight\" or \"labelWeight\". If the latter format is used, the weights are assumed to be arranged in ascending order by label."
+    }
+  ],
+  "output-files": [
+    {
+      "id": "displacement_field",
+      "name": "Displacement Field",
+      "description": "The resultant displacement field for the registration process.",
+      "path-template": "[OUTPUT_DISPLACEMENT_FIELD]"
+    }
+  ]
+}

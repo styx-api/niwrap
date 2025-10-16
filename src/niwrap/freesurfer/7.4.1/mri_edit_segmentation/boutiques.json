@@ -1,0 +1,42 @@
+{
+  "name": "mri_edit_segmentation",
+  "command-line": "mri_edit_segmentation [INPUT_SEGMENTATION] [T1_VOLUME] [OUTPUT_SEGMENTATION]",
+  "description": "A tool used for editing segmentations.",
+  "inputs": [
+    {
+      "id": "input_segmentation",
+      "name": "Input Segmentation",
+      "type": "File",
+      "value-key": "[INPUT_SEGMENTATION]",
+      "description": "Input segmentation file.",
+      "optional": false
+    },
+    {
+      "id": "t1_volume",
+      "name": "T1 Volume",
+      "type": "File",
+      "value-key": "[T1_VOLUME]",
+      "description": "T1 volume file.",
+      "optional": false
+    },
+    {
+      "id": "output_segmentation",
+      "name": "Output Segmentation",
+      "type": "String",
+      "value-key": "[OUTPUT_SEGMENTATION]",
+      "description": "Output segmentation file.",
+      "optional": false
+    }
+  ],
+  "output-files": [
+    {
+      "id": "output_segmentation_file",
+      "name": "Output Segmentation File",
+      "path-template": "[OUTPUT_SEGMENTATION]",
+      "description": "The resulting edited segmentation file."
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "schema-version": "0.5+styx",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

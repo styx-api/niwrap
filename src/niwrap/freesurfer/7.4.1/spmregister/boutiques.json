@@ -1,0 +1,136 @@
+{
+  "name": "spmregister",
+  "author": "FreeSurfer Developers",
+  "description": "Registers a volume to its FreeSurfer anatomical using SPM's spm_coreg",
+  "command-line": "spmregister [SUBJID] [MOV] [REG] [FRAME] [MID_FRAME] [TEMPLATE_OUT] [FSVOL] [FORCE_RAS] [OUTVOL] [TMPDIR] [NOCLEANUP] [VERSION] [HELP]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--s",
+      "description": "Id of the subject as found in SUBJECTS_DIR. This is converted to analyze using mri_convert.",
+      "value-key": "[SUBJID]",
+      "type": "String",
+      "optional": false,
+      "id": "subjid",
+      "name": "Subject ID"
+    },
+    {
+      "command-line-flag": "--mov",
+      "description": "Volume identifier of the movable volume. Must be specified in a way suitable for mri_convert.",
+      "value-key": "[MOV]",
+      "type": "String",
+      "optional": false,
+      "id": "mov",
+      "name": "Movable volume"
+    },
+    {
+      "command-line-flag": "--reg",
+      "description": "Output registration file. Maps RAS in the reference to RAS in the movable.",
+      "value-key": "[REG]",
+      "type": "String",
+      "optional": false,
+      "id": "reg",
+      "name": "Registration file"
+    },
+    {
+      "command-line-flag": "--frame",
+      "description": "Use something other than the first frame. Specify the frame number you want.",
+      "value-key": "[FRAME]",
+      "type": "Number",
+      "optional": true,
+      "id": "frame",
+      "name": "Frame number"
+    },
+    {
+      "command-line-flag": "--mid-frame",
+      "description": "Use the middle frame of the mov volume as the template.",
+      "value-key": "[MID_FRAME]",
+      "type": "Flag",
+      "id": "mid_frame",
+      "name": "Middle frame flag"
+    },
+    {
+      "command-line-flag": "--template-out",
+      "description": "Save the mov template when template is something other than the first frame.",
+      "value-key": "[TEMPLATE_OUT]",
+      "type": "String",
+      "optional": true,
+      "id": "template_out",
+      "name": "Template output"
+    },
+    {
+      "command-line-flag": "--fsvol",
+      "description": "Use FreeSurfer volid (default brainmask).",
+      "value-key": "[FSVOL]",
+      "type": "String",
+      "optional": true,
+      "id": "fsvol",
+      "name": "FreeSurfer volume"
+    },
+    {
+      "command-line-flag": "--force-ras",
+      "description": "Force input geometry to be RAS.",
+      "value-key": "[FORCE_RAS]",
+      "type": "Flag",
+      "id": "force_ras",
+      "name": "Force RAS flag"
+    },
+    {
+      "command-line-flag": "--o",
+      "description": "Resample mov and save as outvol.",
+      "value-key": "[OUTVOL]",
+      "type": "String",
+      "optional": true,
+      "id": "outvol",
+      "name": "Output volume"
+    },
+    {
+      "command-line-flag": "--tmp",
+      "description": "Temporary directory (implies --nocleanup).",
+      "value-key": "[TMPDIR]",
+      "type": "String",
+      "optional": true,
+      "id": "tmpdir",
+      "name": "Temporary directory"
+    },
+    {
+      "command-line-flag": "--nocleanup",
+      "description": "Do not delete temporary files.",
+      "value-key": "[NOCLEANUP]",
+      "type": "Flag",
+      "id": "nocleanup",
+      "name": "No cleanup flag"
+    },
+    {
+      "command-line-flag": "--version",
+      "description": "Print version and exit.",
+      "value-key": "[VERSION]",
+      "type": "Flag",
+      "id": "version",
+      "name": "Version flag"
+    },
+    {
+      "command-line-flag": "--help",
+      "description": "Print help and exit.",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "register.dat",
+      "description": "Output registration file.",
+      "id": "registration_file",
+      "name": "Registration file"
+    },
+    {
+      "path-template": "[OUTVOL]",
+      "description": "Resampled mov volume.",
+      "id": "resampled_mov",
+      "name": "Resampled movable volume"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

@@ -1,0 +1,53 @@
+{
+  "name": "setlabelstat",
+  "description": "Replaces the stat values in a label file with the single stat value supplied on the command-line.",
+  "command-line": "setlabelstat [INLABELFILE] [OUTLABELFILE] [STATVAL] [HELP]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input label file.",
+      "value-key": "[INLABELFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "inlabelfile",
+      "name": "Input Label File",
+      "command-line-flag": "-i"
+    },
+    {
+      "description": "Output label file.",
+      "value-key": "[OUTLABELFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "outlabelfile",
+      "name": "Output Label File",
+      "command-line-flag": "-o"
+    },
+    {
+      "description": "Stat value to replace in the label file.",
+      "value-key": "[STATVAL]",
+      "type": "Number",
+      "optional": false,
+      "id": "statval",
+      "name": "Stat Value",
+      "command-line-flag": "-s"
+    },
+    {
+      "description": "Displays help information.",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help Flag",
+      "command-line-flag": "-help"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTLABELFILE]",
+      "description": "The resulting label file with updated stat values.",
+      "id": "output_label_file",
+      "name": "Output Label File"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

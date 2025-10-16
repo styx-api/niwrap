@@ -1,0 +1,178 @@
+{
+  "name": "ss3t_csd_beta1",
+  "description": "SS3T-CSD: beta 1 implementation\n\n* Dhollander, T. & Connelly, A. A novel iterative approach to reap the benefits of multi-tissue CSD from just single-shell (+b=0) diffusion MRI data. Proc Intl Soc Mag Reson Med, 2016, 3010",
+  "author": "MRTrix3Tissue Developers",
+  "schema-version": "0.5+styx",
+  "command-line": "ss3t_csd_beta1 [OPTIONS_COMMON_TO_MORE_THAN_ONE_ALGORITHM_MASK] [OPTIONS_FOR_THE_CONSTRAINED_SPHERICAL_DECONVOLUTION_ALGORITHM_BZERO_PCT] [OPTIONS_FOR_THE_CONSTRAINED_SPHERICAL_DECONVOLUTION_ALGORITHM_NITER] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION] [DWI] [RESPONSE_ODF]",
+  "inputs": [
+    {
+      "id": "dwi",
+      "name": "dwi",
+      "value-key": "[DWI]",
+      "description": "the input diffusion-weighted image",
+      "type": "File",
+      "optional": false
+    },
+    {
+      "id": "response_odf",
+      "name": "response_odf",
+      "value-key": "[RESPONSE_ODF]",
+      "description": "pairs of input tissue response and output ODF images",
+      "type": {
+        "id": "response_odf",
+        "name": "response_odf",
+        "description": "pairs of input tissue response and output ODF images",
+        "command-line": "[RESPONSE] [ODF]",
+        "inputs": [
+          {
+            "id": "response",
+            "name": "response",
+            "value-key": "[RESPONSE]",
+            "description": "input tissue response",
+            "type": "File",
+            "optional": false
+          },
+          {
+            "id": "odf",
+            "name": "odf",
+            "value-key": "[ODF]",
+            "description": "output ODF image",
+            "type": "String",
+            "optional": false
+          }
+        ],
+        "output-files": [
+          {
+            "id": "odf",
+            "name": "odf",
+            "path-template": "[ODF]",
+            "description": "output ODF image"
+          }
+        ]
+      },
+      "optional": false,
+      "list": true
+    },
+    {
+      "id": "mask",
+      "name": "mask",
+      "command-line-flag": "-mask",
+      "value-key": "[OPTIONS_COMMON_TO_MORE_THAN_ONE_ALGORITHM_MASK]",
+      "description": "only perform computation within the specified binary brain mask image.",
+      "type": "File",
+      "optional": true
+    },
+    {
+      "id": "bzero_pct",
+      "name": "bzero percent",
+      "command-line-flag": "-bzero_pct",
+      "value-key": "[OPTIONS_FOR_THE_CONSTRAINED_SPHERICAL_DECONVOLUTION_ALGORITHM_BZERO_PCT]",
+      "description": "the threshold below which the amplitude of the FOD is assumed to be zero, expressed as an absolute amplitude (default = 0).",
+      "type": "Number",
+      "optional": true,
+      "integer": false
+    },
+    {
+      "id": "niter",
+      "name": "niter",
+      "command-line-flag": "-niter",
+      "value-key": "[OPTIONS_FOR_THE_CONSTRAINED_SPHERICAL_DECONVOLUTION_ALGORITHM_NITER]",
+      "description": "the maximum number of iterations to perform for each voxel (default = 50). Use '-niter 0' for a linear unconstrained spherical deconvolution.",
+      "type": "Number",
+      "optional": true,
+      "integer": true
+    },
+    {
+      "id": "info",
+      "name": "info",
+      "command-line-flag": "-info",
+      "value-key": "[__STANDARD_OPTIONS_INFO]",
+      "description": "display information messages.",
+      "type": "Flag"
+    },
+    {
+      "id": "quiet",
+      "name": "quiet",
+      "command-line-flag": "-quiet",
+      "value-key": "[__STANDARD_OPTIONS_QUIET]",
+      "description": "do not display information messages or progress status; alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string.",
+      "type": "Flag"
+    },
+    {
+      "id": "debug",
+      "name": "debug",
+      "command-line-flag": "-debug",
+      "value-key": "[__STANDARD_OPTIONS_DEBUG]",
+      "description": "display debugging messages.",
+      "type": "Flag"
+    },
+    {
+      "id": "force",
+      "name": "force",
+      "command-line-flag": "-force",
+      "value-key": "[__STANDARD_OPTIONS_FORCE]",
+      "description": "force overwrite of output files (caution: using the same file as input and output might cause unexpected behaviour).",
+      "type": "Flag"
+    },
+    {
+      "id": "nthreads",
+      "name": "nthreads",
+      "command-line-flag": "-nthreads",
+      "value-key": "[__STANDARD_OPTIONS_NTHREADS]",
+      "description": "use this number of threads in multi-threaded applications (set to 0 to disable multi-threading).",
+      "type": "Number",
+      "optional": true,
+      "integer": true
+    },
+    {
+      "id": "config",
+      "name": "config",
+      "value-key": "[__STANDARD_OPTIONS_CONFIG]",
+      "description": "temporarily set the value of an MRtrix config file entry.",
+      "type": {
+        "id": "config",
+        "name": "config",
+        "description": "temporarily set the value of an MRtrix config file entry.",
+        "command-line": "-config [KEY] [VALUE]",
+        "inputs": [
+          {
+            "id": "key",
+            "name": "key",
+            "value-key": "[KEY]",
+            "description": "temporarily set the value of an MRtrix config file entry.",
+            "type": "String",
+            "optional": false
+          },
+          {
+            "id": "value",
+            "name": "value",
+            "value-key": "[VALUE]",
+            "description": "temporarily set the value of an MRtrix config file entry.",
+            "type": "String",
+            "optional": false
+          }
+        ],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "help",
+      "name": "help",
+      "command-line-flag": "-help",
+      "value-key": "[__STANDARD_OPTIONS_HELP]",
+      "description": "display this information page and exit.",
+      "type": "Flag"
+    },
+    {
+      "id": "version",
+      "name": "version",
+      "command-line-flag": "-version",
+      "value-key": "[__STANDARD_OPTIONS_VERSION]",
+      "description": "display version information and exit.",
+      "type": "Flag"
+    }
+  ],
+  "url": "https://3tissue.github.io/"
+}

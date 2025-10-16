@@ -1,0 +1,42 @@
+{
+  "name": "cifti-label-probability",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -cifti-label-probability [LABEL_MAPS] [PROBABILITY_DSCALAR_OUT] [OPT_EXCLUDE_UNLABELED]",
+  "description": "Find frequency of cifti labels.\n\nThis command outputs a set of soft ROIs, one for each label in the input, where the value is how many of the input maps had that label at that vertex/voxel, divided by the number of input maps.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "label_maps",
+      "name": "label_maps",
+      "description": "cifti dlabel file containing individual label maps from many subjects",
+      "optional": false,
+      "value-key": "[LABEL_MAPS]",
+      "type": "File"
+    },
+    {
+      "id": "probability_dscalar_out",
+      "name": "probability_dscalar_out",
+      "type": "String",
+      "description": "the relative frequencies of each label at each vertex/voxel",
+      "optional": false,
+      "value-key": "[PROBABILITY_DSCALAR_OUT]"
+    },
+    {
+      "id": "opt_exclude_unlabeled",
+      "name": "opt_exclude_unlabeled",
+      "command-line-flag": "-exclude-unlabeled",
+      "description": "don't make a probability map of the unlabeled key",
+      "type": "Flag",
+      "value-key": "[OPT_EXCLUDE_UNLABELED]"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "probability_dscalar_out",
+      "name": "probability_dscalar_out",
+      "path-template": "[PROBABILITY_DSCALAR_OUT]",
+      "description": "the relative frequencies of each label at each vertex/voxel"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

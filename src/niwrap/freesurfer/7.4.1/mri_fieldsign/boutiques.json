@@ -1,0 +1,223 @@
+{
+  "name": "mri_fieldsign",
+  "description": "Field Sign Mapping Tool from FreeSurfer",
+  "command-line": "mri_fieldsign [FIELDSIGN_FILE] [ECCEN_VALUES] [POLAR_VALUES] [SUBJECT] [HEMISPHERE] [PATCH_FILE] [OCCIP_FLAG] [SPHERE_FLAG] [FWHM] [NSMOOTH] [REVERSE_FLAG] [OLD_FLAG] [ECCEN_ROTATION] [POLAR_ROTATION] [ECCEN_OUTPUT] [POLAR_OUTPUT] [ECCEN_SFA_FILE] [POLAR_SFA_FILE] [SFA_DIR] [SFA_TRUE_FLAG] [DEBUG_FLAG] [CHECKOPTS_FLAG] [HELP_FLAG] [VERSION_FLAG]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--fs",
+      "description": "Output field sign file",
+      "value-key": "[FIELDSIGN_FILE]",
+      "type": "String",
+      "optional": false,
+      "id": "fieldsign_file",
+      "name": "Field Sign File"
+    },
+    {
+      "command-line-flag": "--eccen",
+      "description": "Eccentricity values (real and imaginary)",
+      "value-key": "[ECCEN_VALUES]",
+      "type": "Number",
+      "list": true,
+      "min-list-entries": 2,
+      "max-list-entries": 2,
+      "optional": false,
+      "id": "eccen_values",
+      "name": "Eccentricity Values"
+    },
+    {
+      "command-line-flag": "--polar",
+      "description": "Polar values (real and imaginary)",
+      "value-key": "[POLAR_VALUES]",
+      "type": "Number",
+      "list": true,
+      "min-list-entries": 2,
+      "max-list-entries": 2,
+      "optional": false,
+      "id": "polar_values",
+      "name": "Polar Values"
+    },
+    {
+      "command-line-flag": "--s",
+      "description": "Subject identifier",
+      "value-key": "[SUBJECT]",
+      "type": "String",
+      "optional": false,
+      "id": "subject",
+      "name": "Subject"
+    },
+    {
+      "command-line-flag": "--hemi",
+      "description": "Hemisphere to process",
+      "value-key": "[HEMISPHERE]",
+      "type": "String",
+      "optional": false,
+      "id": "hemisphere",
+      "name": "Hemisphere"
+    },
+    {
+      "command-line-flag": "--patch",
+      "description": "Patch file, without hemi",
+      "value-key": "[PATCH_FILE]",
+      "type": "String",
+      "optional": true,
+      "id": "patch_file",
+      "name": "Patch File"
+    },
+    {
+      "command-line-flag": "--occip",
+      "description": "Use occipital patch (patchfile = occip.patch.flat)",
+      "value-key": "[OCCIP_FLAG]",
+      "type": "Flag",
+      "id": "occip_flag",
+      "name": "Occipital Flag"
+    },
+    {
+      "command-line-flag": "--sphere",
+      "description": "Use spherical surface instead of patch",
+      "value-key": "[SPHERE_FLAG]",
+      "type": "Flag",
+      "id": "sphere_flag",
+      "name": "Sphere Flag"
+    },
+    {
+      "command-line-flag": "--fwhm",
+      "description": "Full-width at half-maximum (mm)",
+      "value-key": "[FWHM]",
+      "type": "Number",
+      "optional": true,
+      "id": "fwhm",
+      "name": "FWHM"
+    },
+    {
+      "command-line-flag": "--nsmooth",
+      "description": "Number of smoothing steps",
+      "value-key": "[NSMOOTH]",
+      "type": "Number",
+      "optional": true,
+      "id": "nsmooth",
+      "name": "Number of Smooth Steps"
+    },
+    {
+      "command-line-flag": "--rev",
+      "description": "Reverse sign",
+      "value-key": "[REVERSE_FLAG]",
+      "type": "Flag",
+      "id": "reverse_flag",
+      "name": "Reverse Flag"
+    },
+    {
+      "command-line-flag": "--old",
+      "description": "Use old FS estimation code",
+      "value-key": "[OLD_FLAG]",
+      "type": "Flag",
+      "id": "old_flag",
+      "name": "Old Estimation Flag"
+    },
+    {
+      "command-line-flag": "--eccen-rot",
+      "description": "Rotate eccentricity by rotangle degrees",
+      "value-key": "[ECCEN_ROTATION]",
+      "type": "Number",
+      "optional": true,
+      "id": "eccen_rotation",
+      "name": "Eccentricity Rotation"
+    },
+    {
+      "command-line-flag": "--polar-rot",
+      "description": "Rotate polar by rotangle degrees",
+      "value-key": "[POLAR_ROTATION]",
+      "type": "Number",
+      "optional": true,
+      "id": "polar_rotation",
+      "name": "Polar Rotation"
+    },
+    {
+      "command-line-flag": "--eccen-out",
+      "description": "Output eccentricity angle",
+      "value-key": "[ECCEN_OUTPUT]",
+      "type": "Number",
+      "optional": true,
+      "id": "eccen_output",
+      "name": "Eccentricity Output Angle"
+    },
+    {
+      "command-line-flag": "--polar-out",
+      "description": "Output polar angle",
+      "value-key": "[POLAR_OUTPUT]",
+      "type": "Number",
+      "optional": true,
+      "id": "polar_output",
+      "name": "Polar Output Angle"
+    },
+    {
+      "command-line-flag": "--eccen-sfa",
+      "description": "Eccentricity self-frequency average file",
+      "value-key": "[ECCEN_SFA_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "eccen_sfa_file",
+      "name": "Eccentricity SFA File"
+    },
+    {
+      "command-line-flag": "--polar-sfa",
+      "description": "Polar self-frequency average file",
+      "value-key": "[POLAR_SFA_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "polar_sfa_file",
+      "name": "Polar SFA File"
+    },
+    {
+      "command-line-flag": "--sfa",
+      "description": "SFA directory",
+      "value-key": "[SFA_DIR]",
+      "type": "String",
+      "optional": true,
+      "id": "sfa_dir",
+      "name": "SFA Directory"
+    },
+    {
+      "command-line-flag": "--sfa-true",
+      "description": "Use true real and imaginary (affects small smoothing)",
+      "value-key": "[SFA_TRUE_FLAG]",
+      "type": "Flag",
+      "id": "sfa_true_flag",
+      "name": "SFA True Flag"
+    },
+    {
+      "command-line-flag": "--debug",
+      "description": "Turn on debugging",
+      "value-key": "[DEBUG_FLAG]",
+      "type": "Flag",
+      "id": "debug_flag",
+      "name": "Debug Flag"
+    },
+    {
+      "command-line-flag": "--checkopts",
+      "description": "Check options and exit",
+      "value-key": "[CHECKOPTS_FLAG]",
+      "type": "Flag",
+      "id": "checkopts_flag",
+      "name": "Check Options Flag"
+    },
+    {
+      "command-line-flag": "--help",
+      "description": "Display help information",
+      "value-key": "[HELP_FLAG]",
+      "type": "Flag",
+      "id": "help_flag",
+      "name": "Help Flag"
+    },
+    {
+      "command-line-flag": "--version",
+      "description": "Print version and exit",
+      "value-key": "[VERSION_FLAG]",
+      "type": "Flag",
+      "id": "version_flag",
+      "name": "Version Flag"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

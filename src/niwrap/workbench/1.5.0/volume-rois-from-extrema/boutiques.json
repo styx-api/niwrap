@@ -1,0 +1,80 @@
+{
+  "name": "volume-rois-from-extrema",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -volume-rois-from-extrema [VOLUME_IN] [LIMIT] [VOLUME_OUT] [OPT_GAUSSIAN_SIGMA] [OPT_ROI_ROI_VOLUME] [OPT_OVERLAP_LOGIC_METHOD] [OPT_SUBVOLUME_SUBVOL]",
+  "description": "Create volume roi maps from extrema maps.\n\nFor each nonzero value in each map, make a map with an ROI around that location.  If the -gaussian option is specified, then normalized gaussian kernels are output instead of ROIs.  The <method> argument to -overlap-logic must be one of ALLOW, CLOSEST, or EXCLUDE.  ALLOW is the default, and means that ROIs are treated independently and may overlap.  CLOSEST means that ROIs may not overlap, and that no ROI contains vertices that are closer to a different seed vertex.  EXCLUDE means that ROIs may not overlap, and that any vertex within range of more than one ROI does not belong to any ROI.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "volume_in",
+      "name": "volume_in",
+      "description": "the input volume",
+      "optional": false,
+      "value-key": "[VOLUME_IN]",
+      "type": "File"
+    },
+    {
+      "id": "limit",
+      "name": "limit",
+      "description": "distance limit from voxel center, in mm",
+      "optional": false,
+      "value-key": "[LIMIT]",
+      "type": "Number",
+      "integer": false
+    },
+    {
+      "id": "volume_out",
+      "name": "volume_out",
+      "type": "String",
+      "description": "the output volume",
+      "optional": false,
+      "value-key": "[VOLUME_OUT]"
+    },
+    {
+      "id": "opt_gaussian_sigma",
+      "name": "opt_gaussian_sigma",
+      "command-line-flag": "-gaussian",
+      "description": "generate a gaussian kernel instead of a flat ROI: the sigma for the gaussian kernel, in mm",
+      "optional": true,
+      "value-key": "[OPT_GAUSSIAN_SIGMA]",
+      "type": "Number",
+      "integer": false
+    },
+    {
+      "id": "opt_roi_roi_volume",
+      "name": "opt_roi_roi_volume",
+      "command-line-flag": "-roi",
+      "description": "select a region of interest to use: the region to use",
+      "optional": true,
+      "value-key": "[OPT_ROI_ROI_VOLUME]",
+      "type": "File"
+    },
+    {
+      "id": "opt_overlap_logic_method",
+      "name": "opt_overlap_logic_method",
+      "command-line-flag": "-overlap-logic",
+      "description": "how to handle overlapping ROIs, default ALLOW: the method of resolving overlaps",
+      "optional": true,
+      "value-key": "[OPT_OVERLAP_LOGIC_METHOD]",
+      "type": "String"
+    },
+    {
+      "id": "opt_subvolume_subvol",
+      "name": "opt_subvolume_subvol",
+      "command-line-flag": "-subvolume",
+      "description": "select a single subvolume to take the gradient of: the subvolume number or name",
+      "optional": true,
+      "value-key": "[OPT_SUBVOLUME_SUBVOL]",
+      "type": "String"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "volume_out",
+      "name": "volume_out",
+      "path-template": "[VOLUME_OUT]",
+      "description": "the output volume"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

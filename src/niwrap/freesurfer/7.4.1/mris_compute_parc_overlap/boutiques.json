@@ -1,0 +1,147 @@
+{
+  "name": "mris_compute_parc_overlap",
+  "description": "Compares two parcellated (annotated or labeled) surfaces and computes an overall Dice coefficient and mean minimum distances (mm).",
+  "command-line": "mris_compute_parc_overlap [SUBJECT] [HEMI] [ANNOT1] [ANNOT2] [LABEL1] [LABEL2] [SUBJ_DIR] [LOG_FILE] [LABEL_LIST] [NOCHECK_LABEL1_XYZ] [NOCHECK_LABEL2_XYZ] [NOCHECK_LABEL_XYZ] [USE_LABEL1_XYZ] [USE_LABEL2_XYZ] [USE_LABEL_XYZ] [DEBUG_OVERLAP]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "subject",
+      "name": "Subject",
+      "type": "String",
+      "description": "Subject to check",
+      "value-key": "[SUBJECT]",
+      "command-line-flag": "--s",
+      "optional": false
+    },
+    {
+      "id": "hemi",
+      "name": "Hemisphere",
+      "type": "String",
+      "description": "Hemisphere: rh or lh",
+      "value-key": "[HEMI]",
+      "command-line-flag": "--hemi",
+      "optional": false
+    },
+    {
+      "id": "annot1",
+      "name": "First Annot File",
+      "type": "File",
+      "description": "First .annot file",
+      "value-key": "[ANNOT1]",
+      "command-line-flag": "--annot1",
+      "optional": true
+    },
+    {
+      "id": "annot2",
+      "name": "Second Annot File",
+      "type": "File",
+      "description": "Second .annot file",
+      "value-key": "[ANNOT2]",
+      "command-line-flag": "--annot2",
+      "optional": true
+    },
+    {
+      "id": "label1",
+      "name": "First Label File",
+      "type": "File",
+      "description": "First .label file",
+      "value-key": "[LABEL1]",
+      "command-line-flag": "--label1",
+      "optional": true
+    },
+    {
+      "id": "label2",
+      "name": "Second Label File",
+      "type": "File",
+      "description": "Second .label file",
+      "value-key": "[LABEL2]",
+      "command-line-flag": "--label2",
+      "optional": true
+    },
+    {
+      "id": "subj_dir",
+      "name": "Subjects Directory",
+      "type": "String",
+      "description": "Set SUBJECTS_DIR",
+      "value-key": "[SUBJ_DIR]",
+      "command-line-flag": "--sd",
+      "optional": true
+    },
+    {
+      "id": "log_file",
+      "name": "Log Filename",
+      "type": "String",
+      "description": "Output the overall DICE and minimum distance to filename",
+      "value-key": "[LOG_FILE]",
+      "command-line-flag": "--log",
+      "optional": true
+    },
+    {
+      "id": "label_list",
+      "name": "Label List",
+      "type": "File",
+      "description": "File containing labels to check, one per line",
+      "value-key": "[LABEL_LIST]",
+      "command-line-flag": "--label-list",
+      "optional": true
+    },
+    {
+      "id": "nocheck_label1_xyz",
+      "name": "No Check Label1 XYZ",
+      "type": "Flag",
+      "description": "When loading label1 file, don't check x,y,z coords to surface",
+      "value-key": "[NOCHECK_LABEL1_XYZ]",
+      "command-line-flag": "--nocheck-label1-xyz"
+    },
+    {
+      "id": "nocheck_label2_xyz",
+      "name": "No Check Label2 XYZ",
+      "type": "Flag",
+      "description": "When loading label2 file, don't check x,y,z coords to surface",
+      "value-key": "[NOCHECK_LABEL2_XYZ]",
+      "command-line-flag": "--nocheck-label2-xyz"
+    },
+    {
+      "id": "nocheck_label_xyz",
+      "name": "No Check Label XYZ",
+      "type": "Flag",
+      "description": "Do not check label1 and label2",
+      "value-key": "[NOCHECK_LABEL_XYZ]",
+      "command-line-flag": "--nocheck-label-xyz"
+    },
+    {
+      "id": "use_label1_xyz",
+      "name": "Use Label1 XYZ",
+      "type": "Flag",
+      "description": "Replace surface x,y,z coords with those in label1 file",
+      "value-key": "[USE_LABEL1_XYZ]",
+      "command-line-flag": "--use-label1-xyz"
+    },
+    {
+      "id": "use_label2_xyz",
+      "name": "Use Label2 XYZ",
+      "type": "Flag",
+      "description": "Replace surface x,y,z coords with those in label2 file",
+      "value-key": "[USE_LABEL2_XYZ]",
+      "command-line-flag": "--use-label2-xyz"
+    },
+    {
+      "id": "use_label_xyz",
+      "name": "Use Label XYZ",
+      "type": "Flag",
+      "description": "Use label1 and label2 coords",
+      "value-key": "[USE_LABEL_XYZ]",
+      "command-line-flag": "--use-label-xyz"
+    },
+    {
+      "id": "debug_overlap",
+      "name": "Debug Overlap",
+      "type": "Flag",
+      "description": "Generate ?h.overlap.annot",
+      "value-key": "[DEBUG_OVERLAP]",
+      "command-line-flag": "--debug-overlap"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "unpack_ima.tcl",
+  "author": "FreeSurfer Developers",
+  "description": "A tool to unpack MRI DICOM .ima files.",
+  "command-line": "unpack_ima.tcl [TARGET_DIR]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Target directory to unpack the files.",
+      "value-key": "[TARGET_DIR]",
+      "type": "String",
+      "optional": false,
+      "id": "target_dir",
+      "name": "Target Directory",
+      "default-value": "~"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

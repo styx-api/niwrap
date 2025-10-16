@@ -1,0 +1,42 @@
+{
+  "name": "mri_label_vals",
+  "description": "Extract values at label coordinates from a volume",
+  "command-line": "mri_label_vals [VOLUME] [LABEL_FILE] [CRAS_FLAG] [HELP_FLAG]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input volume file",
+      "value-key": "[VOLUME]",
+      "type": "File",
+      "optional": false,
+      "id": "volume",
+      "name": "Volume file"
+    },
+    {
+      "description": "Input label file",
+      "value-key": "[LABEL_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "label_file",
+      "name": "Label file"
+    },
+    {
+      "command-line-flag": "-cras",
+      "description": "Use this option if the label was created where c_(r,a,s) != 0",
+      "value-key": "[CRAS_FLAG]",
+      "type": "Flag",
+      "id": "cras_flag",
+      "name": "CRAS Flag"
+    },
+    {
+      "command-line-flag": "-u",
+      "description": "Print help",
+      "value-key": "[HELP_FLAG]",
+      "type": "Flag",
+      "id": "help_flag",
+      "name": "Help Flag"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

@@ -1,0 +1,231 @@
+{
+  "name": "fvcompare",
+  "author": "FreeSurfer Developers",
+  "description": "Simultaneously loads volume, segmentation, and surface data from two subjects in freeview, for comparing across time or different analysis methods.",
+  "command-line": "fvcompare [SUBJECT1] [SUBJECT2] [SUBJECT_DIR1] [SUBJECT_DIR2] [NAME1] [NAME2] [COLOR1] [VOLUME] [SEGMENTATION] [ASEG] [NO_SEG] [LEFT_HEMI] [RIGHT_HEMI] [NO_SURF] [GRAY_LEVELS] [CURSOR_POSITION] [ZOOM_LEVEL] [ANNOTATION] [APARC] [INFLATED] [WHITE] [ORIG] [SURF_NAME] [POINTSET] [WOT2]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--s1",
+      "description": "Subject 1 identifier",
+      "value-key": "[SUBJECT1]",
+      "type": "String",
+      "optional": false,
+      "id": "subject1",
+      "name": "Subject 1"
+    },
+    {
+      "command-line-flag": "--s2",
+      "description": "Subject 2 identifier",
+      "value-key": "[SUBJECT2]",
+      "type": "String",
+      "optional": false,
+      "id": "subject2",
+      "name": "Subject 2"
+    },
+    {
+      "command-line-flag": "--sd1",
+      "description": "Directory path for Subject 1",
+      "value-key": "[SUBJECT_DIR1]",
+      "type": "String",
+      "optional": true,
+      "id": "subject_dir1",
+      "name": "Subject Directory 1"
+    },
+    {
+      "command-line-flag": "--sd2",
+      "description": "Directory path for Subject 2",
+      "value-key": "[SUBJECT_DIR2]",
+      "type": "String",
+      "optional": true,
+      "id": "subject_dir2",
+      "name": "Subject Directory 2"
+    },
+    {
+      "command-line-flag": "--n1",
+      "description": "Name associated with Subject 1 (default: s1)",
+      "value-key": "[NAME1]",
+      "type": "String",
+      "optional": true,
+      "id": "name1",
+      "name": "Name 1"
+    },
+    {
+      "command-line-flag": "--n2",
+      "description": "Name associated with Subject 2 (default: s2)",
+      "value-key": "[NAME2]",
+      "type": "String",
+      "optional": true,
+      "id": "name2",
+      "name": "Name 2"
+    },
+    {
+      "command-line-flag": "--c1",
+      "description": "Set surface colors for Subject 1",
+      "value-key": "[COLOR1]",
+      "type": "String",
+      "optional": true,
+      "id": "color1",
+      "name": "Surface Colors 1"
+    },
+    {
+      "command-line-flag": "--vol",
+      "description": "Volume name found in subject/mri (default: brainmask.mgz, can have multiple)",
+      "value-key": "[VOLUME]",
+      "type": "String",
+      "optional": true,
+      "id": "volume",
+      "name": "Volume Name"
+    },
+    {
+      "command-line-flag": "--seg",
+      "description": "Segmentation name found in subject/mri (default: aparc+aseg.mgz, can have multiple)",
+      "value-key": "[SEGMENTATION]",
+      "type": "String",
+      "optional": true,
+      "id": "segmentation",
+      "name": "Segmentation Name"
+    },
+    {
+      "command-line-flag": "--aseg",
+      "description": "Add aseg.mgz to segmentation list",
+      "value-key": "[ASEG]",
+      "type": "Flag",
+      "id": "aseg",
+      "name": "Aseg Flag"
+    },
+    {
+      "command-line-flag": "--no-seg",
+      "description": "Do not display segmentations",
+      "value-key": "[NO_SEG]",
+      "type": "Flag",
+      "id": "no_seg",
+      "name": "No Segmentation Flag"
+    },
+    {
+      "command-line-flag": "--lh",
+      "description": "Only display left hemisphere",
+      "value-key": "[LEFT_HEMI]",
+      "type": "Flag",
+      "id": "left_hemi",
+      "name": "Left Hemisphere Flag"
+    },
+    {
+      "command-line-flag": "--rh",
+      "description": "Only display right hemisphere",
+      "value-key": "[RIGHT_HEMI]",
+      "type": "Flag",
+      "id": "right_hemi",
+      "name": "Right Hemisphere Flag"
+    },
+    {
+      "command-line-flag": "--no-surf",
+      "description": "Do not display surfaces",
+      "value-key": "[NO_SURF]",
+      "type": "Flag",
+      "id": "no_surf",
+      "name": "No Surface Flag"
+    },
+    {
+      "command-line-flag": "--gray",
+      "description": "Set gray scale levels",
+      "value-key": "[GRAY_LEVELS]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 2,
+      "min-list-entries": 2,
+      "optional": true,
+      "id": "gray_levels",
+      "name": "Gray Scale Levels"
+    },
+    {
+      "command-line-flag": "--crs",
+      "description": "Place cursor at given location and center Field of View",
+      "value-key": "[CURSOR_POSITION]",
+      "type": "Number",
+      "list": true,
+      "max-list-entries": 3,
+      "min-list-entries": 3,
+      "optional": true,
+      "id": "cursor_position",
+      "name": "Cursor Position"
+    },
+    {
+      "command-line-flag": "--zoom",
+      "description": "Set zoom level",
+      "value-key": "[ZOOM_LEVEL]",
+      "type": "Number",
+      "optional": true,
+      "id": "zoom_level",
+      "name": "Zoom Level"
+    },
+    {
+      "command-line-flag": "--annot",
+      "description": "Load annotation onto surfaces",
+      "value-key": "[ANNOTATION]",
+      "type": "String",
+      "optional": true,
+      "id": "annotation",
+      "name": "Annotation"
+    },
+    {
+      "command-line-flag": "--aparc",
+      "description": "Load aparc.annot onto surfaces",
+      "value-key": "[APARC]",
+      "type": "Flag",
+      "id": "aparc",
+      "name": "Aparc Flag"
+    },
+    {
+      "command-line-flag": "--inflated",
+      "description": "Load inflated surfaces in addition to white and pial",
+      "value-key": "[INFLATED]",
+      "type": "Flag",
+      "id": "inflated",
+      "name": "Inflated Surfaces Flag"
+    },
+    {
+      "command-line-flag": "--white",
+      "description": "Only show white surfaces",
+      "value-key": "[WHITE]",
+      "type": "Flag",
+      "id": "white",
+      "name": "White Surfaces Flag"
+    },
+    {
+      "command-line-flag": "--orig",
+      "description": "Only show orig.nofix and orig surfaces",
+      "value-key": "[ORIG]",
+      "type": "Flag",
+      "id": "orig",
+      "name": "Original Surfaces Flag"
+    },
+    {
+      "command-line-flag": "--surf",
+      "description": "Only show specified surface name",
+      "value-key": "[SURF_NAME]",
+      "type": "String",
+      "optional": true,
+      "id": "surf_name",
+      "name": "Surf Name"
+    },
+    {
+      "command-line-flag": "--p",
+      "description": "Load point set file",
+      "value-key": "[POINTSET]",
+      "type": "File",
+      "optional": true,
+      "id": "pointset",
+      "name": "Point Set"
+    },
+    {
+      "command-line-flag": "--wot2",
+      "description": "Include the ?h.woT2.pial surfs",
+      "value-key": "[WOT2]",
+      "type": "Flag",
+      "id": "wot2",
+      "name": "WOT2 Surfaces Flag"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

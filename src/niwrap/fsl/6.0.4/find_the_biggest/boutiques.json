@@ -1,0 +1,35 @@
+{
+  "name": "find_the_biggest",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Tool to find the largest volume or surface from a set of inputs",
+  "command-line": "find_the_biggest [VOLUMES_SURFACES] [OUTPUT_INDEX]",
+  "inputs": [
+    {
+      "description": "List of input volumes or surfaces",
+      "value-key": "[VOLUMES_SURFACES]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "volumes_surfaces",
+      "name": "Volumes/Surfaces"
+    },
+    {
+      "description": "Output index of the largest volume or surface",
+      "value-key": "[OUTPUT_INDEX]",
+      "type": "String",
+      "optional": false,
+      "id": "output_index",
+      "name": "Output Index"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_INDEX]",
+      "description": "Index of the largest volume or surface",
+      "id": "output_file",
+      "name": "Output Index File"
+    }
+  ],
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

@@ -1,0 +1,86 @@
+{
+  "name": "3dDiff",
+  "author": "AFNI Developers",
+  "description": "A program to examine element-wise differences between two images.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dDiff [DATASET_A] [DATASET_B] [TOLERANCE] [MASK] [QUIET_MODE] [TABULAR_MODE] [BRUTALIST_MODE] [LONG_REPORT_MODE]",
+  "inputs": [
+    {
+      "description": "First input dataset for comparison.",
+      "value-key": "[DATASET_A]",
+      "type": "File",
+      "optional": false,
+      "command-line-flag": "-a",
+      "id": "dataset_a",
+      "name": "Dataset A"
+    },
+    {
+      "description": "Second input dataset for comparison.",
+      "value-key": "[DATASET_B]",
+      "type": "File",
+      "optional": false,
+      "command-line-flag": "-b",
+      "id": "dataset_b",
+      "name": "Dataset B"
+    },
+    {
+      "description": "Floating-point tolerance/epsilon for the comparison.",
+      "value-key": "[TOLERANCE]",
+      "type": "Number",
+      "optional": true,
+      "command-line-flag": "-tol",
+      "id": "tolerance",
+      "name": "Tolerance"
+    },
+    {
+      "description": "Mask to use when comparing the datasets.",
+      "value-key": "[MASK]",
+      "type": "File",
+      "optional": true,
+      "command-line-flag": "-mask",
+      "id": "mask",
+      "name": "Mask"
+    },
+    {
+      "description": "Quiet mode: 0 for no differences, 1 for differences, -1 for error.",
+      "value-key": "[QUIET_MODE]",
+      "type": "Flag",
+      "command-line-flag": "-q",
+      "id": "quiet_mode",
+      "name": "Quiet Mode"
+    },
+    {
+      "description": "Display a table of differences, mainly for 4D data.",
+      "value-key": "[TABULAR_MODE]",
+      "type": "Flag",
+      "command-line-flag": "-tabular",
+      "id": "tabular_mode",
+      "name": "Tabular Mode"
+    },
+    {
+      "description": "Display one-liner with summary of differences.",
+      "value-key": "[BRUTALIST_MODE]",
+      "type": "Flag",
+      "command-line-flag": "-brutalist",
+      "id": "brutalist_mode",
+      "name": "Brutalist Mode"
+    },
+    {
+      "description": "Print a detailed report with more information.",
+      "value-key": "[LONG_REPORT_MODE]",
+      "type": "Flag",
+      "command-line-flag": "-long_report",
+      "id": "long_report_mode",
+      "name": "Long Report Mode"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[DATASET_A]_vs_[DATASET_B].log",
+      "description": "Log file containing the element-wise differences.",
+      "id": "output_log",
+      "name": "Output log file"
+    }
+  ]
+}

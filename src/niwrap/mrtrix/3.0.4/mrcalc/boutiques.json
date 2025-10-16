@@ -1,0 +1,949 @@
+{
+  "name": "mrcalc",
+  "description": "Apply generic voxel-wise mathematical operations to images.\n\nThis command will only compute per-voxel operations. Use 'mrmath' to compute summary statistics across images or along image axes.\n\nThis command uses a stack-based syntax, with operators (specified using options) operating on the top-most entries (i.e. images or values) in the stack. Operands (values or images) are pushed onto the stack in the order they appear (as arguments) on the command-line, and operators (specified as options) operate on and consume the top-most entries in the stack, and push their output as a new entry on the stack.\n\nAs an additional feature, this command will allow images with different dimensions to be processed, provided they satisfy the following conditions: for each axis, the dimensions match if they are the same size, or one of them has size one. In the latter case, the entire image will be replicated along that axis. This allows for example a 4D image of size [ X Y Z N ] to be added to a 3D image of size [ X Y Z ], as if it consisted of N copies of the 3D image along the 4th axis (the missing dimension is assumed to have size 1). Another example would a single-voxel 4D image of size [ 1 1 1 N ], multiplied by a 3D image of size [ X Y Z ], which would allow the creation of a 4D image where each volume consists of the 3D image scaled by the corresponding value for that volume in the single-voxel image.\n\nReferences:\n\n",
+  "author": "MRTrix3 Developers",
+  "schema-version": "0.5+styx",
+  "command-line": "mrcalc [BASIC_OPERATIONS_ABS] [BASIC_OPERATIONS_NEG] [BASIC_OPERATIONS_ADD] [BASIC_OPERATIONS_SUBTRACT] [BASIC_OPERATIONS_MULTIPLY] [BASIC_OPERATIONS_DIVIDE] [BASIC_OPERATIONS_MIN] [BASIC_OPERATIONS_MAX] [COMPARISON_OPERATORS_LT] [COMPARISON_OPERATORS_GT] [COMPARISON_OPERATORS_LE] [COMPARISON_OPERATORS_GE] [COMPARISON_OPERATORS_EQ] [COMPARISON_OPERATORS_NEQ] [CONDITIONAL_OPERATORS_IF] [CONDITIONAL_OPERATORS_REPLACE] [POWER_FUNCTIONS_SQRT] [POWER_FUNCTIONS_POW] [NEAREST_INTEGER_OPERATIONS_ROUND] [NEAREST_INTEGER_OPERATIONS_CEIL] [NEAREST_INTEGER_OPERATIONS_FLOOR] [LOGICAL_OPERATORS_NOT] [LOGICAL_OPERATORS_AND] [LOGICAL_OPERATORS_OR] [LOGICAL_OPERATORS_XOR] [CLASSIFICATION_FUNCTIONS_ISNAN] [CLASSIFICATION_FUNCTIONS_ISINF] [CLASSIFICATION_FUNCTIONS_FINITE] [COMPLEX_NUMBERS_COMPLEX] [COMPLEX_NUMBERS_POLAR] [COMPLEX_NUMBERS_REAL] [COMPLEX_NUMBERS_IMAG] [COMPLEX_NUMBERS_PHASE] [COMPLEX_NUMBERS_CONJ] [COMPLEX_NUMBERS_PROJ] [EXPONENTIAL_FUNCTIONS_EXP] [EXPONENTIAL_FUNCTIONS_LOG] [EXPONENTIAL_FUNCTIONS_LOG10] [TRIGONOMETRIC_FUNCTIONS_COS] [TRIGONOMETRIC_FUNCTIONS_SIN] [TRIGONOMETRIC_FUNCTIONS_TAN] [TRIGONOMETRIC_FUNCTIONS_ACOS] [TRIGONOMETRIC_FUNCTIONS_ASIN] [TRIGONOMETRIC_FUNCTIONS_ATAN] [HYPERBOLIC_FUNCTIONS_COSH] [HYPERBOLIC_FUNCTIONS_SINH] [HYPERBOLIC_FUNCTIONS_TANH] [HYPERBOLIC_FUNCTIONS_ACOSH] [HYPERBOLIC_FUNCTIONS_ASINH] [HYPERBOLIC_FUNCTIONS_ATANH] [DATA_TYPE_OPTIONS_DATATYPE] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION] [OPERAND]",
+  "inputs": [
+    {
+      "id": "operand",
+      "name": "operand",
+      "value-key": "[OPERAND]",
+      "description": "an input image, intensity value, or the special keywords 'rand' (random number between 0 and 1) or 'randn' (random number from unit std.dev. normal distribution) or the mathematical constants 'e' and 'pi'.",
+      "type": [
+        {
+          "id": "VariousString",
+          "command-line": "[OBJ]",
+          "inputs": [
+            {
+              "id": "obj",
+              "name": "Object",
+              "value-key": "[OBJ]",
+              "description": "String object.",
+              "type": "String",
+              "optional": false
+            }
+          ]
+        },
+        {
+          "id": "VariousFile",
+          "command-line": "[OBJ]",
+          "inputs": [
+            {
+              "id": "obj",
+              "name": "Object",
+              "value-key": "[OBJ]",
+              "description": "File object.",
+              "type": "File",
+              "optional": false
+            }
+          ]
+        }
+      ],
+      "optional": false,
+      "list": true
+    },
+    {
+      "id": "abs",
+      "name": "abs",
+      "value-key": "[BASIC_OPERATIONS_ABS]",
+      "description": "|%1| : return absolute value (magnitude) of real or complex number",
+      "type": {
+        "id": "abs",
+        "name": "abs",
+        "description": "|%1| : return absolute value (magnitude) of real or complex number",
+        "command-line": "-abs",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "neg",
+      "name": "neg",
+      "value-key": "[BASIC_OPERATIONS_NEG]",
+      "description": "-%1 : negative value",
+      "type": {
+        "id": "neg",
+        "name": "neg",
+        "description": "-%1 : negative value",
+        "command-line": "-neg",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "add",
+      "name": "add",
+      "value-key": "[BASIC_OPERATIONS_ADD]",
+      "description": "(%1 + %2) : add values",
+      "type": {
+        "id": "add",
+        "name": "add",
+        "description": "(%1 + %2) : add values",
+        "command-line": "-add",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "subtract",
+      "name": "subtract",
+      "value-key": "[BASIC_OPERATIONS_SUBTRACT]",
+      "description": "(%1 - %2) : subtract nth operand from (n-1)th",
+      "type": {
+        "id": "subtract",
+        "name": "subtract",
+        "description": "(%1 - %2) : subtract nth operand from (n-1)th",
+        "command-line": "-subtract",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "multiply",
+      "name": "multiply",
+      "value-key": "[BASIC_OPERATIONS_MULTIPLY]",
+      "description": "(%1 * %2) : multiply values",
+      "type": {
+        "id": "multiply",
+        "name": "multiply",
+        "description": "(%1 * %2) : multiply values",
+        "command-line": "-multiply",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "divide",
+      "name": "divide",
+      "value-key": "[BASIC_OPERATIONS_DIVIDE]",
+      "description": "(%1 / %2) : divide (n-1)th operand by nth",
+      "type": {
+        "id": "divide",
+        "name": "divide",
+        "description": "(%1 / %2) : divide (n-1)th operand by nth",
+        "command-line": "-divide",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "min",
+      "name": "min",
+      "value-key": "[BASIC_OPERATIONS_MIN]",
+      "description": "min (%1, %2) : smallest of last two operands",
+      "type": {
+        "id": "min",
+        "name": "min",
+        "description": "min (%1, %2) : smallest of last two operands",
+        "command-line": "-min",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "max",
+      "name": "max",
+      "value-key": "[BASIC_OPERATIONS_MAX]",
+      "description": "max (%1, %2) : greatest of last two operands",
+      "type": {
+        "id": "max",
+        "name": "max",
+        "description": "max (%1, %2) : greatest of last two operands",
+        "command-line": "-max",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "lt",
+      "name": "lt",
+      "value-key": "[COMPARISON_OPERATORS_LT]",
+      "description": "(%1 < %2) : less-than operator (true=1, false=0)",
+      "type": {
+        "id": "lt",
+        "name": "lt",
+        "description": "(%1 < %2) : less-than operator (true=1, false=0)",
+        "command-line": "-lt",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "gt",
+      "name": "gt",
+      "value-key": "[COMPARISON_OPERATORS_GT]",
+      "description": "(%1 > %2) : greater-than operator (true=1, false=0)",
+      "type": {
+        "id": "gt",
+        "name": "gt",
+        "description": "(%1 > %2) : greater-than operator (true=1, false=0)",
+        "command-line": "-gt",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "le",
+      "name": "le",
+      "value-key": "[COMPARISON_OPERATORS_LE]",
+      "description": "(%1 <= %2) : less-than-or-equal-to operator (true=1, false=0)",
+      "type": {
+        "id": "le",
+        "name": "le",
+        "description": "(%1 <= %2) : less-than-or-equal-to operator (true=1, false=0)",
+        "command-line": "-le",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "ge",
+      "name": "ge",
+      "value-key": "[COMPARISON_OPERATORS_GE]",
+      "description": "(%1 >= %2) : greater-than-or-equal-to operator (true=1, false=0)",
+      "type": {
+        "id": "ge",
+        "name": "ge",
+        "description": "(%1 >= %2) : greater-than-or-equal-to operator (true=1, false=0)",
+        "command-line": "-ge",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "eq",
+      "name": "eq",
+      "value-key": "[COMPARISON_OPERATORS_EQ]",
+      "description": "(%1 == %2) : equal-to operator (true=1, false=0)",
+      "type": {
+        "id": "eq",
+        "name": "eq",
+        "description": "(%1 == %2) : equal-to operator (true=1, false=0)",
+        "command-line": "-eq",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "neq",
+      "name": "neq",
+      "value-key": "[COMPARISON_OPERATORS_NEQ]",
+      "description": "(%1 != %2) : not-equal-to operator (true=1, false=0)",
+      "type": {
+        "id": "neq",
+        "name": "neq",
+        "description": "(%1 != %2) : not-equal-to operator (true=1, false=0)",
+        "command-line": "-neq",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "if",
+      "name": "if",
+      "value-key": "[CONDITIONAL_OPERATORS_IF]",
+      "description": "(%1 ? %2 : %3) : if first operand is true (non-zero), return second operand, otherwise return third operand",
+      "type": {
+        "id": "if",
+        "name": "if",
+        "description": "(%1 ? %2 : %3) : if first operand is true (non-zero), return second operand, otherwise return third operand",
+        "command-line": "-if",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "replace",
+      "name": "replace",
+      "value-key": "[CONDITIONAL_OPERATORS_REPLACE]",
+      "description": "(%1, %2 -> %3) : Wherever first operand is equal to the second operand, replace with third operand",
+      "type": {
+        "id": "replace",
+        "name": "replace",
+        "description": "(%1, %2 -> %3) : Wherever first operand is equal to the second operand, replace with third operand",
+        "command-line": "-replace",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "sqrt",
+      "name": "sqrt",
+      "value-key": "[POWER_FUNCTIONS_SQRT]",
+      "description": "sqrt (%1) : square root",
+      "type": {
+        "id": "sqrt",
+        "name": "sqrt",
+        "description": "sqrt (%1) : square root",
+        "command-line": "-sqrt",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "pow",
+      "name": "pow",
+      "value-key": "[POWER_FUNCTIONS_POW]",
+      "description": "%1^%2 : raise (n-1)th operand to nth power",
+      "type": {
+        "id": "pow",
+        "name": "pow",
+        "description": "%1^%2 : raise (n-1)th operand to nth power",
+        "command-line": "-pow",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "round",
+      "name": "round",
+      "value-key": "[NEAREST_INTEGER_OPERATIONS_ROUND]",
+      "description": "round (%1) : round to nearest integer",
+      "type": {
+        "id": "round",
+        "name": "round",
+        "description": "round (%1) : round to nearest integer",
+        "command-line": "-round",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "ceil",
+      "name": "ceil",
+      "value-key": "[NEAREST_INTEGER_OPERATIONS_CEIL]",
+      "description": "ceil (%1) : round up to nearest integer",
+      "type": {
+        "id": "ceil",
+        "name": "ceil",
+        "description": "ceil (%1) : round up to nearest integer",
+        "command-line": "-ceil",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "floor",
+      "name": "floor",
+      "value-key": "[NEAREST_INTEGER_OPERATIONS_FLOOR]",
+      "description": "floor (%1) : round down to nearest integer",
+      "type": {
+        "id": "floor",
+        "name": "floor",
+        "description": "floor (%1) : round down to nearest integer",
+        "command-line": "-floor",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "not",
+      "name": "not",
+      "value-key": "[LOGICAL_OPERATORS_NOT]",
+      "description": "!%1 : NOT operator: true (1) if operand is false (i.e. zero)",
+      "type": {
+        "id": "not",
+        "name": "not",
+        "description": "!%1 : NOT operator: true (1) if operand is false (i.e. zero)",
+        "command-line": "-not",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "and",
+      "name": "and",
+      "value-key": "[LOGICAL_OPERATORS_AND]",
+      "description": "(%1 && %2) : AND operator: true (1) if both operands are true (i.e. non-zero)",
+      "type": {
+        "id": "and",
+        "name": "and",
+        "description": "(%1 && %2) : AND operator: true (1) if both operands are true (i.e. non-zero)",
+        "command-line": "-and",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "or",
+      "name": "or",
+      "value-key": "[LOGICAL_OPERATORS_OR]",
+      "description": "(%1 || %2) : OR operator: true (1) if either operand is true (i.e. non-zero)",
+      "type": {
+        "id": "or",
+        "name": "or",
+        "description": "(%1 || %2) : OR operator: true (1) if either operand is true (i.e. non-zero)",
+        "command-line": "-or",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "xor",
+      "name": "xor",
+      "value-key": "[LOGICAL_OPERATORS_XOR]",
+      "description": "(%1 ^^ %2) : XOR operator: true (1) if only one of the operands is true (i.e. non-zero)",
+      "type": {
+        "id": "xor",
+        "name": "xor",
+        "description": "(%1 ^^ %2) : XOR operator: true (1) if only one of the operands is true (i.e. non-zero)",
+        "command-line": "-xor",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "isnan",
+      "name": "isnan",
+      "value-key": "[CLASSIFICATION_FUNCTIONS_ISNAN]",
+      "description": "isnan (%1) : true (1) if operand is not-a-number (NaN)",
+      "type": {
+        "id": "isnan",
+        "name": "isnan",
+        "description": "isnan (%1) : true (1) if operand is not-a-number (NaN)",
+        "command-line": "-isnan",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "isinf",
+      "name": "isinf",
+      "value-key": "[CLASSIFICATION_FUNCTIONS_ISINF]",
+      "description": "isinf (%1) : true (1) if operand is infinite (Inf)",
+      "type": {
+        "id": "isinf",
+        "name": "isinf",
+        "description": "isinf (%1) : true (1) if operand is infinite (Inf)",
+        "command-line": "-isinf",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "finite",
+      "name": "finite",
+      "value-key": "[CLASSIFICATION_FUNCTIONS_FINITE]",
+      "description": "finite (%1) : true (1) if operand is finite (i.e. not NaN or Inf)",
+      "type": {
+        "id": "finite",
+        "name": "finite",
+        "description": "finite (%1) : true (1) if operand is finite (i.e. not NaN or Inf)",
+        "command-line": "-finite",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "complex",
+      "name": "complex",
+      "value-key": "[COMPLEX_NUMBERS_COMPLEX]",
+      "description": "(%1 + %2 i) : create complex number using the last two operands as real,imaginary components",
+      "type": {
+        "id": "complex",
+        "name": "complex",
+        "description": "(%1 + %2 i) : create complex number using the last two operands as real,imaginary components",
+        "command-line": "-complex",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "polar",
+      "name": "polar",
+      "value-key": "[COMPLEX_NUMBERS_POLAR]",
+      "description": "(%1 /_ %2) : create complex number using the last two operands as magnitude,phase components (phase in radians)",
+      "type": {
+        "id": "polar",
+        "name": "polar",
+        "description": "(%1 /_ %2) : create complex number using the last two operands as magnitude,phase components (phase in radians)",
+        "command-line": "-polar",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "real",
+      "name": "real",
+      "value-key": "[COMPLEX_NUMBERS_REAL]",
+      "description": "real (%1) : real part of complex number",
+      "type": {
+        "id": "real",
+        "name": "real",
+        "description": "real (%1) : real part of complex number",
+        "command-line": "-real",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "imag",
+      "name": "imag",
+      "value-key": "[COMPLEX_NUMBERS_IMAG]",
+      "description": "imag (%1) : imaginary part of complex number",
+      "type": {
+        "id": "imag",
+        "name": "imag",
+        "description": "imag (%1) : imaginary part of complex number",
+        "command-line": "-imag",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "phase",
+      "name": "phase",
+      "value-key": "[COMPLEX_NUMBERS_PHASE]",
+      "description": "phase (%1) : phase of complex number (use -abs for magnitude)",
+      "type": {
+        "id": "phase",
+        "name": "phase",
+        "description": "phase (%1) : phase of complex number (use -abs for magnitude)",
+        "command-line": "-phase",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "conj",
+      "name": "conj",
+      "value-key": "[COMPLEX_NUMBERS_CONJ]",
+      "description": "conj (%1) : complex conjugate",
+      "type": {
+        "id": "conj",
+        "name": "conj",
+        "description": "conj (%1) : complex conjugate",
+        "command-line": "-conj",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "proj",
+      "name": "proj",
+      "value-key": "[COMPLEX_NUMBERS_PROJ]",
+      "description": "proj (%1) : projection onto the Riemann sphere",
+      "type": {
+        "id": "proj",
+        "name": "proj",
+        "description": "proj (%1) : projection onto the Riemann sphere",
+        "command-line": "-proj",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "exp",
+      "name": "exp",
+      "value-key": "[EXPONENTIAL_FUNCTIONS_EXP]",
+      "description": "exp (%1) : exponential function",
+      "type": {
+        "id": "exp",
+        "name": "exp",
+        "description": "exp (%1) : exponential function",
+        "command-line": "-exp",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "log",
+      "name": "log",
+      "value-key": "[EXPONENTIAL_FUNCTIONS_LOG]",
+      "description": "log (%1) : natural logarithm",
+      "type": {
+        "id": "log",
+        "name": "log",
+        "description": "log (%1) : natural logarithm",
+        "command-line": "-log",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "log10",
+      "name": "log10",
+      "value-key": "[EXPONENTIAL_FUNCTIONS_LOG10]",
+      "description": "log10 (%1) : common logarithm",
+      "type": {
+        "id": "log10",
+        "name": "log10",
+        "description": "log10 (%1) : common logarithm",
+        "command-line": "-log10",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "cos",
+      "name": "cos",
+      "value-key": "[TRIGONOMETRIC_FUNCTIONS_COS]",
+      "description": "cos (%1) : cosine",
+      "type": {
+        "id": "cos",
+        "name": "cos",
+        "description": "cos (%1) : cosine",
+        "command-line": "-cos",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "sin",
+      "name": "sin",
+      "value-key": "[TRIGONOMETRIC_FUNCTIONS_SIN]",
+      "description": "sin (%1) : sine",
+      "type": {
+        "id": "sin",
+        "name": "sin",
+        "description": "sin (%1) : sine",
+        "command-line": "-sin",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "tan",
+      "name": "tan",
+      "value-key": "[TRIGONOMETRIC_FUNCTIONS_TAN]",
+      "description": "tan (%1) : tangent",
+      "type": {
+        "id": "tan",
+        "name": "tan",
+        "description": "tan (%1) : tangent",
+        "command-line": "-tan",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "acos",
+      "name": "acos",
+      "value-key": "[TRIGONOMETRIC_FUNCTIONS_ACOS]",
+      "description": "acos (%1) : inverse cosine",
+      "type": {
+        "id": "acos",
+        "name": "acos",
+        "description": "acos (%1) : inverse cosine",
+        "command-line": "-acos",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "asin",
+      "name": "asin",
+      "value-key": "[TRIGONOMETRIC_FUNCTIONS_ASIN]",
+      "description": "asin (%1) : inverse sine",
+      "type": {
+        "id": "asin",
+        "name": "asin",
+        "description": "asin (%1) : inverse sine",
+        "command-line": "-asin",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "atan",
+      "name": "atan",
+      "value-key": "[TRIGONOMETRIC_FUNCTIONS_ATAN]",
+      "description": "atan (%1) : inverse tangent",
+      "type": {
+        "id": "atan",
+        "name": "atan",
+        "description": "atan (%1) : inverse tangent",
+        "command-line": "-atan",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "cosh",
+      "name": "cosh",
+      "value-key": "[HYPERBOLIC_FUNCTIONS_COSH]",
+      "description": "cosh (%1) : hyperbolic cosine",
+      "type": {
+        "id": "cosh",
+        "name": "cosh",
+        "description": "cosh (%1) : hyperbolic cosine",
+        "command-line": "-cosh",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "sinh",
+      "name": "sinh",
+      "value-key": "[HYPERBOLIC_FUNCTIONS_SINH]",
+      "description": "sinh (%1) : hyperbolic sine",
+      "type": {
+        "id": "sinh",
+        "name": "sinh",
+        "description": "sinh (%1) : hyperbolic sine",
+        "command-line": "-sinh",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "tanh",
+      "name": "tanh",
+      "value-key": "[HYPERBOLIC_FUNCTIONS_TANH]",
+      "description": "tanh (%1) : hyperbolic tangent",
+      "type": {
+        "id": "tanh",
+        "name": "tanh",
+        "description": "tanh (%1) : hyperbolic tangent",
+        "command-line": "-tanh",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "acosh",
+      "name": "acosh",
+      "value-key": "[HYPERBOLIC_FUNCTIONS_ACOSH]",
+      "description": "acosh (%1) : inverse hyperbolic cosine",
+      "type": {
+        "id": "acosh",
+        "name": "acosh",
+        "description": "acosh (%1) : inverse hyperbolic cosine",
+        "command-line": "-acosh",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "asinh",
+      "name": "asinh",
+      "value-key": "[HYPERBOLIC_FUNCTIONS_ASINH]",
+      "description": "asinh (%1) : inverse hyperbolic sine",
+      "type": {
+        "id": "asinh",
+        "name": "asinh",
+        "description": "asinh (%1) : inverse hyperbolic sine",
+        "command-line": "-asinh",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "atanh",
+      "name": "atanh",
+      "value-key": "[HYPERBOLIC_FUNCTIONS_ATANH]",
+      "description": "atanh (%1) : inverse hyperbolic tangent",
+      "type": {
+        "id": "atanh",
+        "name": "atanh",
+        "description": "atanh (%1) : inverse hyperbolic tangent",
+        "command-line": "-atanh",
+        "inputs": [],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "datatype",
+      "name": "datatype",
+      "command-line-flag": "-datatype",
+      "value-key": "[DATA_TYPE_OPTIONS_DATATYPE]",
+      "description": "specify output image data type. Valid choices are: float32, float32le, float32be, float64, float64le, float64be, int64, uint64, int64le, uint64le, int64be, uint64be, int32, uint32, int32le, uint32le, int32be, uint32be, int16, uint16, int16le, uint16le, int16be, uint16be, cfloat32, cfloat32le, cfloat32be, cfloat64, cfloat64le, cfloat64be, int8, uint8, bit.",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "info",
+      "name": "info",
+      "command-line-flag": "-info",
+      "value-key": "[__STANDARD_OPTIONS_INFO]",
+      "description": "display information messages.",
+      "type": "Flag"
+    },
+    {
+      "id": "quiet",
+      "name": "quiet",
+      "command-line-flag": "-quiet",
+      "value-key": "[__STANDARD_OPTIONS_QUIET]",
+      "description": "do not display information messages or progress status; alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string.",
+      "type": "Flag"
+    },
+    {
+      "id": "debug",
+      "name": "debug",
+      "command-line-flag": "-debug",
+      "value-key": "[__STANDARD_OPTIONS_DEBUG]",
+      "description": "display debugging messages.",
+      "type": "Flag"
+    },
+    {
+      "id": "force",
+      "name": "force",
+      "command-line-flag": "-force",
+      "value-key": "[__STANDARD_OPTIONS_FORCE]",
+      "description": "force overwrite of output files (caution: using the same file as input and output might cause unexpected behaviour).",
+      "type": "Flag"
+    },
+    {
+      "id": "nthreads",
+      "name": "nthreads",
+      "command-line-flag": "-nthreads",
+      "value-key": "[__STANDARD_OPTIONS_NTHREADS]",
+      "description": "use this number of threads in multi-threaded applications (set to 0 to disable multi-threading).",
+      "type": "Number",
+      "optional": true,
+      "integer": true
+    },
+    {
+      "id": "config",
+      "name": "config",
+      "value-key": "[__STANDARD_OPTIONS_CONFIG]",
+      "description": "temporarily set the value of an MRtrix config file entry.",
+      "type": {
+        "id": "config",
+        "name": "config",
+        "description": "temporarily set the value of an MRtrix config file entry.",
+        "command-line": "-config [KEY] [VALUE]",
+        "inputs": [
+          {
+            "id": "key",
+            "name": "key",
+            "value-key": "[KEY]",
+            "description": "temporarily set the value of an MRtrix config file entry.",
+            "type": "String",
+            "optional": false
+          },
+          {
+            "id": "value",
+            "name": "value",
+            "value-key": "[VALUE]",
+            "description": "temporarily set the value of an MRtrix config file entry.",
+            "type": "String",
+            "optional": false
+          }
+        ],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "help",
+      "name": "help",
+      "command-line-flag": "-help",
+      "value-key": "[__STANDARD_OPTIONS_HELP]",
+      "description": "display this information page and exit.",
+      "type": "Flag"
+    },
+    {
+      "id": "version",
+      "name": "version",
+      "command-line-flag": "-version",
+      "value-key": "[__STANDARD_OPTIONS_VERSION]",
+      "description": "display version information and exit.",
+      "type": "Flag"
+    }
+  ],
+  "output-files": [],
+  "url": "https://www.mrtrix.org/"
+}

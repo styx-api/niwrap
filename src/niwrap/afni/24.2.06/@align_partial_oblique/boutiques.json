@@ -1,0 +1,101 @@
+{
+  "name": "@align_partial_oblique",
+  "author": "AFNI Developers",
+  "description": "A script to align a full coverage T1 weighted non-oblique dataset to match a partial coverage T1 weighted non-oblique dataset. Alignment is done with a rotation and shift (6 parameters) transform only.",
+  "command-line": "@align_partial_oblique [BASE] [INPUT] [SUFFIX] [KEEP_TMP] [CLEAN] [DXYZ] [DX] [DY] [DZ]",
+  "inputs": [
+    {
+      "description": "Reference anatomical full coverage volume.",
+      "value-key": "[BASE]",
+      "type": "File",
+      "optional": false,
+      "command-line-flag": "-base",
+      "id": "base",
+      "name": "Base dataset"
+    },
+    {
+      "description": "Partial coverage T1 weighted non-oblique dataset.",
+      "value-key": "[INPUT]",
+      "type": "File",
+      "optional": false,
+      "command-line-flag": "-input",
+      "id": "input",
+      "name": "Input dataset"
+    },
+    {
+      "description": "Output dataset name is formed by adding SUF to the prefix of the base dataset. The default suffix is _alnd_PartialCoverageObliqueT1",
+      "value-key": "[SUFFIX]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "-suffix",
+      "id": "suffix",
+      "name": "Suffix"
+    },
+    {
+      "description": "Keep temporary files.",
+      "value-key": "[KEEP_TMP]",
+      "type": "Flag",
+      "command-line-flag": "-keep_tmp",
+      "id": "keep_tmp",
+      "name": "Keep temporary files flag"
+    },
+    {
+      "description": "Clean all temp files, likely left from -keep_tmp option then exit.",
+      "value-key": "[CLEAN]",
+      "type": "Flag",
+      "command-line-flag": "-clean",
+      "id": "clean",
+      "name": "Clean temporary files flag"
+    },
+    {
+      "description": "Cubic voxel size of output dataset in TLRC space Default MM is 1.",
+      "value-key": "[DXYZ]",
+      "type": "Number",
+      "optional": true,
+      "command-line-flag": "-dxyz",
+      "id": "dxyz",
+      "name": "Cubic voxel size",
+      "integer": false
+    },
+    {
+      "description": "Size of voxel in the x direction (Right-Left). Default is 1mm.",
+      "value-key": "[DX]",
+      "type": "Number",
+      "optional": true,
+      "command-line-flag": "-dx",
+      "id": "dx",
+      "name": "Voxel size in x direction",
+      "integer": false
+    },
+    {
+      "description": "Size of voxel in the y direction (Anterior-Posterior). Default is 1mm.",
+      "value-key": "[DY]",
+      "type": "Number",
+      "optional": true,
+      "command-line-flag": "-dy",
+      "id": "dy",
+      "name": "Voxel size in y direction",
+      "integer": false
+    },
+    {
+      "description": "Size of voxel in the z direction (Inferior-Superior). Default is 1mm.",
+      "value-key": "[DZ]",
+      "type": "Number",
+      "optional": true,
+      "command-line-flag": "-dz",
+      "id": "dz",
+      "name": "Voxel size in z direction",
+      "integer": false
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[BASE]_alnd_[INPUT].nii.gz",
+      "description": "Aligned partial coverage T1 weighted dataset",
+      "id": "aligned_output",
+      "name": "Aligned output file"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

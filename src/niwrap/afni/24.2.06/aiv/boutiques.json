@@ -1,0 +1,64 @@
+{
+  "name": "aiv",
+  "author": "AFNI Developers",
+  "description": "AFNI Image Viewer program. Shows the 2D images on the command line in an AFNI-like image viewer.",
+  "command-line": "aiv [VERBOSE] [QUIET] [TITLE] [PORT] [PAD] [INPUT_IMAGES]",
+  "inputs": [
+    {
+      "command-line-flag": "-v",
+      "description": "Print out the image filenames for progress tracking.",
+      "value-key": "[VERBOSE]",
+      "type": "Flag",
+      "id": "verbose",
+      "name": "Verbose Flag"
+    },
+    {
+      "command-line-flag": "-q",
+      "description": "Run the program in quiet mode.",
+      "value-key": "[QUIET]",
+      "type": "Flag",
+      "id": "quiet",
+      "name": "Quiet Flag"
+    },
+    {
+      "command-line-flag": "-title",
+      "description": "Specify the window title.",
+      "value-key": "[TITLE]",
+      "type": "String",
+      "optional": true,
+      "id": "title",
+      "name": "Window Title"
+    },
+    {
+      "command-line-flag": "-p",
+      "description": "Listen to TCP/IP port for incoming images.",
+      "value-key": "[PORT]",
+      "type": "Number",
+      "minimum": 1024,
+      "maximum": 65535,
+      "optional": true,
+      "id": "port",
+      "name": "TCP/IP Port"
+    },
+    {
+      "command-line-flag": "-pad",
+      "description": "Pad all input images to be the same size.",
+      "value-key": "[PAD]",
+      "type": "String",
+      "optional": true,
+      "id": "pad",
+      "name": "Pad Input Images"
+    },
+    {
+      "description": "Input image files (e.g., img1.jpg, img2.bmp).",
+      "value-key": "[INPUT_IMAGES]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "input_images",
+      "name": "Input Images"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

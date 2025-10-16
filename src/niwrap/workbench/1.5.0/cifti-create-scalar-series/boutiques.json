@@ -1,0 +1,92 @@
+{
+  "name": "cifti-create-scalar-series",
+  "author": "Connectome Workbench Developers",
+  "command-line": "wb_command -cifti-create-scalar-series [INPUT] [CIFTI_OUT] [OPT_TRANSPOSE] [OPT_NAME_FILE_FILE] [SERIES]",
+  "description": "Import series data into cifti.\n\nConvert a text file containing series of equal length into a cifti file.  The text file should have lines made up of numbers separated by whitespace, with no extra newlines between lines.\n\nThe <unit> argument must be one of the following:\n\nSECOND\nHERTZ\nMETER\nRADIAN",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "input",
+      "name": "input",
+      "description": "input file",
+      "optional": false,
+      "value-key": "[INPUT]",
+      "type": "String"
+    },
+    {
+      "id": "cifti_out",
+      "name": "cifti_out",
+      "type": "String",
+      "description": "output cifti file",
+      "optional": false,
+      "value-key": "[CIFTI_OUT]"
+    },
+    {
+      "id": "opt_transpose",
+      "name": "opt_transpose",
+      "command-line-flag": "-transpose",
+      "description": "use if the rows of the text file are along the scalar dimension",
+      "type": "Flag",
+      "value-key": "[OPT_TRANSPOSE]"
+    },
+    {
+      "id": "opt_name_file_file",
+      "name": "opt_name_file_file",
+      "command-line-flag": "-name-file",
+      "description": "use a text file to set names on scalar dimension: text file containing names, one per line",
+      "optional": true,
+      "value-key": "[OPT_NAME_FILE_FILE]",
+      "type": "String"
+    },
+    {
+      "id": "series",
+      "name": "series",
+      "description": "set the units and values of the series",
+      "type": {
+        "id": "series",
+        "name": "series",
+        "description": "set the units and values of the series",
+        "command-line": "-series [UNIT] [START] [STEP]",
+        "inputs": [
+          {
+            "id": "unit",
+            "name": "unit",
+            "description": "the unit to use",
+            "optional": false,
+            "value-key": "[UNIT]",
+            "type": "String"
+          },
+          {
+            "id": "start",
+            "name": "start",
+            "description": "the value at the first series point",
+            "optional": false,
+            "value-key": "[START]",
+            "type": "Number",
+            "integer": false
+          },
+          {
+            "id": "step",
+            "name": "step",
+            "description": "the interval between series points",
+            "optional": false,
+            "value-key": "[STEP]",
+            "type": "Number",
+            "integer": false
+          }
+        ]
+      },
+      "optional": true,
+      "value-key": "[SERIES]"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "cifti_out",
+      "name": "cifti_out",
+      "path-template": "[CIFTI_OUT]",
+      "description": "output cifti file"
+    }
+  ],
+  "url": "https://github.com/Washington-University/workbench"
+}

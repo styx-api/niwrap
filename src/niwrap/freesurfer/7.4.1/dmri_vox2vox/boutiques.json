@@ -1,0 +1,124 @@
+{
+  "name": "dmri_vox2vox",
+  "description": "Tool for voxel-to-voxel transformations in diffusion MRI data processing",
+  "command-line": "dmri_vox2vox [INPUT_FILES] [INPUT_DIRECTORY] [OUTPUT_FILES] [OUTPUT_DIRECTORY] [INPUT_REFERENCE] [OUTPUT_REFERENCE] [AFFINE_REGISTRATION] [NONLINEAR_REGISTRATION] [INVERSE_NONLINEAR] [DEBUG] [CHECK_OPTIONS] [HELP] [VERSION]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--in",
+      "description": "Input text file(s)",
+      "value-key": "[INPUT_FILES]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "input_files",
+      "name": "Input Files"
+    },
+    {
+      "command-line-flag": "--indir",
+      "description": "Input directory, if specified, names of input text files are relative to this",
+      "value-key": "[INPUT_DIRECTORY]",
+      "type": "String",
+      "optional": true,
+      "id": "input_directory",
+      "name": "Input Directory"
+    },
+    {
+      "command-line-flag": "--out",
+      "description": "Output text file(s), as many as inputs",
+      "value-key": "[OUTPUT_FILES]",
+      "type": "String",
+      "list": true,
+      "optional": false,
+      "id": "output_files",
+      "name": "Output Files"
+    },
+    {
+      "command-line-flag": "--outdir",
+      "description": "Output directory, if specified, names of output text files are relative to this",
+      "value-key": "[OUTPUT_DIRECTORY]",
+      "type": "String",
+      "optional": true,
+      "id": "output_directory",
+      "name": "Output Directory"
+    },
+    {
+      "command-line-flag": "--inref",
+      "description": "Input reference volume",
+      "value-key": "[INPUT_REFERENCE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_reference",
+      "name": "Input Reference"
+    },
+    {
+      "command-line-flag": "--outref",
+      "description": "Output reference volume",
+      "value-key": "[OUTPUT_REFERENCE]",
+      "type": "File",
+      "optional": false,
+      "id": "output_reference",
+      "name": "Output Reference"
+    },
+    {
+      "command-line-flag": "--reg",
+      "description": "Affine registration file (.mat) to be applied first",
+      "value-key": "[AFFINE_REGISTRATION]",
+      "type": "File",
+      "optional": false,
+      "id": "affine_registration",
+      "name": "Affine Registration"
+    },
+    {
+      "command-line-flag": "--regnl",
+      "description": "Nonlinear registration file (.m3z) to be applied second",
+      "value-key": "[NONLINEAR_REGISTRATION]",
+      "type": "File",
+      "optional": false,
+      "id": "nonlinear_registration",
+      "name": "Nonlinear Registration"
+    },
+    {
+      "command-line-flag": "--invnl",
+      "description": "Apply inverse of nonlinear warp when --regnl is used",
+      "value-key": "[INVERSE_NONLINEAR]",
+      "type": "Flag",
+      "id": "inverse_nonlinear",
+      "name": "Inverse Nonlinear Flag"
+    },
+    {
+      "command-line-flag": "--debug",
+      "description": "Turn on debugging",
+      "value-key": "[DEBUG]",
+      "type": "Flag",
+      "id": "debug",
+      "name": "Debug Flag"
+    },
+    {
+      "command-line-flag": "--checkopts",
+      "description": "Check options and exit without running",
+      "value-key": "[CHECK_OPTIONS]",
+      "type": "Flag",
+      "id": "check_options",
+      "name": "Check Options Flag"
+    },
+    {
+      "command-line-flag": "--help",
+      "description": "Print out information on how to use this program",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "id": "help",
+      "name": "Help Flag"
+    },
+    {
+      "command-line-flag": "--version",
+      "description": "Print out version and exit",
+      "value-key": "[VERSION]",
+      "type": "Flag",
+      "id": "version",
+      "name": "Version Flag"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

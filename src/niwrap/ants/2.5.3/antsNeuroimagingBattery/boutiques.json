@@ -1,0 +1,187 @@
+{
+  "name": "antsNeuroimagingBattery",
+  "command-line": "antsNeuroimagingBattery [INPUT_DIRECTORY] [OUTPUT_DIRECTORY] [OUTPUT_NAME] [ANATOMICAL_IMAGE] [ANATOMICAL_MASK] [TEMPLATE] [TEMPLATE_TRANSFORM_NAME] [TEMPLATE_LABELS] [DTI_FLAG] [PCASL_FLAG] [PASL_FLAG] [PASL_M0_FLAG] [BOLD_FLAG] [RSBOLD_FLAG] [MT_FLAG] [NO_MT_FLAG] [TEMP_DIRECTORY] [HELP] [INFO_ONLY]",
+  "author": "ANTs Developers",
+  "description": "Align MR modalities to a common within-subject (and optional template) space.",
+  "url": "https://github.com/ANTsX/ANTs",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "input_directory",
+      "name": "Input Directory",
+      "value-key": "[INPUT_DIRECTORY]",
+      "type": "String",
+      "optional": false,
+      "command-line-flag": "--input-directory",
+      "description": "Directory where to look for modality images."
+    },
+    {
+      "id": "output_directory",
+      "name": "Output Directory",
+      "value-key": "[OUTPUT_DIRECTORY]",
+      "type": "String",
+      "optional": false,
+      "command-line-flag": "--output-directory",
+      "description": "Directory where output goes (where antsCorticalThickness output lives)."
+    },
+    {
+      "id": "output_name",
+      "name": "Output Name",
+      "value-key": "[OUTPUT_NAME]",
+      "type": "String",
+      "optional": false,
+      "command-line-flag": "--output-name",
+      "description": "File prefix for outputs."
+    },
+    {
+      "id": "anatomical_image",
+      "name": "Anatomical Image",
+      "value-key": "[ANATOMICAL_IMAGE]",
+      "type": "File",
+      "optional": false,
+      "command-line-flag": "--anatomical",
+      "description": "Reference subject image (usually T1)."
+    },
+    {
+      "id": "anatomical_mask",
+      "name": "Anatomical Mask",
+      "value-key": "[ANATOMICAL_MASK]",
+      "type": "File",
+      "optional": false,
+      "command-line-flag": "--anatomical-mask",
+      "description": "Mask of anatomical image, should contain cerebrum, cerebellum, and brainstem."
+    },
+    {
+      "id": "template",
+      "name": "Template Image",
+      "value-key": "[TEMPLATE]",
+      "type": "File",
+      "optional": true,
+      "command-line-flag": "--template",
+      "description": "Template image."
+    },
+    {
+      "id": "template_transform_name",
+      "name": "Template Transform Name",
+      "value-key": "[TEMPLATE_TRANSFORM_NAME]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "--template-transform-name",
+      "description": "Basename of transforms from anatomical to template space (must be in output base dir)."
+    },
+    {
+      "id": "template_labels",
+      "name": "Template Labels",
+      "value-key": "[TEMPLATE_LABELS]",
+      "type": "File",
+      "optional": true,
+      "command-line-flag": "--template-labels",
+      "description": "Labels in template space."
+    },
+    {
+      "id": "dti_flag",
+      "name": "DTI Flag",
+      "value-key": "[DTI_FLAG]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "--dti-flag",
+      "description": "DTI flag in DIRNAME/fileflag/outid format."
+    },
+    {
+      "id": "pcasl_flag",
+      "name": "pCASL Flag",
+      "value-key": "[PCASL_FLAG]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "--pcasl-flag",
+      "description": "pCASL flag in DIRNAME/fileflag/outid format."
+    },
+    {
+      "id": "pasl_flag",
+      "name": "PASL Flag",
+      "value-key": "[PASL_FLAG]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "--pasl-flag",
+      "description": "PASL flag in DIRNAME/fileflag/outid format."
+    },
+    {
+      "id": "pasl_m0_flag",
+      "name": "PASL M0 Flag",
+      "value-key": "[PASL_M0_FLAG]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "--pasl-m0-flag",
+      "description": "PASL M0 flag in DIRNAME/fileflag/outid format."
+    },
+    {
+      "id": "bold_flag",
+      "name": "BOLD Flag",
+      "value-key": "[BOLD_FLAG]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "--bold-flag",
+      "description": "BOLD flag in DIRNAME/fileflag/outid format."
+    },
+    {
+      "id": "rsbold_flag",
+      "name": "RSBOLD Flag",
+      "value-key": "[RSBOLD_FLAG]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "--rsbold-flag",
+      "description": "RSBOLD flag in DIRNAME/fileflag/outid format."
+    },
+    {
+      "id": "mt_flag",
+      "name": "MT Flag",
+      "value-key": "[MT_FLAG]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "--mt-flag",
+      "description": "MT flag in DIRNAME/fileflag/outid format."
+    },
+    {
+      "id": "no_mt_flag",
+      "name": "No MT Flag",
+      "value-key": "[NO_MT_FLAG]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "--no-mt-flag",
+      "description": "No MT flag in DIRNAME/fileflag/outid format."
+    },
+    {
+      "id": "temp_directory",
+      "name": "Temporary Directory",
+      "value-key": "[TEMP_DIRECTORY]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "--temp-directory",
+      "description": "Temporary directory."
+    },
+    {
+      "id": "help",
+      "name": "Help",
+      "value-key": "[HELP]",
+      "type": "Flag",
+      "command-line-flag": "--help",
+      "description": "Display help information."
+    },
+    {
+      "id": "info_only",
+      "name": "Info Only",
+      "value-key": "[INFO_ONLY]",
+      "type": "Flag",
+      "command-line-flag": "--info-only",
+      "description": "Look for inputs, output what is there, but don't process any data."
+    }
+  ],
+  "output-files": [
+    {
+      "id": "output_directory",
+      "name": "Output Directory",
+      "description": "Directory containing output transform files.",
+      "path-template": "[OUTPUT_DIRECTORY]"
+    }
+  ]
+}

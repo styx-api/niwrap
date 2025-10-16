@@ -1,0 +1,78 @@
+{
+  "name": "mris_resample",
+  "description": "Resample cortical surfaces in FreeSurfer",
+  "command-line": "mris_resample [ATLAS_REG] [SUBJECT_REG] [SUBJECT_SURF] [OUTPUT] [ANNOT_IN] [ANNOT_OUT]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "atlas_reg",
+      "name": "Atlas Registration File",
+      "type": "File",
+      "description": "Atlas spherical registration file.",
+      "value-key": "[ATLAS_REG]",
+      "optional": false,
+      "command-line-flag": "-atlas_reg"
+    },
+    {
+      "id": "subject_reg",
+      "name": "Subject Registration File",
+      "type": "File",
+      "description": "Subject spherical registration file.",
+      "value-key": "[SUBJECT_REG]",
+      "optional": false,
+      "command-line-flag": "-subject_reg"
+    },
+    {
+      "id": "subject_surf",
+      "name": "Subject Surface File",
+      "type": "File",
+      "description": "Subject actual surface.",
+      "value-key": "[SUBJECT_SURF]",
+      "optional": false,
+      "command-line-flag": "-subject_surf"
+    },
+    {
+      "id": "output",
+      "name": "Output Resampled Surface",
+      "type": "String",
+      "description": "Output resampled surface.",
+      "value-key": "[OUTPUT]",
+      "optional": false,
+      "command-line-flag": "-out"
+    },
+    {
+      "command-line-flag": "--annot_in",
+      "id": "annot_in",
+      "name": "Input Annotation",
+      "type": "File",
+      "description": "Input annotation (for the subject). If present, output annotation must be present as well.",
+      "value-key": "[ANNOT_IN]",
+      "optional": true
+    },
+    {
+      "command-line-flag": "--annot_out",
+      "id": "annot_out",
+      "name": "Output Annotation",
+      "type": "String",
+      "description": "Output annotation (for the resampled atlas). If present, input annotation must be present as well.",
+      "value-key": "[ANNOT_OUT]",
+      "optional": true
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT]",
+      "description": "Resampled surface output",
+      "id": "resampled_surface_output",
+      "name": "Resampled Surface Output"
+    },
+    {
+      "path-template": "[ANNOT_OUT]",
+      "description": "Output annotation for the resampled atlas",
+      "id": "resampled_annotation_output",
+      "name": "Resampled Annotation Output"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

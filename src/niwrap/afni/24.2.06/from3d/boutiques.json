@@ -1,0 +1,97 @@
+{
+  "name": "from3d",
+  "author": "AFNI Developers",
+  "description": "Extract 2D image files from a 3D AFNI dataset.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "from3d [VERBOSE] [NSIZE] [RAW] [FLOAT] [ZFIRST] [ZLAST] [TFIRST] [TLAST] [INPUT] [PREFIX]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "-input",
+      "description": "Read 3D dataset from file 'fname'",
+      "value-key": "[INPUT]",
+      "type": "File",
+      "optional": false,
+      "id": "input",
+      "name": "Input file"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Write 2D images using prefix 'rname'",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "prefix",
+      "name": "Output prefix"
+    },
+    {
+      "command-line-flag": "-v",
+      "description": "Print out verbose information during the run",
+      "value-key": "[VERBOSE]",
+      "type": "Flag",
+      "id": "verbose",
+      "name": "Verbose flag"
+    },
+    {
+      "command-line-flag": "-nsize",
+      "description": "Adjust size of 2D data file to be NxN, by padding with zeros, where N is a power of 2.",
+      "value-key": "[NSIZE]",
+      "type": "Flag",
+      "id": "nsize",
+      "name": "N-size flag"
+    },
+    {
+      "command-line-flag": "-raw",
+      "description": "Write images in 'raw' format (just the data bytes). There will be no header information saying what the image dimensions are.",
+      "value-key": "[RAW]",
+      "type": "Flag",
+      "id": "raw",
+      "name": "Raw format flag"
+    },
+    {
+      "command-line-flag": "-float",
+      "description": "Write images as floats, no matter what they are in the dataset itself.",
+      "value-key": "[FLOAT]",
+      "type": "Flag",
+      "id": "float",
+      "name": "Float format flag"
+    },
+    {
+      "command-line-flag": "-zfirst",
+      "description": "Set 'num' = number of first z slice to be extracted (default = 1).",
+      "value-key": "[ZFIRST]",
+      "type": "Number",
+      "optional": true,
+      "id": "zfirst",
+      "name": "First Z slice"
+    },
+    {
+      "command-line-flag": "-zlast",
+      "description": "Set 'num' = number of last z slice to be extracted (default = largest).",
+      "value-key": "[ZLAST]",
+      "type": "Number",
+      "optional": true,
+      "id": "zlast",
+      "name": "Last Z slice"
+    },
+    {
+      "command-line-flag": "-tfirst",
+      "description": "Set 'num' = number of first time slice to be extracted (default = 1).",
+      "value-key": "[TFIRST]",
+      "type": "Number",
+      "optional": true,
+      "id": "tfirst",
+      "name": "First time slice"
+    },
+    {
+      "command-line-flag": "-tlast",
+      "description": "Set 'num' = number of last time slice to be extracted (default = largest).",
+      "value-key": "[TLAST]",
+      "type": "Number",
+      "optional": true,
+      "id": "tlast",
+      "name": "Last time slice"
+    }
+  ],
+  "output-files": []
+}

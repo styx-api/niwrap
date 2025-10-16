@@ -1,0 +1,135 @@
+{
+  "name": "@surf_to_vol_spackle",
+  "author": "AFNI Developers",
+  "description": "Project data from a surface dataset into a volume primarily using 3dSurf2Vol but then filling any holes with an iterative smoothing procedure.",
+  "command-line": "@surf_to_vol_spackle [MASKSET] [SPEC] [SURFA] [SURFB] [SURFSET] [PREFIX] [NORMAL_VECTOR_LENGTH] [SEARCH_RADIUS] [NUM_STEPS] [KEEP_TEMP_FILES] [MAX_ITERS] [USE_MODE] [DATUM_TYPE] [IGNORE_UNKNOWN_OPTIONS]",
+  "inputs": [
+    {
+      "description": "Mask dataset in which to project surface measures.",
+      "value-key": "[MASKSET]",
+      "type": "File",
+      "optional": false,
+      "id": "maskset",
+      "name": "Mask Set"
+    },
+    {
+      "description": "Surface specification file with list of surfaces.",
+      "value-key": "[SPEC]",
+      "type": "File",
+      "optional": false,
+      "id": "spec",
+      "name": "Surface Spec"
+    },
+    {
+      "description": "Name of the first surface, e.g., smoothwm, pial, etc.",
+      "value-key": "[SURFA]",
+      "type": "String",
+      "optional": false,
+      "id": "surfA",
+      "name": "Surface A"
+    },
+    {
+      "description": "Name of the second surface. If not included, computes using normal vector.",
+      "value-key": "[SURFB]",
+      "type": "String",
+      "optional": true,
+      "id": "surfB",
+      "name": "Surface B"
+    },
+    {
+      "description": "Dataset of surface measures.",
+      "value-key": "[SURFSET]",
+      "type": "File",
+      "optional": false,
+      "id": "surfset",
+      "name": "Surface Data Set"
+    },
+    {
+      "description": "Basename of output. Final name used is prefix.nii.gz.",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "prefix",
+      "name": "Prefix"
+    },
+    {
+      "command-line-flag": "-f_pn_mm",
+      "description": "Normal vector length if only using a single surface (default 2 mm).",
+      "value-key": "[NORMAL_VECTOR_LENGTH]",
+      "type": "Number",
+      "optional": true,
+      "id": "normal_vector_length",
+      "name": "Normal Vector Length"
+    },
+    {
+      "command-line-flag": "-meanrad",
+      "description": "Radius for search for mean to fill holes (default 2 mm).",
+      "value-key": "[SEARCH_RADIUS]",
+      "type": "Number",
+      "optional": true,
+      "id": "search_radius",
+      "name": "Search Radius"
+    },
+    {
+      "command-line-flag": "-nsteps",
+      "description": "Number of steps on line segments (default 10).",
+      "value-key": "[NUM_STEPS]",
+      "type": "Number",
+      "optional": true,
+      "id": "num_steps",
+      "name": "Number of Steps"
+    },
+    {
+      "command-line-flag": "-keep_temp_files",
+      "description": "Do not remove any of the temporary files (default is to remove them).",
+      "value-key": "[KEEP_TEMP_FILES]",
+      "type": "Flag",
+      "id": "keep_temp_files",
+      "name": "Keep Temporary Files Flag"
+    },
+    {
+      "command-line-flag": "-maxiters",
+      "description": "Maximum number of smoothing and filling iterations (default is 4).",
+      "value-key": "[MAX_ITERS]",
+      "type": "Number",
+      "optional": true,
+      "id": "max_iters",
+      "name": "Max Iterations"
+    },
+    {
+      "command-line-flag": "-mode",
+      "description": "Use mode instead of non-zero median (appropriate for ROIs).",
+      "value-key": "[USE_MODE]",
+      "type": "Flag",
+      "id": "use_mode",
+      "name": "Use Mode Flag"
+    },
+    {
+      "command-line-flag": "-datum",
+      "description": "Set datum type to byte, short, or float instead of maskset type. Mode triggers -datum short.",
+      "value-key": "[DATUM_TYPE]",
+      "type": "String",
+      "optional": true,
+      "id": "datum_type",
+      "name": "Datum Type"
+    },
+    {
+      "command-line-flag": "-ignore_unknown_options",
+      "description": "Ignore additional options that are not needed.",
+      "value-key": "[IGNORE_UNKNOWN_OPTIONS]",
+      "type": "Flag",
+      "id": "ignore_unknown_options",
+      "name": "Ignore Unknown Options Flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX].nii.gz",
+      "description": "The primary output volume file with surface measures projected.",
+      "id": "output_volume",
+      "name": "Output Volume"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

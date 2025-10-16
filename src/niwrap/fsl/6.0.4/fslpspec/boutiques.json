@@ -1,0 +1,34 @@
+{
+  "name": "fslpspec",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Estimate the power spectrum of 4D fMRI time series data",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "fslpspec [INFILE] [OUTFILE]",
+  "inputs": [
+    {
+      "description": "Input 4D fMRI time series image (e.g. fMRI_data.nii.gz)",
+      "value-key": "[INFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "infile",
+      "name": "Input file"
+    },
+    {
+      "description": "Output power spectrum image (e.g. pspec_data.nii.gz)",
+      "value-key": "[OUTFILE]",
+      "type": "String",
+      "optional": true,
+      "id": "outfile",
+      "name": "Output file"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTFILE]",
+      "description": "Output power spectrum image",
+      "id": "output_pspec",
+      "name": "Output power spectrum file"
+    }
+  ]
+}

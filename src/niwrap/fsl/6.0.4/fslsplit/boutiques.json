@@ -1,0 +1,66 @@
+{
+  "name": "fslsplit",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Split a 4D image into separate volumes or a 3D image into separate slices",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "command-line": "fslsplit [INFILE] [OUTPUT_BASENAME] [SEPARATION_X] [SEPARATION_Y] [SEPARATION_Z] [SEPARATION_TIME]",
+  "inputs": [
+    {
+      "description": "Input image (e.g. img.nii.gz)",
+      "value-key": "[INFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "infile",
+      "name": "Input file"
+    },
+    {
+      "description": "Output basename (default: vol)",
+      "value-key": "[OUTPUT_BASENAME]",
+      "type": "String",
+      "optional": true,
+      "id": "output_basename",
+      "name": "Output basename"
+    },
+    {
+      "command-line-flag": "-t",
+      "description": "Separate images in time (default behaviour)",
+      "value-key": "[SEPARATION_TIME]",
+      "type": "Flag",
+      "id": "separation_time",
+      "name": "Separate images in time"
+    },
+    {
+      "command-line-flag": "-x",
+      "description": "Separate images in the x direction",
+      "value-key": "[SEPARATION_X]",
+      "type": "Flag",
+      "id": "separation_x",
+      "name": "Separate images in the x direction"
+    },
+    {
+      "command-line-flag": "-y",
+      "description": "Separate images in the y direction",
+      "value-key": "[SEPARATION_Y]",
+      "type": "Flag",
+      "id": "separation_y",
+      "name": "Separate images in the y direction"
+    },
+    {
+      "command-line-flag": "-z",
+      "description": "Separate images in the z direction",
+      "value-key": "[SEPARATION_Z]",
+      "type": "Flag",
+      "id": "separation_z",
+      "name": "Separate images in the z direction"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_BASENAME]",
+      "description": "Output volumes/slices",
+      "id": "out_files",
+      "name": "Output files"
+    }
+  ]
+}

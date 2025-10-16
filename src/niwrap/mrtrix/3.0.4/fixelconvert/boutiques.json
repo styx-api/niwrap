@@ -1,0 +1,228 @@
+{
+  "name": "fixelconvert",
+  "description": "Convert between the old format fixel image (.msf / .msh) and the new fixel directory format.\n\n\n\nReferences:\n\n",
+  "author": "MRTrix3 Developers",
+  "schema-version": "0.5+styx",
+  "command-line": "fixelconvert [OPTIONS_FOR_CONVERTING_FROM_OLD_TO_NEW_FORMAT_NAME] [OPTIONS_FOR_CONVERTING_FROM_OLD_TO_NEW_FORMAT_NII] [OPTIONS_FOR_CONVERTING_FROM_OLD_TO_NEW_FORMAT_OUT_SIZE] [OPTIONS_FOR_CONVERTING_FROM_OLD_TO_NEW_FORMAT_TEMPLATE] [OPTIONS_FOR_CONVERTING_FROM_NEW_TO_OLD_FORMAT_VALUE] [OPTIONS_FOR_CONVERTING_FROM_NEW_TO_OLD_FORMAT_IN_SIZE] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION] [FIXEL_IN] [FIXEL_OUT]",
+  "inputs": [
+    {
+      "id": "fixel_in",
+      "name": "fixel_in",
+      "value-key": "[FIXEL_IN]",
+      "description": "the input fixel file / directory.",
+      "type": [
+        {
+          "id": "VariousString",
+          "command-line": "[OBJ]",
+          "inputs": [
+            {
+              "id": "obj",
+              "name": "Object",
+              "value-key": "[OBJ]",
+              "description": "String object.",
+              "type": "String",
+              "optional": false
+            }
+          ]
+        },
+        {
+          "id": "VariousFile",
+          "command-line": "[OBJ]",
+          "inputs": [
+            {
+              "id": "obj",
+              "name": "Object",
+              "value-key": "[OBJ]",
+              "description": "File object.",
+              "type": "File",
+              "optional": false
+            }
+          ]
+        }
+      ],
+      "optional": false
+    },
+    {
+      "id": "fixel_out",
+      "name": "fixel_out",
+      "value-key": "[FIXEL_OUT]",
+      "description": "the output fixel file / directory.",
+      "type": [
+        {
+          "id": "VariousString",
+          "command-line": "[OBJ]",
+          "inputs": [
+            {
+              "id": "obj",
+              "name": "Object",
+              "value-key": "[OBJ]",
+              "description": "String object.",
+              "type": "String",
+              "optional": false
+            }
+          ]
+        },
+        {
+          "id": "VariousFile",
+          "command-line": "[OBJ]",
+          "inputs": [
+            {
+              "id": "obj",
+              "name": "Object",
+              "value-key": "[OBJ]",
+              "description": "File object.",
+              "type": "File",
+              "optional": false
+            }
+          ]
+        }
+      ],
+      "optional": false
+    },
+    {
+      "id": "name",
+      "name": "name",
+      "command-line-flag": "-name",
+      "value-key": "[OPTIONS_FOR_CONVERTING_FROM_OLD_TO_NEW_FORMAT_NAME]",
+      "description": "assign a different name to the value field output (Default: value). Do not include the file extension.",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "nii",
+      "name": "nii",
+      "command-line-flag": "-nii",
+      "value-key": "[OPTIONS_FOR_CONVERTING_FROM_OLD_TO_NEW_FORMAT_NII]",
+      "description": "output the index, directions and data file in NIfTI format instead of .mif",
+      "type": "Flag"
+    },
+    {
+      "id": "out_size",
+      "name": "out_size",
+      "command-line-flag": "-out_size",
+      "value-key": "[OPTIONS_FOR_CONVERTING_FROM_OLD_TO_NEW_FORMAT_OUT_SIZE]",
+      "description": "also output the 'size' field from the old format",
+      "type": "Flag"
+    },
+    {
+      "id": "template",
+      "name": "template",
+      "command-line-flag": "-template",
+      "value-key": "[OPTIONS_FOR_CONVERTING_FROM_OLD_TO_NEW_FORMAT_TEMPLATE]",
+      "description": "specify an existing fixel directory (in the new format) to which the new output should conform",
+      "type": "File",
+      "optional": true
+    },
+    {
+      "id": "value",
+      "name": "value",
+      "command-line-flag": "-value",
+      "value-key": "[OPTIONS_FOR_CONVERTING_FROM_NEW_TO_OLD_FORMAT_VALUE]",
+      "description": "nominate the data file to import to the 'value' field in the old format",
+      "type": "File",
+      "optional": true
+    },
+    {
+      "id": "in_size",
+      "name": "in_size",
+      "command-line-flag": "-in_size",
+      "value-key": "[OPTIONS_FOR_CONVERTING_FROM_NEW_TO_OLD_FORMAT_IN_SIZE]",
+      "description": "import data for the 'size' field in the old format",
+      "type": "File",
+      "optional": true
+    },
+    {
+      "id": "info",
+      "name": "info",
+      "command-line-flag": "-info",
+      "value-key": "[__STANDARD_OPTIONS_INFO]",
+      "description": "display information messages.",
+      "type": "Flag"
+    },
+    {
+      "id": "quiet",
+      "name": "quiet",
+      "command-line-flag": "-quiet",
+      "value-key": "[__STANDARD_OPTIONS_QUIET]",
+      "description": "do not display information messages or progress status; alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string.",
+      "type": "Flag"
+    },
+    {
+      "id": "debug",
+      "name": "debug",
+      "command-line-flag": "-debug",
+      "value-key": "[__STANDARD_OPTIONS_DEBUG]",
+      "description": "display debugging messages.",
+      "type": "Flag"
+    },
+    {
+      "id": "force",
+      "name": "force",
+      "command-line-flag": "-force",
+      "value-key": "[__STANDARD_OPTIONS_FORCE]",
+      "description": "force overwrite of output files (caution: using the same file as input and output might cause unexpected behaviour).",
+      "type": "Flag"
+    },
+    {
+      "id": "nthreads",
+      "name": "nthreads",
+      "command-line-flag": "-nthreads",
+      "value-key": "[__STANDARD_OPTIONS_NTHREADS]",
+      "description": "use this number of threads in multi-threaded applications (set to 0 to disable multi-threading).",
+      "type": "Number",
+      "optional": true,
+      "integer": true
+    },
+    {
+      "id": "config",
+      "name": "config",
+      "value-key": "[__STANDARD_OPTIONS_CONFIG]",
+      "description": "temporarily set the value of an MRtrix config file entry.",
+      "type": {
+        "id": "config",
+        "name": "config",
+        "description": "temporarily set the value of an MRtrix config file entry.",
+        "command-line": "-config [KEY] [VALUE]",
+        "inputs": [
+          {
+            "id": "key",
+            "name": "key",
+            "value-key": "[KEY]",
+            "description": "temporarily set the value of an MRtrix config file entry.",
+            "type": "String",
+            "optional": false
+          },
+          {
+            "id": "value",
+            "name": "value",
+            "value-key": "[VALUE]",
+            "description": "temporarily set the value of an MRtrix config file entry.",
+            "type": "String",
+            "optional": false
+          }
+        ],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "help",
+      "name": "help",
+      "command-line-flag": "-help",
+      "value-key": "[__STANDARD_OPTIONS_HELP]",
+      "description": "display this information page and exit.",
+      "type": "Flag"
+    },
+    {
+      "id": "version",
+      "name": "version",
+      "command-line-flag": "-version",
+      "value-key": "[__STANDARD_OPTIONS_VERSION]",
+      "description": "display version information and exit.",
+      "type": "Flag"
+    }
+  ],
+  "output-files": [],
+  "url": "https://www.mrtrix.org/"
+}

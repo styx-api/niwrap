@@ -1,0 +1,40 @@
+{
+  "name": "old_betall",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Automated brain extraction tool for FSL involving both T1 and T2 images",
+  "command-line": "old_betall [T1_FILEROUT] [T2_FILEROUT]",
+  "inputs": [
+    {
+      "description": "Input T1 image file root (e.g. img_t1.nii.gz)",
+      "value-key": "[T1_FILEROUT]",
+      "type": "String",
+      "optional": false,
+      "id": "t1_filerout",
+      "name": "T1 File Root"
+    },
+    {
+      "description": "Input T2 image file root (e.g. img_t2.nii.gz)",
+      "value-key": "[T2_FILEROUT]",
+      "type": "String",
+      "optional": false,
+      "id": "t2_filerout",
+      "name": "T2 File Root"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[T1_FILEROUT]",
+      "description": "Output file root for T1 image",
+      "id": "output_t1",
+      "name": "Output T1 File Root"
+    },
+    {
+      "path-template": "[T2_FILEROUT]",
+      "description": "Output file root for T2 image",
+      "id": "output_t2",
+      "name": "Output T2 File Root"
+    }
+  ],
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}
