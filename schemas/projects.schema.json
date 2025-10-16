@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/styx-api/niwrap/main/schemas/projects.schema.json",
+  "title": "NiWrap Projects Index",
+  "description": "Root-level index of all projects in the NiWrap repository",
+  "type": "object",
+  "required": ["projects"],
+  "properties": {
+    "projects": {
+      "type": "array",
+      "description": "List of project identifiers available in this repository",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+        "description": "Project identifier in kebab-case (must match directory name)"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    }
+  },
+  "additionalProperties": false
+}

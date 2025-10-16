@@ -1,0 +1,90 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://niwrap.org/schemas/version.schema.json",
+  "title": "NiWrap Version Schema",
+  "description": "Version-specific metadata",
+  "type": "object",
+  "required": ["name"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Version identifier (matches directory name)"
+    },
+    "container": {
+      "type": "string",
+      "description": "Container image reference (e.g., Docker image with tag)"
+    },
+    "apps": {
+      "type": "array",
+      "description": "List of wrapped applications",
+      "items": {
+        "type": "string"
+      }
+    },
+    "executables": {
+      "type": "object",
+      "description": "Executable validation lists",
+      "properties": {
+        "required": {
+          "type": "array",
+          "description": "Executables that must exist in container (validated in CI)",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ignored": {
+          "type": "array",
+          "description": "Executables explicitly not wrapped",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "release_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Release date (ISO 8601 format)"
+    },
+    "deprecated": {
+      "type": "boolean",
+      "description": "Whether this version is deprecated",
+      "default": false
+    },
+    "docs": {
+      "type": "object",
+      "description": "Version-specific documentation",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string",
+          "description": "Version notes or changelog"
+        },
+        "authors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "literature": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "urls": {
+          "type": "array",
+          "description": "Version-specific URLs (changelog, release notes, etc.)",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}
