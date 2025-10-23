@@ -22,7 +22,7 @@ jobs:
 
       - name: Compile
         run: |
-          uv run update_readme.py
+          uv --directory tooling run wrap sync
 
       - name: Git commit changes
         run: |
