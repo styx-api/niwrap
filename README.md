@@ -27,18 +27,18 @@ NiWrap provides seamless, programmatic access to powerful neuroimaging command-l
 
 | Package | Default Version | API Coverage |
 | --- | --- | --- |
-| [afni](https://afni.nimh.nih.gov/) | [`24.2.06`](https://hub.docker.com/r/afni/afni_make_build) | ![69/100](https://progress-bar.xyz/69/?scale=100&suffix=%2F100) |
-| [ants](https://github.com/ANTsX/ANTs) | [`2.5.3`](https://hub.docker.com/r/antsx/ants) | ![69/100](https://progress-bar.xyz/69/?scale=100&suffix=%2F100) |
-| [c3d](http://www.itksnap.org/pmwiki/pmwiki.php?n=Convert3D.Convert3D) | [`1.1.0`](https://hub.docker.com/r/pyushkevich/itksnap) | ![69/100](https://progress-bar.xyz/69/?scale=100&suffix=%2F100) |
-| [dcm2niix](https://github.com/rordenlab/dcm2niix) | [`1.0.20240202`](https://hub.docker.com/r/vnmd/dcm2niix_v1.0.20240202) | ![69/100](https://progress-bar.xyz/69/?scale=100&suffix=%2F100) |
-| [fastsurfer](https://github.com/Deep-MI/FastSurfer) | [`2.3.3`](https://hub.docker.com/r/deepmi/fastsurfer) | ![69/100](https://progress-bar.xyz/69/?scale=100&suffix=%2F100) |
-| [freesurfer](https://github.com/freesurfer/freesurfer) | [`7.4.1`](https://hub.docker.com/r/freesurfer/freesurfer) | ![69/100](https://progress-bar.xyz/69/?scale=100&suffix=%2F100) |
-| [fsl](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki) | [`6.0.4`](https://hub.docker.com/r/brainlife/fsl) | ![69/100](https://progress-bar.xyz/69/?scale=100&suffix=%2F100) |
-| [greedy](https://sites.google.com/view/greedyreg/about) | [`1.0.1`](https://hub.docker.com/r/pyushkevich/itksnap) | ![69/100](https://progress-bar.xyz/69/?scale=100&suffix=%2F100) |
-| [mrtrix](https://www.mrtrix.org/) | [`3.0.4`](https://hub.docker.com/r/mrtrix3/mrtrix3) | ![69/100](https://progress-bar.xyz/69/?scale=100&suffix=%2F100) |
-| [mrtrix3tissue](https://3tissue.github.io/) | [`5.2.8`](https://hub.docker.com/r/brainlife/3tissue) | ![69/100](https://progress-bar.xyz/69/?scale=100&suffix=%2F100) |
-| [niftyreg](http://cmictig.cs.ucl.ac.uk/wiki/index.php/NiftyReg) | [`1.4.0`](https://hub.docker.com/r/vnmd/niftyreg_1.4.0) | ![69/100](https://progress-bar.xyz/69/?scale=100&suffix=%2F100) |
-| [workbench](https://github.com/Washington-University/workbench) | [`1.5.0`](https://hub.docker.com/r/brainlife/connectome_workbench) | ![69/100](https://progress-bar.xyz/69/?scale=100&suffix=%2F100) |
+| [afni](https://afni.nimh.nih.gov/) | [`24.2.06`](https://hub.docker.com/r/afni/afni_make_build) | ![565/611](https://progress-bar.xyz/565/?scale=611&suffix=%2F611) |
+| [ants](https://github.com/ANTsX/ANTs) | [`2.5.3`](https://hub.docker.com/r/antsx/ants) | ![71/113](https://progress-bar.xyz/71/?scale=113&suffix=%2F113) |
+| [c3d](http://www.itksnap.org/pmwiki/pmwiki.php?n=Convert3D.Convert3D) | [`1.1.0`](https://hub.docker.com/r/pyushkevich/itksnap) | ![4/4](https://progress-bar.xyz/4/?scale=4&suffix=%2F4) |
+| [dcm2niix](https://github.com/rordenlab/dcm2niix) | [`1.0.20240202`](https://hub.docker.com/r/vnmd/dcm2niix_v1.0.20240202) | ![1/1](https://progress-bar.xyz/1/?scale=1&suffix=%2F1) |
+| [fastsurfer](https://github.com/Deep-MI/FastSurfer) | [`2.3.3`](https://hub.docker.com/r/deepmi/fastsurfer) | ![1/1](https://progress-bar.xyz/1/?scale=1&suffix=%2F1) |
+| [freesurfer](https://github.com/freesurfer/freesurfer) | [`7.4.1`](https://hub.docker.com/r/freesurfer/freesurfer) | ![696/789](https://progress-bar.xyz/696/?scale=789&suffix=%2F789) |
+| [fsl](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki) | [`6.0.4`](https://hub.docker.com/r/brainlife/fsl) | ![245/313](https://progress-bar.xyz/245/?scale=313&suffix=%2F313) |
+| [greedy](https://sites.google.com/view/greedyreg/about) | [`1.0.1`](https://hub.docker.com/r/pyushkevich/itksnap) | ![1/1](https://progress-bar.xyz/1/?scale=1&suffix=%2F1) |
+| [mrtrix](https://www.mrtrix.org/) | [`3.0.4`](https://hub.docker.com/r/mrtrix3/mrtrix3) | ![115/121](https://progress-bar.xyz/115/?scale=121&suffix=%2F121) |
+| [mrtrix3tissue](https://3tissue.github.io/) | [`5.2.8`](https://hub.docker.com/r/brainlife/3tissue) | ![1/1](https://progress-bar.xyz/1/?scale=1&suffix=%2F1) |
+| [niftyreg](http://cmictig.cs.ucl.ac.uk/wiki/index.php/NiftyReg) | [`1.4.0`](https://hub.docker.com/r/vnmd/niftyreg_1.4.0) | ![7/7](https://progress-bar.xyz/7/?scale=7&suffix=%2F7) |
+| [workbench](https://github.com/Washington-University/workbench) | [`1.5.0`](https://hub.docker.com/r/brainlife/connectome_workbench) | ![202/202](https://progress-bar.xyz/202/?scale=202&suffix=%2F202) |
 <!-- END_PACKAGES_TABLE -->
 <small>*API Coverage: The percentages shown represent the proportion of tool binaries with available NiWrap descriptors, not the completeness of each descriptor.*</small>
 

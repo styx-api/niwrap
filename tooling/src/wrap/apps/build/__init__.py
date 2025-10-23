@@ -6,6 +6,7 @@ import time
 import pathlib as pl
 
 import styx.backend
+from wrap.apps.sync import build_package_overview_table
 from wrap.catalog import DocsType, PackageType, ProjectType, VersionType
 from wrap.catalog_niwrap import (
     get_project_niwrap,
@@ -68,39 +69,43 @@ def to_ir_project(project: ProjectType) -> ir.Project:
     )
 
 
+def generate_python_readme() -> str:
+    """Generate README for Python distribution."""
+    template_path = PATH_BUILD_TEMPLATES / "python/README-template.md"
+    template = template_path.read_text(encoding="utf-8")
+    return template.replace("{{PACKAGES_TABLE}}", build_package_overview_table(False))
+
+
 def build_target_stream():
-    def _stream():
-        for pkg in iter_packages_niwrap():
-            version = get_version_niwrap(pkg["name"], pkg["default"])
+    for pkg in iter_packages_niwrap():
+        version = get_version_niwrap(pkg["name"], pkg["default"])
 
-            print(f"    {ICON_PACKAGE} {pkg['docs']['title']:<24} ", end="", flush=True)
+        print(f"    {ICON_PACKAGE} {pkg['docs']['title']:<24} ", end="", flush=True)
 
-            ir_pkg = to_ir_package(pkg, version)
+        ir_pkg = to_ir_package(pkg, version)
 
-            errors = []
+        errors = []
 
-            def _stream_inner():
-                for app in iter_apps_niwrap(pkg["name"], pkg["default"]):
-                    if not (source := app.get("source")):
-                        continue  # todo print/count/something?
-                    assert source["type"] == "boutiques"
+        def _stream_inner():
+            for app in iter_apps_niwrap(pkg["name"], pkg["default"]):
+                if not (source := app.get("source")):
+                    continue  # todo print/count/something?
+                assert source["type"] == "boutiques"
 
-                    try:
-                        with (pl.Path(app["__path__"]).parent / source["path"]).open(
-                            encoding="utf-8"
-                        ) as f:
-                            yield from_boutiques(json.load(f))
-                    except Exception as e:
-                        error_msg = f"{app['__path__']}: {str(e)}"
-                        errors.append(error_msg)
-                        print(f"\n      {ICON_ERROR} {error_msg}", end="")
+                try:
+                    with (pl.Path(app["__path__"]).parent / source["path"]).open(
+                        encoding="utf-8"
+                    ) as f:
+                        yield from_boutiques(json.load(f))
+                except Exception as e:
+                    error_msg = f"{app['__path__']}: {str(e)}"
+                    errors.append(error_msg)
+                    print(f"\n      {ICON_ERROR} {error_msg}", end="")
 
-                status = ICON_WARN if errors else ICON_OK
-                print(f"{status}")
+            status = ICON_WARN if errors else ICON_OK
+            print(f"{status}")
 
-            yield ir_pkg, _stream_inner()
-
-    return _stream
+        yield ir_pkg, _stream_inner()
 
 
 def main(targets: list[str]) -> str | int:
@@ -143,11 +148,20 @@ def main(targets: list[str]) -> str | int:
         print(f"\nBuilding {backend.name}.")
         start = time.time()
 
+        dist_name = BUILD_TARGET_TO_DIST_DIR.get(target, target)
+
+        ir_project.extras["dist_repo_url"] = (
+            f"https://github.com/styx-api/niwrap-{dist_name}"
+        )
+        ir_project.extras["readme_md"] = (
+            generate_python_readme() if target == "python" else None
+        )
+
         file_count = 0
 
-        dist_path = PATH_DIST_ROOT / BUILD_TARGET_TO_DIST_DIR.get(target, target)
+        dist_path = PATH_DIST_ROOT / dist_name
 
-        for file in compile_language(backend.id_, ir_project, build_target_stream()()):
+        for file in compile_language(backend.id_, ir_project, build_target_stream()):
             file.write(dist_path)
             file_count += 1
 

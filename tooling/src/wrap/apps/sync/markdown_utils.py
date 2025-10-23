@@ -2,7 +2,18 @@ import html
 
 
 def progress_bar(done: int, total: int) -> str:
+    if total == 0:
+        return "N/A"
     return f"![{done}/{total}](https://progress-bar.xyz/{done}/?scale={total}&suffix=%2F{total})"
+
+
+def progress_bar_boring(done: int, total: int) -> str:
+    if total == 0:
+        return "N/A"
+    percentage = done / total * 100
+    if percentage == 100:
+        return f"{done}/{total} (100% 🎉)"
+    return f"{done}/{total} ({percentage:.1f}%)"
 
 
 def dict_to_markdown_table(data: dict[str, list[str]]) -> str:
