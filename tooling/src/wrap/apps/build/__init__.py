@@ -172,7 +172,11 @@ def main(targets: list[str]) -> str | int:
 
 
 def register_command(subparsers):
-    parser = subparsers.add_parser("build", help="Synchronize files")
-    parser.add_argument("target", nargs="*")
+    parser = subparsers.add_parser("build", help="Build distributions")
+    parser.add_argument(
+        "target",
+        nargs="*",
+        help=f"Any (can be multiple) of {[b.id_ for b in styx.backend.get_backends()]}",
+    )
 
     parser.set_defaults(func=lambda args: main(args.target))

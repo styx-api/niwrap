@@ -9,15 +9,15 @@ from wrap.apps import build, sync, test
 def create_parser() -> argparse.ArgumentParser:
     """Create and configure the argument parser."""
     parser = argparse.ArgumentParser(
-        prog="mytool",
-        description="Your tool description here",
+        prog="wrap",
+        description="Niwrap developer and build tools.",
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
 
     # Add global options
-    parser.add_argument(
-        "-v", "--verbose", action="store_true", help="Enable verbose output"
-    )
+    # parser.add_argument(
+    #     "-v", "--verbose", action="store_true", help="Enable verbose output"
+    # )
 
     # Create subparsers
     subparsers = parser.add_subparsers(
