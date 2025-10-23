@@ -29,7 +29,8 @@ def build_package_overview_table(pretty_progress_bar=True) -> str:
     for pkg in packages:
         # Package name with link
         name_link = markdown_url(
-            pkg.get("docs", {}).get("urls", ["https://example.com"])[0], pkg["name"]
+            pkg.get("docs", {}).get("urls", ["https://example.com"])[0],
+            pkg.get("docs", {}).get("title", pkg["name"]),
         )
 
         default_version = get_version_niwrap(pkg["name"], pkg["default"])
