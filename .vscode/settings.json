@@ -1,8 +1,40 @@
 {
-    "json.schemas": [
-        {
-            "fileMatch": ["descriptors/**/*.json"],
-            "url": "https://styx-api.github.io/boutiques-schema-pydantic/boutiques-styx-descriptor-1.json?v=2"
-        }
-    ]
+  "json.schemas": [
+    {
+      "fileMatch": [
+        "src/projects.json"
+      ],
+      "url": "/schemas/projects.schema.json"
+    },
+    {
+      "fileMatch": [
+        "src/*/project.json"
+      ],
+      "url": "/schemas/project.schema.json"
+    },
+    {
+      "fileMatch": [
+        "src/*/*/package.json"
+      ],
+      "url": "/schemas/package.schema.json"
+    },
+    {
+      "fileMatch": [
+        "src/*/*/*/version.json"
+      ],
+      "url": "/schemas/version.schema.json"
+    },
+    {
+      "fileMatch": [
+        "src/*/*/*/*/app.json"
+      ],
+      "url": "/schemas/app.schema.json"
+    },
+    {
+      "fileMatch": [
+        "src/*/*/*/*/boutiques.json"
+      ],
+      "url": "https://styx-api.github.io/boutiques-schema-pydantic/boutiques-styx-descriptor-1.json?v=2"
+    }
+  ]
 }

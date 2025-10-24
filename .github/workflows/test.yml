@@ -13,14 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - name: Set up Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: "3.11"
-      - name: Install dependencies
+      - name: Install the latest version of uv
+        uses: astral-sh/setup-uv@v6
+      
+      - name: Test
         run: |
-          pip install pytest
-          pip install git+https://github.com/styx-api/boutiques-schema-pydantic.git
-      - name: Run tests
-        run: |
-          pytest tests
+          uv --directory tooling run wrap test

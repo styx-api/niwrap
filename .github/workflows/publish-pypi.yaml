@@ -18,19 +18,13 @@ jobs:
         uses: actions/checkout@v5
         with:
           ref: ${{ github.head_ref }}
-          
-      - name: Checkout styx
-        uses: actions/checkout@v5
-        with:
-          repository: 'styx-api/styx'
-          path: 'styx'
     
       - name: Install the latest version of uv
         uses: astral-sh/setup-uv@v6
       
       - name: Compile
         run: |
-          uv --directory styx run ../build.py python
+          uv --directory tooling run wrap build python
         
       - name: Build Python packages
         run: |

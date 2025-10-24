@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://niwrap.org/schemas/project.schema.json",
+  "title": "NiWrap Project Schema",
+  "description": "Root project configuration and metadata",
+  "type": "object",
+  "required": ["name", "version", "license", "packages"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Project name"
+    },
+    "version": {
+      "type": "string",
+      "description": "Project version (semantic versioning)",
+      "pattern": "^\\d+\\.\\d+\\.\\d+(-[a-zA-Z0-9.]+)?$"
+    },
+    "license": {
+      "type": "string",
+      "description": "Project license identifier (SPDX format)"
+    },
+    "packages": {
+      "type": "array",
+      "description": "List of package identifiers in this project",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+      }
+    },
+    "docs": {
+      "type": "object",
+      "description": "Project documentation",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "authors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "literature": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "urls": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://niwrap.org/schemas/package.schema.json",
+  "title": "NiWrap Package Schema",
+  "description": "Package-level metadata",
+  "type": "object",
+  "required": ["name", "versions", "default"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Package identifier (kebab-case, matches directory name)",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "versions": {
+      "type": "array",
+      "description": "List of available version identifiers",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "default": {
+      "type": "string",
+      "description": "Default/recommended version"
+    },
+    "docs": {
+      "type": "object",
+      "description": "Package documentation",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Human-readable package name"
+        },
+        "description": {
+          "type": "string",
+          "description": "Package description"
+        },
+        "authors": {
+          "type": "array",
+          "description": "Package authors",
+          "items": {
+            "type": "string"
+          }
+        },
+        "literature": {
+          "type": "array",
+          "description": "Citations and references",
+          "items": {
+            "type": "string"
+          }
+        },
+        "urls": {
+          "type": "array",
+          "description": "Package URLs (website, repository, etc.)",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

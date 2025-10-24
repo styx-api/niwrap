@@ -1,0 +1,52 @@
+fail_fast: false
+
+repos:
+- repo: https://github.com/astral-sh/ruff-pre-commit
+  rev: v0.12.12
+  hooks:
+  - id: ruff
+  - id: ruff-format
+
+- repo: https://github.com/pre-commit/mirrors-mypy
+  rev: v1.17.1
+  hooks:
+  - id: mypy
+    args: [--ignore-missing-imports]
+- repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
+  rev: v2.15.0
+  hooks:
+  - id: pretty-format-yaml
+    args:
+    - --autofix
+    - --indent=2
+  - id: pretty-format-toml
+    exclude: ^uv.lock$
+    args:
+    - --autofix
+    - --indent=2
+    - --no-sort
+
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v6.0.0
+  hooks:
+  - id: check-case-conflict
+  - id: end-of-file-fixer
+  - id: trailing-whitespace
+  - id: pretty-format-json
+    args:
+    - --autofix
+    - --indent=4
+    - --no-sort-keys
+    exclude_types: [jupyter]
+  - id: check-merge-conflict
+  - id: check-yaml
+  - id: check-json
+  - id: check-toml
+
+- repo: local
+  hooks:
+  - id: yaml-file-extension
+    name: Prefer .yaml over .yml.
+    entry: YAML files must have .yaml extension.
+    language: fail
+    files: \.yml$
