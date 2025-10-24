@@ -1,0 +1,79 @@
+{
+  "name": "SurfLocalstat",
+  "author": "AFNI Developers",
+  "description": "Compute local statistics on a surface mesh",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "SurfLocalstat [HOOD] [NBHD_RAD] [PREFIX] [STAT] [INPUT_DATASET] [SURFACE]",
+  "inputs": [
+    {
+      "command-line-flag": "-hood",
+      "description": "Neighborhood of nodes within the specified radius R.",
+      "value-key": "[HOOD]",
+      "type": "Number",
+      "optional": true,
+      "id": "hood",
+      "name": "Neighborhood Radius"
+    },
+    {
+      "command-line-flag": "-nbhd_rad",
+      "description": "Distance from node n as measured by the shortest distance along the mesh.",
+      "value-key": "[NBHD_RAD]",
+      "type": "Number",
+      "optional": true,
+      "id": "nbhd_rad",
+      "name": "Neighborhood Radius (Alternative)"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Prefix of output data set.",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "prefix",
+      "name": "Output prefix"
+    },
+    {
+      "command-line-flag": "-stat",
+      "description": "Compute the specified statistic on the values extracted from the region around each voxel. Options: mean, mode, num, FWHM, ALL.",
+      "value-key": "[STAT]",
+      "type": "String",
+      "optional": false,
+      "id": "stat",
+      "name": "Statistic to compute",
+      "value-choices": [
+        "mean",
+        "mode",
+        "num",
+        "FWHM",
+        "ALL"
+      ]
+    },
+    {
+      "command-line-flag": "-input",
+      "description": "Input dataset.",
+      "value-key": "[INPUT_DATASET]",
+      "type": "File",
+      "optional": false,
+      "id": "input_dataset",
+      "name": "Input dataset"
+    },
+    {
+      "command-line-flag": "-i_gii",
+      "description": "Input GIFTI surface file.",
+      "value-key": "[SURFACE]",
+      "type": "File",
+      "optional": false,
+      "id": "surface",
+      "name": "Surface file"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX].niml.dset",
+      "description": "Computed local statistics dataset",
+      "id": "output_file",
+      "name": "Output file"
+    }
+  ]
+}

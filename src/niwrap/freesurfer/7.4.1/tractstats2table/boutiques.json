@@ -1,0 +1,108 @@
+{
+  "name": "tractstats2table",
+  "author": "FreeSurfer Developers",
+  "description": "Converts a track overall stats file created by tracula into a table used for group statistics.",
+  "command-line": "tractstats2table [INPUTS] [LOAD_PATHSTATS_FROM_FILE] [OVERALL] [BYVOXEL] [BYVOXEL_MEASURE] [TABLEFILE] [DELIMITER] [TRANSPOSE] [DEBUG]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--inputs",
+      "description": "Specify input stat files.",
+      "value-key": "[INPUTS]",
+      "type": "String",
+      "optional": true,
+      "list": true,
+      "id": "inputs",
+      "name": "Input stat files"
+    },
+    {
+      "command-line-flag": "--load-pathstats-from-file",
+      "description": "Name of the file which has the list of subjects (one subject per line).",
+      "value-key": "[LOAD_PATHSTATS_FROM_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "load_pathstats_from_file",
+      "name": "Load pathstats from file"
+    },
+    {
+      "command-line-flag": "-o",
+      "description": "Operate on the overall path statistics.",
+      "value-key": "[OVERALL]",
+      "type": "Flag",
+      "id": "overall",
+      "name": "Overall flag"
+    },
+    {
+      "command-line-flag": "-b",
+      "description": "Operate on the byvoxel path statistics.",
+      "value-key": "[BYVOXEL]",
+      "type": "Flag",
+      "id": "byvoxel",
+      "name": "Byvoxel flag"
+    },
+    {
+      "command-line-flag": "--byvoxel-measure",
+      "description": "Specify byvoxel measure. One of [AD, RD, MD, FA]. Required with --byvoxel option.",
+      "value-key": "[BYVOXEL_MEASURE]",
+      "type": "String",
+      "optional": true,
+      "id": "byvoxel_measure",
+      "name": "Byvoxel measure",
+      "value-choices": [
+        "AD",
+        "RD",
+        "MD",
+        "FA"
+      ]
+    },
+    {
+      "command-line-flag": "-t",
+      "description": "The output table file.",
+      "value-key": "[TABLEFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "tablefile",
+      "name": "Output table file"
+    },
+    {
+      "command-line-flag": "-d",
+      "description": "Delimiter between measures in the table. Default is tab (alt comma, space, semicolon).",
+      "value-key": "[DELIMITER]",
+      "type": "String",
+      "optional": true,
+      "id": "delimiter",
+      "name": "Delimiter",
+      "value-choices": [
+        "tab",
+        "comma",
+        "space",
+        "semicolon"
+      ]
+    },
+    {
+      "command-line-flag": "--transpose",
+      "description": "Transpose the table (default is subject in rows and measures/count in cols).",
+      "value-key": "[TRANSPOSE]",
+      "type": "Flag",
+      "id": "transpose",
+      "name": "Transpose flag"
+    },
+    {
+      "command-line-flag": "-v",
+      "description": "Increase verbosity.",
+      "value-key": "[DEBUG]",
+      "type": "Flag",
+      "id": "debug",
+      "name": "Debug flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[TABLEFILE]",
+      "description": "The output table file.",
+      "id": "output_tablefile",
+      "name": "Output table file"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

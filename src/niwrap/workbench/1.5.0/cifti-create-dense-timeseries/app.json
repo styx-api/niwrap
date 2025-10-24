@@ -1,0 +1,14 @@
+{
+  "name": "cifti-create-dense-timeseries",
+  "source": {
+    "type": "boutiques",
+    "path": "boutiques.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-cifti-create-dense-timeseries"
+  ],
+  "docs": {
+    "description": "Create a cifti dense timeseries.\n\nAll input files must have the same number of columns/subvolumes.  Only the specified components will be in the output cifti.  At least one component must be specified.\n\nSee -volume-label-import and -volume-help for format details of label volume files.  The structure-label-volume should have some of the label names from this list, all other label names will be ignored:\n\nCORTEX_LEFT\nCORTEX_RIGHT\nCEREBELLUM\nACCUMBENS_LEFT\nACCUMBENS_RIGHT\nALL_GREY_MATTER\nALL_WHITE_MATTER\nAMYGDALA_LEFT\nAMYGDALA_RIGHT\nBRAIN_STEM\nCAUDATE_LEFT\nCAUDATE_RIGHT\nCEREBELLAR_WHITE_MATTER_LEFT\nCEREBELLAR_WHITE_MATTER_RIGHT\nCEREBELLUM_LEFT\nCEREBELLUM_RIGHT\nCEREBRAL_WHITE_MATTER_LEFT\nCEREBRAL_WHITE_MATTER_RIGHT\nCORTEX\nDIENCEPHALON_VENTRAL_LEFT\nDIENCEPHALON_VENTRAL_RIGHT\nHIPPOCAMPUS_LEFT\nHIPPOCAMPUS_RIGHT\nINVALID\nOTHER\nOTHER_GREY_MATTER\nOTHER_WHITE_MATTER\nPALLIDUM_LEFT\nPALLIDUM_RIGHT\nPUTAMEN_LEFT\nPUTAMEN_RIGHT\nTHALAMUS_LEFT\nTHALAMUS_RIGHT\n\nThe -unit option accepts these values:\n\nSECOND\nHERTZ\nMETER\nRADIAN"
+  }
+}

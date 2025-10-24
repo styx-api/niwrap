@@ -1,0 +1,14 @@
+{
+  "name": "cifti-estimate-fwhm",
+  "source": {
+    "type": "boutiques",
+    "path": "boutiques.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-cifti-estimate-fwhm"
+  ],
+  "docs": {
+    "description": "Estimate fwhm smoothness of a cifti file.\n\nEstimate the smoothness of the components of the cifti file, printing the estimates to standard output.  If -merged-volume is used, all voxels are used as a single component, rather than separated by structure.\n\n<structure> must be one of the following:\n\nCORTEX_LEFT\nCORTEX_RIGHT\nCEREBELLUM\nACCUMBENS_LEFT\nACCUMBENS_RIGHT\nALL_GREY_MATTER\nALL_WHITE_MATTER\nAMYGDALA_LEFT\nAMYGDALA_RIGHT\nBRAIN_STEM\nCAUDATE_LEFT\nCAUDATE_RIGHT\nCEREBELLAR_WHITE_MATTER_LEFT\nCEREBELLAR_WHITE_MATTER_RIGHT\nCEREBELLUM_LEFT\nCEREBELLUM_RIGHT\nCEREBRAL_WHITE_MATTER_LEFT\nCEREBRAL_WHITE_MATTER_RIGHT\nCORTEX\nDIENCEPHALON_VENTRAL_LEFT\nDIENCEPHALON_VENTRAL_RIGHT\nHIPPOCAMPUS_LEFT\nHIPPOCAMPUS_RIGHT\nINVALID\nOTHER\nOTHER_GREY_MATTER\nOTHER_WHITE_MATTER\nPALLIDUM_LEFT\nPALLIDUM_RIGHT\nPUTAMEN_LEFT\nPUTAMEN_RIGHT\nTHALAMUS_LEFT\nTHALAMUS_RIGHT"
+  }
+}

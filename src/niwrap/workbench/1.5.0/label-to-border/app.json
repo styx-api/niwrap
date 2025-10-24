@@ -1,0 +1,14 @@
+{
+  "name": "label-to-border",
+  "source": {
+    "type": "boutiques",
+    "path": "boutiques.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-label-to-border"
+  ],
+  "docs": {
+    "description": "Draw borders around labels.\n\nFor each label, finds all edges on the mesh that cross the boundary of the label, and draws borders through them.  By default, this is done on all columns in the input file, using the map name as the class name for the border."
+  }
+}

@@ -1,0 +1,294 @@
+{
+  "name": "antsCorticalThickness.sh",
+  "command-line": "antsCorticalThickness.sh [IMAGE_DIMENSION] [ANATOMICAL_IMAGE] [BRAIN_TEMPLATE] [BRAIN_EXTRACTION_PROBABILITY_MASK] [BRAIN_SEGMENTATION_PRIORS] [OUTPUT_PREFIX] [IMAGE_FILE_SUFFIX] [TEMPLATE_FOR_T1_REGISTRATION] [EXTRACTION_REGISTRATION_MASK] [KEEP_TEMPORARY_FILES] [DENOISE_ANATOMICAL_IMAGES] [MAX_ITERATIONS_FOR_REGISTRATION] [ATROPOS_PRIOR_SEGMENTATION_WEIGHT] [NUMBER_OF_SEGMENTATION_ITERATIONS] [POSTERIOR_FORMULATION] [USE_FLOATING_POINT_PRECISION] [USE_RANDOM_SEEDING] [USE_B_SPLINE_SMOOTHING] [CORTICAL_THICKNESS_PRIOR_IMAGE] [LABEL_PROPAGATION] [ADDITIONAL_PRIORS_FOR_THICKNESS] [USE_QUICK_REGISTRATION_PARAMETERS] [ATROPOS_ITERATIONS] [SCRIPT_STAGE_TO_RUN] [TEST_DEBUG_MODE]",
+  "author": "ANTs Developers",
+  "description": "This script performs T1 anatomical brain processing including brain extraction, brain n-tissue segmentation, cortical thickness estimation, and optional registration to a template.",
+  "url": "https://github.com/ANTsX/ANTs",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "image_dimension",
+      "name": "Image dimension",
+      "value-key": "[IMAGE_DIMENSION]",
+      "type": "Number",
+      "integer": true,
+      "command-line-flag": "-d",
+      "value-choices": [
+        2,
+        3
+      ],
+      "description": "2 or 3 for 2- or 3-dimensional image"
+    },
+    {
+      "id": "anatomical_image",
+      "name": "Anatomical image",
+      "value-key": "[ANATOMICAL_IMAGE]",
+      "type": "File",
+      "command-line-flag": "-a",
+      "description": "Structural intensity image, typically T1."
+    },
+    {
+      "id": "brain_template",
+      "name": "Brain segmentation template",
+      "value-key": "[BRAIN_TEMPLATE]",
+      "type": "File",
+      "command-line-flag": "-e",
+      "description": "Anatomical intensity template. This template is not skull-stripped."
+    },
+    {
+      "id": "brain_extraction_probability_mask",
+      "name": "Brain extraction probability mask",
+      "value-key": "[BRAIN_EXTRACTION_PROBABILITY_MASK]",
+      "type": "File",
+      "command-line-flag": "-m",
+      "description": "Brain probability mask in the segmentation template space. A binary mask is acceptable."
+    },
+    {
+      "id": "brain_segmentation_priors",
+      "name": "Brain segmentation priors",
+      "value-key": "[BRAIN_SEGMENTATION_PRIORS]",
+      "type": "String",
+      "command-line-flag": "-p",
+      "description": "Tissue probability priors corresponding to the template image specified with the -e option. At least four priors must exist, corresponding to CSF, Cortical GM, WM, Subcortical GM."
+    },
+    {
+      "id": "output_prefix",
+      "name": "Output prefix",
+      "value-key": "[OUTPUT_PREFIX]",
+      "type": "String",
+      "command-line-flag": "-o",
+      "description": "Output prefix for the generated filenames."
+    },
+    {
+      "id": "image_file_suffix",
+      "name": "Image file suffix",
+      "value-key": "[IMAGE_FILE_SUFFIX]",
+      "optional": true,
+      "type": "String",
+      "command-line-flag": "-s",
+      "description": "Any of the standard ITK IO formats e.g. nrrd, nii.gz (default), mhd."
+    },
+    {
+      "id": "template_for_t1_registration",
+      "name": "Template for T1 registration",
+      "value-key": "[TEMPLATE_FOR_T1_REGISTRATION]",
+      "optional": true,
+      "type": "File",
+      "command-line-flag": "-t",
+      "description": "Anatomical intensity template. This template must be skull-stripped."
+    },
+    {
+      "id": "extraction_registration_mask",
+      "name": "Extraction registration mask",
+      "value-key": "[EXTRACTION_REGISTRATION_MASK]",
+      "optional": true,
+      "type": "File",
+      "command-line-flag": "-f",
+      "description": "Binary metric mask defined in the segmentation template space (-e). Only used in brain extraction registration."
+    },
+    {
+      "id": "keep_temporary_files",
+      "name": "Keep temporary files",
+      "value-key": "[KEEP_TEMPORARY_FILES]",
+      "optional": true,
+      "type": "Number",
+      "integer": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "command-line-flag": "-k",
+      "description": "Keep brain extraction/segmentation warps, etc (default = 0)."
+    },
+    {
+      "id": "denoise_anatomical_images",
+      "name": "Denoise anatomical images",
+      "value-key": "[DENOISE_ANATOMICAL_IMAGES]",
+      "optional": true,
+      "type": "Number",
+      "integer": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "command-line-flag": "-g",
+      "description": "Denoise anatomical images (default = 0)."
+    },
+    {
+      "id": "max_iterations_for_registration",
+      "name": "Max iterations for registration",
+      "value-key": "[MAX_ITERATIONS_FOR_REGISTRATION]",
+      "optional": true,
+      "type": "String",
+      "command-line-flag": "-i",
+      "description": "ANTS registration max iterations (default = 100x100x70x20)."
+    },
+    {
+      "id": "atropos_prior_segmentation_weight",
+      "name": "Atropos prior segmentation weight",
+      "value-key": "[ATROPOS_PRIOR_SEGMENTATION_WEIGHT]",
+      "optional": true,
+      "type": "Number",
+      "command-line-flag": "-w",
+      "description": "Atropos spatial prior probability weight for the segmentation (default = 0.25)."
+    },
+    {
+      "id": "number_of_segmentation_iterations",
+      "name": "Number of segmentation iterations",
+      "value-key": "[NUMBER_OF_SEGMENTATION_ITERATIONS]",
+      "optional": true,
+      "type": "Number",
+      "integer": true,
+      "command-line-flag": "-n",
+      "description": "N4 -> Atropos -> N4 iterations during segmentation (default = 3)."
+    },
+    {
+      "id": "posterior_formulation",
+      "name": "Posterior formulation",
+      "value-key": "[POSTERIOR_FORMULATION]",
+      "optional": true,
+      "type": "String",
+      "command-line-flag": "-b",
+      "description": "Atropos posterior formulation and whether or not to use mixture model proportions. e.g 'Socrates[ 1 ]' (default) or 'Aristotle[ 1 ]'."
+    },
+    {
+      "id": "use_floating_point_precision",
+      "name": "Use floating-point precision",
+      "value-key": "[USE_FLOATING_POINT_PRECISION]",
+      "optional": true,
+      "type": "Number",
+      "integer": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "command-line-flag": "-j",
+      "description": "Use single float precision in registrations (default = 0)."
+    },
+    {
+      "id": "use_random_seeding",
+      "name": "Use random seeding",
+      "value-key": "[USE_RANDOM_SEEDING]",
+      "optional": true,
+      "type": "Number",
+      "integer": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "command-line-flag": "-u",
+      "description": "Use random number generated from system clock (default = 1)."
+    },
+    {
+      "id": "use_b_spline_smoothing",
+      "name": "Use B-spline smoothing",
+      "value-key": "[USE_B_SPLINE_SMOOTHING]",
+      "optional": true,
+      "type": "Number",
+      "integer": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "command-line-flag": "-v",
+      "description": "Use B-spline SyN for registrations and B-spline exponential mapping in DiReCT (default = 0)."
+    },
+    {
+      "id": "cortical_thickness_prior_image",
+      "name": "Cortical thickness prior image",
+      "value-key": "[CORTICAL_THICKNESS_PRIOR_IMAGE]",
+      "optional": true,
+      "type": "File",
+      "command-line-flag": "-r",
+      "description": "Cortical thickness prior image in the template space, with an estimated upper limit of cortical thickness at each voxel."
+    },
+    {
+      "id": "label_propagation",
+      "name": "Label propagation",
+      "value-key": "[LABEL_PROPAGATION]",
+      "optional": true,
+      "type": "String",
+      "command-line-flag": "-l",
+      "description": "Incorporate a distance prior on the posterior formulation."
+    },
+    {
+      "id": "additional_priors_for_thickness",
+      "name": "Additional priors for thickness",
+      "value-key": "[ADDITIONAL_PRIORS_FOR_THICKNESS]",
+      "optional": true,
+      "type": "String",
+      "command-line-flag": "-c",
+      "description": "Add segmentation classes for thickness estimation."
+    },
+    {
+      "id": "use_quick_registration_parameters",
+      "name": "Use quick registration parameters",
+      "value-key": "[USE_QUICK_REGISTRATION_PARAMETERS]",
+      "optional": true,
+      "type": "Number",
+      "integer": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "command-line-flag": "-q",
+      "description": "Use antsRegistrationSyNQuick.sh for registrations (default = 0)."
+    },
+    {
+      "id": "atropos_iterations",
+      "name": "Atropos iterations",
+      "value-key": "[ATROPOS_ITERATIONS]",
+      "optional": true,
+      "type": "Number",
+      "integer": true,
+      "command-line-flag": "-x",
+      "description": "Number of iterations within Atropos (default = 5)."
+    },
+    {
+      "id": "script_stage_to_run",
+      "name": "Script stage to run",
+      "value-key": "[SCRIPT_STAGE_TO_RUN]",
+      "optional": true,
+      "type": "Number",
+      "integer": true,
+      "command-line-flag": "-y",
+      "description": "Which stage of ACT to run (default = 0, run all)."
+    },
+    {
+      "id": "test_debug_mode",
+      "name": "Test / debug mode",
+      "value-key": "[TEST_DEBUG_MODE]",
+      "optional": true,
+      "type": "Number",
+      "integer": true,
+      "command-line-flag": "-z",
+      "description": "If > 0, runs a faster version of the script. Only for testing (default = 0)."
+    }
+  ],
+  "output-files": [
+    {
+      "id": "cortical_thickness",
+      "name": "Cortical thickness",
+      "description": "The output cortical thickness map.",
+      "path-template": "[OUTPUT_PREFIX]CorticalThickness.nii.gz"
+    },
+    {
+      "id": "brain_extraction_mask",
+      "name": "Brain extraction mask",
+      "description": "The brain extraction mask.",
+      "path-template": "[OUTPUT_PREFIX]BrainExtractionMask.nii.gz"
+    },
+    {
+      "id": "brain_segmentation",
+      "name": "Brain segmentation",
+      "description": "The brain segmentation image.",
+      "path-template": "[OUTPUT_PREFIX]BrainSegmentation.nii.gz"
+    },
+    {
+      "id": "segmentation_posteriors",
+      "name": "Segmentation posteriors",
+      "description": "The segmentation posteriors for different tissue classes.",
+      "path-template": "[OUTPUT_PREFIX]BrainSegmentationPosteriors.nii.gz"
+    }
+  ]
+}

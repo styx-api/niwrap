@@ -1,0 +1,10 @@
+{
+  "name": "mrinfo",
+  "source": {
+    "type": "boutiques",
+    "path": "boutiques.json"
+  },
+  "docs": {
+    "description": "Display image header information, or extract specific information from the header.\n\nBy default, all information contained in each image header will be printed to the console in a reader-friendly format.\n\nAlternatively, command-line options may be used to extract specific details from the header(s); these are printed to the console in a format more appropriate for scripting purposes or piping to file. If multiple options and/or images are provided, the requested header fields will be printed in the order in which they appear in the help page, with all requested details from each input image in sequence printed before the next image is processed.\n\nThe command can also write the diffusion gradient table from a single input image to file; either in the MRtrix or FSL format (bvecs/bvals file pair; includes appropriate diffusion gradient vector reorientation)\n\nThe -dwgrad, -export_* and -shell_* options provide (information about) the diffusion weighting gradient table after it has been processed by the MRtrix3 back-end (vectors normalised, b-values scaled by the square of the vector norm, depending on the -bvalue_scaling option). To see the raw gradient table information as stored in the image header, i.e. without MRtrix3 back-end processing, use \"-property dw_scheme\".\n\nThe -bvalue_scaling option controls an aspect of the import of diffusion gradient tables. When the input diffusion-weighting direction vectors have norms that differ substantially from unity, the b-values will be scaled by the square of their corresponding vector norm (this is how multi-shell acquisitions are frequently achieved on scanner platforms). However in some rare instances, the b-values may be correct, despite the vectors not being of unit norm (or conversely, the b-values may need to be rescaled even though the vectors are close to unit norm). This option allows the user to control this operation and override MRrtix3's automatic detection.\n\nReferences:\n\n"
+  }
+}

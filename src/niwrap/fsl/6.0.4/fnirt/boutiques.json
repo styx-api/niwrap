@@ -1,0 +1,162 @@
+{
+  "name": "fnirt",
+  "command-line": "fnirt [AFFINE_FILE] [CONFIG_FILE] [FIELD_FILE] [FIELDCOEFF_FILE] [IN_FILE] [JACOBIAN_FILE] [LOG_FILE] [MODULATEDREF_FILE] [REF_FILE] [REFMASK_FILE] [WARPED_FILE]",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "FSL non-linear registration",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "inputs": [
+    {
+      "id": "affine_file",
+      "name": "Affine file",
+      "type": "File",
+      "value-key": "[AFFINE_FILE]",
+      "command-line-flag": "--aff",
+      "command-line-flag-separator": "=",
+      "description": "Name of file containing affine transform.",
+      "optional": true
+    },
+    {
+      "id": "config_file",
+      "name": "Config file",
+      "type": "String",
+      "value-key": "[CONFIG_FILE]",
+      "command-line-flag": "--config",
+      "command-line-flag-separator": "=",
+      "description": "'t1_2_mni152_2mm' or 'fa_2_fmrib58_1mm' or file or string. Name of config file specifying command line arguments.",
+      "optional": true,
+      "value-choices": [
+        "T1_2_MNI152_2mm",
+        "FA_2_FMRIB58_1mm"
+      ]
+    },
+    {
+      "id": "field_file",
+      "name": "Field file",
+      "type": "File",
+      "value-key": "[FIELD_FILE]",
+      "command-line-flag": "--fout",
+      "command-line-flag-separator": "=",
+      "description": "file. Name of output file with field.",
+      "optional": true
+    },
+    {
+      "id": "fieldcoeff_file",
+      "name": "Fieldcoeff file",
+      "type": "File",
+      "value-key": "[FIELDCOEFF_FILE]",
+      "command-line-flag": "--cout",
+      "command-line-flag-separator": "=",
+      "description": "string representing a file. Name of output file with field coefficients.",
+      "optional": true
+    },
+    {
+      "id": "in_file",
+      "name": "In file",
+      "type": "File",
+      "value-key": "[IN_FILE]",
+      "command-line-flag": "--in",
+      "command-line-flag-separator": "=",
+      "description": "Name of input image.",
+      "optional": false
+    },
+    {
+      "id": "jacobian_file",
+      "name": "Jacobian file",
+      "type": "File",
+      "value-key": "[JACOBIAN_FILE]",
+      "command-line-flag": "--jout",
+      "command-line-flag-separator": "=",
+      "description": "A file. Name of file for writing out the jacobian of the field (for diagnostic or vbm purposes).",
+      "optional": true
+    },
+    {
+      "id": "log_file",
+      "name": "Log file",
+      "type": "File",
+      "value-key": "[LOG_FILE]",
+      "command-line-flag": "--logout",
+      "command-line-flag-separator": "=",
+      "description": "Name of log-file.",
+      "optional": true
+    },
+    {
+      "id": "modulatedref_file",
+      "name": "Modulatedref file",
+      "type": "String",
+      "value-key": "[MODULATEDREF_FILE]",
+      "command-line-flag": "--refout",
+      "command-line-flag-separator": "=",
+      "description": "string representing a file. Name of file for writing out intensity modulated --ref (for diagnostic purposes).",
+      "optional": true
+    },
+    {
+      "id": "ref_file",
+      "name": "Ref file",
+      "type": "File",
+      "value-key": "[REF_FILE]",
+      "command-line-flag": "--ref",
+      "command-line-flag-separator": "=",
+      "description": "Name of reference image.",
+      "optional": false
+    },
+    {
+      "id": "refmask_file",
+      "name": "Refmask file",
+      "type": "File",
+      "value-key": "[REFMASK_FILE]",
+      "command-line-flag": "--refmask",
+      "command-line-flag-separator": "=",
+      "description": "Name of file with mask in reference space.",
+      "optional": true
+    },
+    {
+      "id": "warped_file",
+      "name": "Warped file",
+      "type": "File",
+      "value-key": "[WARPED_FILE]",
+      "command-line-flag": "--iout",
+      "command-line-flag-separator": "=",
+      "description": "Name of output-file containing the --in image after it has been warped to the --ref image",
+      "optional": true
+    }
+  ],
+  "output-files": [
+    {
+      "name": "Field file",
+      "id": "field_file_outfile",
+      "path-template": "[FIELD_FILE].nii.gz",
+      "description": "File with warp field."
+    },
+    {
+      "name": "Fieldcoeff file",
+      "id": "fieldcoeff_file_outfile",
+      "path-template": "[FIELDCOEFF_FILE].nii.gz",
+      "description": "File with field coefficients."
+    },
+    {
+      "name": "Jacobian file",
+      "id": "jacobian_file_outfile",
+      "path-template": "[JACOBIAN_FILE].mat",
+      "description": "File containing jacobian of the field."
+    },
+    {
+      "name": "Log file",
+      "id": "log_file_outfile",
+      "path-template": "[LOG_FILE].txt",
+      "description": "Name of log-file."
+    },
+    {
+      "name": "Modulatedref file",
+      "id": "modulatedref_file_outfile",
+      "path-template": "[MODULATEDREF_FILE].nii.gz",
+      "description": "File containing intensity modulated --ref."
+    },
+    {
+      "name": "Warped file",
+      "id": "warped_file_outfile",
+      "path-template": "[WARPED_FILE].nii.gz",
+      "description": "Warped image."
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

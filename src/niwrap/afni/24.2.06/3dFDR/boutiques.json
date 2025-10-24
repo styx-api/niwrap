@@ -1,0 +1,157 @@
+{
+  "name": "3dFDR",
+  "author": "AFNI Developers",
+  "description": "A tool for applying False Discovery Rate (FDR) thresholding to voxelwise statistics in 3D functional datasets.",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dFDR [INPUT_FILE] [INPUT1D_FILE] [MASK_FILE] [MASK_THRESHOLD] [CONSTANT_TYPE] [QUIET] [LIST] [PREFIX] [MODE_OPTION] [PMASK] [NOPMASK] [FORCE] [FLOAT] [QVAL]",
+  "inputs": [
+    {
+      "description": "Input 3D functional dataset filename",
+      "value-key": "[INPUT_FILE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_file",
+      "name": "Input file",
+      "command-line-flag": "-input"
+    },
+    {
+      "description": ".1D file containing column of p-values",
+      "value-key": "[INPUT1D_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "input1d_file",
+      "name": "Input 1D file",
+      "command-line-flag": "-input1D"
+    },
+    {
+      "description": "Use mask values from file mname. If file mname contains more than 1 sub-brick, the mask sub-brick must be specified. Generally should be used to avoid counting non-brain voxels.",
+      "value-key": "[MASK_FILE]",
+      "type": "File",
+      "optional": true,
+      "id": "mask_file",
+      "name": "Mask file",
+      "command-line-flag": "-mask_file"
+    },
+    {
+      "description": "Only voxels whose corresponding mask value is greater than or equal to the specified value in absolute terms will be considered. Default is 1.",
+      "value-key": "[MASK_THRESHOLD]",
+      "type": "Number",
+      "optional": true,
+      "id": "mask_threshold",
+      "name": "Mask threshold",
+      "command-line-flag": "-mask_thr"
+    },
+    {
+      "description": "Set constant c(N): 1 for independent p-values (default) or sum(1/i, i=1,...,N) for any joint distribution.",
+      "value-key": "[CONSTANT_TYPE]",
+      "type": "String",
+      "optional": true,
+      "id": "constant_type",
+      "name": "Constant type",
+      "value-choices": [
+        "cind",
+        "cdep"
+      ],
+      "command-line-flag": "-c"
+    },
+    {
+      "description": "Suppress screen output.",
+      "value-key": "[QUIET]",
+      "type": "Flag",
+      "id": "quiet",
+      "name": "Quiet flag",
+      "command-line-flag": "-quiet"
+    },
+    {
+      "description": "Write sorted list of voxel q-values to screen.",
+      "value-key": "[LIST]",
+      "type": "Flag",
+      "id": "list",
+      "name": "List flag",
+      "command-line-flag": "-list"
+    },
+    {
+      "description": "Use 'pname' for the output dataset prefix name.",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "prefix",
+      "name": "Output prefix",
+      "command-line-flag": "-prefix"
+    },
+    {
+      "description": "Use the old or new mode of operation. 'new' is now the default.",
+      "value-key": "[MODE_OPTION]",
+      "type": "String",
+      "optional": true,
+      "id": "mode_option",
+      "name": "Mode option",
+      "value-choices": [
+        "old",
+        "new"
+      ],
+      "command-line-flag": "-"
+    },
+    {
+      "description": "Ignore p=1 voxels (default in new mode).",
+      "value-key": "[PMASK]",
+      "type": "Flag",
+      "id": "pmask",
+      "name": "P-mask flag",
+      "command-line-flag": "-pmask"
+    },
+    {
+      "description": "Count p=1 voxels (default in old mode).",
+      "value-key": "[NOPMASK]",
+      "type": "Flag",
+      "id": "nopmask",
+      "name": "No P-mask flag",
+      "command-line-flag": "-nopmask"
+    },
+    {
+      "description": "Force conversion of all sub-bricks, treating them as p-values.",
+      "value-key": "[FORCE]",
+      "type": "Flag",
+      "id": "force",
+      "name": "Force flag",
+      "command-line-flag": "-force"
+    },
+    {
+      "description": "Force the output of z-scores in floating point format.",
+      "value-key": "[FLOAT]",
+      "type": "Flag",
+      "id": "float",
+      "name": "Float flag",
+      "command-line-flag": "-float"
+    },
+    {
+      "description": "Force the output of q-values rather than z-scores.",
+      "value-key": "[QVAL]",
+      "type": "Flag",
+      "id": "qval",
+      "name": "Q-value flag",
+      "command-line-flag": "-qval"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX]+orig.BRIK",
+      "description": "Output dataset in BRIK format",
+      "id": "output_brik",
+      "name": "Output BRIK file"
+    },
+    {
+      "path-template": "[PREFIX]+orig.HEAD",
+      "description": "Output dataset in HEAD format",
+      "id": "output_head",
+      "name": "Output HEAD file"
+    },
+    {
+      "path-template": "[PREFIX].1D",
+      "description": "Output list of voxel q-values",
+      "id": "output_1d",
+      "name": "Output 1D file"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "name": "SmoothDisplacementField",
+  "command-line": "SmoothDisplacementField [IMAGE_DIMENSION] [INPUT_FIELD] [OUTPUT_FIELD] [VARIANCE_OR_MESH_SIZE_BASE_LEVEL] [NUMBER_OF_LEVELS] [SPLINE_ORDER] [ESTIMATE_INVERSE] [CONFIDENCE_IMAGE]",
+  "description": "SmoothDisplacementField applies smoothing to a displacement field over a specified number of levels with optional parameters for spline order, inverse estimation, and confidence image output.",
+  "author": "ANTs Developers",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "image_dimension",
+      "name": "Image Dimension",
+      "value-key": "[IMAGE_DIMENSION]",
+      "type": "Number",
+      "integer": true,
+      "optional": false,
+      "description": "The dimensionality of the input displacement field."
+    },
+    {
+      "id": "input_field",
+      "name": "Input Field",
+      "value-key": "[INPUT_FIELD]",
+      "type": "File",
+      "optional": false,
+      "description": "The input displacement field file."
+    },
+    {
+      "id": "output_field",
+      "name": "Output Field",
+      "value-key": "[OUTPUT_FIELD]",
+      "type": "String",
+      "optional": false,
+      "description": "The output file for the smoothed displacement field."
+    },
+    {
+      "id": "variance_or_mesh_size_base_level",
+      "name": "Variance or Mesh Size Base Level",
+      "value-key": "[VARIANCE_OR_MESH_SIZE_BASE_LEVEL]",
+      "type": "Number",
+      "optional": false,
+      "description": "The variance for Gaussian smoothing or mesh size at the base level for B-spline smoothing."
+    },
+    {
+      "id": "number_of_levels",
+      "name": "Number of Levels",
+      "value-key": "[NUMBER_OF_LEVELS]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "description": "The number of levels for multi-resolution smoothing."
+    },
+    {
+      "id": "spline_order",
+      "name": "Spline Order",
+      "value-key": "[SPLINE_ORDER]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "description": "The order of the spline for B-spline smoothing."
+    },
+    {
+      "id": "estimate_inverse",
+      "name": "Estimate Inverse",
+      "value-key": "[ESTIMATE_INVERSE]",
+      "type": "Number",
+      "integer": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "optional": true,
+      "description": "Estimate the inverse of the displacement field if set to 1."
+    },
+    {
+      "id": "confidence_image",
+      "name": "Confidence Image",
+      "value-key": "[CONFIDENCE_IMAGE]",
+      "type": "File",
+      "optional": true,
+      "description": "Optional confidence image output of the smoothing process."
+    }
+  ],
+  "output-files": [
+    {
+      "id": "smoothed_field",
+      "name": "Smoothed Field",
+      "description": "The output file containing the smoothed displacement field.",
+      "path-template": "[OUTPUT_FIELD]"
+    },
+    {
+      "id": "confidence_image_out",
+      "name": "Confidence Image Output",
+      "description": "The output file containing confidence information from the smoothing process.",
+      "path-template": "[CONFIDENCE_IMAGE]"
+    }
+  ],
+  "url": "https://github.com/ANTsX/ANTs"
+}

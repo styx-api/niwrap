@@ -1,0 +1,78 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://niwrap.org/schemas/app.schema.json",
+  "title": "NiWrap Application Metadata Schema",
+  "description": "Application-specific metadata (separate from descriptors)",
+  "type": "object",
+  "required": ["name"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Application identifier (matches directory name)"
+    },
+    "exe": {
+      "type": "string",
+      "description": "Executable name (if different from name, for subcommands)"
+    },
+    "args": {
+      "type": "array",
+      "description": "Fixed arguments to prepend before descriptor args (for subcommands)",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source": {
+      "type": "object",
+      "description": "Descriptor source configuration",
+      "required": ["type", "path"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["boutiques"],
+          "description": "Descriptor format type"
+        },
+        "path": {
+          "type": "string",
+          "description": "Path to descriptor file relative to app directory"
+        }
+      }
+    },
+    "docs": {
+      "type": "object",
+      "description": "Application documentation",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Human-readable application title (only if different from name)"
+        },
+        "description": {
+          "type": "string",
+          "description": "Application description"
+        },
+        "authors": {
+          "type": "array",
+          "description": "App-specific authors (only if different from package authors)",
+          "items": {
+            "type": "string"
+          }
+        },
+        "literature": {
+          "type": "array",
+          "description": "App-specific citations",
+          "items": {
+            "type": "string"
+          }
+        },
+        "urls": {
+          "type": "array",
+          "description": "App-specific URLs (only if different from package URLs)",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

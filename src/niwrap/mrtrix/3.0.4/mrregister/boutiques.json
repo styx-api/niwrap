@@ -1,0 +1,815 @@
+{
+  "name": "mrregister",
+  "description": "Register two images together using a symmetric rigid, affine or non-linear transformation model.\n\nBy default this application will perform an affine, followed by non-linear registration.\n\nFOD registration (with apodised point spread reorientation) will be performed by default if the number of volumes in the 4th dimension equals the number of coefficients in an antipodally symmetric spherical harmonic series (e.g. 6, 15, 28 etc). The -no_reorientation option can be used to force reorientation off if required.\n\nNon-linear registration computes warps to map from both image1->image2 and image2->image1. Similar to Avants (2008) Med Image Anal. 12(1): 26â€“41, registration is performed by matching both the image1 and image2 in a 'midway space'. Warps can be saved as two deformation fields that map directly between image1->image2 and image2->image1, or if using -nl_warp_full as a single 5D file that stores all 4 warps image1->mid->image2, and image2->mid->image1. The 5D warp format stores x,y,z deformations in the 4th dimension, and uses the 5th dimension to index the 4 warps. The affine transforms estimated (to midway space) are also stored as comments in the image header. The 5D warp file can be used to reinitialise subsequent registrations, in addition to transforming images to midway space (e.g. for intra-subject alignment in a 2-time-point longitudinal analysis).\n\nReferences:\n\n* If FOD registration is being performed:\nRaffelt, D.; Tournier, J.-D.; Fripp, J; Crozier, S.; Connelly, A. & Salvado, O. Symmetric diffeomorphic registration of fibre orientation distributions. NeuroImage, 2011, 56(3), 1171-1180\n\nRaffelt, D.; Tournier, J.-D.; Crozier, S.; Connelly, A. & Salvado, O. Reorientation of fiber orientation distributions using apodized point spread functions. Magnetic Resonance in Medicine, 2012, 67, 844-855",
+  "author": "MRTrix3 Developers",
+  "schema-version": "0.5+styx",
+  "command-line": "mrregister [OPTIONS_TYPE] [OPTIONS_TRANSFORMED] [OPTIONS_TRANSFORMED_MIDWAY] [OPTIONS_MASK1] [OPTIONS_MASK2] [OPTIONS_NAN] [RIGID_REGISTRATION_OPTIONS_RIGID] [RIGID_REGISTRATION_OPTIONS_RIGID_1TOMIDWAY] [RIGID_REGISTRATION_OPTIONS_RIGID_2TOMIDWAY] [RIGID_REGISTRATION_OPTIONS_RIGID_INIT_TRANSLATION] [RIGID_REGISTRATION_OPTIONS_RIGID_INIT_ROTATION] [RIGID_REGISTRATION_OPTIONS_RIGID_INIT_MATRIX] [RIGID_REGISTRATION_OPTIONS_RIGID_SCALE] [RIGID_REGISTRATION_OPTIONS_RIGID_NITER] [RIGID_REGISTRATION_OPTIONS_RIGID_METRIC] [RIGID_REGISTRATION_OPTIONS_RIGID_METRIC_DIFF_ESTIMATOR] [RIGID_REGISTRATION_OPTIONS_RIGID_LMAX] [RIGID_REGISTRATION_OPTIONS_RIGID_LOG] [AFFINE_REGISTRATION_OPTIONS_AFFINE] [AFFINE_REGISTRATION_OPTIONS_AFFINE_1TOMIDWAY] [AFFINE_REGISTRATION_OPTIONS_AFFINE_2TOMIDWAY] [AFFINE_REGISTRATION_OPTIONS_AFFINE_INIT_TRANSLATION] [AFFINE_REGISTRATION_OPTIONS_AFFINE_INIT_ROTATION] [AFFINE_REGISTRATION_OPTIONS_AFFINE_INIT_MATRIX] [AFFINE_REGISTRATION_OPTIONS_AFFINE_SCALE] [AFFINE_REGISTRATION_OPTIONS_AFFINE_NITER] [AFFINE_REGISTRATION_OPTIONS_AFFINE_METRIC] [AFFINE_REGISTRATION_OPTIONS_AFFINE_METRIC_DIFF_ESTIMATOR] [AFFINE_REGISTRATION_OPTIONS_AFFINE_LMAX] [AFFINE_REGISTRATION_OPTIONS_AFFINE_LOG] [ADVANCED_LINEAR_TRANSFORMATION_INITIALISATION_OPTIONS_INIT_TRANSLATION_UNMASKED1] [ADVANCED_LINEAR_TRANSFORMATION_INITIALISATION_OPTIONS_INIT_TRANSLATION_UNMASKED2] [ADVANCED_LINEAR_TRANSFORMATION_INITIALISATION_OPTIONS_INIT_ROTATION_UNMASKED1] [ADVANCED_LINEAR_TRANSFORMATION_INITIALISATION_OPTIONS_INIT_ROTATION_UNMASKED2] [ADVANCED_LINEAR_TRANSFORMATION_INITIALISATION_OPTIONS_INIT_ROTATION_SEARCH_ANGLES] [ADVANCED_LINEAR_TRANSFORMATION_INITIALISATION_OPTIONS_INIT_ROTATION_SEARCH_SCALE] [ADVANCED_LINEAR_TRANSFORMATION_INITIALISATION_OPTIONS_INIT_ROTATION_SEARCH_DIRECTIONS] [ADVANCED_LINEAR_TRANSFORMATION_INITIALISATION_OPTIONS_INIT_ROTATION_SEARCH_RUN_GLOBAL] [ADVANCED_LINEAR_TRANSFORMATION_INITIALISATION_OPTIONS_INIT_ROTATION_SEARCH_GLOBAL_ITERATIONS] [ADVANCED_LINEAR_REGISTRATION_STAGE_OPTIONS_LINSTAGE_ITERATIONS] [ADVANCED_LINEAR_REGISTRATION_STAGE_OPTIONS_LINSTAGE_OPTIMISER_FIRST] [ADVANCED_LINEAR_REGISTRATION_STAGE_OPTIONS_LINSTAGE_OPTIMISER_LAST] [ADVANCED_LINEAR_REGISTRATION_STAGE_OPTIONS_LINSTAGE_OPTIMISER_DEFAULT] [ADVANCED_LINEAR_REGISTRATION_STAGE_OPTIONS_LINSTAGE_DIAGNOSTICS_PREFIX] [NON_LINEAR_REGISTRATION_OPTIONS_NL_WARP] [NON_LINEAR_REGISTRATION_OPTIONS_NL_WARP_FULL] [NON_LINEAR_REGISTRATION_OPTIONS_NL_INIT] [NON_LINEAR_REGISTRATION_OPTIONS_NL_SCALE] [NON_LINEAR_REGISTRATION_OPTIONS_NL_NITER] [NON_LINEAR_REGISTRATION_OPTIONS_NL_UPDATE_SMOOTH] [NON_LINEAR_REGISTRATION_OPTIONS_NL_DISP_SMOOTH] [NON_LINEAR_REGISTRATION_OPTIONS_NL_GRAD_STEP] [NON_LINEAR_REGISTRATION_OPTIONS_NL_LMAX] [NON_LINEAR_REGISTRATION_OPTIONS_DIAGNOSTICS_IMAGE] [FOD_REGISTRATION_OPTIONS_DIRECTIONS] [FOD_REGISTRATION_OPTIONS_NOREORIENTATION] [MULTI_CONTRAST_OPTIONS_MC_WEIGHTS] [DATA_TYPE_OPTIONS_DATATYPE] [__STANDARD_OPTIONS_INFO] [__STANDARD_OPTIONS_QUIET] [__STANDARD_OPTIONS_DEBUG] [__STANDARD_OPTIONS_FORCE] [__STANDARD_OPTIONS_NTHREADS] [__STANDARD_OPTIONS_CONFIG] [__STANDARD_OPTIONS_HELP] [__STANDARD_OPTIONS_VERSION] [IMAGE1_IMAGE2] [CONTRAST1_CONTRAST2]",
+  "inputs": [
+    {
+      "id": "image1_image2",
+      "name": "image1_image2",
+      "value-key": "[IMAGE1_IMAGE2]",
+      "description": "input image 1 ('moving') and input image 2 ('template')",
+      "type": "File",
+      "optional": false
+    },
+    {
+      "id": "contrast1_contrast2",
+      "name": "contrast1_contrast2",
+      "value-key": "[CONTRAST1_CONTRAST2]",
+      "description": "optional list of additional input images used as additional contrasts. Can be used multiple times. contrastX and imageX must share the same coordinate system. ",
+      "type": "File",
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "type",
+      "name": "type",
+      "command-line-flag": "-type",
+      "value-key": "[OPTIONS_TYPE]",
+      "description": "the registration type. Valid choices are: rigid, affine, nonlinear, rigid_affine, rigid_nonlinear, affine_nonlinear, rigid_affine_nonlinear (Default: affine_nonlinear)",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "transformed",
+      "name": "transformed",
+      "value-key": "[OPTIONS_TRANSFORMED]",
+      "description": "image1 after registration transformed and regridded to the space of image2. Note that -transformed needs to be repeated for each contrast if multi-contrast registration is used.",
+      "type": {
+        "id": "transformed",
+        "name": "transformed",
+        "description": "image1 after registration transformed and regridded to the space of image2. Note that -transformed needs to be repeated for each contrast if multi-contrast registration is used.",
+        "command-line": "-transformed [IMAGE]",
+        "inputs": [
+          {
+            "id": "image",
+            "name": "image",
+            "value-key": "[IMAGE]",
+            "description": "image1 after registration transformed and regridded to the space of image2. Note that -transformed needs to be repeated for each contrast if multi-contrast registration is used.",
+            "type": "String",
+            "optional": false
+          }
+        ],
+        "output-files": [
+          {
+            "id": "image",
+            "name": "image",
+            "path-template": "[IMAGE]",
+            "description": "image1 after registration transformed and regridded to the space of image2. Note that -transformed needs to be repeated for each contrast if multi-contrast registration is used."
+          }
+        ]
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "transformed_midway",
+      "name": "transformed_midway",
+      "value-key": "[OPTIONS_TRANSFORMED_MIDWAY]",
+      "description": "image1 and image2 after registration transformed and regridded to the midway space. Note that -transformed_midway needs to be repeated for each contrast if multi-contrast registration is used.",
+      "type": {
+        "id": "transformed_midway",
+        "name": "transformed_midway",
+        "description": "image1 and image2 after registration transformed and regridded to the midway space. Note that -transformed_midway needs to be repeated for each contrast if multi-contrast registration is used.",
+        "command-line": "-transformed_midway [IMAGE1_TRANSFORMED] [IMAGE2_TRANSFORMED]",
+        "inputs": [
+          {
+            "id": "image1_transformed",
+            "name": "image1_transformed",
+            "value-key": "[IMAGE1_TRANSFORMED]",
+            "description": "image1 and image2 after registration transformed and regridded to the midway space. Note that -transformed_midway needs to be repeated for each contrast if multi-contrast registration is used.",
+            "type": "String",
+            "optional": false
+          },
+          {
+            "id": "image2_transformed",
+            "name": "image2_transformed",
+            "value-key": "[IMAGE2_TRANSFORMED]",
+            "description": "image1 and image2 after registration transformed and regridded to the midway space. Note that -transformed_midway needs to be repeated for each contrast if multi-contrast registration is used.",
+            "type": "String",
+            "optional": false
+          }
+        ],
+        "output-files": [
+          {
+            "id": "image1_transformed",
+            "name": "image1_transformed",
+            "path-template": "[IMAGE1_TRANSFORMED]",
+            "description": "image1 and image2 after registration transformed and regridded to the midway space. Note that -transformed_midway needs to be repeated for each contrast if multi-contrast registration is used."
+          },
+          {
+            "id": "image2_transformed",
+            "name": "image2_transformed",
+            "path-template": "[IMAGE2_TRANSFORMED]",
+            "description": "image1 and image2 after registration transformed and regridded to the midway space. Note that -transformed_midway needs to be repeated for each contrast if multi-contrast registration is used."
+          }
+        ]
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "mask1",
+      "name": "mask1",
+      "command-line-flag": "-mask1",
+      "value-key": "[OPTIONS_MASK1]",
+      "description": "a mask to define the region of image1 to use for optimisation.",
+      "type": "File",
+      "optional": true
+    },
+    {
+      "id": "mask2",
+      "name": "mask2",
+      "command-line-flag": "-mask2",
+      "value-key": "[OPTIONS_MASK2]",
+      "description": "a mask to define the region of image2 to use for optimisation.",
+      "type": "File",
+      "optional": true
+    },
+    {
+      "id": "nan",
+      "name": "nan",
+      "command-line-flag": "-nan",
+      "value-key": "[OPTIONS_NAN]",
+      "description": "use NaN as out of bounds value. (Default: 0.0)",
+      "type": "Flag"
+    },
+    {
+      "id": "rigid",
+      "name": "rigid",
+      "command-line-flag": "-rigid",
+      "value-key": "[RIGID_REGISTRATION_OPTIONS_RIGID]",
+      "description": "the output text file containing the rigid transformation as a 4x4 matrix",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "rigid_1tomidway",
+      "name": "rigid_1tomidway",
+      "command-line-flag": "-rigid_1tomidway",
+      "value-key": "[RIGID_REGISTRATION_OPTIONS_RIGID_1TOMIDWAY]",
+      "description": "the output text file containing the rigid transformation that aligns image1 to image2 in their common midway space as a 4x4 matrix",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "rigid_2tomidway",
+      "name": "rigid_2tomidway",
+      "command-line-flag": "-rigid_2tomidway",
+      "value-key": "[RIGID_REGISTRATION_OPTIONS_RIGID_2TOMIDWAY]",
+      "description": "the output text file containing the rigid transformation that aligns image2 to image1 in their common midway space as a 4x4 matrix",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "rigid_init_translation",
+      "name": "rigid_init_translation",
+      "command-line-flag": "-rigid_init_translation",
+      "value-key": "[RIGID_REGISTRATION_OPTIONS_RIGID_INIT_TRANSLATION]",
+      "description": "initialise the translation and centre of rotation \nValid choices are: \nmass (aligns the centers of mass of both images, default), \ngeometric (aligns geometric image centres) and none.",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "rigid_init_rotation",
+      "name": "rigid_init_rotation",
+      "command-line-flag": "-rigid_init_rotation",
+      "value-key": "[RIGID_REGISTRATION_OPTIONS_RIGID_INIT_ROTATION]",
+      "description": "initialise the rotation Valid choices are: \nsearch (search for the best rotation using mean squared residuals), \nmoments (rotation based on directions of intensity variance with respect to centre of mass), \nnone (default).",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "rigid_init_matrix",
+      "name": "rigid_init_matrix",
+      "command-line-flag": "-rigid_init_matrix",
+      "value-key": "[RIGID_REGISTRATION_OPTIONS_RIGID_INIT_MATRIX]",
+      "description": "initialise either the rigid, affine, or syn registration with the supplied rigid transformation (as a 4x4 matrix in scanner coordinates). Note that this overrides rigid_init_translation and rigid_init_rotation initialisation ",
+      "type": "File",
+      "optional": true
+    },
+    {
+      "id": "rigid_scale",
+      "name": "rigid_scale",
+      "command-line-flag": "-rigid_scale",
+      "value-key": "[RIGID_REGISTRATION_OPTIONS_RIGID_SCALE]",
+      "description": "use a multi-resolution scheme by defining a scale factor for each level using comma separated values (Default: 0.25,0.5,1.0)",
+      "type": "Number",
+      "optional": true,
+      "integer": false,
+      "list": true
+    },
+    {
+      "id": "rigid_niter",
+      "name": "rigid_niter",
+      "command-line-flag": "-rigid_niter",
+      "value-key": "[RIGID_REGISTRATION_OPTIONS_RIGID_NITER]",
+      "description": "the maximum number of gradient descent iterations per stage. This can be specified either as a single number for all multi-resolution levels, or a single value for each level. (Default: 1000)",
+      "type": "Number",
+      "optional": true,
+      "integer": true,
+      "list": true
+    },
+    {
+      "id": "rigid_metric",
+      "name": "rigid_metric",
+      "command-line-flag": "-rigid_metric",
+      "value-key": "[RIGID_REGISTRATION_OPTIONS_RIGID_METRIC]",
+      "description": "valid choices are: diff (intensity differences), Default: diff",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "rigid_metric_diff_estimator",
+      "name": "rigid_metric_diff_estimator",
+      "command-line-flag": "-rigid_metric.diff.estimator",
+      "value-key": "[RIGID_REGISTRATION_OPTIONS_RIGID_METRIC_DIFF_ESTIMATOR]",
+      "description": "Valid choices are: l1 (least absolute: |x|), l2 (ordinary least squares), lp (least powers: |x|^1.2), Default: l2",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "rigid_lmax",
+      "name": "rigid_lmax",
+      "command-line-flag": "-rigid_lmax",
+      "value-key": "[RIGID_REGISTRATION_OPTIONS_RIGID_LMAX]",
+      "description": "explicitly set the lmax to be used per scale factor in rigid FOD registration. By default FOD registration will use lmax 0,2,4 with default scale factors 0.25,0.5,1.0 respectively. Note that no reorientation will be performed with lmax = 0.",
+      "type": "Number",
+      "optional": true,
+      "integer": true,
+      "list": true
+    },
+    {
+      "id": "rigid_log",
+      "name": "rigid_log",
+      "command-line-flag": "-rigid_log",
+      "value-key": "[RIGID_REGISTRATION_OPTIONS_RIGID_LOG]",
+      "description": "write gradient descent parameter evolution to log file",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "affine",
+      "name": "affine",
+      "command-line-flag": "-affine",
+      "value-key": "[AFFINE_REGISTRATION_OPTIONS_AFFINE]",
+      "description": "the output text file containing the affine transformation as a 4x4 matrix",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "affine_1tomidway",
+      "name": "affine_1tomidway",
+      "command-line-flag": "-affine_1tomidway",
+      "value-key": "[AFFINE_REGISTRATION_OPTIONS_AFFINE_1TOMIDWAY]",
+      "description": "the output text file containing the affine transformation that aligns image1 to image2 in their common midway space as a 4x4 matrix",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "affine_2tomidway",
+      "name": "affine_2tomidway",
+      "command-line-flag": "-affine_2tomidway",
+      "value-key": "[AFFINE_REGISTRATION_OPTIONS_AFFINE_2TOMIDWAY]",
+      "description": "the output text file containing the affine transformation that aligns image2 to image1 in their common midway space as a 4x4 matrix",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "affine_init_translation",
+      "name": "affine_init_translation",
+      "command-line-flag": "-affine_init_translation",
+      "value-key": "[AFFINE_REGISTRATION_OPTIONS_AFFINE_INIT_TRANSLATION]",
+      "description": "initialise the translation and centre of rotation \nValid choices are: \nmass (aligns the centers of mass of both images), \ngeometric (aligns geometric image centres) and none. (Default: mass)",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "affine_init_rotation",
+      "name": "affine_init_rotation",
+      "command-line-flag": "-affine_init_rotation",
+      "value-key": "[AFFINE_REGISTRATION_OPTIONS_AFFINE_INIT_ROTATION]",
+      "description": "initialise the rotation Valid choices are: \nsearch (search for the best rotation using mean squared residuals), \nmoments (rotation based on directions of intensity variance with respect to centre of mass), \nnone (Default: none).",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "affine_init_matrix",
+      "name": "affine_init_matrix",
+      "command-line-flag": "-affine_init_matrix",
+      "value-key": "[AFFINE_REGISTRATION_OPTIONS_AFFINE_INIT_MATRIX]",
+      "description": "initialise either the affine, or syn registration with the supplied affine transformation (as a 4x4 matrix in scanner coordinates). Note that this overrides affine_init_translation and affine_init_rotation initialisation ",
+      "type": "File",
+      "optional": true
+    },
+    {
+      "id": "affine_scale",
+      "name": "affine_scale",
+      "command-line-flag": "-affine_scale",
+      "value-key": "[AFFINE_REGISTRATION_OPTIONS_AFFINE_SCALE]",
+      "description": "use a multi-resolution scheme by defining a scale factor for each level using comma separated values (Default: 0.25,0.5,1.0)",
+      "type": "Number",
+      "optional": true,
+      "integer": false,
+      "list": true
+    },
+    {
+      "id": "affine_niter",
+      "name": "affine_niter",
+      "command-line-flag": "-affine_niter",
+      "value-key": "[AFFINE_REGISTRATION_OPTIONS_AFFINE_NITER]",
+      "description": "the maximum number of gradient descent iterations per stage. This can be specified either as a single number for all multi-resolution levels, or a single value for each level. (Default: 1000)",
+      "type": "Number",
+      "optional": true,
+      "integer": true,
+      "list": true
+    },
+    {
+      "id": "affine_metric",
+      "name": "affine_metric",
+      "command-line-flag": "-affine_metric",
+      "value-key": "[AFFINE_REGISTRATION_OPTIONS_AFFINE_METRIC]",
+      "description": "valid choices are: diff (intensity differences), Default: diff",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "affine_metric_diff_estimator",
+      "name": "affine_metric_diff_estimator",
+      "command-line-flag": "-affine_metric.diff.estimator",
+      "value-key": "[AFFINE_REGISTRATION_OPTIONS_AFFINE_METRIC_DIFF_ESTIMATOR]",
+      "description": "Valid choices are: l1 (least absolute: |x|), l2 (ordinary least squares), lp (least powers: |x|^1.2), Default: l2",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "affine_lmax",
+      "name": "affine_lmax",
+      "command-line-flag": "-affine_lmax",
+      "value-key": "[AFFINE_REGISTRATION_OPTIONS_AFFINE_LMAX]",
+      "description": "explicitly set the lmax to be used per scale factor in affine FOD registration. By default FOD registration will use lmax 0,2,4 with default scale factors 0.25,0.5,1.0 respectively. Note that no reorientation will be performed with lmax = 0.",
+      "type": "Number",
+      "optional": true,
+      "integer": true,
+      "list": true
+    },
+    {
+      "id": "affine_log",
+      "name": "affine_log",
+      "command-line-flag": "-affine_log",
+      "value-key": "[AFFINE_REGISTRATION_OPTIONS_AFFINE_LOG]",
+      "description": "write gradient descent parameter evolution to log file",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "init_translation_unmasked1",
+      "name": "init_translation_unmasked1",
+      "command-line-flag": "-init_translation.unmasked1",
+      "value-key": "[ADVANCED_LINEAR_TRANSFORMATION_INITIALISATION_OPTIONS_INIT_TRANSLATION_UNMASKED1]",
+      "description": "disregard mask1 for the translation initialisation (affects 'mass')",
+      "type": "Flag"
+    },
+    {
+      "id": "init_translation_unmasked2",
+      "name": "init_translation_unmasked2",
+      "command-line-flag": "-init_translation.unmasked2",
+      "value-key": "[ADVANCED_LINEAR_TRANSFORMATION_INITIALISATION_OPTIONS_INIT_TRANSLATION_UNMASKED2]",
+      "description": "disregard mask2 for the translation initialisation (affects 'mass')",
+      "type": "Flag"
+    },
+    {
+      "id": "init_rotation_unmasked1",
+      "name": "init_rotation_unmasked1",
+      "command-line-flag": "-init_rotation.unmasked1",
+      "value-key": "[ADVANCED_LINEAR_TRANSFORMATION_INITIALISATION_OPTIONS_INIT_ROTATION_UNMASKED1]",
+      "description": "disregard mask1 for the rotation initialisation (affects 'search' and 'moments')",
+      "type": "Flag"
+    },
+    {
+      "id": "init_rotation_unmasked2",
+      "name": "init_rotation_unmasked2",
+      "command-line-flag": "-init_rotation.unmasked2",
+      "value-key": "[ADVANCED_LINEAR_TRANSFORMATION_INITIALISATION_OPTIONS_INIT_ROTATION_UNMASKED2]",
+      "description": "disregard mask2 for the rotation initialisation (affects 'search' and 'moments')",
+      "type": "Flag"
+    },
+    {
+      "id": "init_rotation_search_angles",
+      "name": "init_rotation_search_angles",
+      "command-line-flag": "-init_rotation.search.angles",
+      "value-key": "[ADVANCED_LINEAR_TRANSFORMATION_INITIALISATION_OPTIONS_INIT_ROTATION_SEARCH_ANGLES]",
+      "description": "rotation angles for the local search in degrees between 0 and 180. (Default: 2,5,10,15,20)",
+      "type": "Number",
+      "optional": true,
+      "integer": false,
+      "list": true
+    },
+    {
+      "id": "init_rotation_search_scale",
+      "name": "init_rotation_search_scale",
+      "command-line-flag": "-init_rotation.search.scale",
+      "value-key": "[ADVANCED_LINEAR_TRANSFORMATION_INITIALISATION_OPTIONS_INIT_ROTATION_SEARCH_SCALE]",
+      "description": "relative size of the images used for the rotation search. (Default: 0.15)",
+      "type": "Number",
+      "optional": true,
+      "integer": false
+    },
+    {
+      "id": "init_rotation_search_directions",
+      "name": "init_rotation_search_directions",
+      "command-line-flag": "-init_rotation.search.directions",
+      "value-key": "[ADVANCED_LINEAR_TRANSFORMATION_INITIALISATION_OPTIONS_INIT_ROTATION_SEARCH_DIRECTIONS]",
+      "description": "number of rotation axis for local search. (Default: 250)",
+      "type": "Number",
+      "optional": true,
+      "integer": true
+    },
+    {
+      "id": "init_rotation_search_run_global",
+      "name": "init_rotation_search_run_global",
+      "command-line-flag": "-init_rotation.search.run_global",
+      "value-key": "[ADVANCED_LINEAR_TRANSFORMATION_INITIALISATION_OPTIONS_INIT_ROTATION_SEARCH_RUN_GLOBAL]",
+      "description": "perform a global search. (Default: local)",
+      "type": "Flag"
+    },
+    {
+      "id": "init_rotation_search_global_iterations",
+      "name": "init_rotation_search_global_iterations",
+      "command-line-flag": "-init_rotation.search.global.iterations",
+      "value-key": "[ADVANCED_LINEAR_TRANSFORMATION_INITIALISATION_OPTIONS_INIT_ROTATION_SEARCH_GLOBAL_ITERATIONS]",
+      "description": "number of rotations to investigate (Default: 10000)",
+      "type": "Number",
+      "optional": true,
+      "integer": true
+    },
+    {
+      "id": "linstage_iterations",
+      "name": "linstage_iterations",
+      "command-line-flag": "-linstage.iterations",
+      "value-key": "[ADVANCED_LINEAR_REGISTRATION_STAGE_OPTIONS_LINSTAGE_ITERATIONS]",
+      "description": "number of iterations for each registration stage, not to be confused with -rigid_niter or -affine_niter. This can be used to generate intermediate diagnostics images (-linstage.diagnostics.prefix) or to change the cost function optimiser during registration (without the need to repeatedly resize the images). (Default: 1 == no repetition)",
+      "type": "Number",
+      "optional": true,
+      "integer": true,
+      "list": true
+    },
+    {
+      "id": "linstage_optimiser_first",
+      "name": "linstage_optimiser_first",
+      "command-line-flag": "-linstage.optimiser.first",
+      "value-key": "[ADVANCED_LINEAR_REGISTRATION_STAGE_OPTIONS_LINSTAGE_OPTIMISER_FIRST]",
+      "description": "Cost function optimisation algorithm to use at first iteration of all stages. Valid choices: bbgd (Barzilai-Borwein gradient descent) or gd (simple gradient descent). (Default: bbgd)",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "linstage_optimiser_last",
+      "name": "linstage_optimiser_last",
+      "command-line-flag": "-linstage.optimiser.last",
+      "value-key": "[ADVANCED_LINEAR_REGISTRATION_STAGE_OPTIONS_LINSTAGE_OPTIMISER_LAST]",
+      "description": "Cost function optimisation algorithm to use at last iteration of all stages (if there are more than one). Valid choices: bbgd (Barzilai-Borwein gradient descent) or gd (simple gradient descent). (Default: bbgd)",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "linstage_optimiser_default",
+      "name": "linstage_optimiser_default",
+      "command-line-flag": "-linstage.optimiser.default",
+      "value-key": "[ADVANCED_LINEAR_REGISTRATION_STAGE_OPTIONS_LINSTAGE_OPTIMISER_DEFAULT]",
+      "description": "Cost function optimisation algorithm to use at any stage iteration other than first or last iteration. Valid choices: bbgd (Barzilai-Borwein gradient descent) or gd (simple gradient descent). (Default: bbgd)",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "linstage_diagnostics_prefix",
+      "name": "linstage_diagnostics_prefix",
+      "command-line-flag": "-linstage.diagnostics.prefix",
+      "value-key": "[ADVANCED_LINEAR_REGISTRATION_STAGE_OPTIONS_LINSTAGE_DIAGNOSTICS_PREFIX]",
+      "description": "generate diagnostics images after every registration stage",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "nl_warp",
+      "name": "nl_warp",
+      "value-key": "[NON_LINEAR_REGISTRATION_OPTIONS_NL_WARP]",
+      "description": "the non-linear warp output defined as two deformation fields, where warp1 can be used to transform image1->image2 and warp2 to transform image2->image1. The deformation fields also encapsulate any linear transformation estimated prior to non-linear registration.",
+      "type": {
+        "id": "nl_warp",
+        "name": "nl_warp",
+        "description": "the non-linear warp output defined as two deformation fields, where warp1 can be used to transform image1->image2 and warp2 to transform image2->image1. The deformation fields also encapsulate any linear transformation estimated prior to non-linear registration.",
+        "command-line": "-nl_warp [WARP1] [WARP2]",
+        "inputs": [
+          {
+            "id": "warp1",
+            "name": "warp1",
+            "value-key": "[WARP1]",
+            "description": "the non-linear warp output defined as two deformation fields, where warp1 can be used to transform image1->image2 and warp2 to transform image2->image1. The deformation fields also encapsulate any linear transformation estimated prior to non-linear registration.",
+            "type": "String",
+            "optional": false
+          },
+          {
+            "id": "warp2",
+            "name": "warp2",
+            "value-key": "[WARP2]",
+            "description": "the non-linear warp output defined as two deformation fields, where warp1 can be used to transform image1->image2 and warp2 to transform image2->image1. The deformation fields also encapsulate any linear transformation estimated prior to non-linear registration.",
+            "type": "String",
+            "optional": false
+          }
+        ],
+        "output-files": [
+          {
+            "id": "warp1",
+            "name": "warp1",
+            "path-template": "[WARP1]",
+            "description": "the non-linear warp output defined as two deformation fields, where warp1 can be used to transform image1->image2 and warp2 to transform image2->image1. The deformation fields also encapsulate any linear transformation estimated prior to non-linear registration."
+          },
+          {
+            "id": "warp2",
+            "name": "warp2",
+            "path-template": "[WARP2]",
+            "description": "the non-linear warp output defined as two deformation fields, where warp1 can be used to transform image1->image2 and warp2 to transform image2->image1. The deformation fields also encapsulate any linear transformation estimated prior to non-linear registration."
+          }
+        ]
+      },
+      "optional": true
+    },
+    {
+      "id": "nl_warp_full",
+      "name": "nl_warp_full",
+      "command-line-flag": "-nl_warp_full",
+      "value-key": "[NON_LINEAR_REGISTRATION_OPTIONS_NL_WARP_FULL]",
+      "description": "output all warps used during registration. This saves four different warps that map each image to a midway space and their inverses in a single 5D image file. The 4th image dimension indexes the x,y,z component of the deformation vector and the 5th dimension indexes the field in this order: image1->midway, midway->image1, image2->midway, midway->image2. Where image1->midway defines the field that maps image1 onto the midway space using the reverse convention When linear registration is performed first, the estimated linear transform will be included in the comments of the image header, and therefore the entire linear and non-linear transform can be applied (in either direction) using this output warp file with mrtransform",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "nl_init",
+      "name": "nl_init",
+      "command-line-flag": "-nl_init",
+      "value-key": "[NON_LINEAR_REGISTRATION_OPTIONS_NL_INIT]",
+      "description": "initialise the non-linear registration with the supplied warp image. The supplied warp must be in the same format as output using the -nl_warp_full option (i.e. have 4 deformation fields with the linear transforms in the image header)",
+      "type": "File",
+      "optional": true
+    },
+    {
+      "id": "nl_scale",
+      "name": "nl_scale",
+      "command-line-flag": "-nl_scale",
+      "value-key": "[NON_LINEAR_REGISTRATION_OPTIONS_NL_SCALE]",
+      "description": "use a multi-resolution scheme by defining a scale factor for each level using comma separated values (Default: 0.25,0.5,1.0)",
+      "type": "Number",
+      "optional": true,
+      "integer": false,
+      "list": true
+    },
+    {
+      "id": "nl_niter",
+      "name": "nl_niter",
+      "command-line-flag": "-nl_niter",
+      "value-key": "[NON_LINEAR_REGISTRATION_OPTIONS_NL_NITER]",
+      "description": "the maximum number of iterations. This can be specified either as a single number for all multi-resolution levels, or a single value for each level. (Default: 50)",
+      "type": "Number",
+      "optional": true,
+      "integer": true,
+      "list": true
+    },
+    {
+      "id": "nl_update_smooth",
+      "name": "nl_update_smooth",
+      "command-line-flag": "-nl_update_smooth",
+      "value-key": "[NON_LINEAR_REGISTRATION_OPTIONS_NL_UPDATE_SMOOTH]",
+      "description": "regularise the gradient update field with Gaussian smoothing (standard deviation in voxel units, Default 2.0)",
+      "type": "Number",
+      "optional": true,
+      "integer": false
+    },
+    {
+      "id": "nl_disp_smooth",
+      "name": "nl_disp_smooth",
+      "command-line-flag": "-nl_disp_smooth",
+      "value-key": "[NON_LINEAR_REGISTRATION_OPTIONS_NL_DISP_SMOOTH]",
+      "description": "regularise the displacement field with Gaussian smoothing (standard deviation in voxel units, Default 1.0)",
+      "type": "Number",
+      "optional": true,
+      "integer": false
+    },
+    {
+      "id": "nl_grad_step",
+      "name": "nl_grad_step",
+      "command-line-flag": "-nl_grad_step",
+      "value-key": "[NON_LINEAR_REGISTRATION_OPTIONS_NL_GRAD_STEP]",
+      "description": "the gradient step size for non-linear registration (Default: 0.5)",
+      "type": "Number",
+      "optional": true,
+      "integer": false
+    },
+    {
+      "id": "nl_lmax",
+      "name": "nl_lmax",
+      "command-line-flag": "-nl_lmax",
+      "value-key": "[NON_LINEAR_REGISTRATION_OPTIONS_NL_LMAX]",
+      "description": "explicitly set the lmax to be used per scale factor in non-linear FOD registration. By default FOD registration will use lmax 0,2,4 with default scale factors 0.25,0.5,1.0 respectively. Note that no reorientation will be performed with lmax = 0.",
+      "type": "Number",
+      "optional": true,
+      "integer": true,
+      "list": true
+    },
+    {
+      "id": "diagnostics_image",
+      "name": "diagnostics_image",
+      "command-line-flag": "-diagnostics_image",
+      "value-key": "[NON_LINEAR_REGISTRATION_OPTIONS_DIAGNOSTICS_IMAGE]",
+      "description": "write intermediate images for diagnostics purposes",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "directions",
+      "name": "directions",
+      "command-line-flag": "-directions",
+      "value-key": "[FOD_REGISTRATION_OPTIONS_DIRECTIONS]",
+      "description": "the directions used for FOD reorientation using apodised point spread functions (Default: 60 directions)",
+      "type": "File",
+      "optional": true
+    },
+    {
+      "id": "noreorientation",
+      "name": "noreorientation",
+      "command-line-flag": "-noreorientation",
+      "value-key": "[FOD_REGISTRATION_OPTIONS_NOREORIENTATION]",
+      "description": "turn off FOD reorientation. Reorientation is on by default if the number of volumes in the 4th dimension corresponds to the number of coefficients in an antipodally symmetric spherical harmonic series (i.e. 6, 15, 28, 45, 66 etc)",
+      "type": "Flag"
+    },
+    {
+      "id": "mc_weights",
+      "name": "mc_weights",
+      "command-line-flag": "-mc_weights",
+      "value-key": "[MULTI_CONTRAST_OPTIONS_MC_WEIGHTS]",
+      "description": "relative weight of images used for multi-contrast registration. Default: 1.0 (equal weighting)",
+      "type": "Number",
+      "optional": true,
+      "integer": false,
+      "list": true
+    },
+    {
+      "id": "datatype",
+      "name": "datatype",
+      "command-line-flag": "-datatype",
+      "value-key": "[DATA_TYPE_OPTIONS_DATATYPE]",
+      "description": "specify output image data type. Valid choices are: float32, float32le, float32be, float64, float64le, float64be, int64, uint64, int64le, uint64le, int64be, uint64be, int32, uint32, int32le, uint32le, int32be, uint32be, int16, uint16, int16le, uint16le, int16be, uint16be, cfloat32, cfloat32le, cfloat32be, cfloat64, cfloat64le, cfloat64be, int8, uint8, bit.",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "info",
+      "name": "info",
+      "command-line-flag": "-info",
+      "value-key": "[__STANDARD_OPTIONS_INFO]",
+      "description": "display information messages.",
+      "type": "Flag"
+    },
+    {
+      "id": "quiet",
+      "name": "quiet",
+      "command-line-flag": "-quiet",
+      "value-key": "[__STANDARD_OPTIONS_QUIET]",
+      "description": "do not display information messages or progress status; alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string.",
+      "type": "Flag"
+    },
+    {
+      "id": "debug",
+      "name": "debug",
+      "command-line-flag": "-debug",
+      "value-key": "[__STANDARD_OPTIONS_DEBUG]",
+      "description": "display debugging messages.",
+      "type": "Flag"
+    },
+    {
+      "id": "force",
+      "name": "force",
+      "command-line-flag": "-force",
+      "value-key": "[__STANDARD_OPTIONS_FORCE]",
+      "description": "force overwrite of output files (caution: using the same file as input and output might cause unexpected behaviour).",
+      "type": "Flag"
+    },
+    {
+      "id": "nthreads",
+      "name": "nthreads",
+      "command-line-flag": "-nthreads",
+      "value-key": "[__STANDARD_OPTIONS_NTHREADS]",
+      "description": "use this number of threads in multi-threaded applications (set to 0 to disable multi-threading).",
+      "type": "Number",
+      "optional": true,
+      "integer": true
+    },
+    {
+      "id": "config",
+      "name": "config",
+      "value-key": "[__STANDARD_OPTIONS_CONFIG]",
+      "description": "temporarily set the value of an MRtrix config file entry.",
+      "type": {
+        "id": "config",
+        "name": "config",
+        "description": "temporarily set the value of an MRtrix config file entry.",
+        "command-line": "-config [KEY] [VALUE]",
+        "inputs": [
+          {
+            "id": "key",
+            "name": "key",
+            "value-key": "[KEY]",
+            "description": "temporarily set the value of an MRtrix config file entry.",
+            "type": "String",
+            "optional": false
+          },
+          {
+            "id": "value",
+            "name": "value",
+            "value-key": "[VALUE]",
+            "description": "temporarily set the value of an MRtrix config file entry.",
+            "type": "String",
+            "optional": false
+          }
+        ],
+        "output-files": []
+      },
+      "optional": true,
+      "list": true
+    },
+    {
+      "id": "help",
+      "name": "help",
+      "command-line-flag": "-help",
+      "value-key": "[__STANDARD_OPTIONS_HELP]",
+      "description": "display this information page and exit.",
+      "type": "Flag"
+    },
+    {
+      "id": "version",
+      "name": "version",
+      "command-line-flag": "-version",
+      "value-key": "[__STANDARD_OPTIONS_VERSION]",
+      "description": "display version information and exit.",
+      "type": "Flag"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "rigid",
+      "name": "rigid",
+      "path-template": "[RIGID_REGISTRATION_OPTIONS_RIGID]",
+      "description": "the output text file containing the rigid transformation as a 4x4 matrix "
+    },
+    {
+      "id": "rigid_1tomidway",
+      "name": "rigid_1tomidway",
+      "path-template": "[RIGID_REGISTRATION_OPTIONS_RIGID_1TOMIDWAY]",
+      "description": "the output text file containing the rigid transformation that aligns image1 to image2 in their common midway space as a 4x4 matrix "
+    },
+    {
+      "id": "rigid_2tomidway",
+      "name": "rigid_2tomidway",
+      "path-template": "[RIGID_REGISTRATION_OPTIONS_RIGID_2TOMIDWAY]",
+      "description": "the output text file containing the rigid transformation that aligns image2 to image1 in their common midway space as a 4x4 matrix "
+    },
+    {
+      "id": "rigid_log",
+      "name": "rigid_log",
+      "path-template": "[RIGID_REGISTRATION_OPTIONS_RIGID_LOG]",
+      "description": "write gradient descent parameter evolution to log file "
+    },
+    {
+      "id": "affine",
+      "name": "affine",
+      "path-template": "[AFFINE_REGISTRATION_OPTIONS_AFFINE]",
+      "description": "the output text file containing the affine transformation as a 4x4 matrix "
+    },
+    {
+      "id": "affine_1tomidway",
+      "name": "affine_1tomidway",
+      "path-template": "[AFFINE_REGISTRATION_OPTIONS_AFFINE_1TOMIDWAY]",
+      "description": "the output text file containing the affine transformation that aligns image1 to image2 in their common midway space as a 4x4 matrix "
+    },
+    {
+      "id": "affine_2tomidway",
+      "name": "affine_2tomidway",
+      "path-template": "[AFFINE_REGISTRATION_OPTIONS_AFFINE_2TOMIDWAY]",
+      "description": "the output text file containing the affine transformation that aligns image2 to image1 in their common midway space as a 4x4 matrix "
+    },
+    {
+      "id": "affine_log",
+      "name": "affine_log",
+      "path-template": "[AFFINE_REGISTRATION_OPTIONS_AFFINE_LOG]",
+      "description": "write gradient descent parameter evolution to log file "
+    },
+    {
+      "id": "nl_warp_full",
+      "name": "nl_warp_full",
+      "path-template": "[NON_LINEAR_REGISTRATION_OPTIONS_NL_WARP_FULL]",
+      "description": "output all warps used during registration. This saves four different warps that map each image to a midway space and their inverses in a single 5D image file. The 4th image dimension indexes the x,y,z component of the deformation vector and the 5th dimension indexes the field in this order: image1->midway, midway->image1, image2->midway, midway->image2. Where image1->midway defines the field that maps image1 onto the midway space using the reverse convention When linear registration is performed first, the estimated linear transform will be included in the comments of the image header, and therefore the entire linear and non-linear transform can be applied (in either direction) using this output warp file with mrtransform "
+    }
+  ],
+  "url": "https://www.mrtrix.org/"
+}

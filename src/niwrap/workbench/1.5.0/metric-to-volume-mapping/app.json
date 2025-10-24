@@ -1,0 +1,14 @@
+{
+  "name": "metric-to-volume-mapping",
+  "source": {
+    "type": "boutiques",
+    "path": "boutiques.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-metric-to-volume-mapping"
+  ],
+  "docs": {
+    "description": "Map metric file to volume.\n\nMaps values from a metric file into a volume file.  You must specify exactly one mapping method option.  The -nearest-vertex method uses the value from the vertex closest to the voxel center (useful for integer values).  The -ribbon-constrained method uses the same method as in -volume-to-surface-mapping, then uses the weights in reverse.  Mapping to lower resolutions than the mesh may require a larger -voxel-subdiv value in order to have all of the surface data participate."
+  }
+}

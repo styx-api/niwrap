@@ -1,0 +1,204 @@
+{
+  "name": "antsMotionCorr",
+  "command-line": "antsMotionCorr [DIMENSIONALITY] [N_IMAGES] [METRIC] [USE_FIXED_REFERENCE_IMAGE] [USE_SCALES_ESTIMATOR] [TRANSFORM] [ITERATIONS] [SMOOTHING_SIGMAS] [SHRINK_FACTORS] [OUTPUT] [AVERAGE_IMAGE] [WRITE_DISPLACEMENT] [USE_HISTOGRAM_MATCHING] [RANDOM_SEED] [INTERPOLATION] [VERBOSE]",
+  "description": "ANTS Motion Correction application to perform motion correction on 4D time series data.",
+  "author": "ANTs Developers",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "dimensionality",
+      "name": "Dimensionality",
+      "value-key": "[DIMENSIONALITY]",
+      "type": "Number",
+      "integer": true,
+      "value-choices": [
+        2,
+        3
+      ],
+      "optional": true,
+      "command-line-flag": "--dimensionality",
+      "description": "This option forces the image to be treated as a specified-dimensional image. If not specified, the program tries to infer the dimensionality from the input image."
+    },
+    {
+      "id": "n_images",
+      "name": "Number of images",
+      "value-key": "[N_IMAGES]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "command-line-flag": "--n-images",
+      "description": "This option sets the number of images to use to construct the template image."
+    },
+    {
+      "id": "metric",
+      "name": "Metric",
+      "value-key": "[METRIC]",
+      "command-line-flag": "--metric",
+      "description": "Metrics for registration: GC (global correlation), CC (ANTS neighborhood cross correlation), MI (Mutual information), and Demons.",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "use_fixed_reference_image",
+      "name": "Use fixed reference image",
+      "value-key": "[USE_FIXED_REFERENCE_IMAGE]",
+      "type": "Number",
+      "integer": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "optional": true,
+      "command-line-flag": "--useFixedReferenceImage",
+      "description": "Use a fixed reference image to correct all volumes, instead of correcting each image to the prior volume in the time series."
+    },
+    {
+      "id": "use_scales_estimator",
+      "name": "Use scales estimator",
+      "value-key": "[USE_SCALES_ESTIMATOR]",
+      "type": "Flag",
+      "command-line-flag": "--useScalesEstimator",
+      "description": "Use the scale estimator to control optimization."
+    },
+    {
+      "id": "transform",
+      "name": "Transform",
+      "value-key": "[TRANSFORM]",
+      "command-line-flag": "--transform",
+      "description": "Several transform options are available: Affine, Rigid, GaussianDisplacementField, SyN.",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "iterations",
+      "name": "Iterations",
+      "value-key": "[ITERATIONS]",
+      "command-line-flag": "--iterations",
+      "description": "Specify the number of iterations at each level.",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "smoothing_sigmas",
+      "name": "Smoothing sigmas",
+      "value-key": "[SMOOTHING_SIGMAS]",
+      "command-line-flag": "--smoothingSigmas",
+      "description": "Specify the sigma for smoothing at each level. Smoothing may be specified in mm units or voxels with 'AxBxCmm' or 'AxBxCvox'. No units implies voxels.",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "shrink_factors",
+      "name": "Shrink factors",
+      "value-key": "[SHRINK_FACTORS]",
+      "command-line-flag": "--shrinkFactors",
+      "description": "Specify the shrink factor for the virtual domain (typically the fixed image) at each level.",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "output",
+      "name": "Output transform prefix",
+      "value-key": "[OUTPUT]",
+      "command-line-flag": "--output",
+      "description": "Specify the output transform prefix (output format is .nii.gz ). Optionally, one can choose to warp the moving image to the fixed space and, if the inverse transform exists, one can also output the warped fixed image.",
+      "type": "String",
+      "optional": true
+    },
+    {
+      "id": "average_image",
+      "name": "Average image",
+      "value-key": "[AVERAGE_IMAGE]",
+      "type": "Flag",
+      "command-line-flag": "--average-image",
+      "description": "Average the input time series image."
+    },
+    {
+      "id": "write_displacement",
+      "name": "Write displacement",
+      "value-key": "[WRITE_DISPLACEMENT]",
+      "type": "Flag",
+      "command-line-flag": "--write-displacement",
+      "description": "Write the low-dimensional 3D transforms to a 4D displacement field."
+    },
+    {
+      "id": "use_histogram_matching",
+      "name": "Use histogram matching",
+      "value-key": "[USE_HISTOGRAM_MATCHING]",
+      "type": "Number",
+      "integer": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "optional": true,
+      "command-line-flag": "--use-histogram-matching",
+      "description": "Histogram match the moving images to the reference image."
+    },
+    {
+      "id": "random_seed",
+      "name": "Random seed",
+      "value-key": "[RANDOM_SEED]",
+      "type": "Number",
+      "integer": true,
+      "minimum": 1,
+      "optional": true,
+      "command-line-flag": "--random-seed",
+      "description": "Use a fixed seed for random number generation."
+    },
+    {
+      "id": "interpolation",
+      "name": "Interpolation",
+      "value-key": "[INTERPOLATION]",
+      "type": "String",
+      "optional": true,
+      "value-choices": [
+        "Linear",
+        "NearestNeighbor",
+        "BSpline",
+        "BlackmanWindowedSinc",
+        "CosineWindowedSinc",
+        "WelchWindowedSinc",
+        "HammingWindowedSinc",
+        "LanczosWindowedSinc"
+      ],
+      "command-line-flag": "--interpolation",
+      "description": "Several interpolation options are available in ITK. The above are available (default Linear)."
+    },
+    {
+      "id": "verbose",
+      "name": "Verbose",
+      "value-key": "[VERBOSE]",
+      "type": "Number",
+      "integer": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "optional": true,
+      "command-line-flag": "--verbose",
+      "description": "Verbose output."
+    }
+  ],
+  "output-files": [
+    {
+      "id": "output_transform_prefix",
+      "name": "Output transform prefix",
+      "description": "The output is the transformation matrix.",
+      "path-template": "[OUTPUT_TRANSFORM_PREFIX]Affine.mat"
+    },
+    {
+      "id": "warped_image",
+      "name": "Warped Image",
+      "description": "The output is the warped moving image.",
+      "path-template": "[OUTPUT_TRANSFORM_PREFIX]Warped.nii.gz"
+    },
+    {
+      "id": "average_image_output",
+      "name": "Average Image Output",
+      "description": "The output is the averaged image of the input time series.",
+      "path-template": "[OUTPUT_TRANSFORM_PREFIX]Average.nii.gz"
+    }
+  ],
+  "url": "https://github.com/ANTsX/ANTs"
+}

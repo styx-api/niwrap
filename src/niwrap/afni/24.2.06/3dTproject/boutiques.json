@@ -1,0 +1,182 @@
+{
+  "name": "3dTproject",
+  "command-line": "3dTproject [TR] [AUTOMASK] [BANDPASS] [BLUR] [CENMODE] [CENSOR] [CENSORTR] [CONCAT] [DSORT] [IN_FILE] [MASK] [NOBLOCK] [NORM] [ORT] [POLORT] [STOPBAND] [PREFIX]",
+  "author": "AFNI Developers",
+  "description": "This program projects (detrends) out various 'nuisance' time series from each voxel in the input dataset.  Note that all the projections are done via linear regression, including the frequency-based options such as '-passband'.  In this way, you can bandpass time-censored data, and at the same time, remove other time series of no interest (e.g., physiological estimates, motion parameters).",
+  "url": "https://afni.nimh.nih.gov/",
+  "inputs": [
+    {
+      "id": "TR",
+      "name": "Tr",
+      "type": "Number",
+      "value-key": "[TR]",
+      "command-line-flag": "-TR",
+      "description": "Use time step dd for the frequency calculations,rather than the value stored in the dataset header.",
+      "optional": true
+    },
+    {
+      "id": "automask",
+      "name": "Automask",
+      "type": "Flag",
+      "value-key": "[AUTOMASK]",
+      "command-line-flag": "-automask",
+      "description": "Generate a mask automatically."
+    },
+    {
+      "id": "bandpass",
+      "name": "Bandpass",
+      "type": "Number",
+      "list": true,
+      "min-list-entries": 2,
+      "max-list-entries": 2,
+      "value-key": "[BANDPASS]",
+      "command-line-flag": "-bandpass",
+      "description": "(a float, a float). Remove all frequencies except those in the range.",
+      "optional": true
+    },
+    {
+      "id": "blur",
+      "name": "Blur",
+      "type": "Number",
+      "value-key": "[BLUR]",
+      "command-line-flag": "-blur",
+      "description": "Blur (inside the mask only) with a filter that haswidth (fwhm) of fff millimeters.spatial blurring (if done) is after the timeseries filtering.",
+      "optional": true
+    },
+    {
+      "id": "cenmode",
+      "name": "Cenmode",
+      "type": "String",
+      "value-key": "[CENMODE]",
+      "command-line-flag": "-cenmode",
+      "description": "'kill' or 'zero' or 'ntrp'. Specifies how censored time points are treated in the output dataset:* mode = zero -- put zero values in their place; output dataset is same length as input* mode = kill -- remove those time points;  output dataset is shorter than input* mode = ntrp -- censored values are replaced by interpolated  neighboring (in time) non-censored values,  before any projections, and then the  analysis proceeds without actual removal  of any time points -- this feature is to  keep the spanish inquisition happy.* the default mode is kill !!!.",
+      "optional": true,
+      "value-choices": [
+        "kill",
+        "zero",
+        "ntrp"
+      ]
+    },
+    {
+      "id": "censor",
+      "name": "Censor",
+      "type": "File",
+      "value-key": "[CENSOR]",
+      "command-line-flag": "-censor",
+      "description": "Filename of censor .1d time series.this is a file of 1s and 0s, indicating whichtime points are to be included (1) and which areto be excluded (0).",
+      "optional": true
+    },
+    {
+      "id": "censortr",
+      "name": "Censortr",
+      "type": "String",
+      "list": true,
+      "value-key": "[CENSORTR]",
+      "command-line-flag": "-CENSORTR",
+      "description": "List of strings that specify time indexes to be removed from the analysis.  each string isof one of the following forms:* ``37`` => remove global time index #37* ``2:37`` => remove time index #37 in run #2* ``37..47`` => remove global time indexes #37-47* ``37-47`` => same as above* ``2:37..47`` => remove time indexes #37-47 in run #2* ``*:0-2`` => remove time indexes #0-2 in all runs  * time indexes within each run start at 0.  * run indexes start at 1 (just be to confusing).  * n.b.: 2:37,47 means index #37 in run #2 and    global time index 47; it does not mean    index #37 in run #2 and index #47 in run #2.",
+      "optional": true
+    },
+    {
+      "id": "concat",
+      "name": "Concat",
+      "type": "File",
+      "value-key": "[CONCAT]",
+      "command-line-flag": "-concat",
+      "description": "The catenation file, as in 3ddeconvolve, containing thetr indexes of the start points for each contiguous runwithin the input dataset (the first entry should be 0).* also as in 3ddeconvolve, if the input dataset is  automatically catenated from a collection of datasets,  then the run start indexes are determined directly,  and '-concat' is not needed (and will be ignored).* each run must have at least 9 time points after  censoring, or the program will not work!* the only use made of this input is in setting up  the bandpass/stopband regressors.* '-ort' and '-dsort' regressors run through all time  points, as read in.  if you want separate projections  in each run, then you must either break these ort files  into appropriate components, or you must run 3dtproject  for each run separately, using the appropriate pieces  from the ort files via the ``{...}`` selector for the  1d files and the ``[...]`` selector for the datasets.",
+      "optional": true
+    },
+    {
+      "id": "dsort",
+      "name": "Dsort",
+      "type": "File",
+      "list": true,
+      "value-key": "[DSORT]",
+      "command-line-flag": "-dsort",
+      "description": "Remove the 3d+time time series in dataset fset.* that is, 'fset' contains a different nuisance time  series for each voxel (e.g., from anaticor).* multiple -dsort options are allowed.",
+      "optional": true
+    },
+    {
+      "id": "in_file",
+      "name": "In file",
+      "type": "File",
+      "value-key": "[IN_FILE]",
+      "command-line-flag": "-input",
+      "description": "Input file to 3dtproject.",
+      "optional": false
+    },
+    {
+      "id": "mask",
+      "name": "Mask",
+      "type": "File",
+      "value-key": "[MASK]",
+      "command-line-flag": "-mask",
+      "description": "Only operate on voxels nonzero in the mset dataset.* voxels outside the mask will be filled with zeros.* if no masking option is given, then all voxels  will be processed.",
+      "optional": true
+    },
+    {
+      "id": "noblock",
+      "name": "Noblock",
+      "type": "Flag",
+      "value-key": "[NOBLOCK]",
+      "command-line-flag": "-noblock",
+      "description": "Also as in 3ddeconvolve, if you want the program to treatan auto-catenated dataset as one long run, use this option.however, '-noblock' will not affect catenation if you usethe '-concat' option."
+    },
+    {
+      "id": "norm",
+      "name": "Norm",
+      "type": "Flag",
+      "value-key": "[NORM]",
+      "command-line-flag": "-norm",
+      "description": "normalize each output time series to have sum ofsquares = 1. this is the last operation."
+    },
+    {
+      "id": "ort",
+      "name": "Ort",
+      "type": "File",
+      "value-key": "[ORT]",
+      "command-line-flag": "-ort",
+      "description": "Remove each column in file.each column will have its mean removed.",
+      "optional": true
+    },
+    {
+      "id": "polort",
+      "name": "Polort",
+      "type": "Number",
+      "integer": true,
+      "value-key": "[POLORT]",
+      "command-line-flag": "-polort",
+      "description": "Remove polynomials up to and including degree pp.* default value is 2.* it makes no sense to use a value of pp greater than  2, if you are bandpassing out the lower frequencies!* for catenated datasets, each run gets a separate set  set of pp+1 legendre polynomial regressors.* use of -polort -1 is not advised (if data mean != 0),  even if -ort contains constant terms, as all means are  removed.",
+      "optional": true
+    },
+    {
+      "id": "stopband",
+      "name": "Stopband",
+      "type": "Number",
+      "list": true,
+      "min-list-entries": 2,
+      "max-list-entries": 2,
+      "value-key": "[STOPBAND]",
+      "command-line-flag": "-stopband",
+      "description": "(a float, a float). Remove all frequencies in the range.",
+      "optional": true
+    },
+    {
+      "id": "prefix",
+      "name": "Prefix",
+      "type": "String",
+      "value-key": "[PREFIX]",
+      "command-line-flag": "-prefix",
+      "description": "Output file prefix.",
+      "optional": false
+    }
+  ],
+  "output-files": [
+    {
+      "name": "Out file",
+      "id": "out_file",
+      "path-template": "[PREFIX]",
+      "description": "Output file."
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

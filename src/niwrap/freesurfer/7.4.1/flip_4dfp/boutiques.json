@@ -1,0 +1,71 @@
+{
+  "name": "flip_4dfp",
+  "description": "A tool to flip 4dfp images along specified axes.",
+  "command-line": "flip_4dfp [INPUT_IMAGE] [OUTPUT_IMAGE] [FLIP_X] [FLIP_Y] [FLIP_Z] [ENDIANNESS]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Input 4dfp image file",
+      "value-key": "[INPUT_IMAGE]",
+      "type": "File",
+      "optional": false,
+      "name": "Input image",
+      "id": "input_image"
+    },
+    {
+      "description": "Output 4dfp image file. Default is input image root with '_flip' suffix.",
+      "value-key": "[OUTPUT_IMAGE]",
+      "type": "String",
+      "optional": true,
+      "name": "Output image",
+      "id": "output_image"
+    },
+    {
+      "command-line-flag": "-x",
+      "description": "Flip along x-axis",
+      "value-key": "[FLIP_X]",
+      "type": "Flag",
+      "name": "Flip X",
+      "id": "flip_x"
+    },
+    {
+      "command-line-flag": "-y",
+      "description": "Flip along y-axis",
+      "value-key": "[FLIP_Y]",
+      "type": "Flag",
+      "name": "Flip Y",
+      "id": "flip_y"
+    },
+    {
+      "command-line-flag": "-z",
+      "description": "Flip along z-axis",
+      "value-key": "[FLIP_Z]",
+      "type": "Flag",
+      "name": "Flip Z",
+      "id": "flip_z"
+    },
+    {
+      "command-line-flag": "-@",
+      "description": "Specify output endianness: 'b' for big endian, 'l' for little endian. Default is input endianness.",
+      "value-key": "[ENDIANNESS]",
+      "type": "String",
+      "optional": true,
+      "name": "Endianness",
+      "id": "endianness",
+      "value-choices": [
+        "b",
+        "l"
+      ]
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_IMAGE].4dfp.img",
+      "description": "Flipped output 4dfp image",
+      "name": "Flipped Image",
+      "id": "flipped_image"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

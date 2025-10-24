@@ -1,0 +1,59 @@
+{
+  "name": "RebaseTensorImage",
+  "command-line": "RebaseTensorImage [DIMENSION] [INFILE] [OUTFILE] [METHOD] [REFERENCE]",
+  "description": "Rebase Tensor Image using specified dimensionality and method.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "dimension",
+      "name": "Dimension",
+      "type": "Number",
+      "integer": true,
+      "value-key": "[DIMENSION]",
+      "description": "The dimensionality of the input image."
+    },
+    {
+      "id": "infile",
+      "name": "Input File",
+      "type": "File",
+      "value-key": "[INFILE]",
+      "description": "The input image file."
+    },
+    {
+      "id": "outfile",
+      "name": "Output File",
+      "type": "File",
+      "value-key": "[OUTFILE]",
+      "description": "The output image file."
+    },
+    {
+      "id": "method",
+      "name": "Method",
+      "type": "String",
+      "value-key": "[METHOD]",
+      "value-choices": [
+        "PHYSICAL",
+        "LOCAL"
+      ],
+      "description": "Method of rebasing the tensor image."
+    },
+    {
+      "id": "reference",
+      "name": "Reference Image",
+      "type": "File",
+      "optional": true,
+      "value-key": "[REFERENCE]",
+      "description": "Reference image file (required if PHYSICAL or LOCAL method is chosen)."
+    }
+  ],
+  "output-files": [
+    {
+      "id": "rebased_image",
+      "name": "Rebased Image",
+      "description": "The rebased tensor image.",
+      "path-template": "[OUTFILE]"
+    }
+  ],
+  "author": "ANTs Developers",
+  "url": "https://github.com/ANTsX/ANTs"
+}

@@ -1,0 +1,126 @@
+{
+  "name": "applytopup",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "applytopup applies corrections to images using the field estimates produced by topup.",
+  "command-line": "applytopup [IMAIN] [DATAIN] [ININDEX] [TOPUP] [OUT] [METHOD] [INTERP] [DATATYPE] [VERBOSE]",
+  "inputs": [
+    {
+      "command-line-flag": "--imain",
+      "command-line-flag-separator": "=",
+      "description": "Comma separated list of names of input image (to be corrected)",
+      "value-key": "[IMAIN]",
+      "type": "File",
+      "list": true,
+      "list-separator": ",",
+      "optional": false,
+      "id": "imain",
+      "name": "Input images"
+    },
+    {
+      "command-line-flag": "--datain",
+      "command-line-flag-separator": "=",
+      "description": "Name of text file with PE directions/times",
+      "value-key": "[DATAIN]",
+      "type": "File",
+      "optional": false,
+      "id": "datain",
+      "name": "PE directions/times file"
+    },
+    {
+      "command-line-flag": "--inindex",
+      "command-line-flag-separator": "=",
+      "description": "Comma separated list of indices into --datain of the input image (to be corrected)",
+      "value-key": "[ININDEX]",
+      "type": "String",
+      "list": true,
+      "list-separator": ",",
+      "optional": false,
+      "id": "inindex",
+      "name": "Input index"
+    },
+    {
+      "command-line-flag": "--topup",
+      "command-line-flag-separator": "=",
+      "description": "Name of field/movements (from topup)",
+      "value-key": "[TOPUP]",
+      "type": "File",
+      "optional": false,
+      "resolve-parent": true,
+      "id": "topup",
+      "name": "Topup prefix"
+    },
+    {
+      "command-line-flag": "--out",
+      "command-line-flag-separator": "=",
+      "description": "Basename for output (warped) image",
+      "value-key": "[OUT]",
+      "type": "String",
+      "optional": false,
+      "id": "out",
+      "name": "Output basename"
+    },
+    {
+      "command-line-flag": "--method",
+      "command-line-flag-separator": "=",
+      "description": "Use jacobian modulation (jac) or least-squares resampling (lsr), default=lsr.",
+      "value-key": "[METHOD]",
+      "type": "String",
+      "optional": true,
+      "id": "method",
+      "name": "Method",
+      "value-choices": [
+        "jac",
+        "lsr"
+      ]
+    },
+    {
+      "command-line-flag": "--interp",
+      "command-line-flag-separator": "=",
+      "description": "Interpolation method {trilinear, spline}, default=spline",
+      "value-key": "[INTERP]",
+      "type": "String",
+      "optional": true,
+      "id": "interp",
+      "name": "Interpolation method",
+      "value-choices": [
+        "trilinear",
+        "spline"
+      ]
+    },
+    {
+      "command-line-flag": "--datatype",
+      "command-line-flag-separator": "=",
+      "description": "Force output data type [char short int float double]",
+      "value-key": "[DATATYPE]",
+      "type": "String",
+      "optional": true,
+      "id": "datatype",
+      "name": "Output data type",
+      "value-choices": [
+        "char",
+        "short",
+        "int",
+        "float",
+        "double"
+      ]
+    },
+    {
+      "command-line-flag": "--verbose",
+      "description": "Switch on diagnostic messages",
+      "value-key": "[VERBOSE]",
+      "type": "Flag",
+      "id": "verbose",
+      "name": "Verbose flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUT]",
+      "description": "The output warped image.",
+      "id": "output_file",
+      "name": "Warped image"
+    }
+  ],
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

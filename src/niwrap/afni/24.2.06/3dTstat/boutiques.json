@@ -1,0 +1,519 @@
+{
+  "name": "3dTstat",
+  "command-line": "3dTstat [IN_FILE] [MASK] [NUM_THREADS] [OPTIONS] [OUTPUTTYPE] [SUM] [ABSSUM] [SOS] [L2NORM] [MEAN] [SLOPE] [STDEV] [STDEVNOD] [CVAR] [CVARNOD] [CVARINV] [CVARINVNOD] [TSNR] [MAD] [DW] [MEDIAN] [NZMEDIAN] [NZSTDEV] [BMV] [MSSD] [MSSDSQRT] [MASDX] [MIN] [MAX] [ABSMAX] [SIGNED_ABSMAX] [PERCENTILE] [ARGMIN] [ARGMIN1] [ARGMAX] [ARGMAX1] [ARGABSMAX] [ARGABSMAX1] [DURATION] [ONSET] [OFFSET] [CENTROID] [CENTDURATION] [NZMEAN] [ZCOUNT] [NZCOUNT] [AUTOCORR] [AUTOREG] [ACCUMULATE] [CENTROMEAN] [SKEWNESS] [KURTOSIS] [FIRSTVALUE] [TDIFF] [PREFIX] [DATUM] [NSCALE] [BASEPERCENT] [MASK_MSET] [MRANGE] [CMASK]",
+  "author": "AFNI Developers",
+  "description": "Compute voxel-wise statistics using AFNI 3dTstat command",
+  "url": "https://afni.nimh.nih.gov/",
+  "inputs": [
+    {
+      "id": "in_file",
+      "name": "In file",
+      "type": "File",
+      "value-key": "[IN_FILE]",
+      "description": "Input file to 3dtstat.",
+      "optional": false
+    },
+    {
+      "id": "mask",
+      "name": "Mask",
+      "type": "File",
+      "value-key": "[MASK]",
+      "command-line-flag": "-mask",
+      "description": "Mask file.",
+      "optional": true
+    },
+    {
+      "id": "num_threads",
+      "name": "Num threads",
+      "type": "Number",
+      "integer": true,
+      "value-key": "[NUM_THREADS]",
+      "description": "Set number of threads.",
+      "optional": true
+    },
+    {
+      "id": "options",
+      "name": "Options",
+      "type": "String",
+      "value-key": "[OPTIONS]",
+      "description": "Selected statistical output.",
+      "optional": true
+    },
+    {
+      "id": "outputtype",
+      "name": "Outputtype",
+      "type": "String",
+      "value-key": "[OUTPUTTYPE]",
+      "description": "'nifti' or 'afni' or 'nifti_gz'. Afni output filetype.",
+      "optional": true,
+      "value-choices": [
+        "NIFTI",
+        "AFNI",
+        "NIFTI_GZ"
+      ]
+    },
+    {
+      "id": "sum",
+      "name": "Sum",
+      "type": "Flag",
+      "value-key": "[SUM]",
+      "command-line-flag": "-sum",
+      "description": "Compute sum of input voxels."
+    },
+    {
+      "id": "abssum",
+      "name": "Absolute Sum",
+      "type": "Flag",
+      "value-key": "[ABSSUM]",
+      "command-line-flag": "-abssum",
+      "description": "Compute absolute sum of input voxels."
+    },
+    {
+      "id": "sos",
+      "name": "Sum of Squares",
+      "type": "Flag",
+      "value-key": "[SOS]",
+      "command-line-flag": "-sos",
+      "description": "Compute sum of squares."
+    },
+    {
+      "id": "l2norm",
+      "name": "L2 Norm",
+      "type": "Flag",
+      "value-key": "[L2NORM]",
+      "command-line-flag": "-l2norm",
+      "description": "Compute L2 norm (sqrt(sum squares))."
+    },
+    {
+      "id": "mean",
+      "name": "Mean",
+      "type": "Flag",
+      "value-key": "[MEAN]",
+      "command-line-flag": "-mean",
+      "description": "Compute mean of input voxels."
+    },
+    {
+      "id": "slope",
+      "name": "Slope",
+      "type": "Flag",
+      "value-key": "[SLOPE]",
+      "command-line-flag": "-slope",
+      "description": "Compute the slope of input voxels vs. time."
+    },
+    {
+      "id": "stdev",
+      "name": "Standard Deviation",
+      "type": "Flag",
+      "value-key": "[STDEV]",
+      "command-line-flag": "-stdev",
+      "description": "Compute standard deviation of input voxels."
+    },
+    {
+      "id": "stdevNOD",
+      "name": "Standard Deviation No Detrending",
+      "type": "Flag",
+      "value-key": "[STDEVNOD]",
+      "command-line-flag": "-stdevNOD",
+      "description": "Compute standard deviation of input voxels without detrending."
+    },
+    {
+      "id": "cvar",
+      "name": "Coefficient of Variation",
+      "type": "Flag",
+      "value-key": "[CVAR]",
+      "command-line-flag": "-cvar",
+      "description": "Compute coefficient of variation of input voxels."
+    },
+    {
+      "id": "cvarNOD",
+      "name": "Coefficient of Variation No Detrending",
+      "type": "Flag",
+      "value-key": "[CVARNOD]",
+      "command-line-flag": "-cvarNOD",
+      "description": "Compute coefficient of variation of input voxels without detrending."
+    },
+    {
+      "id": "cvarinv",
+      "name": "Inverse Coefficient of Variation",
+      "type": "Flag",
+      "value-key": "[CVARINV]",
+      "command-line-flag": "-cvarinv",
+      "description": "Compute inverse coefficient of variation of input voxels."
+    },
+    {
+      "id": "cvarinvNOD",
+      "name": "Inverse Coefficient of Variation No Detrending",
+      "type": "Flag",
+      "value-key": "[CVARINVNOD]",
+      "command-line-flag": "-cvarinvNOD",
+      "description": "Compute inverse coefficient of variation of input voxels without detrending."
+    },
+    {
+      "id": "tsnr",
+      "name": "Temporal Signal to Noise Ratio",
+      "type": "Flag",
+      "value-key": "[TSNR]",
+      "command-line-flag": "-tsnr",
+      "description": "Compute temporal signal to noise ratio."
+    },
+    {
+      "id": "MAD",
+      "name": "Median Absolute Deviation",
+      "type": "Flag",
+      "value-key": "[MAD]",
+      "command-line-flag": "-MAD",
+      "description": "Compute median absolute deviation of input voxels."
+    },
+    {
+      "id": "DW",
+      "name": "Durbin-Watson Statistic",
+      "type": "Flag",
+      "value-key": "[DW]",
+      "command-line-flag": "-DW",
+      "description": "Compute Durbin-Watson Statistic of input voxels."
+    },
+    {
+      "id": "median",
+      "name": "Median",
+      "type": "Flag",
+      "value-key": "[MEDIAN]",
+      "command-line-flag": "-median",
+      "description": "Compute median of input voxels."
+    },
+    {
+      "id": "nzmedian",
+      "name": "Non-Zero Median",
+      "type": "Flag",
+      "value-key": "[NZMEDIAN]",
+      "command-line-flag": "-nzmedian",
+      "description": "Compute median of non-zero input voxels."
+    },
+    {
+      "id": "nzstdev",
+      "name": "Non-Zero Standard Deviation",
+      "type": "Flag",
+      "value-key": "[NZSTDEV]",
+      "command-line-flag": "-nzstdev",
+      "description": "Compute standard deviation of non-zero input voxels."
+    },
+    {
+      "id": "bmv",
+      "name": "Biweight Midvariance",
+      "type": "Flag",
+      "value-key": "[BMV]",
+      "command-line-flag": "-bmv",
+      "description": "Compute biweight midvariance of input voxels."
+    },
+    {
+      "id": "MSSD",
+      "name": "Mean of Successive Squared Differences",
+      "type": "Flag",
+      "value-key": "[MSSD]",
+      "command-line-flag": "-MSSD",
+      "description": "Compute mean of successive squared differences of input voxels."
+    },
+    {
+      "id": "MSSDsqrt",
+      "name": "Square Root of MSSD",
+      "type": "Flag",
+      "value-key": "[MSSDSQRT]",
+      "command-line-flag": "-MSSDsqrt",
+      "description": "Compute square root of mean of successive squared differences of input voxels."
+    },
+    {
+      "id": "MASDx",
+      "name": "Median of Absolute Values of First Time Differences",
+      "type": "Flag",
+      "value-key": "[MASDX]",
+      "command-line-flag": "-MASDx",
+      "description": "Compute median of absolute values of first time differences of input voxels."
+    },
+    {
+      "id": "min",
+      "name": "Minimum",
+      "type": "Flag",
+      "value-key": "[MIN]",
+      "command-line-flag": "-min",
+      "description": "Compute minimum of input voxels."
+    },
+    {
+      "id": "max",
+      "name": "Maximum",
+      "type": "Flag",
+      "value-key": "[MAX]",
+      "command-line-flag": "-max",
+      "description": "Compute maximum of input voxels."
+    },
+    {
+      "id": "absmax",
+      "name": "Absolute Maximum",
+      "type": "Flag",
+      "value-key": "[ABSMAX]",
+      "command-line-flag": "-absmax",
+      "description": "Compute absolute maximum of input voxels."
+    },
+    {
+      "id": "signed_absmax",
+      "name": "Signed Absolute Maximum",
+      "type": "Flag",
+      "value-key": "[SIGNED_ABSMAX]",
+      "command-line-flag": "-signed_absmax",
+      "description": "Compute signed absolute maximum of input voxels."
+    },
+    {
+      "id": "percentile",
+      "name": "Percentile",
+      "type": "Flag",
+      "value-key": "[PERCENTILE]",
+      "command-line-flag": "-percentile",
+      "description": "Compute the P-th percentile point of the data in each voxel time series."
+    },
+    {
+      "id": "argmin",
+      "name": "Index of Minimum",
+      "type": "Flag",
+      "value-key": "[ARGMIN]",
+      "command-line-flag": "-argmin",
+      "description": "Compute index of minimum of input voxels."
+    },
+    {
+      "id": "argmin1",
+      "name": "Index + 1 of Minimum",
+      "type": "Flag",
+      "value-key": "[ARGMIN1]",
+      "command-line-flag": "-argmin1",
+      "description": "Compute index + 1 of minimum of input voxels."
+    },
+    {
+      "id": "argmax",
+      "name": "Index of Maximum",
+      "type": "Flag",
+      "value-key": "[ARGMAX]",
+      "command-line-flag": "-argmax",
+      "description": "Compute index of maximum of input voxels."
+    },
+    {
+      "id": "argmax1",
+      "name": "Index + 1 of Maximum",
+      "type": "Flag",
+      "value-key": "[ARGMAX1]",
+      "command-line-flag": "-argmax1",
+      "description": "Compute index + 1 of maximum of input voxels."
+    },
+    {
+      "id": "argabsmax",
+      "name": "Index of Absolute Maximum",
+      "type": "Flag",
+      "value-key": "[ARGABSMAX]",
+      "command-line-flag": "-argabsmax",
+      "description": "Compute index of absolute maximum of input voxels."
+    },
+    {
+      "id": "argabsmax1",
+      "name": "Index + 1 of Absolute Maximum",
+      "type": "Flag",
+      "value-key": "[ARGABSMAX1]",
+      "command-line-flag": "-argabsmax1",
+      "description": "Compute index + 1 of absolute maximum of input voxels."
+    },
+    {
+      "id": "duration",
+      "name": "Duration",
+      "type": "Flag",
+      "value-key": "[DURATION]",
+      "command-line-flag": "-duration",
+      "description": "Compute number of points around max above a threshold."
+    },
+    {
+      "id": "onset",
+      "name": "Onset",
+      "type": "Flag",
+      "value-key": "[ONSET]",
+      "command-line-flag": "-onset",
+      "description": "Compute beginning of duration around max where value exceeds basepercent."
+    },
+    {
+      "id": "offset",
+      "name": "Offset",
+      "type": "Flag",
+      "value-key": "[OFFSET]",
+      "command-line-flag": "-offset",
+      "description": "Compute end of duration around max where value exceeds basepercent."
+    },
+    {
+      "id": "centroid",
+      "name": "Centroid",
+      "type": "Flag",
+      "value-key": "[CENTROID]",
+      "command-line-flag": "-centroid",
+      "description": "Compute centroid of data time curves."
+    },
+    {
+      "id": "centduration",
+      "name": "Centroid Duration",
+      "type": "Flag",
+      "value-key": "[CENTDURATION]",
+      "command-line-flag": "-centduration",
+      "description": "Compute duration using centroid's index as center."
+    },
+    {
+      "id": "nzmean",
+      "name": "Non-Zero Mean",
+      "type": "Flag",
+      "value-key": "[NZMEAN]",
+      "command-line-flag": "-nzmean",
+      "description": "Compute mean of non-zero voxels."
+    },
+    {
+      "id": "zcount",
+      "name": "Zero Count",
+      "type": "Flag",
+      "value-key": "[ZCOUNT]",
+      "command-line-flag": "-zcount",
+      "description": "Count number of zero values at each voxel."
+    },
+    {
+      "id": "nzcount",
+      "name": "Non-Zero Count",
+      "type": "Flag",
+      "value-key": "[NZCOUNT]",
+      "command-line-flag": "-nzcount",
+      "description": "Count number of non-zero values at each voxel."
+    },
+    {
+      "id": "autocorr",
+      "name": "Autocorrelation",
+      "type": "Flag",
+      "value-key": "[AUTOCORR]",
+      "command-line-flag": "-autocorr",
+      "description": "Compute autocorrelation function and return first n coefficients."
+    },
+    {
+      "id": "autoreg",
+      "name": "Autoregression",
+      "type": "Flag",
+      "value-key": "[AUTOREG]",
+      "command-line-flag": "-autoreg",
+      "description": "Compute autoregression coefficients and return first n coefficients."
+    },
+    {
+      "id": "accumulate",
+      "name": "Accumulate",
+      "type": "Flag",
+      "value-key": "[ACCUMULATE]",
+      "command-line-flag": "-accumulate",
+      "description": "Accumulate time series values (partial sums)."
+    },
+    {
+      "id": "centromean",
+      "name": "Centromean",
+      "type": "Flag",
+      "value-key": "[CENTROMEAN]",
+      "command-line-flag": "-centromean",
+      "description": "Compute mean of middle 50% of voxel values."
+    },
+    {
+      "id": "skewness",
+      "name": "Skewness",
+      "type": "Flag",
+      "value-key": "[SKEWNESS]",
+      "command-line-flag": "-skewness",
+      "description": "Measure of asymmetry in distribution."
+    },
+    {
+      "id": "kurtosis",
+      "name": "Kurtosis",
+      "type": "Flag",
+      "value-key": "[KURTOSIS]",
+      "command-line-flag": "-kurtosis",
+      "description": "Measure of the 'tailedness' of the probability distribution."
+    },
+    {
+      "id": "firstvalue",
+      "name": "First Value",
+      "type": "Flag",
+      "value-key": "[FIRSTVALUE]",
+      "command-line-flag": "-firstvalue",
+      "description": "First value in dataset."
+    },
+    {
+      "id": "tdiff",
+      "name": "First Difference",
+      "type": "Flag",
+      "value-key": "[TDIFF]",
+      "command-line-flag": "-tdiff",
+      "description": "Take the first difference of each time series before further processing."
+    },
+    {
+      "id": "prefix",
+      "name": "Prefix",
+      "type": "String",
+      "value-key": "[PREFIX]",
+      "command-line-flag": "-prefix",
+      "description": "Use string 'p' for the prefix of the output dataset [DEFAULT = 'stat'].",
+      "optional": true
+    },
+    {
+      "id": "datum",
+      "name": "Datum",
+      "type": "String",
+      "value-key": "[DATUM]",
+      "command-line-flag": "-datum",
+      "description": "Use data type 'd' for the type of storage of the output, where 'd' is one of 'byte', 'short', or 'float' [DEFAULT=float].",
+      "optional": true
+    },
+    {
+      "id": "nscale",
+      "name": "No Scale",
+      "type": "Flag",
+      "value-key": "[NSCALE]",
+      "command-line-flag": "-nscale",
+      "description": "Do not scale output values when datum is byte or short. Scaling is done by default."
+    },
+    {
+      "id": "basepercent",
+      "name": "Base Percent",
+      "type": "Number",
+      "value-key": "[BASEPERCENT]",
+      "command-line-flag": "-basepercent",
+      "description": "Percentage of maximum for duration calculation.",
+      "optional": true
+    },
+    {
+      "id": "mask_mset",
+      "name": "Mask Mset",
+      "type": "File",
+      "value-key": "[MASK_MSET]",
+      "command-line-flag": "-mask",
+      "description": "Use the dataset 'mset' as a mask. Only voxels with nonzero values in 'mset' will be printed from 'dataset'.",
+      "optional": true
+    },
+    {
+      "id": "mrange",
+      "name": "Mask Range",
+      "type": "String",
+      "value-key": "[MRANGE]",
+      "command-line-flag": "-mrange",
+      "description": "Further restrict the voxels from 'mset' so that only those mask values between 'a' and 'b' (inclusive) will be used.",
+      "optional": true
+    },
+    {
+      "id": "cmask",
+      "name": "Cmask",
+      "type": "String",
+      "value-key": "[CMASK]",
+      "command-line-flag": "-cmask",
+      "description": "Execute the options enclosed in single quotes as a 3dcalc-like program, and produce a mask from the resulting 3D brick.",
+      "optional": true
+    }
+  ],
+  "output-files": [
+    {
+      "name": "Out file",
+      "id": "out_file",
+      "description": "Output image file name.",
+      "path-template": "[PREFIX]"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

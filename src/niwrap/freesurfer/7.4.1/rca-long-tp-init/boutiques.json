@@ -1,0 +1,66 @@
+{
+  "name": "rca-long-tp-init",
+  "author": "FreeSurfer Developers",
+  "description": "Initialize long timepoint subject for recon-all processing.",
+  "command-line": "rca-long-tp-init [TIMEPOINT] [BASE] [USE_LONG_BASE_CTRL_VOL] [HEMISPHERE] [EXPERT_OPTS] [SUBJECT]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Timepoint identifier",
+      "value-key": "[TIMEPOINT]",
+      "type": "String",
+      "optional": false,
+      "id": "timepoint",
+      "name": "Timepoint",
+      "command-line-flag": "-long"
+    },
+    {
+      "description": "Base identifier",
+      "value-key": "[BASE]",
+      "type": "String",
+      "optional": false,
+      "id": "base",
+      "name": "Base"
+    },
+    {
+      "command-line-flag": "-uselongbasectrlvol",
+      "description": "Use long base control volume",
+      "value-key": "[USE_LONG_BASE_CTRL_VOL]",
+      "type": "Flag",
+      "id": "use_long_base_ctrl_vol",
+      "name": "Use Long Base Ctrl Vol Flag"
+    },
+    {
+      "command-line-flag": "-hemi",
+      "description": "Specify the hemisphere (left or right)",
+      "value-key": "[HEMISPHERE]",
+      "type": "String",
+      "optional": true,
+      "id": "hemisphere",
+      "name": "Hemisphere",
+      "value-choices": [
+        "lh",
+        "rh"
+      ]
+    },
+    {
+      "command-line-flag": "-expert",
+      "description": "Expert options file",
+      "value-key": "[EXPERT_OPTS]",
+      "type": "File",
+      "optional": true,
+      "id": "expert_opts",
+      "name": "Expert Options File"
+    },
+    {
+      "command-line-flag": "-s",
+      "description": "Subject identifier for testing; put after -long",
+      "value-key": "[SUBJECT]",
+      "type": "String",
+      "optional": true,
+      "id": "subject",
+      "name": "Subject"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

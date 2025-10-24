@@ -1,0 +1,230 @@
+{
+  "name": "epi_reg",
+  "command-line": "epi_reg [EPI] [T1_HEAD] [T1_BRAIN] [OUT_BASE_NAME] [ECHOSPACING] [FMAP] [FMAPMAG] [FMAPMAGBRAIN] [NO_CLEAN] [NO_FMAPREG] [PEDIR] [WEIGHT_IMAGE] [WMSEG]",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "Runs FSL epi_reg script for simultaneous coregistration and fieldmap unwarping.",
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
+  "inputs": [
+    {
+      "id": "echospacing",
+      "name": "Echospacing",
+      "type": "Number",
+      "value-key": "[ECHOSPACING]",
+      "command-line-flag": "--echospacing",
+      "command-line-flag-separator": "=",
+      "description": "Effective epi echo spacing (sometimes called dwell time) - in seconds.",
+      "optional": true
+    },
+    {
+      "id": "epi",
+      "name": "Epi",
+      "type": "File",
+      "value-key": "[EPI]",
+      "command-line-flag": "--epi",
+      "command-line-flag-separator": "=",
+      "description": "EPI Nifti image.",
+      "optional": false
+    },
+    {
+      "id": "fmap",
+      "name": "Fmap",
+      "type": "File",
+      "value-key": "[FMAP]",
+      "command-line-flag": "--fmap",
+      "command-line-flag-separator": "=",
+      "description": "Fieldmap image (in rad/s).",
+      "optional": true
+    },
+    {
+      "id": "fmapmag",
+      "name": "Fmapmag",
+      "type": "File",
+      "value-key": "[FMAPMAG]",
+      "command-line-flag": "--fmapmag",
+      "command-line-flag-separator": "=",
+      "description": "Fieldmap magnitude image - wholehead.",
+      "optional": true
+    },
+    {
+      "id": "fmapmagbrain",
+      "name": "Fmapmagbrain",
+      "type": "File",
+      "value-key": "[FMAPMAGBRAIN]",
+      "command-line-flag": "--fmapmagbrain",
+      "command-line-flag-separator": "=",
+      "description": "Fieldmap magnitude image - brain extracted.",
+      "optional": true
+    },
+    {
+      "id": "no_clean",
+      "name": "No clean",
+      "type": "Flag",
+      "value-key": "[NO_CLEAN]",
+      "command-line-flag": "--noclean",
+      "description": "Do not clean up intermediate files."
+    },
+    {
+      "id": "no_fmapreg",
+      "name": "No fmapreg",
+      "type": "Flag",
+      "value-key": "[NO_FMAPREG]",
+      "command-line-flag": "--nofmapreg",
+      "description": "Do not perform registration of fmap to t1 (use if fmap already registered)."
+    },
+    {
+      "id": "out_base_name",
+      "name": "Output files base name",
+      "type": "String",
+      "value-key": "[OUT_BASE_NAME]",
+      "command-line-flag": "--out",
+      "command-line-flag-separator": "=",
+      "description": "Output base name.",
+      "optional": false
+    },
+    {
+      "id": "pedir",
+      "name": "Pedir",
+      "type": "String",
+      "value-key": "[PEDIR]",
+      "command-line-flag": "--pedir",
+      "command-line-flag-separator": "=",
+      "description": "'x' or 'y' or 'z' or '-x' or '-y' or '-z'. Phase encoding direction, dir = x/y/z/-x/-y/-z.",
+      "optional": true,
+      "value-choices": [
+        "x",
+        "y",
+        "z",
+        "-x",
+        "-y",
+        "-z"
+      ]
+    },
+    {
+      "id": "t1_brain",
+      "name": "T1 brain",
+      "type": "File",
+      "value-key": "[T1_BRAIN]",
+      "command-line-flag": "--t1brain",
+      "command-line-flag-separator": "=",
+      "description": "Brain-extracted T1 image.",
+      "optional": false
+    },
+    {
+      "id": "t1_head",
+      "name": "T1 head",
+      "type": "File",
+      "value-key": "[T1_HEAD]",
+      "command-line-flag": "--t1",
+      "command-line-flag-separator": "=",
+      "description": "Wholehead T1 image.",
+      "optional": false
+    },
+    {
+      "id": "weight_image",
+      "name": "Weight image",
+      "type": "File",
+      "value-key": "[WEIGHT_IMAGE]",
+      "command-line-flag": "--weight",
+      "command-line-flag-separator": "=",
+      "description": "Weighting image (in t1 space).",
+      "optional": true
+    },
+    {
+      "id": "wmseg",
+      "name": "Wmseg",
+      "type": "File",
+      "value-key": "[WMSEG]",
+      "command-line-flag": "--wmseg",
+      "command-line-flag-separator": "=",
+      "description": "White matter segmentation of t1 image, has to be named                  like the t1brain and end on _wmseg.",
+      "optional": true
+    }
+  ],
+  "output-files": [
+    {
+      "name": "Epi2str inv",
+      "id": "epi2str_inv",
+      "path-template": "epi2str_inv.mat",
+      "description": "Rigid structural-to-epi transform."
+    },
+    {
+      "name": "Epi2str mat",
+      "id": "epi2str_mat",
+      "path-template": "epi2struct.mat",
+      "description": "Rigid epi-to-structural transform."
+    },
+    {
+      "name": "Fmap2epi mat",
+      "id": "fmap2epi_mat",
+      "path-template": "fmap2epi.mat",
+      "description": "Rigid fieldmap-to-epi transform."
+    },
+    {
+      "name": "Fmap2str mat",
+      "id": "fmap2str_mat",
+      "path-template": "fmap2str.mat",
+      "description": "Rigid fieldmap-to-structural transform."
+    },
+    {
+      "name": "Fmap epi",
+      "id": "fmap_epi",
+      "path-template": "fmap_epi.nii.gz",
+      "description": "Fieldmap in epi space."
+    },
+    {
+      "name": "Fmap str",
+      "id": "fmap_str",
+      "path-template": "fmap_str.nii.gz",
+      "description": "Fieldmap in structural space."
+    },
+    {
+      "name": "Fmapmag str",
+      "id": "fmapmag_str",
+      "path-template": "fmapmag_str.nii.gz",
+      "description": "Fieldmap magnitude image in structural space."
+    },
+    {
+      "name": "Fullwarp",
+      "id": "fullwarp",
+      "path-template": "fullwarp.nii.gz",
+      "description": "Warpfield to unwarp epi and transform into structural space."
+    },
+    {
+      "name": "Out 1vol",
+      "id": "out_1vol",
+      "path-template": "out_1vol.nii.gz",
+      "description": "Unwarped and coregistered single volume."
+    },
+    {
+      "name": "Out file",
+      "id": "out_file",
+      "path-template": "[OUT_BASE_NAME].nii.gz",
+      "description": "Unwarped and coregistered epi input."
+    },
+    {
+      "name": "Seg",
+      "id": "seg",
+      "path-template": "[OUT_BASE_NAME]_fast_seg.nii.gz",
+      "description": "White matter, gray matter, csf segmentation."
+    },
+    {
+      "name": "Shiftmap",
+      "id": "shiftmap",
+      "path-template": "shiftmap.nii.gz",
+      "description": "Shiftmap in epi space."
+    },
+    {
+      "name": "Wmedge",
+      "id": "wmedge",
+      "path-template": "[OUT_BASE_NAME]_fast_wmedge.nii.gz",
+      "description": "White matter edges for visualization."
+    },
+    {
+      "name": "Wmseg",
+      "id": "wmseg_outfile",
+      "path-template": "[OUT_BASE_NAME]_fast_wmseg.nii.gz",
+      "description": "White matter segmentation used in flirt bbr."
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

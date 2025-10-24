@@ -1,0 +1,89 @@
+{
+  "name": "3dDTeig",
+  "author": "AFNI Developers",
+  "description": "Computes eigenvalues and eigenvectors for an input dataset of tensors",
+  "url": "https://afni.nimh.nih.gov/",
+  "command-line": "3dDTeig [INPUT_DATASET] [PREFIX] [DATUM] [SEP_DSETS] [UDDATA]",
+  "inputs": [
+    {
+      "description": "Input dataset of Dxx, Dxy, Dyy, Dxz, Dyz, Dzz sub-bricks",
+      "value-key": "[INPUT_DATASET]",
+      "type": "String",
+      "optional": false,
+      "id": "input_dataset",
+      "name": "Input Dataset"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Use the given prefix for the output dataset",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Output Prefix"
+    },
+    {
+      "command-line-flag": "-datum",
+      "description": "Coerce the output data to be stored as the given type (byte, short, or float).",
+      "value-key": "[DATUM]",
+      "type": "String",
+      "optional": true,
+      "id": "datum",
+      "name": "Output Data Type",
+      "value-choices": [
+        "byte",
+        "short",
+        "float"
+      ]
+    },
+    {
+      "command-line-flag": "-sep_dsets",
+      "description": "Save eigenvalues, vectors, FA, and MD in separate datasets",
+      "value-key": "[SEP_DSETS]",
+      "type": "Flag",
+      "id": "sep_dsets",
+      "name": "Separate Datasets Flag"
+    },
+    {
+      "command-line-flag": "-uddata",
+      "description": "Tensor data is stored as upper diagonal instead of lower diagonal",
+      "value-key": "[UDDATA]",
+      "type": "Flag",
+      "id": "uddata",
+      "name": "Upper Diagonal Data Flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX].nii.gz",
+      "description": "Output dataset with computed eigenvalues, eigenvectors, FA, and MD",
+      "id": "output_dataset",
+      "name": "Output Dataset"
+    },
+    {
+      "path-template": "[PREFIX]_lambda.nii.gz",
+      "description": "Output dataset for eigenvalues",
+      "id": "output_lambda",
+      "name": "Output Eigenvalues Dataset"
+    },
+    {
+      "path-template": "[PREFIX]_eigvec.nii.gz",
+      "description": "Output dataset for eigenvectors",
+      "id": "output_eigvec",
+      "name": "Output Eigenvectors Dataset"
+    },
+    {
+      "path-template": "[PREFIX]_FA.nii.gz",
+      "description": "Output dataset for fractional anisotropy",
+      "id": "output_fa",
+      "name": "Output Fractional Anisotropy Dataset"
+    },
+    {
+      "path-template": "[PREFIX]_MD.nii.gz",
+      "description": "Output dataset for mean diffusivity",
+      "id": "output_md",
+      "name": "Output Mean Diffusivity Dataset"
+    }
+  ]
+}

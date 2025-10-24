@@ -1,0 +1,14 @@
+{
+  "name": "backend-average-roi-correlation",
+  "source": {
+    "type": "boutiques",
+    "path": "boutiques.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-backend-average-roi-correlation"
+  ],
+  "docs": {
+    "description": "Connectome db backend command for cifti average roi correlation.\n\nThis command is probably not the one you are looking for, try -cifti-average-roi-correlation.  It takes the list of cifti files to average from standard input, and writes its output as little endian, 32-bit integer of row size followed by the row as 32-bit floats."
+  }
+}

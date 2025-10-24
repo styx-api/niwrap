@@ -1,0 +1,215 @@
+{
+  "name": "antsRegistrationSyN.sh",
+  "command-line": "antsRegistrationSyN.sh [IMAGE_DIMENSION] [FIXED_IMAGE] [MOVING_IMAGE] [OUTPUT_PREFIX] [THREADS] [[INITIAL_TRANSFORM]] [TRANSFORM_TYPE] [RADIUS] [SPLINE_DISTANCE] [GRADIENT_STEP] [MASKS] [PRECISION_TYPE] [USE_HISTOGRAM_MATCHING] [USE_REPRO_MODE] [COLLAPSE_OUTPUT_TRANSFORMS] [RANDOM_SEED]",
+  "author": "ANTs Developers",
+  "description": "Script for simplified symmetric image registration using ANTs.",
+  "url": "https://github.com/ANTsX/ANTs",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "image_dimension",
+      "name": "Image Dimension",
+      "value-key": "[IMAGE_DIMENSION]",
+      "type": "Number",
+      "integer": true,
+      "optional": false,
+      "value-choices": [
+        2,
+        3
+      ],
+      "command-line-flag": "-d",
+      "description": "Image dimension: 2 or 3 (for 2 or 3-dimensional registration of a single volume)"
+    },
+    {
+      "id": "fixed_image",
+      "name": "Fixed Image",
+      "value-key": "[FIXED_IMAGE]",
+      "type": "File",
+      "optional": false,
+      "command-line-flag": "-f",
+      "description": "Fixed image(s) or source image(s) or reference image(s)"
+    },
+    {
+      "id": "moving_image",
+      "name": "Moving Image",
+      "value-key": "[MOVING_IMAGE]",
+      "type": "File",
+      "optional": false,
+      "command-line-flag": "-m",
+      "description": "Moving image(s) or target image(s)"
+    },
+    {
+      "id": "output_prefix",
+      "name": "Output Prefix",
+      "value-key": "[OUTPUT_PREFIX]",
+      "type": "String",
+      "optional": false,
+      "command-line-flag": "-o",
+      "description": "A prefix that is prepended to all output files"
+    },
+    {
+      "id": "threads",
+      "name": "Number of Threads",
+      "value-key": "[THREADS]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "command-line-flag": "-n",
+      "description": "Number of threads (default = ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS if defined, otherwise 1)"
+    },
+    {
+      "id": "initial_transform",
+      "name": "Initial Transform",
+      "value-key": "[INITIAL_TRANSFORM]",
+      "type": "String",
+      "list": true,
+      "list-separator": ",",
+      "optional": true,
+      "command-line-flag": "-i",
+      "description": "Initial transform(s) --- order specified on the command line matters"
+    },
+    {
+      "id": "transform_type",
+      "name": "Transform Type",
+      "value-key": "[TRANSFORM_TYPE]",
+      "type": "String",
+      "optional": true,
+      "value-choices": [
+        "t",
+        "r",
+        "a",
+        "s",
+        "sr",
+        "so",
+        "b",
+        "br",
+        "bo"
+      ],
+      "command-line-flag": "-t",
+      "description": "Transform type (default = 's'). Options:\n - t: translation (1 stage)\n - r: rigid (1 stage)\n - a: rigid + affine (2 stages)\n - s: rigid + affine + deformable syn (3 stages)\n - sr: rigid + deformable syn (2 stages)\n - so: deformable syn only (1 stage)\n - b: rigid + affine + deformable b-spline syn (3 stages)\n - br: rigid + deformable b-spline syn (2 stages)\n - bo: deformable b-spline syn only (1 stage)"
+    },
+    {
+      "id": "radius",
+      "name": "Radius for Cross Correlation Metric",
+      "value-key": "[RADIUS]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "command-line-flag": "-r",
+      "description": "Radius for cross correlation metric used during SyN stage (default = 4)"
+    },
+    {
+      "id": "spline_distance",
+      "name": "Spline Distance for Deformable B-spline SyN Transform",
+      "value-key": "[SPLINE_DISTANCE]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "command-line-flag": "-s",
+      "description": "Spline distance for deformable B-spline SyN transform (default = 26)"
+    },
+    {
+      "id": "gradient_step",
+      "name": "Gradient Step Size for SyN and B-spline SyN",
+      "value-key": "[GRADIENT_STEP]",
+      "type": "Number",
+      "optional": true,
+      "command-line-flag": "-g",
+      "description": "Gradient step size for SyN and B-spline SyN (default = 0.1)"
+    },
+    {
+      "id": "masks",
+      "name": "Masks",
+      "value-key": "[MASKS]",
+      "type": "String",
+      "optional": true,
+      "command-line-flag": "-x",
+      "description": "Mask(s) for the fixed image space, or for the fixed and moving image space in the format 'fixedMask,MovingMask'. Use -x once to specify mask(s) to be used for all stages or use -x for each 'stage' (cf -t option). If no mask is to be used for a particular stage, the keyword 'NULL' should be used in place of file names."
+    },
+    {
+      "id": "precision_type",
+      "name": "Precision Type",
+      "value-key": "[PRECISION_TYPE]",
+      "type": "String",
+      "optional": true,
+      "value-choices": [
+        "f",
+        "d"
+      ],
+      "command-line-flag": "-p",
+      "description": "Precision type (default = 'd'). Options:\n - f: float\n - d: double"
+    },
+    {
+      "id": "use_histogram_matching",
+      "name": "Use Histogram Matching",
+      "value-key": "[USE_HISTOGRAM_MATCHING]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "command-line-flag": "-j",
+      "description": "Use histogram matching (default = 0). Options:\n - 0: false\n - 1: true"
+    },
+    {
+      "id": "use_repro_mode",
+      "name": "Use 'Repro' Mode for Exact Reproducibility",
+      "value-key": "[USE_REPRO_MODE]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "command-line-flag": "-y",
+      "description": "Use 'repro' mode for exact reproducibility of output. Uses GC metric for linear stages and a fixed random seed (default = 0). Options:\n - 0: false\n - 1: true"
+    },
+    {
+      "id": "collapse_output_transforms",
+      "name": "Collapse Output Transforms",
+      "value-key": "[COLLAPSE_OUTPUT_TRANSFORMS]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "command-line-flag": "-z",
+      "description": "Collapse output transforms (default = 1). Options:\n - 0: false\n - 1: true"
+    },
+    {
+      "id": "random_seed",
+      "name": "Random Seed",
+      "value-key": "[RANDOM_SEED]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "command-line-flag": "-e",
+      "description": "Fix random seed to an int value"
+    }
+  ],
+  "output-files": [
+    {
+      "id": "affine_transform",
+      "name": "Affine Transform",
+      "description": "Affine transformation matrix for registration",
+      "path-template": "[OUTPUT_PREFIX]0GenericAffine.mat"
+    },
+    {
+      "id": "inverse_warp",
+      "name": "Inverse Warp",
+      "description": "Inverse warp field for registration",
+      "path-template": "[OUTPUT_PREFIX]1InverseWarp.nii.gz"
+    },
+    {
+      "id": "forward_warp",
+      "name": "Forward Warp",
+      "description": "Forward warp field for registration",
+      "path-template": "[OUTPUT_PREFIX]1Warp.nii.gz"
+    }
+  ]
+}

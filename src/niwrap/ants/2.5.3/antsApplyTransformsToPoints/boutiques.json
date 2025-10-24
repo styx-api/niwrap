@@ -1,0 +1,116 @@
+{
+  "name": "antsApplyTransformsToPoints",
+  "command-line": "antsApplyTransformsToPoints [DIMENSIONALITY] [PRECISION] [FORANTSR] [INPUT] [OUTPUT] [TRANSFORM]",
+  "description": "antsApplyTransformsToPoints, applied to an input image, transforms it according to a reference image and a transform (or a set of transforms). It reads in a CSV file with the first D columns defining the spatial location where the spatial location is defined in physical coordinates. The CSV file should have a header row.",
+  "author": "ANTs Developers",
+  "url": "https://github.com/ANTsX/ANTs",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "dimensionality",
+      "name": "Dimensionality",
+      "value-key": "[DIMENSIONALITY]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [
+        2,
+        3
+      ],
+      "command-line-flag": "--dimensionality",
+      "description": "This option forces the points to be treated as a specified-dimensionality."
+    },
+    {
+      "id": "precision",
+      "name": "Precision",
+      "value-key": "[PRECISION]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "command-line-flag": "--precision",
+      "description": "Use double precision."
+    },
+    {
+      "id": "forantsr",
+      "name": "For ANTsR",
+      "value-key": "[FORANTSR]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "value-choices": [
+        0,
+        1
+      ],
+      "command-line-flag": "--forantsr",
+      "description": "Set true for ANTsR IO."
+    },
+    {
+      "id": "input",
+      "name": "Input",
+      "value-key": "[INPUT]",
+      "type": "File",
+      "optional": false,
+      "command-line-flag": "-i",
+      "description": "Input CSV file with columns including x,y,z,t headers that define the points in physical space, or a 2D .mha binary image file."
+    },
+    {
+      "id": "output",
+      "name": "Output",
+      "value-key": "[OUTPUT]",
+      "type": "String",
+      "optional": false,
+      "command-line-flag": "-o",
+      "description": "Output the warped points to a CSV file."
+    },
+    {
+      "id": "transform",
+      "name": "Transform",
+      "value-key": "[TRANSFORM]",
+      "type": [
+        {
+          "id": "single_transform",
+          "name": "Single Transform",
+          "command-line": "[TRANSFORM]",
+          "inputs": [
+            {
+              "id": "transform_file",
+              "name": "Transform File",
+              "type": "File",
+              "optional": false,
+              "value-key": "[TRANSFORM_FILE]"
+            }
+          ]
+        },
+        {
+          "id": "inverse_transform",
+          "name": "Inverse Transform",
+          "command-line": "[TRANSFORM_FILE],1",
+          "inputs": [
+            {
+              "id": "transform_file",
+              "name": "Transform File",
+              "type": "File",
+              "optional": false,
+              "value-key": "[TRANSFORM_FILE]"
+            }
+          ]
+        }
+      ],
+      "optional": true,
+      "command-line-flag": "-t",
+      "description": "Transform file(s) to apply to the input points. Uses an inverse transform if specified as [transformFileName,1]."
+    }
+  ],
+  "output-files": [
+    {
+      "id": "warped_points",
+      "name": "Warped Points",
+      "description": "The output is the CSV file containing warped points.",
+      "path-template": "[OUTPUT]"
+    }
+  ]
+}

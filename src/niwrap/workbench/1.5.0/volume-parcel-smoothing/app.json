@@ -1,0 +1,14 @@
+{
+  "name": "volume-parcel-smoothing",
+  "source": {
+    "type": "boutiques",
+    "path": "boutiques.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-volume-parcel-smoothing"
+  ],
+  "docs": {
+    "description": "Smooth parcels in a volume separately.\n\nThe volume is smoothed within each label in the label volume using data only from within the label.  Equivalent to running volume smoothing with ROIs matching each label separately, then adding the resulting volumes, but faster."
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "name": "3dresample",
+  "command-line": "3dresample [IN_FILE] [MASTER] [ORIENTATION] [PREFIX] [OUTPUTTYPE] [RESAMPLE_MODE] [VOXEL_SIZE]",
+  "author": "AFNI Developers",
+  "description": "Resample or reorient an image using AFNI 3dresample command",
+  "url": "https://afni.nimh.nih.gov/",
+  "inputs": [
+    {
+      "id": "in_file",
+      "name": "In file",
+      "type": "File",
+      "value-key": "[IN_FILE]",
+      "command-line-flag": "-inset",
+      "description": "Input file to 3dresample.",
+      "optional": false
+    },
+    {
+      "id": "prefix",
+      "name": "Output prefix",
+      "value-key": "[PREFIX]",
+      "command-line-flag": "-prefix",
+      "description": "required prefix for output dataset",
+      "type": "String"
+    },
+    {
+      "id": "master",
+      "name": "Master",
+      "type": "File",
+      "value-key": "[MASTER]",
+      "command-line-flag": "-master",
+      "description": "Align dataset grid to a reference file.",
+      "optional": true
+    },
+    {
+      "id": "orientation",
+      "name": "Orientation",
+      "type": "String",
+      "value-key": "[ORIENTATION]",
+      "command-line-flag": "-orient",
+      "description": "New orientation code.",
+      "optional": true,
+      "value-choices": [
+        "AIL",
+        "AIR",
+        "ASL",
+        "ASR",
+        "PIL",
+        "PIR",
+        "PSL",
+        "PSR",
+        "ALI",
+        "ALS",
+        "ARI",
+        "ARS",
+        "PLI",
+        "PLS",
+        "PRI",
+        "PRS",
+        "IAL",
+        "IAR",
+        "IPL",
+        "IPR",
+        "SAL",
+        "SAR",
+        "SPL",
+        "SPR",
+        "ILA",
+        "ILP",
+        "IRA",
+        "IRP",
+        "SLA",
+        "SLP",
+        "SRA",
+        "SRP",
+        "LAI",
+        "LAS",
+        "LPI",
+        "LPS",
+        "RAI",
+        "RAS",
+        "RPI",
+        "RPS",
+        "LIA",
+        "LIP",
+        "LSA",
+        "LSP",
+        "RIA",
+        "RIP",
+        "RSA",
+        "RSP"
+      ]
+    },
+    {
+      "id": "outputtype",
+      "name": "Outputtype",
+      "type": "String",
+      "value-key": "[OUTPUTTYPE]",
+      "description": "'nifti' or 'afni' or 'nifti_gz'. Afni output filetype.",
+      "optional": true,
+      "value-choices": [
+        "NIFTI",
+        "AFNI",
+        "NIFTI_GZ"
+      ]
+    },
+    {
+      "id": "resample_mode",
+      "name": "Resample mode",
+      "type": "String",
+      "value-key": "[RESAMPLE_MODE]",
+      "command-line-flag": "-rmode",
+      "description": "'nn' or 'li' or 'cu' or 'bk'. Resampling method from set {\"nn\", \"li\", \"cu\", \"bk\"}. these are for \"nearest neighbor\", \"linear\", \"cubic\" and \"blocky\"interpolation, respectively. default is nn.",
+      "optional": true,
+      "value-choices": [
+        "NN",
+        "Li",
+        "Cu",
+        "Bk"
+      ]
+    },
+    {
+      "id": "voxel_size",
+      "name": "Voxel size",
+      "type": "Number",
+      "list": true,
+      "min-list-entries": 3,
+      "max-list-entries": 3,
+      "value-key": "[VOXEL_SIZE]",
+      "command-line-flag": "-dxyz",
+      "description": "(a float, a float, a float). Resample to new dx, dy and dz.",
+      "optional": true
+    }
+  ],
+  "output-files": [
+    {
+      "name": "Out file",
+      "id": "out_file",
+      "description": "Output image file name.",
+      "path-template": "[PREFIX]"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

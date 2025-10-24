@@ -1,0 +1,139 @@
+{
+  "name": "mris_spherical_average",
+  "description": "This tool adds a template into an average surface in FreeSurfer.",
+  "author": "FreeSurfer Developers",
+  "command-line": "mris_spherical_average [WHICH] [FNAME] [HEMI] [SPHERICAL_SURF] [SUBJECTS] [OUTPUT] [SEGMENT] [NORMALIZE] [ORIG] [OUTPUT_SUBJECT_NAME] [OUTPUT_SUBJECT_DIR] [SUBJECTS_DIR] [AVERAGE_AREA] [SUMMARY_STATISTICS]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "which",
+      "name": "Which type",
+      "description": "Specifies the type, one of: coords, label, vals, curv, or area.",
+      "type": "String",
+      "value-choices": [
+        "coords",
+        "label",
+        "vals",
+        "curv",
+        "area"
+      ],
+      "optional": false,
+      "value-key": "[WHICH]"
+    },
+    {
+      "id": "fname",
+      "name": "File name",
+      "description": "Input file name.",
+      "type": "String",
+      "optional": false,
+      "value-key": "[FNAME]"
+    },
+    {
+      "id": "hemi",
+      "name": "Hemisphere",
+      "description": "Hemisphere: one of lh or rh.",
+      "type": "String",
+      "value-choices": [
+        "lh",
+        "rh"
+      ],
+      "optional": false,
+      "value-key": "[HEMI]"
+    },
+    {
+      "id": "spherical_surf",
+      "name": "Spherical Surface",
+      "description": "The spherical surface file.",
+      "type": "String",
+      "optional": false,
+      "value-key": "[SPHERICAL_SURF]"
+    },
+    {
+      "id": "subjects",
+      "name": "Subjects",
+      "description": "List of subjects.",
+      "type": "String",
+      "list": true,
+      "optional": false,
+      "value-key": "[SUBJECTS]"
+    },
+    {
+      "id": "output",
+      "name": "Output",
+      "description": "Output file or directory.",
+      "type": "String",
+      "optional": false,
+      "value-key": "[OUTPUT]"
+    },
+    {
+      "command-line-flag": "-segment",
+      "description": "Only use largest connected component of label.",
+      "id": "segment",
+      "name": "Segment Flag",
+      "type": "Flag",
+      "value-key": "[SEGMENT]"
+    },
+    {
+      "command-line-flag": "-n",
+      "description": "Normalize output so it can be interpreted as a probability.",
+      "id": "normalize",
+      "name": "Normalize Flag",
+      "type": "Flag",
+      "value-key": "[NORMALIZE]"
+    },
+    {
+      "command-line-flag": "-orig",
+      "description": "Use <name> as original surface position; default=orig.",
+      "id": "orig",
+      "name": "Original Surface Name",
+      "type": "String",
+      "optional": true,
+      "value-key": "[ORIG]"
+    },
+    {
+      "command-line-flag": "-o",
+      "description": "Use <output subject name> as the space to write the results in instead of the last subject given.",
+      "id": "output_subject_name",
+      "name": "Output Subject Name",
+      "type": "String",
+      "optional": true,
+      "value-key": "[OUTPUT_SUBJECT_NAME]"
+    },
+    {
+      "command-line-flag": "-osdir",
+      "description": "Use <output subject dir> as the subjects dir for the output subject.",
+      "id": "output_subject_dir",
+      "name": "Output Subject Directory",
+      "type": "String",
+      "optional": true,
+      "value-key": "[OUTPUT_SUBJECT_DIR]"
+    },
+    {
+      "command-line-flag": "-sdir",
+      "description": "Set the subjects directory.",
+      "id": "subjects_dir",
+      "name": "Subjects Directory",
+      "type": "String",
+      "optional": true,
+      "value-key": "[SUBJECTS_DIR]"
+    },
+    {
+      "command-line-flag": "-average_area",
+      "description": "Compute threshold for label that will give the average label approximately the average surface area.",
+      "id": "average_area",
+      "name": "Average Area Flag",
+      "type": "Flag",
+      "value-key": "[AVERAGE_AREA]"
+    },
+    {
+      "command-line-flag": "-s",
+      "description": "Generate summary statistics and write them into sigavg<cond #>-<hemi>.w and sigvar<cond #>-<hemi>.w.",
+      "id": "summary_statistics",
+      "name": "Summary Statistics",
+      "type": "String",
+      "optional": true,
+      "value-key": "[SUMMARY_STATISTICS]"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

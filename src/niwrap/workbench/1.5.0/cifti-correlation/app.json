@@ -1,0 +1,14 @@
+{
+  "name": "cifti-correlation",
+  "source": {
+    "type": "boutiques",
+    "path": "boutiques.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-cifti-correlation"
+  ],
+  "docs": {
+    "description": "Generate correlation of rows in a cifti file.\n\nFor each row (or each row inside an roi if -roi-override is specified), correlate to all other rows.  The -cifti-roi suboption to -roi-override may not be specified with any other -*-roi suboption, but you may specify the other -*-roi suboptions together.\n\nWhen using the -fisher-z option, the output is NOT a Z-score, it is artanh(r), to do further math on this output, consider using -cifti-math.\n\nRestricting the memory usage will make it calculate the output in chunks, and if the input file size is more than 70% of the memory limit, it will also read through the input file as rows are required, resulting in several passes through the input file (once per chunk).  Memory limit does not need to be an integer, you may also specify 0 to calculate a single output row at a time (this may be very slow)."
+  }
+}

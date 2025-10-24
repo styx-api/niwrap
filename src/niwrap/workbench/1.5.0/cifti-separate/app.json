@@ -1,0 +1,14 @@
+{
+  "name": "cifti-separate",
+  "source": {
+    "type": "boutiques",
+    "path": "boutiques.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-cifti-separate"
+  ],
+  "docs": {
+    "description": "Write a cifti structure as metric, label or volume.\n\nFor dtseries, dscalar, and dlabel, use COLUMN for <direction>, and if you have a symmetric dconn, COLUMN is more efficient.\n\nYou must specify at least one of -metric, -volume-all, -volume, or -label for this command to do anything.  Output volumes will spatially line up with their original positions, whether or not they are cropped.  Volume files produced by separating a dlabel file, or from the -label suboption of -volume-all, will be label volumes, see -volume-help.\n\nFor each <structure> argument, use one of the following strings:\n\nCORTEX_LEFT\nCORTEX_RIGHT\nCEREBELLUM\nACCUMBENS_LEFT\nACCUMBENS_RIGHT\nALL_GREY_MATTER\nALL_WHITE_MATTER\nAMYGDALA_LEFT\nAMYGDALA_RIGHT\nBRAIN_STEM\nCAUDATE_LEFT\nCAUDATE_RIGHT\nCEREBELLAR_WHITE_MATTER_LEFT\nCEREBELLAR_WHITE_MATTER_RIGHT\nCEREBELLUM_LEFT\nCEREBELLUM_RIGHT\nCEREBRAL_WHITE_MATTER_LEFT\nCEREBRAL_WHITE_MATTER_RIGHT\nCORTEX\nDIENCEPHALON_VENTRAL_LEFT\nDIENCEPHALON_VENTRAL_RIGHT\nHIPPOCAMPUS_LEFT\nHIPPOCAMPUS_RIGHT\nINVALID\nOTHER\nOTHER_GREY_MATTER\nOTHER_WHITE_MATTER\nPALLIDUM_LEFT\nPALLIDUM_RIGHT\nPUTAMEN_LEFT\nPUTAMEN_RIGHT\nTHALAMUS_LEFT\nTHALAMUS_RIGHT"
+  }
+}

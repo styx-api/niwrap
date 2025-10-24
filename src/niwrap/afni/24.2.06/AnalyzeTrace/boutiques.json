@@ -1,0 +1,104 @@
+{
+  "name": "AnalyzeTrace",
+  "author": "AFNI Developers",
+  "description": "A program to analyze SUMA (and AFNI's perhaps) stack output for functions that return with RETURN without bothering to go on the stack.",
+  "command-line": "AnalyzeTrace [TRACEFILE] [MAX_FUNC_LINES] [SUMA_C] [MAX_ERR] [NOVOLREG] [NOXFORM] [SETENV] [TRACE] [EXTREME_TRACE] [NOMALL] [YESMALL]",
+  "inputs": [
+    {
+      "description": "Trace output file obtained by redirecting the program’s trace output.",
+      "value-key": "[TRACEFILE]",
+      "type": "File",
+      "optional": false,
+      "id": "tracefile",
+      "name": "Trace output file"
+    },
+    {
+      "command-line-flag": "-max_func_lines",
+      "description": "Set the maximum number of code lines before a function returns. Default is no limit.",
+      "value-key": "[MAX_FUNC_LINES]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "max_func_lines",
+      "name": "Maximum function lines"
+    },
+    {
+      "command-line-flag": "-suma_c",
+      "description": "FILE is a SUMA_*.c file. It is analyzed for functions that use SUMA_RETURN without ENTRY.",
+      "value-key": "[SUMA_C]",
+      "type": "File",
+      "optional": true,
+      "id": "suma_c",
+      "name": "SUMA C file"
+    },
+    {
+      "command-line-flag": "-max_err",
+      "description": "Stop after encountering MAX_ERR errors reported in log. Default is 5. Error key terms are: 'Error', 'error', 'corruption'.",
+      "value-key": "[MAX_ERR]",
+      "type": "Number",
+      "integer": true,
+      "optional": true,
+      "id": "max_err",
+      "name": "Maximum errors"
+    },
+    {
+      "command-line-flag": "-novolreg",
+      "description": "Ignore any Rotate, Volreg, Tagalign, or WarpDrive transformations present in the Surface Volume.",
+      "value-key": "[NOVOLREG]",
+      "type": "Flag",
+      "id": "novolreg",
+      "name": "Ignore volume registration"
+    },
+    {
+      "command-line-flag": "-noxform",
+      "description": "Same as -novolreg",
+      "value-key": "[NOXFORM]",
+      "type": "Flag",
+      "id": "noxform",
+      "name": "Ignore transform"
+    },
+    {
+      "command-line-flag": "-setenv",
+      "description": "Set environment variable ENVname to be ENVvalue. Quotes are necessary.",
+      "value-key": "[SETENV]",
+      "type": "String",
+      "optional": true,
+      "id": "setenv",
+      "name": "Set environment variable"
+    },
+    {
+      "command-line-flag": "-trace",
+      "description": "Turns on In/Out debug and Memory tracing.",
+      "value-key": "[TRACE]",
+      "type": "Flag",
+      "id": "trace",
+      "name": "Trace flag"
+    },
+    {
+      "command-line-flag": "-TRACE",
+      "description": "Turns on extreme tracing.",
+      "value-key": "[EXTREME_TRACE]",
+      "type": "Flag",
+      "id": "extreme_trace",
+      "name": "Extreme trace flag"
+    },
+    {
+      "command-line-flag": "-nomall",
+      "description": "Turn off memory tracing.",
+      "value-key": "[NOMALL]",
+      "type": "Flag",
+      "id": "nomall",
+      "name": "Disable memory tracing"
+    },
+    {
+      "command-line-flag": "-yesmall",
+      "description": "Turn on memory tracing (default).",
+      "value-key": "[YESMALL]",
+      "type": "Flag",
+      "id": "yesmall",
+      "name": "Enable memory tracing"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

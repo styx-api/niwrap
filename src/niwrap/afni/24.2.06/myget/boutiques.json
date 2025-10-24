@@ -1,0 +1,47 @@
+{
+  "name": "myget",
+  "description": "A simple file downloader from a URL",
+  "command-line": "myget [PROTOCOL_VERSION] [URL] [OUTPUT_FILE]",
+  "inputs": [
+    {
+      "id": "protocol_version",
+      "name": "Protocol Version",
+      "description": "Specify protocol version. You can choose between -1 or -1.1",
+      "type": "String",
+      "value-choices": [
+        "-1",
+        "-1.1"
+      ],
+      "optional": true,
+      "value-key": "[PROTOCOL_VERSION]"
+    },
+    {
+      "id": "url",
+      "name": "URL",
+      "description": "The URL to download the file from",
+      "type": "String",
+      "optional": false,
+      "value-key": "[URL]"
+    },
+    {
+      "id": "output_file",
+      "name": "Output File",
+      "description": "The filename to save the downloaded file",
+      "value-key": "[OUTPUT_FILE]",
+      "type": "String",
+      "command-line-flag": ">",
+      "optional": false
+    }
+  ],
+  "output-files": [
+    {
+      "id": "output_file",
+      "name": "Output File",
+      "description": "The filename to save the downloaded file",
+      "path-template": "[OUTPUT_FILE]"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "author": "AFNI Developers",
+  "url": "https://afni.nimh.nih.gov/"
+}

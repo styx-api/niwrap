@@ -1,0 +1,14 @@
+{
+  "name": "convert-affine",
+  "source": {
+    "type": "boutiques",
+    "path": "boutiques.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-convert-affine"
+  ],
+  "docs": {
+    "description": "Convert an affine file between conventions.\n\nNIFTI world matrices can be used directly on mm coordinates via matrix multiplication, they use the NIFTI coordinate system, that is, positive X is right, positive Y is anterior, and positive Z is superior.  Note that wb_command assumes that world matrices transform source coordinates to target coordinates, while other tools may use affines that transform target coordinates to source coordinates.\n\nThe ITK format is used by ANTS.\n\nYou must specify exactly one -from option, but you may specify multiple -to options, and -to-flirt may be specified more than once."
+  }
+}

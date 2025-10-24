@@ -1,0 +1,10 @@
+{
+  "name": "tckconvert",
+  "source": {
+    "type": "boutiques",
+    "path": "boutiques.json"
+  },
+  "docs": {
+    "description": "Convert between different track file formats.\n\nThe program currently supports MRtrix .tck files (input/output), ascii text files (input/output), VTK polydata files (input/output), and RenderMan RIB (export only).\n\nNote that ascii files will be stored with one streamline per numbered file. To support this, the command will use the multi-file numbering syntax, where square brackets denote the position of the numbering for the files, for example:\n\n$ tckconvert input.tck output-'[]'.txt\n\nwill produce files named output-0000.txt, output-0001.txt, output-0002.txt, ...\n\nReferences:\n\n"
+  }
+}

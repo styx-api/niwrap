@@ -1,0 +1,193 @@
+{
+  "name": "mri_label2vol",
+  "author": "FreeSurfer Developers",
+  "description": "Converts a label or a set of labels into a volume.",
+  "command-line": "mri_label2vol [LABELS] [ANNOTATION] [SEGMENTATION] [TEMPLATE] [REGISTRATION] [IDENTITY_FLAG] [FILL_THRESHOLD] [LABEL_VOX_VOL] [PROJECTION] [SUBJECT] [HEMISPHERE] [OUTPUT_VOLUME] [HITS_VOLUME] [LABEL_STAT_VOLUME] [STAT_THRESHOLD] [OFFSET] [DEFECTS] [NATIVE_VOX2RAS_FLAG]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "command-line-flag": "--label",
+      "description": "Enter the name of the label file. For multiple labels, use multiple --label flags.",
+      "value-key": "[LABELS]",
+      "type": "String",
+      "list": true,
+      "optional": true,
+      "id": "labels",
+      "name": "Label files"
+    },
+    {
+      "command-line-flag": "--annot",
+      "description": "Surface annotation file. Use this to input annotations directly.",
+      "value-key": "[ANNOTATION]",
+      "type": "File",
+      "optional": true,
+      "id": "annotation",
+      "name": "Annotation file"
+    },
+    {
+      "command-line-flag": "--seg",
+      "description": "Path to input segmentation.",
+      "value-key": "[SEGMENTATION]",
+      "type": "File",
+      "optional": true,
+      "id": "segmentation",
+      "name": "Segmentation file"
+    },
+    {
+      "command-line-flag": "--temp",
+      "description": "Template volume; the output will have the same size and geometry.",
+      "value-key": "[TEMPLATE]",
+      "type": "File",
+      "optional": false,
+      "id": "template",
+      "name": "Template volume"
+    },
+    {
+      "command-line-flag": "--reg",
+      "description": "tkregister-style registration matrix mapping LabelXYZ to VolXYZ.",
+      "value-key": "[REGISTRATION]",
+      "type": "File",
+      "optional": true,
+      "id": "registration",
+      "name": "Registration matrix"
+    },
+    {
+      "command-line-flag": "--identity",
+      "description": "Use the identity matrix as the registration.",
+      "value-key": "[IDENTITY_FLAG]",
+      "type": "Flag",
+      "id": "identity_flag",
+      "name": "Identity registration flag"
+    },
+    {
+      "command-line-flag": "--fillthresh",
+      "description": "Threshold for voxel fill; a value between 0 and 1.",
+      "value-key": "[FILL_THRESHOLD]",
+      "type": "Number",
+      "optional": true,
+      "id": "fill_threshold",
+      "maximum": 1,
+      "minimum": 0,
+      "name": "Fill threshold"
+    },
+    {
+      "command-line-flag": "--labvoxvol",
+      "description": "Volume of each label point; default is 1mm³.",
+      "value-key": "[LABEL_VOX_VOL]",
+      "type": "Number",
+      "optional": true,
+      "id": "label_vox_vol",
+      "name": "Label voxel volume"
+    },
+    {
+      "command-line-flag": "--proj",
+      "description": "Project the label along the surface normal. Type can be abs or frac.",
+      "value-key": "[PROJECTION]",
+      "type": "String",
+      "optional": true,
+      "id": "projection",
+      "name": "Projection settings"
+    },
+    {
+      "command-line-flag": "--subject",
+      "description": "FREESURFER subject identifier; needed with --proj.",
+      "value-key": "[SUBJECT]",
+      "type": "String",
+      "optional": true,
+      "id": "subject",
+      "name": "Subject ID"
+    },
+    {
+      "command-line-flag": "--hemi",
+      "description": "Hemisphere to use for --proj or --annot. Legal values are lh and rh.",
+      "value-key": "[HEMISPHERE]",
+      "type": "String",
+      "optional": true,
+      "id": "hemisphere",
+      "name": "Hemisphere"
+    },
+    {
+      "command-line-flag": "--o",
+      "description": "Output volume in which each voxel will have the number of the label to which it is assigned.",
+      "value-key": "[OUTPUT_VOLUME]",
+      "type": "String",
+      "optional": false,
+      "id": "output_volume",
+      "name": "Output volume"
+    },
+    {
+      "command-line-flag": "--hits",
+      "description": "Hit volume, a multi-frame volume with one frame per label showing the number of hits per voxel.",
+      "value-key": "[HITS_VOLUME]",
+      "type": "String",
+      "optional": true,
+      "id": "hits_volume",
+      "name": "Hit volume"
+    },
+    {
+      "command-line-flag": "--label-stat",
+      "description": "Map the label stats field into the volume.",
+      "value-key": "[LABEL_STAT_VOLUME]",
+      "type": "String",
+      "optional": true,
+      "id": "label_stat_volume",
+      "name": "Label stat volume"
+    },
+    {
+      "command-line-flag": "--stat-thresh",
+      "description": "Only use label point where stat > thresh.",
+      "value-key": "[STAT_THRESHOLD]",
+      "type": "Number",
+      "optional": true,
+      "id": "stat_threshold",
+      "name": "Statistical threshold"
+    },
+    {
+      "command-line-flag": "--offset",
+      "description": "Add offset to the segmentation numbers.",
+      "value-key": "[OFFSET]",
+      "type": "Number",
+      "optional": true,
+      "id": "offset",
+      "name": "Segmentation offset"
+    },
+    {
+      "command-line-flag": "--defects",
+      "description": "Creates a segmentation volume of the surface defects.",
+      "value-key": "[DEFECTS]",
+      "type": "String",
+      "optional": true,
+      "id": "defects",
+      "name": "Defects settings"
+    },
+    {
+      "command-line-flag": "--native-vox2ras",
+      "description": "Use native voxel-to-RAS transform instead of tkregister-style.",
+      "value-key": "[NATIVE_VOX2RAS_FLAG]",
+      "type": "Flag",
+      "id": "native_vox2ras_flag",
+      "name": "Native voxel-to-RAS flag"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_VOLUME]",
+      "description": "The output volume where each voxel has the label it's assigned to.",
+      "id": "output_vol",
+      "name": "Output Volume"
+    },
+    {
+      "path-template": "[HITS_VOLUME]",
+      "description": "The hit volume file showing number of hits per voxel.",
+      "id": "hits_vol",
+      "name": "Hits Volume"
+    },
+    {
+      "path-template": "[LABEL_STAT_VOLUME]",
+      "description": "The label stat volume file.",
+      "id": "label_stat_vol",
+      "name": "Label Stat Volume"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

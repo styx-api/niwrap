@@ -1,0 +1,284 @@
+{
+  "name": "topup",
+  "author": "FMRIB Analysis Group, University of Oxford",
+  "description": "topup is part of FSL and is used to estimate and correct for susceptibility-induced distortions in echo planar imaging (EPI) data.",
+  "command-line": "topup [IMAIN] [DATAIN] [OUT] [FOUT] [IOUT] [LOGOUT] [WARPRES] [SUBSAMP] [FWHM] [CONFIG] [MITER] [LAMBDA] [SSQLAMBDA] [REGMOD] [ESTMOV] [MINMET] [SPLINEORDER] [NUMPREC] [INTERP] [SCALE] [REGRID] [NTHR] [VERBOSE]",
+  "inputs": [
+    {
+      "command-line-flag": "--imain",
+      "command-line-flag-separator": "=",
+      "description": "Name of 4D file with images",
+      "value-key": "[IMAIN]",
+      "type": "File",
+      "optional": false,
+      "id": "imain",
+      "name": "Input main file"
+    },
+    {
+      "command-line-flag": "--datain",
+      "command-line-flag-separator": "=",
+      "description": "Name of text file with PE directions/times",
+      "value-key": "[DATAIN]",
+      "type": "File",
+      "optional": false,
+      "id": "datain",
+      "name": "Data file"
+    },
+    {
+      "command-line-flag": "--out",
+      "command-line-flag-separator": "=",
+      "description": "Base-name of output files (spline coefficients (Hz) and movement parameters)",
+      "value-key": "[OUT]",
+      "type": "String",
+      "optional": true,
+      "id": "out",
+      "name": "Output basename"
+    },
+    {
+      "command-line-flag": "--fout",
+      "command-line-flag-separator": "=",
+      "description": "Name of image file with field (Hz)",
+      "value-key": "[FOUT]",
+      "type": "String",
+      "optional": true,
+      "id": "fout",
+      "name": "Field output file"
+    },
+    {
+      "command-line-flag": "--iout",
+      "command-line-flag-separator": "=",
+      "description": "Name of 4D image file with unwarped images",
+      "value-key": "[IOUT]",
+      "type": "String",
+      "optional": true,
+      "id": "iout",
+      "name": "Unwarped images file"
+    },
+    {
+      "command-line-flag": "--logout",
+      "command-line-flag-separator": "=",
+      "description": "Name of log-file",
+      "value-key": "[LOGOUT]",
+      "type": "String",
+      "optional": true,
+      "id": "logout",
+      "name": "Log file"
+    },
+    {
+      "command-line-flag": "--warpres",
+      "command-line-flag-separator": "=",
+      "description": "(Approximate) resolution (in mm) of warp basis for the different sub-sampling levels, default 10",
+      "value-key": "[WARPRES]",
+      "type": "Number",
+      "optional": true,
+      "id": "warpres",
+      "name": "Warp resolution"
+    },
+    {
+      "command-line-flag": "--subsamp",
+      "command-line-flag-separator": "=",
+      "description": "Sub-sampling scheme, default 1",
+      "value-key": "[SUBSAMP]",
+      "type": "Number",
+      "optional": true,
+      "id": "subsamp",
+      "name": "Sub-sampling scheme"
+    },
+    {
+      "command-line-flag": "--fwhm",
+      "command-line-flag-separator": "=",
+      "description": "FWHM (in mm) of gaussian smoothing kernel, default 8",
+      "value-key": "[FWHM]",
+      "type": "Number",
+      "optional": true,
+      "id": "fwhm",
+      "name": "Gaussian smoothing kernel"
+    },
+    {
+      "command-line-flag": "--config",
+      "command-line-flag-separator": "=",
+      "description": "Name of config file specifying command line arguments",
+      "value-key": "[CONFIG]",
+      "type": "File",
+      "optional": true,
+      "id": "config",
+      "name": "Config file"
+    },
+    {
+      "command-line-flag": "--miter",
+      "command-line-flag-separator": "=",
+      "description": "Max # of non-linear iterations, default 5",
+      "value-key": "[MITER]",
+      "type": "Number",
+      "optional": true,
+      "id": "miter",
+      "name": "Max non-linear iterations"
+    },
+    {
+      "command-line-flag": "--lambda",
+      "command-line-flag-separator": "=",
+      "description": "Weight of regularisation, default depending on --ssqlambda and --regmod switches. See user documentation.",
+      "value-key": "[LAMBDA]",
+      "type": "Number",
+      "optional": true,
+      "id": "lambda",
+      "name": "Regularisation weight"
+    },
+    {
+      "command-line-flag": "--ssqlambda",
+      "description": "If set (=1), lambda is weighted by current ssq, default 1",
+      "value-key": "[SSQLAMBDA]",
+      "type": "Flag",
+      "id": "ssqlambda",
+      "name": "Weighted lambda flag"
+    },
+    {
+      "command-line-flag": "--regmod",
+      "command-line-flag-separator": "=",
+      "description": "Model for regularisation of warp-field [membrane_energy bending_energy], default bending_energy",
+      "value-key": "[REGMOD]",
+      "type": "String",
+      "optional": true,
+      "id": "regmod",
+      "name": "Regularisation model",
+      "value-choices": [
+        "membrane_energy",
+        "bending_energy"
+      ]
+    },
+    {
+      "command-line-flag": "--estmov",
+      "description": "Estimate movements if set, default 1 (true)",
+      "value-key": "[ESTMOV]",
+      "type": "Flag",
+      "id": "estmov",
+      "name": "Estimate movements"
+    },
+    {
+      "command-line-flag": "--minmet",
+      "command-line-flag-separator": "=",
+      "description": "Minimisation method 0=Levenberg-Marquardt, 1=Scaled Conjugate Gradient, default 0 (LM)",
+      "value-key": "[MINMET]",
+      "type": "Number",
+      "optional": true,
+      "integer": true,
+      "id": "minmet",
+      "name": "Minimisation method",
+      "value-choices": [
+        0,
+        1
+      ]
+    },
+    {
+      "command-line-flag": "--splineorder",
+      "command-line-flag-separator": "=",
+      "description": "Order of spline, 2=Quadratic spline, 3=Cubic spline. Default=3",
+      "value-key": "[SPLINEORDER]",
+      "type": "Number",
+      "optional": true,
+      "integer": true,
+      "id": "splineorder",
+      "name": "Spline order",
+      "value-choices": [
+        2,
+        3
+      ]
+    },
+    {
+      "command-line-flag": "--numprec",
+      "command-line-flag-separator": "=",
+      "description": "Precision for representing Hessian, double or float. Default double",
+      "value-key": "[NUMPREC]",
+      "type": "String",
+      "optional": true,
+      "id": "numprec",
+      "name": "Numerical precision",
+      "value-choices": [
+        "double",
+        "float"
+      ]
+    },
+    {
+      "command-line-flag": "--interp",
+      "command-line-flag-separator": "=",
+      "description": "Image interpolation model, linear or spline. Default spline",
+      "value-key": "[INTERP]",
+      "type": "String",
+      "optional": true,
+      "id": "interp",
+      "name": "Interpolation model",
+      "value-choices": [
+        "linear",
+        "spline"
+      ]
+    },
+    {
+      "command-line-flag": "--scale",
+      "description": "If set (=1), the images are individually scaled to a common mean, default 0 (false)",
+      "value-key": "[SCALE]",
+      "type": "Flag",
+      "id": "scale",
+      "name": "Scale images"
+    },
+    {
+      "command-line-flag": "--regrid",
+      "description": "If set (=1), the calculations are done in a different grid, default 1 (true)",
+      "value-key": "[REGRID]",
+      "type": "Flag",
+      "id": "regrid",
+      "name": "Regrid calculations"
+    },
+    {
+      "command-line-flag": "--nthr",
+      "command-line-flag-separator": "=",
+      "description": "Number of threads to use (cannot be greater than numbers of hardware cores), default 1",
+      "value-key": "[NTHR]",
+      "type": "Number",
+      "optional": true,
+      "id": "nthr",
+      "name": "Number of threads"
+    },
+    {
+      "command-line-flag": "--verbose",
+      "description": "Print diagnostic information while running",
+      "value-key": "[VERBOSE]",
+      "type": "Flag",
+      "id": "verbose",
+      "name": "Verbose flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[OUT]_fieldcoef.nii.gz",
+      "description": "Spline coefficient field estimates (Hz)",
+      "id": "fieldcoef",
+      "name": "Field coefficient estimates"
+    },
+    {
+      "path-template": "[OUT]_movpar.txt",
+      "description": "Movement parameters",
+      "id": "movpar",
+      "name": "Movement parameters file"
+    },
+    {
+      "path-template": "[FOUT]",
+      "description": "Image file with field (Hz)",
+      "id": "fout",
+      "name": "Field image"
+    },
+    {
+      "path-template": "[IOUT]",
+      "description": "4D image file with unwarped images",
+      "id": "iout",
+      "name": "Unwarped images"
+    },
+    {
+      "path-template": "[LOGOUT]",
+      "description": "Log file",
+      "id": "logout",
+      "name": "Log file"
+    }
+  ],
+  "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "NiWrap Schema Index",
+  "description": "Pattern matching for JSON schema validation",
+  "patterns": [
+    {
+      "pattern": "src/projects.json",
+      "schema": "./projects.schema.json",
+      "description": "Root-level configuration"
+    },
+    {
+      "pattern": "src/*/project.json",
+      "schema": "./project.schema.json",
+      "description": "Project-level metadata"
+    },
+    {
+      "pattern": "src/*/*/package.json",
+      "schema": "./package.schema.json",
+      "description": "Package-level metadata"
+    },
+    {
+      "pattern": "src/*/*/*/version.json",
+      "schema": "./version.schema.json",
+      "description": "Version-specific metadata"
+    },
+    {
+      "pattern": "src/*/*/*/*/app.json",
+      "schema": "./app.schema.json",
+      "description": "Application metadata"
+    },
+    {
+      "pattern": "src/*/*/*/*/boutiques.json",
+      "schema": "https://styx-api.github.io/boutiques-schema-pydantic/boutiques-styx-descriptor-1.json",
+      "description": "Boutiques descriptor source"
+    }
+  ]
+}

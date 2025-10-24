@@ -1,0 +1,54 @@
+{
+  "name": "mris_morph_stats",
+  "description": "This program generates statistics which characterize a surface-based deformation field.",
+  "command-line": "mris_morph_stats [SUBJECT_NAME] [HEMISPHERE] [MORPHED_SURFACE] [OUTPUT_NAME]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Name of the subject.",
+      "value-key": "[SUBJECT_NAME]",
+      "type": "String",
+      "optional": false,
+      "id": "subject_name",
+      "name": "Subject Name"
+    },
+    {
+      "description": "Hemisphere, either 'lh' for left hemisphere or 'rh' for right hemisphere.",
+      "value-key": "[HEMISPHERE]",
+      "type": "String",
+      "optional": false,
+      "id": "hemisphere",
+      "name": "Hemisphere",
+      "value-choices": [
+        "lh",
+        "rh"
+      ]
+    },
+    {
+      "description": "Morphed surface file.",
+      "value-key": "[MORPHED_SURFACE]",
+      "type": "File",
+      "optional": false,
+      "id": "morphed_surface",
+      "name": "Morphed Surface"
+    },
+    {
+      "description": "Name of the output to be generated.",
+      "value-key": "[OUTPUT_NAME]",
+      "type": "String",
+      "optional": false,
+      "id": "output_name",
+      "name": "Output Name"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_NAME]",
+      "description": "Generated statistics of the surface-based deformation field.",
+      "id": "stats_output",
+      "name": "Statistics Output"
+    }
+  ],
+  "author": "FreeSurfer Developers",
+  "url": "https://github.com/freesurfer/freesurfer"
+}

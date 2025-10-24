@@ -1,0 +1,423 @@
+{
+  "name": "to3d",
+  "author": "AFNI Developers",
+  "description": "Creates 3D datasets for use with AFNI from 2D image files",
+  "command-line": "to3d [INPUT_FILES] [TYPE] [STATPAR] [PREFIX] [SESSION] [GEOMPARENT] [ANATPARENT] [NOSAVE_FLAG] [NOWRITEBRIK_FLAG] [VIEW] [TIME_ZT] [TIME_TZ] [TR_UNITS] [TORG] [XFOV] [YFOV] [ZFOV] [XSLAB] [YSLAB] [ZSLAB] [ZORIGIN] [DATA_TYPE] [GLOBAL_SCALING_FACTOR] [NOFLOATSCAN_FLAG] [IN1_FLAG] [ORIENT] [SKIP_OUTLIERS_FLAG] [TEXT_OUTLIERS_FLAG] [SAVE_OUTLIERS] [ASSUME_DICOM_MOSAIC_FLAG] [OBLIQUE_ORIGIN_FLAG] [REVERSE_LIST_FLAG] [USE_LAST_ELEM_FLAG] [USE_OLD_MOSAIC_CODE_FLAG] [USHORT2FLOAT_FLAG] [VERBOSE_FLAG] [GAMMA] [NCOLORS] [XTWARNS_FLAG] [QUIT_ON_ERR_FLAG]",
+  "inputs": [
+    {
+      "description": "Input 2D image files",
+      "value-key": "[INPUT_FILES]",
+      "type": "File",
+      "list": true,
+      "optional": false,
+      "id": "input_files",
+      "name": "Input Files"
+    },
+    {
+      "command-line-flag": "-type",
+      "description": "Declare images to contain data of a given type",
+      "value-key": "[TYPE]",
+      "type": "String",
+      "optional": true,
+      "id": "type",
+      "name": "Image Type",
+      "value-choices": [
+        "spgr",
+        "fse",
+        "epan",
+        "anat",
+        "ct",
+        "spct",
+        "pet",
+        "mra",
+        "bmap",
+        "diff",
+        "omri",
+        "abuc",
+        "fim",
+        "fith",
+        "fico",
+        "fitt",
+        "fift",
+        "fizt",
+        "fict",
+        "fibt",
+        "fibn",
+        "figt",
+        "fipt",
+        "fbuc"
+      ]
+    },
+    {
+      "command-line-flag": "-statpar",
+      "description": "Supply auxiliary statistical parameters",
+      "value-key": "[STATPAR]",
+      "type": "Number",
+      "list": true,
+      "optional": true,
+      "id": "statpar",
+      "name": "Statistical Parameters"
+    },
+    {
+      "command-line-flag": "-prefix",
+      "description": "Prefix of the output 3D dataset",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": true,
+      "id": "prefix",
+      "name": "Output Prefix"
+    },
+    {
+      "command-line-flag": "-session",
+      "description": "Session directory for output 3D dataset",
+      "value-key": "[SESSION]",
+      "type": "String",
+      "optional": true,
+      "id": "session",
+      "name": "Output Session"
+    },
+    {
+      "command-line-flag": "-geomparent",
+      "description": "Read geometry data from dataset file",
+      "value-key": "[GEOMPARENT]",
+      "type": "File",
+      "optional": true,
+      "id": "geomparent",
+      "name": "Geometry Parent File"
+    },
+    {
+      "command-line-flag": "-anatparent",
+      "description": "Take anatomy parent from dataset file",
+      "value-key": "[ANATPARENT]",
+      "type": "File",
+      "optional": true,
+      "id": "anatparent",
+      "name": "Anatomy Parent File"
+    },
+    {
+      "command-line-flag": "-nosave",
+      "description": "Suppress autosave of 3D dataset",
+      "value-key": "[NOSAVE_FLAG]",
+      "type": "Flag",
+      "id": "nosave_flag",
+      "name": "No Save Flag"
+    },
+    {
+      "command-line-flag": "-nowritebrik",
+      "description": "Suppress saving of the BRIK file",
+      "value-key": "[NOWRITEBRIK_FLAG]",
+      "type": "Flag",
+      "id": "nowritebrik_flag",
+      "name": "No Write BRIK Flag"
+    },
+    {
+      "command-line-flag": "-view",
+      "description": "Set the dataset's viewing coordinates",
+      "value-key": "[VIEW]",
+      "type": "String",
+      "optional": true,
+      "id": "view",
+      "name": "View Type",
+      "value-choices": [
+        "orig",
+        "acpc",
+        "tlrc"
+      ]
+    },
+    {
+      "command-line-flag": "-time:zt",
+      "description": "Specify time dependent dataset (z-axis first, then t-axis)",
+      "value-key": "[TIME_ZT]",
+      "type": "String",
+      "optional": true,
+      "list": true,
+      "id": "time_zt",
+      "name": "Time Dependent Data (zt)"
+    },
+    {
+      "command-line-flag": "-time:tz",
+      "description": "Specify time dependent dataset (t-axis first, then z-axis)",
+      "value-key": "[TIME_TZ]",
+      "type": "String",
+      "optional": true,
+      "list": true,
+      "id": "time_tz",
+      "name": "Time Dependent Data (tz)"
+    },
+    {
+      "command-line-flag": "-t",
+      "description": "Specify TR units",
+      "value-key": "[TR_UNITS]",
+      "type": "String",
+      "optional": true,
+      "id": "tr_units",
+      "name": "TR Units",
+      "value-choices": [
+        "ms",
+        "msec",
+        "s",
+        "sec",
+        "Hz",
+        "Hertz"
+      ]
+    },
+    {
+      "command-line-flag": "-Torg",
+      "description": "Set time origin of dataset",
+      "value-key": "[TORG]",
+      "type": "Number",
+      "optional": true,
+      "id": "torg",
+      "name": "Time Origin"
+    },
+    {
+      "command-line-flag": "-xFOV",
+      "description": "Specify size and orientation of the x-axis extent",
+      "value-key": "[XFOV]",
+      "type": "String",
+      "optional": true,
+      "id": "xFOV",
+      "name": "X-Axis FOV"
+    },
+    {
+      "command-line-flag": "-yFOV",
+      "description": "Specify size and orientation of the y-axis extent",
+      "value-key": "[YFOV]",
+      "type": "String",
+      "optional": true,
+      "id": "yFOV",
+      "name": "Y-Axis FOV"
+    },
+    {
+      "command-line-flag": "-zFOV",
+      "description": "Specify size and orientation of the z-axis extent",
+      "value-key": "[ZFOV]",
+      "type": "String",
+      "optional": true,
+      "id": "zFOV",
+      "name": "Z-Axis FOV"
+    },
+    {
+      "command-line-flag": "-xSLAB",
+      "description": "Specify x-axis slab",
+      "value-key": "[XSLAB]",
+      "type": "String",
+      "optional": true,
+      "id": "xSLAB",
+      "name": "X-Axis Slab"
+    },
+    {
+      "command-line-flag": "-ySLAB",
+      "description": "Specify y-axis slab",
+      "value-key": "[YSLAB]",
+      "type": "String",
+      "optional": true,
+      "id": "ySLAB",
+      "name": "Y-Axis Slab"
+    },
+    {
+      "command-line-flag": "-zSLAB",
+      "description": "Specify z-axis slab",
+      "value-key": "[ZSLAB]",
+      "type": "String",
+      "optional": true,
+      "id": "zSLAB",
+      "name": "Z-Axis Slab"
+    },
+    {
+      "command-line-flag": "-zorigin",
+      "description": "Set the center of the first slice offset in z-axis",
+      "value-key": "[ZORIGIN]",
+      "type": "Number",
+      "optional": true,
+      "id": "zorigin",
+      "name": "Z-Origin"
+    },
+    {
+      "command-line-flag": "-datum",
+      "description": "Set voxel data to be stored as given data type",
+      "value-key": "[DATA_TYPE]",
+      "type": "String",
+      "optional": true,
+      "id": "data_type",
+      "name": "Data Type",
+      "value-choices": [
+        "short",
+        "float",
+        "byte",
+        "complex"
+      ]
+    },
+    {
+      "command-line-flag": "-gsfac",
+      "description": "Global scaling factor",
+      "value-key": "[GLOBAL_SCALING_FACTOR]",
+      "type": "Number",
+      "optional": true,
+      "id": "global_scaling_factor",
+      "name": "Global Scaling Factor"
+    },
+    {
+      "command-line-flag": "-nofloatscan",
+      "description": "Do not scan for illegal floating point values",
+      "value-key": "[NOFLOATSCAN_FLAG]",
+      "type": "Flag",
+      "id": "nofloatscan_flag",
+      "name": "No Float Scan Flag"
+    },
+    {
+      "command-line-flag": "-in:1",
+      "description": "Read and process images one slice at a time",
+      "value-key": "[IN1_FLAG]",
+      "type": "Flag",
+      "id": "in1_flag",
+      "name": "In 1 Flag"
+    },
+    {
+      "command-line-flag": "-orient",
+      "description": "Set the orientation of the 3D volumes",
+      "value-key": "[ORIENT]",
+      "type": "String",
+      "optional": true,
+      "id": "orient",
+      "name": "Orientation Code"
+    },
+    {
+      "command-line-flag": "-skip_outliers",
+      "description": "Skip the outlier check for 3D+time datasets",
+      "value-key": "[SKIP_OUTLIERS_FLAG]",
+      "type": "Flag",
+      "id": "skip_outliers_flag",
+      "name": "Skip Outliers Flag"
+    },
+    {
+      "command-line-flag": "-text_outliers",
+      "description": "Only print out the outlier check results in text form",
+      "value-key": "[TEXT_OUTLIERS_FLAG]",
+      "type": "Flag",
+      "id": "text_outliers_flag",
+      "name": "Text Outliers Flag"
+    },
+    {
+      "command-line-flag": "-save_outliers",
+      "description": "Save the outliers count into a 1D file",
+      "value-key": "[SAVE_OUTLIERS]",
+      "type": "String",
+      "optional": true,
+      "id": "save_outliers",
+      "name": "Save Outliers File"
+    },
+    {
+      "command-line-flag": "-assume_dicom_mosaic",
+      "description": "Assume any Siemens DICOM file is a potential MOSAIC image",
+      "value-key": "[ASSUME_DICOM_MOSAIC_FLAG]",
+      "type": "Flag",
+      "id": "assume_dicom_mosaic_flag",
+      "name": "Assume DICOM Mosaic Flag"
+    },
+    {
+      "command-line-flag": "-oblique_origin",
+      "description": "Assume origin and orientation from oblique transformation matrix",
+      "value-key": "[OBLIQUE_ORIGIN_FLAG]",
+      "type": "Flag",
+      "id": "oblique_origin_flag",
+      "name": "Oblique Origin Flag"
+    },
+    {
+      "command-line-flag": "-reverse_list",
+      "description": "Reverse the input file list",
+      "value-key": "[REVERSE_LIST_FLAG]",
+      "type": "Flag",
+      "id": "reverse_list_flag",
+      "name": "Reverse List Flag"
+    },
+    {
+      "command-line-flag": "-use_last_elem",
+      "description": "Search DICOM images for the last occurrence of each element",
+      "value-key": "[USE_LAST_ELEM_FLAG]",
+      "type": "Flag",
+      "id": "use_last_elem_flag",
+      "name": "Use Last Element Flag"
+    },
+    {
+      "command-line-flag": "-use_old_mosaic_code",
+      "description": "Do not use the Dec 2010 updates to Siemens mosaic code",
+      "value-key": "[USE_OLD_MOSAIC_CODE_FLAG]",
+      "type": "Flag",
+      "id": "use_old_mosaic_code_flag",
+      "name": "Use Old Mosaic Code Flag"
+    },
+    {
+      "command-line-flag": "-ushort2float",
+      "description": "Convert input shorts to float and add 2^16 to any negatives",
+      "value-key": "[USHORT2FLOAT_FLAG]",
+      "type": "Flag",
+      "id": "ushort2float_flag",
+      "name": "Ushort2Float Flag"
+    },
+    {
+      "command-line-flag": "-verb",
+      "description": "Show debugging information for reading DICOM files",
+      "value-key": "[VERBOSE_FLAG]",
+      "type": "Flag",
+      "id": "verbose_flag",
+      "name": "Verbose Flag"
+    },
+    {
+      "command-line-flag": "-gamma",
+      "description": "Gamma correction factor for the monitor",
+      "value-key": "[GAMMA]",
+      "type": "Number",
+      "optional": true,
+      "id": "gamma",
+      "name": "Gamma Correction"
+    },
+    {
+      "command-line-flag": "-ncolors",
+      "description": "Number of gray levels for the image displays",
+      "value-key": "[NCOLORS]",
+      "type": "Number",
+      "optional": true,
+      "id": "ncolors",
+      "name": "Number of Colors"
+    },
+    {
+      "command-line-flag": "-xtwarns",
+      "description": "Turn on display of Xt warning messages",
+      "value-key": "[XTWARNS_FLAG]",
+      "type": "Flag",
+      "id": "xtwarns_flag",
+      "name": "XT Warns Flag"
+    },
+    {
+      "command-line-flag": "-quit_on_err",
+      "description": "Do not launch interactive to3d mode if input has error",
+      "value-key": "[QUIT_ON_ERR_FLAG]",
+      "type": "Flag",
+      "id": "quit_on_err_flag",
+      "name": "Quit on Error Flag"
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "output-files": [
+    {
+      "path-template": "[PREFIX].HEAD",
+      "description": "Output AFNI HEAD file",
+      "id": "headfile",
+      "name": "Output HEAD File"
+    },
+    {
+      "path-template": "[PREFIX].BRIK",
+      "description": "Output AFNI BRIK file",
+      "id": "brikfile",
+      "name": "Output BRIK File"
+    },
+    {
+      "path-template": "[SAVE_OUTLIERS]",
+      "description": "Outlier count file",
+      "id": "outfile_outliers",
+      "name": "Outlier Count File"
+    }
+  ],
+  "url": "https://afni.nimh.nih.gov/"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "scene-file-merge",
+  "source": {
+    "type": "boutiques",
+    "path": "boutiques.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-scene-file-merge"
+  ],
+  "docs": {
+    "description": "Rearrange scenes into a new file.\n\nTakes one or more scene files and constructs a new scene file by concatenating specified scenes from them.\n\nExample: wb_command -scene-file-merge out.scene -scene-file first.scene -scene 1 -scene-file second.scene\n\nThis example would take the first scene from first.scene, followed by all scenes from second.scene, and write these scenes to out.scene."
+  }
+}

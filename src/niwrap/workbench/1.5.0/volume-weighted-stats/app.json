@@ -1,0 +1,14 @@
+{
+  "name": "volume-weighted-stats",
+  "source": {
+    "type": "boutiques",
+    "path": "boutiques.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-volume-weighted-stats"
+  ],
+  "docs": {
+    "description": "Weighted spatial statistics on a volume file.\n\nFor each subvolume of the input, a line of text is printed, resulting from the specified operation.  If -weight-volume is not specified, each voxel's volume is used.  Use -subvolume to only give output for a single subvolume.  If the -roi option is used without -match-maps, then each line will contain as many numbers as there are maps in the ROI file, separated by tab characters.  Exactly one of -mean, -stdev, -percentile or -sum must be specified.\n\nUsing -sum without -weight-volume is equivalent to integrating with respect to volume."
+  }
+}

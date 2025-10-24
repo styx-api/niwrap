@@ -1,0 +1,64 @@
+{
+  "name": "ImageMath",
+  "command-line": "ImageMath [IMAGE_DIMENSION] [OUTPUT_IMAGE] [OPERATIONS_AND_INPUTS] [IMAGE1] [IMAGE2]",
+  "author": "ANTs Developers",
+  "description": "A versatile tool for performing various mathematical and manipulation operations on images.",
+  "url": "https://github.com/ANTsX/ANTs",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "image_dimension",
+      "name": "Image Dimension",
+      "value-key": "[IMAGE_DIMENSION]",
+      "type": "Number",
+      "integer": true,
+      "optional": false,
+      "value-choices": [
+        2,
+        3,
+        4
+      ],
+      "description": "The dimensionality of the image. Use 2 or 3 for spatial images, and 4 for 4D images like time-series data."
+    },
+    {
+      "id": "operations_and_inputs",
+      "name": "Operations and Inputs",
+      "value-key": "[OPERATIONS_AND_INPUTS]",
+      "type": "String",
+      "optional": false,
+      "description": "Mathematical operations and inputs to be applied on the images."
+    },
+    {
+      "id": "output_image",
+      "name": "Output Image",
+      "value-key": "[OUTPUT_IMAGE]",
+      "type": "String",
+      "optional": false,
+      "description": "The output image file resulting from the operations."
+    },
+    {
+      "id": "image1",
+      "name": "Image 1",
+      "value-key": "[IMAGE1]",
+      "type": "File",
+      "optional": false,
+      "description": "The first input image for the operation."
+    },
+    {
+      "id": "image2",
+      "name": "Image 2",
+      "value-key": "[IMAGE2]",
+      "type": "File",
+      "optional": true,
+      "description": "The second input image for the operation, if required."
+    }
+  ],
+  "output-files": [
+    {
+      "id": "output_image",
+      "name": "Output Image",
+      "description": "The resulting image after processing.",
+      "path-template": "[OUTPUT_IMAGE]"
+    }
+  ]
+}

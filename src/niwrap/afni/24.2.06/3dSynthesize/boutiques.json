@@ -1,0 +1,77 @@
+{
+  "name": "3dSynthesize",
+  "author": "AFNI Developers",
+  "description": "Reads a '-cbucket' dataset and a '.xmat.1D' matrix from 3dDeconvolve, and synthesizes a fit dataset using selected sub-bricks and matrix columns.",
+  "command-line": "3dSynthesize [C_BUCKET] [MATRIX] [SELECT] [PREFIX] [DRY_FLAG] [TR] [CENFILL]",
+  "inputs": [
+    {
+      "description": "Input dataset from 3dDeconvolve via the '-cbucket' option.",
+      "value-key": "[C_BUCKET]",
+      "type": "File",
+      "optional": false,
+      "id": "c_bucket",
+      "name": "Cbucket dataset",
+      "command-line-flag": "-cbucket"
+    },
+    {
+      "description": "Matrix file from 3dDeconvolve via the '-x1D' option.",
+      "value-key": "[MATRIX]",
+      "type": "File",
+      "optional": false,
+      "id": "matrix",
+      "name": "Matrix file",
+      "command-line-flag": "-matrix"
+    },
+    {
+      "description": "Output result into dataset with the specified name.",
+      "value-key": "[PREFIX]",
+      "type": "String",
+      "optional": false,
+      "id": "prefix",
+      "name": "Output prefix",
+      "command-line-flag": "-prefix"
+    },
+    {
+      "description": "Select columns from the matrix and corresponding sub-bricks from the cbucket. Can use forms like 'baseline', 'polort', 'allfunc', 'allstim', 'all', 'something', or numbers/ranges.",
+      "value-key": "[SELECT]",
+      "type": "String",
+      "optional": false,
+      "id": "select",
+      "name": "Select columns",
+      "command-line-flag": "-select"
+    },
+    {
+      "command-line-flag": "-dry",
+      "description": "Don't compute the output, just check the inputs.",
+      "value-key": "[DRY_FLAG]",
+      "type": "Flag",
+      "id": "dry_flag",
+      "name": "Dry run"
+    },
+    {
+      "command-line-flag": "-TR",
+      "description": "Set TR in the output to the specified value.",
+      "value-key": "[TR]",
+      "type": "Number",
+      "optional": true,
+      "id": "tr",
+      "name": "Repetition Time (TR)"
+    },
+    {
+      "command-line-flag": "-cenfill",
+      "description": "How censored time points from 3dDeconvolve will be filled (options: 'zero', 'nbhr', 'none').",
+      "value-key": "[CENFILL]",
+      "type": "String",
+      "optional": true,
+      "id": "cenfill",
+      "name": "Censor fill option",
+      "value-choices": [
+        "zero",
+        "nbhr",
+        "none"
+      ]
+    }
+  ],
+  "schema-version": "0.5+styx",
+  "url": "https://afni.nimh.nih.gov/"
+}

@@ -1,0 +1,101 @@
+{
+  "name": "3dLFCD",
+  "command-line": "3dLFCD [IN_FILE] [AUTOCLIP] [AUTOMASK] [MASK] [NUM_THREADS] [OUT_FILE] [OUTPUTTYPE] [POLORT] [THRESH]",
+  "author": "AFNI Developers",
+  "description": "Performs degree centrality on a dataset using a given maskfile via the 3dLFCD command",
+  "url": "https://afni.nimh.nih.gov/",
+  "inputs": [
+    {
+      "id": "autoclip",
+      "name": "Autoclip",
+      "type": "Flag",
+      "value-key": "[AUTOCLIP]",
+      "command-line-flag": "-autoclip",
+      "description": "Clip off low-intensity regions in the dataset."
+    },
+    {
+      "id": "automask",
+      "name": "Automask",
+      "type": "Flag",
+      "value-key": "[AUTOMASK]",
+      "command-line-flag": "-automask",
+      "description": "Mask the dataset to target brain-only voxels."
+    },
+    {
+      "id": "in_file",
+      "name": "In file",
+      "type": "File",
+      "value-key": "[IN_FILE]",
+      "description": "Input file to 3dlfcd.",
+      "optional": false
+    },
+    {
+      "id": "mask",
+      "name": "Mask",
+      "type": "File",
+      "value-key": "[MASK]",
+      "command-line-flag": "-mask",
+      "description": "Mask file to mask input data.",
+      "optional": true
+    },
+    {
+      "id": "num_threads",
+      "name": "Num threads",
+      "type": "Number",
+      "integer": true,
+      "value-key": "[NUM_THREADS]",
+      "description": "Set number of threads.",
+      "optional": true
+    },
+    {
+      "id": "outputtype",
+      "name": "Outputtype",
+      "type": "String",
+      "value-key": "[OUTPUTTYPE]",
+      "description": "'nifti' or 'afni' or 'nifti_gz'. Afni output filetype.",
+      "optional": true,
+      "value-choices": [
+        "NIFTI",
+        "AFNI",
+        "NIFTI_GZ"
+      ]
+    },
+    {
+      "id": "polort",
+      "name": "Polort",
+      "type": "Number",
+      "integer": true,
+      "value-key": "[POLORT]",
+      "command-line-flag": "-polort",
+      "description": "No description provided.",
+      "optional": true
+    },
+    {
+      "id": "thresh",
+      "name": "Thresh",
+      "type": "Number",
+      "value-key": "[THRESH]",
+      "command-line-flag": "-thresh",
+      "description": "Threshold to exclude connections where corr <= thresh.",
+      "optional": true
+    },
+    {
+      "name": "Out file",
+      "id": "out_file",
+      "optional": true,
+      "description": "Output image file name.",
+      "value-key": "[OUT_FILE]",
+      "command-line-flag": "-prefix",
+      "type": "String"
+    }
+  ],
+  "output-files": [
+    {
+      "name": "Out file",
+      "id": "out_file",
+      "description": "Output image file name.",
+      "path-template": "[IN_FILE]_afni"
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

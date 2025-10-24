@@ -1,0 +1,195 @@
+{
+  "name": "3dvolreg",
+  "command-line": "3dvolreg [COPYORIGIN] [TWOPASS] [FOURIER] [IN_WEIGHT_VOLUME] [IN_WEIGHT_VOLUME_2] [INTERP] [NUM_THREADS] [OUTPUTTYPE] [TIMESHIFT] [VERBOSE] [BASEFILE] [ZPAD] [PREFIX] [MAXDISP1D] [IN_FILE]",
+  "author": "AFNI Developers",
+  "description": "Register input volumes to a base volume using AFNI 3dvolreg command",
+  "url": "https://afni.nimh.nih.gov/",
+  "inputs": [
+    {
+      "id": "basefile",
+      "name": "Basefile",
+      "type": "File",
+      "value-key": "[BASEFILE]",
+      "command-line-flag": "-base",
+      "description": "Base file for registration.",
+      "optional": true
+    },
+    {
+      "id": "copyorigin",
+      "name": "Copyorigin",
+      "type": "Flag",
+      "value-key": "[COPYORIGIN]",
+      "command-line-flag": "-twodup",
+      "description": "Copy base file origin coords to output."
+    },
+    {
+      "id": "in_file",
+      "name": "In file",
+      "type": "File",
+      "value-key": "[IN_FILE]",
+      "description": "Input file to 3dvolreg.",
+      "optional": false
+    },
+    {
+      "id": "in_weight_volume",
+      "name": "In weight volume",
+      "type": "String",
+      "list": true,
+      "value-key": "[IN_WEIGHT_VOLUME]",
+      "command-line-flag": "-weight '",
+      "description": "(file or string, an integer) or file or string. Weights for each voxel specified by a file with an optional volume number (defaults to 0).",
+      "optional": true
+    },
+    {
+      "id": "in_weight_volume_2",
+      "name": "In weight volume",
+      "type": "File",
+      "value-key": "[IN_WEIGHT_VOLUME_2]",
+      "command-line-flag": "-weight '",
+      "description": "(file or string, an integer) or file or string. Weights for each voxel specified by a file with an optional volume number (defaults to 0).",
+      "optional": true
+    },
+    {
+      "id": "interp",
+      "name": "Interp",
+      "type": "String",
+      "value-key": "[INTERP]",
+      "command-line-flag": "-",
+      "description": "'fourier' or 'cubic' or 'heptic' or 'quintic' or 'linear'. Spatial interpolation methods [default = heptic].",
+      "optional": true,
+      "value-choices": [
+        "fourier",
+        "cubic",
+        "heptic",
+        "quintic",
+        "linear"
+      ]
+    },
+    {
+      "id": "num_threads",
+      "name": "Num threads",
+      "type": "Number",
+      "integer": true,
+      "value-key": "[NUM_THREADS]",
+      "description": "Set number of threads.",
+      "optional": true
+    },
+    {
+      "id": "outputtype",
+      "name": "Outputtype",
+      "type": "String",
+      "value-key": "[OUTPUTTYPE]",
+      "description": "'nifti' or 'afni' or 'nifti_gz'. Afni output filetype.",
+      "optional": true,
+      "value-choices": [
+        "NIFTI",
+        "AFNI",
+        "NIFTI_GZ"
+      ]
+    },
+    {
+      "id": "timeshift",
+      "name": "Timeshift",
+      "type": "Flag",
+      "value-key": "[TIMESHIFT]",
+      "command-line-flag": "-tshift 0",
+      "description": "Time shift to mean slice time offset."
+    },
+    {
+      "id": "verbose",
+      "name": "Verbose",
+      "type": "Flag",
+      "value-key": "[VERBOSE]",
+      "command-line-flag": "-verbose",
+      "description": "More detailed description of the process."
+    },
+    {
+      "id": "zpad",
+      "name": "Zpad",
+      "type": "Number",
+      "integer": true,
+      "value-key": "[ZPAD]",
+      "command-line-flag": "-zpad",
+      "description": "Zeropad around the edges by 'n' voxels during rotations.",
+      "optional": true
+    },
+    {
+      "id": "prefix",
+      "name": "prefix",
+      "type": "String",
+      "value-key": "[PREFIX]",
+      "command-line-flag": "-prefix",
+      "description": "Prefix"
+    },
+    {
+      "id": "twopass",
+      "name": "twopass",
+      "type": "Flag",
+      "value-key": "[TWOPASS]",
+      "command-line-flag": "-twopass",
+      "description": "Do two passes of the registration algorithm"
+    },
+    {
+      "id": "Fourier",
+      "name": "Fourier",
+      "type": "Flag",
+      "value-key": "[FOURIER]",
+      "command-line-flag": "-Fourier",
+      "description": "Perform the alignments using Fourier interpolation."
+    },
+    {
+      "id": "Maxdisp1d",
+      "name": "Maxdisp1d",
+      "type": "String",
+      "value-key": "[MAXDISP1D]",
+      "command-line-flag": "-maxdisp1d",
+      "description": "Do '-maxdisp' and also write the max displacement for each sub-brick into file 'mm' in 1D (columnar) format.",
+      "optional": true
+    }
+  ],
+  "output-files": [
+    {
+      "name": "Md1d file",
+      "id": "md1d_file",
+      "description": "Max displacement output file.",
+      "path-template": "[PREFIX]_md.1D"
+    },
+    {
+      "name": "Oned file",
+      "id": "oned_file",
+      "description": "1d movement parameters output file.",
+      "path-template": "[PREFIX].1D"
+    },
+    {
+      "name": "Oned matrix save",
+      "id": "oned_matrix_save",
+      "description": "Save the matrix transformation.",
+      "path-template": "[PREFIX].aff12.1D"
+    },
+    {
+      "name": "Md1d file",
+      "id": "md1d_file",
+      "path-template": "md1d_file",
+      "description": "Max displacement info file."
+    },
+    {
+      "name": "Oned file",
+      "id": "oned_file",
+      "path-template": "oned_file",
+      "description": "Movement parameters info file."
+    },
+    {
+      "name": "Oned matrix save",
+      "id": "oned_matrix_save",
+      "path-template": "oned_matrix_save",
+      "description": "Matrix transformation from base to input."
+    },
+    {
+      "name": "Out file",
+      "id": "out_file",
+      "path-template": "[PREFIX]",
+      "description": "Registered file."
+    }
+  ],
+  "schema-version": "0.5+styx"
+}

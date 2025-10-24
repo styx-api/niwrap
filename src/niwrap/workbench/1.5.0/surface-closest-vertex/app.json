@@ -1,0 +1,14 @@
+{
+  "name": "surface-closest-vertex",
+  "source": {
+    "type": "boutiques",
+    "path": "boutiques.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-surface-closest-vertex"
+  ],
+  "docs": {
+    "description": "Find closest surface vertex to coordinates.\n\nFor each coordinate XYZ triple, find the closest vertex in the surface, and output its vertex number into a text file.  The input file should only use whitespace to separate coordinates (spaces, newlines, tabs), for instance:\n\n20 30 25\n30 -20 10"
+  }
+}

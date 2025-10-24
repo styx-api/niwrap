@@ -1,0 +1,59 @@
+{
+  "name": "mris_mesh_subdivide",
+  "author": "FreeSurfer Developers",
+  "description": "This program will subdivide a triangular mesh surface.",
+  "command-line": "mris_mesh_subdivide [INPUT_SURFACE] [OUTPUT_SURFACE] [SUBDIVISION_METHOD] [ITERATIONS]",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "description": "Name of input surface file",
+      "value-key": "[INPUT_SURFACE]",
+      "type": "File",
+      "optional": false,
+      "id": "input_surface",
+      "name": "Input Surface",
+      "command-line-flag": "--surf"
+    },
+    {
+      "description": "Name for output surface file (outputs to same directory as input if path not provided)",
+      "value-key": "[OUTPUT_SURFACE]",
+      "type": "String",
+      "optional": false,
+      "id": "output_surface",
+      "name": "Output Surface",
+      "command-line-flag": "--out"
+    },
+    {
+      "description": "Subdivision method: options are 'butterfly' (default), 'loop', or 'linear'",
+      "value-key": "[SUBDIVISION_METHOD]",
+      "type": "String",
+      "optional": true,
+      "id": "subdivision_method",
+      "name": "Subdivision Method",
+      "command-line-flag": "--method",
+      "value-choices": [
+        "butterfly",
+        "loop",
+        "linear"
+      ]
+    },
+    {
+      "description": "Number of subdivision iterations",
+      "value-key": "[ITERATIONS]",
+      "type": "Number",
+      "optional": true,
+      "id": "iterations",
+      "name": "Iterations",
+      "command-line-flag": "--iter"
+    }
+  ],
+  "output-files": [
+    {
+      "path-template": "[OUTPUT_SURFACE]",
+      "description": "The subdivided mesh surface output file",
+      "id": "subdivided_surface",
+      "name": "Subdivided Surface File"
+    }
+  ],
+  "url": "https://github.com/freesurfer/freesurfer"
+}

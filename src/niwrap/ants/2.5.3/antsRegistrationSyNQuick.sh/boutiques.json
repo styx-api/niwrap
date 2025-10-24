@@ -1,0 +1,89 @@
+{
+  "name": "antsRegistrationSyNQuick.sh",
+  "command-line": "antsRegistrationSyNQuick.sh [DIMENSIONALITY] [FIXED_IMAGE] [MOVING_IMAGE] [OUTPUT_PREFIX] [TRANSFORM_TYPE]",
+  "description": "A script to quickly compute a SyN-based registration between two images using ANTS.",
+  "schema-version": "0.5+styx",
+  "inputs": [
+    {
+      "id": "dimensionality",
+      "name": "Dimensionality",
+      "value-key": "[DIMENSIONALITY]",
+      "type": "Number",
+      "integer": true,
+      "optional": false,
+      "value-choices": [
+        2,
+        3
+      ],
+      "command-line-flag": "-d",
+      "description": "Dimensionality of the images (2 or 3)."
+    },
+    {
+      "id": "fixed_image",
+      "name": "Fixed Image",
+      "value-key": "[FIXED_IMAGE]",
+      "type": "File",
+      "optional": false,
+      "command-line-flag": "-f",
+      "description": "Fixed image to which the moving image is registered."
+    },
+    {
+      "id": "moving_image",
+      "name": "Moving Image",
+      "value-key": "[MOVING_IMAGE]",
+      "type": "File",
+      "optional": false,
+      "command-line-flag": "-m",
+      "description": "Moving image that is registered to the fixed image."
+    },
+    {
+      "id": "output_prefix",
+      "name": "Output Prefix",
+      "value-key": "[OUTPUT_PREFIX]",
+      "type": "String",
+      "optional": false,
+      "command-line-flag": "-o",
+      "description": "Prefix for the output files."
+    },
+    {
+      "id": "transform_type",
+      "name": "Transform Type",
+      "value-key": "[TRANSFORM_TYPE]",
+      "type": "String",
+      "optional": true,
+      "value-choices": [
+        "s",
+        "b"
+      ],
+      "description": "Type of transform: 's' for SyN, 'b' for B-spline SyN. Default is 's'."
+    }
+  ],
+  "output-files": [
+    {
+      "id": "output_transform",
+      "name": "Output Transform",
+      "path-template": "[OUTPUT_PREFIX]0GenericAffine.mat",
+      "description": "Affine transformation matrix resulting from registration."
+    },
+    {
+      "id": "output_warp",
+      "name": "Output Warp",
+      "path-template": "[OUTPUT_PREFIX]1Warp.nii.gz",
+      "description": "Warp field resulting from the registration."
+    },
+    {
+      "id": "output_inverse_warp",
+      "name": "Output Inverse Warp",
+      "path-template": "[OUTPUT_PREFIX]1InverseWarp.nii.gz",
+      "description": "Inverse warp field resulting from the registration."
+    },
+    {
+      "id": "output_warped_image",
+      "name": "Output Warped Image",
+      "path-template": "[OUTPUT_PREFIX]Warped.nii.gz",
+      "description": "Warped moving image."
+    }
+  ],
+  "author": "ANTs Developers",
+  "url": "https://github.com/ANTsX/ANTs"
+}
