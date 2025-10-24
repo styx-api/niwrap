@@ -92,6 +92,6 @@ def main(args):
 
 
 def register_command(subparsers):
-    sync_parser = subparsers.add_parser("sync", help="Synchronize files")
+    sync_parser = subparsers.add_parser("sync", help="Synchronize metadata (i.e. build coverage tables for READMEs...)")
 
     sync_parser.set_defaults(func=main)

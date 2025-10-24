@@ -10,7 +10,7 @@ def create_parser() -> argparse.ArgumentParser:
     """Create and configure the argument parser."""
     parser = argparse.ArgumentParser(
         prog="wrap",
-        description="Niwrap developer and build tools.",
+        description="NiWrap developer and build tools.",
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
 
