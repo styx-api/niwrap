@@ -1,0 +1,53 @@
+{
+  "command": "-border-export-color-table",
+  "short_description": "WRITE BORDER NAMES AND COLORS AS TEXT",
+  "help_text": "Takes the names and colors of each border, and writes it to the same format as -metric-label-import expects.  By default, the borders are colored by border name, specify -class-colors to color them by class instead.  The key values start at 1 and follow the order of the borders in the file.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "border-file",
+      "description": "the input border file",
+      "type": "Border File"
+    },
+    {
+      "key": 2,
+      "short_name": "table-out",
+      "description": "output - the output text file",
+      "type": "String"
+    }
+  ],
+  "outputs": [
+  ],
+  "options": [
+    {
+      "key": 3,
+      "option_switch": "-class-colors",
+      "description": "use class colors instead of the name colors",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+  ]
+}
+

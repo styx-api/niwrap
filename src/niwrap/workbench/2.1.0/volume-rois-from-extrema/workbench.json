@@ -1,0 +1,122 @@
+{
+  "command": "-volume-rois-from-extrema",
+  "short_description": "CREATE VOLUME ROI MAPS FROM EXTREMA MAPS",
+  "help_text": "For each nonzero value in each map, make a map with an ROI around that location.  If the -gaussian option is specified, then normalized gaussian kernels are output instead of ROIs.  The <method> argument to -overlap-logic must be one of ALLOW, CLOSEST, or EXCLUDE.  ALLOW is the default, and means that ROIs are treated independently and may overlap.  CLOSEST means that ROIs may not overlap, and that no ROI contains vertices that are closer to a different seed vertex.  EXCLUDE means that ROIs may not overlap, and that any vertex within range of more than one ROI does not belong to any ROI.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "volume-in",
+      "description": "the input volume",
+      "type": "Volume File"
+    },
+    {
+      "key": 2,
+      "short_name": "limit",
+      "description": "distance limit from voxel center, in mm",
+      "type": "Floating Point"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 3,
+      "short_name": "volume-out",
+      "description": "the output volume",
+      "type": "Volume File"
+    }
+  ],
+  "options": [
+    {
+      "key": 4,
+      "option_switch": "-gaussian",
+      "description": "generate a gaussian kernel instead of a flat ROI",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "sigma",
+          "description": "the sigma for the gaussian kernel, in mm",
+          "type": "Floating Point"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 5,
+      "option_switch": "-roi",
+      "description": "select a region of interest to use",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "roi-volume",
+          "description": "the region to use",
+          "type": "Volume File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 6,
+      "option_switch": "-overlap-logic",
+      "description": "how to handle overlapping ROIs, default ALLOW",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "method",
+          "description": "the method of resolving overlaps",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 7,
+      "option_switch": "-subvolume",
+      "description": "select a single subvolume to take the gradient of",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "subvol",
+          "description": "the subvolume number or name",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+  ]
+}
+

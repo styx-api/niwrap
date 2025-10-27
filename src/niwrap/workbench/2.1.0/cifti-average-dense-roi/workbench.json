@@ -1,0 +1,218 @@
+{
+  "command": "-cifti-average-dense-roi",
+  "short_description": "AVERAGE CIFTI ROWS ACROSS SUBJECTS BY ROI",
+  "help_text": "Averages rows for each map of the ROI(s), across all files.  ROI maps are treated as weighting functions, including negative values.  For efficiency, ensure that everything that is not intended to be used is zero in the ROI map.  If -cifti-roi is specified, -left-roi, -right-roi, -cerebellum-roi, and -vol-roi must not be specified.  If multiple non-cifti ROI files are specified, they must have the same number of columns.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+  ],
+  "outputs": [
+    {
+      "key": 1,
+      "short_name": "cifti-out",
+      "description": "output cifti dscalar file",
+      "type": "Cifti File"
+    }
+  ],
+  "options": [
+    {
+      "key": 2,
+      "option_switch": "-cifti-roi",
+      "description": "cifti file containing combined weights",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "roi-cifti",
+          "description": "the roi cifti file",
+          "type": "Cifti File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 2,
+          "option_switch": "-in-memory",
+          "description": "cache the roi in memory so that it isn't re-read for each input cifti",
+          "params": [
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 3,
+      "option_switch": "-left-roi",
+      "description": "weights to use for left hempsphere",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "roi-metric",
+          "description": "the left roi as a metric file",
+          "type": "Metric File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 4,
+      "option_switch": "-right-roi",
+      "description": "weights to use for right hempsphere",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "roi-metric",
+          "description": "the right roi as a metric file",
+          "type": "Metric File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 5,
+      "option_switch": "-cerebellum-roi",
+      "description": "weights to use for cerebellum surface",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "roi-metric",
+          "description": "the cerebellum roi as a metric file",
+          "type": "Metric File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 6,
+      "option_switch": "-vol-roi",
+      "description": "voxel weights to use",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "roi-vol",
+          "description": "the roi volume file",
+          "type": "Volume File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 7,
+      "option_switch": "-left-area-surf",
+      "description": "specify the left surface for vertex area correction",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "left-surf",
+          "description": "the left surface file",
+          "type": "Surface File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 8,
+      "option_switch": "-right-area-surf",
+      "description": "specify the right surface for vertex area correction",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "right-surf",
+          "description": "the right surface file",
+          "type": "Surface File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 9,
+      "option_switch": "-cerebellum-area-surf",
+      "description": "specify the cerebellum surface for vertex area correction",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "cerebellum-surf",
+          "description": "the cerebellum surface file",
+          "type": "Surface File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+    {
+      "key": 10,
+      "option_switch": "-cifti",
+      "description": "specify an input cifti file",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "cifti-in",
+          "description": "a cifti file to average across",
+          "type": "Cifti File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ]
+}
+

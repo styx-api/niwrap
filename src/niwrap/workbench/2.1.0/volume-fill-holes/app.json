@@ -1,0 +1,14 @@
+{
+  "name": "volume-fill-holes",
+  "source": {
+    "type": "workbench",
+    "path": "workbench.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-volume-fill-holes"
+  ],
+  "docs": {
+    "description": "Fill holes in an roi volume.\n\nFinds all face-connected parts that are not included in the ROI, and fills all but the largest one with ones."
+  }
+}

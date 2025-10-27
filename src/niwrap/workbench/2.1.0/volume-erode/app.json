@@ -1,0 +1,14 @@
+{
+  "name": "volume-erode",
+  "source": {
+    "type": "workbench",
+    "path": "workbench.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-volume-erode"
+  ],
+  "docs": {
+    "description": "Erode a volume file.\n\nAround each voxel with a value of zero, set surrounding voxels to zero.  The surrounding voxels are all face neighbors and all voxels within the specified distance (center to center)."
+  }
+}

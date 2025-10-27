@@ -1,0 +1,14 @@
+{
+  "name": "volume-copy-extensions",
+  "source": {
+    "type": "workbench",
+    "path": "workbench.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-volume-copy-extensions"
+  ],
+  "docs": {
+    "description": "Copy extended data to another volume file.\n\nThis command copies the information in a volume file that isn't a critical part of the standard header or data matrix, e.g. map names, palette settings, label tables.  If -drop-unknown is not specified, it also copies similar kinds of information set by other software."
+  }
+}

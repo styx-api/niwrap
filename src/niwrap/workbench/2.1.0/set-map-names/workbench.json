@@ -1,0 +1,97 @@
+{
+  "command": "-set-map-names",
+  "short_description": "SET THE NAME OF ONE OR MORE MAPS IN A FILE",
+  "help_text": "Sets the name of one or more maps for metric, shape, label, volume, cifti scalar or cifti label files.  You must specify either -name-file, or -from-data-file, or at least one -map option.  The three option types are mutually exclusive.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "data-file",
+      "description": "the file to set the map names of",
+      "type": "String"
+    }
+  ],
+  "outputs": [
+  ],
+  "options": [
+    {
+      "key": 2,
+      "option_switch": "-name-file",
+      "description": "use a text file to replace all map names",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "file",
+          "description": "text file containing map names, one per line",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 4,
+      "option_switch": "-from-data-file",
+      "description": "use the map names from another data file",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "file",
+          "description": "a data file with the same number of maps",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+    {
+      "key": 3,
+      "option_switch": "-map",
+      "description": "specify a map to set the name of",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "index",
+          "description": "the map index to change the name of",
+          "type": "Integer"
+        },
+        {
+          "key": 2,
+          "short_name": "new-name",
+          "description": "the name to set for the map",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ]
+}
+

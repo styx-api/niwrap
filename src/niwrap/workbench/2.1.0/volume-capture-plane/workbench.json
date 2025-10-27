@@ -1,0 +1,130 @@
+{
+  "command": "-volume-capture-plane",
+  "short_description": "INTERPOLATE IMAGE FROM PLANE THROUGH VOLUME",
+  "help_text": "NOTE: If you want to generate an image with all of the capabilities of the GUI rendering, see -show-scene.\n\nRenders an image of an arbitrary plane through the volume file, with a simple linear grayscale palette.  The parameter <interp> must be one of:\n\nCUBIC\nENCLOSING_VOXEL\nTRILINEAR",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "volume",
+      "description": "the volume file to interpolate from",
+      "type": "Volume File"
+    },
+    {
+      "key": 2,
+      "short_name": "subvolume",
+      "description": "the name or number of the subvolume to use",
+      "type": "String"
+    },
+    {
+      "key": 3,
+      "short_name": "interp",
+      "description": "interpolation type",
+      "type": "String"
+    },
+    {
+      "key": 4,
+      "short_name": "h-dim",
+      "description": "width of output image, in pixels",
+      "type": "Integer"
+    },
+    {
+      "key": 5,
+      "short_name": "v-dim",
+      "description": "height of output image, in pixels",
+      "type": "Integer"
+    },
+    {
+      "key": 6,
+      "short_name": "scale-min",
+      "description": "value to render as black",
+      "type": "Floating Point"
+    },
+    {
+      "key": 7,
+      "short_name": "scale-max",
+      "description": "value to render as white",
+      "type": "Floating Point"
+    },
+    {
+      "key": 8,
+      "short_name": "bottom-left-x",
+      "description": "x-coordinate of the bottom left of the output image",
+      "type": "Floating Point"
+    },
+    {
+      "key": 9,
+      "short_name": "bottom-left-y",
+      "description": "y-coordinate of the bottom left of the output image",
+      "type": "Floating Point"
+    },
+    {
+      "key": 10,
+      "short_name": "bottom-left-z",
+      "description": "z-coordinate of the bottom left of the output image",
+      "type": "Floating Point"
+    },
+    {
+      "key": 11,
+      "short_name": "bottom-right-x",
+      "description": "x-coordinate of the bottom right of the output image",
+      "type": "Floating Point"
+    },
+    {
+      "key": 12,
+      "short_name": "bottom-right-y",
+      "description": "y-coordinate of the bottom right of the output image",
+      "type": "Floating Point"
+    },
+    {
+      "key": 13,
+      "short_name": "bottom-right-z",
+      "description": "z-coordinate of the bottom right of the output image",
+      "type": "Floating Point"
+    },
+    {
+      "key": 14,
+      "short_name": "top-left-x",
+      "description": "x-coordinate of the top left of the output image",
+      "type": "Floating Point"
+    },
+    {
+      "key": 15,
+      "short_name": "top-left-y",
+      "description": "y-coordinate of the top left of the output image",
+      "type": "Floating Point"
+    },
+    {
+      "key": 16,
+      "short_name": "top-left-z",
+      "description": "z-coordinate of the top left of the output image",
+      "type": "Floating Point"
+    },
+    {
+      "key": 17,
+      "short_name": "image",
+      "description": "output - the output image",
+      "type": "String"
+    }
+  ],
+  "outputs": [
+  ],
+  "options": [
+  ],
+  "repeatable_options": [
+  ]
+}
+

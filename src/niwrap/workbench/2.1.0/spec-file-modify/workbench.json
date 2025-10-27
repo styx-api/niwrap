@@ -1,0 +1,104 @@
+{
+  "command": "-spec-file-modify",
+  "short_description": "ADD OR REMOVE FILES FROM SPEC FILE",
+  "help_text": "The input spec file is overwritten with the new version.  If the spec file does not exist, it is created with default metadata.\n\nRemovals are done before additions, so that you can remove files with a pattern, and then add new files even if they match that removal pattern.\n\nThe <structure> argument of -add must match one of the following strings (you can use INVALID for cifti or volume files):CORTEX_LEFT\nCORTEX_RIGHT\nCEREBELLUM\nACCUMBENS_LEFT\nACCUMBENS_RIGHT\nALL_GREY_MATTER\nALL_WHITE_MATTER\nAMYGDALA_LEFT\nAMYGDALA_RIGHT\nBRAIN_STEM\nCAUDATE_LEFT\nCAUDATE_RIGHT\nCEREBELLAR_WHITE_MATTER_LEFT\nCEREBELLAR_WHITE_MATTER_RIGHT\nCEREBELLUM_LEFT\nCEREBELLUM_RIGHT\nCEREBRAL_WHITE_MATTER_LEFT\nCEREBRAL_WHITE_MATTER_RIGHT\nCORTEX\nDIENCEPHALON_VENTRAL_LEFT\nDIENCEPHALON_VENTRAL_RIGHT\nHIPPOCAMPUS_LEFT\nHIPPOCAMPUS_RIGHT\nHIPPOCAMPUS_DENTATE_LEFT\nHIPPOCAMPUS_DENTATE_RIGHT\nINVALID\nOTHER\nOTHER_GREY_MATTER\nOTHER_WHITE_MATTER\nPALLIDUM_LEFT\nPALLIDUM_RIGHT\nPUTAMEN_LEFT\nPUTAMEN_RIGHT\nTHALAMUS_LEFT\nTHALAMUS_RIGHT\n",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "spec-file",
+      "description": "the spec file to modify",
+      "type": "String"
+    }
+  ],
+  "outputs": [
+  ],
+  "options": [
+  ],
+  "repeatable_options": [
+    {
+      "key": 2,
+      "option_switch": "-add",
+      "description": "add a file to the spec",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "structure",
+          "description": "the structure of the data file",
+          "type": "String"
+        },
+        {
+          "key": 2,
+          "short_name": "file",
+          "description": "the file to add",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 3,
+      "option_switch": "-remove",
+      "description": "remove a file from the spec file",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "filename",
+          "description": "the filename to remove",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 2,
+          "option_switch": "-recursive",
+          "description": "remove all files that match the string starting from any folder",
+          "params": [
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        },
+        {
+          "key": 3,
+          "option_switch": "-suffix",
+          "description": "match any file that ends with the given string (if there are multiple matches, error unless -recursive was also specified)",
+          "params": [
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ]
+}
+

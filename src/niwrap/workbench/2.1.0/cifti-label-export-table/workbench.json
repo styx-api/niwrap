@@ -1,0 +1,65 @@
+{
+  "command": "-cifti-label-export-table",
+  "short_description": "EXPORT LABEL TABLE FROM CIFTI AS TEXT",
+  "help_text": "Takes the label table from the cifti label map, and writes it to a text format matching what is expected by -cifti-label-import.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "label-in",
+      "description": "the input cifti label file",
+      "type": "Cifti File"
+    },
+    {
+      "key": 2,
+      "short_name": "map",
+      "description": "the number or name of the label map to use",
+      "type": "String"
+    },
+    {
+      "key": 3,
+      "short_name": "table-out",
+      "description": "output - the output text file",
+      "type": "String"
+    }
+  ],
+  "outputs": [
+  ],
+  "options": [
+    {
+      "key": 4,
+      "option_switch": "-hierarchy",
+      "description": "export the hierarchy as json",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "json-out",
+          "description": "output - filename to write hierarchy to",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+  ]
+}
+

@@ -1,0 +1,14 @@
+{
+  "name": "metric-weighted-stats",
+  "source": {
+    "type": "workbench",
+    "path": "workbench.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-metric-weighted-stats"
+  ],
+  "docs": {
+    "description": "Weighted spatial statistics on a metric file.\n\nFor each column of the input, a line of text is printed, resulting from the specified operation.  You must specify exactly one of -area-surface or -weight-metric.  Use -column to only give output for a single column.  If the -roi option is used without -match-maps, then each line will contain as many numbers as there are maps in the ROI file, separated by tab characters.  Exactly one of -mean, -stdev, -percentile or -sum must be specified.\n\nUsing -sum with -area-surface (or -weight-metric with a metric containing similar data) is equivalent to integrating with respect to surface area.  For example, if you want to find the surface area within an roi, do this:\n\n$ wb_command -metric-weighted-stats roi.func.gii -sum -area-surface midthickness.surf.gii"
+  }
+}

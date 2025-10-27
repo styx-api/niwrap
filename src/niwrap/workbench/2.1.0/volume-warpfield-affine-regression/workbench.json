@@ -1,0 +1,103 @@
+{
+  "command": "-volume-warpfield-affine-regression",
+  "short_description": "REGRESS AFFINE FROM WARPFIELD",
+  "help_text": "For all voxels in the warpfield, do a regression that predicts the post-warp coordinate from the source coordinate.  When -roi is specified, only consider voxels with a value greater than 0 in <roi-vol>.\n\nThe default is to expect the warpfield to be in relative world coordinates (mm space), and to write the output as a world affine (mm space to mm space).  If you are using FSL-created files and utilities, specify -fnirt and -flirt-out as needed, as their coordinate conventions are different.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "warpfield",
+      "description": "the input warpfield",
+      "type": "String"
+    },
+    {
+      "key": 2,
+      "short_name": "affine-out",
+      "description": "output - the output affine file",
+      "type": "String"
+    }
+  ],
+  "outputs": [
+  ],
+  "options": [
+    {
+      "key": 3,
+      "option_switch": "-roi",
+      "description": "only consider voxels within a mask (e.g., a brain mask)",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "roi-vol",
+          "description": "the mask volume",
+          "type": "Volume File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 4,
+      "option_switch": "-fnirt",
+      "description": "input is a fnirt warpfield",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "source-volume",
+          "description": "the source volume used when generating the fnirt warpfield",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 5,
+      "option_switch": "-flirt-out",
+      "description": "write output as a flirt matrix rather than a world coordinate transform",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "source-volume",
+          "description": "the volume you want to apply the transform to",
+          "type": "String"
+        },
+        {
+          "key": 2,
+          "short_name": "target-volume",
+          "description": "the target space you want the transformed volume to match",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+  ]
+}
+

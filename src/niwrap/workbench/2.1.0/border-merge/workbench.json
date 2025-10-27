@@ -1,0 +1,104 @@
+{
+  "command": "-border-merge",
+  "short_description": "MERGE BORDER FILES INTO A NEW FILE",
+  "help_text": "Takes one or more border files and makes a new border file from the borders in them.\n\nExample: wb_command -border-merge out.border -border first.border -select 1 -border second.border\n\nThis example would take the first border from first.border, followed by all borders from second.border, and write these to out.border.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+  ],
+  "outputs": [
+    {
+      "key": 1,
+      "short_name": "border-file-out",
+      "description": "the output border file",
+      "type": "Border File"
+    }
+  ],
+  "options": [
+  ],
+  "repeatable_options": [
+    {
+      "key": 2,
+      "option_switch": "-border",
+      "description": "specify an input border file",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "border-file-in",
+          "description": "a border file to use borders from",
+          "type": "Border File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+        {
+          "key": 2,
+          "option_switch": "-select",
+          "description": "select a single border to use",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "border",
+              "description": "the border number or name",
+              "type": "String"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+            {
+              "key": 2,
+              "option_switch": "-up-to",
+              "description": "use an inclusive range of borders",
+              "params": [
+                {
+                  "key": 1,
+                  "short_name": "last-border",
+                  "description": "the number or name of the last column to include",
+                  "type": "String"
+                }
+              ],
+              "outputs": [
+              ],
+              "options": [
+                {
+                  "key": 2,
+                  "option_switch": "-reverse",
+                  "description": "use the range in reverse order",
+                  "params": [
+                  ],
+                  "outputs": [
+                  ],
+                  "options": [
+                  ],
+                  "repeatable_options": [
+                  ]
+                }
+              ],
+              "repeatable_options": [
+              ]
+            }
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ]
+    }
+  ]
+}
+

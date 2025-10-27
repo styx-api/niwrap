@@ -1,0 +1,274 @@
+{
+  "command": "-cifti-create-dense-timeseries",
+  "short_description": "CREATE A CIFTI DENSE TIMESERIES",
+  "help_text": "All input files must have the same number of columns/subvolumes.  Only the specified components will be in the output cifti.  At least one component must be specified.\n\nSee -volume-label-import and -volume-help for format details of label volume files.  The -metric structure argument and labels in the structure-label-volume must use names from the below list (labels with other names are ignored, -metric arguments with other strings are an error):\n\nCORTEX_LEFT\nCORTEX_RIGHT\nCEREBELLUM\nACCUMBENS_LEFT\nACCUMBENS_RIGHT\nALL_GREY_MATTER\nALL_WHITE_MATTER\nAMYGDALA_LEFT\nAMYGDALA_RIGHT\nBRAIN_STEM\nCAUDATE_LEFT\nCAUDATE_RIGHT\nCEREBELLAR_WHITE_MATTER_LEFT\nCEREBELLAR_WHITE_MATTER_RIGHT\nCEREBELLUM_LEFT\nCEREBELLUM_RIGHT\nCEREBRAL_WHITE_MATTER_LEFT\nCEREBRAL_WHITE_MATTER_RIGHT\nCORTEX\nDIENCEPHALON_VENTRAL_LEFT\nDIENCEPHALON_VENTRAL_RIGHT\nHIPPOCAMPUS_LEFT\nHIPPOCAMPUS_RIGHT\nHIPPOCAMPUS_DENTATE_LEFT\nHIPPOCAMPUS_DENTATE_RIGHT\nINVALID\nOTHER\nOTHER_GREY_MATTER\nOTHER_WHITE_MATTER\nPALLIDUM_LEFT\nPALLIDUM_RIGHT\nPUTAMEN_LEFT\nPUTAMEN_RIGHT\nTHALAMUS_LEFT\nTHALAMUS_RIGHT\n\nThe -unit option accepts these values:\n\nSECOND\nHERTZ\nMETER\nRADIAN",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+  ],
+  "outputs": [
+    {
+      "key": 1,
+      "short_name": "cifti-out",
+      "description": "the output cifti file",
+      "type": "Cifti File"
+    }
+  ],
+  "options": [
+    {
+      "key": 2,
+      "option_switch": "-volume",
+      "description": "volume component",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "volume-data",
+          "description": "volume file containing all voxel data for all volume structures",
+          "type": "Volume File"
+        },
+        {
+          "key": 2,
+          "short_name": "structure-label-volume",
+          "description": "label volume file containing labels for cifti structures",
+          "type": "Volume File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 3,
+      "option_switch": "-left-metric",
+      "description": "metric for the left cortical surface",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "metric",
+          "description": "the metric file",
+          "type": "Metric File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 2,
+          "option_switch": "-roi-left",
+          "description": "roi of vertices to use from left surface",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "roi-metric",
+              "description": "the ROI as a metric file",
+              "type": "Metric File"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 4,
+      "option_switch": "-right-metric",
+      "description": "metric for the right cortical surface",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "metric",
+          "description": "the metric file",
+          "type": "Metric File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 2,
+          "option_switch": "-roi-right",
+          "description": "roi of vertices to use from right surface",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "roi-metric",
+              "description": "the ROI as a metric file",
+              "type": "Metric File"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 5,
+      "option_switch": "-cerebellum-metric",
+      "description": "metric for the cerebellum",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "metric",
+          "description": "the metric file",
+          "type": "Metric File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 2,
+          "option_switch": "-roi-cerebellum",
+          "description": "roi of vertices to use from right surface",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "roi-metric",
+              "description": "the ROI as a metric file",
+              "type": "Metric File"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 6,
+      "option_switch": "-timestep",
+      "description": "set the timestep",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "interval",
+          "description": "the timestep, in seconds (default 1.0)",
+          "type": "Floating Point"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 7,
+      "option_switch": "-timestart",
+      "description": "set the start time",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "start",
+          "description": "the time at the first frame, in seconds (default 0.0)",
+          "type": "Floating Point"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 8,
+      "option_switch": "-unit",
+      "description": "use a unit other than time",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "unit",
+          "description": "unit identifier (default SECOND)",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+    {
+      "key": 9,
+      "option_switch": "-metric",
+      "description": "metric for a specified surface structure",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "structure",
+          "description": "the structure name",
+          "type": "String"
+        },
+        {
+          "key": 2,
+          "short_name": "metric",
+          "description": "the metric file",
+          "type": "Metric File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 3,
+          "option_switch": "-roi",
+          "description": "roi of vertices to use from this structure",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "roi-metric",
+              "description": "the ROI as a metric file",
+              "type": "Metric File"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ]
+}
+

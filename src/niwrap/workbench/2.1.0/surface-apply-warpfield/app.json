@@ -1,0 +1,14 @@
+{
+  "name": "surface-apply-warpfield",
+  "source": {
+    "type": "workbench",
+    "path": "workbench.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-surface-apply-warpfield"
+  ],
+  "docs": {
+    "description": "Apply warpfield to surface file.\n\nNOTE: warping a surface requires the INVERSE of the warpfield used to warp the volume it lines up with.  The header of the forward warp is needed by the -fnirt option in order to correctly interpret the displacements in the fnirt warpfield.\n\nIf the -fnirt option is not present, the warpfield must be a nifti 'world' warpfield, which can be obtained with the -convert-warpfield command."
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "command": "-cifti-pairwise-correlation",
+  "short_description": "CORRELATE PAIRED ROWS BETWEEN TWO CIFTI FILES",
+  "help_text": "For each row in <cifti-a>, correlate it with the same row in <cifti-b>, and put the result in the same row of <cifti-out>, which has only one column.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "cifti-a",
+      "description": "first input cifti file",
+      "type": "Cifti File"
+    },
+    {
+      "key": 2,
+      "short_name": "cifti-b",
+      "description": "second input cifti file",
+      "type": "Cifti File"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 3,
+      "short_name": "cifti-out",
+      "description": "output cifti file",
+      "type": "Cifti File"
+    }
+  ],
+  "options": [
+    {
+      "key": 4,
+      "option_switch": "-fisher-z",
+      "description": "apply fisher small z transform (ie, artanh) to correlation",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 5,
+      "option_switch": "-override-mapping-check",
+      "description": "don't check the mappings for compatibility, only check length",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+  ]
+}
+

@@ -1,0 +1,53 @@
+{
+  "command": "-cifti-label-probability",
+  "short_description": "FIND FREQUENCY OF CIFTI LABELS",
+  "help_text": "This command outputs a set of soft ROIs, one for each label in the input, where the value is how many of the input maps had that label at that vertex/voxel, divided by the number of input maps.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "label-maps",
+      "description": "cifti dlabel file containing individual label maps from many subjects",
+      "type": "Cifti File"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 2,
+      "short_name": "probability-dscalar-out",
+      "description": "the relative frequencies of each label at each vertex/voxel",
+      "type": "Cifti File"
+    }
+  ],
+  "options": [
+    {
+      "key": 3,
+      "option_switch": "-exclude-unlabeled",
+      "description": "don't make a probability map of the unlabeled key",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+  ]
+}
+

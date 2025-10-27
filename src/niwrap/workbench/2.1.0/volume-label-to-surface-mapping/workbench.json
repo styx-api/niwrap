@@ -1,0 +1,160 @@
+{
+  "command": "-volume-label-to-surface-mapping",
+  "short_description": "MAP A LABEL VOLUME TO A SURFACE LABEL FILE",
+  "help_text": "Map label volume data to a surface.  If -ribbon-constrained is not specified, uses the enclosing voxel method.  The ribbon mapping method constructs a polyhedron from the vertex's neighbors on each surface, and estimates the amount of this polyhedron's volume that falls inside any nearby voxels, to use as the weights for a popularity comparison.  If -thin-columns is specified, the polyhedron uses the edge midpoints and triangle centroids, so that neighboring vertices do not have overlapping polyhedra.  This may require increasing -voxel-subdiv to get enough samples in each voxel to reliably land inside these smaller polyhedra.  The volume ROI is useful to exclude partial volume effects of voxels the surfaces pass through, and will cause the mapping to ignore voxels that don't have a positive value in the mask.  The subdivision number specifies how it approximates the amount of the volume the polyhedron intersects, by splitting each voxel into NxNxN pieces, and checking whether the center of each piece is inside the polyhedron.  If you have very large voxels, consider increasing this if you get unexpected unlabeled vertices in your output.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "volume",
+      "description": "the volume to map data from",
+      "type": "Volume File"
+    },
+    {
+      "key": 2,
+      "short_name": "surface",
+      "description": "the surface to map the data onto",
+      "type": "Surface File"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 3,
+      "short_name": "label-out",
+      "description": "the output gifti label file",
+      "type": "Label File"
+    }
+  ],
+  "options": [
+    {
+      "key": 4,
+      "option_switch": "-ribbon-constrained",
+      "description": "use ribbon constrained mapping algorithm",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "inner-surf",
+          "description": "the inner surface of the ribbon",
+          "type": "Surface File"
+        },
+        {
+          "key": 2,
+          "short_name": "outer-surf",
+          "description": "the outer surface of the ribbon",
+          "type": "Surface File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 3,
+          "option_switch": "-volume-roi",
+          "description": "use a volume roi",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "roi-volume",
+              "description": "the volume file",
+              "type": "Volume File"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        },
+        {
+          "key": 6,
+          "option_switch": "-dilate-missing",
+          "description": "use dilation for small vertices that 'missed' the geometry tests",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "dist",
+              "description": "distance in mm for dilation (can be small, like 1mm)",
+              "type": "Floating Point"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        },
+        {
+          "key": 4,
+          "option_switch": "-voxel-subdiv",
+          "description": "voxel divisions while estimating voxel weights",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "subdiv-num",
+              "description": "number of subdivisions, default 3",
+              "type": "Integer"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        },
+        {
+          "key": 5,
+          "option_switch": "-thin-columns",
+          "description": "use non-overlapping polyhedra",
+          "params": [
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 5,
+      "option_switch": "-subvol-select",
+      "description": "select a single subvolume to map",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "subvol",
+          "description": "the subvolume number or name",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+  ]
+}
+

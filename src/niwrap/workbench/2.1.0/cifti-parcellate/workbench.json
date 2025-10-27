@@ -1,0 +1,319 @@
+{
+  "command": "-cifti-parcellate",
+  "short_description": "PARCELLATE A CIFTI FILE",
+  "help_text": "Each label (other than the unlabeled key) in the cifti label file will be treated as a parcel, and all rows or columns of data within the parcel are averaged together to form the parcel's output row or column.  If -legacy-mode is specified, parcels will be defined as the overlap between a label and the data, with no errors for missing data vertices or voxels, and empty parcels discarded.  The direction can be either an integer starting from 1, or the strings 'ROW' or 'COLUMN'.  For dtseries or dscalar, use COLUMN.  If you are parcellating a dconn in both directions, parcellating by ROW first will use much less memory.\n\nNOTE: the parcels in the output file are sorted by the numeric label keys, in ascending order.\n\nThe parameter to the -method option must be one of the following:\n\nMAX: the maximum value\nMIN: the minimum value\nINDEXMAX: the 1-based index of the maximum value\nINDEXMIN: the 1-based index of the minimum value\nSUM: add all values\nPRODUCT: multiply all values\nMEAN: the mean of the data\nSTDEV: the standard deviation (N denominator)\nSAMPSTDEV: the sample standard deviation (N-1 denominator)\nVARIANCE: the variance of the data\nTSNR: mean divided by sample standard deviation (N-1 denominator)\nCOV: sample standard deviation (N-1 denominator) divided by mean\nL2NORM: square root of sum of squares\nMEDIAN: the median of the data\nMODE: the mode of the data\nCOUNT_NONZERO: the number of nonzero elements in the data\n\nThe -*-weights options are mutually exclusive and may only be used with MEAN (default), SUM, STDEV, SAMPSTDEV, VARIANCE, MEDIAN, or MODE (default for label data).",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "cifti-in",
+      "description": "the cifti file to parcellate",
+      "type": "Cifti File"
+    },
+    {
+      "key": 2,
+      "short_name": "cifti-label",
+      "description": "a cifti label file to use for the parcellation",
+      "type": "Cifti File"
+    },
+    {
+      "key": 3,
+      "short_name": "direction",
+      "description": "which mapping to parcellate (integer, ROW, or COLUMN)",
+      "type": "String"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 4,
+      "short_name": "cifti-out",
+      "description": "output cifti file",
+      "type": "Cifti File"
+    }
+  ],
+  "options": [
+    {
+      "key": 5,
+      "option_switch": "-spatial-weights",
+      "description": "use voxel volume and either vertex areas or metric files as weights",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 1,
+          "option_switch": "-left-area-surf",
+          "description": "use a surface for left vertex areas",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "left-surf",
+              "description": "the left surface to use, areas are in mm^2",
+              "type": "Surface File"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        },
+        {
+          "key": 2,
+          "option_switch": "-right-area-surf",
+          "description": "use a surface for right vertex areas",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "right-surf",
+              "description": "the right surface to use, areas are in mm^2",
+              "type": "Surface File"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        },
+        {
+          "key": 3,
+          "option_switch": "-cerebellum-area-surf",
+          "description": "use a surface for cerebellum vertex areas",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "cerebellum-surf",
+              "description": "the cerebellum surface to use, areas are in mm^2",
+              "type": "Surface File"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        },
+        {
+          "key": 4,
+          "option_switch": "-left-area-metric",
+          "description": "use a metric file for left vertex weights",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "left-metric",
+              "description": "metric file containing left vertex weights",
+              "type": "Metric File"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        },
+        {
+          "key": 5,
+          "option_switch": "-right-area-metric",
+          "description": "use a metric file for right vertex weights",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "right-metric",
+              "description": "metric file containing right vertex weights",
+              "type": "Metric File"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        },
+        {
+          "key": 6,
+          "option_switch": "-cerebellum-area-metric",
+          "description": "use a metric file for cerebellum vertex weights",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "cerebellum-metric",
+              "description": "metric file containing cerebellum vertex weights",
+              "type": "Metric File"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 6,
+      "option_switch": "-cifti-weights",
+      "description": "use a cifti file containing weights",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "weight-cifti",
+          "description": "the weights to use, as a cifti file",
+          "type": "Cifti File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 7,
+      "option_switch": "-method",
+      "description": "specify method of parcellation (default MEAN, or MODE if label data)",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "method",
+          "description": "the method to use to assign parcel values from the values of member brainordinates",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 8,
+      "option_switch": "-exclude-outliers",
+      "description": "exclude non-numeric values and outliers from each parcel by standard deviation",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "sigma-below",
+          "description": "number of standard deviations below the mean to include",
+          "type": "Floating Point"
+        },
+        {
+          "key": 2,
+          "short_name": "sigma-above",
+          "description": "number of standard deviations above the mean to include",
+          "type": "Floating Point"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 9,
+      "option_switch": "-only-numeric",
+      "description": "exclude non-numeric values",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 11,
+      "option_switch": "-fill-value",
+      "description": "specify value to use in empty parcels (default 0)",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "value",
+          "description": "the value to fill empty parcels with",
+          "type": "Floating Point"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 12,
+      "option_switch": "-nonempty-mask-out",
+      "description": "output a matching pscalar file that has 0s in empty parcels, and 1s elsewhere",
+      "params": [
+      ],
+      "outputs": [
+        {
+          "key": 1,
+          "short_name": "mask-out",
+          "description": "the output mask file",
+          "type": "Cifti File"
+        }
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 13,
+      "option_switch": "-legacy-mode",
+      "description": "use the old behavior, parcels are defined by the intersection between labels and valid data, and empty parcels are discarded",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 10,
+      "option_switch": "-include-empty",
+      "description": "deprecated: now the default behavior",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+  ]
+}
+

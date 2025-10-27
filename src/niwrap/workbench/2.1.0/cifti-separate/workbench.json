@@ -1,0 +1,255 @@
+{
+  "command": "-cifti-separate",
+  "short_description": "WRITE A CIFTI STRUCTURE AS METRIC, LABEL OR VOLUME",
+  "help_text": "For dtseries, dscalar, and dlabel, use COLUMN for <direction>, and if you have a symmetric dconn, COLUMN is more efficient.\n\nYou must specify at least one of -metric, -volume-all, -volume, or -label for this command to do anything.  Output volumes will spatially line up with their original positions, whether or not they are cropped.  Volume files produced by separating a dlabel file, or from the -label suboption of -volume-all, will be label volumes, see -volume-help.\n\nFor each <structure> argument, use one of the following strings:\n\nCORTEX_LEFT\nCORTEX_RIGHT\nCEREBELLUM\nACCUMBENS_LEFT\nACCUMBENS_RIGHT\nALL_GREY_MATTER\nALL_WHITE_MATTER\nAMYGDALA_LEFT\nAMYGDALA_RIGHT\nBRAIN_STEM\nCAUDATE_LEFT\nCAUDATE_RIGHT\nCEREBELLAR_WHITE_MATTER_LEFT\nCEREBELLAR_WHITE_MATTER_RIGHT\nCEREBELLUM_LEFT\nCEREBELLUM_RIGHT\nCEREBRAL_WHITE_MATTER_LEFT\nCEREBRAL_WHITE_MATTER_RIGHT\nCORTEX\nDIENCEPHALON_VENTRAL_LEFT\nDIENCEPHALON_VENTRAL_RIGHT\nHIPPOCAMPUS_LEFT\nHIPPOCAMPUS_RIGHT\nHIPPOCAMPUS_DENTATE_LEFT\nHIPPOCAMPUS_DENTATE_RIGHT\nINVALID\nOTHER\nOTHER_GREY_MATTER\nOTHER_WHITE_MATTER\nPALLIDUM_LEFT\nPALLIDUM_RIGHT\nPUTAMEN_LEFT\nPUTAMEN_RIGHT\nTHALAMUS_LEFT\nTHALAMUS_RIGHT",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "cifti-in",
+      "description": "the cifti to separate a component of",
+      "type": "Cifti File"
+    },
+    {
+      "key": 2,
+      "short_name": "direction",
+      "description": "which direction to separate into components, ROW or COLUMN",
+      "type": "String"
+    }
+  ],
+  "outputs": [
+  ],
+  "options": [
+    {
+      "key": 6,
+      "option_switch": "-volume-all",
+      "description": "separate all volume structures into a volume file",
+      "params": [
+      ],
+      "outputs": [
+        {
+          "key": 1,
+          "short_name": "volume-out",
+          "description": "the output volume",
+          "type": "Volume File"
+        }
+      ],
+      "options": [
+        {
+          "key": 2,
+          "option_switch": "-roi",
+          "description": "also output the roi of which voxels have data",
+          "params": [
+          ],
+          "outputs": [
+            {
+              "key": 1,
+              "short_name": "roi-out",
+              "description": "the roi output volume",
+              "type": "Volume File"
+            }
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        },
+        {
+          "key": 4,
+          "option_switch": "-label",
+          "description": "output a volume label file indicating the location of structures",
+          "params": [
+          ],
+          "outputs": [
+            {
+              "key": 1,
+              "short_name": "label-out",
+              "description": "the label output volume",
+              "type": "Volume File"
+            }
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        },
+        {
+          "key": 3,
+          "option_switch": "-crop",
+          "description": "crop volume to the size of the data rather than using the original volume size",
+          "params": [
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+    {
+      "key": 3,
+      "option_switch": "-label",
+      "description": "separate a surface model into a surface label file",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "structure",
+          "description": "the structure to output",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+        {
+          "key": 2,
+          "short_name": "label-out",
+          "description": "the output label file",
+          "type": "Label File"
+        }
+      ],
+      "options": [
+        {
+          "key": 3,
+          "option_switch": "-roi",
+          "description": "also output the roi of which vertices have data",
+          "params": [
+          ],
+          "outputs": [
+            {
+              "key": 1,
+              "short_name": "roi-out",
+              "description": "the roi output metric",
+              "type": "Metric File"
+            }
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 4,
+      "option_switch": "-metric",
+      "description": "separate a surface model into a metric file",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "structure",
+          "description": "the structure to output",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+        {
+          "key": 2,
+          "short_name": "metric-out",
+          "description": "the output metric",
+          "type": "Metric File"
+        }
+      ],
+      "options": [
+        {
+          "key": 3,
+          "option_switch": "-roi",
+          "description": "also output the roi of which vertices have data",
+          "params": [
+          ],
+          "outputs": [
+            {
+              "key": 1,
+              "short_name": "roi-out",
+              "description": "the roi output metric",
+              "type": "Metric File"
+            }
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 5,
+      "option_switch": "-volume",
+      "description": "separate a volume structure into a volume file",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "structure",
+          "description": "the structure to output",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+        {
+          "key": 2,
+          "short_name": "volume-out",
+          "description": "the output volume",
+          "type": "Volume File"
+        }
+      ],
+      "options": [
+        {
+          "key": 3,
+          "option_switch": "-roi",
+          "description": "also output the roi of which voxels have data",
+          "params": [
+          ],
+          "outputs": [
+            {
+              "key": 1,
+              "short_name": "roi-out",
+              "description": "the roi output volume",
+              "type": "Volume File"
+            }
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        },
+        {
+          "key": 4,
+          "option_switch": "-crop",
+          "description": "crop volume to the size of the component rather than using the original volume size",
+          "params": [
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ]
+}
+

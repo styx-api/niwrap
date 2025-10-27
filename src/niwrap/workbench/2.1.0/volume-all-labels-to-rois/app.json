@@ -1,0 +1,14 @@
+{
+  "name": "volume-all-labels-to-rois",
+  "source": {
+    "type": "workbench",
+    "path": "workbench.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-volume-all-labels-to-rois"
+  ],
+  "docs": {
+    "description": "Make rois from all labels in a volume frame.\n\nThe output volume has a frame for each label in the specified input frame, other than the ??? label, each of which contains an ROI of all voxels that are set to the corresponding label."
+  }
+}

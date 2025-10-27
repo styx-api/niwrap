@@ -1,0 +1,71 @@
+{
+  "command": "-surface-apply-affine",
+  "short_description": "APPLY AFFINE TRANSFORM TO SURFACE FILE",
+  "help_text": "For flirt matrices, you must use the -flirt option, because flirt matrices are not a complete description of the coordinate transform they represent.  If the -flirt option is not present, the affine must be a nifti 'world' affine, which can be obtained with the -convert-affine command, or aff_conv from the 4dfp suite.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "in-surf",
+      "description": "the surface to transform",
+      "type": "Surface File"
+    },
+    {
+      "key": 2,
+      "short_name": "affine",
+      "description": "the affine file",
+      "type": "String"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 3,
+      "short_name": "out-surf",
+      "description": "the output transformed surface",
+      "type": "Surface File"
+    }
+  ],
+  "options": [
+    {
+      "key": 4,
+      "option_switch": "-flirt",
+      "description": "MUST be used if affine is a flirt affine",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "source-volume",
+          "description": "the source volume used when generating the affine",
+          "type": "String"
+        },
+        {
+          "key": 2,
+          "short_name": "target-volume",
+          "description": "the target volume used when generating the affine",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+  ]
+}
+

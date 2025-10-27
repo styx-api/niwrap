@@ -1,0 +1,109 @@
+{
+  "command": "-label-erode",
+  "short_description": "ERODE A LABEL FILE",
+  "help_text": "Around each vertex that is unlabeled, set surrounding vertices to unlabeled.  The surrounding vertices are all immediate neighbors and all vertices within the specified distance.\n\nNote that the -corrected-areas option uses an approximate correction for distance along the surface.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "label",
+      "description": "the input label",
+      "type": "Label File"
+    },
+    {
+      "key": 2,
+      "short_name": "surface",
+      "description": "the surface to erode on",
+      "type": "Surface File"
+    },
+    {
+      "key": 3,
+      "short_name": "erode-dist",
+      "description": "distance in mm to erode the labels",
+      "type": "Floating Point"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 4,
+      "short_name": "label-out",
+      "description": "the output label file",
+      "type": "Label File"
+    }
+  ],
+  "options": [
+    {
+      "key": 5,
+      "option_switch": "-roi",
+      "description": "assume values outside this roi are labeled",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "roi-metric",
+          "description": "metric file, positive values denote vertices that have data",
+          "type": "Metric File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 6,
+      "option_switch": "-column",
+      "description": "select a single column to erode",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "column",
+          "description": "the column number or name",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 7,
+      "option_switch": "-corrected-areas",
+      "description": "vertex areas to use instead of computing them from the surface",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "area-metric",
+          "description": "the corrected vertex areas, as a metric",
+          "type": "Metric File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+  ]
+}
+

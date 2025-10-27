@@ -1,0 +1,40 @@
+{
+  "command": "-surface-coordinates-to-metric",
+  "short_description": "MAKE METRIC FILE OF SURFACE COORDINATES",
+  "help_text": "Puts the coordinates of the surface into a 3-map metric file, as x, y, z.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "surface",
+      "description": "the surface to use the coordinates of",
+      "type": "Surface File"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 2,
+      "short_name": "metric-out",
+      "description": "the output metric",
+      "type": "Metric File"
+    }
+  ],
+  "options": [
+  ],
+  "repeatable_options": [
+  ]
+}
+

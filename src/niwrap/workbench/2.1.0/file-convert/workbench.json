@@ -1,0 +1,140 @@
+{
+  "command": "-file-convert",
+  "short_description": "CHANGE VERSION OF FILE FORMAT",
+  "help_text": "You may only specify one top-level option.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+  ],
+  "outputs": [
+  ],
+  "options": [
+    {
+      "key": 1,
+      "option_switch": "-border-version-convert",
+      "description": "write a border file with a different version",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "border-in",
+          "description": "the input border file",
+          "type": "Border File"
+        },
+        {
+          "key": 2,
+          "short_name": "out-version",
+          "description": "the format version to write as, 1 or 3 (2 doesn't exist)",
+          "type": "Integer"
+        },
+        {
+          "key": 3,
+          "short_name": "border-out",
+          "description": "output - the output border file",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 4,
+          "option_switch": "-surface",
+          "description": "must be specified if the input is version 1",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "surface",
+              "description": "use this surface file for structure and number of vertices, ignore borders on other structures",
+              "type": "Surface File"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 2,
+      "option_switch": "-nifti-version-convert",
+      "description": "write a nifti file with a different version",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "input",
+          "description": "the input nifti file",
+          "type": "String"
+        },
+        {
+          "key": 2,
+          "short_name": "version",
+          "description": "the nifti version to write as",
+          "type": "Integer"
+        },
+        {
+          "key": 3,
+          "short_name": "output",
+          "description": "output - the output nifti file",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 3,
+      "option_switch": "-cifti-version-convert",
+      "description": "write a cifti file with a different version",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "cifti-in",
+          "description": "the input cifti file",
+          "type": "Cifti File"
+        },
+        {
+          "key": 2,
+          "short_name": "version",
+          "description": "the cifti version to write as",
+          "type": "String"
+        },
+        {
+          "key": 3,
+          "short_name": "cifti-out",
+          "description": "output - the output cifti file",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+  ]
+}
+

@@ -1,0 +1,14 @@
+{
+  "name": "spec-file-relocate",
+  "source": {
+    "type": "workbench",
+    "path": "workbench.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-spec-file-relocate"
+  ],
+  "docs": {
+    "description": "Recreate spec file in new location.\n\nSpec files contain internal relative paths, such that moving or copying a spec file will cause it to lose track of the files it refers to.  This command makes a modified copy of the spec file, changing the relative paths to refer to the new relative locations of the files."
+  }
+}

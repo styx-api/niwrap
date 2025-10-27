@@ -1,0 +1,14 @@
+{
+  "name": "cifti-roi-average",
+  "source": {
+    "type": "workbench",
+    "path": "workbench.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-cifti-roi-average"
+  ],
+  "docs": {
+    "description": "Average rows in a single cifti file.\n\nAverage the rows that are within the specified ROIs, and write the resulting average row to a text file, separated by newlines.  If -cifti-roi is specified, -left-roi, -right-roi, -cerebellum-roi, and -vol-roi must not be specified."
+  }
+}

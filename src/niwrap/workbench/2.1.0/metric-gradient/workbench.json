@@ -1,0 +1,180 @@
+{
+  "command": "-metric-gradient",
+  "short_description": "SURFACE GRADIENT OF A METRIC FILE",
+  "help_text": "At each vertex, the immediate neighbors are unfolded onto a plane tangent to the surface at the vertex (specifically, perpendicular to the normal).  The gradient is computed using a regression between the unfolded positions of the vertices and their values.  The gradient is then given by the slopes of the regression, and reconstructed as a 3D gradient vector.  By default, takes the gradient of all columns, with no presmoothing, across the whole surface, without averaging the normals of the surface among neighbors.\n\nWhen using -corrected-areas, note that it is an approximate correction.  Doing smoothing on individual surfaces before averaging/gradient is preferred, when possible, in order to make use of the original surface structure.\n\nSpecifying an ROI will restrict the gradient to only use data from where the ROI metric is positive, and output zeros anywhere the ROI metric is not positive.\n\nBy default, the first column of the roi metric is used for all input columns.  When -match-columns is specified to the -roi option, the input and roi metrics must have the same number of columns, and for each input column's index, the same column index is used in the roi metric.  If the -match-columns option to -roi is used while the -column option is also used, the number of columns of the roi metric must match the input metric, and it will use the roi column with the index of the selected input column.\n\nThe vector output metric is organized such that the X, Y, and Z components from a single input column are consecutive columns.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "surface",
+      "description": "the surface to compute the gradient on",
+      "type": "Surface File"
+    },
+    {
+      "key": 2,
+      "short_name": "metric-in",
+      "description": "the metric to compute the gradient of",
+      "type": "Metric File"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 3,
+      "short_name": "metric-out",
+      "description": "the magnitude of the gradient",
+      "type": "Metric File"
+    }
+  ],
+  "options": [
+    {
+      "key": 4,
+      "option_switch": "-presmooth",
+      "description": "smooth the metric before computing the gradient",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "kernel",
+          "description": "the size of the gaussian smoothing kernel in mm, as sigma by default",
+          "type": "Floating Point"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 2,
+          "option_switch": "-fwhm",
+          "description": "kernel size is FWHM, not sigma",
+          "params": [
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 5,
+      "option_switch": "-roi",
+      "description": "select a region of interest to take the gradient of",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "roi-metric",
+          "description": "the area to take the gradient within, as a metric",
+          "type": "Metric File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 2,
+          "option_switch": "-match-columns",
+          "description": "for each input column, use the corresponding column from the roi",
+          "params": [
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 6,
+      "option_switch": "-vectors",
+      "description": "output gradient vectors",
+      "params": [
+      ],
+      "outputs": [
+        {
+          "key": 1,
+          "short_name": "vector-metric-out",
+          "description": "the vectors as a metric file",
+          "type": "Metric File"
+        }
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 7,
+      "option_switch": "-column",
+      "description": "select a single column to compute the gradient of",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "column",
+          "description": "the column number or name",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 8,
+      "option_switch": "-corrected-areas",
+      "description": "vertex areas to use instead of computing them from the surface",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "area-metric",
+          "description": "the corrected vertex areas, as a metric",
+          "type": "Metric File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 9,
+      "option_switch": "-average-normals",
+      "description": "average the normals of each vertex with its neighbors before using them to compute the gradient",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+  ]
+}
+

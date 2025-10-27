@@ -1,0 +1,46 @@
+{
+  "command": "-surface-affine-regression",
+  "short_description": "REGRESS THE AFFINE TRANSFORM BETWEEN SURFACES ON THE SAME MESH",
+  "help_text": "Use linear regression to compute an affine that minimizes the sum of squares of the coordinate differences between the target surface and the warped source surface.  Note that this has a bias to shrink the surface that is being warped.  The output is written as a NIFTI 'world' matrix, see -convert-affine to convert it for use in other software.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "source",
+      "description": "the surface to warp",
+      "type": "Surface File"
+    },
+    {
+      "key": 2,
+      "short_name": "target",
+      "description": "the surface to match the coordinates of",
+      "type": "Surface File"
+    },
+    {
+      "key": 3,
+      "short_name": "affine-out",
+      "description": "output - the output affine file",
+      "type": "String"
+    }
+  ],
+  "outputs": [
+  ],
+  "options": [
+  ],
+  "repeatable_options": [
+  ]
+}
+

@@ -1,0 +1,46 @@
+{
+  "command": "-gifti-label-add-prefix",
+  "short_description": "ADD PREFIX TO ALL LABEL NAMES IN A GIFTI LABEL FILE",
+  "help_text": "For each label other than '???', prepend <prefix> to the label name.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "label-in",
+      "description": "the input label file",
+      "type": "Label File"
+    },
+    {
+      "key": 2,
+      "short_name": "prefix",
+      "description": "the prefix string to add",
+      "type": "String"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 3,
+      "short_name": "label-out",
+      "description": "the output label file",
+      "type": "Label File"
+    }
+  ],
+  "options": [
+  ],
+  "repeatable_options": [
+  ]
+}
+

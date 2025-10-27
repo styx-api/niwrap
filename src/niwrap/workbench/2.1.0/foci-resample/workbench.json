@@ -1,0 +1,141 @@
+{
+  "command": "-foci-resample",
+  "short_description": "PROJECT FOCI TO A DIFFERENT SURFACE",
+  "help_text": "Unprojects foci from the <current-surf> for the structure, then projects them to <new-surf>.  If the foci have meaningful distances above or below the surface, use anatomical surfaces.  If the foci should be on the surface, use registered spheres and the options -discard-distance-from-surface and -restore-xyz.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "foci-in",
+      "description": "the input foci file",
+      "type": "Foci File"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 2,
+      "short_name": "foci-out",
+      "description": "the output foci file",
+      "type": "Foci File"
+    }
+  ],
+  "options": [
+    {
+      "key": 3,
+      "option_switch": "-left-surfaces",
+      "description": "the left surfaces for resampling",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "current-surf",
+          "description": "the surface the foci are currently projected on",
+          "type": "Surface File"
+        },
+        {
+          "key": 2,
+          "short_name": "new-surf",
+          "description": "the surface to project the foci onto",
+          "type": "Surface File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 4,
+      "option_switch": "-right-surfaces",
+      "description": "the right surfaces for resampling",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "current-surf",
+          "description": "the surface the foci are currently projected on",
+          "type": "Surface File"
+        },
+        {
+          "key": 2,
+          "short_name": "new-surf",
+          "description": "the surface to project the foci onto",
+          "type": "Surface File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 5,
+      "option_switch": "-cerebellum-surfaces",
+      "description": "the cerebellum surfaces for resampling",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "current-surf",
+          "description": "the surface the foci are currently projected on",
+          "type": "Surface File"
+        },
+        {
+          "key": 2,
+          "short_name": "new-surf",
+          "description": "the surface to project the foci onto",
+          "type": "Surface File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 6,
+      "option_switch": "-discard-distance-from-surface",
+      "description": "ignore the distance the foci are above or below the current surface",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 7,
+      "option_switch": "-restore-xyz",
+      "description": "put the original xyz coordinates into the foci, rather than the coordinates obtained from unprojection",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+  ]
+}
+

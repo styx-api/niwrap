@@ -1,0 +1,353 @@
+{
+  "command": "-cifti-correlation-gradient",
+  "short_description": "CORRELATE CIFTI ROWS AND TAKE GRADIENT",
+  "help_text": "For each structure, compute the correlation of the rows in the structure, and take the gradients of the resulting rows, then average them.  Memory limit does not need to be an integer, you may also specify 0 to use as little memory as possible (this may be very slow).",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "cifti",
+      "description": "the input cifti",
+      "type": "Cifti File"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 2,
+      "short_name": "cifti-out",
+      "description": "the output cifti",
+      "type": "Cifti File"
+    }
+  ],
+  "options": [
+    {
+      "key": 3,
+      "option_switch": "-left-surface",
+      "description": "specify the left surface to use",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "surface",
+          "description": "the left surface file",
+          "type": "Surface File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 2,
+          "option_switch": "-left-corrected-areas",
+          "description": "vertex areas to use instead of computing them from the left surface",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "area-metric",
+              "description": "the corrected vertex areas, as a metric",
+              "type": "Metric File"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 4,
+      "option_switch": "-right-surface",
+      "description": "specify the right surface to use",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "surface",
+          "description": "the right surface file",
+          "type": "Surface File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 2,
+          "option_switch": "-right-corrected-areas",
+          "description": "vertex areas to use instead of computing them from the right surface",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "area-metric",
+              "description": "the corrected vertex areas, as a metric",
+              "type": "Metric File"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 5,
+      "option_switch": "-cerebellum-surface",
+      "description": "specify the cerebellum surface to use",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "surface",
+          "description": "the cerebellum surface file",
+          "type": "Surface File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 2,
+          "option_switch": "-cerebellum-corrected-areas",
+          "description": "vertex areas to use instead of computing them from the cerebellum surface",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "area-metric",
+              "description": "the corrected vertex areas, as a metric",
+              "type": "Metric File"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 6,
+      "option_switch": "-surface-presmooth",
+      "description": "smooth on the surface before computing the gradient",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "surface-kernel",
+          "description": "the size of the gaussian surface smoothing kernel in mm, as sigma by default",
+          "type": "Floating Point"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 7,
+      "option_switch": "-volume-presmooth",
+      "description": "smooth the volume before computing the gradient",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "volume-kernel",
+          "description": "the size of the gaussian volume smoothing kernel in mm, as sigma by default",
+          "type": "Floating Point"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 15,
+      "option_switch": "-presmooth-fwhm",
+      "description": "smoothing kernel sizes are FWHM, not sigma",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 8,
+      "option_switch": "-undo-fisher-z",
+      "description": "apply the inverse fisher small z transform to the input",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 12,
+      "option_switch": "-fisher-z",
+      "description": "apply the fisher small z transform to the correlations before taking the gradient",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 9,
+      "option_switch": "-surface-exclude",
+      "description": "exclude vertices near each seed vertex from computation",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "distance",
+          "description": "geodesic distance from seed vertex for the exclusion zone, in mm",
+          "type": "Floating Point"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 10,
+      "option_switch": "-volume-exclude",
+      "description": "exclude voxels near each seed voxel from computation",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "distance",
+          "description": "distance from seed voxel for the exclusion zone, in mm",
+          "type": "Floating Point"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 13,
+      "option_switch": "-covariance",
+      "description": "compute covariance instead of correlation",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 11,
+      "option_switch": "-mem-limit",
+      "description": "restrict memory usage",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "limit-GB",
+          "description": "memory limit in gigabytes",
+          "type": "Floating Point"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 14,
+      "option_switch": "-double-correlation",
+      "description": "do two correlations before taking the gradient",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 1,
+          "option_switch": "-fisher-z-first",
+          "description": "after the FIRST correlation, apply fisher small z transform (ie, artanh)",
+          "params": [
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        },
+        {
+          "key": 2,
+          "option_switch": "-no-demean-first",
+          "description": "instead of correlation for the FIRST operation, do dot product of rows, then normalize by diagonal",
+          "params": [
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        },
+        {
+          "key": 3,
+          "option_switch": "-covariance-first",
+          "description": "instead of correlation for the FIRST operation, compute covariance",
+          "params": [
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+  ]
+}
+

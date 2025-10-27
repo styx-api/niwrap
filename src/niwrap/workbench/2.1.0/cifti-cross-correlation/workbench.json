@@ -1,0 +1,97 @@
+{
+  "command": "-cifti-cross-correlation",
+  "short_description": "CORRELATE A CIFTI FILE WITH ANOTHER CIFTI FILE",
+  "help_text": "Correlates every row in <cifti-a> with every row in <cifti-b>.  The mapping along columns in <cifti-b> becomes the mapping along rows in the output.\n\nWhen using the -fisher-z option, the output is NOT a Z-score, it is artanh(r), to do further math on this output, consider using -cifti-math.\n\nRestricting the memory usage will make it calculate the output in chunks, by reading through <cifti-b> multiple times.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "cifti-a",
+      "description": "first input cifti file",
+      "type": "Cifti File"
+    },
+    {
+      "key": 2,
+      "short_name": "cifti-b",
+      "description": "second input cifti file",
+      "type": "Cifti File"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 3,
+      "short_name": "cifti-out",
+      "description": "output cifti file",
+      "type": "Cifti File"
+    }
+  ],
+  "options": [
+    {
+      "key": 4,
+      "option_switch": "-weights",
+      "description": "specify column weights",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "weight-file",
+          "description": "text file containing one weight per column",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 5,
+      "option_switch": "-fisher-z",
+      "description": "apply fisher small z transform (ie, artanh) to correlation",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 6,
+      "option_switch": "-mem-limit",
+      "description": "restrict memory usage",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "limit-GB",
+          "description": "memory limit in gigabytes",
+          "type": "Floating Point"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+  ]
+}
+

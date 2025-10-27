@@ -1,0 +1,110 @@
+{
+  "command": "-surface-average",
+  "short_description": "AVERAGE SURFACE FILES TOGETHER",
+  "help_text": "The 3D sample standard deviation is computed as 'sqrt(sum(squaredlength(xyz - mean(xyz)))/(n - 1))'.\n\nUncertainty is a legacy measure used in caret5, and is computed as 'sum(length(xyz - mean(xyz)))/n'.\n\nWhen weights are used, the 3D sample standard deviation treats them as reliability weights.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+  ],
+  "outputs": [
+    {
+      "key": 1,
+      "short_name": "surface-out",
+      "description": "the output averaged surface",
+      "type": "Surface File"
+    }
+  ],
+  "options": [
+    {
+      "key": 3,
+      "option_switch": "-stddev",
+      "description": "compute 3D sample standard deviation",
+      "params": [
+      ],
+      "outputs": [
+        {
+          "key": 1,
+          "short_name": "stddev-metric-out",
+          "description": "the output metric for 3D sample standard deviation",
+          "type": "Metric File"
+        }
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 4,
+      "option_switch": "-uncertainty",
+      "description": "compute caret5 'uncertainty'",
+      "params": [
+      ],
+      "outputs": [
+        {
+          "key": 1,
+          "short_name": "uncert-metric-out",
+          "description": "the output metric for uncertainty",
+          "type": "Metric File"
+        }
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+    {
+      "key": 2,
+      "option_switch": "-surf",
+      "description": "specify a surface to include in the average",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "surface",
+          "description": "a surface file to average",
+          "type": "Surface File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 2,
+          "option_switch": "-weight",
+          "description": "specify a weighted average",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "weight",
+              "description": "the weight to use (default 1)",
+              "type": "Floating Point"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ]
+}
+

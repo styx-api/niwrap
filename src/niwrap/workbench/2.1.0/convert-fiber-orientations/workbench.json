@@ -1,0 +1,95 @@
+{
+  "command": "-convert-fiber-orientations",
+  "short_description": "CONVERT BINGHAM PARAMETER VOLUMES TO FIBER ORIENTATION FILE",
+  "help_text": "Takes precomputed bingham parameters from volume files and converts them to the format workbench uses for display.  The <label-volume> argument must be a label volume, where the labels use these strings:\n\n\nCORTEX_LEFT\nCORTEX_RIGHT\nCEREBELLUM\nACCUMBENS_LEFT\nACCUMBENS_RIGHT\nALL_GREY_MATTER\nALL_WHITE_MATTER\nAMYGDALA_LEFT\nAMYGDALA_RIGHT\nBRAIN_STEM\nCAUDATE_LEFT\nCAUDATE_RIGHT\nCEREBELLAR_WHITE_MATTER_LEFT\nCEREBELLAR_WHITE_MATTER_RIGHT\nCEREBELLUM_LEFT\nCEREBELLUM_RIGHT\nCEREBRAL_WHITE_MATTER_LEFT\nCEREBRAL_WHITE_MATTER_RIGHT\nCORTEX\nDIENCEPHALON_VENTRAL_LEFT\nDIENCEPHALON_VENTRAL_RIGHT\nHIPPOCAMPUS_LEFT\nHIPPOCAMPUS_RIGHT\nHIPPOCAMPUS_DENTATE_LEFT\nHIPPOCAMPUS_DENTATE_RIGHT\nINVALID\nOTHER\nOTHER_GREY_MATTER\nOTHER_WHITE_MATTER\nPALLIDUM_LEFT\nPALLIDUM_RIGHT\nPUTAMEN_LEFT\nPUTAMEN_RIGHT\nTHALAMUS_LEFT\nTHALAMUS_RIGHT",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "label-volume",
+      "description": "volume of cifti structure labels",
+      "type": "Volume File"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 2,
+      "short_name": "fiber-out",
+      "description": "the output fiber orientation file",
+      "type": "Cifti File"
+    }
+  ],
+  "options": [
+  ],
+  "repeatable_options": [
+    {
+      "key": 3,
+      "option_switch": "-fiber",
+      "description": "specify the parameter volumes for a fiber",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "mean-f",
+          "description": "mean fiber strength",
+          "type": "Volume File"
+        },
+        {
+          "key": 2,
+          "short_name": "stdev-f",
+          "description": "standard deviation of fiber strength",
+          "type": "Volume File"
+        },
+        {
+          "key": 3,
+          "short_name": "theta",
+          "description": "theta angle",
+          "type": "Volume File"
+        },
+        {
+          "key": 4,
+          "short_name": "phi",
+          "description": "phi angle",
+          "type": "Volume File"
+        },
+        {
+          "key": 5,
+          "short_name": "psi",
+          "description": "psi angle",
+          "type": "Volume File"
+        },
+        {
+          "key": 6,
+          "short_name": "ka",
+          "description": "ka bingham parameter",
+          "type": "Volume File"
+        },
+        {
+          "key": 7,
+          "short_name": "kb",
+          "description": "kb bingham parameter",
+          "type": "Volume File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ]
+}
+

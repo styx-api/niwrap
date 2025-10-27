@@ -1,0 +1,64 @@
+{
+  "command": "-fiber-dot-products",
+  "short_description": "COMPUTE DOT PRODUCTS OF FIBER ORIENTATIONS WITH SURFACE NORMALS",
+  "help_text": "For each vertex, this command finds the closest fiber population that satisfies the <direction> test, and computes the absolute value of the dot product of the surface normal and the normalized mean direction of each fiber.  The <direction> test must be one of INSIDE, OUTSIDE, or ANY, which causes the command to only use fiber populations that are inside the surface, outside the surface, or to not care which direction it is from the surface.  Each fiber population is output in a separate metric column.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "white-surf",
+      "description": "the white/gray boundary surface",
+      "type": "Surface File"
+    },
+    {
+      "key": 2,
+      "short_name": "fiber-file",
+      "description": "the fiber orientation file",
+      "type": "Cifti File"
+    },
+    {
+      "key": 3,
+      "short_name": "max-dist",
+      "description": "the maximum distance from any surface vertex a fiber population may be, in mm",
+      "type": "Floating Point"
+    },
+    {
+      "key": 6,
+      "short_name": "direction",
+      "description": "test against surface for whether a fiber population should be used",
+      "type": "String"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 4,
+      "short_name": "dot-metric",
+      "description": "the metric of dot products",
+      "type": "Metric File"
+    },
+    {
+      "key": 5,
+      "short_name": "f-metric",
+      "description": "a metric of the f values of the fiber distributions",
+      "type": "Metric File"
+    }
+  ],
+  "options": [
+  ],
+  "repeatable_options": [
+  ]
+}
+

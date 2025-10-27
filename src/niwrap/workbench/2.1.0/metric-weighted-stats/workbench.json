@@ -1,0 +1,207 @@
+{
+  "command": "-metric-weighted-stats",
+  "short_description": "WEIGHTED SPATIAL STATISTICS ON A METRIC FILE",
+  "help_text": "For each column of the input, a line of text is printed, resulting from the specified operation.  You must specify exactly one of -area-surface or -weight-metric.  Use -column to only give output for a single column.  If the -roi option is used without -match-maps, then each line will contain as many numbers as there are maps in the ROI file, separated by tab characters.  Exactly one of -mean, -stdev, -percentile or -sum must be specified.\n\nUsing -sum with -area-surface (or -weight-metric with a metric containing similar data) is equivalent to integrating with respect to surface area.  For example, if you want to find the surface area within an roi, do this:\n\n$ wb_command -metric-weighted-stats roi.func.gii -sum -area-surface midthickness.surf.gii",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "metric-in",
+      "description": "the input metric",
+      "type": "Metric File"
+    }
+  ],
+  "outputs": [
+  ],
+  "options": [
+    {
+      "key": 2,
+      "option_switch": "-area-surface",
+      "description": "use vertex areas as weights",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "area-surface",
+          "description": "the surface to use for vertex areas",
+          "type": "Surface File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 3,
+      "option_switch": "-weight-metric",
+      "description": "use weights from a metric file",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "weight-metric",
+          "description": "metric file containing the weights",
+          "type": "Metric File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 4,
+      "option_switch": "-column",
+      "description": "only display output for one column",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "column",
+          "description": "the column number or name",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 5,
+      "option_switch": "-roi",
+      "description": "only consider data inside an roi",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "roi-metric",
+          "description": "the roi, as a metric file",
+          "type": "Metric File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 2,
+          "option_switch": "-match-maps",
+          "description": "each column of input uses the corresponding column from the roi file",
+          "params": [
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 6,
+      "option_switch": "-mean",
+      "description": "compute weighted mean",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 7,
+      "option_switch": "-stdev",
+      "description": "compute weighted standard deviation",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 1,
+          "option_switch": "-sample",
+          "description": "estimate population stdev from the sample",
+          "params": [
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 8,
+      "option_switch": "-percentile",
+      "description": "compute weighted percentile",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "percent",
+          "description": "the percentile to find, must be between 0 and 100",
+          "type": "Floating Point"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 9,
+      "option_switch": "-sum",
+      "description": "compute weighted sum",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 10,
+      "option_switch": "-show-map-name",
+      "description": "print map index and name before each output",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+  ]
+}
+

@@ -1,0 +1,14 @@
+{
+  "name": "volume-set-space",
+  "source": {
+    "type": "workbench",
+    "path": "workbench.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-volume-set-space"
+  ],
+  "docs": {
+    "description": "Change volume space information.\n\nWrites a copy of the volume file, with the spacing information changed as specified.  No reordering of the voxel data occurs, see -volume-reorient to change the volume indexing order and reorder the voxels to match.  Exactly one of -plumb, -sform, or -file must be specified."
+  }
+}

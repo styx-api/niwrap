@@ -1,0 +1,40 @@
+{
+  "command": "-spec-file-relocate",
+  "short_description": "RECREATE SPEC FILE IN NEW LOCATION",
+  "help_text": "Spec files contain internal relative paths, such that moving or copying a spec file will cause it to lose track of the files it refers to.  This command makes a modified copy of the spec file, changing the relative paths to refer to the new relative locations of the files.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "input-spec",
+      "description": "the spec file to use",
+      "type": "String"
+    },
+    {
+      "key": 2,
+      "short_name": "output-spec",
+      "description": "output - the new spec file to create",
+      "type": "String"
+    }
+  ],
+  "outputs": [
+  ],
+  "options": [
+  ],
+  "repeatable_options": [
+  ]
+}
+
