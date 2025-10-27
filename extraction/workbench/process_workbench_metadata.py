@@ -77,8 +77,8 @@ def create_app_json(metadata: dict[str, Any]) -> dict[str, Any]:
     return {
         "name": command_name,
         "source": {
-            "type": "mrtrix",
-            "path": "mrtrix.json"
+            "type": "workbench",
+            "path": "workbench.json"
         },
         "exe": "wb_command",
         "args": [
@@ -148,15 +148,15 @@ def main():
             app_dir = output_base / version / command_name
             app_dir.mkdir(parents=True, exist_ok=True)
             
-            # Copy the original metadata file as mrtrix.json
-            dest_metadata = app_dir / 'mrtrix.json'
+            # Copy the original metadata file as workbench.json
+            dest_metadata = app_dir / 'workbench.json'
             shutil.copy2(json_file, dest_metadata)
             
             # Try to get relative path for display, but use name if it fails
             try:
                 display_path = dest_metadata.relative_to(Path.cwd())
             except ValueError:
-                display_path = f"{version}/{command_name}/mrtrix.json"
+                display_path = f"{version}/{command_name}/workbench.json"
             print(f"Copied {json_file.name} -> {display_path}")
             
             # Create and save app.json
