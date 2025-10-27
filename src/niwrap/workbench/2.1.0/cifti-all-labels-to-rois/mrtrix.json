@@ -1,0 +1,46 @@
+{
+  "command": "-cifti-all-labels-to-rois",
+  "short_description": "MAKE ROIS FROM ALL LABELS IN A CIFTI LABEL MAP",
+  "help_text": "The output cifti file is a dscalar file with a column (map) for each label in the specified input map, other than the ??? label, each of which contains a binary ROI of all brainordinates that are set to the corresponding label.\n\nMost of the time, specifying '1' for the <map> argument will do what is desired.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "label-in",
+      "description": "the input cifti label file",
+      "type": "Cifti File"
+    },
+    {
+      "key": 2,
+      "short_name": "map",
+      "description": "the number or name of the label map to use",
+      "type": "String"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 3,
+      "short_name": "cifti-out",
+      "description": "the output cifti file",
+      "type": "Cifti File"
+    }
+  ],
+  "options": [
+  ],
+  "repeatable_options": [
+  ]
+}
+

@@ -1,0 +1,14 @@
+{
+  "name": "annotation-resample",
+  "source": {
+    "type": "mrtrix",
+    "path": "mrtrix.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-annotation-resample"
+  ],
+  "docs": {
+    "description": "Resample an annotation file to different meshes.\n\nResample an annotation file from the source mesh to the target mesh.\n\nOnly annotations in surface space are modified, no changes are made to annotations in other spaces.  The -surface-pair option may be repeated for additional structures used by surface space annotations."
+  }
+}

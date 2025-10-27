@@ -1,0 +1,14 @@
+{
+  "name": "metric-palette",
+  "source": {
+    "type": "mrtrix",
+    "path": "mrtrix.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-metric-palette"
+  ],
+  "docs": {
+    "description": "Set the palette of a metric file.\n\nThe original metric file is overwritten with the modified version.  By default, all columns of the metric file are adjusted to the new settings, use the -column option to change only one column.  Mapping settings not specified in options will be taken from the first column.  The <mode> argument must be one of the following:\n\nMODE_AUTO_SCALE\nMODE_AUTO_SCALE_ABSOLUTE_PERCENTAGE\nMODE_AUTO_SCALE_PERCENTAGE\nMODE_USER_SCALE\n\nThe <name> argument to -palette-name must be one of the following:\n\nROY-BIG-BL\nvideen_style\nGray_Interp_Positive\nGray_Interp\nPSYCH-FIXED\nRBGYR20\nRBGYR20P\nRYGBR4_positive\nRGRBR_mirror90_pos\nOrange-Yellow\nPOS_NEG_ZERO\nred-yellow\nblue-lightblue\nFSL\npower_surf\nblack-red\nblack-green\nblack-blue\nblack-red-positive\nblack-green-positive\nblack-blue-positive\nblue-black-green\nblue-black-red\nred-black-green\nfsl_red\nfsl_green\nfsl_blue\nfsl_yellow\nRedWhiteBlue\ncool-warm\nspectral\nRY-BC-BL\nmagma\nJET256\nPSYCH\nPSYCH-NO-NONE\nROY-BIG\nclear_brain\nfidl\nraich4_clrmid\nraich6_clrmid\nHSB8_clrmid\nPOS_NEG\nSpecial-RGB-Volume\n\nThe <type> argument to -thresholding must be one of the following:\n\nTHRESHOLD_TYPE_OFF\nTHRESHOLD_TYPE_NORMAL\nTHRESHOLD_TYPE_FILE\n\nThe <test> argument to -thresholding must be one of the following:\n\nTHRESHOLD_TEST_SHOW_OUTSIDE\nTHRESHOLD_TEST_SHOW_INSIDE\n\nThe <type> argument to -inversion must be one of the following:\n\nOFF\nPOSITIVE_WITH_NEGATIVE\nPOSITIVE_NEGATIVE_SEPARATE\n\nThe <type> argument to -normalization must be one of the following:\n\nNORMALIZATION_ALL_MAP_DATA\nNORMALIZATION_SELECTED_MAP_DATA"
+  }
+}

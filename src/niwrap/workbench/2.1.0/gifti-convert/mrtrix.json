@@ -1,0 +1,46 @@
+{
+  "command": "-gifti-convert",
+  "short_description": "CONVERT A GIFTI FILE TO A DIFFERENT ENCODING",
+  "help_text": "The value of <gifti-encoding> must be one of the following:\n\nASCII\nBASE64_BINARY\nGZIP_BASE64_BINARY\nEXTERNAL_FILE_BINARY",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "gifti-encoding",
+      "description": "what the output encoding should be",
+      "type": "String"
+    },
+    {
+      "key": 2,
+      "short_name": "input-gifti-file",
+      "description": "the input gifti file",
+      "type": "String"
+    },
+    {
+      "key": 3,
+      "short_name": "output-gifti-file",
+      "description": "output - the output gifti file",
+      "type": "String"
+    }
+  ],
+  "outputs": [
+  ],
+  "options": [
+  ],
+  "repeatable_options": [
+  ]
+}
+

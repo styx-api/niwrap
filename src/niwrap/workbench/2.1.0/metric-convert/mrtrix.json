@@ -1,0 +1,84 @@
+{
+  "command": "-metric-convert",
+  "short_description": "CONVERT METRIC FILE TO FAKE NIFTI",
+  "help_text": "The purpose of this command is to convert between metric files and nifti1 so that gifti-unaware programs can operate on the data.  You must specify exactly one of the options.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+  ],
+  "outputs": [
+  ],
+  "options": [
+    {
+      "key": 1,
+      "option_switch": "-to-nifti",
+      "description": "convert metric to nifti",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "metric-in",
+          "description": "the metric to convert",
+          "type": "Metric File"
+        }
+      ],
+      "outputs": [
+        {
+          "key": 2,
+          "short_name": "nifti-out",
+          "description": "the output nifti file",
+          "type": "Volume File"
+        }
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 2,
+      "option_switch": "-from-nifti",
+      "description": "convert nifti to metric",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "nifti-in",
+          "description": "the nifti file to convert",
+          "type": "Volume File"
+        },
+        {
+          "key": 2,
+          "short_name": "surface-in",
+          "description": "surface file to use number of vertices and structure from",
+          "type": "Surface File"
+        }
+      ],
+      "outputs": [
+        {
+          "key": 3,
+          "short_name": "metric-out",
+          "description": "the output metric file",
+          "type": "Metric File"
+        }
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+  ]
+}
+

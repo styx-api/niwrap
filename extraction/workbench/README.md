@@ -1,22 +1,16 @@
 # Connectome Workbench metadata extraction
 
-```bash
-cd source/workbench
-cmake
-cd build
+```sh
+# Build the image
+docker build -f workbench-dump.Dockerfile -t workbench-metadata .
 
-# Build only the wb_command executable, this skips building the GUI
-make -j16 wb_command
+# Extract all metadata files to your host
+docker run --rm -v $(pwd)/metadata:/output workbench-metadata \
+    bash -c "cp -r /app/metadata/* /output/"
 
-# Copy the dump script and the list of commands to the build directory
-cp ../../dump.sh .
-cp ../../out_commands.txt .
+# OR on Windows host: 
+# docker run --rm -v %cd%/metadata:/output workbench-metadata bash -c "cp -r /app/metadata/* /output/"
 
-# Run the dump script
-./dump.sh
-
-cd ../..
-
-# Generate the Boutiques descriptors
-python generate_descriptors.py
+# Copy metadata in the correct structure to ../../src/niwrap/workbench and app.json and version.json
+python process_workbench_metadata.py
 ```

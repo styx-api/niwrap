@@ -1,0 +1,40 @@
+{
+  "command": "-volume-components-to-frames",
+  "short_description": "CONVERT RGB/COMPLEX VOLUME TO FRAMES",
+  "help_text": "RGB and complex datatypes are not always well supported, this command allows separating them into standard subvolumes for better support.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "input",
+      "description": "the RGB/complex-type volume",
+      "type": "Volume File"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 2,
+      "short_name": "output",
+      "description": "the input volume converted to multiple frames of scalar type",
+      "type": "Volume File"
+    }
+  ],
+  "options": [
+  ],
+  "repeatable_options": [
+  ]
+}
+

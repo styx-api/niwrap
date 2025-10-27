@@ -1,0 +1,172 @@
+{
+  "command": "-cifti-false-correlation",
+  "short_description": "COMPARE CORRELATION LOCALLY AND ACROSS/THROUGH SULCI/GYRI",
+  "help_text": "For each vertex, compute the average correlation within a range of geodesic distances that don't cross a sulcus/gyrus, and the correlation to the closest vertex crossing a sulcus/gyrus.  A vertex is considered to cross a sulcus/gyrus if the 3D distance is less than a third of the geodesic distance.  The output file contains the ratio between these correlations, and some additional maps to help explain the ratio.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "cifti-in",
+      "description": "the cifti file to use for correlation",
+      "type": "Cifti File"
+    },
+    {
+      "key": 2,
+      "short_name": "3D-dist",
+      "description": "maximum 3D distance to check around each vertex",
+      "type": "Floating Point"
+    },
+    {
+      "key": 3,
+      "short_name": "geo-outer",
+      "description": "maximum geodesic distance to use for neighboring correlation",
+      "type": "Floating Point"
+    },
+    {
+      "key": 4,
+      "short_name": "geo-inner",
+      "description": "minimum geodesic distance to use for neighboring correlation",
+      "type": "Floating Point"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 5,
+      "short_name": "cifti-out",
+      "description": "the output cifti dscalar file",
+      "type": "Cifti File"
+    }
+  ],
+  "options": [
+    {
+      "key": 6,
+      "option_switch": "-left-surface",
+      "description": "specify the left surface to use",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "surface",
+          "description": "the left surface file",
+          "type": "Surface File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 2,
+          "option_switch": "-dump-text",
+          "description": "dump the raw measures used to a text file",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "text-out",
+              "description": "the output text file",
+              "type": "String"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 7,
+      "option_switch": "-right-surface",
+      "description": "specify the right surface to use",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "surface",
+          "description": "the right surface file",
+          "type": "Surface File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 2,
+          "option_switch": "-dump-text",
+          "description": "dump the raw measures used to a text file",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "text-out",
+              "description": "the output text file",
+              "type": "String"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 8,
+      "option_switch": "-cerebellum-surface",
+      "description": "specify the cerebellum surface to use",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "surface",
+          "description": "the cerebellum surface file",
+          "type": "Surface File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 2,
+          "option_switch": "-dump-text",
+          "description": "dump the raw measures used to a text file",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "text-out",
+              "description": "the output text file",
+              "type": "String"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+  ]
+}
+

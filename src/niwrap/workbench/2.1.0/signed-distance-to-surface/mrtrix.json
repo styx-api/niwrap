@@ -1,0 +1,65 @@
+{
+  "command": "-signed-distance-to-surface",
+  "short_description": "COMPUTE SIGNED DISTANCE FROM ONE SURFACE TO ANOTHER",
+  "help_text": "Compute the signed distance function of the reference surface at every vertex on the comparison surface.  NOTE: this relation is NOT symmetric, the line from a vertex to the closest point on the 'ref' surface (the one that defines the signed distance function) will only align with the normal of the 'ref' surface.  Valid specifiers for winding methods are as follows:\n\nEVEN_ODD (default)\nNEGATIVE\nNONZERO\nNORMALS\n\nThe NORMALS method uses the normals of triangles and edges, or the closest triangle hit by a ray from the point.  This method may be slightly faster, but is only reliable for a closed surface that does not cross through itself.  All other methods count entry (positive) and exit (negative) crossings of a vertical ray from the point, then counts as inside if the total is odd, negative, or nonzero, respectively.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "surface-comp",
+      "description": "the comparison surface to measure the signed distance on",
+      "type": "Surface File"
+    },
+    {
+      "key": 2,
+      "short_name": "surface-ref",
+      "description": "the reference surface that defines the signed distance function",
+      "type": "Surface File"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 3,
+      "short_name": "metric",
+      "description": "the output metric",
+      "type": "Metric File"
+    }
+  ],
+  "options": [
+    {
+      "key": 4,
+      "option_switch": "-winding",
+      "description": "winding method for point inside surface test",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "method",
+          "description": "name of the method (default EVEN_ODD)",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+  ]
+}
+

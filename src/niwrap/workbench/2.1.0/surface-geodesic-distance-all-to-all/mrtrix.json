@@ -1,0 +1,110 @@
+{
+  "command": "-surface-geodesic-distance-all-to-all",
+  "short_description": "COMPUTE GEODESIC DISTANCES FROM ALL VERTICES",
+  "help_text": "Computes geodesic distance from every vertex to every vertex, outputting a single-hemisphere dconn file.  If you are only interested in a few vertices, see -surface-geodesic-distance.  When -limit is specified, any vertex beyond the limit is assigned the value -1.\n\nThe -roi option makes the output file smaller by not outputting distances to or from vertices outside the ROI, but paths are still allowed to go outside the ROI when finding distances to other vertices.\n\nThe -corrected-areas option should be used when the input is a group average surface - group average surfaces have significantly less surface area than individual surfaces do, and therefore distances measured on them would be smaller than measuring them on individual surfaces.  In this case, the input to this option should be a group average of the output of -surface-vertex-areas for each subject.\n\nIf -naive is not specified, the algorithm uses not just immediate neighbors, but also neighbors derived from crawling across pairs of triangles that share an edge.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "surface",
+      "description": "the surface to compute on",
+      "type": "Surface File"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 2,
+      "short_name": "cifti-out",
+      "description": "single-hemisphere dconn containing the distances",
+      "type": "Cifti File"
+    }
+  ],
+  "options": [
+    {
+      "key": 3,
+      "option_switch": "-roi",
+      "description": "only output distances for vertices inside an ROI",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "roi-metric",
+          "description": "the ROI as a metric file",
+          "type": "Metric File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 4,
+      "option_switch": "-limit",
+      "description": "stop at a specified distance",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "limit-mm",
+          "description": "distance in mm to stop at",
+          "type": "Floating Point"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 5,
+      "option_switch": "-corrected-areas",
+      "description": "vertex areas to use to correct the distances on a group-average surface",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "area-metric",
+          "description": "the corrected vertex areas, as a metric",
+          "type": "Metric File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 6,
+      "option_switch": "-naive",
+      "description": "use only neighbors, don't crawl triangles (not recommended)",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+  ]
+}
+

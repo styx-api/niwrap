@@ -1,0 +1,14 @@
+{
+  "name": "volume-distortion",
+  "source": {
+    "type": "mrtrix",
+    "path": "mrtrix.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-volume-distortion"
+  ],
+  "docs": {
+    "description": "Calculate volume warpfield distortion.\n\nCalculates isotropic and anisotropic distortions in the volume warpfield.  At each voxel, the gradient of the absolute warpfield is computed to obtain the local affine transforms for each voxel (jacobian matrices), and strain tensors are derived from them.  The isotropic component (volumetric expansion ratio) is the product of the three principal strains.  The default measure ('elongation') for the anisotropic component is the largest principal strain divided by the smallest.\n\nThe -circular option instead calculates the anisotropic component by transforming the principal strains into log space, considering them as x-values of points on a circle 120 degrees apart, finds the circle's diameter, and transforms that back to a ratio."
+  }
+}

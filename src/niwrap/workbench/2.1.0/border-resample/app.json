@@ -1,0 +1,14 @@
+{
+  "name": "border-resample",
+  "source": {
+    "type": "mrtrix",
+    "path": "mrtrix.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-border-resample"
+  ],
+  "docs": {
+    "description": "Resample a border file to a different mesh.\n\nResamples a border file, given two spherical surfaces that are in register.  Only borders that have the same structure as current-sphere will be resampled."
+  }
+}

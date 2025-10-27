@@ -1,0 +1,14 @@
+{
+  "name": "metric-estimate-fwhm",
+  "source": {
+    "type": "mrtrix",
+    "path": "mrtrix.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-metric-estimate-fwhm"
+  ],
+  "docs": {
+    "description": "Estimate fwhm smoothness of a metric file.\n\nEstimates the smoothness of the metric columns, printing the estimates to standard output.  These estimates ignore variation in vertex spacing."
+  }
+}

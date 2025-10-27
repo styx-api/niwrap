@@ -1,0 +1,14 @@
+{
+  "name": "zip-spec-file",
+  "source": {
+    "type": "mrtrix",
+    "path": "mrtrix.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-zip-spec-file"
+  ],
+  "docs": {
+    "description": "Zip a spec file and its data files.\n\nIf zip-file already exists, it will be overwritten.  If -base-dir is not specified, the directory containing the spec file is used for the base directory.  The spec file must contain only relative paths, and no data files may be outside the base directory.  Scene files inside spec files are not checked for what files they reference, ensure that all data files referenced by the scene files are also referenced by the spec file."
+  }
+}

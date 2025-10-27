@@ -1,0 +1,104 @@
+{
+  "command": "-cifti-vector-operation",
+  "short_description": "DO A VECTOR OPERATION ON CIFTI FILES",
+  "help_text": "Does a vector operation on two cifti files (that must have a multiple of 3 columns).  Either of the inputs may have multiple vectors (more than 3 columns), but not both (at least one must have exactly 3 columns).  The -magnitude and -normalize-output options may not be specified together, or with an operation that returns a scalar (dot product).  The <operation> parameter must be one of the following:\n\nDOT\nCROSS\nADD\nSUBTRACT",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "vectors-a",
+      "description": "first vector input file",
+      "type": "Cifti File"
+    },
+    {
+      "key": 2,
+      "short_name": "vectors-b",
+      "description": "second vector input file",
+      "type": "Cifti File"
+    },
+    {
+      "key": 3,
+      "short_name": "operation",
+      "description": "what vector operation to do",
+      "type": "String"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 4,
+      "short_name": "cifti-out",
+      "description": "the output file",
+      "type": "Cifti File"
+    }
+  ],
+  "options": [
+    {
+      "key": 5,
+      "option_switch": "-normalize-a",
+      "description": "normalize vectors of first input",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 6,
+      "option_switch": "-normalize-b",
+      "description": "normalize vectors of second input",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 7,
+      "option_switch": "-normalize-output",
+      "description": "normalize output vectors (not valid for dot product)",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 8,
+      "option_switch": "-magnitude",
+      "description": "output the magnitude of the result (not valid for dot product)",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+  ]
+}
+

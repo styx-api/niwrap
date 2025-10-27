@@ -1,0 +1,14 @@
+{
+  "name": "gifti-convert",
+  "source": {
+    "type": "mrtrix",
+    "path": "mrtrix.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-gifti-convert"
+  ],
+  "docs": {
+    "description": "Convert a gifti file to a different encoding.\n\nThe value of <gifti-encoding> must be one of the following:\n\nASCII\nBASE64_BINARY\nGZIP_BASE64_BINARY\nEXTERNAL_FILE_BINARY"
+  }
+}

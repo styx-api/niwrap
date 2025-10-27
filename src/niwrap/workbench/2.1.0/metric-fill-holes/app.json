@@ -1,0 +1,14 @@
+{
+  "name": "metric-fill-holes",
+  "source": {
+    "type": "mrtrix",
+    "path": "mrtrix.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-metric-fill-holes"
+  ],
+  "docs": {
+    "description": "Fill holes in an roi metric.\n\nFinds all connected areas that are not included in the ROI, and writes ones into all but the largest one, in terms of surface area."
+  }
+}

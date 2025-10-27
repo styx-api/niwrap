@@ -1,0 +1,14 @@
+{
+  "name": "cifti-resample-dconn-memory",
+  "source": {
+    "type": "mrtrix",
+    "path": "mrtrix.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-cifti-resample-dconn-memory"
+  ],
+  "docs": {
+    "description": "Use lots of memory to resample dconn.\n\nThis command does the same thing as running -cifti-resample twice, but uses memory up to approximately 2x the size that the intermediate file would be.  This is because the intermediate dconn is kept in memory, rather than written to disk, and the components before and after resampling/dilation have to be in memory at the same time during the relevant computation.  The <template-direction> argument should usually be COLUMN, as dtseries, dscalar, and dlabel all have brainordinates on that direction.  If spheres are not specified for a surface structure which exists in the cifti files, its data is copied without resampling or dilation.  Dilation is done with the 'nearest' method, and is done on <new-sphere> for surface data.  Volume components are padded before dilation so that dilation doesn't run into the edge of the component bounding box.\n\nTo get the v1.3.2 and earlier behavior of weighted dilation, specify exponent of 2 for surface and volume, and -legacy-cutoff for both surface and volume.\n\nThe <volume-method> argument must be one of the following:\n\nCUBIC\nENCLOSING_VOXEL\nTRILINEAR\n\nThe <surface-method> argument must be one of the following:\n\nADAP_BARY_AREA\nBARYCENTRIC"
+  }
+}

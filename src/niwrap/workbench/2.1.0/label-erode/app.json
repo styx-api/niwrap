@@ -1,0 +1,14 @@
+{
+  "name": "label-erode",
+  "source": {
+    "type": "mrtrix",
+    "path": "mrtrix.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-label-erode"
+  ],
+  "docs": {
+    "description": "Erode a label file.\n\nAround each vertex that is unlabeled, set surrounding vertices to unlabeled.  The surrounding vertices are all immediate neighbors and all vertices within the specified distance.\n\nNote that the -corrected-areas option uses an approximate correction for distance along the surface."
+  }
+}

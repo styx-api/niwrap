@@ -1,0 +1,14 @@
+{
+  "name": "cifti-parcel-mapping-to-label",
+  "source": {
+    "type": "mrtrix",
+    "path": "mrtrix.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-cifti-parcel-mapping-to-label"
+  ],
+  "docs": {
+    "description": "Create dlabel from parcellated file.\n\nThis command will output a dlabel file, useful for doing the same parcellation to another dense file.\n\nFor ptseries, pscalar, plabel, pconn, and pdconn, using COLUMN for <direction> will work."
+  }
+}

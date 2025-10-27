@@ -1,0 +1,85 @@
+{
+  "command": "-volume-distortion",
+  "short_description": "CALCULATE VOLUME WARPFIELD DISTORTION",
+  "help_text": "Calculates isotropic and anisotropic distortions in the volume warpfield.  At each voxel, the gradient of the absolute warpfield is computed to obtain the local affine transforms for each voxel (jacobian matrices), and strain tensors are derived from them.  The isotropic component (volumetric expansion ratio) is the product of the three principal strains.  The default measure ('elongation') for the anisotropic component is the largest principal strain divided by the smallest.\n\nThe -circular option instead calculates the anisotropic component by transforming the principal strains into log space, considering them as x-values of points on a circle 120 degrees apart, finds the circle's diameter, and transforms that back to a ratio.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "warpfield",
+      "description": "the warpfield to compute the distortion of",
+      "type": "String"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 2,
+      "short_name": "volume-out",
+      "description": "the output distortion measures",
+      "type": "Volume File"
+    }
+  ],
+  "options": [
+    {
+      "key": 3,
+      "option_switch": "-fnirt",
+      "description": "MUST be used if using a fnirt warpfield",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "source-volume",
+          "description": "the source volume used when generating the warpfield",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 4,
+      "option_switch": "-circular",
+      "description": "use the circle-based formula for the anisotropic measure",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 5,
+      "option_switch": "-log2",
+      "description": "apply base-2 log transform",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+  ]
+}
+

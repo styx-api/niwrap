@@ -1,0 +1,14 @@
+{
+  "name": "metric-regression",
+  "source": {
+    "type": "mrtrix",
+    "path": "mrtrix.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-metric-regression"
+  ],
+  "docs": {
+    "description": "Regress spatial map out of a metric file.\n\nFor each regressor, its mean across the surface is subtracted from its data.  Each input map is then regressed against these, and a constant term.  The resulting regressed slopes of all regressors specified with -remove are multiplied with their respective regressor maps, and these are subtracted from the input map."
+  }
+}

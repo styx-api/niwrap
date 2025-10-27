@@ -1,0 +1,230 @@
+{
+  "command": "-cifti-dilate",
+  "short_description": "DILATE A CIFTI FILE",
+  "help_text": "For all data values designated as bad, if they neighbor a good value or are within the specified distance of a good value in the same kind of model, replace the value with a distance weighted average of nearby good values, otherwise set the value to zero.  If -nearest is specified, it will use the value from the closest good value within range instead of a weighted average.  When the input file contains label data, nearest dilation is used on the surface, and weighted popularity is used in the volume.\n\nThe -*-corrected-areas options are intended for dilating on group average surfaces, but it is only an approximate correction for the reduction of structure in a group average surface.\n\nIf -bad-brainordinate-roi is specified, all values, including those with value zero, are good, except for locations with a positive value in the ROI.  If it is not specified, only values equal to zero are bad.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "cifti-in",
+      "description": "the input cifti file",
+      "type": "Cifti File"
+    },
+    {
+      "key": 2,
+      "short_name": "direction",
+      "description": "which dimension to dilate along, ROW or COLUMN",
+      "type": "String"
+    },
+    {
+      "key": 3,
+      "short_name": "surface-distance",
+      "description": "the distance to dilate on surfaces, in mm",
+      "type": "Floating Point"
+    },
+    {
+      "key": 4,
+      "short_name": "volume-distance",
+      "description": "the distance to dilate in the volume, in mm",
+      "type": "Floating Point"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 5,
+      "short_name": "cifti-out",
+      "description": "the output cifti file",
+      "type": "Cifti File"
+    }
+  ],
+  "options": [
+    {
+      "key": 6,
+      "option_switch": "-left-surface",
+      "description": "specify the left surface to use",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "surface",
+          "description": "the left surface file",
+          "type": "Surface File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 2,
+          "option_switch": "-left-corrected-areas",
+          "description": "vertex areas to use instead of computing them from the left surface",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "area-metric",
+              "description": "the corrected vertex areas, as a metric",
+              "type": "Metric File"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 7,
+      "option_switch": "-right-surface",
+      "description": "specify the right surface to use",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "surface",
+          "description": "the right surface file",
+          "type": "Surface File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 2,
+          "option_switch": "-right-corrected-areas",
+          "description": "vertex areas to use instead of computing them from the right surface",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "area-metric",
+              "description": "the corrected vertex areas, as a metric",
+              "type": "Metric File"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 8,
+      "option_switch": "-cerebellum-surface",
+      "description": "specify the cerebellum surface to use",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "surface",
+          "description": "the cerebellum surface file",
+          "type": "Surface File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 2,
+          "option_switch": "-cerebellum-corrected-areas",
+          "description": "vertex areas to use instead of computing them from the cerebellum surface",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "area-metric",
+              "description": "the corrected vertex areas, as a metric",
+              "type": "Metric File"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 9,
+      "option_switch": "-bad-brainordinate-roi",
+      "description": "specify an roi of brainordinates to overwrite, rather than zeros",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "roi-cifti",
+          "description": "cifti dscalar or dtseries file, positive values denote brainordinates to have their values replaced",
+          "type": "Cifti File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 10,
+      "option_switch": "-nearest",
+      "description": "use nearest good value instead of a weighted average",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 11,
+      "option_switch": "-merged-volume",
+      "description": "treat volume components as if they were a single component",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 12,
+      "option_switch": "-legacy-mode",
+      "description": "use the math from v1.3.2 and earlier for weighted dilation",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+  ]
+}
+

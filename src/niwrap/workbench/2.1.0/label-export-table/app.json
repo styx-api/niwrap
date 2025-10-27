@@ -1,0 +1,14 @@
+{
+  "name": "label-export-table",
+  "source": {
+    "type": "mrtrix",
+    "path": "mrtrix.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-label-export-table"
+  ],
+  "docs": {
+    "description": "Export label table from gifti as text.\n\nTakes the label table from the gifti label file, and writes it to a text format matching what is expected by -metric-label-import."
+  }
+}

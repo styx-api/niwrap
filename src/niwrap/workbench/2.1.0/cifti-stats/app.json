@@ -1,0 +1,14 @@
+{
+  "name": "cifti-stats",
+  "source": {
+    "type": "mrtrix",
+    "path": "mrtrix.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-cifti-stats"
+  ],
+  "docs": {
+    "description": "Statistics along cifti columns.\n\nFor each column of the input, a line of text is printed, resulting from the specified reduction or percentile operation.  If -roi is specified without -match-maps, then each line will contain as many numbers as there are maps in the ROI file, separated by tab characters.  Use -column to only give output for a single data column.  Exactly one of -reduce or -percentile must be specified.\n\nThe argument to the -reduce option must be one of the following:\n\nMAX: the maximum value\nMIN: the minimum value\nINDEXMAX: the 1-based index of the maximum value\nINDEXMIN: the 1-based index of the minimum value\nSUM: add all values\nPRODUCT: multiply all values\nMEAN: the mean of the data\nSTDEV: the standard deviation (N denominator)\nSAMPSTDEV: the sample standard deviation (N-1 denominator)\nVARIANCE: the variance of the data\nTSNR: mean divided by sample standard deviation (N-1 denominator)\nCOV: sample standard deviation (N-1 denominator) divided by mean\nL2NORM: square root of sum of squares\nMEDIAN: the median of the data\nMODE: the mode of the data\nCOUNT_NONZERO: the number of nonzero elements in the data"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "command": "-surface-modify-sphere",
+  "short_description": "CHANGE RADIUS AND OPTIONALLY RECENTER A SPHERE",
+  "help_text": "This command may be useful if you have used -surface-resample to resample a sphere, which can suffer from problems generally not present in -surface-sphere-project-unproject.  If the sphere should already be centered around the origin, using -recenter may still shift it slightly before changing the radius, which is likely to be undesireable.\n\nIf <sphere-in> is not close to spherical, or not centered around the origin and -recenter is not used, a warning is printed.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "sphere-in",
+      "description": "the sphere to modify",
+      "type": "Surface File"
+    },
+    {
+      "key": 2,
+      "short_name": "radius",
+      "description": "the radius the output sphere should have",
+      "type": "Floating Point"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 3,
+      "short_name": "sphere-out",
+      "description": "the output sphere",
+      "type": "Surface File"
+    }
+  ],
+  "options": [
+    {
+      "key": 4,
+      "option_switch": "-recenter",
+      "description": "recenter the sphere by means of the bounding box",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+  ]
+}
+

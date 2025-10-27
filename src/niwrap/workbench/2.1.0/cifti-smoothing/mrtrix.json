@@ -1,0 +1,287 @@
+{
+  "command": "-cifti-smoothing",
+  "short_description": "SMOOTH A CIFTI FILE",
+  "help_text": "The input cifti file must have a brain models mapping on the chosen dimension, columns for .dtseries, and either for .dconn.  By default, data in different structures is smoothed independently (i.e., \"parcel constrained\" smoothing), so volume structures that touch do not smooth across this boundary.  Specify -merged-volume to ignore these boundaries.  Surface smoothing uses the GEO_GAUSS_AREA smoothing method.\n\nThe -*-corrected-areas options are intended for when it is unavoidable to smooth on group average surfaces, it is only an approximate correction for the reduction of structure in a group average surface.  It is better to smooth the data on individuals before averaging, when feasible.\n\nThe -fix-zeros-* options will treat values of zero as lack of data, and not use that value when generating the smoothed values, but will fill zeros with extrapolated values.  The ROI should have a brain models mapping along columns, exactly matching the mapping of the chosen direction in the input file.  Data outside the ROI is ignored.\n\nThe <structure> argument of -surface must be one of the following strings:\n\nCORTEX_LEFT\nCORTEX_RIGHT\nCEREBELLUM\nACCUMBENS_LEFT\nACCUMBENS_RIGHT\nALL_GREY_MATTER\nALL_WHITE_MATTER\nAMYGDALA_LEFT\nAMYGDALA_RIGHT\nBRAIN_STEM\nCAUDATE_LEFT\nCAUDATE_RIGHT\nCEREBELLAR_WHITE_MATTER_LEFT\nCEREBELLAR_WHITE_MATTER_RIGHT\nCEREBELLUM_LEFT\nCEREBELLUM_RIGHT\nCEREBRAL_WHITE_MATTER_LEFT\nCEREBRAL_WHITE_MATTER_RIGHT\nCORTEX\nDIENCEPHALON_VENTRAL_LEFT\nDIENCEPHALON_VENTRAL_RIGHT\nHIPPOCAMPUS_LEFT\nHIPPOCAMPUS_RIGHT\nHIPPOCAMPUS_DENTATE_LEFT\nHIPPOCAMPUS_DENTATE_RIGHT\nINVALID\nOTHER\nOTHER_GREY_MATTER\nOTHER_WHITE_MATTER\nPALLIDUM_LEFT\nPALLIDUM_RIGHT\nPUTAMEN_LEFT\nPUTAMEN_RIGHT\nTHALAMUS_LEFT\nTHALAMUS_RIGHT",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "cifti",
+      "description": "the input cifti",
+      "type": "Cifti File"
+    },
+    {
+      "key": 2,
+      "short_name": "surface-kernel",
+      "description": "the size of the gaussian surface smoothing kernel in mm, as sigma by default",
+      "type": "Floating Point"
+    },
+    {
+      "key": 3,
+      "short_name": "volume-kernel",
+      "description": "the size of the gaussian volume smoothing kernel in mm, as sigma by default",
+      "type": "Floating Point"
+    },
+    {
+      "key": 4,
+      "short_name": "direction",
+      "description": "which dimension to smooth along, ROW or COLUMN",
+      "type": "String"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 5,
+      "short_name": "cifti-out",
+      "description": "the output cifti",
+      "type": "Cifti File"
+    }
+  ],
+  "options": [
+    {
+      "key": 13,
+      "option_switch": "-fwhm",
+      "description": "kernel sizes are FWHM, not sigma",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 6,
+      "option_switch": "-left-surface",
+      "description": "specify the left cortical surface to use",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "surface",
+          "description": "the left surface file",
+          "type": "Surface File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 2,
+          "option_switch": "-left-corrected-areas",
+          "description": "vertex areas to use instead of computing them from the left surface",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "area-metric",
+              "description": "the corrected vertex areas, as a metric",
+              "type": "Metric File"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 7,
+      "option_switch": "-right-surface",
+      "description": "specify the right cortical surface to use",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "surface",
+          "description": "the right surface file",
+          "type": "Surface File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 2,
+          "option_switch": "-right-corrected-areas",
+          "description": "vertex areas to use instead of computing them from the right surface",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "area-metric",
+              "description": "the corrected vertex areas, as a metric",
+              "type": "Metric File"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 8,
+      "option_switch": "-cerebellum-surface",
+      "description": "specify the cerebellum surface to use",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "surface",
+          "description": "the cerebellum surface file",
+          "type": "Surface File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 2,
+          "option_switch": "-cerebellum-corrected-areas",
+          "description": "vertex areas to use instead of computing them from the cerebellum surface",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "area-metric",
+              "description": "the corrected vertex areas, as a metric",
+              "type": "Metric File"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 9,
+      "option_switch": "-cifti-roi",
+      "description": "smooth only within regions of interest",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "roi-cifti",
+          "description": "the regions to smooth within, as a cifti file",
+          "type": "Cifti File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 10,
+      "option_switch": "-fix-zeros-volume",
+      "description": "treat values of zero in the volume as missing data",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 11,
+      "option_switch": "-fix-zeros-surface",
+      "description": "treat values of zero on the surface as missing data",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 12,
+      "option_switch": "-merged-volume",
+      "description": "smooth across subcortical structure boundaries",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+    {
+      "key": 13,
+      "option_switch": "-surface",
+      "description": "specify a surface by structure name",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "structure",
+          "description": "the surface structure name",
+          "type": "String"
+        },
+        {
+          "key": 2,
+          "short_name": "surface",
+          "description": "the surface file",
+          "type": "Surface File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 3,
+          "option_switch": "-corrected-areas",
+          "description": "vertex areas to use instead of computing them from the surface",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "area-metric",
+              "description": "the corrected vertex areas, as a metric",
+              "type": "Metric File"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ]
+}
+

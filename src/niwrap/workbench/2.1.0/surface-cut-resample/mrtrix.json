@@ -1,0 +1,52 @@
+{
+  "command": "-surface-cut-resample",
+  "short_description": "RESAMPLE A CUT SURFACE",
+  "help_text": "Resamples a surface file, given two spherical surfaces that are in register.  Barycentric resampling is used, because it is usually better for resampling surfaces, and because it is needed to figure out the new topology anyway.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "surface-in",
+      "description": "the surface file to resample",
+      "type": "Surface File"
+    },
+    {
+      "key": 2,
+      "short_name": "current-sphere",
+      "description": "a sphere surface with the mesh that the input surface is currently on",
+      "type": "Surface File"
+    },
+    {
+      "key": 3,
+      "short_name": "new-sphere",
+      "description": "a sphere surface that is in register with <current-sphere> and has the desired output mesh",
+      "type": "Surface File"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 4,
+      "short_name": "surface-out",
+      "description": "the output surface file",
+      "type": "Surface File"
+    }
+  ],
+  "options": [
+  ],
+  "repeatable_options": [
+  ]
+}
+

@@ -1,0 +1,14 @@
+{
+  "name": "cifti-export-dense-mapping",
+  "source": {
+    "type": "mrtrix",
+    "path": "mrtrix.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-cifti-export-dense-mapping"
+  ],
+  "docs": {
+    "description": "Write index to element mapping as text.\n\nThis command produces text files that describe the mapping from cifti indices to surface vertices or voxels.  All indices are zero-based.  The default format for -surface is lines of the form:\n\n<cifti-index> <vertex>\n\nThe default format for -volume and -volume-all is lines of the form:\n\n<cifti-index> <i> <j> <k>\n\nFor each <structure> argument, use one of the following strings:\n\nCORTEX_LEFT\nCORTEX_RIGHT\nCEREBELLUM\nACCUMBENS_LEFT\nACCUMBENS_RIGHT\nALL_GREY_MATTER\nALL_WHITE_MATTER\nAMYGDALA_LEFT\nAMYGDALA_RIGHT\nBRAIN_STEM\nCAUDATE_LEFT\nCAUDATE_RIGHT\nCEREBELLAR_WHITE_MATTER_LEFT\nCEREBELLAR_WHITE_MATTER_RIGHT\nCEREBELLUM_LEFT\nCEREBELLUM_RIGHT\nCEREBRAL_WHITE_MATTER_LEFT\nCEREBRAL_WHITE_MATTER_RIGHT\nCORTEX\nDIENCEPHALON_VENTRAL_LEFT\nDIENCEPHALON_VENTRAL_RIGHT\nHIPPOCAMPUS_LEFT\nHIPPOCAMPUS_RIGHT\nHIPPOCAMPUS_DENTATE_LEFT\nHIPPOCAMPUS_DENTATE_RIGHT\nINVALID\nOTHER\nOTHER_GREY_MATTER\nOTHER_WHITE_MATTER\nPALLIDUM_LEFT\nPALLIDUM_RIGHT\nPUTAMEN_LEFT\nPUTAMEN_RIGHT\nTHALAMUS_LEFT\nTHALAMUS_RIGHT"
+  }
+}

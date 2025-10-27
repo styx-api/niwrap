@@ -1,0 +1,14 @@
+{
+  "name": "volume-remove-islands",
+  "source": {
+    "type": "mrtrix",
+    "path": "mrtrix.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-volume-remove-islands"
+  ],
+  "docs": {
+    "description": "Remove islands from an roi volume.\n\nFinds all face-connected parts of the ROI, and zeros out all but the largest one."
+  }
+}

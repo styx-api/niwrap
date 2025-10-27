@@ -1,0 +1,46 @@
+{
+  "command": "-surface-match",
+  "short_description": "SURFACE MATCH",
+  "help_text": "The Input Surface File will be transformed so that its coordinate ranges (bounding box) match that of the Match Surface File",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "Match Surface File",
+      "description": "Match (Reference) Surface",
+      "type": "Surface File"
+    },
+    {
+      "key": 2,
+      "short_name": "Input Surface File",
+      "description": "File containing surface that will be transformed",
+      "type": "Surface File"
+    },
+    {
+      "key": 3,
+      "short_name": "Output Surface Name",
+      "description": "Surface File after transformation",
+      "type": "String"
+    }
+  ],
+  "outputs": [
+  ],
+  "options": [
+  ],
+  "repeatable_options": [
+  ]
+}
+
