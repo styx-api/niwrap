@@ -1,11 +1,10 @@
-import json
-import os
 from shutil import rmtree
 import time
 
 import pathlib as pl
 
 import styx.backend
+from wrap.apps.build.loaders import load_source
 from wrap.apps.sync import build_package_overview_table
 from wrap.catalog import DocsType, PackageType, ProjectType, VersionType
 from wrap.catalog_niwrap import (
@@ -16,7 +15,6 @@ from wrap.catalog_niwrap import (
 )
 
 from styx.backend import compile_language
-from styx.frontend.boutiques import from_boutiques
 from styx.ir import core as ir
 from styx.ir.optimize import optimize
 
@@ -50,7 +48,6 @@ def to_ir_docs(docs: DocsType | None) -> ir.Documentation:
 
 
 def to_ir_package(pkg: PackageType, version: VersionType) -> ir.Package:
-    assert version.get("container")
     return ir.Package(
         name=pkg["name"],
         version=version["name"],  # ! watch out when we add versions
@@ -90,13 +87,9 @@ def build_target_stream():
             for app in iter_apps_niwrap(pkg["name"], pkg["default"]):
                 if not (source := app.get("source")):
                     continue  # todo print/count/something?
-                assert source["type"] == "boutiques"
-
+                app_path = pl.Path(app["__path__"])
                 try:
-                    with (pl.Path(app["__path__"]).parent / source["path"]).open(
-                        encoding="utf-8"
-                    ) as f:
-                        yield from_boutiques(json.load(f))
+                    yield optimize(load_source(source, app_path))
                 except Exception as e:
                     error_msg = f"{app['__path__']}: {str(e)}"
                     errors.append(error_msg)
