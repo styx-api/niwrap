@@ -1,0 +1,104 @@
+{
+  "command": "-scene-file-merge",
+  "short_description": "REARRANGE SCENES INTO A NEW FILE",
+  "help_text": "Takes one or more scene files and constructs a new scene file by concatenating specified scenes from them.\n\nExample: wb_command -scene-file-merge out.scene -scene-file first.scene -scene 1 -scene-file second.scene\n\nThis example would take the first scene from first.scene, followed by all scenes from second.scene, and write these scenes to out.scene.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "scene-file-out",
+      "description": "output - the output scene file",
+      "type": "String"
+    }
+  ],
+  "outputs": [
+  ],
+  "options": [
+  ],
+  "repeatable_options": [
+    {
+      "key": 2,
+      "option_switch": "-scene-file",
+      "description": "specify a scene file to use scenes from",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "scene-file",
+          "description": "the input scene file",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+        {
+          "key": 2,
+          "option_switch": "-scene",
+          "description": "specify a scene to use",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "scene",
+              "description": "the scene number or name",
+              "type": "String"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+            {
+              "key": 2,
+              "option_switch": "-up-to",
+              "description": "use an inclusive range of scenes",
+              "params": [
+                {
+                  "key": 1,
+                  "short_name": "last-column",
+                  "description": "the number or name of the last scene to include",
+                  "type": "String"
+                }
+              ],
+              "outputs": [
+              ],
+              "options": [
+                {
+                  "key": 2,
+                  "option_switch": "-reverse",
+                  "description": "use the range in reverse order",
+                  "params": [
+                  ],
+                  "outputs": [
+                  ],
+                  "options": [
+                  ],
+                  "repeatable_options": [
+                  ]
+                }
+              ],
+              "repeatable_options": [
+              ]
+            }
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ]
+    }
+  ]
+}
+

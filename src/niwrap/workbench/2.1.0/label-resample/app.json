@@ -1,0 +1,14 @@
+{
+  "name": "label-resample",
+  "source": {
+    "type": "workbench",
+    "path": "workbench.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-label-resample"
+  ],
+  "docs": {
+    "description": "Resample a label file to a different mesh.\n\nResamples a label file, given two spherical surfaces that are in register.  If ADAP_BARY_AREA is used, exactly one of -area-surfs or -area-metrics must be specified.\n\nThe ADAP_BARY_AREA method is recommended for label data, because it should be better at resolving vertices that are near multiple labels, or in case of downsampling.  Midthickness surfaces are recommended for the vertex areas for most data.\n\nThe -largest option results in nearest vertex behavior when used with BARYCENTRIC, as it uses the value of the source vertex that has the largest weight.\n\nWhen -largest is not specified, the vertex weights are summed according to which label they correspond to, and the label with the largest sum is used.\n\nThe <method> argument must be one of the following:\n\nADAP_BARY_AREA\nBARYCENTRIC"
+  }
+}

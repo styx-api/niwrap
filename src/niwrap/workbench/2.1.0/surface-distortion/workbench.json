@@ -1,0 +1,162 @@
+{
+  "command": "-surface-distortion",
+  "short_description": "MEASURE DISTORTION BETWEEN SURFACES",
+  "help_text": "This command, when not using -caret5-method, -edge-method, or -local-affine-method, is equivalent to using -surface-vertex-areas on each surface, smoothing both output metrics with the GEO_GAUSS_EQUAL method on the surface they came from if -smooth is specified, and then using the formula 'ln(distorted/reference)/ln(2)' on the smoothed results.\n\nWhen using -caret5-method, it uses the surface distortion method from caret5, which takes the base 2 log of the ratio of tile areas, then averages those results at each vertex, and then smooths the result on the reference surface.\n\nWhen using -edge-method, the -smooth option is ignored, and the output at each vertex is the average of 'abs(ln(refEdge/distortEdge)/ln(2))' over all edges connected to the vertex.\n\nWhen using -local-affine-method, the -smooth option is ignored.  The output is two columns, the first is the area distortion ratio, and the second is anisotropic strain.  These are calculated by an affine transform between matching triangles, and then averaged across the triangles of a vertex.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "surface-reference",
+      "description": "the reference surface",
+      "type": "Surface File"
+    },
+    {
+      "key": 2,
+      "short_name": "surface-distorted",
+      "description": "the distorted surface",
+      "type": "Surface File"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 3,
+      "short_name": "metric-out",
+      "description": "the output distortion metric",
+      "type": "Metric File"
+    }
+  ],
+  "options": [
+    {
+      "key": 4,
+      "option_switch": "-smooth",
+      "description": "smooth the area data",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "sigma",
+          "description": "the size of the smoothing kernel in mm, as sigma by default",
+          "type": "Floating Point"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 2,
+          "option_switch": "-fwhm",
+          "description": "kernel size is FWHM, not sigma",
+          "params": [
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 8,
+      "option_switch": "-match-surface-area",
+      "description": "isotropically rescale the distorted surface so that it has the same surface area as the reference surface",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 1,
+          "option_switch": "-roi",
+          "description": "only use the surface area within a given ROI (e.g., to exclude the medial wall)",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "roi-metric",
+              "description": "the ROI to use, as a metric file",
+              "type": "Metric File"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 5,
+      "option_switch": "-caret5-method",
+      "description": "use the surface distortion method from caret5",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 6,
+      "option_switch": "-edge-method",
+      "description": "calculate distortion of edge lengths rather than areas",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 7,
+      "option_switch": "-local-affine-method",
+      "description": "calculate distortion by the local affines between triangles",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 1,
+          "option_switch": "-log2",
+          "description": "apply base-2 log transform",
+          "params": [
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+  ]
+}
+

@@ -1,0 +1,97 @@
+{
+  "command": "-cifti-label-to-border",
+  "short_description": "DRAW BORDERS AROUND CIFTI LABELS",
+  "help_text": "For each surface, takes the labels on the matching structure and draws borders around the labels.  Use -column to only draw borders around one label map.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "cifti-in",
+      "description": "the input cifti dlabel file",
+      "type": "Cifti File"
+    }
+  ],
+  "outputs": [
+  ],
+  "options": [
+    {
+      "key": 2,
+      "option_switch": "-placement",
+      "description": "set how far along the edge border points are drawn",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "fraction",
+          "description": "fraction along edge from inside vertex (default 0.33)",
+          "type": "Floating Point"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 3,
+      "option_switch": "-column",
+      "description": "select a single column",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "column",
+          "description": "the column number or name",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+    {
+      "key": 4,
+      "option_switch": "-border",
+      "description": "specify output file for a surface structure",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "surface",
+          "description": "the surface to use for neighbor and structure information",
+          "type": "Surface File"
+        }
+      ],
+      "outputs": [
+        {
+          "key": 2,
+          "short_name": "border-out",
+          "description": "the output border file",
+          "type": "Border File"
+        }
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ]
+}
+

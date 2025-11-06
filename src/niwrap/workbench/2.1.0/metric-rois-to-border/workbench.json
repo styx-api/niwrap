@@ -1,0 +1,90 @@
+{
+  "command": "-metric-rois-to-border",
+  "short_description": "DRAW BORDERS AROUND METRIC ROIS",
+  "help_text": "For each ROI column, finds all edges on the mesh that cross the boundary of the ROI, and draws borders through them.  By default, this is done on all columns in the input file, using the map name as the name for the border.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "surface",
+      "description": "the surface to use for neighbor information",
+      "type": "Surface File"
+    },
+    {
+      "key": 2,
+      "short_name": "metric",
+      "description": "the input metric containing ROIs",
+      "type": "Metric File"
+    },
+    {
+      "key": 3,
+      "short_name": "class-name",
+      "description": "the name to use for the class of the output borders",
+      "type": "String"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 4,
+      "short_name": "border-out",
+      "description": "the output border file",
+      "type": "Border File"
+    }
+  ],
+  "options": [
+    {
+      "key": 5,
+      "option_switch": "-placement",
+      "description": "set how far along the edge border points are drawn",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "fraction",
+          "description": "fraction along edge from inside vertex (default 0.33)",
+          "type": "Floating Point"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 6,
+      "option_switch": "-column",
+      "description": "select a single column",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "column",
+          "description": "the column number or name",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+  ]
+}
+

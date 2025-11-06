@@ -1,0 +1,14 @@
+{
+  "name": "border-length",
+  "source": {
+    "type": "workbench",
+    "path": "workbench.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-border-length"
+  ],
+  "docs": {
+    "description": "Report length of borders.\n\nFor each border, print its length along the surface, in mm.  If a border has multiple parts, their lengths are summed before printing, unless -separate-pieces is specified.\n\nThe -corrected-areas option is intended for when the length is not meaningfully measurable on individual surfaces, it is only an approximate correction for the reduction in structure of a group average surface."
+  }
+}

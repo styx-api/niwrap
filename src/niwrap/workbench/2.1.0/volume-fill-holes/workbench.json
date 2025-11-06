@@ -1,0 +1,40 @@
+{
+  "command": "-volume-fill-holes",
+  "short_description": "FILL HOLES IN AN ROI VOLUME",
+  "help_text": "Finds all face-connected parts that are not included in the ROI, and fills all but the largest one with ones.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "volume-in",
+      "description": "the input ROI volume",
+      "type": "Volume File"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 2,
+      "short_name": "volume-out",
+      "description": "the output ROI volume",
+      "type": "Volume File"
+    }
+  ],
+  "options": [
+  ],
+  "repeatable_options": [
+  ]
+}
+

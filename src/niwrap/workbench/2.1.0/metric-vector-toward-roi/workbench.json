@@ -1,0 +1,65 @@
+{
+  "command": "-metric-vector-toward-roi",
+  "short_description": "FIND IF VECTORS POINT TOWARD AN ROI",
+  "help_text": "At each vertex, compute the vector along the start of the shortest path to the ROI.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "surface",
+      "description": "the surface to compute on",
+      "type": "Surface File"
+    },
+    {
+      "key": 2,
+      "short_name": "target-roi",
+      "description": "the roi to find the shortest path to",
+      "type": "Metric File"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 3,
+      "short_name": "metric-out",
+      "description": "the output metric",
+      "type": "Metric File"
+    }
+  ],
+  "options": [
+    {
+      "key": 4,
+      "option_switch": "-roi",
+      "description": "don't compute for vertices outside an roi",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "roi-metric",
+          "description": "the region to compute inside, as a metric",
+          "type": "Metric File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+  ]
+}
+

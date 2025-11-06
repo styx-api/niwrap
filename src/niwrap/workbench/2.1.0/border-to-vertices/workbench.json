@@ -1,0 +1,65 @@
+{
+  "command": "-border-to-vertices",
+  "short_description": "DRAW BORDERS AS VERTICES IN A METRIC FILE",
+  "help_text": "Outputs a metric with 1s on vertices that follow a border, and 0s elsewhere.  By default, a separate metric column is created for each border.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "surface",
+      "description": "the surface the borders are drawn on",
+      "type": "Surface File"
+    },
+    {
+      "key": 2,
+      "short_name": "border-file",
+      "description": "the border file",
+      "type": "Border File"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 3,
+      "short_name": "metric-out",
+      "description": "the output metric file",
+      "type": "Metric File"
+    }
+  ],
+  "options": [
+    {
+      "key": 4,
+      "option_switch": "-border",
+      "description": "create ROI for only one border",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "name",
+          "description": "the name of the border",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+  ]
+}
+

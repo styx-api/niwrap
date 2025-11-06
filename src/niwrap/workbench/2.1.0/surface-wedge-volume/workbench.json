@@ -1,0 +1,46 @@
+{
+  "command": "-surface-wedge-volume",
+  "short_description": "MEASURE PER-VERTEX VOLUME BETWEEN SURFACES",
+  "help_text": "Compute the volume of each vertex's area from one surface to another.  The surfaces must have vertex correspondence, and have consistent triangle orientation.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "inner-surface",
+      "description": "the inner surface",
+      "type": "Surface File"
+    },
+    {
+      "key": 2,
+      "short_name": "outer-surface",
+      "description": "the outer surface",
+      "type": "Surface File"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 3,
+      "short_name": "metric",
+      "description": "the output metric",
+      "type": "Metric File"
+    }
+  ],
+  "options": [
+  ],
+  "repeatable_options": [
+  ]
+}
+

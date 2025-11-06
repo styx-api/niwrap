@@ -1,0 +1,103 @@
+{
+  "command": "-volume-parcel-resampling-generic",
+  "short_description": "SMOOTH AND RESAMPLE VOLUME PARCELS FROM DIFFERENT VOLUME SPACE",
+  "help_text": "Smooths and resamples the region inside each label in cur-parcels to the region of the same label name in new-parcels.  Any voxels in the output label region but outside the input label region will be extrapolated from nearby data.  The -fix-zeros option causes the smoothing to not use an input value if it is zero, but still write a smoothed value to the voxel, and after smoothing is complete, it will check for any remaining values of zero, and fill them in with extrapolated values.  The output volume will use the volume space of new-parcels, which does not need to be in the same volume space as the input.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "volume-in",
+      "description": "the input data volume",
+      "type": "Volume File"
+    },
+    {
+      "key": 2,
+      "short_name": "cur-parcels",
+      "description": "label volume of where the parcels currently are",
+      "type": "Volume File"
+    },
+    {
+      "key": 3,
+      "short_name": "new-parcels",
+      "description": "label volume of where the parcels should be",
+      "type": "Volume File"
+    },
+    {
+      "key": 4,
+      "short_name": "kernel",
+      "description": "gaussian kernel size in mm to smooth by during resampling, as sigma by default",
+      "type": "Floating Point"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 5,
+      "short_name": "volume-out",
+      "description": "output volume",
+      "type": "Volume File"
+    }
+  ],
+  "options": [
+    {
+      "key": 8,
+      "option_switch": "-fwhm",
+      "description": "smoothing kernel size is FWHM, not sigma",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 6,
+      "option_switch": "-fix-zeros",
+      "description": "treat zero values as not being data",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 7,
+      "option_switch": "-subvolume",
+      "description": "select a single subvolume as input",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "subvol",
+          "description": "the subvolume number or name",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+  ]
+}
+

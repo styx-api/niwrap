@@ -1,0 +1,59 @@
+{
+  "command": "-volume-copy-extensions",
+  "short_description": "COPY EXTENDED DATA TO ANOTHER VOLUME FILE",
+  "help_text": "This command copies the information in a volume file that isn't a critical part of the standard header or data matrix, e.g. map names, palette settings, label tables.  If -drop-unknown is not specified, it also copies similar kinds of information set by other software.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "data-volume",
+      "description": "the volume file containing the voxel data to use",
+      "type": "Volume File"
+    },
+    {
+      "key": 2,
+      "short_name": "extension-volume",
+      "description": "the volume file containing the extensions to use",
+      "type": "Volume File"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 3,
+      "short_name": "volume-out",
+      "description": "the output volume",
+      "type": "Volume File"
+    }
+  ],
+  "options": [
+    {
+      "key": 4,
+      "option_switch": "-drop-unknown",
+      "description": "don't copy extensions that workbench doesn't understand",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+  ]
+}
+

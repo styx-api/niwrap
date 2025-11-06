@@ -1,0 +1,14 @@
+{
+  "name": "cifti-all-labels-to-rois",
+  "source": {
+    "type": "workbench",
+    "path": "workbench.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-cifti-all-labels-to-rois"
+  ],
+  "docs": {
+    "description": "Make rois from all labels in a cifti label map.\n\nThe output cifti file is a dscalar file with a column (map) for each label in the specified input map, other than the ??? label, each of which contains a binary ROI of all brainordinates that are set to the corresponding label.\n\nMost of the time, specifying '1' for the <map> argument will do what is desired."
+  }
+}

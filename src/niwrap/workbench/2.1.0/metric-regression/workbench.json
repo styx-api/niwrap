@@ -1,0 +1,154 @@
+{
+  "command": "-metric-regression",
+  "short_description": "REGRESS SPATIAL MAP OUT OF A METRIC FILE",
+  "help_text": "For each regressor, its mean across the surface is subtracted from its data.  Each input map is then regressed against these, and a constant term.  The resulting regressed slopes of all regressors specified with -remove are multiplied with their respective regressor maps, and these are subtracted from the input map.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "metric-in",
+      "description": "the metric to regress from",
+      "type": "Metric File"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 2,
+      "short_name": "metric-out",
+      "description": "the output metric",
+      "type": "Metric File"
+    }
+  ],
+  "options": [
+    {
+      "key": 3,
+      "option_switch": "-roi",
+      "description": "only regress inside an roi",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "roi-metric",
+          "description": "the area to use for regression, as a metric",
+          "type": "Metric File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 4,
+      "option_switch": "-column",
+      "description": "select a single column to regress from",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "column",
+          "description": "the column number or name",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+    {
+      "key": 5,
+      "option_switch": "-remove",
+      "description": "specify a metric to regress out",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "metric",
+          "description": "the metric file to use",
+          "type": "Metric File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 2,
+          "option_switch": "-remove-column",
+          "description": "select a column to use, rather than all",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "column",
+              "description": "the column number or name",
+              "type": "String"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 6,
+      "option_switch": "-keep",
+      "description": "specify a metric to include in regression, but not remove",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "metric",
+          "description": "the metric file to use",
+          "type": "Metric File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 2,
+          "option_switch": "-keep-column",
+          "description": "select a column to use, rather than all",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "column",
+              "description": "the column number or name",
+              "type": "String"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ]
+}
+

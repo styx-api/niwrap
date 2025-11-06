@@ -1,0 +1,65 @@
+{
+  "command": "-label-mask",
+  "short_description": "MASK A LABEL FILE",
+  "help_text": "By default, the output label is a copy of the input label, but with the 'unused' label wherever the mask metric is zero or negative.  if -column is specified, the output contains only one column, the masked version of the specified input column.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "label",
+      "description": "the label file to mask",
+      "type": "Label File"
+    },
+    {
+      "key": 2,
+      "short_name": "mask",
+      "description": "the mask metric",
+      "type": "Metric File"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 3,
+      "short_name": "label-out",
+      "description": "the output label file",
+      "type": "Label File"
+    }
+  ],
+  "options": [
+    {
+      "key": 4,
+      "option_switch": "-column",
+      "description": "select a single column",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "column",
+          "description": "the column number or name",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+  ]
+}
+

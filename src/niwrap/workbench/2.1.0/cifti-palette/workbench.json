@@ -1,0 +1,335 @@
+{
+  "command": "-cifti-palette",
+  "short_description": "SET PALETTE ON A CIFTI FILE",
+  "help_text": "NOTE: The output file must be a different file than the input file.\n\nFor scalar maps, by default the palette is changed for every map, specify -column to change only one map.  Palette settings not specified will be taken from the first column for scalar maps, and from the existing file palette for other mapping types.  The <mode> argument must be one of the following:\n\nMODE_AUTO_SCALE\nMODE_AUTO_SCALE_ABSOLUTE_PERCENTAGE\nMODE_AUTO_SCALE_PERCENTAGE\nMODE_USER_SCALE\n\nThe <name> argument to -palette-name must be one of the following:\n\nROY-BIG-BL\nvideen_style\nGray_Interp_Positive\nGray_Interp\nPSYCH-FIXED\nRBGYR20\nRBGYR20P\nRYGBR4_positive\nRGRBR_mirror90_pos\nOrange-Yellow\nPOS_NEG_ZERO\nred-yellow\nblue-lightblue\nFSL\npower_surf\nblack-red\nblack-green\nblack-blue\nblack-red-positive\nblack-green-positive\nblack-blue-positive\nblue-black-green\nblue-black-red\nred-black-green\nfsl_red\nfsl_green\nfsl_blue\nfsl_yellow\nRedWhiteBlue\ncool-warm\nspectral\nRY-BC-BL\nmagma\nJET256\nPSYCH\nPSYCH-NO-NONE\nROY-BIG\nclear_brain\nfidl\nraich4_clrmid\nraich6_clrmid\nHSB8_clrmid\nPOS_NEG\nSpecial-RGB-Volume\n\nThe <type> argument to -thresholding must be one of the following:\n\nTHRESHOLD_TYPE_OFF\nTHRESHOLD_TYPE_NORMAL\nTHRESHOLD_TYPE_FILE\n\nThe <test> argument to -thresholding must be one of the following:\n\nTHRESHOLD_TEST_SHOW_OUTSIDE\nTHRESHOLD_TEST_SHOW_INSIDE\n\nThe <type> argument to -inversion must be one of the following:\n\nOFF\nPOSITIVE_WITH_NEGATIVE\nPOSITIVE_NEGATIVE_SEPARATE\n\nThe <type> argument to -normalization must be one of the following:\n\nNORMALIZATION_ALL_MAP_DATA\nNORMALIZATION_SELECTED_MAP_DATA\n",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "cifti-in",
+      "description": "the cifti input",
+      "type": "Cifti File"
+    },
+    {
+      "key": 2,
+      "short_name": "mode",
+      "description": "the mapping mode",
+      "type": "String"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 3,
+      "short_name": "cifti-out",
+      "description": "the output cifti file",
+      "type": "Cifti File"
+    }
+  ],
+  "options": [
+    {
+      "key": 4,
+      "option_switch": "-column",
+      "description": "select a single column for scalar maps",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "column",
+          "description": "the column number or name",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 5,
+      "option_switch": "-pos-percent",
+      "description": "percentage min/max for positive data coloring",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "pos-min-%",
+          "description": "the percentile for the least positive data",
+          "type": "Floating Point"
+        },
+        {
+          "key": 2,
+          "short_name": "pos-max-%",
+          "description": "the percentile for the most positive data",
+          "type": "Floating Point"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 6,
+      "option_switch": "-neg-percent",
+      "description": "percentage min/max for negative data coloring",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "neg-min-%",
+          "description": "the percentile for the least negative data",
+          "type": "Floating Point"
+        },
+        {
+          "key": 2,
+          "short_name": "neg-max-%",
+          "description": "the percentile for the most negative data",
+          "type": "Floating Point"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 7,
+      "option_switch": "-pos-user",
+      "description": "user min/max values for positive data coloring",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "pos-min-user",
+          "description": "the value for the least positive data",
+          "type": "Floating Point"
+        },
+        {
+          "key": 2,
+          "short_name": "pos-max-user",
+          "description": "the value for the most positive data",
+          "type": "Floating Point"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 8,
+      "option_switch": "-neg-user",
+      "description": "user min/max values for negative data coloring",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "neg-min-user",
+          "description": "the value for the least negative data",
+          "type": "Floating Point"
+        },
+        {
+          "key": 2,
+          "short_name": "neg-max-user",
+          "description": "the value for the most negative data",
+          "type": "Floating Point"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 9,
+      "option_switch": "-interpolate",
+      "description": "interpolate colors",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "interpolate",
+          "description": "boolean, whether to interpolate",
+          "type": "Boolean"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 10,
+      "option_switch": "-disp-pos",
+      "description": "display positive data",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "display",
+          "description": "boolean, whether to display",
+          "type": "Boolean"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 11,
+      "option_switch": "-disp-neg",
+      "description": "display positive data",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "display",
+          "description": "boolean, whether to display",
+          "type": "Boolean"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 12,
+      "option_switch": "-disp-zero",
+      "description": "display data closer to zero than the min cutoff",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "display",
+          "description": "boolean, whether to display",
+          "type": "Boolean"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 13,
+      "option_switch": "-palette-name",
+      "description": "set the palette used",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "name",
+          "description": "the name of the palette",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 14,
+      "option_switch": "-thresholding",
+      "description": "set the thresholding",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "type",
+          "description": "thresholding setting",
+          "type": "String"
+        },
+        {
+          "key": 2,
+          "short_name": "test",
+          "description": "show values inside or outside thresholds",
+          "type": "String"
+        },
+        {
+          "key": 3,
+          "short_name": "min",
+          "description": "lower threshold",
+          "type": "Floating Point"
+        },
+        {
+          "key": 4,
+          "short_name": "max",
+          "description": "upper threshold",
+          "type": "Floating Point"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 15,
+      "option_switch": "-inversion",
+      "description": "specify palette inversion",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "type",
+          "description": "the type of inversion",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 16,
+      "option_switch": "-normalization",
+      "description": "specify normalization mode (NOTE: this is always a file-wide setting, NOT per-map)",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "type",
+          "description": "the normalization mode",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+  ]
+}
+

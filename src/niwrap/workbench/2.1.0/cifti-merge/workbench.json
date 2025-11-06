@@ -1,0 +1,142 @@
+{
+  "command": "-cifti-merge",
+  "short_description": "MERGE OR SPLIT ON SERIES, SCALAR, OR LABEL DIMENSIONS",
+  "help_text": "Given input CIFTI files for which mappings along the selected direction are the same type, all either series, scalars, or labels, and the other dimensions are index-compatible, this command concatenates the data in the specified indices/ranges along the selected direction (by default, on typical 2D cifti, concatenate horizontally, so rows become longer).  The direction can be either an integer starting from 1, or the strings 'ROW' or 'COLUMN'.\n\nExample: wb_command -cifti-merge out.dtseries.nii -cifti first.dtseries.nii -index 1 -cifti second.dtseries.nii\n\nThis example would take the first column from first.dtseries.nii, followed by all columns from second.dtseries.nii, and write these columns to out.dtseries.nii.  ",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+  ],
+  "outputs": [
+    {
+      "key": 1,
+      "short_name": "cifti-out",
+      "description": "output cifti file",
+      "type": "Cifti File"
+    }
+  ],
+  "options": [
+    {
+      "key": 4,
+      "option_switch": "-direction",
+      "description": "merge in a direction other than along rows",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "direction",
+          "description": "the dimension to split/concatenate along, default ROW",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 3,
+      "option_switch": "-mem-limit",
+      "description": "restrict memory used for file reading efficiency",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "limit-GB",
+          "description": "memory limit in gigabytes",
+          "type": "Floating Point"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+    {
+      "key": 2,
+      "option_switch": "-cifti",
+      "description": "specify an input cifti file",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "cifti-in",
+          "description": "a cifti file to use data from",
+          "type": "Cifti File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+        {
+          "key": 2,
+          "option_switch": "-index",
+          "description": "select a single index to use",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "index",
+              "description": "the index number (starting from 1), or name",
+              "type": "String"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+            {
+              "key": 2,
+              "option_switch": "-up-to",
+              "description": "use an inclusive range of indices",
+              "params": [
+                {
+                  "key": 1,
+                  "short_name": "last-index",
+                  "description": "the number or name of the last index to include",
+                  "type": "String"
+                }
+              ],
+              "outputs": [
+              ],
+              "options": [
+                {
+                  "key": 2,
+                  "option_switch": "-reverse",
+                  "description": "use the range in reverse order",
+                  "params": [
+                  ],
+                  "outputs": [
+                  ],
+                  "options": [
+                  ],
+                  "repeatable_options": [
+                  ]
+                }
+              ],
+              "repeatable_options": [
+              ]
+            }
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ]
+    }
+  ]
+}
+

@@ -1,0 +1,14 @@
+{
+  "name": "label-mask",
+  "source": {
+    "type": "workbench",
+    "path": "workbench.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-label-mask"
+  ],
+  "docs": {
+    "description": "Mask a label file.\n\nBy default, the output label is a copy of the input label, but with the 'unused' label wherever the mask metric is zero or negative.  if -column is specified, the output contains only one column, the masked version of the specified input column."
+  }
+}

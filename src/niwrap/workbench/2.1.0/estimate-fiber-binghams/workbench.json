@@ -1,0 +1,94 @@
+{
+  "command": "-estimate-fiber-binghams",
+  "short_description": "ESTIMATE FIBER ORIENTATION DISTRIBUTIONS FROM BEDPOSTX SAMPLES",
+  "help_text": "This command does an estimation of a bingham distribution for each fiber orientation in each voxel which is labeled a structure identifier.  These labelings come from the <label-volume> argument, which must have labels that match the following strings:\n\nCORTEX_LEFT\nCORTEX_RIGHT\nCEREBELLUM\nACCUMBENS_LEFT\nACCUMBENS_RIGHT\nALL_GREY_MATTER\nALL_WHITE_MATTER\nAMYGDALA_LEFT\nAMYGDALA_RIGHT\nBRAIN_STEM\nCAUDATE_LEFT\nCAUDATE_RIGHT\nCEREBELLAR_WHITE_MATTER_LEFT\nCEREBELLAR_WHITE_MATTER_RIGHT\nCEREBELLUM_LEFT\nCEREBELLUM_RIGHT\nCEREBRAL_WHITE_MATTER_LEFT\nCEREBRAL_WHITE_MATTER_RIGHT\nCORTEX\nDIENCEPHALON_VENTRAL_LEFT\nDIENCEPHALON_VENTRAL_RIGHT\nHIPPOCAMPUS_LEFT\nHIPPOCAMPUS_RIGHT\nHIPPOCAMPUS_DENTATE_LEFT\nHIPPOCAMPUS_DENTATE_RIGHT\nINVALID\nOTHER\nOTHER_GREY_MATTER\nOTHER_WHITE_MATTER\nPALLIDUM_LEFT\nPALLIDUM_RIGHT\nPUTAMEN_LEFT\nPUTAMEN_RIGHT\nTHALAMUS_LEFT\nTHALAMUS_RIGHT",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "merged_f1samples",
+      "description": "fiber 1 strength samples",
+      "type": "Volume File"
+    },
+    {
+      "key": 2,
+      "short_name": "merged_th1samples",
+      "description": "fiber 1 theta samples",
+      "type": "Volume File"
+    },
+    {
+      "key": 3,
+      "short_name": "merged_ph1samples",
+      "description": "fiber 1 phi samples",
+      "type": "Volume File"
+    },
+    {
+      "key": 4,
+      "short_name": "merged_f2samples",
+      "description": "fiber 2 strength samples",
+      "type": "Volume File"
+    },
+    {
+      "key": 5,
+      "short_name": "merged_th2samples",
+      "description": "fiber 2 theta samples",
+      "type": "Volume File"
+    },
+    {
+      "key": 6,
+      "short_name": "merged_ph2samples",
+      "description": "fiber 2 phi samples",
+      "type": "Volume File"
+    },
+    {
+      "key": 7,
+      "short_name": "merged_f3samples",
+      "description": "fiber 3 strength samples",
+      "type": "Volume File"
+    },
+    {
+      "key": 8,
+      "short_name": "merged_th3samples",
+      "description": "fiber 3 theta samples",
+      "type": "Volume File"
+    },
+    {
+      "key": 9,
+      "short_name": "merged_ph3samples",
+      "description": "fiber 3 phi samples",
+      "type": "Volume File"
+    },
+    {
+      "key": 10,
+      "short_name": "label-volume",
+      "description": "volume of cifti structure labels",
+      "type": "Volume File"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 11,
+      "short_name": "cifti-out",
+      "description": "output cifti fiber distributons file",
+      "type": "Cifti File"
+    }
+  ],
+  "options": [
+  ],
+  "repeatable_options": [
+  ]
+}
+

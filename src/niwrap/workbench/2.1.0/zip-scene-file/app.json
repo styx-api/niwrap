@@ -1,0 +1,14 @@
+{
+  "name": "zip-scene-file",
+  "source": {
+    "type": "workbench",
+    "path": "workbench.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-zip-scene-file"
+  ],
+  "docs": {
+    "description": "Zip a scene file and its data files.\n\nIf zip-file already exists, it will be overwritten.  If -base-dir is not specified, the base directory will be automatically set to the lowest level directory containing all files.  The scene file must contain only relative paths, and no data files may be outside the base directory."
+  }
+}

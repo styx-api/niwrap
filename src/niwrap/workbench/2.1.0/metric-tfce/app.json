@@ -1,0 +1,14 @@
+{
+  "name": "metric-tfce",
+  "source": {
+    "type": "workbench",
+    "path": "workbench.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-metric-tfce"
+  ],
+  "docs": {
+    "description": "Do tfce on a metric file.\n\nThis command does not do any statistical analysis.  Please use something like PALM if you are just trying to do statistics on your data.\n\nThreshold-free cluster enhancement is a method to increase the relative value of regions that would form clusters in a standard thresholding test.  This is accomplished by evaluating the integral of:\n\ne(h, p)^E * h^H * dh\n\nat each vertex p, where h ranges from 0 to the maximum value in the data, and e(h, p) is the extent of the cluster containing vertex p at threshold h.  Negative values are similarly enhanced by negating the data, running the same process, and negating the result.\n\nWhen using -presmooth with -corrected-areas, note that it is an approximate correction within the smoothing algorithm (the TFCE correction is exact).  Doing smoothing on individual surfaces before averaging/TFCE is preferred, when possible, in order to better tie the smoothing kernel size to the original feature size.\n\nThe TFCE method is explained in: Smith SM, Nichols TE., \"Threshold-free cluster enhancement: addressing problems of smoothing, threshold dependence and localisation in cluster inference.\" Neuroimage. 2009 Jan 1;44(1):83-98. PMID: 18501637"
+  }
+}

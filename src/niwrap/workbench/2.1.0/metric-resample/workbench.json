@@ -1,0 +1,172 @@
+{
+  "command": "-metric-resample",
+  "short_description": "RESAMPLE A METRIC FILE TO A DIFFERENT MESH",
+  "help_text": "Resamples a metric file, given two spherical surfaces that are in register.  If ADAP_BARY_AREA is used, exactly one of -area-surfs or -area-metrics must be specified.\n\nThe ADAP_BARY_AREA method is recommended for ordinary metric data, because it should use all data while downsampling, unlike BARYCENTRIC.  The recommended areas option for most data is individual midthicknesses for individual data, and averaged vertex area metrics from individual midthicknesses for group average data.\n\nThe -current-roi option only masks the input, the output may be slightly dilated in comparison, consider using -metric-mask on the output when using -current-roi.\n\nThe -largest option results in nearest vertex behavior when used with BARYCENTRIC.  When resampling a binary metric, consider thresholding at 0.5 after resampling rather than using -largest.\n\nThe <method> argument must be one of the following:\n\nADAP_BARY_AREA\nBARYCENTRIC\n",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "metric-in",
+      "description": "the metric file to resample",
+      "type": "Metric File"
+    },
+    {
+      "key": 2,
+      "short_name": "current-sphere",
+      "description": "a sphere surface with the mesh that the metric is currently on",
+      "type": "Surface File"
+    },
+    {
+      "key": 3,
+      "short_name": "new-sphere",
+      "description": "a sphere surface that is in register with <current-sphere> and has the desired output mesh",
+      "type": "Surface File"
+    },
+    {
+      "key": 4,
+      "short_name": "method",
+      "description": "the method name",
+      "type": "String"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 5,
+      "short_name": "metric-out",
+      "description": "the output metric",
+      "type": "Metric File"
+    }
+  ],
+  "options": [
+    {
+      "key": 6,
+      "option_switch": "-area-surfs",
+      "description": "specify surfaces to do vertex area correction based on",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "current-area",
+          "description": "a relevant anatomical surface with <current-sphere> mesh",
+          "type": "Surface File"
+        },
+        {
+          "key": 2,
+          "short_name": "new-area",
+          "description": "a relevant anatomical surface with <new-sphere> mesh",
+          "type": "Surface File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 7,
+      "option_switch": "-area-metrics",
+      "description": "specify vertex area metrics to do area correction based on",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "current-area",
+          "description": "a metric file with vertex areas for <current-sphere> mesh",
+          "type": "Metric File"
+        },
+        {
+          "key": 2,
+          "short_name": "new-area",
+          "description": "a metric file with vertex areas for <new-sphere> mesh",
+          "type": "Metric File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 8,
+      "option_switch": "-current-roi",
+      "description": "use an input roi on the current mesh to exclude non-data vertices",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "roi-metric",
+          "description": "the roi, as a metric file",
+          "type": "Metric File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 9,
+      "option_switch": "-valid-roi-out",
+      "description": "output the ROI of vertices that got data from valid source vertices",
+      "params": [
+      ],
+      "outputs": [
+        {
+          "key": 1,
+          "short_name": "roi-out",
+          "description": "the output roi as a metric",
+          "type": "Metric File"
+        }
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 10,
+      "option_switch": "-largest",
+      "description": "use only the value of the vertex with the largest weight",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 11,
+      "option_switch": "-bypass-sphere-check",
+      "description": "ADVANCED: allow the current and new 'spheres' to have arbitrary shape as long as they follow the same contour",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+  ]
+}
+

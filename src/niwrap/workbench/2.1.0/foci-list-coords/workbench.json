@@ -1,0 +1,59 @@
+{
+  "command": "-foci-list-coords",
+  "short_description": "OUTPUT FOCI COORDINATES IN A TEXT FILE",
+  "help_text": "Output the coordinates for every focus in the foci file, and optionally the focus names in a second text file.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "foci-file",
+      "description": "input foci file",
+      "type": "Foci File"
+    },
+    {
+      "key": 2,
+      "short_name": "coord-file-out",
+      "description": "output - the output coordinate text file",
+      "type": "String"
+    }
+  ],
+  "outputs": [
+  ],
+  "options": [
+    {
+      "key": 3,
+      "option_switch": "-names-out",
+      "description": "output the foci names",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "names-file-out",
+          "description": "output - text file to put foci names in",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+  ]
+}
+

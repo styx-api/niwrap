@@ -1,0 +1,40 @@
+{
+  "command": "-backend-average-dense-roi",
+  "short_description": "CONNECTOME DB BACKEND COMMAND FOR CIFTI AVERAGE DENSE ROI",
+  "help_text": "This command is probably not the one you are looking for, try -cifti-average-dense-roi.  It takes the list of cifti files to average from standard input, and writes its output as little endian, 32-bit integer of row size followed by the row as 32-bit floats.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "index-list",
+      "description": "comma separated list of cifti indexes to average",
+      "type": "String"
+    },
+    {
+      "key": 2,
+      "short_name": "out-file",
+      "description": "file to write the average row to",
+      "type": "String"
+    }
+  ],
+  "outputs": [
+  ],
+  "options": [
+  ],
+  "repeatable_options": [
+  ]
+}
+

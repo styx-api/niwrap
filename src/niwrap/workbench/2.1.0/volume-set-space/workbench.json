@@ -1,0 +1,212 @@
+{
+  "command": "-volume-set-space",
+  "short_description": "CHANGE VOLUME SPACE INFORMATION",
+  "help_text": "Writes a copy of the volume file, with the spacing information changed as specified.  No reordering of the voxel data occurs, see -volume-reorient to change the volume indexing order and reorder the voxels to match.  Exactly one of -plumb, -sform, or -file must be specified.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "volume-in",
+      "description": "the input volume",
+      "type": "Volume File"
+    },
+    {
+      "key": 2,
+      "short_name": "volume-out",
+      "description": "output - the output volume",
+      "type": "String"
+    }
+  ],
+  "outputs": [
+  ],
+  "options": [
+    {
+      "key": 3,
+      "option_switch": "-plumb",
+      "description": "set via axis order and spacing/offset",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "axis-order",
+          "description": "a string like 'XYZ' that specifies which index is along which spatial dimension",
+          "type": "String"
+        },
+        {
+          "key": 2,
+          "short_name": "x-spacing",
+          "description": "change in x-coordinate from incrementing the relevant index",
+          "type": "Floating Point"
+        },
+        {
+          "key": 3,
+          "short_name": "y-spacing",
+          "description": "change in y-coordinate from incrementing the relevant index",
+          "type": "Floating Point"
+        },
+        {
+          "key": 4,
+          "short_name": "z-spacing",
+          "description": "change in z-coordinate from incrementing the relevant index",
+          "type": "Floating Point"
+        },
+        {
+          "key": 5,
+          "short_name": "x-offset",
+          "description": "the x-coordinate of the first voxel",
+          "type": "Floating Point"
+        },
+        {
+          "key": 6,
+          "short_name": "y-offset",
+          "description": "the y-coordinate of the first voxel",
+          "type": "Floating Point"
+        },
+        {
+          "key": 7,
+          "short_name": "z-offset",
+          "description": "the z-coordinate of the first voxel",
+          "type": "Floating Point"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 4,
+      "option_switch": "-sform",
+      "description": "set via a nifti sform",
+      "params": [
+        {
+          "key": 0,
+          "short_name": "xi-spacing",
+          "description": "increase in x coordinate from incrementing the i index",
+          "type": "Floating Point"
+        },
+        {
+          "key": 1,
+          "short_name": "xj-spacing",
+          "description": "increase in x coordinate from incrementing the j index",
+          "type": "Floating Point"
+        },
+        {
+          "key": 2,
+          "short_name": "xk-spacing",
+          "description": "increase in x coordinate from incrementing the k index",
+          "type": "Floating Point"
+        },
+        {
+          "key": 3,
+          "short_name": "x-offset",
+          "description": "x coordinate of first voxel",
+          "type": "Floating Point"
+        },
+        {
+          "key": 4,
+          "short_name": "yi-spacing",
+          "description": "increase in y coordinate from incrementing the i index",
+          "type": "Floating Point"
+        },
+        {
+          "key": 5,
+          "short_name": "yj-spacing",
+          "description": "increase in y coordinate from incrementing the j index",
+          "type": "Floating Point"
+        },
+        {
+          "key": 6,
+          "short_name": "yk-spacing",
+          "description": "increase in y coordinate from incrementing the k index",
+          "type": "Floating Point"
+        },
+        {
+          "key": 7,
+          "short_name": "y-offset",
+          "description": "y coordinate of first voxel",
+          "type": "Floating Point"
+        },
+        {
+          "key": 8,
+          "short_name": "zi-spacing",
+          "description": "increase in z coordinate from incrementing the i index",
+          "type": "Floating Point"
+        },
+        {
+          "key": 9,
+          "short_name": "zj-spacing",
+          "description": "increase in z coordinate from incrementing the j index",
+          "type": "Floating Point"
+        },
+        {
+          "key": 10,
+          "short_name": "zk-spacing",
+          "description": "increase in z coordinate from incrementing the k index",
+          "type": "Floating Point"
+        },
+        {
+          "key": 11,
+          "short_name": "z-offset",
+          "description": "z coordinate of first voxel",
+          "type": "Floating Point"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 5,
+      "option_switch": "-file",
+      "description": "copy spacing info from volume file with matching dimensions",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "volume-ref",
+          "description": "volume file to use for reference space",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 2,
+          "option_switch": "-ignore-dims",
+          "description": "copy the spacing info even if the dimensions don't match",
+          "params": [
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+  ]
+}
+

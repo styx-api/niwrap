@@ -1,0 +1,14 @@
+{
+  "name": "cifti-change-mapping",
+  "source": {
+    "type": "workbench",
+    "path": "workbench.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-cifti-change-mapping"
+  ],
+  "docs": {
+    "description": "Convert to scalar, copy mapping, etc.\n\nTake an existing cifti file and change one of the mappings.  Exactly one of -series, -scalar, or -from-cifti must be specified.  The direction can be either an integer starting from 1, or the strings 'ROW' or 'COLUMN'.\n\nThe argument to -unit must be one of the following:\n\nSECOND\nHERTZ\nMETER\nRADIAN"
+  }
+}

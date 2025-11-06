@@ -1,0 +1,155 @@
+{
+  "command": "-scene-file-update",
+  "short_description": "UPDATE SCENE FILE",
+  "help_text": "This command will update a scene for specific changes in data files.\n\n\"-fix-map-palette-settings\" will find all data files that have had a change in the number of maps since the scene scene was created.  If the file has its \"Apply to All Maps\" property enabled, the palette setting in the first map is copied to all maps in the file.  Note: This modifies the palette settings for the file in the scene (data file is NOT modified).\n\n\"-copy-map-one-palette\" will copy the palette settings from the first map to all other maps in a data file.  This option is typically used when the number of maps in a data file changes.  It changes the palette settings in the scene that are applied to the data file when the scene is loaded (the data file is not modified).  The name of the data file specified on the command line is matched to the end of file names in the scene.  This allows matching multiple files if their names end with the same characters.  It also allows including a relative path when there is more than one file with the same name but in different paths and only one of the files to be updated.\n\n\"-remove-missing-files\" Any files that fail to load when the scene is read will be removed from the scene.  Thus, if one deletes files prior to running with this option, the deleted files are removed from the scene.  \n\n\"-error\" If this option is provided and there is an error while performing any of the scene operations, the command will immediately cease processing and the output scene file will not be created.   Otherwise any errors will be listed after the command finishes.\n",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 0,
+      "short_name": "input-scene-file",
+      "description": "the input scene file",
+      "type": "String"
+    },
+    {
+      "key": 1,
+      "short_name": "output-scene-file",
+      "description": "the new scene file to create",
+      "type": "String"
+    },
+    {
+      "key": 2,
+      "short_name": "scene-name-or-number",
+      "description": "name or number (starting at one) of the scene in the scene file",
+      "type": "String"
+    }
+  ],
+  "outputs": [
+  ],
+  "options": [
+    {
+      "key": 7,
+      "option_switch": "-fix-map-palette-settings",
+      "description": "Fix palette settings for files with change in number of maps",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 8,
+      "option_switch": "-remove-missing-files",
+      "description": "Remove missing files from SpecFile",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 6,
+      "option_switch": "-error",
+      "description": "Abort command if there is an error performing any of the operations on the scene file",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 9,
+      "option_switch": "-verbose",
+      "description": "Print names of files that have palettes updated",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+    {
+      "key": 3,
+      "option_switch": "-copy-map-one-palette",
+      "description": "Copy palettes settings from first map to all maps in a data file",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "Data File Name Suffix",
+          "description": "Name of palette mapped data file (cifti, metric, volume)",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 4,
+      "option_switch": "-data-file-add",
+      "description": "Add a data file to scene's loaded files",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "Name of data file",
+          "description": "Name of data file.  If a data file not in the current directory, it is best to use an absolute path (a relative path may work).  Instead of a data file, this value may be the name of a text file (must end in \".txt\") that contains the names of one or more data files, one per line.\nExample on UNIX to create a text file containing all CIFTI scalar files in the current directory with absolute paths:\n   ls -d $PWD/*dscalar.nii  > file.txt",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 5,
+      "option_switch": "-data-file-remove",
+      "description": "Remove a data file from scene's loaded files",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "Name of data file",
+          "description": "Name of data file.  If a data file not in the current directory, it is best to use an absolute path (a relative path may work).  Instead of a data file, this value may be the name of a text file (must end in \".txt\") that contains the names of one or more data files, one per line.\nExample on UNIX to create a text file containing all CIFTI scalar files in the current directory with absolute paths:\n   ls -d $PWD/*dscalar.nii  > file.txt",
+          "type": "String"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ]
+}
+

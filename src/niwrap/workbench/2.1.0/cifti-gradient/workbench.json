@@ -1,0 +1,287 @@
+{
+  "command": "-cifti-gradient",
+  "short_description": "TAKE GRADIENT OF A CIFTI FILE",
+  "help_text": "Performs gradient calculation on each component of the cifti file, and optionally averages the resulting gradients.  The -vectors and -average-output options may not be used together.  You must specify a surface for each surface structure in the cifti file.  The COLUMN direction should be faster, and is the direction that works on dtseries.  For dconn, you probably want ROW, unless you are using -average-output.\n\nThe <structure> argument to -surface must be one of the following strings:\n\nCORTEX_LEFT\nCORTEX_RIGHT\nCEREBELLUM\nACCUMBENS_LEFT\nACCUMBENS_RIGHT\nALL_GREY_MATTER\nALL_WHITE_MATTER\nAMYGDALA_LEFT\nAMYGDALA_RIGHT\nBRAIN_STEM\nCAUDATE_LEFT\nCAUDATE_RIGHT\nCEREBELLAR_WHITE_MATTER_LEFT\nCEREBELLAR_WHITE_MATTER_RIGHT\nCEREBELLUM_LEFT\nCEREBELLUM_RIGHT\nCEREBRAL_WHITE_MATTER_LEFT\nCEREBRAL_WHITE_MATTER_RIGHT\nCORTEX\nDIENCEPHALON_VENTRAL_LEFT\nDIENCEPHALON_VENTRAL_RIGHT\nHIPPOCAMPUS_LEFT\nHIPPOCAMPUS_RIGHT\nHIPPOCAMPUS_DENTATE_LEFT\nHIPPOCAMPUS_DENTATE_RIGHT\nINVALID\nOTHER\nOTHER_GREY_MATTER\nOTHER_WHITE_MATTER\nPALLIDUM_LEFT\nPALLIDUM_RIGHT\nPUTAMEN_LEFT\nPUTAMEN_RIGHT\nTHALAMUS_LEFT\nTHALAMUS_RIGHT",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "cifti",
+      "description": "the input cifti",
+      "type": "Cifti File"
+    },
+    {
+      "key": 2,
+      "short_name": "direction",
+      "description": "which dimension to take the gradient along, ROW or COLUMN",
+      "type": "String"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 3,
+      "short_name": "cifti-out",
+      "description": "the output cifti",
+      "type": "Cifti File"
+    }
+  ],
+  "options": [
+    {
+      "key": 4,
+      "option_switch": "-left-surface",
+      "description": "specify the left surface to use",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "surface",
+          "description": "the left surface file",
+          "type": "Surface File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 2,
+          "option_switch": "-left-corrected-areas",
+          "description": "vertex areas to use instead of computing them from the left surface",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "area-metric",
+              "description": "the corrected vertex areas, as a metric",
+              "type": "Metric File"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 5,
+      "option_switch": "-right-surface",
+      "description": "specify the right surface to use",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "surface",
+          "description": "the right surface file",
+          "type": "Surface File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 2,
+          "option_switch": "-right-corrected-areas",
+          "description": "vertex areas to use instead of computing them from the right surface",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "area-metric",
+              "description": "the corrected vertex areas, as a metric",
+              "type": "Metric File"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 6,
+      "option_switch": "-cerebellum-surface",
+      "description": "specify the cerebellum surface to use",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "surface",
+          "description": "the cerebellum surface file",
+          "type": "Surface File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 2,
+          "option_switch": "-cerebellum-corrected-areas",
+          "description": "vertex areas to use instead of computing them from the cerebellum surface",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "area-metric",
+              "description": "the corrected vertex areas, as a metric",
+              "type": "Metric File"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 7,
+      "option_switch": "-surface-presmooth",
+      "description": "smooth on the surface before computing the gradient",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "surface-kernel",
+          "description": "the size of the gaussian surface smoothing kernel in mm, as sigma by default",
+          "type": "Floating Point"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 8,
+      "option_switch": "-volume-presmooth",
+      "description": "smooth on the surface before computing the gradient",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "volume-kernel",
+          "description": "the size of the gaussian volume smoothing kernel in mm, as sigma by default",
+          "type": "Floating Point"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 11,
+      "option_switch": "-presmooth-fwhm",
+      "description": "smoothing kernel sizes are FWHM, not sigma",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 9,
+      "option_switch": "-average-output",
+      "description": "output the average of the gradient magnitude maps instead of each gradient map separately",
+      "params": [
+      ],
+      "outputs": [
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    },
+    {
+      "key": 10,
+      "option_switch": "-vectors",
+      "description": "output gradient vectors",
+      "params": [
+      ],
+      "outputs": [
+        {
+          "key": 1,
+          "short_name": "vectors-out",
+          "description": "the vectors, as a dscalar file",
+          "type": "Cifti File"
+        }
+      ],
+      "options": [
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ],
+  "repeatable_options": [
+    {
+      "key": 12,
+      "option_switch": "-surface",
+      "description": "specify a surface by structure name",
+      "params": [
+        {
+          "key": 1,
+          "short_name": "structure",
+          "description": "the surface structure name",
+          "type": "String"
+        },
+        {
+          "key": 2,
+          "short_name": "surface",
+          "description": "the surface file",
+          "type": "Surface File"
+        }
+      ],
+      "outputs": [
+      ],
+      "options": [
+        {
+          "key": 3,
+          "option_switch": "-corrected-areas",
+          "description": "vertex areas to use instead of computing them from the surface",
+          "params": [
+            {
+              "key": 1,
+              "short_name": "area-metric",
+              "description": "the corrected vertex areas, as a metric",
+              "type": "Metric File"
+            }
+          ],
+          "outputs": [
+          ],
+          "options": [
+          ],
+          "repeatable_options": [
+          ]
+        }
+      ],
+      "repeatable_options": [
+      ]
+    }
+  ]
+}
+

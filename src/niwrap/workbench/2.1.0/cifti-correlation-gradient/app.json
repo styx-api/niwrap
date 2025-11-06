@@ -1,0 +1,14 @@
+{
+  "name": "cifti-correlation-gradient",
+  "source": {
+    "type": "workbench",
+    "path": "workbench.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-cifti-correlation-gradient"
+  ],
+  "docs": {
+    "description": "Correlate cifti rows and take gradient.\n\nFor each structure, compute the correlation of the rows in the structure, and take the gradients of the resulting rows, then average them.  Memory limit does not need to be an integer, you may also specify 0 to use as little memory as possible (this may be very slow)."
+  }
+}

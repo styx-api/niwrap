@@ -1,0 +1,14 @@
+{
+  "name": "volume-capture-plane",
+  "source": {
+    "type": "workbench",
+    "path": "workbench.json"
+  },
+  "exe": "wb_command",
+  "args": [
+    "-volume-capture-plane"
+  ],
+  "docs": {
+    "description": "Interpolate image from plane through volume.\n\nNOTE: If you want to generate an image with all of the capabilities of the GUI rendering, see -show-scene.\n\nRenders an image of an arbitrary plane through the volume file, with a simple linear grayscale palette.  The parameter <interp> must be one of:\n\nCUBIC\nENCLOSING_VOXEL\nTRILINEAR"
+  }
+}

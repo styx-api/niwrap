@@ -1,0 +1,46 @@
+{
+  "command": "-surface-set-coordinates",
+  "short_description": "MODIFY COORDINATES OF A SURFACE",
+  "help_text": "Takes the topology from an existing surface file, and uses values from a metric file as coordinates to construct a new surface file.\n\nSee -surface-coordinates-to-metric for how to get surface coordinates as a metric file, such that you can then modify them via metric commands, etc.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "surface-in",
+      "description": "the surface to use for the topology",
+      "type": "Surface File"
+    },
+    {
+      "key": 2,
+      "short_name": "coord-metric",
+      "description": "the new coordinates, as a 3-column metric file",
+      "type": "Metric File"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 3,
+      "short_name": "surface-out",
+      "description": "the new surface",
+      "type": "Surface File"
+    }
+  ],
+  "options": [
+  ],
+  "repeatable_options": [
+  ]
+}
+

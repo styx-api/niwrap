@@ -1,0 +1,52 @@
+{
+  "command": "-cifti-reorder",
+  "short_description": "REORDER THE PARCELS OR SCALAR/LABEL MAPS IN A CIFTI FILE",
+  "help_text": "The mapping along the specified direction must be parcels, scalars, or labels.  For pscalar or ptseries, use COLUMN to reorder the parcels.  For dlabel, use ROW.  The <reorder-list> file must contain 1-based indices separated by whitespace (spaces, newlines, tabs, etc), with as many indices as <cifti-in> has along the specified dimension.  These indices specify which current index should end up in that position, for instance, if the current order is 'A B C D', and the desired order is 'D A B C', the text file should contain '4 1 2 3'.",
+  "version_info": [
+     "Connectome Workbench",
+     "Type: Command Line Application",
+     "Version: 2.1.0",
+     "Qt Compiled Version: 5.15.3",
+     "Qt Runtime Version: 5.15.3",
+     "Commit: unknown",
+     "Commit Date: unknown",
+     "Compiler: c++ (/usr/bin)",
+     "Compiler Version: 11.4.0",
+     "Compiled Debug: NO",
+     "Operating System: Linux",
+     "Compiled with OpenMP: YES"
+  ],
+  "params": [
+    {
+      "key": 1,
+      "short_name": "cifti-in",
+      "description": "input cifti file",
+      "type": "Cifti File"
+    },
+    {
+      "key": 2,
+      "short_name": "direction",
+      "description": "which dimension to reorder along, ROW or COLUMN",
+      "type": "String"
+    },
+    {
+      "key": 3,
+      "short_name": "reorder-list",
+      "description": "a text file containing the desired order transformation",
+      "type": "String"
+    }
+  ],
+  "outputs": [
+    {
+      "key": 4,
+      "short_name": "cifti-out",
+      "description": "the reordered cifti file",
+      "type": "Cifti File"
+    }
+  ],
+  "options": [
+  ],
+  "repeatable_options": [
+  ]
+}
+
