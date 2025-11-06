@@ -54,7 +54,7 @@ jobs:
           # For each subdirectory in dist/
           for dir in "$WORKSPACE_DIR/dist"/*/; do
             # Extract repo name from directory path
-            repo_name=$(basename "$dir")
+            repo_name=niwrap-$(basename "$dir")
             echo "Processing repo: $repo_name"
             
             # Check if repository exists in the organization
