@@ -38,7 +38,7 @@ class ProjectType(TypedDict):
 
 class PackageType(TypedDict):
     name: str
-    neurodesk_id: NotRequired[str]
+    neurodeskId: NotRequired[str]
     versions: list[str]
     default: str
     __path__: pl.Path
