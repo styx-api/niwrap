@@ -3,7 +3,7 @@ name: Synchronize metdata
 on:
   push:
     branches:
-      - main
+    - main
 
 permissions:
   contents: write
@@ -12,24 +12,24 @@ jobs:
   styx:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout main
-        uses: actions/checkout@v5
-        with:
-          ref: ${{ github.head_ref }}
+    - name: Checkout main
+      uses: actions/checkout@v5
+      with:
+        ref: ${{ github.head_ref }}
 
-      - name: Install the latest version of uv
-        uses: astral-sh/setup-uv@v7
+    - name: Install the latest version of uv
+      uses: astral-sh/setup-uv@v7
 
-      - name: Synchronize metadata
-        run: |
-          uv --directory tooling run wrap sync
+    - name: Synchronize metadata
+      run: |
+        uv --directory tooling run wrap sync
 
-      - name: Git commit changes
-        run: |
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "GitHub Actions"
-          git add README.md
-          git diff --quiet HEAD || git commit -m "Synchronize metadata"
-          git push
-        env:
-          GH_TOKEN: ${{ github.token }}
+    - name: Git commit changes
+      run: |
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "GitHub Actions"
+        git add README.md
+        git diff --quiet HEAD || git commit -m "Synchronize metadata"
+        git push
+      env:
+        GH_TOKEN: ${{ github.token }}

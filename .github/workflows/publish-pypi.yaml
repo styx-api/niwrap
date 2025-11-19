@@ -14,53 +14,53 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout main
-        uses: actions/checkout@v5
-        with:
-          ref: ${{ github.head_ref }}
-    
-      - name: Install the latest version of uv
-        uses: astral-sh/setup-uv@v7
-      
-      - name: Compile
-        run: |
-          uv --directory tooling run wrap build python
-        
-      - name: Build Python packages
-        run: |
-          # First, see what packages we have
-          echo "Available packages in dist/niwrap-python/:"
-          ls -la dist/niwrap-python/
-          
-          # Create a directory for the built packages
-          mkdir -p dist/built_packages
-          
-          # Build each package using uv
-          for pkg_dir in dist/niwrap-python/*/; do
-            # Skip symbolmaps directory
-            if [[ "$pkg_dir" == *"/symbolmaps/" ]]; then
-              echo "Skipping $pkg_dir"
-              continue
-            fi
+    - name: Checkout main
+      uses: actions/checkout@v5
+      with:
+        ref: ${{ github.head_ref }}
 
-            echo "Building package in $pkg_dir"
-            cd "$pkg_dir"
-            
-            # Build source distribution and wheel using uv
-            uv build --sdist --wheel -o ../../built_packages
-            
-            cd - # Return to original directory
-          done
-          
-          # Verify built packages
-          echo "Built packages:"
-          ls -la dist/built_packages/
+    - name: Install the latest version of uv
+      uses: astral-sh/setup-uv@v7
 
-      - name: Publish to PyPi
-        id: pypi_publish
-        uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          user: __token__
-          password: ${{ secrets.PYPI_TOKEN }}
-          verbose: true
-          packages-dir: dist/built_packages
+    - name: Compile
+      run: |
+        uv --directory tooling run wrap build python
+
+    - name: Build Python packages
+      run: |
+        # First, see what packages we have
+        echo "Available packages in dist/niwrap-python/:"
+        ls -la dist/niwrap-python/
+
+        # Create a directory for the built packages
+        mkdir -p dist/built_packages
+
+        # Build each package using uv
+        for pkg_dir in dist/niwrap-python/*/; do
+          # Skip symbolmaps directory
+          if [[ "$pkg_dir" == *"/symbolmaps/" ]]; then
+            echo "Skipping $pkg_dir"
+            continue
+          fi
+
+          echo "Building package in $pkg_dir"
+          cd "$pkg_dir"
+
+          # Build source distribution and wheel using uv
+          uv build --sdist --wheel -o ../../built_packages
+
+          cd - # Return to original directory
+        done
+
+        # Verify built packages
+        echo "Built packages:"
+        ls -la dist/built_packages/
+
+    - name: Publish to PyPi
+      id: pypi_publish
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        user: __token__
+        password: ${{ secrets.PYPI_TOKEN }}
+        verbose: true
+        packages-dir: dist/built_packages

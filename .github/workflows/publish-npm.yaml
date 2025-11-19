@@ -12,33 +12,33 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout main
-        uses: actions/checkout@v5
-        with:
-          ref: ${{ github.head_ref }}
-    
-      - name: Install the latest version of uv
-        uses: astral-sh/setup-uv@v7
-      
-      - name: Compile
-        run: |
-          uv --directory tooling run wrap build typescript
+    - name: Checkout main
+      uses: actions/checkout@v5
+      with:
+        ref: ${{ github.head_ref }}
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: '22'
-          registry-url: 'https://registry.npmjs.org'
+    - name: Install the latest version of uv
+      uses: astral-sh/setup-uv@v7
 
-      - name: Install dependencies and build npm package
-        run: |
-          cd dist/niwrap-js
-          npm install
-          npm run build
+    - name: Compile
+      run: |
+        uv --directory tooling run wrap build typescript
 
-      - name: Publish to NPM
-        run: |
-          cd dist/niwrap-js
-          npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+    - name: Setup Node.js
+      uses: actions/setup-node@v6
+      with:
+        node-version: '22'
+        registry-url: https://registry.npmjs.org
+
+    - name: Install dependencies and build npm package
+      run: |
+        cd dist/niwrap-js
+        npm install
+        npm run build
+
+    - name: Publish to NPM
+      run: |
+        cd dist/niwrap-js
+        npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
