@@ -1,35 +1,35 @@
 name: 🙋‍♂️ Help Request
 description: Request help with using NiWrap.
-title: "[Help]: "
+title: '[Help]: '
 labels: help request
 body:
-  - type: input
-    id: summary
-    attributes:
-      label: Summary
-      description: "Provide a brief summary of your issue."
-      placeholder: "Enter a summary"
-    validations:
-      required: true
-  - type: textarea
-    id: details
-    attributes:
-      label: Details
-      description: "Provide a detailed description of the problem or help needed."
-    validations:
-      required: true
-  - type: input
-    id: version
-    attributes:
-      label: Tool/Package Version
-      description: "Enter the version of NiWrap or the tool/package you're having trouble with."
-      placeholder: "Enter version"
-    validations:
-      required: false
-  - type: textarea
-    id: attempted_solutions
-    attributes:
-      label: Solutions Tried
-      description: "Mention any steps you've already taken to resolve the issue."
-    validations:
-      required: false
+- type: input
+  id: summary
+  attributes:
+    label: Summary
+    description: Provide a brief summary of your issue.
+    placeholder: Enter a summary
+  validations:
+    required: true
+- type: textarea
+  id: details
+  attributes:
+    label: Details
+    description: Provide a detailed description of the problem or help needed.
+  validations:
+    required: true
+- type: input
+  id: version
+  attributes:
+    label: Tool/Package Version
+    description: Enter the version of NiWrap or the tool/package you're having trouble with.
+    placeholder: Enter version
+  validations:
+    required: false
+- type: textarea
+  id: attempted_solutions
+  attributes:
+    label: Solutions Tried
+    description: Mention any steps you've already taken to resolve the issue.
+  validations:
+    required: false

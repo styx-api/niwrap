@@ -1,45 +1,45 @@
 name: ✨ Request New / Report Missing Tool or Package
 description: Request a new or missing tool interface / descriptor.
-title: "[Descriptor Request]: "
+title: '[Descriptor Request]: '
 labels: enhancement, descriptor
 body:
-  - type: input
-    id: tool_name
-    attributes:
-      label: Tool / Package Name
-      description: "Tool / Package Name (or URL)"
-      placeholder: "Enter tool / package name (or URL)"
-    validations:
-      required: true
-  - type: dropdown
-    id: package_name
-    attributes:
-      label: Associated Package
-      description: "If you are reporting a missing descriptor from a package we already support, select the package the tool is part of."
-      options:
-        - AFNI
-        - ANTs
-        - Connectome Workbench
-        - Convert3D
-        - FSL
-        - FreeSurfer
-        - Greedy
-        - MRTrix3
-        - NiftyReg
-    validations:
-      required: false
-  - type: input
-    id: version
-    attributes:
-      label: Tool Version
-      description: "Enter the version of the tool if relevant."
-      placeholder: "Enter version"
-    validations:
-      required: false
-  - type: textarea
-    id: additional_info
-    attributes:
-      label: Additional Information
-      description: "Provide any relevant context or details for why we should consider adding support for this tool / package."
-    validations:
-      required: false
+- type: input
+  id: tool_name
+  attributes:
+    label: Tool / Package Name
+    description: Tool / Package Name (or URL)
+    placeholder: Enter tool / package name (or URL)
+  validations:
+    required: true
+- type: dropdown
+  id: package_name
+  attributes:
+    label: Associated Package
+    description: If you are reporting a missing descriptor from a package we already support, select the package the tool is part of.
+    options:
+    - AFNI
+    - ANTs
+    - Connectome Workbench
+    - Convert3D
+    - FSL
+    - FreeSurfer
+    - Greedy
+    - MRTrix3
+    - NiftyReg
+  validations:
+    required: false
+- type: input
+  id: version
+  attributes:
+    label: Tool Version
+    description: Enter the version of the tool if relevant.
+    placeholder: Enter version
+  validations:
+    required: false
+- type: textarea
+  id: additional_info
+  attributes:
+    label: Additional Information
+    description: Provide any relevant context or details for why we should consider adding support for this tool / package.
+  validations:
+    required: false

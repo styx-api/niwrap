@@ -87,8 +87,8 @@ niwrap.use_docker()
 
 # Run FSL's BET brain extraction
 outputs = fsl.bet(
-    infile="input.nii.gz", 
-    maskfile="brain.nii.gz", 
+    infile="input.nii.gz",
+    maskfile="brain.nii.gz",
     fractional_intensity=0.5,
     binary_mask=True,
 )
@@ -121,9 +121,9 @@ niwrap.useDocker();
 
 // Run FSL's BET brain extraction
 const outputs = await fsl.bet({
-    input: "input.nii.gz", 
+    input: "input.nii.gz",
     output: "brain.nii.gz",
-    f: 0.5 
+    f: 0.5
 });
 // outputs.outputFile -> "brain.nii.gz"
 // outputs.maskFile -> "brain_mask.nii.gz"

@@ -1,53 +1,53 @@
 name: 🐛 Report Problem with Tool
 description: Report an issue with a specific tool / interface.
-title: "[Descriptor Issue]: "
+title: '[Descriptor Issue]: '
 labels: bug, descriptor
 body:
-  - type: dropdown
-    id: package_name
-    attributes:
-      label: Package
-      description: "Select the package the tool is part of."
-      options:
-        - AFNI
-        - ANTs
-        - Connectome Workbench
-        - Convert3D
-        - FSL
-        - FreeSurfer
-        - Greedy
-        - MRTrix3
-        - NiftyReg
-        - Other
-    validations:
-      required: true
-  - type: input
-    id: tool_name
-    attributes:
-      label: Tool Name
-      description: "Tool name (or URL)"
-      placeholder: "Enter tool name (or URL)"
-    validations:
-      required: true
-  - type: textarea
-    id: problem
-    attributes:
-      label: Problem Description
-      description: "Describe the issue with the descriptor."
-      placeholder: "Enter description of the problem"
-    validations:
-      required: true
-  - type: textarea
-    id: steps_to_reproduce
-    attributes:
-      label: Steps to Reproduce
-      description: "Describe how to reproduce the problem."
-    validations:
-      required: false
-  - type: textarea
-    id: logs
-    attributes:
-      label: Logs
-      description: "Add any relevant logs or error messages."
-    validations:
-      required: false
+- type: dropdown
+  id: package_name
+  attributes:
+    label: Package
+    description: Select the package the tool is part of.
+    options:
+    - AFNI
+    - ANTs
+    - Connectome Workbench
+    - Convert3D
+    - FSL
+    - FreeSurfer
+    - Greedy
+    - MRTrix3
+    - NiftyReg
+    - Other
+  validations:
+    required: true
+- type: input
+  id: tool_name
+  attributes:
+    label: Tool Name
+    description: Tool name (or URL)
+    placeholder: Enter tool name (or URL)
+  validations:
+    required: true
+- type: textarea
+  id: problem
+  attributes:
+    label: Problem Description
+    description: Describe the issue with the descriptor.
+    placeholder: Enter description of the problem
+  validations:
+    required: true
+- type: textarea
+  id: steps_to_reproduce
+  attributes:
+    label: Steps to Reproduce
+    description: Describe how to reproduce the problem.
+  validations:
+    required: false
+- type: textarea
+  id: logs
+  attributes:
+    label: Logs
+    description: Add any relevant logs or error messages.
+  validations:
+    required: false

@@ -1,21 +1,21 @@
 name: 💬 Feedback
 description: Provide feedback or suggestions for NiWrap.
-title: "[Feedback]: "
+title: '[Feedback]: '
 labels: feedback
 body:
-  - type: textarea
-    id: feedback
-    attributes:
-      label: Feedback or Suggestion
-      description: "Please share your feedback or suggestions for improving NiWrap."
-      placeholder: "Enter your feedback"
-    validations:
-      required: true
-  - type: input
-    id: version
-    attributes:
-      label: Tool/Package Version (Optional)
-      description: "Enter the version of NiWrap or the tool/package if relevant to your feedback."
-      placeholder: "Enter version"
-    validations:
-      required: false
+- type: textarea
+  id: feedback
+  attributes:
+    label: Feedback or Suggestion
+    description: Please share your feedback or suggestions for improving NiWrap.
+    placeholder: Enter your feedback
+  validations:
+    required: true
+- type: input
+  id: version
+  attributes:
+    label: Tool/Package Version (Optional)
+    description: Enter the version of NiWrap or the tool/package if relevant to your feedback.
+    placeholder: Enter version
+  validations:
+    required: false

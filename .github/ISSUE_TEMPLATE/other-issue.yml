@@ -1,20 +1,20 @@
 name: 📝 Other Issue
 description: Report any other type of issue or provide general information.
-title: "[Other]: "
+title: '[Other]: '
 labels: other
 body:
-  - type: input
-    id: summary
-    attributes:
-      label: Summary
-      description: "Provide a brief summary of the issue."
-      placeholder: "Enter a summary"
-    validations:
-      required: true
-  - type: textarea
-    id: description
-    attributes:
-      label: Description
-      description: "Provide details about the issue."
-    validations:
-      required: true
+- type: input
+  id: summary
+  attributes:
+    label: Summary
+    description: Provide a brief summary of the issue.
+    placeholder: Enter a summary
+  validations:
+    required: true
+- type: textarea
+  id: description
+  attributes:
+    label: Description
+    description: Provide details about the issue.
+  validations:
+    required: true
