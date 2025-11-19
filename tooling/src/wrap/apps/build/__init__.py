@@ -152,7 +152,7 @@ def main(targets: list[str]) -> str | int:
 
         file_count = 0
 
-        dist_path = PATH_DIST_ROOT / dist_name
+        dist_path = PATH_DIST_ROOT / f"{project['name']}-{dist_name}"
 
         for file in compile_language(backend.id_, ir_project, build_target_stream()):
             file.write(dist_path)
