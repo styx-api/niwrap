@@ -9,9 +9,9 @@ license = "MIT"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "boutiques-schema-pydantic",
-    "pytest>=8.4.2",
-    "styx",
+  "boutiques-schema-pydantic",
+  "pytest>=9.0.1",
+  "styx"
 ]
 
 [project.scripts]
@@ -53,8 +53,8 @@ convention = "google"
 "tests/**/*.py" = []
 
 [tool.uv.sources]
-boutiques-schema-pydantic = { git = "https://github.com/styx-api/boutiques-schema-pydantic.git" }
-styx = { git = "https://github.com/styx-api/styx.git" }
+boutiques-schema-pydantic = {git = "https://github.com/styx-api/boutiques-schema-pydantic.git"}
+styx = {git = "https://github.com/styx-api/styx.git"}
 
 [build-system]
 requires = ["uv_build>=0.9.3,<0.10.0"]
