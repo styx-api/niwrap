@@ -46,7 +46,7 @@ jobs:
 
       - name: Styx compile
         run: |
-          uv --directory tooling run wrap build ir jsonschema typescript python
+          uv --directory tooling run wrap build jsonschema typescript python
 
       - name: Build npm package
         run: |
@@ -59,11 +59,11 @@ jobs:
           # Create a temporary directory for GitHub Pages content
           mkdir -p _site
           
-          # Copy the dist directories to the Pages site
-          if [ -d "dist/niwrap-ir-dump" ]; then
-            cp -r dist/niwrap-ir-dump _site/
+          # Copy the source directories to the Pages site
+          if [ -d "src" ]; then
+            cp -r src _site/source
           else
-            echo "Warning: dist/niwrap-ir-dump directory not found"
+            echo "Warning: src directory not found"
             exit 1
           fi
           
