@@ -2,12 +2,12 @@
   "name": "antsBrainExtraction.sh",
   "command-line": "antsBrainExtraction.sh [IMAGE_DIMENSION] [ANATOMICAL_IMAGE] [TEMPLATE] [PROBABILITY_MASK] [TISSUE_CLASSIFICATION] [BRAIN_EXTRACTION_REGISTRATION_MASK] [KEEP_TEMPORARY_FILES] [SINGLE_FLOATING_POINT_PRECISION] [INITIAL_MOVING_TRANSFORM] [ROTATION_SEARCH_PARAMS] [IMAGE_FILE_SUFFIX] [TRANSLATION_SEARCH_PARAMS] [RANDOM_SEEDING] [DEBUG_MODE] [OUTPUT_PREFIX]",
   "author": "ANTs Developers",
-  "description": "antsBrainExtraction.sh performs template-based brain extraction.",
+  "description": "antsBrainExtraction.sh performs template-based brain extraction using N4 bias correction, registration, and Atropos segmentation.",
   "url": "https://github.com/ANTsX/ANTs",
   "schema-version": "0.5+styx",
   "inputs": [
     {
-      "description": "Output prefix",
+      "description": "Output prefix (directory + file prefix)",
       "value-key": "[OUTPUT_PREFIX]",
       "type": "String",
       "optional": true,
@@ -16,18 +16,18 @@
       "command-line-flag": "-o"
     },
     {
-      "description": "Image dimension (2 or 3)",
+      "description": "Image dimension (2 or 3 for 2- or 3-dimensional image)",
       "value-key": "[IMAGE_DIMENSION]",
       "type": "Number",
       "optional": false,
       "id": "image_dimension",
       "name": "Image Dimension",
-      "default-value": 3,
       "integer": true,
+      "value-choices": [2, 3],
       "command-line-flag": "-d"
     },
     {
-      "description": "Anatomical image (Structural image, typically T1)",
+      "description": "Anatomical image (Structural image, typically T1). If more than one anatomical image is specified, subsequently specified images are used during the segmentation process. However, only the first image is used in the registration of priors.",
       "value-key": "[ANATOMICAL_IMAGE]",
       "type": "File",
       "optional": false,
@@ -45,7 +45,7 @@
       "command-line-flag": "-e"
     },
     {
-      "description": "Brain extraction probability mask",
+      "description": "Brain extraction probability mask (with intensity range 1=definitely brain to 0=definitely background)",
       "value-key": "[PROBABILITY_MASK]",
       "type": "File",
       "optional": false,
@@ -55,7 +55,7 @@
     },
     {
       "command-line-flag": "-c",
-      "description": "Tissue classification",
+      "description": "Tissue classification - A k-means segmentation to find tissue classes. Format: KxcsfLabelxgmLabelxwmLabel. Examples: '3x1x2x3' for T1 (K=3, CSF=1, GM=2, WM=3), '3x3x2x1' for T2, '3x1x3x2' for FLAIR, '4x4x2x3' for K=4",
       "value-key": "[TISSUE_CLASSIFICATION]",
       "type": "String",
       "optional": true,
@@ -64,7 +64,7 @@
     },
     {
       "command-line-flag": "-f",
-      "description": "Brain extraction registration mask",
+      "description": "Brain extraction registration mask (Mask used for registration to limit the metric computation to a specific region)",
       "value-key": "[BRAIN_EXTRACTION_REGISTRATION_MASK]",
       "type": "File",
       "optional": true,
@@ -73,23 +73,29 @@
     },
     {
       "command-line-flag": "-k",
-      "description": "Keep temporary files",
+      "description": "Keep temporary files (keep brain extraction/segmentation warps, etc). 0=delete, 1=keep",
       "value-key": "[KEEP_TEMPORARY_FILES]",
-      "type": "Flag",
+      "type": "Number",
+      "optional": true,
       "id": "keep_temporary_files",
-      "name": "Keep Temporary Files"
+      "name": "Keep Temporary Files",
+      "integer": true,
+      "value-choices": [0, 1]
     },
     {
       "command-line-flag": "-q",
-      "description": "Use single floating point precision",
+      "description": "Use antsRegistration with single (1) or double (0) floating point precision",
       "value-key": "[SINGLE_FLOATING_POINT_PRECISION]",
-      "type": "Flag",
+      "type": "Number",
+      "optional": true,
       "id": "single_floating_point_precision",
-      "name": "Single Floating Point Precision"
+      "name": "Single Floating Point Precision",
+      "integer": true,
+      "value-choices": [0, 1]
     },
     {
       "command-line-flag": "-r",
-      "description": "Initial moving transform",
+      "description": "Initial moving transform (An ITK affine transform, e.g., from antsAI or ITK-SNAP). Without this option, the script calls antsAI to search for a good initial moving transform.",
       "value-key": "[INITIAL_MOVING_TRANSFORM]",
       "type": "File",
       "optional": true,
@@ -98,7 +104,7 @@
     },
     {
       "command-line-flag": "-R",
-      "description": "Rotation search parameters",
+      "description": "Rotation search parameters for antsAI in format 'step,arcFraction'. Step is in degrees, arcFraction goes from 0 (no search) to 1 (search -180 to 180 degrees)",
       "value-key": "[ROTATION_SEARCH_PARAMS]",
       "type": "String",
       "optional": true,
@@ -107,7 +113,7 @@
     },
     {
       "command-line-flag": "-s",
-      "description": "Image file suffix",
+      "description": "Image file suffix (any standard ITK IO format, e.g., nrrd, nii.gz, mhd)",
       "value-key": "[IMAGE_FILE_SUFFIX]",
       "type": "String",
       "optional": true,
@@ -116,7 +122,7 @@
     },
     {
       "command-line-flag": "-T",
-      "description": "Translation search parameters",
+      "description": "Translation search parameters for antsAI in format 'step,range'. Step is in mm, -range to range will be tested in each dimension",
       "value-key": "[TRANSLATION_SEARCH_PARAMS]",
       "type": "String",
       "optional": true,
@@ -125,19 +131,25 @@
     },
     {
       "command-line-flag": "-u",
-      "description": "Use random seeding",
+      "description": "Use random seeding: 1=use random seed from system clock, 0=use fixed seed (ANTS_RANDOM_SEED=19650218 or value from environment). For reproducibility, set to 0 and also set ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=1",
       "value-key": "[RANDOM_SEEDING]",
-      "type": "Flag",
+      "type": "Number",
+      "optional": true,
       "id": "random_seeding",
-      "name": "Use Random Seeding"
+      "name": "Use Random Seeding",
+      "integer": true,
+      "value-choices": [0, 1]
     },
     {
       "command-line-flag": "-z",
-      "description": "Test / debug mode",
+      "description": "Test/debug mode: If > 0, runs a faster version of the script. Only for debugging, results will not be good.",
       "value-key": "[DEBUG_MODE]",
-      "type": "Flag",
+      "type": "Number",
+      "optional": true,
       "id": "debug_mode",
-      "name": "Debug Mode"
+      "name": "Debug Mode",
+      "integer": true,
+      "minimum": 0
     }
   ],
   "output-files": [
@@ -145,22 +157,55 @@
       "description": "Brain extracted image",
       "id": "brain_extracted_image",
       "name": "Brain Extracted Image",
-      "path-template": "[OUTPUT_PREFIX]BrainExtractionBrain.nii.gz",
-      "path-template-fallback": ""
+      "path-template": "[OUTPUT_PREFIX]BrainExtractionBrain.nii.gz"
     },
     {
-      "description": "Brain mask",
+      "description": "Brain extraction mask",
       "id": "brain_mask",
       "name": "Brain Mask",
-      "path-template": "[OUTPUT_PREFIX]BrainExtractionMask.nii.gz",
-      "path-template-fallback": ""
+      "path-template": "[OUTPUT_PREFIX]BrainExtractionMask.nii.gz"
     },
     {
-      "description": "Brain probability mask",
-      "id": "brain_probability_mask",
-      "name": "Brain Probability Mask",
-      "path-template": "[OUTPUT_PREFIX]BrainExtractionPrior0GenericAffine.mat",
-      "path-template-fallback": ""
+      "description": "Brain segmentation (tissue classification)",
+      "id": "brain_segmentation",
+      "name": "Brain Segmentation",
+      "path-template": "[OUTPUT_PREFIX]BrainExtractionSegmentation.nii.gz"
+    },
+    {
+      "description": "Cerebrospinal fluid segmentation",
+      "id": "csf_segmentation",
+      "name": "CSF Segmentation",
+      "path-template": "[OUTPUT_PREFIX]BrainExtractionCSF.nii.gz"
+    },
+    {
+      "description": "Gray matter segmentation",
+      "id": "gm_segmentation",
+      "name": "GM Segmentation",
+      "path-template": "[OUTPUT_PREFIX]BrainExtractionGM.nii.gz"
+    },
+    {
+      "description": "White matter segmentation",
+      "id": "wm_segmentation",
+      "name": "WM Segmentation",
+      "path-template": "[OUTPUT_PREFIX]BrainExtractionWM.nii.gz"
+    },
+    {
+      "description": "Generic affine transform from registration",
+      "id": "generic_affine",
+      "name": "Generic Affine Transform",
+      "path-template": "[OUTPUT_PREFIX]BrainExtractionPrior0GenericAffine.mat"
+    },
+    {
+      "description": "Warp field from registration",
+      "id": "warp_field",
+      "name": "Warp Field",
+      "path-template": "[OUTPUT_PREFIX]BrainExtractionPrior1Warp.nii.gz"
+    },
+    {
+      "description": "Inverse warp field from registration",
+      "id": "inverse_warp_field",
+      "name": "Inverse Warp Field",
+      "path-template": "[OUTPUT_PREFIX]BrainExtractionPrior1InverseWarp.nii.gz"
     }
   ]
 }
