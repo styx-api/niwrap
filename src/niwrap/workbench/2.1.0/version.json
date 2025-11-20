@@ -1,5 +1,6 @@
 {
   "name": "2.1.0",
+  "container": "nx10x/workbench:2.1.0",
   "apps": [
     "annotation-resample",
     "backend-average-dense-roi",
@@ -204,5 +205,13 @@
     "wbsparse-merge-dense",
     "zip-scene-file",
     "zip-spec-file"
-  ]
+  ],
+  "executables": {
+    "required": [
+      "wb_command"
+    ],
+    "ignored": [
+      "wb_view"
+    ]
+  }
 }
