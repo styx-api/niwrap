@@ -38,7 +38,7 @@ NiWrap provides seamless, programmatic access to powerful neuroimaging command-l
 | [MRTrix3](https://www.mrtrix.org/) | [`3.0.4`](https://hub.docker.com/r/mrtrix3/mrtrix3) | ![115/121](https://progress-bar.xyz/115/?scale=121&suffix=%2F121) |
 | [MRTrix3Tissue](https://3tissue.github.io/) | [`5.2.8`](https://hub.docker.com/r/brainlife/3tissue) | ![1/1](https://progress-bar.xyz/1/?scale=1&suffix=%2F1) |
 | [NiftyReg](http://cmictig.cs.ucl.ac.uk/wiki/index.php/NiftyReg) | [`1.4.0`](https://hub.docker.com/r/vnmd/niftyreg_1.4.0) | ![7/7](https://progress-bar.xyz/7/?scale=7&suffix=%2F7) |
-| [Connectome Workbench](https://github.com/Washington-University/workbench) | ? | ![203/203](https://progress-bar.xyz/203/?scale=203&suffix=%2F203) |
+| [Connectome Workbench](https://github.com/Washington-University/workbench) | [`2.1.0`](https://hub.docker.com/r/nx10x/workbench) | ![203/203](https://progress-bar.xyz/203/?scale=203&suffix=%2F203) |
 <!-- END_PACKAGES_TABLE -->
 <small>*API Coverage: The percentages shown represent the proportion of tool binaries with available NiWrap descriptors, not the completeness of each descriptor.*</small>
 
