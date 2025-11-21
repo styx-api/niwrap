@@ -1399,7 +1399,7 @@
             "description": "Convergence is determined from the number of iterations per level and is determined by fitting a line to the normalized energy profile of the last N iterations (where N is specified by the window size) and determining the slope which is then compared with the convergence threshold. ",
             "type": {
               "id": "convergence",
-              "command-line": "[[CONVERGENCE][CONVERGENCE_THRESHOLD][CONVERGENCE_WINDOW_SIZE]]",
+              "command-line": "[[CONVERGENCE],[CONVERGENCE_THRESHOLD],[CONVERGENCE_WINDOW_SIZE]]",
               "inputs": [
                 {
                   "id": "convergence",
@@ -1412,8 +1412,6 @@
                   "id": "convergence_threshold",
                   "name": "Convergence threshold",
                   "value-key": "[CONVERGENCE_THRESHOLD]",
-                  "command-line-flag": ",",
-                  "command-line-flag-separator": "",
                   "type": "Number",
                   "optional": false
                 },
@@ -1421,8 +1419,6 @@
                   "id": "convergence_window_size",
                   "name": "Convergence window size",
                   "value-key": "[CONVERGENCE_WINDOW_SIZE]",
-                  "command-line-flag": ",",
-                  "command-line-flag-separator": "",
                   "type": "Number",
                   "integer": true,
                   "optional": false
@@ -1470,7 +1466,7 @@
       "command-line-flag": "--winsorize-image-intensities",
       "type": {
         "id": "winsorize_image_intensities",
-        "command-line": "[[LOWER_QUANTILE][UPPER_QUANTILE]]",
+        "command-line": "[[LOWER_QUANTILE],[UPPER_QUANTILE]]",
         "inputs": [
           {
             "id": "lower_quantile",
