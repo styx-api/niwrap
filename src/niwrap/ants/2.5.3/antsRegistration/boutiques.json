@@ -181,7 +181,7 @@
         {
           "id": "initial_moving_transform_use_inverse",
           "name": "Initial moving transform",
-          "command-line": "[[INITIAL_MOVING_TRANSFORM][USE_INVERSE]]",
+          "command-line": "[INITIAL_MOVING_TRANSFORM][USE_INVERSE]",
           "inputs": [
             {
               "id": "initial_moving_transform",
@@ -194,16 +194,26 @@
               "id": "use_inverse",
               "name": "Use inverse",
               "value-key": "[USE_INVERSE]",
-              "type": "Number",
-              "integer": true,
-              "optional": true,
-              "value-choices": [
-                0,
-                1
-              ],
-              "command-line-flag": ",",
-              "command-line-flag-separator": "",
-              "description": "Use the inverse of the initial moving transform."
+              "type": {
+                "id": "use_inverse",
+                "command-line": ",[USE_INVERSE_VALUE]",
+                "inputs": [
+                  {
+                    "id": "use_inverse_value",
+                    "name": "Use inverse value",
+                    "value-key": "[USE_INVERSE_VALUE]",
+                    "type": "Number",
+                    "integer": true,
+                    "optional": false,
+                    "value-choices": [
+                      0,
+                      1
+                    ],
+                    "description": "Use the inverse of the initial moving transform."
+                  }
+                ]
+              },
+              "optional": true
             }
           ]
         },
@@ -388,7 +398,7 @@
               {
                 "id": "transform_bspline_displacement_field",
                 "name": "BSpline displacement field",
-                "command-line": "BSplineDisplacementField[[GRADIENT_STEP],[UPDATE_FIELD_MESH_SIZE_AT_BASE_LEVEL][TOTAL_FIELD_MESH_SIZE_AT_BASE_LEVEL][SPLINE_ORDER]]",
+                "command-line": "BSplineDisplacementField[[GRADIENT_STEP],[UPDATE_FIELD_MESH_SIZE_AT_BASE_LEVEL][TOTAL_FIELD_MESH_SIZE_AT_BASE_LEVEL]]",
                 "inputs": [
                   {
                     "id": "gradient_step",
@@ -408,16 +418,38 @@
                     "id": "total_field_mesh_size_at_base_level",
                     "name": "Total field mesh size at base level",
                     "value-key": "[TOTAL_FIELD_MESH_SIZE_AT_BASE_LEVEL]",
-                    "type": "Number",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "optional": true
-                  },
-                  {
-                    "id": "spline_order",
-                    "name": "Spline order",
-                    "value-key": "[SPLINE_ORDER]",
-                    "type": "Number",
+                    "type": {
+                      "id": "total_field_mesh_size_at_base_level",
+                      "command-line": ",[TOTAL_FIELD_MESH_SIZE_AT_BASE_LEVEL_VALUE][SPLINE_ORDER]",
+                      "inputs": [
+                        {
+                          "id": "total_field_mesh_size_at_base_level_value",
+                          "name": "Total field mesh size at base level value",
+                          "value-key": "[TOTAL_FIELD_MESH_SIZE_AT_BASE_LEVEL_VALUE]",
+                          "type": "Number",
+                          "optional": false
+                        },
+                        {
+                          "id": "spline_order",
+                          "name": "Spline order",
+                          "value-key": "[SPLINE_ORDER]",
+                          "type": {
+                            "id": "spline_order",
+                            "command-line": ",[SPLINE_ORDER_VALUE]",
+                            "inputs": [
+                              {
+                                "id": "spline_order_value",
+                                "name": "Spline order value",
+                                "value-key": "[SPLINE_ORDER_VALUE]",
+                                "type": "Number",
+                                "optional": false
+                              }
+                            ]
+                          },
+                          "optional": true
+                        }
+                      ]
+                    },
                     "optional": true
                   }
                 ]
@@ -474,7 +506,7 @@
               {
                 "id": "transform_time_varying_bspline_velocity_field",
                 "name": "Time varying B-spline velocity field",
-                "command-line": "TimeVaryingBSplineVelocityField[[GRADIENT_STEP],[VELOCITY_FIELD_MESH_SIZE][NUMBER_OF_TIME_POINT_SAMPLES][SPLINE_ORDER]]",
+                "command-line": "TimeVaryingBSplineVelocityField[[GRADIENT_STEP],[VELOCITY_FIELD_MESH_SIZE][NUMBER_OF_TIME_POINT_SAMPLES]]",
                 "inputs": [
                   {
                     "id": "gradient_step",
@@ -494,18 +526,38 @@
                     "id": "number_of_time_point_samples",
                     "name": "Number of time point samples",
                     "value-key": "[NUMBER_OF_TIME_POINT_SAMPLES]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "Number",
-                    "optional": true
-                  },
-                  {
-                    "id": "spline_order",
-                    "name": "Spline order",
-                    "value-key": "[SPLINE_ORDER]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "Number",
+                    "type": {
+                      "id": "number_of_time_point_samples",
+                      "command-line": ",[NUMBER_OF_TIME_POINT_SAMPLES_VALUE][SPLINE_ORDER]",
+                      "inputs": [
+                        {
+                          "id": "number_of_time_point_samples_value",
+                          "name": "Number of time point samples value",
+                          "value-key": "[NUMBER_OF_TIME_POINT_SAMPLES_VALUE]",
+                          "type": "Number",
+                          "optional": false
+                        },
+                        {
+                          "id": "spline_order",
+                          "name": "Spline order",
+                          "value-key": "[SPLINE_ORDER]",
+                          "type": {
+                            "id": "spline_order",
+                            "command-line": ",[SPLINE_ORDER_VALUE]",
+                            "inputs": [
+                              {
+                                "id": "spline_order_value",
+                                "name": "Spline order value",
+                                "value-key": "[SPLINE_ORDER_VALUE]",
+                                "type": "Number",
+                                "optional": false
+                              }
+                            ]
+                          },
+                          "optional": true
+                        }
+                      ]
+                    },
                     "optional": true
                   }
                 ]
@@ -513,7 +565,7 @@
               {
                 "id": "transform_syn",
                 "name": "SyN",
-                "command-line": "SyN[[GRADIENT_STEP][UPDATE_FIELD_VARIANCE_IN_VOXEL_SPACE][TOTAL_FIELD_VARIANCE_IN_VOXEL_SPACE]]",
+                "command-line": "SyN[[GRADIENT_STEP][UPDATE_FIELD_VARIANCE_IN_VOXEL_SPACE]]",
                 "inputs": [
                   {
                     "id": "gradient_step",
@@ -526,26 +578,46 @@
                     "id": "update_field_variance_in_voxel_space",
                     "name": "Update field variance in voxel space",
                     "value-key": "[UPDATE_FIELD_VARIANCE_IN_VOXEL_SPACE]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "Number",
-                    "optional": false
-                  },
-                  {
-                    "id": "total_field_variance_in_voxel_space",
-                    "name": "Total field variance in voxel space",
-                    "value-key": "[TOTAL_FIELD_VARIANCE_IN_VOXEL_SPACE]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "Number",
-                    "optional": false
+                    "type": {
+                      "id": "update_field_variance_in_voxel_space",
+                      "command-line": ",[UPDATE_FIELD_VARIANCE_IN_VOXEL_SPACE_VALUE][TOTAL_FIELD_VARIANCE_IN_VOXEL_SPACE]",
+                      "inputs": [
+                        {
+                          "id": "update_field_variance_in_voxel_space_value",
+                          "name": "Update field variance in voxel space value",
+                          "value-key": "[UPDATE_FIELD_VARIANCE_IN_VOXEL_SPACE_VALUE]",
+                          "type": "Number",
+                          "optional": false
+                        },
+                        {
+                          "id": "total_field_variance_in_voxel_space",
+                          "name": "Total field variance in voxel space",
+                          "value-key": "[TOTAL_FIELD_VARIANCE_IN_VOXEL_SPACE]",
+                          "type": {
+                            "id": "total_field_variance_in_voxel_space",
+                            "command-line": ",[TOTAL_FIELD_VARIANCE_IN_VOXEL_SPACE_VALUE]",
+                            "inputs": [
+                              {
+                                "id": "total_field_variance_in_voxel_space_value",
+                                "name": "Total field variance in voxel space value",
+                                "value-key": "[TOTAL_FIELD_VARIANCE_IN_VOXEL_SPACE_VALUE]",
+                                "type": "Number",
+                                "optional": false
+                              }
+                            ]
+                          },
+                          "optional": true
+                        }
+                      ]
+                    },
+                    "optional": true
                   }
                 ]
               },
               {
                 "id": "transform_bspline_syn",
                 "name": "B-spline SyN",
-                "command-line": "BSplineSyN[[GRADIENT_STEP],[UPDATE_FIELD_MESH_SIZE_AT_BASE_LEVEL][TOTAL_FIELD_MESH_SIZE_AT_BASE_LEVEL][SPLINE_ORDER]]",
+                "command-line": "BSplineSyN[[GRADIENT_STEP],[UPDATE_FIELD_MESH_SIZE_AT_BASE_LEVEL][TOTAL_FIELD_MESH_SIZE_AT_BASE_LEVEL]]",
                 "inputs": [
                   {
                     "id": "gradient_step",
@@ -565,18 +637,38 @@
                     "id": "total_field_mesh_size_at_base_level",
                     "name": "Total field mesh size at base level",
                     "value-key": "[TOTAL_FIELD_MESH_SIZE_AT_BASE_LEVEL]",
-                    "type": "Number",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "optional": true
-                  },
-                  {
-                    "id": "spline_order",
-                    "name": "Spline order",
-                    "value-key": "[SPLINE_ORDER]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "Number",
+                    "type": {
+                      "id": "total_field_mesh_size_at_base_level",
+                      "command-line": ",[TOTAL_FIELD_MESH_SIZE_AT_BASE_LEVEL_VALUE][SPLINE_ORDER]",
+                      "inputs": [
+                        {
+                          "id": "total_field_mesh_size_at_base_level_value",
+                          "name": "Total field mesh size at base level value",
+                          "value-key": "[TOTAL_FIELD_MESH_SIZE_AT_BASE_LEVEL_VALUE]",
+                          "type": "Number",
+                          "optional": false
+                        },
+                        {
+                          "id": "spline_order",
+                          "name": "Spline order",
+                          "value-key": "[SPLINE_ORDER]",
+                          "type": {
+                            "id": "spline_order",
+                            "command-line": ",[SPLINE_ORDER_VALUE]",
+                            "inputs": [
+                              {
+                                "id": "spline_order_value",
+                                "name": "Spline order value",
+                                "value-key": "[SPLINE_ORDER_VALUE]",
+                                "type": "Number",
+                                "optional": false
+                              }
+                            ]
+                          },
+                          "optional": true
+                        }
+                      ]
+                    },
                     "optional": true
                   }
                 ]
@@ -611,17 +703,27 @@
                     "id": "number_of_integration_steps",
                     "name": "Number of integration steps",
                     "value-key": "[NUMBER_OF_INTEGRATION_STEPS]",
-                    "type": "Number",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "optional": false
+                    "type": {
+                      "id": "number_of_integration_steps",
+                      "command-line": ",[NUMBER_OF_INTEGRATION_STEPS_VALUE]",
+                      "inputs": [
+                        {
+                          "id": "number_of_integration_steps_value",
+                          "name": "Number of integration steps value",
+                          "value-key": "[NUMBER_OF_INTEGRATION_STEPS_VALUE]",
+                          "type": "Number",
+                          "optional": false
+                        }
+                      ]
+                    },
+                    "optional": true
                   }
                 ]
               },
               {
                 "id": "transform_bspline_exponential",
                 "name": "B-spline exponential",
-                "command-line": "BSplineExponential[[GRADIENT_STEP],[UPDATE_FIELD_MESH_SIZE_AT_BASE_LEVEL][VELOCITY_FIELD_MESH_SIZE_AT_BASE_LEVEL][NUMBER_OF_INTEGRATION_STEPS][SPLINE_ORDER]]",
+                "command-line": "BSplineExponential[[GRADIENT_STEP],[UPDATE_FIELD_MESH_SIZE_AT_BASE_LEVEL][VELOCITY_FIELD_MESH_SIZE_AT_BASE_LEVEL]]",
                 "inputs": [
                   {
                     "id": "gradient_step",
@@ -641,27 +743,57 @@
                     "id": "velocity_field_mesh_size_at_base_level",
                     "name": "Velocity field mesh size at base level",
                     "value-key": "[VELOCITY_FIELD_MESH_SIZE_AT_BASE_LEVEL]",
-                    "type": "Number",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "optional": true
-                  },
-                  {
-                    "id": "number_of_integration_steps",
-                    "name": "Number of integration steps",
-                    "value-key": "[NUMBER_OF_INTEGRATION_STEPS]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "Number",
-                    "optional": true
-                  },
-                  {
-                    "id": "spline_order",
-                    "name": "Spline order",
-                    "value-key": "[SPLINE_ORDER]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "Number",
+                    "type": {
+                      "id": "velocity_field_mesh_size_at_base_level",
+                      "command-line": ",[VELOCITY_FIELD_MESH_SIZE_AT_BASE_LEVEL_VALUE][NUMBER_OF_INTEGRATION_STEPS]",
+                      "inputs": [
+                        {
+                          "id": "velocity_field_mesh_size_at_base_level_value",
+                          "name": "Velocity field mesh size at base level value",
+                          "value-key": "[VELOCITY_FIELD_MESH_SIZE_AT_BASE_LEVEL_VALUE]",
+                          "type": "Number",
+                          "optional": false
+                        },
+                        {
+                          "id": "number_of_integration_steps",
+                          "name": "Number of integration steps",
+                          "value-key": "[NUMBER_OF_INTEGRATION_STEPS]",
+                          "type": {
+                            "id": "number_of_integration_steps",
+                            "command-line": ",[NUMBER_OF_INTEGRATION_STEPS_VALUE][SPLINE_ORDER]",
+                            "inputs": [
+                              {
+                                "id": "number_of_integration_steps_value",
+                                "name": "Number of integration steps value",
+                                "value-key": "[NUMBER_OF_INTEGRATION_STEPS_VALUE]",
+                                "type": "Number",
+                                "optional": false
+                              },
+                              {
+                                "id": "spline_order",
+                                "name": "Spline order",
+                                "value-key": "[SPLINE_ORDER]",
+                                "type": {
+                                  "id": "spline_order",
+                                  "command-line": ",[SPLINE_ORDER_VALUE]",
+                                  "inputs": [
+                                    {
+                                      "id": "spline_order_value",
+                                      "name": "Spline order value",
+                                      "value-key": "[SPLINE_ORDER_VALUE]",
+                                      "type": "Number",
+                                      "optional": false
+                                    }
+                                  ]
+                                },
+                                "optional": true
+                              }
+                            ]
+                          },
+                          "optional": true
+                        }
+                      ]
+                    },
                     "optional": true
                   }
                 ]
@@ -678,7 +810,7 @@
               {
                 "id": "metric_ants_neighbourhood_cross_correlation",
                 "name": "ANTS neighbourhood cross correlation",
-                "command-line": "CC[[FIXED_IMAGE],[MOVING_IMAGE],[METRIC_WEIGHT],[RADIUS][SAMPLING_STRATEGY][SAMPLING_PERCENTAGE][USE_GRADIENT_FILTER]]",
+                "command-line": "CC[[FIXED_IMAGE],[MOVING_IMAGE],[METRIC_WEIGHT][RADIUS]]",
                 "inputs": [
                   {
                     "id": "fixed_image",
@@ -705,53 +837,95 @@
                     "id": "radius",
                     "name": "Radius",
                     "value-key": "[RADIUS]",
-                    "type": "Number",
+                    "type": {
+                      "id": "radius",
+                      "command-line": ",[RADIUS_VALUE][SAMPLING_STRATEGY]",
+                      "inputs": [
+                        {
+                          "id": "radius_value",
+                          "name": "Radius value",
+                          "value-key": "[RADIUS_VALUE]",
+                          "type": "Number",
+                          "optional": false
+                        },
+                        {
+                          "id": "sampling_strategy",
+                          "name": "Sampling strategy",
+                          "value-key": "[SAMPLING_STRATEGY]",
+                          "type": {
+                            "id": "sampling_strategy",
+                            "command-line": ",[SAMPLING_STRATEGY_VALUE][SAMPLING_PERCENTAGE]",
+                            "inputs": [
+                              {
+                                "id": "sampling_strategy_value",
+                                "name": "Sampling strategy value",
+                                "value-key": "[SAMPLING_STRATEGY_VALUE]",
+                                "type": "String",
+                                "optional": false,
+                                "value-choices": [
+                                  "None",
+                                  "Regular",
+                                  "Random"
+                                ]
+                              },
+                              {
+                                "id": "sampling_percentage",
+                                "name": "Sampling percentage",
+                                "value-key": "[SAMPLING_PERCENTAGE]",
+                                "type": {
+                                  "id": "sampling_percentage",
+                                  "command-line": ",[SAMPLING_PERCENTAGE_VALUE][USE_GRADIENT_FILTER]",
+                                  "inputs": [
+                                    {
+                                      "id": "sampling_percentage_value",
+                                      "name": "Sampling percentage value",
+                                      "value-key": "[SAMPLING_PERCENTAGE_VALUE]",
+                                      "type": "Number",
+                                      "minimum": 0,
+                                      "maximum": 1,
+                                      "optional": false
+                                    },
+                                    {
+                                      "id": "use_gradient_filter",
+                                      "name": "Use gradient filter",
+                                      "value-key": "[USE_GRADIENT_FILTER]",
+                                      "type": {
+                                        "id": "use_gradient_filter",
+                                        "command-line": ",[USE_GRADIENT_FILTER_VALUE]",
+                                        "inputs": [
+                                          {
+                                            "id": "use_gradient_filter_value",
+                                            "name": "Use gradient filter value",
+                                            "value-key": "[USE_GRADIENT_FILTER_VALUE]",
+                                            "type": "String",
+                                            "optional": false,
+                                            "value-choices": [
+                                              "true",
+                                              "false"
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      "optional": true
+                                    }
+                                  ]
+                                },
+                                "optional": true
+                              }
+                            ]
+                          },
+                          "optional": true
+                        }
+                      ]
+                    },
                     "optional": true
-                  },
-                  {
-                    "id": "sampling_strategy",
-                    "name": "Sampling strategy",
-                    "value-key": "[SAMPLING_STRATEGY]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "String",
-                    "optional": true,
-                    "value-choices": [
-                      "None",
-                      "Regular",
-                      "Random"
-                    ]
-                  },
-                  {
-                    "id": "sampling_percentage",
-                    "name": "Sampling percentage",
-                    "value-key": "[SAMPLING_PERCENTAGE]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "Number",
-                    "minimum": 0,
-                    "maximum": 1,
-                    "optional": true
-                  },
-                  {
-                    "id": "use_gradient_filter",
-                    "name": "Use gradient filter",
-                    "value-key": "[USE_GRADIENT_FILTER]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "String",
-                    "optional": true,
-                    "value-choices": [
-                      "true",
-                      "false"
-                    ]
                   }
                 ]
               },
               {
                 "id": "metric_mutual_information",
                 "name": "Mutual information",
-                "command-line": "MI[[FIXED_IMAGE],[MOVING_IMAGE],[METRIC_WEIGHT],[NUMBER_OF_BINS][SAMPLING_STRATEGY][SAMPLING_PERCENTAGE][USE_GRADIENT_FILTER]]",
+                "command-line": "MI[[FIXED_IMAGE],[MOVING_IMAGE],[METRIC_WEIGHT][NUMBER_OF_BINS]]",
                 "inputs": [
                   {
                     "id": "fixed_image",
@@ -778,53 +952,95 @@
                     "id": "number_of_bins",
                     "name": "Number of bins",
                     "value-key": "[NUMBER_OF_BINS]",
-                    "type": "Number",
+                    "type": {
+                      "id": "number_of_bins",
+                      "command-line": ",[NUMBER_OF_BINS_VALUE][SAMPLING_STRATEGY]",
+                      "inputs": [
+                        {
+                          "id": "number_of_bins_value",
+                          "name": "Number of bins value",
+                          "value-key": "[NUMBER_OF_BINS_VALUE]",
+                          "type": "Number",
+                          "optional": false
+                        },
+                        {
+                          "id": "sampling_strategy",
+                          "name": "Sampling strategy",
+                          "value-key": "[SAMPLING_STRATEGY]",
+                          "type": {
+                            "id": "sampling_strategy",
+                            "command-line": ",[SAMPLING_STRATEGY_VALUE][SAMPLING_PERCENTAGE]",
+                            "inputs": [
+                              {
+                                "id": "sampling_strategy_value",
+                                "name": "Sampling strategy value",
+                                "value-key": "[SAMPLING_STRATEGY_VALUE]",
+                                "type": "String",
+                                "optional": false,
+                                "value-choices": [
+                                  "None",
+                                  "Regular",
+                                  "Random"
+                                ]
+                              },
+                              {
+                                "id": "sampling_percentage",
+                                "name": "Sampling percentage",
+                                "value-key": "[SAMPLING_PERCENTAGE]",
+                                "type": {
+                                  "id": "sampling_percentage",
+                                  "command-line": ",[SAMPLING_PERCENTAGE_VALUE][USE_GRADIENT_FILTER]",
+                                  "inputs": [
+                                    {
+                                      "id": "sampling_percentage_value",
+                                      "name": "Sampling percentage value",
+                                      "value-key": "[SAMPLING_PERCENTAGE_VALUE]",
+                                      "type": "Number",
+                                      "minimum": 0,
+                                      "maximum": 1,
+                                      "optional": false
+                                    },
+                                    {
+                                      "id": "use_gradient_filter",
+                                      "name": "Use gradient filter",
+                                      "value-key": "[USE_GRADIENT_FILTER]",
+                                      "type": {
+                                        "id": "use_gradient_filter",
+                                        "command-line": ",[USE_GRADIENT_FILTER_VALUE]",
+                                        "inputs": [
+                                          {
+                                            "id": "use_gradient_filter_value",
+                                            "name": "Use gradient filter value",
+                                            "value-key": "[USE_GRADIENT_FILTER_VALUE]",
+                                            "type": "String",
+                                            "optional": false,
+                                            "value-choices": [
+                                              "true",
+                                              "false"
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      "optional": true
+                                    }
+                                  ]
+                                },
+                                "optional": true
+                              }
+                            ]
+                          },
+                          "optional": true
+                        }
+                      ]
+                    },
                     "optional": true
-                  },
-                  {
-                    "id": "sampling_strategy",
-                    "name": "Sampling strategy",
-                    "value-key": "[SAMPLING_STRATEGY]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "String",
-                    "optional": true,
-                    "value-choices": [
-                      "None",
-                      "Regular",
-                      "Random"
-                    ]
-                  },
-                  {
-                    "id": "sampling_percentage",
-                    "name": "Sampling percentage",
-                    "value-key": "[SAMPLING_PERCENTAGE]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "Number",
-                    "minimum": 0,
-                    "maximum": 1,
-                    "optional": true
-                  },
-                  {
-                    "id": "use_gradient_filter",
-                    "name": "Use gradient filter",
-                    "value-key": "[USE_GRADIENT_FILTER]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "String",
-                    "optional": true,
-                    "value-choices": [
-                      "true",
-                      "false"
-                    ]
                   }
                 ]
               },
               {
                 "id": "metric_mattes",
                 "name": "Mattes",
-                "command-line": "Mattes[[FIXED_IMAGE],[MOVING_IMAGE],[METRIC_WEIGHT],[NUMBER_OF_BINS][SAMPLING_STRATEGY][SAMPLING_PERCENTAGE][USE_GRADIENT_FILTER]]",
+                "command-line": "Mattes[[FIXED_IMAGE],[MOVING_IMAGE],[METRIC_WEIGHT][NUMBER_OF_BINS]]",
                 "inputs": [
                   {
                     "id": "fixed_image",
@@ -851,53 +1067,95 @@
                     "id": "number_of_bins",
                     "name": "Number of bins",
                     "value-key": "[NUMBER_OF_BINS]",
-                    "type": "Number",
+                    "type": {
+                      "id": "number_of_bins",
+                      "command-line": ",[NUMBER_OF_BINS_VALUE][SAMPLING_STRATEGY]",
+                      "inputs": [
+                        {
+                          "id": "number_of_bins_value",
+                          "name": "Number of bins value",
+                          "value-key": "[NUMBER_OF_BINS_VALUE]",
+                          "type": "Number",
+                          "optional": false
+                        },
+                        {
+                          "id": "sampling_strategy",
+                          "name": "Sampling strategy",
+                          "value-key": "[SAMPLING_STRATEGY]",
+                          "type": {
+                            "id": "sampling_strategy",
+                            "command-line": ",[SAMPLING_STRATEGY_VALUE][SAMPLING_PERCENTAGE]",
+                            "inputs": [
+                              {
+                                "id": "sampling_strategy_value",
+                                "name": "Sampling strategy value",
+                                "value-key": "[SAMPLING_STRATEGY_VALUE]",
+                                "type": "String",
+                                "optional": false,
+                                "value-choices": [
+                                  "None",
+                                  "Regular",
+                                  "Random"
+                                ]
+                              },
+                              {
+                                "id": "sampling_percentage",
+                                "name": "Sampling percentage",
+                                "value-key": "[SAMPLING_PERCENTAGE]",
+                                "type": {
+                                  "id": "sampling_percentage",
+                                  "command-line": ",[SAMPLING_PERCENTAGE_VALUE][USE_GRADIENT_FILTER]",
+                                  "inputs": [
+                                    {
+                                      "id": "sampling_percentage_value",
+                                      "name": "Sampling percentage value",
+                                      "value-key": "[SAMPLING_PERCENTAGE_VALUE]",
+                                      "type": "Number",
+                                      "minimum": 0,
+                                      "maximum": 1,
+                                      "optional": false
+                                    },
+                                    {
+                                      "id": "use_gradient_filter",
+                                      "name": "Use gradient filter",
+                                      "value-key": "[USE_GRADIENT_FILTER]",
+                                      "type": {
+                                        "id": "use_gradient_filter",
+                                        "command-line": ",[USE_GRADIENT_FILTER_VALUE]",
+                                        "inputs": [
+                                          {
+                                            "id": "use_gradient_filter_value",
+                                            "name": "Use gradient filter value",
+                                            "value-key": "[USE_GRADIENT_FILTER_VALUE]",
+                                            "type": "String",
+                                            "optional": false,
+                                            "value-choices": [
+                                              "true",
+                                              "false"
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      "optional": true
+                                    }
+                                  ]
+                                },
+                                "optional": true
+                              }
+                            ]
+                          },
+                          "optional": true
+                        }
+                      ]
+                    },
                     "optional": true
-                  },
-                  {
-                    "id": "sampling_strategy",
-                    "name": "Sampling strategy",
-                    "value-key": "[SAMPLING_STRATEGY]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "String",
-                    "optional": true,
-                    "value-choices": [
-                      "None",
-                      "Regular",
-                      "Random"
-                    ]
-                  },
-                  {
-                    "id": "sampling_percentage",
-                    "name": "Sampling percentage",
-                    "value-key": "[SAMPLING_PERCENTAGE]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "Number",
-                    "minimum": 0,
-                    "maximum": 1,
-                    "optional": true
-                  },
-                  {
-                    "id": "use_gradient_filter",
-                    "name": "Use gradient filter",
-                    "value-key": "[USE_GRADIENT_FILTER]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "String",
-                    "optional": true,
-                    "value-choices": [
-                      "true",
-                      "false"
-                    ]
                   }
                 ]
               },
               {
                 "id": "metric_mean_squares",
                 "name": "Mean squares",
-                "command-line": "MeanSquares[[FIXED_IMAGE],[MOVING_IMAGE],[METRIC_WEIGHT],[RADIUS][SAMPLING_STRATEGY][SAMPLING_PERCENTAGE][USE_GRADIENT_FILTER]]",
+                "command-line": "MeanSquares[[FIXED_IMAGE],[MOVING_IMAGE],[METRIC_WEIGHT][RADIUS]]",
                 "inputs": [
                   {
                     "id": "fixed_image",
@@ -924,53 +1182,95 @@
                     "id": "radius",
                     "name": "Radius",
                     "value-key": "[RADIUS]",
-                    "type": "Number",
+                    "type": {
+                      "id": "radius",
+                      "command-line": ",[RADIUS_VALUE][SAMPLING_STRATEGY]",
+                      "inputs": [
+                        {
+                          "id": "radius_value",
+                          "name": "Radius value",
+                          "value-key": "[RADIUS_VALUE]",
+                          "type": "Number",
+                          "optional": false
+                        },
+                        {
+                          "id": "sampling_strategy",
+                          "name": "Sampling strategy",
+                          "value-key": "[SAMPLING_STRATEGY]",
+                          "type": {
+                            "id": "sampling_strategy",
+                            "command-line": ",[SAMPLING_STRATEGY_VALUE][SAMPLING_PERCENTAGE]",
+                            "inputs": [
+                              {
+                                "id": "sampling_strategy_value",
+                                "name": "Sampling strategy value",
+                                "value-key": "[SAMPLING_STRATEGY_VALUE]",
+                                "type": "String",
+                                "optional": false,
+                                "value-choices": [
+                                  "None",
+                                  "Regular",
+                                  "Random"
+                                ]
+                              },
+                              {
+                                "id": "sampling_percentage",
+                                "name": "Sampling percentage",
+                                "value-key": "[SAMPLING_PERCENTAGE]",
+                                "type": {
+                                  "id": "sampling_percentage",
+                                  "command-line": ",[SAMPLING_PERCENTAGE_VALUE][USE_GRADIENT_FILTER]",
+                                  "inputs": [
+                                    {
+                                      "id": "sampling_percentage_value",
+                                      "name": "Sampling percentage value",
+                                      "value-key": "[SAMPLING_PERCENTAGE_VALUE]",
+                                      "type": "Number",
+                                      "minimum": 0,
+                                      "maximum": 1,
+                                      "optional": false
+                                    },
+                                    {
+                                      "id": "use_gradient_filter",
+                                      "name": "Use gradient filter",
+                                      "value-key": "[USE_GRADIENT_FILTER]",
+                                      "type": {
+                                        "id": "use_gradient_filter",
+                                        "command-line": ",[USE_GRADIENT_FILTER_VALUE]",
+                                        "inputs": [
+                                          {
+                                            "id": "use_gradient_filter_value",
+                                            "name": "Use gradient filter value",
+                                            "value-key": "[USE_GRADIENT_FILTER_VALUE]",
+                                            "type": "String",
+                                            "optional": false,
+                                            "value-choices": [
+                                              "true",
+                                              "false"
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      "optional": true
+                                    }
+                                  ]
+                                },
+                                "optional": true
+                              }
+                            ]
+                          },
+                          "optional": true
+                        }
+                      ]
+                    },
                     "optional": true
-                  },
-                  {
-                    "id": "sampling_strategy",
-                    "name": "Sampling strategy",
-                    "value-key": "[SAMPLING_STRATEGY]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "String",
-                    "optional": true,
-                    "value-choices": [
-                      "None",
-                      "Regular",
-                      "Random"
-                    ]
-                  },
-                  {
-                    "id": "sampling_percentage",
-                    "name": "Sampling percentage",
-                    "value-key": "[SAMPLING_PERCENTAGE]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "Number",
-                    "minimum": 0,
-                    "maximum": 1,
-                    "optional": true
-                  },
-                  {
-                    "id": "use_gradient_filter",
-                    "name": "Use gradient filter",
-                    "value-key": "[USE_GRADIENT_FILTER]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "String",
-                    "optional": true,
-                    "value-choices": [
-                      "true",
-                      "false"
-                    ]
                   }
                 ]
               },
               {
                 "id": "metric_demons",
                 "name": "Demons",
-                "command-line": "Demons[[FIXED_IMAGE],[MOVING_IMAGE],[METRIC_WEIGHT],[NUMBER_OF_BINS][SAMPLING_STRATEGY][SAMPLING_PERCENTAGE][USE_GRADIENT_FILTER]]",
+                "command-line": "Demons[[FIXED_IMAGE],[MOVING_IMAGE],[METRIC_WEIGHT][NUMBER_OF_BINS]]",
                 "inputs": [
                   {
                     "id": "fixed_image",
@@ -997,53 +1297,95 @@
                     "id": "number_of_bins",
                     "name": "Number of bins",
                     "value-key": "[NUMBER_OF_BINS]",
-                    "type": "Number",
+                    "type": {
+                      "id": "number_of_bins",
+                      "command-line": ",[NUMBER_OF_BINS_VALUE][SAMPLING_STRATEGY]",
+                      "inputs": [
+                        {
+                          "id": "number_of_bins_value",
+                          "name": "Number of bins value",
+                          "value-key": "[NUMBER_OF_BINS_VALUE]",
+                          "type": "Number",
+                          "optional": false
+                        },
+                        {
+                          "id": "sampling_strategy",
+                          "name": "Sampling strategy",
+                          "value-key": "[SAMPLING_STRATEGY]",
+                          "type": {
+                            "id": "sampling_strategy",
+                            "command-line": ",[SAMPLING_STRATEGY_VALUE][SAMPLING_PERCENTAGE]",
+                            "inputs": [
+                              {
+                                "id": "sampling_strategy_value",
+                                "name": "Sampling strategy value",
+                                "value-key": "[SAMPLING_STRATEGY_VALUE]",
+                                "type": "String",
+                                "optional": false,
+                                "value-choices": [
+                                  "None",
+                                  "Regular",
+                                  "Random"
+                                ]
+                              },
+                              {
+                                "id": "sampling_percentage",
+                                "name": "Sampling percentage",
+                                "value-key": "[SAMPLING_PERCENTAGE]",
+                                "type": {
+                                  "id": "sampling_percentage",
+                                  "command-line": ",[SAMPLING_PERCENTAGE_VALUE][USE_GRADIENT_FILTER]",
+                                  "inputs": [
+                                    {
+                                      "id": "sampling_percentage_value",
+                                      "name": "Sampling percentage value",
+                                      "value-key": "[SAMPLING_PERCENTAGE_VALUE]",
+                                      "type": "Number",
+                                      "minimum": 0,
+                                      "maximum": 1,
+                                      "optional": false
+                                    },
+                                    {
+                                      "id": "use_gradient_filter",
+                                      "name": "Use gradient filter",
+                                      "value-key": "[USE_GRADIENT_FILTER]",
+                                      "type": {
+                                        "id": "use_gradient_filter",
+                                        "command-line": ",[USE_GRADIENT_FILTER_VALUE]",
+                                        "inputs": [
+                                          {
+                                            "id": "use_gradient_filter_value",
+                                            "name": "Use gradient filter value",
+                                            "value-key": "[USE_GRADIENT_FILTER_VALUE]",
+                                            "type": "String",
+                                            "optional": false,
+                                            "value-choices": [
+                                              "true",
+                                              "false"
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      "optional": true
+                                    }
+                                  ]
+                                },
+                                "optional": true
+                              }
+                            ]
+                          },
+                          "optional": true
+                        }
+                      ]
+                    },
                     "optional": true
-                  },
-                  {
-                    "id": "sampling_strategy",
-                    "name": "Sampling strategy",
-                    "value-key": "[SAMPLING_STRATEGY]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "String",
-                    "optional": true,
-                    "value-choices": [
-                      "None",
-                      "Regular",
-                      "Random"
-                    ]
-                  },
-                  {
-                    "id": "sampling_percentage",
-                    "name": "Sampling percentage",
-                    "value-key": "[SAMPLING_PERCENTAGE]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "Number",
-                    "minimum": 0,
-                    "maximum": 1,
-                    "optional": true
-                  },
-                  {
-                    "id": "use_gradient_filter",
-                    "name": "Use gradient filter",
-                    "value-key": "[USE_GRADIENT_FILTER]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "String",
-                    "optional": true,
-                    "value-choices": [
-                      "true",
-                      "false"
-                    ]
                   }
                 ]
               },
               {
                 "id": "metric_global_correlation",
                 "name": "Global correlation",
-                "command-line": "GC[[FIXED_IMAGE],[MOVING_IMAGE],[METRIC_WEIGHT],[RADIUS][SAMPLING_STRATEGY][SAMPLING_PERCENTAGE][USE_GRADIENT_FILTER]]",
+                "command-line": "GC[[FIXED_IMAGE],[MOVING_IMAGE],[METRIC_WEIGHT][RADIUS]]",
                 "inputs": [
                   {
                     "id": "fixed_image",
@@ -1070,53 +1412,95 @@
                     "id": "radius",
                     "name": "Radius",
                     "value-key": "[RADIUS]",
-                    "type": "Number",
+                    "type": {
+                      "id": "radius",
+                      "command-line": ",[RADIUS_VALUE][SAMPLING_STRATEGY]",
+                      "inputs": [
+                        {
+                          "id": "radius_value",
+                          "name": "Radius value",
+                          "value-key": "[RADIUS_VALUE]",
+                          "type": "Number",
+                          "optional": false
+                        },
+                        {
+                          "id": "sampling_strategy",
+                          "name": "Sampling strategy",
+                          "value-key": "[SAMPLING_STRATEGY]",
+                          "type": {
+                            "id": "sampling_strategy",
+                            "command-line": ",[SAMPLING_STRATEGY_VALUE][SAMPLING_PERCENTAGE]",
+                            "inputs": [
+                              {
+                                "id": "sampling_strategy_value",
+                                "name": "Sampling strategy value",
+                                "value-key": "[SAMPLING_STRATEGY_VALUE]",
+                                "type": "String",
+                                "optional": false,
+                                "value-choices": [
+                                  "None",
+                                  "Regular",
+                                  "Random"
+                                ]
+                              },
+                              {
+                                "id": "sampling_percentage",
+                                "name": "Sampling percentage",
+                                "value-key": "[SAMPLING_PERCENTAGE]",
+                                "type": {
+                                  "id": "sampling_percentage",
+                                  "command-line": ",[SAMPLING_PERCENTAGE_VALUE][USE_GRADIENT_FILTER]",
+                                  "inputs": [
+                                    {
+                                      "id": "sampling_percentage_value",
+                                      "name": "Sampling percentage value",
+                                      "value-key": "[SAMPLING_PERCENTAGE_VALUE]",
+                                      "type": "Number",
+                                      "minimum": 0,
+                                      "maximum": 1,
+                                      "optional": false
+                                    },
+                                    {
+                                      "id": "use_gradient_filter",
+                                      "name": "Use gradient filter",
+                                      "value-key": "[USE_GRADIENT_FILTER]",
+                                      "type": {
+                                        "id": "use_gradient_filter",
+                                        "command-line": ",[USE_GRADIENT_FILTER_VALUE]",
+                                        "inputs": [
+                                          {
+                                            "id": "use_gradient_filter_value",
+                                            "name": "Use gradient filter value",
+                                            "value-key": "[USE_GRADIENT_FILTER_VALUE]",
+                                            "type": "String",
+                                            "optional": false,
+                                            "value-choices": [
+                                              "true",
+                                              "false"
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      "optional": true
+                                    }
+                                  ]
+                                },
+                                "optional": true
+                              }
+                            ]
+                          },
+                          "optional": true
+                        }
+                      ]
+                    },
                     "optional": true
-                  },
-                  {
-                    "id": "sampling_strategy",
-                    "name": "Sampling strategy",
-                    "value-key": "[SAMPLING_STRATEGY]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "String",
-                    "optional": true,
-                    "value-choices": [
-                      "None",
-                      "Regular",
-                      "Random"
-                    ]
-                  },
-                  {
-                    "id": "sampling_percentage",
-                    "name": "Sampling percentage",
-                    "value-key": "[SAMPLING_PERCENTAGE]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "Number",
-                    "minimum": 0,
-                    "maximum": 1,
-                    "optional": true
-                  },
-                  {
-                    "id": "use_gradient_filter",
-                    "name": "Use gradient filter",
-                    "value-key": "[USE_GRADIENT_FILTER]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "String",
-                    "optional": true,
-                    "value-choices": [
-                      "true",
-                      "false"
-                    ]
                   }
                 ]
               },
               {
                 "id": "metric_euclidean_icp",
                 "name": "Euclidean (ICP)",
-                "command-line": "ICP[[FIXED_POINT_SET],[MOVING_POINT_SET],[METRIC_WEIGHT][SAMPLING_PERCENTAGE][BOUNDARY_POINTS_ONLY]]",
+                "command-line": "ICP[[FIXED_POINT_SET],[MOVING_POINT_SET],[METRIC_WEIGHT][SAMPLING_PERCENTAGE]]",
                 "inputs": [
                   {
                     "id": "fixed_point_set",
@@ -1143,31 +1527,51 @@
                     "id": "sampling_percentage",
                     "name": "Sampling percentage",
                     "value-key": "[SAMPLING_PERCENTAGE]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "Number",
-                    "minimum": 0,
-                    "maximum": 1,
+                    "type": {
+                      "id": "sampling_percentage",
+                      "command-line": ",[SAMPLING_PERCENTAGE_VALUE][BOUNDARY_POINTS_ONLY]",
+                      "inputs": [
+                        {
+                          "id": "sampling_percentage_value",
+                          "name": "Sampling percentage value",
+                          "value-key": "[SAMPLING_PERCENTAGE_VALUE]",
+                          "type": "Number",
+                          "minimum": 0,
+                          "maximum": 1,
+                          "optional": false
+                        },
+                        {
+                          "id": "boundary_points_only",
+                          "name": "Boundary points only",
+                          "value-key": "[BOUNDARY_POINTS_ONLY]",
+                          "type": {
+                            "id": "boundary_points_only",
+                            "command-line": ",[BOUNDARY_POINTS_ONLY_VALUE]",
+                            "inputs": [
+                              {
+                                "id": "boundary_points_only_value",
+                                "name": "Boundary points only value",
+                                "value-key": "[BOUNDARY_POINTS_ONLY_VALUE]",
+                                "type": "String",
+                                "optional": false,
+                                "value-choices": [
+                                  "0"
+                                ]
+                              }
+                            ]
+                          },
+                          "optional": true
+                        }
+                      ]
+                    },
                     "optional": true
-                  },
-                  {
-                    "id": "boundary_points_only",
-                    "name": "Boundary points only",
-                    "value-key": "[BOUNDARY_POINTS_ONLY]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "String",
-                    "optional": true,
-                    "value-choices": [
-                      "0"
-                    ]
                   }
                 ]
               },
               {
                 "id": "metric_point_set_expectation",
                 "name": "Point-set expectation (PSE)",
-                "command-line": "PSE[[FIXED_IMAGE],[MOVING_IMAGE],[METRIC_WEIGHT],[POINT_SET_SIGMA][SAMPLING_STRATEGY][SAMPLING_PERCENTAGE][USE_GRADIENT_FILTER]]",
+                "command-line": "PSE[[FIXED_POINT_SET],[MOVING_POINT_SET],[METRIC_WEIGHT][SAMPLING_PERCENTAGE]]",
                 "inputs": [
                   {
                     "id": "fixed_point_set",
@@ -1194,41 +1598,81 @@
                     "id": "sampling_percentage",
                     "name": "Sampling percentage",
                     "value-key": "[SAMPLING_PERCENTAGE]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "Number",
-                    "minimum": 0,
-                    "maximum": 1,
-                    "optional": true
-                  },
-                  {
-                    "id": "boundary_points_only",
-                    "name": "Boundary points only",
-                    "value-key": "[BOUNDARY_POINTS_ONLY]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "String",
-                    "optional": true,
-                    "value-choices": [
-                      "0"
-                    ]
-                  },
-                  {
-                    "id": "point_set_sigma",
-                    "name": "Point set sigma",
-                    "value-key": "[POINT_SET_SIGMA]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "Number",
-                    "optional": true
-                  },
-                  {
-                    "id": "k_neighborhood",
-                    "name": "K neighborhood",
-                    "value-key": "[K_NEIGHBORHOOD]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "Number",
+                    "type": {
+                      "id": "sampling_percentage",
+                      "command-line": ",[SAMPLING_PERCENTAGE_VALUE][BOUNDARY_POINTS_ONLY]",
+                      "inputs": [
+                        {
+                          "id": "sampling_percentage_value",
+                          "name": "Sampling percentage value",
+                          "value-key": "[SAMPLING_PERCENTAGE_VALUE]",
+                          "type": "Number",
+                          "minimum": 0,
+                          "maximum": 1,
+                          "optional": false
+                        },
+                        {
+                          "id": "boundary_points_only",
+                          "name": "Boundary points only",
+                          "value-key": "[BOUNDARY_POINTS_ONLY]",
+                          "type": {
+                            "id": "boundary_points_only",
+                            "command-line": ",[BOUNDARY_POINTS_ONLY_VALUE][POINT_SET_SIGMA]",
+                            "inputs": [
+                              {
+                                "id": "boundary_points_only_value",
+                                "name": "Boundary points only value",
+                                "value-key": "[BOUNDARY_POINTS_ONLY_VALUE]",
+                                "type": "String",
+                                "optional": false,
+                                "value-choices": [
+                                  "0"
+                                ]
+                              },
+                              {
+                                "id": "point_set_sigma",
+                                "name": "Point set sigma",
+                                "value-key": "[POINT_SET_SIGMA]",
+                                "type": {
+                                  "id": "point_set_sigma",
+                                  "command-line": ",[POINT_SET_SIGMA_VALUE][K_NEIGHBORHOOD]",
+                                  "inputs": [
+                                    {
+                                      "id": "point_set_sigma_value",
+                                      "name": "Point set sigma value",
+                                      "value-key": "[POINT_SET_SIGMA_VALUE]",
+                                      "type": "Number",
+                                      "optional": false
+                                    },
+                                    {
+                                      "id": "k_neighborhood",
+                                      "name": "K neighborhood",
+                                      "value-key": "[K_NEIGHBORHOOD]",
+                                      "type": {
+                                        "id": "k_neighborhood",
+                                        "command-line": ",[K_NEIGHBORHOOD_VALUE]",
+                                        "inputs": [
+                                          {
+                                            "id": "k_neighborhood_value",
+                                            "name": "K neighborhood value",
+                                            "value-key": "[K_NEIGHBORHOOD_VALUE]",
+                                            "type": "Number",
+                                            "optional": false
+                                          }
+                                        ]
+                                      },
+                                      "optional": true
+                                    }
+                                  ]
+                                },
+                                "optional": true
+                              }
+                            ]
+                          },
+                          "optional": true
+                        }
+                      ]
+                    },
                     "optional": true
                   }
                 ]
@@ -1236,7 +1680,7 @@
               {
                 "id": "metric_jensen_havrda_charvet_tsallis",
                 "name": "Jensen-Havrda-Charvet-Tsallis (JHCT)",
-                "command-line": "JHCT[[FIXED_POINT_SET],[MOVING_POINT_SET],[METRIC_WEIGHT][SAMPLING_PERCENTAGE][BOUNDARY_POINTS_ONLY][POINT_SET_SIGMA][K_NEIGHBORHOOD]]",
+                "command-line": "JHCT[[FIXED_POINT_SET],[MOVING_POINT_SET],[METRIC_WEIGHT][SAMPLING_PERCENTAGE]]",
                 "inputs": [
                   {
                     "id": "fixed_point_set",
@@ -1263,41 +1707,81 @@
                     "id": "sampling_percentage",
                     "name": "Sampling percentage",
                     "value-key": "[SAMPLING_PERCENTAGE]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "Number",
-                    "minimum": 0,
-                    "maximum": 1,
-                    "optional": true
-                  },
-                  {
-                    "id": "boundary_points_only",
-                    "name": "Boundary points only",
-                    "value-key": "[BOUNDARY_POINTS_ONLY]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "String",
-                    "optional": true,
-                    "value-choices": [
-                      "0"
-                    ]
-                  },
-                  {
-                    "id": "point_set_sigma",
-                    "name": "Point set sigma",
-                    "value-key": "[POINT_SET_SIGMA]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "Number",
-                    "optional": true
-                  },
-                  {
-                    "id": "k_neighborhood",
-                    "name": "K neighborhood",
-                    "value-key": "[K_NEIGHBORHOOD]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "Number",
+                    "type": {
+                      "id": "sampling_percentage",
+                      "command-line": ",[SAMPLING_PERCENTAGE_VALUE][BOUNDARY_POINTS_ONLY]",
+                      "inputs": [
+                        {
+                          "id": "sampling_percentage_value",
+                          "name": "Sampling percentage value",
+                          "value-key": "[SAMPLING_PERCENTAGE_VALUE]",
+                          "type": "Number",
+                          "minimum": 0,
+                          "maximum": 1,
+                          "optional": false
+                        },
+                        {
+                          "id": "boundary_points_only",
+                          "name": "Boundary points only",
+                          "value-key": "[BOUNDARY_POINTS_ONLY]",
+                          "type": {
+                            "id": "boundary_points_only",
+                            "command-line": ",[BOUNDARY_POINTS_ONLY_VALUE][POINT_SET_SIGMA]",
+                            "inputs": [
+                              {
+                                "id": "boundary_points_only_value",
+                                "name": "Boundary points only value",
+                                "value-key": "[BOUNDARY_POINTS_ONLY_VALUE]",
+                                "type": "String",
+                                "optional": false,
+                                "value-choices": [
+                                  "0"
+                                ]
+                              },
+                              {
+                                "id": "point_set_sigma",
+                                "name": "Point set sigma",
+                                "value-key": "[POINT_SET_SIGMA]",
+                                "type": {
+                                  "id": "point_set_sigma",
+                                  "command-line": ",[POINT_SET_SIGMA_VALUE][K_NEIGHBORHOOD]",
+                                  "inputs": [
+                                    {
+                                      "id": "point_set_sigma_value",
+                                      "name": "Point set sigma value",
+                                      "value-key": "[POINT_SET_SIGMA_VALUE]",
+                                      "type": "Number",
+                                      "optional": false
+                                    },
+                                    {
+                                      "id": "k_neighborhood",
+                                      "name": "K neighborhood",
+                                      "value-key": "[K_NEIGHBORHOOD]",
+                                      "type": {
+                                        "id": "k_neighborhood",
+                                        "command-line": ",[K_NEIGHBORHOOD_VALUE]",
+                                        "inputs": [
+                                          {
+                                            "id": "k_neighborhood_value",
+                                            "name": "K neighborhood value",
+                                            "value-key": "[K_NEIGHBORHOOD_VALUE]",
+                                            "type": "Number",
+                                            "optional": false
+                                          }
+                                        ]
+                                      },
+                                      "optional": true
+                                    }
+                                  ]
+                                },
+                                "optional": true
+                              }
+                            ]
+                          },
+                          "optional": true
+                        }
+                      ]
+                    },
                     "optional": true
                   }
                 ]
@@ -1305,7 +1789,7 @@
               {
                 "id": "metric_igdm",
                 "name": "IGDM",
-                "command-line": "IGDM[",
+                "command-line": "IGDM[[FIXED_IMAGE],[MOVING_IMAGE],[METRIC_WEIGHT],[FIXED_MASK],[MOVING_MASK][NEIGHBORHOOD_RADIUS]]",
                 "inputs": [
                   {
                     "id": "fixed_image",
@@ -1346,45 +1830,95 @@
                     "id": "neighborhood_radius",
                     "name": "Neighborhood radius",
                     "value-key": "[NEIGHBORHOOD_RADIUS]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "String",
-                    "optional": true
-                  },
-                  {
-                    "id": "intensity_sigma",
-                    "name": "Intensity sigma",
-                    "value-key": "[INTENSITY_SIGMA]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "Number",
-                    "optional": true
-                  },
-                  {
-                    "id": "distance_sigma",
-                    "name": "Distance sigma",
-                    "value-key": "[DISTANCE_SIGMA]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "Number",
-                    "optional": true
-                  },
-                  {
-                    "id": "k_neighborhood",
-                    "name": "K neighborhood",
-                    "value-key": "[K_NEIGHBORHOOD]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "Number",
-                    "optional": true
-                  },
-                  {
-                    "id": "gradient_sigma",
-                    "name": "Gradient sigma",
-                    "value-key": "[GRADIENT_SIGMA]",
-                    "command-line-flag": ",",
-                    "command-line-flag-separator": "",
-                    "type": "Number",
+                    "type": {
+                      "id": "neighborhood_radius",
+                      "command-line": ",[NEIGHBORHOOD_RADIUS_VALUE][INTENSITY_SIGMA]",
+                      "inputs": [
+                        {
+                          "id": "neighborhood_radius_value",
+                          "name": "Neighborhood radius value",
+                          "value-key": "[NEIGHBORHOOD_RADIUS_VALUE]",
+                          "type": "String",
+                          "optional": false
+                        },
+                        {
+                          "id": "intensity_sigma",
+                          "name": "Intensity sigma",
+                          "value-key": "[INTENSITY_SIGMA]",
+                          "type": {
+                            "id": "intensity_sigma",
+                            "command-line": ",[INTENSITY_SIGMA_VALUE][DISTANCE_SIGMA]",
+                            "inputs": [
+                              {
+                                "id": "intensity_sigma_value",
+                                "name": "Intensity sigma value",
+                                "value-key": "[INTENSITY_SIGMA_VALUE]",
+                                "type": "Number",
+                                "optional": false
+                              },
+                              {
+                                "id": "distance_sigma",
+                                "name": "Distance sigma",
+                                "value-key": "[DISTANCE_SIGMA]",
+                                "type": {
+                                  "id": "distance_sigma",
+                                  "command-line": ",[DISTANCE_SIGMA_VALUE][K_NEIGHBORHOOD]",
+                                  "inputs": [
+                                    {
+                                      "id": "distance_sigma_value",
+                                      "name": "Distance sigma value",
+                                      "value-key": "[DISTANCE_SIGMA_VALUE]",
+                                      "type": "Number",
+                                      "optional": false
+                                    },
+                                    {
+                                      "id": "k_neighborhood",
+                                      "name": "K neighborhood",
+                                      "value-key": "[K_NEIGHBORHOOD]",
+                                      "type": {
+                                        "id": "k_neighborhood",
+                                        "command-line": ",[K_NEIGHBORHOOD_VALUE][GRADIENT_SIGMA]",
+                                        "inputs": [
+                                          {
+                                            "id": "k_neighborhood_value",
+                                            "name": "K neighborhood value",
+                                            "value-key": "[K_NEIGHBORHOOD_VALUE]",
+                                            "type": "Number",
+                                            "optional": false
+                                          },
+                                          {
+                                            "id": "gradient_sigma",
+                                            "name": "Gradient sigma",
+                                            "value-key": "[GRADIENT_SIGMA]",
+                                            "type": {
+                                              "id": "gradient_sigma",
+                                              "command-line": ",[GRADIENT_SIGMA_VALUE]",
+                                              "inputs": [
+                                                {
+                                                  "id": "gradient_sigma_value",
+                                                  "name": "Gradient sigma value",
+                                                  "value-key": "[GRADIENT_SIGMA_VALUE]",
+                                                  "type": "Number",
+                                                  "optional": false
+                                                }
+                                              ]
+                                            },
+                                            "optional": true
+                                          }
+                                        ]
+                                      },
+                                      "optional": true
+                                    }
+                                  ]
+                                },
+                                "optional": true
+                              }
+                            ]
+                          },
+                          "optional": true
+                        }
+                      ]
+                    },
                     "optional": true
                   }
                 ]
@@ -1508,7 +2042,19 @@
             "id": "moving_mask",
             "name": "Moving mask",
             "value-key": "[MOVING_MASK]",
-            "type": "String",
+            "type": {
+              "id": "moving_mask",
+              "command-line": ",[MOVING_MASK_VALUE]",
+              "inputs": [
+                {
+                  "id": "moving_mask_value",
+                  "name": "Moving mask value",
+                  "value-key": "[MOVING_MASK_VALUE]",
+                  "type": "String",
+                  "optional": false
+                }
+              ]
+            },
             "optional": true
           }
         ]
