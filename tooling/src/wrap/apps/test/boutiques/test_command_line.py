@@ -1,8 +1,7 @@
-from typing import Any
-from wrap.apps.test.test import test_boutiques, ok, error
-
 import pathlib as pl
+from typing import Any
 
+from wrap.apps.test.test import error, ok, test_boutiques
 
 SUSPICIOUS_CHARS = [
     "  ",  # double space
@@ -13,7 +12,6 @@ SUSPICIOUS_CHARS = [
 @test_boutiques
 def test_suspicious_command_line(path: pl.Path, data: Any):
     """Command-line fields should not contain suspicious characters."""
-
     command_line = data.get("command-line")
     name = data.get("name", "")
 
@@ -34,7 +32,6 @@ def test_suspicious_command_line(path: pl.Path, data: Any):
 @test_boutiques
 def test_command_line_starts_with_name(path: pl.Path, data: Any):
     """Command-line fields should start with name followed by a space."""
-
     name = data.get("name", None)
     command_line = data.get("command-line", None)
 

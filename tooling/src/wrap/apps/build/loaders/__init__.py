@@ -1,10 +1,11 @@
 import json
-from wrap.apps.build.loaders.workbench import load_workbench
-from wrap.catalog import DescriptorSourceType
+import pathlib as pl
+
 from styx.frontend.boutiques import from_boutiques
 from styx.ir import core as ir
 
-import pathlib as pl
+from wrap.apps.build.loaders.workbench import load_workbench
+from wrap.catalog import DescriptorSourceType
 
 
 def load_source(source: DescriptorSourceType, app_path: pl.Path) -> ir.App:

@@ -3,7 +3,7 @@ import sys
 from typing import Optional, Sequence
 
 # Import your app modules here
-from wrap.apps import build, sync, test
+from wrap.apps import build, check_container, sync, test
 
 
 def create_parser() -> argparse.ArgumentParser:
@@ -32,6 +32,7 @@ def create_parser() -> argparse.ArgumentParser:
     build.register_command(subparsers)
     sync.register_command(subparsers)
     test.register_command(subparsers)
+    check_container.register_command(subparsers)
 
     return parser
 

@@ -16,7 +16,6 @@ from wrap.catalog import (
     iter_versions,
 )
 
-
 PROJECT_NAME_NIWRAP = "niwrap"
 
 

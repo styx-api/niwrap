@@ -1,6 +1,6 @@
+import glob
 import json
 import os
-import glob
 
 
 def load_package_data(package_id):

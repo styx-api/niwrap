@@ -1,14 +1,13 @@
-from typing import Any
-from wrap.apps.test.test import test_boutiques, ok, error
-
 import pathlib as pl
 import re
+from typing import Any
+
+from wrap.apps.test.test import error, ok, test_boutiques
 
 
 @test_boutiques
 def test_invalid_chars(path: pl.Path, data: Any):
     """Ensure 'path-template' does not contain invalid characters (e.g. glob)."""
-
     command_line = data.get("command-line")
     if not command_line:
         return error("No command-line found")

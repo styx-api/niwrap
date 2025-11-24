@@ -2,18 +2,19 @@
 
 from pathlib import Path
 
+from wrap.apps.find_niwrap import find_niwrap
 from wrap.apps.sync.markdown_utils import (
     dict_to_markdown_table,
     markdown_url,
-    progress_bar,
     patch_section,
+    progress_bar,
     progress_bar_boring,
 )
 from wrap.catalog_niwrap import (
     get_project_niwrap,
     get_version_niwrap,
-    iter_packages_niwrap,
     iter_apps_niwrap,
+    iter_packages_niwrap,
 )
 
 
@@ -67,21 +68,7 @@ def build_package_overview_table(pretty_progress_bar=True) -> str:
 
 
 def main(args):
-    try:
-        project = get_project_niwrap()
-    except:
-        import os
-
-        os.chdir("..")
-        try:
-            project = get_project_niwrap()
-        except:
-            print("Error: This needs to be run in the NiWrap repo root.")
-            return 1
-
-    print(
-        f"Found {project.get('docs', {}).get('title', project['name'])} version {project['version']} repo."
-    )
+    find_niwrap()
 
     print("Update repo readme")
     patch_section(

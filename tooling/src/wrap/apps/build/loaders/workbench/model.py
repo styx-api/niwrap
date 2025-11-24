@@ -1,5 +1,4 @@
-"""
-Pydantic schema for Connectome Workbench command definitions.
+"""Pydantic schema for Connectome Workbench command definitions.
 """
 
 from pydantic import BaseModel, Field

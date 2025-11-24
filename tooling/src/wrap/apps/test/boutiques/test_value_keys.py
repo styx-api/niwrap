@@ -1,15 +1,14 @@
-from typing import Any
-from wrap.apps.test.test import test_boutiques, ok, error
-
 import pathlib as pl
 import re
 from collections import defaultdict
+from typing import Any
+
+from wrap.apps.test.test import error, ok, test_boutiques
 
 
 @test_boutiques
 def test_unused_value_keys(path: pl.Path, data: Any):
     """All input value-keys should be used in the command-line."""
-
     command_line = data.get("command-line")
     if not command_line:
         return error("No command-line found")
@@ -37,7 +36,6 @@ def test_unused_value_keys(path: pl.Path, data: Any):
 @test_boutiques
 def test_unmapped_command_entries(path: pl.Path, data: Any):
     """All [UPPER_CASE] entries in command-line should match input value-keys."""
-
     command_line = data.get("command-line")
     if not command_line:
         return error("No command-line found")
@@ -71,7 +69,6 @@ def test_unmapped_command_entries(path: pl.Path, data: Any):
 @test_boutiques
 def test_value_key_format(path: pl.Path, data: Any):
     """All value-keys should follow the [UPPER_CASE] format."""
-
     invalid_keys = set()
     pattern = r"^\[[A-Z0-9_]+\]$"
 
@@ -90,7 +87,6 @@ def test_value_key_format(path: pl.Path, data: Any):
 @test_boutiques
 def test_duplicate_command_value_key(path: pl.Path, data: Any):
     """All input value keys should be unique."""
-
     command_line = data.get("command-line")
     if not command_line:
         return error("No command-line found")
@@ -116,7 +112,6 @@ def test_duplicate_command_value_key(path: pl.Path, data: Any):
 @test_boutiques
 def test_aliased_inputs(path: pl.Path, data: Any):
     """Ensure inputs are using subcommands or unique value-keys."""
-
     aliased_input = defaultdict(list)
     for input_item in data.get("inputs", []):
         value_key = input_item.get("value-key")

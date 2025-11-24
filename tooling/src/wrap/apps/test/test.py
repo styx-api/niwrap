@@ -4,7 +4,7 @@ import json
 from dataclasses import dataclass, field
 from enum import IntEnum
 from pathlib import Path
-from typing import Any, Callable, Protocol
+from typing import Any, Protocol
 
 from wrap.catalog_niwrap import iter_all_apps_niwrap
 
@@ -52,8 +52,7 @@ class TestRunner:
     tests: list[BoutiquesTest] = field(default_factory=list)
 
     def register(self, func: BoutiquesTest) -> BoutiquesTest:
-        """
-        Register a boutiques test function.
+        """Register a boutiques test function.
 
         Args:
             func: Test function to register
@@ -68,8 +67,7 @@ class TestRunner:
         return func
 
     def run(self) -> "TestSummary":
-        """
-        Run all registered tests on boutiques applications.
+        """Run all registered tests on boutiques applications.
 
         Returns:
             Summary of test results
@@ -97,8 +95,7 @@ class TestRunner:
         return summary
 
     def _test_application(self, path: Path) -> "ApplicationTestResults | None":
-        """
-        Run all tests on a single boutiques application.
+        """Run all tests on a single boutiques application.
 
         Args:
             path: Path to the boutiques JSON file

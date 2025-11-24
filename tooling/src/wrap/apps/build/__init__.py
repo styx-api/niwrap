@@ -1,22 +1,22 @@
-from shutil import rmtree
-import time
-
 import pathlib as pl
+import time
+from shutil import rmtree
 
 import styx.backend
+from styx.backend import compile_language
+from styx.ir import core as ir
+from styx.ir.optimize import optimize
+
 from wrap.apps.build.loaders import load_source
+from wrap.apps.find_niwrap import find_niwrap
 from wrap.apps.sync import build_package_overview_table
 from wrap.catalog import DocsType, PackageType, ProjectType, VersionType
 from wrap.catalog_niwrap import (
     get_project_niwrap,
     get_version_niwrap,
-    iter_packages_niwrap,
     iter_apps_niwrap,
+    iter_packages_niwrap,
 )
-
-from styx.backend import compile_language
-from styx.ir import core as ir
-from styx.ir.optimize import optimize
 
 PATH_BUILD_TEMPLATES = pl.Path("tooling/build-templates")
 PATH_DIST_ROOT = pl.Path("dist")
@@ -102,21 +102,7 @@ def build_target_stream():
 
 
 def main(targets: list[str]) -> str | int:
-    try:
-        project = get_project_niwrap()
-    except:
-        import os
-
-        os.chdir("..")
-        try:
-            project = get_project_niwrap()
-        except:
-            print("Error: This needs to be run in the NiWrap repo root.")
-            return 1
-
-    print(
-        f"Found {project.get('docs', {}).get('title', project['name'])} version {project['version']} repo."
-    )
+    project = find_niwrap()
 
     rmtree(PATH_DIST_ROOT, ignore_errors=True)
     PATH_DIST_ROOT.mkdir(parents=True, exist_ok=True)

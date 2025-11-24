@@ -17,8 +17,7 @@ def progress_bar_boring(done: int, total: int) -> str:
 
 
 def dict_to_markdown_table(data: dict[str, list[str]]) -> str:
-    """
-    Convert a dictionary with string keys and list[str] values to a markdown table.
+    """Convert a dictionary with string keys and list[str] values to a markdown table.
 
     Args:
         data: Dictionary where keys become column headers and values are column data
