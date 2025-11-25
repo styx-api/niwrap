@@ -31,9 +31,9 @@ NiWrap provides seamless, programmatic access to powerful neuroimaging command-l
 | [ANTs](https://github.com/ANTsX/ANTs) | [`2.5.3`](https://hub.docker.com/r/antsx/ants) | ![71/113](https://progress-bar.xyz/71/?scale=113&suffix=%2F113) |
 | [Convert3D](http://www.itksnap.org/pmwiki/pmwiki.php?n=Convert3D.Convert3D) | [`1.1.0`](https://hub.docker.com/r/pyushkevich/itksnap) | ![4/4](https://progress-bar.xyz/4/?scale=4&suffix=%2F4) |
 | [dcm2niix](https://github.com/rordenlab/dcm2niix) | [`1.0.20240202`](https://hub.docker.com/r/vnmd/dcm2niix_v1.0.20240202) | ![1/1](https://progress-bar.xyz/1/?scale=1&suffix=%2F1) |
-| [FastSurfer](https://github.com/Deep-MI/FastSurfer) | [`2.3.3`](https://hub.docker.com/r/deepmi/fastsurfer) | ![1/1](https://progress-bar.xyz/1/?scale=1&suffix=%2F1) |
+| [FastSurfer](https://github.com/Deep-MI/FastSurfer) | [`2.3.3`](https://hub.docker.com/r/nx10x/fastsurfer) | ![1/1](https://progress-bar.xyz/1/?scale=1&suffix=%2F1) |
 | [FreeSurfer](https://github.com/freesurfer/freesurfer) | [`7.4.1`](https://hub.docker.com/r/freesurfer/freesurfer) | ![696/789](https://progress-bar.xyz/696/?scale=789&suffix=%2F789) |
-| [FSL](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki) | [`6.0.4`](https://hub.docker.com/r/brainlife/fsl) | ![245/313](https://progress-bar.xyz/245/?scale=313&suffix=%2F313) |
+| [FSL](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki) | [`6.0.4`](https://hub.docker.com/r/brainlife/fsl) | ![243/311](https://progress-bar.xyz/243/?scale=311&suffix=%2F311) |
 | [Greedy](https://sites.google.com/view/greedyreg/about) | [`1.0.1`](https://hub.docker.com/r/pyushkevich/itksnap) | ![1/1](https://progress-bar.xyz/1/?scale=1&suffix=%2F1) |
 | [MRTrix3](https://www.mrtrix.org/) | [`3.0.4`](https://hub.docker.com/r/mrtrix3/mrtrix3) | ![115/121](https://progress-bar.xyz/115/?scale=121&suffix=%2F121) |
 | [MRTrix3Tissue](https://3tissue.github.io/) | [`5.2.8`](https://hub.docker.com/r/brainlife/3tissue) | ![1/1](https://progress-bar.xyz/1/?scale=1&suffix=%2F1) |
