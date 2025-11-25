@@ -157,6 +157,8 @@ class _Loader:
             ir.CmdArg(tokens=[obj.command]),
         ]
         groups.append(ir.ConditionalGroup(args))
+        args = []  # Start new group for actual command
+        groups.append(ir.ConditionalGroup(args))
         outputs: list[ir.Output] = []
 
         for obj_param in obj.params:
