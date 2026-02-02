@@ -103,7 +103,7 @@
               "id": "printOutCompositeWarpFile",
               "name": "Print out composite warp file",
               "type": "Number",
-              "command-line-flag": ",printOutCompositeWarpFile=",
+              "command-line-flag": ",",
               "command-line-flag-separator": "",
               "integer": true,
               "value-key": "[PRINT_OUT_COMPOSITE_WARP_FILE]",
@@ -140,7 +140,7 @@
               "id": "calculateInverse",
               "name": "Calculate inverse",
               "type": "Number",
-              "command-line-flag": ",calculateInverse=",
+              "command-line-flag": ",",
               "command-line-flag-separator": "",
               "integer": true,
               "value-key": "[CALCULATE_INVERSE]",
@@ -212,7 +212,7 @@
                     "type": [
                       {
                         "id": "sigma",
-                        "command-line": "sigma=[SIGMA]",
+                        "command-line": "[SIGMA]",
                         "description": "Sigma value.",
                         "inputs": [
                           {
@@ -227,7 +227,7 @@
                       },
                       {
                         "id": "alpha",
-                        "command-line": "alpha=[ALPHA]",
+                        "command-line": "[ALPHA]",
                         "description": "Alpha value.",
                         "inputs": [
                           {
@@ -257,8 +257,6 @@
               "id": "sigma",
               "name": "Sigma",
               "type": "Number",
-              "command-line-flag": "sigma=",
-              "command-line-flag-separator": "",
               "value-key": "[SIGMA]",
               "description": "Sigma value.",
               "optional": true
@@ -267,7 +265,7 @@
               "id": "alpha",
               "name": "Alpha",
               "type": "Number",
-              "command-line-flag": ",alpha=",
+              "command-line-flag": ",",
               "command-line-flag-separator": "",
               "value-key": "[ALPHA]",
               "description": "Alpha value.",
@@ -326,8 +324,6 @@
               "id": "interpolator",
               "name": "Interpolator",
               "type": "String",
-              "command-line-flag": "interpolator=",
-              "command-line-flag-separator": "",
               "value-key": "[INTERPOLATOR]",
               "description": "Interpolator value.",
               "optional": true
