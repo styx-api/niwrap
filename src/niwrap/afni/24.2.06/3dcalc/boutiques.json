@@ -1,106 +1,336 @@
 {
+  "schema-version": "0.5+styx",
   "name": "3dcalc",
-  "command-line": "3dcalc [IN_FILE_A] [IN_FILE_B] [IN_FILE_C] [OTHER] [OVERWRITE] [SINGLE_IDX] [START_IDX] [STOP_IDX] [EXPR] [PREFIX]",
-  "author": "AFNI Developers",
-  "description": "AFNI's calculator program.",
-  "url": "https://afni.nimh.nih.gov/",
+  "description": "AFNI's calculator program. Performs voxel-by-voxel arithmetic on 3D datasets, with strict handling of complex/synthetic inputs and state-dependent flags.",
+  "command-line": "3dcalc [DATASET_A] [OTHER_DATASETS] -expr [EXPRESSION] [PREFIX] [VERBOSE] [DATUM] [FSCALE] [GSCALE] [NSCALE] [USETEMP] [DT] [TAXIS] [RGBFAC] [SORT_MODE] [ISOLA] [COORDINATE_SYSTEM]",
   "inputs": [
     {
-      "id": "expr",
-      "name": "Expr",
-      "type": "String",
-      "value-key": "[EXPR]",
-      "description": "Expr.",
+      "id": "dataset_a",
+      "name": "Dataset A (Template)",
+      "description": "Input dataset 'a' (required). This can be a standard file or a synthetic '1D:'/'jRandomDataset:' string. This dataset serves as the template for the output.",
+      "value-key": "[DATASET_A]",
       "optional": false,
-      "command-line-flag": "-expr"
+      "type": [
+        {
+          "id": "dataset_a_file",
+          "name": "Dataset A (File)",
+          "description": "Standard file input for dataset A.",
+          "command-line": "[CX2R] -a [FILE][SELECTORS]",
+          "inputs": [
+            {
+              "id": "cx2r",
+              "name": "Complex-to-Real Method",
+              "description": "Method to convert complex numbers to real before loading this dataset.",
+              "type": "String",
+              "value-key": "[CX2R]",
+              "command-line-flag": "-cx2r",
+              "value-choices": [
+                "REAL",
+                "IMAG",
+                "ABS",
+                "PHASE"
+              ],
+              "optional": true
+            },
+            {
+              "id": "file",
+              "name": "Input File",
+              "type": "File",
+              "value-key": "[FILE]",
+              "optional": false
+            },
+            {
+              "id": "selectors",
+              "name": "Sub-brick Selectors",
+              "description": "AFNI sub-brick selectors, e.g., '[2..$]' or '<100..200>'.",
+              "type": "String",
+              "value-key": "[SELECTORS]",
+              "optional": true
+            }
+          ]
+        },
+        {
+          "id": "dataset_a_synthetic",
+          "name": "Dataset A (Synthetic)",
+          "description": "Synthetic input string (e.g. '1D:...' or 'jRandomDataset:...').",
+          "command-line": "[CX2R] -a [SYNTH_STRING]",
+          "inputs": [
+            {
+              "id": "cx2r",
+              "name": "Complex-to-Real Method",
+              "type": "String",
+              "value-key": "[CX2R]",
+              "command-line-flag": "-cx2r",
+              "value-choices": [
+                "REAL",
+                "IMAG",
+                "ABS",
+                "PHASE"
+              ],
+              "optional": true
+            },
+            {
+              "id": "synth_string",
+              "name": "Synthetic Definition",
+              "description": "String definition for 1D or random dataset (e.g., '1D:5@0,5@1').",
+              "type": "String",
+              "value-key": "[SYNTH_STRING]",
+              "optional": false
+            }
+          ]
+        }
+      ]
     },
     {
-      "id": "in_file_a",
-      "name": "In file a",
-      "type": "File",
-      "value-key": "[IN_FILE_A]",
-      "command-line-flag": "-a",
-      "description": "Input file to 3dcalc.",
+      "id": "other_datasets",
+      "name": "Other Input Datasets",
+      "description": "Additional input datasets (b, c, etc.). Includes 'cx2r' support to ensure the flag precedes the specific dataset.",
+      "type": {
+        "id": "other_dataset_config",
+        "name": "Other Dataset Configuration",
+        "command-line": "[CX2R] -[VARIABLE_LETTER] [FILE][SELECTORS]",
+        "inputs": [
+          {
+            "id": "cx2r",
+            "name": "Complex-to-Real Method",
+            "description": "Method to convert complex numbers to real for *this specific dataset*.",
+            "type": "String",
+            "value-key": "[CX2R]",
+            "command-line-flag": "-cx2r",
+            "value-choices": [
+              "REAL",
+              "IMAG",
+              "ABS",
+              "PHASE"
+            ],
+            "optional": true
+          },
+          {
+            "id": "variable_letter",
+            "name": "Variable Letter",
+            "description": "The variable letter used in the expression (e.g., 'b', 'c').",
+            "type": "String",
+            "value-key": "[VARIABLE_LETTER]",
+            "optional": false
+          },
+          {
+            "id": "file",
+            "name": "Input File",
+            "type": "File",
+            "value-key": "[FILE]",
+            "optional": false
+          },
+          {
+            "id": "selectors",
+            "name": "Sub-brick Selectors",
+            "description": "AFNI sub-brick selectors, e.g., '[2]' or '[2..$]'.",
+            "type": "String",
+            "value-key": "[SELECTORS]",
+            "optional": true
+          }
+        ]
+      },
+      "value-key": "[OTHER_DATASETS]",
+      "list": true,
+      "optional": true
+    },
+    {
+      "id": "expression",
+      "name": "Arithmetic Expression",
+      "description": "Arithmetic expression to apply to the input datasets (within quotes).",
+      "type": "String",
+      "value-key": "[EXPRESSION]",
+      "command-line-flag": "-expr",
       "optional": false
     },
     {
-      "id": "in_file_b",
-      "name": "In file b",
-      "type": "File",
-      "value-key": "[IN_FILE_B]",
-      "command-line-flag": "-b",
-      "description": "Operand file to 3dcalc.",
-      "optional": true
-    },
-    {
-      "id": "in_file_c",
-      "name": "In file c",
-      "type": "File",
-      "value-key": "[IN_FILE_C]",
-      "command-line-flag": "-c",
-      "description": "Operand file to 3dcalc.",
-      "optional": true
-    },
-    {
-      "id": "other",
-      "name": "Other",
-      "type": "File",
-      "value-key": "[OTHER]",
-      "description": "Other options.",
-      "optional": true
-    },
-    {
-      "id": "overwrite",
-      "name": "Overwrite",
-      "type": "Flag",
-      "value-key": "[OVERWRITE]",
-      "command-line-flag": "-overwrite",
-      "description": "Overwrite output."
-    },
-    {
-      "id": "single_idx",
-      "name": "Single idx",
-      "type": "Number",
-      "integer": true,
-      "value-key": "[SINGLE_IDX]",
-      "description": "Volume index for in_file_a.",
-      "optional": true
-    },
-    {
-      "id": "start_idx",
-      "name": "Start idx",
-      "type": "Number",
-      "integer": true,
-      "value-key": "[START_IDX]",
-      "description": "Start index for in_file_a.",
-      "optional": true
-    },
-    {
-      "id": "stop_idx",
-      "name": "Stop idx",
-      "type": "Number",
-      "integer": true,
-      "value-key": "[STOP_IDX]",
-      "description": "Stop index for in_file_a.",
+      "id": "taxis",
+      "name": "Time Axis Configuration",
+      "description": "Force the creation of a time axis. Replaces string input with strict micro-syntax structure 'N:tstep'.",
+      "type": {
+        "id": "taxis_config",
+        "name": "T-Axis Config",
+        "command-line": "-taxis [NUM_POINTS]:[TIME_STEP]",
+        "inputs": [
+          {
+            "id": "num_points",
+            "name": "Number of Time Points",
+            "description": "Length of the time axis.",
+            "type": "Number",
+            "integer": true,
+            "value-key": "[NUM_POINTS]",
+            "optional": false
+          },
+          {
+            "id": "time_step",
+            "name": "Time Step",
+            "description": "Time step in seconds.",
+            "type": "Number",
+            "value-key": "[TIME_STEP]",
+            "optional": true
+          }
+        ]
+      },
+      "value-key": "[TAXIS]",
       "optional": true
     },
     {
       "id": "prefix",
-      "name": "Prefix",
+      "name": "Output Prefix",
+      "description": "Use 'pname' for the output dataset prefix name.",
       "type": "String",
       "value-key": "[PREFIX]",
-      "description": "Output image file name.",
-      "optional": true,
-      "command-line-flag": "-prefix"
+      "command-line-flag": "-prefix",
+      "optional": true
+    },
+    {
+      "id": "verbose",
+      "name": "Verbose Flag",
+      "description": "Makes the program print out various information as it progresses.",
+      "type": "Flag",
+      "value-key": "[VERBOSE]",
+      "command-line-flag": "-verbose"
+    },
+    {
+      "id": "datum",
+      "name": "Output Data Type",
+      "description": "Coerce the output data to be stored as the given type.",
+      "type": "String",
+      "value-key": "[DATUM]",
+      "command-line-flag": "-datum",
+      "value-choices": [
+        "byte",
+        "short",
+        "float"
+      ],
+      "optional": true
+    },
+    {
+      "id": "fscale",
+      "name": "Force Scaling",
+      "description": "Force scaling of the output to the maximum integer range (for byte or short output).",
+      "type": "Flag",
+      "value-key": "[FSCALE]",
+      "command-line-flag": "-fscale"
+    },
+    {
+      "id": "gscale",
+      "name": "Global Scaling",
+      "description": "Same as -fscale, but also forces each output sub-brick to get the same scaling factor. Incompatible with -usetemp.",
+      "type": "Flag",
+      "value-key": "[GSCALE]",
+      "command-line-flag": "-gscale"
+    },
+    {
+      "id": "nscale",
+      "name": "No Scaling",
+      "description": "Don't do any scaling on output to byte or short datasets.",
+      "type": "Flag",
+      "value-key": "[NSCALE]",
+      "command-line-flag": "-nscale"
+    },
+    {
+      "id": "usetemp",
+      "name": "Use Temporary File",
+      "description": "Create a temporary file to hold intermediate results. Incompatible with -gscale.",
+      "type": "Flag",
+      "value-key": "[USETEMP]",
+      "command-line-flag": "-usetemp"
+    },
+    {
+      "id": "dt",
+      "name": "Time Step",
+      "description": "Use 'tstep' as the TR for 'manufactured' 3D+time datasets (in seconds).",
+      "type": "Number",
+      "value-key": "[DT]",
+      "command-line-flag": "-dt",
+      "optional": true
+    },
+    {
+      "id": "rgbfac",
+      "name": "RGB Factors",
+      "description": "Factors A, B, C for collapsing RGB input datasets (value = A*r + B*g + C*b).",
+      "type": {
+        "id": "rgbfac_config",
+        "name": "RGB Factors Config",
+        "command-line": "-rgbfac [A] [B] [C]",
+        "inputs": [
+          {
+            "id": "a",
+            "name": "Factor A",
+            "type": "Number",
+            "value-key": "[A]",
+            "optional": false
+          },
+          {
+            "id": "b",
+            "name": "Factor B",
+            "type": "Number",
+            "value-key": "[B]",
+            "optional": false
+          },
+          {
+            "id": "c",
+            "name": "Factor C",
+            "type": "Number",
+            "value-key": "[C]",
+            "optional": false
+          }
+        ]
+      },
+      "value-key": "[RGBFAC]",
+      "optional": true
+    },
+    {
+      "id": "sort_mode",
+      "name": "Sorting Mode",
+      "description": "Sort each output brick separately. 'sort' = increasing, 'SORT' = decreasing.",
+      "type": "String",
+      "value-key": "[SORT_MODE]",
+      "value-choices": [
+        "sort",
+        "SORT"
+      ],
+      "optional": true
+    },
+    {
+      "id": "isola",
+      "name": "Remove Isolated Voxels",
+      "description": "After computation, remove isolated non-zero voxels.",
+      "type": "Flag",
+      "value-key": "[ISOLA]",
+      "command-line-flag": "-isola"
+    },
+    {
+      "id": "coordinate_system",
+      "name": "Coordinate System Order",
+      "description": "Set the coordinate display order (DICOM/RAI or SPM/LPI).",
+      "type": "String",
+      "value-key": "[COORDINATE_SYSTEM]",
+      "value-choices": [
+        "dicom",
+        "RAI",
+        "SPM",
+        "LPI"
+      ],
+      "optional": true
     }
   ],
   "output-files": [
     {
-      "name": "Out file",
-      "id": "out_file",
-      "description": "Output image file name.",
-      "path-template": "[PREFIX]"
+      "id": "output_head",
+      "path-template": "[PREFIX]+orig.HEAD",
+      "description": "Output dataset header file (if AFNI format is used)."
+    },
+    {
+      "id": "output_brik",
+      "path-template": "[PREFIX]+orig.BRIK",
+      "description": "Output dataset binary file (if AFNI format is used)."
+    },
+    {
+      "id": "output_file",
+      "path-template": "[PREFIX]",
+      "description": "Output dataset file (if NIfTI or other format is used)."
     }
-  ],
-  "schema-version": "0.5+styx"
+  ]
 }
