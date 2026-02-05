@@ -1,0 +1,133 @@
+name: Validate Schemas
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      
+      - name: Install dependencies
+        run: npm install ajv@8.17.1 ajv-formats@3.0.1 glob@11.0.0
+      
+      - name: Validate schemas
+        run: |
+          node << 'EOF'
+          const fs = require('fs');
+          const { globSync } = require('glob');
+          const Ajv = require('ajv');
+          const addFormats = require('ajv-formats');
+
+          const ajv = new Ajv({ allErrors: true });
+          addFormats(ajv);
+
+          let errors = 0, warnings = 0;
+          const schemas = {};
+          const stats = {};
+
+          const err = (m, f) => {
+            errors++;
+            console.log(`✗ ${m}`);
+            if (f) console.log(`::error file=${f}::${m}`);
+          };
+
+          const warn = (m, f) => {
+            warnings++;
+            console.log(`⚠ ${m}`);
+            if (f) console.log(`::warning file=${f}::${m}`);
+          };
+
+          const readJSON = (f) => {
+            try { return JSON.parse(fs.readFileSync(f, 'utf8')); }
+            catch (e) { err(`Failed to read ${f}: ${e.message}`, f); process.exit(1); }
+          };
+
+          const validate = (file, schema, checkKebab = true) => {
+            if (!schemas[schema]) schemas[schema] = ajv.compile(readJSON(`schemas/${schema}`));
+            const data = readJSON(file);
+            
+            if (!schemas[schema](data)) {
+              err(`Invalid ${file}:\n${ajv.errorsText(schemas[schema].errors)}`, file);
+              return null;
+            }
+            
+            // Extract expected name from path
+            const parts = file.split('/');
+            const jsonFile = parts[parts.length - 1];
+            const expectedName = jsonFile === 'projects.json' ? null : parts[parts.length - 2];
+            
+            if (expectedName && data.name !== expectedName) {
+              err(`Name mismatch in ${file}: "${data.name}" vs "${expectedName}"`, file);
+              return null;
+            }
+            
+            if (checkKebab && expectedName && !/^[a-z0-9]+(-[a-z0-9]+)*$/.test(expectedName)) {
+              warn(`Non-kebab-case: ${expectedName}`, file);
+            }
+            
+            console.log(`✓ ${file}`);
+            return data;
+          };
+
+          const vscodeConfig = readJSON('.vscode/settings.json');
+          const schemaRules = vscodeConfig['json.schemas']
+            .filter(s => s.url.startsWith('/schemas/'))
+            .map(s => ({
+              pattern: s.fileMatch[0],
+              schema: s.url.replace('/schemas/', ''),
+              statKey: s.url.replace('/schemas/', '').replace('.schema.json', '')
+            }));
+
+          console.log('Validating schemas...\n');
+
+          for (const rule of schemaRules) {
+            const files = globSync(rule.pattern);
+            
+            // Skip kebab-case check for versions and apps (they may have numbers or special naming)
+            const checkKebab = !['version', 'app'].includes(rule.statKey);
+            
+            for (const file of files) {
+              const data = validate(file, rule.schema, checkKebab);
+              if (data) {
+                stats[rule.statKey] = (stats[rule.statKey] || 0) + 1;
+                
+                // Check app source files
+                if (rule.statKey === 'app' && data.source?.path) {
+                  const srcFile = file.replace('/app.json', `/${data.source.path}`);
+                  if (!fs.existsSync(srcFile)) {
+                    warn(`Missing source: ${data.source.path}`, file);
+                  }
+                }
+              }
+            }
+          }
+
+          console.log(`\nSummary:`);
+          console.log(Object.entries(stats).map(([k, v]) => `${k}: ${v}`).join(' | '));
+          console.log(`Errors: ${errors} | Warnings: ${warnings}\n`);
+
+          const statusIcon = errors ? '❌' : '✅';
+          const summary = [
+            '## Schema Validation',
+            '',
+            `${statusIcon} **${errors} errors, ${warnings} warnings**`,
+            '',
+            '### Statistics',
+            '',
+            ...Object.entries(stats).map(([k, v]) => `- **${k}**: ${v}`),
+          ].join('\n');
+
+          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, summary);
+
+          process.exit(errors > 0 ? 1 : 0);
+          EOF
