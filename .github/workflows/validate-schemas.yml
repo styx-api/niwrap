@@ -116,10 +116,18 @@ jobs:
           console.log(Object.entries(stats).map(([k, v]) => `${k}: ${v}`).join(' | '));
           console.log(`Errors: ${errors} | Warnings: ${warnings}\n`);
 
-          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY,
-            `## Schema Validation\n\n${errors ? '❌' : '✅'} ${errors} errors, ${warnings} warnings\n\n` +
-            `${Object.entries(stats).map(([k, v]) => `${k}: ${v}`).join(' | ')}\n`
-          );
+          const statusIcon = errors ? '❌' : '✅';
+          const summary = [
+            '## Schema Validation',
+            '',
+            `${statusIcon} **${errors} errors, ${warnings} warnings**`,
+            '',
+            '### Statistics',
+            '',
+            ...Object.entries(stats).map(([k, v]) => `- **${k}**: ${v}`),
+          ].join('\n');
+
+          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, summary);
 
           process.exit(errors > 0 ? 1 : 0);
           EOF
