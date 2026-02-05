@@ -18,12 +18,13 @@ jobs:
           node-version: '22'
       
       - name: Install dependencies
-        run: npm install ajv@8.17.1 ajv-formats@3.0.1
+        run: npm install ajv@8.17.1 ajv-formats@3.0.1 glob@11.0.0
       
       - name: Validate schemas
         run: |
           node << 'EOF'
           const fs = require('fs');
+          const { globSync } = require('glob');
           const Ajv = require('ajv');
           const addFormats = require('ajv-formats');
 
@@ -51,76 +52,62 @@ jobs:
             catch (e) { err(`Failed to read ${f}: ${e.message}`, f); process.exit(1); }
           };
 
-          const validate = (data, schema, file, name) => {
+          const validate = (file, schema) => {
             if (!schemas[schema]) schemas[schema] = ajv.compile(readJSON(`schemas/${schema}`));
+            const data = readJSON(file);
+            
             if (!schemas[schema](data)) {
               err(`Invalid ${file}:\n${ajv.errorsText(schemas[schema].errors)}`, file);
-              return false;
+              return null;
             }
-            if (name && data.name !== name) {
-              err(`Name mismatch: "${data.name}" vs "${name}"`, file);
-              return false;
+            
+            // Extract expected name from path
+            const parts = file.split('/');
+            const jsonFile = parts[parts.length - 1];
+            const expectedName = jsonFile === 'projects.json' ? null : parts[parts.length - 2];
+            
+            if (expectedName && data.name !== expectedName) {
+              err(`Name mismatch in ${file}: "${data.name}" vs "${expectedName}"`, file);
+              return null;
             }
-            if (name && !/^[a-z0-9]+(-[a-z0-9]+)*$/.test(name)) {
-              warn(`Non-kebab-case: ${name}`, file);
+            
+            if (expectedName && !/^[a-z0-9]+(-[a-z0-9]+)*$/.test(expectedName)) {
+              warn(`Non-kebab-case: ${expectedName}`, file);
             }
+            
             console.log(`✓ ${file}`);
-            return true;
+            return data;
           };
 
           const vscodeConfig = readJSON('.vscode/settings.json');
-          const levels = vscodeConfig['json.schemas']
+          const schemaRules = vscodeConfig['json.schemas']
             .filter(s => s.url.startsWith('/schemas/'))
             .map(s => ({
               pattern: s.fileMatch[0],
               schema: s.url.replace('/schemas/', ''),
-              depth: s.fileMatch[0].split('/').length - 1
-            }))
-            .sort((a, b) => a.depth - b.depth)
-            .map(m => {
-              const name = m.schema.replace('.schema.json', '').replace(/s$/, '');
-              return { ...m, name, key: name + 's' };
-            });
-
-          const traverse = (level, pathValues = []) => {
-            // Build file path by replacing wildcards with actual values
-            let wildcardIndex = 0;
-            const filePath = level.pattern.split('/').map(part => {
-              if (part.includes('*')) {
-                return pathValues[wildcardIndex++] || part;
-              }
-              return part;
-            }).join('/');
-            
-            const name = pathValues[pathValues.length - 1] || null;
-            
-            if (!fs.existsSync(filePath)) {
-              err(`Missing: ${filePath}`, filePath);
-              return;
-            }
-            
-            const data = readJSON(filePath);
-            if (!validate(data, level.schema, filePath, name)) return;
-            
-            if (name) stats[level.key] = (stats[level.key] || 0) + 1;
-            
-            if (level.name === 'app' && data.source?.path) {
-              const srcFile = filePath.replace('/app.json', `/${data.source.path}`);
-              if (!fs.existsSync(srcFile)) {
-                warn(`Missing source: ${data.source.path}`, filePath);
-              }
-            }
-            
-            const nextLevel = levels[level.depth + 1];
-            if (nextLevel && data[level.key]) {
-              for (const item of data[level.key]) {
-                traverse(nextLevel, [...pathValues, item]);
-              }
-            }
-          };
+              statKey: s.url.replace('/schemas/', '').replace('.schema.json', '')
+            }));
 
           console.log('Validating schemas...\n');
-          traverse(levels[0], []);
+
+          for (const rule of schemaRules) {
+            const files = globSync(rule.pattern);
+            
+            for (const file of files) {
+              const data = validate(file, rule.schema);
+              if (data) {
+                stats[rule.statKey] = (stats[rule.statKey] || 0) + 1;
+                
+                // Check app source files
+                if (rule.statKey === 'app' && data.source?.path) {
+                  const srcFile = file.replace('/app.json', `/${data.source.path}`);
+                  if (!fs.existsSync(srcFile)) {
+                    warn(`Missing source: ${data.source.path}`, file);
+                  }
+                }
+              }
+            }
+          }
 
           console.log(`\nSummary:`);
           console.log(Object.entries(stats).map(([k, v]) => `${k}: ${v}`).join(' | '));
