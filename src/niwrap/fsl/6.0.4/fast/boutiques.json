@@ -1,6 +1,6 @@
 {
   "name": "fast",
-  "command-line": "fast [NUMBER_CLASSES] [BIAS_ITERS] [BIAS_LOWPASS] [IMG_TYPE] [INIT_SEG_SMOOTH] [SEGMENTS] [INIT_TRANSFORM] [OTHER_PRIORS] [OUTPUT_BIASFIELD] [OUTPUT_BIASCORRECTED] [NO_BIAS] [CHANNELS] [OUT_BASENAME] [USE_PRIORS] [NO_PVE] [SEGMENT_ITERS] [MIXEL_SMOOTH] [HYPER] [VERBOSE] [MANUAL_SEG] [ITERS_AFTERBIAS] [IN_FILES]",
+  "command-line": "fast [NUMBER_CLASSES] [BIAS_ITERS] [BIAS_LOWPASS] [IMG_TYPE] [INIT_SEG_SMOOTH] [SEGMENTS] [INIT_TRANSFORM] [OTHER_PRIORS] [OUTPUT_BIASFIELD] [OUTPUT_BIASCORRECTED] [NO_BIAS] [CHANNELS] [OUT_BASENAME] [USE_PRIORS] [NO_PVE] [SEGMENT_ITERS] [MIXEL_SMOOTH] [HYPER] [VERBOSE] [MANUAL_SEG] [ITERS_AFTERBIAS] [OUTPUT_PROBABILITIES] [IN_FILES]",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "FAST (FMRIB's Automated Segmentation Tool) segments a 3D image of the brain into different tissue types (Grey Matter, White Matter, CSF, etc.), whilst also correcting for spatial intensity variations (also known as bias field or RF inhomogeneities). The underlying method is based on a hidden Markov random field model and an associated Expectation-Maximization algorithm. The whole process is fully automated and can also produce a bias field-corrected input image and a probabilistic and/or partial volume tissue segmentation. It is robust and reliable, compared to most finite mixture model-based methods, which are sensitive to noise.",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
@@ -46,11 +46,7 @@
       "command-line-flag": "-t",
       "optional": true,
       "integer": true,
-      "value-choices": [
-        1,
-        2,
-        3
-      ]
+      "value-choices": [1, 2, 3]
     },
     {
       "name": "Init seg smooth",
@@ -83,8 +79,10 @@
       "id": "other_priors",
       "type": "File",
       "value-key": "[OTHER_PRIORS]",
-      "description": "Alternative prior images.",
+      "description": "Alternative prior images (requires 3 files: prior1 prior2 prior3).",
       "list": true,
+      "min-list-entries": 3,
+      "max-list-entries": 3,
       "command-line-flag": "-A",
       "optional": true
     },
@@ -120,6 +118,7 @@
       "description": "number of input images (channels); default 1",
       "command-line-flag": "-S",
       "integer": true,
+      "minimum": 1,
       "optional": true
     },
     {
@@ -136,7 +135,7 @@
       "id": "use_priors",
       "type": "Flag",
       "value-key": "[USE_PRIORS]",
-      "description": "Use priors throughout.",
+      "description": "Use priors throughout (requires -a option).",
       "command-line-flag": "-P"
     },
     {
@@ -183,7 +182,7 @@
       "id": "hyper",
       "type": "Number",
       "value-key": "[HYPER]",
-      "description": "0.0 <= a floating point number <= 1.0. segmentation spatial smoothness; default=0.1",
+      "description": "segmentation spatial smoothness (0.0 to 1.0); default=0.1",
       "minimum": 0.0,
       "maximum": 1.0,
       "command-line-flag": "-H",
@@ -207,6 +206,14 @@
       "optional": true
     },
     {
+      "name": "Output probabilities",
+      "id": "output_probabilities",
+      "type": "Flag",
+      "value-key": "[OUTPUT_PROBABILITIES]",
+      "description": "outputs individual probability maps",
+      "command-line-flag": "-p"
+    },
+    {
       "id": "in_files",
       "name": "In files",
       "type": "File",
@@ -218,6 +225,18 @@
   ],
   "output-files": [
     {
+      "name": "Tissue class map",
+      "id": "tissue_class_map",
+      "path-template": "[OUT_BASENAME]_seg.nii.gz",
+      "description": "Path/name of binary segmented volume file one val for each class _seg."
+    },
+    {
+      "name": "Partial volume map",
+      "id": "partial_volume_map",
+      "path-template": "[OUT_BASENAME]_pveseg.nii.gz",
+      "description": "Path/name of partial volume file _pveseg."
+    },
+    {
       "name": "Mixeltype",
       "id": "mixeltype",
       "path-template": "[OUT_BASENAME]_mixeltype.nii.gz",
@@ -227,25 +246,13 @@
       "name": "Bias field",
       "id": "bias_field",
       "path-template": "[OUT_BASENAME]_bias.nii.gz",
-      "description": "No description provided."
-    },
-    {
-      "name": "Partial volume map",
-      "id": "partial_volume_map",
-      "path-template": "[OUT_BASENAME]_pveseg.nii.gz",
-      "description": "Path/name of partial volume file _pveseg."
+      "description": "Estimated bias field (if -b flag is set)."
     },
     {
       "name": "Restored image",
       "id": "restored_image",
       "path-template": "[OUT_BASENAME]_restore.nii.gz",
-      "description": "No description provided."
-    },
-    {
-      "name": "Tissue class map",
-      "id": "tissue_class_map",
-      "path-template": "[OUT_BASENAME]_seg.nii.gz",
-      "description": "Path/name of binary segmented volume file one val for each class  _seg."
+      "description": "Bias-corrected image (if -B flag is set)."
     }
   ],
   "schema-version": "0.5+styx"
