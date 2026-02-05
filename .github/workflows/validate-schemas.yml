@@ -11,9 +11,9 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4
       
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v4
         with:
           node-version: '22'
       
@@ -82,10 +82,17 @@ jobs:
               return { ...m, name, key: name + 's' };
             });
 
-          const traverse = (level, ...path) => {
-            const parts = level.pattern.split('/').slice(1); // Remove 'src/'
-            const filePath = 'src/' + parts.map((part, i) => part === '*' ? path[i] : part).join('/');
-            const name = parts.filter(p => p === '*').length > 0 ? path[parts.filter(p => p === '*').length - 1] : null;
+          const traverse = (level, pathValues = []) => {
+            // Build file path by replacing wildcards with actual values
+            let wildcardIndex = 0;
+            const filePath = level.pattern.split('/').map(part => {
+              if (part.includes('*')) {
+                return pathValues[wildcardIndex++] || part;
+              }
+              return part;
+            }).join('/');
+            
+            const name = pathValues[pathValues.length - 1] || null;
             
             if (!fs.existsSync(filePath)) {
               err(`Missing: ${filePath}`, filePath);
@@ -107,13 +114,13 @@ jobs:
             const nextLevel = levels[level.depth + 1];
             if (nextLevel && data[level.key]) {
               for (const item of data[level.key]) {
-                traverse(nextLevel, ...path, item);
+                traverse(nextLevel, [...pathValues, item]);
               }
             }
           };
 
           console.log('Validating schemas...\n');
-          traverse(levels[0]);
+          traverse(levels[0], []);
 
           console.log(`\nSummary:`);
           console.log(Object.entries(stats).map(([k, v]) => `${k}: ${v}`).join(' | '));
