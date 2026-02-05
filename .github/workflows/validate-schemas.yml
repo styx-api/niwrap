@@ -1,0 +1,128 @@
+name: Validate Schemas
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      
+      - name: Install dependencies
+        run: npm install ajv@8.17.1 ajv-formats@3.0.1
+      
+      - name: Validate schemas
+        run: |
+          node << 'EOF'
+          const fs = require('fs');
+          const Ajv = require('ajv');
+          const addFormats = require('ajv-formats');
+
+          const ajv = new Ajv({ allErrors: true });
+          addFormats(ajv);
+
+          let errors = 0, warnings = 0;
+          const schemas = {};
+          const stats = {};
+
+          const err = (m, f) => {
+            errors++;
+            console.log(`✗ ${m}`);
+            if (f) console.log(`::error file=${f}::${m}`);
+          };
+
+          const warn = (m, f) => {
+            warnings++;
+            console.log(`⚠ ${m}`);
+            if (f) console.log(`::warning file=${f}::${m}`);
+          };
+
+          const readJSON = (f) => {
+            try { return JSON.parse(fs.readFileSync(f, 'utf8')); }
+            catch (e) { err(`Failed to read ${f}: ${e.message}`, f); process.exit(1); }
+          };
+
+          const validate = (data, schema, file, name) => {
+            if (!schemas[schema]) schemas[schema] = ajv.compile(readJSON(`schemas/${schema}`));
+            if (!schemas[schema](data)) {
+              err(`Invalid ${file}:\n${ajv.errorsText(schemas[schema].errors)}`, file);
+              return false;
+            }
+            if (name && data.name !== name) {
+              err(`Name mismatch: "${data.name}" vs "${name}"`, file);
+              return false;
+            }
+            if (name && !/^[a-z0-9]+(-[a-z0-9]+)*$/.test(name)) {
+              warn(`Non-kebab-case: ${name}`, file);
+            }
+            console.log(`✓ ${file}`);
+            return true;
+          };
+
+          const vscodeConfig = readJSON('.vscode/settings.json');
+          const levels = vscodeConfig['json.schemas']
+            .filter(s => s.url.startsWith('/schemas/'))
+            .map(s => ({
+              pattern: s.fileMatch[0],
+              schema: s.url.replace('/schemas/', ''),
+              depth: s.fileMatch[0].split('/').length - 1
+            }))
+            .sort((a, b) => a.depth - b.depth)
+            .map(m => {
+              const name = m.schema.replace('.schema.json', '').replace(/s$/, '');
+              return { ...m, name, key: name + 's' };
+            });
+
+          const traverse = (level, path = []) => {
+            const pattern = level.pattern.replace(/src\//, '').replace(/\*+/g, () => path.shift() || '*');
+            const filePath = `src/${pattern}`;
+            const name = path[0];
+            
+            if (!fs.existsSync(filePath)) {
+              err(`Missing: ${filePath}`, filePath);
+              return;
+            }
+            
+            const data = readJSON(filePath);
+            if (!validate(data, level.schema, filePath, name)) return;
+            
+            if (name) stats[level.key] = (stats[level.key] || 0) + 1;
+            
+            if (level.name === 'app' && data.source?.path) {
+              const srcFile = filePath.replace('/app.json', `/${data.source.path}`);
+              if (!fs.existsSync(srcFile)) {
+                warn(`Missing source: ${data.source.path}`, filePath);
+              }
+            }
+            
+            const nextLevel = levels[level.depth + 1];
+            if (nextLevel && data[level.key]) {
+              for (const item of data[level.key]) {
+                traverse(nextLevel, [...path, item]);
+              }
+            }
+          };
+
+          console.log('Validating schemas...\n');
+          traverse(levels[0], []);
+
+          console.log(`\nSummary:`);
+          console.log(Object.entries(stats).map(([k, v]) => `${k}: ${v}`).join(' | '));
+          console.log(`Errors: ${errors} | Warnings: ${warnings}\n`);
+
+          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY,
+            `## Schema Validation\n\n${errors ? '❌' : '✅'} ${errors} errors, ${warnings} warnings\n\n` +
+            `${Object.entries(stats).map(([k, v]) => `${k}: ${v}`).join(' | ')}\n`
+          );
+
+          process.exit(errors > 0 ? 1 : 0);
+          EOF
