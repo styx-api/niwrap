@@ -52,7 +52,7 @@ jobs:
             catch (e) { err(`Failed to read ${f}: ${e.message}`, f); process.exit(1); }
           };
 
-          const validate = (file, schema) => {
+          const validate = (file, schema, checkKebab = true) => {
             if (!schemas[schema]) schemas[schema] = ajv.compile(readJSON(`schemas/${schema}`));
             const data = readJSON(file);
             
@@ -71,7 +71,7 @@ jobs:
               return null;
             }
             
-            if (expectedName && !/^[a-z0-9]+(-[a-z0-9]+)*$/.test(expectedName)) {
+            if (checkKebab && expectedName && !/^[a-z0-9]+(-[a-z0-9]+)*$/.test(expectedName)) {
               warn(`Non-kebab-case: ${expectedName}`, file);
             }
             
@@ -93,8 +93,11 @@ jobs:
           for (const rule of schemaRules) {
             const files = globSync(rule.pattern);
             
+            // Skip kebab-case check for versions and apps (they may have numbers or special naming)
+            const checkKebab = !['version', 'app'].includes(rule.statKey);
+            
             for (const file of files) {
-              const data = validate(file, rule.schema);
+              const data = validate(file, rule.schema, checkKebab);
               if (data) {
                 stats[rule.statKey] = (stats[rule.statKey] || 0) + 1;
                 
