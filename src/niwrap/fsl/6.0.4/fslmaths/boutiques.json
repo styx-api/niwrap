@@ -50,7 +50,7 @@
               "name": "Add",
               "type": "Number",
               "description": "Add following input to current image",
-              "optional": true,
+              "optional": false,
               "command-line-flag": "-add"
             }
           ]
@@ -67,7 +67,7 @@
               "name": "Subtract",
               "type": "Number",
               "description": "Subtract following input from current image",
-              "optional": true,
+              "optional": false,
               "command-line-flag": "-sub"
             }
           ]
@@ -84,7 +84,7 @@
               "name": "Multiply",
               "type": "Number",
               "description": "Multiply current image by following input",
-              "optional": true,
+              "optional": false,
               "command-line-flag": "-mul"
             }
           ]
@@ -101,7 +101,7 @@
               "name": "Divide",
               "type": "Number",
               "description": "Divide current image by following input",
-              "optional": true,
+              "optional": false,
               "command-line-flag": "-div"
             }
           ]
@@ -118,7 +118,7 @@
               "name": "Modulus remainder",
               "type": "Number",
               "description": "Modulus remainder - divide current image by following input and take remainder",
-              "optional": true,
+              "optional": false,
               "command-line-flag": "-rem"
             }
           ]
@@ -135,7 +135,7 @@
               "name": "Mask",
               "type": "File",
               "description": "Use (following image>0) to mask current image",
-              "optional": true,
+              "optional": false,
               "command-line-flag": "-mas"
             }
           ]
@@ -152,7 +152,7 @@
               "name": "Threshold",
               "type": "Number",
               "description": "Use following number to threshold current image (zero anything below the number)",
-              "optional": true,
+              "optional": false,
               "command-line-flag": "-thr"
             }
           ]
@@ -169,7 +169,7 @@
               "name": "Threshold percentage",
               "type": "Number",
               "description": "Use following percentage (0-100) of ROBUST RANGE to threshold current image (zero anything below the number)",
-              "optional": true,
+              "optional": false,
               "command-line-flag": "-thrp",
               "minimum": 0,
               "maximum": 100
@@ -188,7 +188,7 @@
               "name": "Threshold percentage of non-zero voxels",
               "type": "Number",
               "description": "Use following percentage (0-100) of ROBUST RANGE of non-zero voxels and threshold below",
-              "optional": true,
+              "optional": false,
               "command-line-flag": "-thrP",
               "minimum": 0,
               "maximum": 100
@@ -207,7 +207,7 @@
               "name": "Upper threshold",
               "type": "Number",
               "description": "Use following number to upper-threshold current image (zero anything above the number)",
-              "optional": true,
+              "optional": false,
               "command-line-flag": "-uthr"
             }
           ]
@@ -224,7 +224,7 @@
               "name": "Upper threshold percentage",
               "type": "Number",
               "description": "Use following percentage (0-100) of ROBUST RANGE to upper-threshold current image (zero anything above the number)",
-              "optional": true,
+              "optional": false,
               "command-line-flag": "-uthrp",
               "minimum": 0,
               "maximum": 100
@@ -243,7 +243,7 @@
               "name": "Upper threshold percentage of non-zero voxels",
               "type": "Number",
               "description": "Use following percentage (0-100) of ROBUST RANGE of non-zero voxels and threshold above",
-              "optional": true,
+              "optional": false,
               "command-line-flag": "-uthrP",
               "minimum": 0,
               "maximum": 100
@@ -262,7 +262,7 @@
               "name": "Maximum",
               "type": "Number",
               "description": "Take maximum of following input and current image",
-              "optional": true,
+              "optional": false,
               "command-line-flag": "-max"
             }
           ]
@@ -279,7 +279,7 @@
               "name": "Minimum",
               "type": "Number",
               "description": "Take minimum of following input and current image",
-              "optional": true,
+              "optional": false,
               "command-line-flag": "-min"
             }
           ]
@@ -296,7 +296,7 @@
               "name": "Seed",
               "type": "Number",
               "description": "Seed random number generator with following number",
-              "optional": true,
+              "optional": false,
               "command-line-flag": "-seed"
             }
           ]
@@ -313,7 +313,7 @@
               "name": "Restart",
               "type": "File",
               "description": "Replace the current image with input for future processing operations",
-              "optional": true,
+              "optional": false,
               "command-line-flag": "-restart"
             }
           ]
@@ -619,7 +619,7 @@
               "type": "Number",
               "list": true,
               "description": "Add a 3D grid of intensity <value> with grid spacing <spacing>",
-              "optional": true,
+              "optional": false,
               "command-line-flag": "-grid"
             }
           ]
@@ -653,7 +653,7 @@
               "type": "Number",
               "list": true,
               "description": "Enhance with TFCE, e.g. -tfce 2 0.5 6 (maybe change 6 to 26 for skeletons)",
-              "optional": true,
+              "optional": false,
               "command-line-flag": "-tfce"
             }
           ]
@@ -671,7 +671,7 @@
               "type": "Number",
               "list": true,
               "description": "Show support area for voxel (X,Y,Z)",
-              "optional": true,
+              "optional": false,
               "command-line-flag": "-tfceS"
             }
           ]
@@ -752,7 +752,7 @@
               "name": "Intensity normalisation",
               "type": "Number",
               "description": "Intensity normalisation (per 3D volume mean)",
-              "optional": true,
+              "optional": false,
               "command-line-flag": "-inm"
             }
           ]
@@ -769,7 +769,7 @@
               "name": "Intensity normalisation, global 4D mean",
               "type": "Number",
               "description": "Intensity normalisation, global 4D mean",
-              "optional": true,
+              "optional": false,
               "command-line-flag": "-ing"
             }
           ]
@@ -850,7 +850,7 @@
               "name": "Box kernel",
               "type": "Number",
               "description": "All voxels in a cube of width <size> mm centered on target voxel",
-              "optional": true,
+              "optional": false,
               "command-line-flag": "-kernel box"
             }
           ]
@@ -867,7 +867,7 @@
               "name": "Box kernel (voxels)",
               "type": "Number",
               "description": "All voxels in a cube of width <size> voxels centered on target voxel",
-              "optional": true,
+              "optional": false,
               "command-line-flag": "-kernel boxv"
             }
           ]
@@ -887,7 +887,7 @@
               "min-list-entries": 3,
               "max-list-entries": 3,
               "description": "All voxels in a cuboid of dimensions X x Y x Z centered on target voxel",
-              "optional": true,
+              "optional": false,
               "command-line-flag": "-kernel boxv3"
             }
           ]
@@ -904,7 +904,7 @@
               "name": "Gaussian kernel",
               "type": "Number",
               "description": "Gaussian kernel (sigma in mm, not voxels)",
-              "optional": true,
+              "optional": false,
               "command-line-flag": "-kernel gauss"
             }
           ]
@@ -921,7 +921,7 @@
               "name": "Sphere kernel",
               "type": "Number",
               "description": "All voxels in a sphere of radius <size> mm centered on target voxel",
-              "optional": true,
+              "optional": false,
               "command-line-flag": "-kernel sphere"
             }
           ]
@@ -938,7 +938,7 @@
               "name": "External file kernel",
               "type": "File",
               "description": "Use external file as kernel",
-              "optional": true,
+              "optional": false,
               "command-line-flag": "-kernel file"
             }
           ]
@@ -1100,7 +1100,7 @@
               "type": "Number",
               "description": "Create a gauss kernel of sigma mm and perform mean filtering",
               "command-line-flag": "-s",
-              "optional": true
+              "optional": false
             }
           ]
         },
@@ -1532,7 +1532,7 @@
               "name": "Percentile across time",
               "type": "Number",
               "description": "Nth percentile (0-100) of FULL RANGE across time",
-              "optional": true,
+              "optional": false,
               "command-line-flag": "-Tperc",
               "minimum": 0,
               "maximum": 100
@@ -1551,7 +1551,7 @@
               "name": "Percentile across X axis",
               "type": "Number",
               "description": "Nth percentile (0-100) of FULL RANGE across X axis",
-              "optional": true,
+              "optional": false,
               "command-line-flag": "-Xperc",
               "minimum": 0,
               "maximum": 100
@@ -1570,7 +1570,7 @@
               "name": "Percentile across Y axis",
               "type": "Number",
               "description": "Nth percentile (0-100) of FULL RANGE across Y axis",
-              "optional": true,
+              "optional": false,
               "command-line-flag": "-Yperc",
               "minimum": 0,
               "maximum": 100
@@ -1589,7 +1589,7 @@
               "name": "Percentile across Z axis",
               "type": "Number",
               "description": "Nth percentile (0-100) of FULL RANGE across Z axis",
-              "optional": true,
+              "optional": false,
               "command-line-flag": "-Zperc",
               "minimum": 0,
               "maximum": 100
@@ -1627,7 +1627,7 @@
               "min-list-entries": 6,
               "max-list-entries": 6,
               "description": "<xmin> <xsize> <ymin> <ysize> <zmin> <zsize> <tmin> <tsize>. Zero outside roi (using voxel coordinates). Inputting -1 for a size will set it to the full image extent for that dimension.",
-              "optional": true,
+              "optional": false,
               "command-line-flag": "-roi"
             }
           ]
@@ -1647,7 +1647,7 @@
               "min-list-entries": 2,
               "max-list-entries": 2,
               "description": "<lowpass> <highpass>. Bandpass temporal filtering (use -odt float and probably demean first)",
-              "optional": true,
+              "optional": false,
               "command-line-flag": "-bptf"
             }
           ]
@@ -1665,7 +1665,7 @@
               "type": "Number",
               "list": true,
               "description": "<threshold> <output>. ROC analysis",
-              "optional": true,
+              "optional": false,
               "command-line-flag": "-roc"
             }
           ]
