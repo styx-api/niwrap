@@ -82,10 +82,10 @@ jobs:
               return { ...m, name, key: name + 's' };
             });
 
-          const traverse = (level, path = []) => {
-            const pattern = level.pattern.replace(/src\//, '').replace(/\*+/g, () => path.shift() || '*');
-            const filePath = `src/${pattern}`;
-            const name = path[0];
+          const traverse = (level, ...path) => {
+            const parts = level.pattern.split('/').slice(1); // Remove 'src/'
+            const filePath = 'src/' + parts.map((part, i) => part === '*' ? path[i] : part).join('/');
+            const name = parts.filter(p => p === '*').length > 0 ? path[parts.filter(p => p === '*').length - 1] : null;
             
             if (!fs.existsSync(filePath)) {
               err(`Missing: ${filePath}`, filePath);
@@ -107,13 +107,13 @@ jobs:
             const nextLevel = levels[level.depth + 1];
             if (nextLevel && data[level.key]) {
               for (const item of data[level.key]) {
-                traverse(nextLevel, [...path, item]);
+                traverse(nextLevel, ...path, item);
               }
             }
           };
 
           console.log('Validating schemas...\n');
-          traverse(levels[0], []);
+          traverse(levels[0]);
 
           console.log(`\nSummary:`);
           console.log(Object.entries(stats).map(([k, v]) => `${k}: ${v}`).join(' | '));
