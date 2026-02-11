@@ -1,97 +1,227 @@
 {
   "name": "3dTshift",
-  "command-line": "3dTshift [PREFIX] [IGNORE] [IN_FILE] [INTERP] [NUM_THREADS] [OUTPUTTYPE] [RLT] [RLTPLUS] [SLICE_ENCODING_DIRECTION] [TPATTERN] [TR] [TSLICE] [TZERO]",
+  "command-line": "3dTshift [PREFIX] [IGNORE] [IN_FILE] [INTERP] [NUM_THREADS] [OUTPUTTYPE] [DETREND_STRATEGY] [SHIFT_STRATEGY] [SLICE_ENCODING_DIRECTION] [TPATTERN] [TR] [VERBOSE]",
   "author": "AFNI Developers",
   "description": "Shifts voxel time series from input so that separate slices are aligned to the same temporal origin.",
   "url": "https://afni.nimh.nih.gov/",
   "inputs": [
+    {
+      "id": "in_file",
+      "name": "Input dataset",
+      "type": "File",
+      "value-key": "[IN_FILE]",
+      "description": "Input dataset to 3dTshift. The input dataset can have a sub-brick selector attached.",
+      "optional": false
+    },
     {
       "id": "prefix",
       "name": "Prefix",
       "type": "String",
       "value-key": "[PREFIX]",
       "command-line-flag": "-prefix",
-      "description": "Prefix for output image file name.",
+      "description": "Prefix for output image file name. The default is 'tshift'.",
       "optional": true
     },
     {
       "id": "ignore",
-      "name": "Ignore",
+      "name": "Ignore Initial Points",
       "type": "Number",
       "integer": true,
       "value-key": "[IGNORE]",
       "command-line-flag": "-ignore",
-      "description": "Ignore the first set of points specified.",
+      "description": "Ignore the first 'ii' points. The first ii values will be unchanged in the output (regardless of the -rlt option). They also will not be used in the detrending or time shifting. Default is ii=0.",
       "optional": true
     },
     {
-      "id": "in_file",
-      "name": "In file",
-      "type": "File",
-      "value-key": "[IN_FILE]",
-      "description": "Input file to 3dtshift.",
-      "optional": false
-    },
-    {
       "id": "interp",
-      "name": "Interp",
+      "name": "Interpolation Method",
       "type": "String",
       "value-key": "[INTERP]",
       "command-line-flag": "-",
-      "description": "'fourier' or 'linear' or 'cubic' or 'quintic' or 'heptic'. Different interpolation methods (see 3dtshift for details) default = fourier.",
+      "description": "Different interpolation methods. Fourier (default) is most accurate but slowest. Linear is least accurate. Polynomials: cubic, quintic, heptic. Weighted sinc: wsinc5, wsinc9.",
       "optional": true,
       "value-choices": [
         "Fourier",
         "linear",
         "cubic",
         "quintic",
-        "heptic"
+        "heptic",
+        "wsinc5",
+        "wsinc9"
       ]
     },
     {
-      "id": "num_threads",
-      "name": "Num threads",
-      "type": "Number",
-      "integer": true,
-      "value-key": "[NUM_THREADS]",
-      "description": "Set number of threads.",
-      "optional": true
-    },
-    {
-      "id": "outputtype",
-      "name": "Outputtype",
-      "type": "String",
-      "value-key": "[OUTPUTTYPE]",
-      "description": "'nifti' or 'afni' or 'nifti_gz'. Afni output filetype.",
+      "id": "tr",
+      "name": "TR",
+      "value-key": "[TR]",
+      "command-line-flag": "-TR",
+      "description": "Manually set the TR. You can attach suffix 's' for seconds or 'ms' for milliseconds.",
       "optional": true,
-      "value-choices": [
-        "NIFTI",
-        "AFNI",
-        "NIFTI_GZ"
+      "type": {
+        "id": "tr_microsyntax",
+        "command-line": "[VALUE][UNIT]",
+        "inputs": [
+          {
+            "id": "value",
+            "name": "TR Value",
+            "type": "Number",
+            "value-key": "[VALUE]",
+            "description": "The temporal resolution value."
+          },
+          {
+            "id": "unit",
+            "name": "TR Unit",
+            "type": "String",
+            "value-key": "[UNIT]",
+            "optional": true,
+            "description": "Unit for the TR (seconds or milliseconds).",
+            "value-choices": [
+              "s",
+              "ms"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "tpattern",
+      "name": "Slice Timing Pattern",
+      "value-key": "[TPATTERN]",
+      "command-line-flag": "-tpattern",
+      "description": "Use specified slice time pattern rather than one in header. Values can be a standard pattern string (e.g. 'alt+z') or a filename prefixed with '@'.",
+      "optional": true,
+      "type": [
+        {
+          "id": "tpattern_mode_string",
+          "command-line": "[TPATTERN_STRING]",
+          "inputs": [
+            {
+              "id": "tpattern_string",
+              "name": "Pattern String",
+              "value-key": "[TPATTERN_STRING]",
+              "type": "String",
+              "description": "Standard slice timing pattern code.",
+              "value-choices": [
+                "alt+z",
+                "altplus",
+                "alt+z2",
+                "alt-z",
+                "altminus",
+                "alt-z2",
+                "seq+z",
+                "seqplus",
+                "seq-z",
+                "seqminus"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "tpattern_mode_file",
+          "command-line": "@[TPATTERN_FILE]",
+          "inputs": [
+            {
+              "id": "tpattern_file",
+              "name": "Pattern File",
+              "value-key": "[TPATTERN_FILE]",
+              "type": "File",
+              "description": "File containing temporal offsets."
+            }
+          ]
+        }
       ]
     },
     {
-      "id": "rlt",
-      "name": "Rlt",
-      "type": "Flag",
-      "value-key": "[RLT]",
-      "command-line-flag": "-rlt",
-      "description": "Before shifting, remove the mean and linear trend."
+      "id": "shift_strategy",
+      "name": "Shifting Strategy",
+      "description": "Select how the temporal alignment should be calculated.",
+      "value-key": "[SHIFT_STRATEGY]",
+      "optional": true,
+      "type": [
+        {
+          "id": "align_to_tzero",
+          "name": "Align to Time Zero",
+          "command-line": "-tzero [TZERO]",
+          "description": "Align each slice to a specific time offset.",
+          "inputs": [
+            {
+              "id": "tzero",
+              "name": "Time Zero",
+              "type": "Number",
+              "value-key": "[TZERO]",
+              "description": "The time offset to align to (e.g., 0)."
+            }
+          ]
+        },
+        {
+          "id": "align_to_slice",
+          "name": "Align to Slice",
+          "command-line": "-slice [SLICE_INDEX]",
+          "description": "Align each slice to the time offset of a reference slice.",
+          "inputs": [
+            {
+              "id": "slice_index",
+              "name": "Slice Index",
+              "type": "Number",
+              "integer": true,
+              "value-key": "[SLICE_INDEX]",
+              "description": "The index of the slice to use as the reference."
+            }
+          ]
+        },
+        {
+          "id": "align_voxel_wise",
+          "name": "Voxel-wise Shifting",
+          "command-line": "-voxshift [VOXSHIFT_FILE]",
+          "description": "Shift each voxel by a different amount specified in a dataset.",
+          "inputs": [
+            {
+              "id": "voxshift_file",
+              "name": "Shift Dataset",
+              "type": "File",
+              "value-key": "[VOXSHIFT_FILE]",
+              "description": "Dataset containing fractional TR shift values."
+            }
+          ]
+        }
+      ]
     },
     {
-      "id": "rltplus",
-      "name": "Rltplus",
-      "type": "Flag",
-      "value-key": "[RLTPLUS]",
-      "command-line-flag": "-rlt+",
-      "description": "Before shifting, remove the mean and linear trend and later put back the mean."
+      "id": "detrend_strategy",
+      "name": "Detrending Method",
+      "value-key": "[DETREND_STRATEGY]",
+      "description": "Specify how to handle the mean and linear trend during shifting. If unspecified, the default is to remove the trend and add it back.",
+      "optional": true,
+      "type": [
+        {
+          "id": "rlt",
+          "name": "Remove Mean & Trend",
+          "command-line": "-rlt",
+          "description": "Before shifting, remove the mean and linear trend. Do not put them back.",
+          "inputs": []
+        },
+        {
+          "id": "rlt_plus",
+          "name": "Remove Trend, Add Mean",
+          "command-line": "-rlt+",
+          "description": "Before shifting, remove the mean and linear trend. After shifting, put back the mean.",
+          "inputs": []
+        },
+        {
+          "id": "no_detrend",
+          "name": "No Detrending",
+          "command-line": "-no_detrend",
+          "description": "Do not remove or restore linear trend. (Default interpolation becomes 'heptic').",
+          "inputs": []
+        }
+      ]
     },
     {
       "id": "slice_encoding_direction",
-      "name": "Slice encoding direction",
+      "name": "Slice Encoding Direction",
       "type": "String",
       "value-key": "[SLICE_ENCODING_DIRECTION]",
-      "description": "'k' or 'k-'. Direction in which slice_timing is specified (default: k). if negative,slice_timing is defined in reverse order, that is, the first entry corresponds to the slice with the largest index, and the final entry corresponds to slice index zero. only in effect when slice_timing is passed as list, not when it is passed as file.",
+      "description": "'k' or 'k-'. Direction in which slice_timing is specified (default: k). Only in effect when slice_timing is passed as list.",
       "optional": true,
       "value-choices": [
         "k",
@@ -99,64 +229,46 @@
       ]
     },
     {
-      "id": "tpattern",
-      "name": "Tpattern",
-      "type": "String",
-      "value-key": "[TPATTERN]",
-      "command-line-flag": "-tpattern",
-      "description": "'alt+z' or 'altplus' or 'alt+z2' or 'alt-z' or 'altminus' or 'alt-z2' or 'seq+z' or 'seqplus' or 'seq-z' or 'seqminus' or a string. Use specified slice time pattern rather than one in header.",
-      "optional": true,
-      "value-choices": [
-        "alt+z",
-        "altplus",
-        "alt+z2",
-        "alt-z",
-        "altminus",
-        "alt-z2",
-        "seq+z",
-        "seqplus",
-        "seq-z",
-        "seqminus"
-      ]
-    },
-    {
-      "id": "tr",
-      "name": "Tr",
-      "type": "Number",
-      "value-key": "[TR]",
-      "command-line-flag": "-TR",
-      "description": "Manually set the tr. you can attach suffix \"s\" for seconds or \"ms\" for milliseconds.",
-      "optional": true
-    },
-    {
-      "id": "tslice",
-      "name": "Tslice",
+      "id": "num_threads",
+      "name": "Number of Threads",
       "type": "Number",
       "integer": true,
-      "value-key": "[TSLICE]",
-      "command-line-flag": "-slice",
-      "description": "Align each slice to time offset of given slice.",
+      "value-key": "[NUM_THREADS]",
+      "description": "Set number of threads.",
       "optional": true
     },
     {
-      "id": "tzero",
-      "name": "Tzero",
-      "type": "Number",
-      "value-key": "[TZERO]",
-      "command-line-flag": "-tzero",
-      "description": "Align each slice to given time offset.",
+      "id": "verbose",
+      "name": "Verbose",
+      "type": "Flag",
+      "value-key": "[VERBOSE]",
+      "command-line-flag": "-verbose",
+      "description": "Print lots of messages while program runs.",
       "optional": true
+    },
+    {
+      "id": "outputtype",
+      "name": "Output Type",
+      "type": "String",
+      "value-key": "[OUTPUTTYPE]",
+      "description": "Afni output filetype.",
+      "optional": true,
+      "value-choices": [
+        "NIFTI",
+        "AFNI",
+        "NIFTI_GZ"
+      ]
     }
   ],
   "output-files": [
     {
-      "name": "Out file",
+      "name": "Output Image",
       "id": "out_file",
       "description": "Output image file name.",
       "path-template": "[PREFIX]"
     },
     {
-      "name": "Timing file",
+      "name": "Timing File",
       "id": "timing_file",
       "path-template": "timing_file",
       "description": "Afni formatted timing file, if ``slice_timing`` is a list."
