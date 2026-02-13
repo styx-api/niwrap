@@ -24,35 +24,336 @@
       "id": "metric",
       "name": "Metric",
       "value-key": "[METRIC]",
-      "command-line-flag": "-m",
-      "type": "String",
+      "command-line-flag": "--metric",
+      "type": [
+        {
+          "id": "metric_mattes",
+          "name": "Mattes mutual information",
+          "command-line": "Mattes[[FIXED_IMAGE],[MOVING_IMAGE][NUMBER_OF_BINS]]",
+          "inputs": [
+            {
+              "id": "fixed_image",
+              "name": "Fixed image",
+              "value-key": "[FIXED_IMAGE]",
+              "type": "File",
+              "optional": false
+            },
+            {
+              "id": "moving_image",
+              "name": "Moving image",
+              "value-key": "[MOVING_IMAGE]",
+              "type": "File",
+              "optional": false
+            },
+            {
+              "id": "number_of_bins",
+              "name": "Number of bins",
+              "value-key": "[NUMBER_OF_BINS]",
+              "type": {
+                "id": "number_of_bins",
+                "command-line": ",[NUMBER_OF_BINS_VALUE][SAMPLING_STRATEGY]",
+                "inputs": [
+                  {
+                    "id": "number_of_bins_value",
+                    "name": "Number of bins",
+                    "value-key": "[NUMBER_OF_BINS_VALUE]",
+                    "type": "Number",
+                    "integer": true,
+                    "optional": false
+                  },
+                  {
+                    "id": "sampling_strategy",
+                    "name": "Sampling strategy",
+                    "value-key": "[SAMPLING_STRATEGY]",
+                    "type": {
+                      "id": "sampling_strategy",
+                      "command-line": ",[SAMPLING_STRATEGY_VALUE][SAMPLING_PERCENTAGE]",
+                      "inputs": [
+                        {
+                          "id": "sampling_strategy_value",
+                          "name": "Sampling strategy",
+                          "value-key": "[SAMPLING_STRATEGY_VALUE]",
+                          "type": "String",
+                          "optional": false,
+                          "value-choices": [
+                            "None",
+                            "Regular",
+                            "Random"
+                          ]
+                        },
+                        {
+                          "id": "sampling_percentage",
+                          "name": "Sampling percentage",
+                          "value-key": "[SAMPLING_PERCENTAGE]",
+                          "type": {
+                            "id": "sampling_percentage",
+                            "command-line": ",[SAMPLING_PERCENTAGE_VALUE]",
+                            "inputs": [
+                              {
+                                "id": "sampling_percentage_value",
+                                "name": "Sampling percentage",
+                                "value-key": "[SAMPLING_PERCENTAGE_VALUE]",
+                                "type": "Number",
+                                "minimum": 0,
+                                "maximum": 1,
+                                "optional": false
+                              }
+                            ]
+                          },
+                          "optional": true
+                        }
+                      ]
+                    },
+                    "optional": true
+                  }
+                ]
+              },
+              "optional": true
+            }
+          ]
+        },
+        {
+          "id": "metric_gc",
+          "name": "Global correlation",
+          "command-line": "GC[[FIXED_IMAGE],[MOVING_IMAGE][RADIUS]]",
+          "inputs": [
+            {
+              "id": "fixed_image",
+              "name": "Fixed image",
+              "value-key": "[FIXED_IMAGE]",
+              "type": "File",
+              "optional": false
+            },
+            {
+              "id": "moving_image",
+              "name": "Moving image",
+              "value-key": "[MOVING_IMAGE]",
+              "type": "File",
+              "optional": false
+            },
+            {
+              "id": "radius",
+              "name": "Radius",
+              "value-key": "[RADIUS]",
+              "type": {
+                "id": "radius",
+                "command-line": ",[RADIUS_VALUE][SAMPLING_STRATEGY]",
+                "inputs": [
+                  {
+                    "id": "radius_value",
+                    "name": "Radius",
+                    "value-key": "[RADIUS_VALUE]",
+                    "type": "Number",
+                    "optional": false
+                  },
+                  {
+                    "id": "sampling_strategy",
+                    "name": "Sampling strategy",
+                    "value-key": "[SAMPLING_STRATEGY]",
+                    "type": {
+                      "id": "sampling_strategy",
+                      "command-line": ",[SAMPLING_STRATEGY_VALUE][SAMPLING_PERCENTAGE]",
+                      "inputs": [
+                        {
+                          "id": "sampling_strategy_value",
+                          "name": "Sampling strategy",
+                          "value-key": "[SAMPLING_STRATEGY_VALUE]",
+                          "type": "String",
+                          "optional": false,
+                          "value-choices": [
+                            "None",
+                            "Regular",
+                            "Random"
+                          ]
+                        },
+                        {
+                          "id": "sampling_percentage",
+                          "name": "Sampling percentage",
+                          "value-key": "[SAMPLING_PERCENTAGE]",
+                          "type": {
+                            "id": "sampling_percentage",
+                            "command-line": ",[SAMPLING_PERCENTAGE_VALUE]",
+                            "inputs": [
+                              {
+                                "id": "sampling_percentage_value",
+                                "name": "Sampling percentage",
+                                "value-key": "[SAMPLING_PERCENTAGE_VALUE]",
+                                "type": "Number",
+                                "minimum": 0,
+                                "maximum": 1,
+                                "optional": false
+                              }
+                            ]
+                          },
+                          "optional": true
+                        }
+                      ]
+                    },
+                    "optional": true
+                  }
+                ]
+              },
+              "optional": true
+            }
+          ]
+        },
+        {
+          "id": "metric_mi",
+          "name": "Joint histogram mutual information",
+          "command-line": "MI[[FIXED_IMAGE],[MOVING_IMAGE][NUMBER_OF_BINS]]",
+          "inputs": [
+            {
+              "id": "fixed_image",
+              "name": "Fixed image",
+              "value-key": "[FIXED_IMAGE]",
+              "type": "File",
+              "optional": false
+            },
+            {
+              "id": "moving_image",
+              "name": "Moving image",
+              "value-key": "[MOVING_IMAGE]",
+              "type": "File",
+              "optional": false
+            },
+            {
+              "id": "number_of_bins",
+              "name": "Number of bins",
+              "value-key": "[NUMBER_OF_BINS]",
+              "type": {
+                "id": "number_of_bins",
+                "command-line": ",[NUMBER_OF_BINS_VALUE][SAMPLING_STRATEGY]",
+                "inputs": [
+                  {
+                    "id": "number_of_bins_value",
+                    "name": "Number of bins",
+                    "value-key": "[NUMBER_OF_BINS_VALUE]",
+                    "type": "Number",
+                    "integer": true,
+                    "optional": false
+                  },
+                  {
+                    "id": "sampling_strategy",
+                    "name": "Sampling strategy",
+                    "value-key": "[SAMPLING_STRATEGY]",
+                    "type": {
+                      "id": "sampling_strategy",
+                      "command-line": ",[SAMPLING_STRATEGY_VALUE][SAMPLING_PERCENTAGE]",
+                      "inputs": [
+                        {
+                          "id": "sampling_strategy_value",
+                          "name": "Sampling strategy",
+                          "value-key": "[SAMPLING_STRATEGY_VALUE]",
+                          "type": "String",
+                          "optional": false,
+                          "value-choices": [
+                            "None",
+                            "Regular",
+                            "Random"
+                          ]
+                        },
+                        {
+                          "id": "sampling_percentage",
+                          "name": "Sampling percentage",
+                          "value-key": "[SAMPLING_PERCENTAGE]",
+                          "type": {
+                            "id": "sampling_percentage",
+                            "command-line": ",[SAMPLING_PERCENTAGE_VALUE]",
+                            "inputs": [
+                              {
+                                "id": "sampling_percentage_value",
+                                "name": "Sampling percentage",
+                                "value-key": "[SAMPLING_PERCENTAGE_VALUE]",
+                                "type": "Number",
+                                "minimum": 0,
+                                "maximum": 1,
+                                "optional": false
+                              }
+                            ]
+                          },
+                          "optional": true
+                        }
+                      ]
+                    },
+                    "optional": true
+                  }
+                ]
+              },
+              "optional": true
+            }
+          ]
+        }
+      ],
       "optional": false,
-      "description": "These image metrics are available: Mattes: Mattes mutual information (recommended), GC: global correlation, MI: joint histogram mutual information",
-      "value-choices": [
-        "Mattes[fixedImage,movingImage]",
-        "GC[fixedImage,movingImage]",
-        "MI[fixedImage,movingImage]"
-      ]
+      "description": "Image similarity metric. Available metrics: Mattes (Mattes mutual information, recommended), GC (global correlation), MI (joint histogram mutual information). Each metric takes a fixed and moving image, with optional sampling parameters."
     },
     {
       "id": "transform",
       "name": "Transform",
       "value-key": "[TRANSFORM]",
-      "command-line-flag": "-t",
-      "type": "String",
+      "command-line-flag": "--transform",
+      "type": [
+        {
+          "id": "transform_rigid",
+          "name": "Rigid",
+          "command-line": "Rigid[[GRADIENT_STEP]]",
+          "inputs": [
+            {
+              "id": "gradient_step",
+              "name": "Gradient step",
+              "value-key": "[GRADIENT_STEP]",
+              "type": "Number",
+              "optional": false
+            }
+          ]
+        },
+        {
+          "id": "transform_affine",
+          "name": "Affine",
+          "command-line": "Affine[[GRADIENT_STEP]]",
+          "inputs": [
+            {
+              "id": "gradient_step",
+              "name": "Gradient step",
+              "value-key": "[GRADIENT_STEP]",
+              "type": "Number",
+              "optional": false
+            }
+          ]
+        },
+        {
+          "id": "transform_similarity",
+          "name": "Similarity",
+          "command-line": "Similarity[[GRADIENT_STEP]]",
+          "inputs": [
+            {
+              "id": "gradient_step",
+              "name": "Gradient step",
+              "value-key": "[GRADIENT_STEP]",
+              "type": "Number",
+              "optional": false
+            }
+          ]
+        },
+        {
+          "id": "transform_align_geometric_centers",
+          "name": "Align geometric centers",
+          "command-line": "AlignGeometricCenters",
+          "inputs": []
+        },
+        {
+          "id": "transform_align_centers_of_mass",
+          "name": "Align centers of mass",
+          "command-line": "AlignCentersOfMass",
+          "inputs": []
+        }
+      ],
       "optional": false,
-      "description": "Several transform options are available. For the rigid, affine, and similarity transforms, the gradientStep characterizes the gradient descent optimization. The other two transform types finds the simple translation transform which aligns the specified image feature.",
-      "value-choices": [
-        "Rigid[gradientStep]",
-        "Affine[gradientStep]",
-        "Similarity[gradientStep]",
-        "AlignGeometricCenters",
-        "AlignCentersOfMass"
-      ]
+      "description": "Transform type for alignment. The rigid, affine, and similarity transforms take a gradient step parameter that characterizes the gradient descent optimization and is scaled appropriately for each transform using the shift scales estimator. AlignGeometricCenters and AlignCentersOfMass find the simple translation transform aligning the specified image feature. Note that the images are read from the metric option although the metric value itself is not used for the latter two."
     },
     {
       "id": "align_principal_axes",
-      "name": "Align by Principal Axes",
+      "name": "Align principal axes",
       "value-key": "[ALIGN_PRINCIPAL_AXES]",
       "type": "Number",
       "integer": true,
@@ -61,92 +362,243 @@
         0,
         1
       ],
-      "command-line-flag": "-p",
-      "description": "Boolean indicating alignment by principal axes. Alternatively, one can align using blobs."
+      "command-line-flag": "--align-principal-axes",
+      "description": "Align images by their principal axes. Alternatively, one can align using blobs (see --align-blobs option)."
     },
     {
       "id": "align_blobs",
-      "name": "Align by Blobs",
+      "name": "Align blobs",
       "value-key": "[ALIGN_BLOBS]",
-      "command-line-flag": "-b",
-      "type": "String",
+      "command-line-flag": "--align-blobs",
+      "type": {
+        "id": "align_blobs",
+        "command-line": "[[NUMBER_OF_BLOBS_TO_EXTRACT][NUMBER_OF_BLOBS_TO_MATCH]]",
+        "inputs": [
+          {
+            "id": "number_of_blobs_to_extract",
+            "name": "Number of blobs to extract",
+            "value-key": "[NUMBER_OF_BLOBS_TO_EXTRACT]",
+            "type": "Number",
+            "integer": true,
+            "optional": false
+          },
+          {
+            "id": "number_of_blobs_to_match",
+            "name": "Number of blobs to match",
+            "value-key": "[NUMBER_OF_BLOBS_TO_MATCH]",
+            "type": {
+              "id": "number_of_blobs_to_match",
+              "command-line": ",[NUMBER_OF_BLOBS_TO_MATCH_VALUE]",
+              "inputs": [
+                {
+                  "id": "number_of_blobs_to_match_value",
+                  "name": "Number of blobs to match",
+                  "value-key": "[NUMBER_OF_BLOBS_TO_MATCH_VALUE]",
+                  "type": "Number",
+                  "integer": true,
+                  "optional": false
+                }
+              ]
+            },
+            "optional": true
+          }
+        ]
+      },
       "optional": true,
-      "description": "Boolean indicating alignment by a set of blobs.",
-      "value-choices": [
-        "numberOfBlobsToExtract",
-        "[numberOfBlobsToExtract,numberOfBlobsToMatch]"
-      ]
+      "description": "Align images using a set of extracted blobs. Specify the number of blobs to extract, and optionally the number of blobs to match (defaults to numberOfBlobsToExtract). Alternatively, one can align using principal axes (see --align-principal-axes option)."
     },
     {
       "id": "search_factor",
-      "name": "Search Factor",
+      "name": "Search factor",
       "value-key": "[SEARCH_FACTOR]",
-      "command-line-flag": "-s",
-      "type": "String",
+      "command-line-flag": "--search-factor",
+      "type": {
+        "id": "search_factor",
+        "command-line": "[[SEARCH_FACTOR_VALUE][ARC_FRACTION]]",
+        "inputs": [
+          {
+            "id": "search_factor_value",
+            "name": "Search factor",
+            "value-key": "[SEARCH_FACTOR_VALUE]",
+            "type": "Number",
+            "optional": false
+          },
+          {
+            "id": "arc_fraction",
+            "name": "Arc fraction",
+            "value-key": "[ARC_FRACTION]",
+            "type": {
+              "id": "arc_fraction",
+              "command-line": ",[ARC_FRACTION_VALUE]",
+              "inputs": [
+                {
+                  "id": "arc_fraction_value",
+                  "name": "Arc fraction",
+                  "value-key": "[ARC_FRACTION_VALUE]",
+                  "type": "Number",
+                  "optional": false
+                }
+              ]
+            },
+            "optional": true
+          }
+        ]
+      },
       "optional": true,
-      "description": "Incremental search factor (in degrees) which will sample the arc fraction around the principal axis or default axis.",
-      "value-choices": [
-        "searchFactor",
-        "[searchFactor,arcFraction]"
-      ]
+      "description": "Incremental search factor (in degrees) which will sample the arc fraction around the principal axis or default axis. Default search factor is 20 degrees with an arc fraction of 1.0."
     },
     {
       "id": "translation_search_grid",
-      "name": "Translation Search Grid",
+      "name": "Translation search grid",
       "value-key": "[TRANSLATION_SEARCH_GRID]",
-      "command-line-flag": "-g",
-      "type": "String",
+      "command-line-flag": "--translation-search-grid",
+      "type": {
+        "id": "translation_search_grid",
+        "command-line": "[[STEP_SIZE],[GRID]]",
+        "inputs": [
+          {
+            "id": "step_size",
+            "name": "Step size",
+            "value-key": "[STEP_SIZE]",
+            "type": "Number",
+            "optional": false,
+            "description": "Translation step size in mm. Default is 25."
+          },
+          {
+            "id": "grid",
+            "name": "Grid",
+            "value-key": "[GRID]",
+            "type": "Number",
+            "integer": true,
+            "list": true,
+            "list-separator": "x",
+            "optional": false,
+            "description": "Translation search grid extent in each dimension, specified as AxBxC. Default is 0x0x0."
+          }
+        ]
+      },
       "optional": true,
-      "description": "Translation search grid in mm, which will translate the moving image in each dimension in increments of the step size.",
-      "value-choices": [
-        "[stepSize, AxBxC]"
-      ]
+      "description": "Translation search grid in mm, which will translate the moving image in each dimension in increments of the step size."
     },
     {
       "id": "convergence",
       "name": "Convergence",
       "value-key": "[CONVERGENCE]",
-      "command-line-flag": "-c",
-      "type": "String",
+      "command-line-flag": "--convergence",
+      "type": {
+        "id": "convergence",
+        "command-line": "[[NUMBER_OF_ITERATIONS][CONVERGENCE_THRESHOLD]]",
+        "inputs": [
+          {
+            "id": "number_of_iterations",
+            "name": "Number of iterations",
+            "value-key": "[NUMBER_OF_ITERATIONS]",
+            "type": "Number",
+            "integer": true,
+            "optional": false
+          },
+          {
+            "id": "convergence_threshold",
+            "name": "Convergence threshold",
+            "value-key": "[CONVERGENCE_THRESHOLD]",
+            "type": {
+              "id": "convergence_threshold",
+              "command-line": ",[CONVERGENCE_THRESHOLD_VALUE][CONVERGENCE_WINDOW_SIZE]",
+              "inputs": [
+                {
+                  "id": "convergence_threshold_value",
+                  "name": "Convergence threshold",
+                  "value-key": "[CONVERGENCE_THRESHOLD_VALUE]",
+                  "type": "Number",
+                  "optional": false
+                },
+                {
+                  "id": "convergence_window_size",
+                  "name": "Convergence window size",
+                  "value-key": "[CONVERGENCE_WINDOW_SIZE]",
+                  "type": {
+                    "id": "convergence_window_size",
+                    "command-line": ",[CONVERGENCE_WINDOW_SIZE_VALUE]",
+                    "inputs": [
+                      {
+                        "id": "convergence_window_size_value",
+                        "name": "Convergence window size",
+                        "value-key": "[CONVERGENCE_WINDOW_SIZE_VALUE]",
+                        "type": "Number",
+                        "integer": true,
+                        "optional": false
+                      }
+                    ]
+                  },
+                  "optional": true
+                }
+              ]
+            },
+            "optional": true
+          }
+        ]
+      },
       "optional": true,
-      "description": "Number of iterations.",
-      "value-choices": [
-        "numberOfIterations",
-        "[numberOfIterations,convergenceThreshold,convergenceWindowSize]"
-      ]
+      "description": "Convergence parameters for the optimization. Specify the number of iterations, and optionally a convergence threshold (default 1e-6) and convergence window size (default 10)."
     },
     {
       "id": "masks",
       "name": "Masks",
       "value-key": "[MASKS]",
-      "command-line-flag": "-x",
-      "type": "String",
+      "command-line-flag": "--masks",
+      "type": {
+        "id": "masks",
+        "command-line": "[[FIXED_IMAGE_MASK][MOVING_IMAGE_MASK]]",
+        "inputs": [
+          {
+            "id": "fixed_image_mask",
+            "name": "Fixed image mask",
+            "value-key": "[FIXED_IMAGE_MASK]",
+            "type": "File",
+            "optional": false
+          },
+          {
+            "id": "moving_image_mask",
+            "name": "Moving image mask",
+            "value-key": "[MOVING_IMAGE_MASK]",
+            "type": {
+              "id": "moving_image_mask",
+              "command-line": ",[MOVING_IMAGE_MASK_VALUE]",
+              "inputs": [
+                {
+                  "id": "moving_image_mask_value",
+                  "name": "Moving image mask",
+                  "value-key": "[MOVING_IMAGE_MASK_VALUE]",
+                  "type": "File",
+                  "optional": false
+                }
+              ]
+            },
+            "optional": true
+          }
+        ]
+      },
       "optional": true,
-      "description": "Image masks to limit voxels considered by the metric.",
-      "value-choices": [
-        "fixedImageMask",
-        "[fixedImageMask,movingImageMask]"
-      ]
+      "description": "Image masks to limit the voxels considered by the metric. Specify a fixed image mask, and optionally a moving image mask."
     },
     {
       "id": "output",
       "name": "Output",
       "value-key": "[OUTPUT]",
-      "command-line-flag": "-o",
+      "command-line-flag": "--output",
       "type": "String",
       "optional": false,
-      "description": "Specify the output transform (output format an ITK .mat file)."
+      "description": "Specify the output transform filename (output format is an ITK .mat file)."
     },
     {
       "id": "random_seed",
-      "name": "Random Seed",
+      "name": "Random seed",
       "value-key": "[RANDOM_SEED]",
       "type": "Number",
       "integer": true,
       "optional": true,
-      "minimum": 0,
       "command-line-flag": "--random-seed",
-      "description": "Use a fixed seed for random number generation."
+      "description": "Use a fixed seed for random number generation. The default fixed seed is overwritten by this value. The fixed seed can be any nonzero int value. If the specified seed is zero, the system time will be used."
     },
     {
       "id": "verbose",
@@ -159,16 +611,16 @@
         0,
         1
       ],
-      "command-line-flag": "-v",
-      "description": "Verbose output."
+      "command-line-flag": "--verbose",
+      "description": "Verbose output. Default is 0 (off)."
     }
   ],
   "output-files": [
     {
       "id": "output_transform",
-      "name": "Output Transform",
-      "description": "The output transform (ITK .mat file).",
-      "path-template": "[OUTPUT].mat"
+      "name": "Output transform",
+      "description": "The output transform file.",
+      "path-template": "[OUTPUT]"
     }
   ]
 }
