@@ -839,39 +839,21 @@
           "id": "operation_kernel_3D",
           "name": "3D kernel",
           "description": "3x3x3 box centered on target voxel (set as default kernel)",
-          "command-line": "[OP_KERNEL_3D]",
-          "inputs": [
-            {
-              "value-key": "[OP_KERNEL_3D]",
-              "id": "kernel_3D",
-              "name": "3D kernel",
-              "type": "Flag",
-              "description": "3x3x3 box centered on target voxel (set as default kernel)",
-              "command-line-flag": "-kernel 3D"
-            }
-          ]
+          "command-line": "-kernel 3D",
+          "inputs": []
         },
         {
           "id": "operation_kernel_2D",
           "name": "2D kernel",
           "description": "3x3x1 box centered on target voxel",
-          "command-line": "[OP_KERNEL_2D]",
-          "inputs": [
-            {
-              "value-key": "[OP_KERNEL_2D]",
-              "id": "kernel_2D",
-              "name": "2D kernel",
-              "type": "Flag",
-              "description": "3x3x1 box centered on target voxel",
-              "command-line-flag": "-kernel 2D"
-            }
-          ]
+          "command-line": "-kernel 2D",
+          "inputs": []
         },
         {
           "id": "operation_kernel_box",
           "name": "Box kernel",
           "description": "All voxels in a cube of width <size> mm centered on target voxel",
-          "command-line": "[OP_KERNEL_BOX]",
+          "command-line": "-kernel box [OP_KERNEL_BOX]",
           "inputs": [
             {
               "value-key": "[OP_KERNEL_BOX]",
@@ -879,8 +861,7 @@
               "name": "Box kernel",
               "type": "Number",
               "description": "All voxels in a cube of width <size> mm centered on target voxel",
-              "optional": false,
-              "command-line-flag": "-kernel box"
+              "optional": false
             }
           ]
         },
@@ -888,7 +869,7 @@
           "id": "operation_kernel_boxv",
           "name": "Box kernel (voxels)",
           "description": "All voxels in a cube of width <size> voxels centered on target voxel",
-          "command-line": "[OP_KERNEL_BOXV]",
+          "command-line": "-kernel boxv [OP_KERNEL_BOXV]",
           "inputs": [
             {
               "value-key": "[OP_KERNEL_BOXV]",
@@ -896,8 +877,7 @@
               "name": "Box kernel (voxels)",
               "type": "Number",
               "description": "All voxels in a cube of width <size> voxels centered on target voxel",
-              "optional": false,
-              "command-line-flag": "-kernel boxv"
+              "optional": false
             }
           ]
         },
@@ -905,7 +885,7 @@
           "id": "operation_kernel_boxv3",
           "name": "Box kernel (3D voxels)",
           "description": "All voxels in a cuboid of dimensions X x Y x Z centered on target voxel",
-          "command-line": "[OP_KERNEL_BOXV3]",
+          "command-line": "-kernel boxv3 [OP_KERNEL_BOXV3]",
           "inputs": [
             {
               "value-key": "[OP_KERNEL_BOXV3]",
@@ -916,8 +896,7 @@
               "min-list-entries": 3,
               "max-list-entries": 3,
               "description": "All voxels in a cuboid of dimensions X x Y x Z centered on target voxel",
-              "optional": false,
-              "command-line-flag": "-kernel boxv3"
+              "optional": false
             }
           ]
         },
@@ -925,7 +904,7 @@
           "id": "operation_kernel_gauss",
           "name": "Gaussian kernel",
           "description": "Gaussian kernel (sigma in mm, not voxels)",
-          "command-line": "[OP_KERNEL_GAUSS]",
+          "command-line": "-kernel gauss [OP_KERNEL_GAUSS]",
           "inputs": [
             {
               "value-key": "[OP_KERNEL_GAUSS]",
@@ -933,8 +912,7 @@
               "name": "Gaussian kernel",
               "type": "Number",
               "description": "Gaussian kernel (sigma in mm, not voxels)",
-              "optional": false,
-              "command-line-flag": "-kernel gauss"
+              "optional": false
             }
           ]
         },
@@ -942,7 +920,7 @@
           "id": "operation_kernel_sphere",
           "name": "Sphere kernel",
           "description": "All voxels in a sphere of radius <size> mm centered on target voxel",
-          "command-line": "[OP_KERNEL_SPHERE]",
+          "command-line": "-kernel sphere [OP_KERNEL_SPHERE]",
           "inputs": [
             {
               "value-key": "[OP_KERNEL_SPHERE]",
@@ -950,8 +928,7 @@
               "name": "Sphere kernel",
               "type": "Number",
               "description": "All voxels in a sphere of radius <size> mm centered on target voxel",
-              "optional": false,
-              "command-line-flag": "-kernel sphere"
+              "optional": false
             }
           ]
         },
@@ -959,7 +936,7 @@
           "id": "operation_kernel_file",
           "name": "External file kernel",
           "description": "Use external file as kernel",
-          "command-line": "[OP_KERNEL_FILE]",
+          "command-line": "-kernel file [OP_KERNEL_FILE]",
           "inputs": [
             {
               "value-key": "[OP_KERNEL_FILE]",
@@ -967,8 +944,7 @@
               "name": "External file kernel",
               "type": "File",
               "description": "Use external file as kernel",
-              "optional": false,
-              "command-line-flag": "-kernel file"
+              "optional": false
             }
           ]
         },
