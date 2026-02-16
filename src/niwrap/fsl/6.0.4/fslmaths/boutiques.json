@@ -82,8 +82,37 @@
               "value-key": "[OP_MUL]",
               "id": "mul",
               "name": "Multiply",
-              "type": "Number",
-              "description": "Multiply current image by following input",
+              "type": [
+                {
+                  "id": "mul_value",
+                  "name": "Multiply by value",
+                  "command-line": "[MUL_VALUE]",
+                  "inputs": [
+                    {
+                      "id": "value",
+                      "name": "Value",
+                      "value-key": "[MUL_VALUE]",
+                      "type": "Number",
+                      "optional": false
+                    }
+                  ]
+                },
+                {
+                  "id": "mul_image",
+                  "name": "Multiply by image",
+                  "command-line": "[MUL_IMAGE]",
+                  "inputs": [
+                    {
+                      "id": "image",
+                      "name": "Image",
+                      "value-key": "[MUL_IMAGE]",
+                      "type": "File",
+                      "optional": false
+                    }
+                  ]
+                }
+              ],
+              "description": "Multiply current image by following input (a number or an image)",
               "optional": false,
               "command-line-flag": "-mul"
             }
