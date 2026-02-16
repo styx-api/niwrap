@@ -1,13 +1,18 @@
+"""Markdown generation utilities."""
+
 import html
+from pathlib import Path
 
 
 def progress_bar(done: int, total: int) -> str:
+    """Generate a progress bar image URL."""
     if total == 0:
         return "N/A"
     return f"![{done}/{total}](https://progress-bar.xyz/{done}/?scale={total}&suffix=%2F{total})"
 
 
 def progress_bar_boring(done: int, total: int) -> str:
+    """Generate a text-based progress display."""
     if total == 0:
         return "N/A"
     percentage = done / total * 100
@@ -55,23 +60,30 @@ def dict_to_markdown_table(data: dict[str, list[str]]) -> str:
 
 
 def markdown_url(url: str, title: str | None = None) -> str:
+    """Create a markdown link, HTML-escaping the title."""
     if title:
         return f"[{html.escape(title)}]({url})"
     return f"[{url}]({url})"
 
 
-def patch_section(file, replacement, token):
-    # Replace text in file between <!-- START_{token} --> and <!-- END_{token} -->
+def patch_section(file: str | Path, replacement: str, token: str) -> None:
+    """Replace text in file between <!-- START_{token} --> and <!-- END_{token} -->."""
     TOKEN_START = f"<!-- START_{token} -->"
     TOKEN_END = f"<!-- END_{token} -->"
 
     with open(file, "r", encoding="utf-8") as f:
         readme = f.read()
-        start = readme.find(TOKEN_START) + len(TOKEN_START)
+        start = readme.find(TOKEN_START)
         end = readme.find(TOKEN_END)
-        assert start >= 0
-        assert end >= 0
-        assert start < end
+        if start < 0 or end < 0:
+            raise ValueError(
+                f"Could not find section tokens {TOKEN_START} / {TOKEN_END} in {file}"
+            )
+        start += len(TOKEN_START)
+        if start >= end:
+            raise ValueError(
+                f"Start token appears after end token for {token} in {file}"
+            )
         new_readme = readme[:start] + "\n\n" + replacement + "\n" + readme[end:]
 
     with open(file, "w", encoding="utf-8") as f:

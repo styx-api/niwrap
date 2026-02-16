@@ -1,6 +1,7 @@
-"""Example functions for wrap."""
+"""NiWrap catalog API."""
 
 import pathlib as pl
+from collections.abc import Iterator
 from typing import Literal, NamedTuple, NotRequired, TypedDict
 
 from wrap.utils import read_json
@@ -122,24 +123,26 @@ def get_app(
     return data
 
 
-def iter_projects(projects: ProjectsType):
+def iter_projects(projects: ProjectsType) -> Iterator[ProjectType]:
     for name in projects["projects"]:
         yield get_project(name)
 
 
-def iter_packages(project: ProjectType):
+def iter_packages(project: ProjectType) -> Iterator[PackageType]:
     project_name = project["name"]
     for package_name in project["packages"]:
         yield get_package(project_name, package_name)
 
 
-def iter_versions(project_name: str, package: PackageType):
+def iter_versions(project_name: str, package: PackageType) -> Iterator[VersionType]:
     package_name = package["name"]
     for version_name in package["versions"]:
         yield get_version(project_name, package_name, version_name)
 
 
-def iter_apps(project_name: str, package_name: str, version: VersionType):
+def iter_apps(
+    project_name: str, package_name: str, version: VersionType
+) -> Iterator[AppType]:
     version_name = version["name"]
     if "apps" in version:
         for app_name in version["apps"]:
@@ -164,13 +167,13 @@ class AppContext(NamedTuple):
     app: AppType
 
 
-def iter_all_packages(projects: ProjectsType):
+def iter_all_packages(projects: ProjectsType) -> Iterator[PackageContext]:
     for project in iter_projects(projects):
         for package in iter_packages(project):
             yield PackageContext(project, package)
 
 
-def iter_all_versions(projects: ProjectsType):
+def iter_all_versions(projects: ProjectsType) -> Iterator[VersionContext]:
     for project in iter_projects(projects):
         project_name = project["name"]
         for package in iter_packages(project):
@@ -178,7 +181,7 @@ def iter_all_versions(projects: ProjectsType):
                 yield VersionContext(project, package, version)
 
 
-def iter_all_apps(projects: ProjectsType):
+def iter_all_apps(projects: ProjectsType) -> Iterator[AppContext]:
     for project in iter_projects(projects):
         project_name = project["name"]
         for package in iter_packages(project):

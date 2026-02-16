@@ -11,7 +11,7 @@ requires-python = ">=3.12"
 dependencies = [
   "boutiques-schema-pydantic",
   "pytest>=9.0.2",
-  "styx",
+  "styx"
 ]
 
 [project.scripts]
@@ -41,16 +41,13 @@ src = ["src"]
 target-version = "py312"
 
 [tool.ruff.lint]
-select = ["ANN", "D", "E", "F", "I"]
-ignore = []
+select = ["ANN", "E", "F", "I"]
+ignore = [
+  "ANN401",  # Allow Any type annotations (common in JSON-heavy code)
+  "E501"  # Line length handled by ruff format; long strings are fine
+]
 fixable = ["ALL"]
 unfixable = []
-
-[tool.ruff.lint.pydocstyle]
-convention = "google"
-
-[tool.ruff.lint.per-file-ignores]
-"tests/**/*.py" = []
 
 [tool.uv.sources]
 boutiques-schema-pydantic = {git = "https://github.com/styx-api/boutiques-schema-pydantic.git"}

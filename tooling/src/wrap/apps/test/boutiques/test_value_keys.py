@@ -3,11 +3,11 @@ import re
 from collections import defaultdict
 from typing import Any
 
-from wrap.apps.test.test import error, ok, test_boutiques
+from wrap.apps.test.test import TestResult, error, ok, test_boutiques
 
 
 @test_boutiques
-def test_unused_value_keys(path: pl.Path, data: Any):
+def test_unused_value_keys(path: pl.Path, data: Any) -> TestResult:
     """All input value-keys should be used in the command-line."""
     command_line = data.get("command-line")
     if not command_line:
@@ -34,7 +34,7 @@ def test_unused_value_keys(path: pl.Path, data: Any):
 
 
 @test_boutiques
-def test_unmapped_command_entries(path: pl.Path, data: Any):
+def test_unmapped_command_entries(path: pl.Path, data: Any) -> TestResult:
     """All [UPPER_CASE] entries in command-line should match input value-keys."""
     command_line = data.get("command-line")
     if not command_line:
@@ -67,7 +67,7 @@ def test_unmapped_command_entries(path: pl.Path, data: Any):
 
 
 @test_boutiques
-def test_value_key_format(path: pl.Path, data: Any):
+def test_value_key_format(path: pl.Path, data: Any) -> TestResult:
     """All value-keys should follow the [UPPER_CASE] format."""
     invalid_keys = set()
     pattern = r"^\[[A-Z0-9_]+\]$"
@@ -85,7 +85,7 @@ def test_value_key_format(path: pl.Path, data: Any):
 
 
 @test_boutiques
-def test_duplicate_command_value_key(path: pl.Path, data: Any):
+def test_duplicate_command_value_key(path: pl.Path, data: Any) -> TestResult:
     """All input value keys should be unique."""
     command_line = data.get("command-line")
     if not command_line:
@@ -110,7 +110,7 @@ def test_duplicate_command_value_key(path: pl.Path, data: Any):
 
 
 @test_boutiques
-def test_aliased_inputs(path: pl.Path, data: Any):
+def test_aliased_inputs(path: pl.Path, data: Any) -> TestResult:
     """Ensure inputs are using subcommands or unique value-keys."""
     aliased_input = defaultdict(list)
     for input_item in data.get("inputs", []):
@@ -119,10 +119,10 @@ def test_aliased_inputs(path: pl.Path, data: Any):
             continue
         aliased_input[value_key].append(input_item.get("command-line-flag"))
 
-    aliased_input = {k: v for k, v in aliased_input.items() if len(v) > 1}
+    duplicates = {k: v for k, v in aliased_input.items() if len(v) > 1}
 
-    if aliased_input:
-        aliased_list = "\n".join("  " + f"{k}: {v}" for k, v in aliased_input.items())
+    if duplicates:
+        aliased_list = "\n".join("  " + f"{k}: {v}" for k, v in duplicates.items())
         return error(f"Found aliased value-keys:\n{aliased_list}")
 
     return ok()

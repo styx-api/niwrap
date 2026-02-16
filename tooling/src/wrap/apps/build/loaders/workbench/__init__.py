@@ -26,7 +26,9 @@ def _wb_media_types(wb_type: str) -> list[str]:
     return [f"workbench/{wb_type}"]
 
 
-def _make_param_type(wb_type: str):
+def _make_param_type(
+    wb_type: str,
+) -> ir.Param.String | ir.Param.Float | ir.Param.Int | ir.Param.Bool | ir.Param.File:
     """Convert Workbench parameter type to IR type."""
     match wb_type:
         case wb.TYPE_STRING:

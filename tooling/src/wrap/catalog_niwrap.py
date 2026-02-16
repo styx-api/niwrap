@@ -1,4 +1,6 @@
-"""niwrap-specific catalog functions."""
+"""NiWrap-specific catalog functions."""
+
+from collections.abc import Iterator
 
 from wrap.catalog import (
     AppContext,
@@ -35,33 +37,33 @@ def get_app_niwrap(package_name: str, version_name: str, app_name: str) -> AppTy
     return get_app(PROJECT_NAME_NIWRAP, package_name, version_name, app_name)
 
 
-def iter_packages_niwrap():
+def iter_packages_niwrap() -> Iterator[PackageType]:
     project = get_project_niwrap()
     yield from iter_packages(project)
 
 
-def iter_versions_niwrap(package_name: str):
+def iter_versions_niwrap(package_name: str) -> Iterator[VersionType]:
     package = get_package_niwrap(package_name)
     yield from iter_versions(PROJECT_NAME_NIWRAP, package)
 
 
-def iter_apps_niwrap(package_name: str, version_name: str):
+def iter_apps_niwrap(package_name: str, version_name: str) -> Iterator[AppType]:
     version = get_version_niwrap(package_name, version_name)
     yield from iter_apps(PROJECT_NAME_NIWRAP, package_name, version)
 
 
-def iter_all_packages_niwrap():
+def iter_all_packages_niwrap() -> Iterator[PackageType]:
     yield from iter_packages_niwrap()
 
 
-def iter_all_versions_niwrap():
+def iter_all_versions_niwrap() -> Iterator[VersionContext]:
     project = get_project_niwrap()
     for package in iter_packages_niwrap():
         for version in iter_versions(PROJECT_NAME_NIWRAP, package):
             yield VersionContext(project, package, version)
 
 
-def iter_all_apps_niwrap():
+def iter_all_apps_niwrap() -> Iterator[AppContext]:
     project = get_project_niwrap()
     for package in iter_packages_niwrap():
         package_name = package["name"]

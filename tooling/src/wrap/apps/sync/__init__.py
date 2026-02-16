@@ -1,6 +1,7 @@
 """Sync repo metadata. (E.g. update coverage tables)"""
 
 from pathlib import Path
+from typing import Any
 
 from wrap.apps.find_niwrap import find_niwrap
 from wrap.apps.sync.markdown_utils import (
@@ -11,17 +12,16 @@ from wrap.apps.sync.markdown_utils import (
     progress_bar_boring,
 )
 from wrap.catalog_niwrap import (
-    get_project_niwrap,
     get_version_niwrap,
     iter_apps_niwrap,
     iter_packages_niwrap,
 )
 
 
-def build_package_overview_table(pretty_progress_bar=True) -> str:
+def build_package_overview_table(pretty_progress_bar: bool = True) -> str:
     packages = sorted([pkg for pkg in iter_packages_niwrap()], key=lambda x: x["name"])
 
-    table = {
+    table: dict[str, list[str]] = {
         "Package": [],
         "Default Version": [],
         "API Coverage": [],
@@ -67,7 +67,7 @@ def build_package_overview_table(pretty_progress_bar=True) -> str:
     return dict_to_markdown_table(table)
 
 
-def main(args):
+def main(args: Any) -> None:
     find_niwrap()
 
     print("Update repo readme")
@@ -78,7 +78,7 @@ def main(args):
     )
 
 
-def register_command(subparsers):
+def register_command(subparsers: Any) -> None:
     sync_parser = subparsers.add_parser(
         "sync", help="Synchronize metadata (i.e. build coverage tables for READMEs...)"
     )

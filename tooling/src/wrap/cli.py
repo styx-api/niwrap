@@ -1,8 +1,9 @@
+"""NiWrap CLI entry point."""
+
 import argparse
 import sys
 from typing import Optional, Sequence
 
-# Import your app modules here
 from wrap.apps import build, check_container, sync, test
 
 
@@ -13,11 +14,6 @@ def create_parser() -> argparse.ArgumentParser:
         description="NiWrap developer and build tools.",
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
-
-    # Add global options
-    # parser.add_argument(
-    #     "-v", "--verbose", action="store_true", help="Enable verbose output"
-    # )
 
     # Create subparsers
     subparsers = parser.add_subparsers(

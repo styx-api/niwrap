@@ -1,6 +1,8 @@
 import pathlib as pl
 import time
+from collections.abc import Iterator
 from shutil import rmtree
+from typing import Any
 
 import styx.backend
 from styx.backend import compile_language
@@ -12,7 +14,6 @@ from wrap.apps.find_niwrap import find_niwrap
 from wrap.apps.sync import build_package_overview_table
 from wrap.catalog import DocsType, PackageType, ProjectType, VersionType
 from wrap.catalog_niwrap import (
-    get_project_niwrap,
     get_version_niwrap,
     iter_apps_niwrap,
     iter_packages_niwrap,
@@ -73,7 +74,7 @@ def generate_python_readme() -> str:
     return template.replace("{{PACKAGES_TABLE}}", build_package_overview_table(False))
 
 
-def build_target_stream():
+def build_target_stream() -> Iterator[tuple[ir.Package, Iterator[ir.App]]]:
     for pkg in iter_packages_niwrap():
         version = get_version_niwrap(pkg["name"], pkg["default"])
 
@@ -83,7 +84,7 @@ def build_target_stream():
 
         errors = []
 
-        def _stream_inner():
+        def _stream_inner() -> Iterator[ir.App]:
             for app in iter_apps_niwrap(pkg["name"], pkg["default"]):
                 if not (source := app.get("source")):
                     continue  # todo print/count/something?
@@ -150,7 +151,7 @@ def main(targets: list[str]) -> str | int:
     return 0
 
 
-def register_command(subparsers):
+def register_command(subparsers: Any) -> None:
     parser = subparsers.add_parser("build", help="Build distributions")
     parser.add_argument(
         "target",

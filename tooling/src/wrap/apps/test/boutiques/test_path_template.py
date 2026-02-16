@@ -2,11 +2,11 @@ import pathlib as pl
 import re
 from typing import Any
 
-from wrap.apps.test.test import error, ok, test_boutiques
+from wrap.apps.test.test import TestResult, error, ok, test_boutiques
 
 
 @test_boutiques
-def test_invalid_chars(path: pl.Path, data: Any):
+def test_invalid_chars(path: pl.Path, data: Any) -> TestResult:
     """Ensure 'path-template' does not contain invalid characters (e.g. glob)."""
     command_line = data.get("command-line")
     if not command_line:
@@ -28,7 +28,7 @@ def test_invalid_chars(path: pl.Path, data: Any):
 
 
 @test_boutiques
-def test_duplicate_path_templates(path: pl.Path, data: Any):
+def test_duplicate_path_templates(path: pl.Path, data: Any) -> TestResult:
     """Ensure there are no duplicate 'path-template' values across output-files."""
     output_files = data.get("output-files", [])
     if not output_files:

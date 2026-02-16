@@ -1,10 +1,10 @@
 import pathlib as pl
 from typing import Any
 
-from wrap.apps.test.test import error, ok, skip, test_boutiques
+from wrap.apps.test.test import TestResult, error, ok, skip, test_boutiques
 
 
-def has_optional_with_default(obj):
+def has_optional_with_default(obj: Any) -> bool:
     """Check if object contains optional inputs with default-value."""
     if isinstance(obj, dict):
         inputs = obj.get("inputs", [])
@@ -20,7 +20,7 @@ def has_optional_with_default(obj):
 
 
 @test_boutiques
-def test_descriptor_optional_default(path: pl.Path, data: Any):
+def test_descriptor_optional_default(path: pl.Path, data: Any) -> TestResult:
     """Optional inputs should not use `default-value` (with extremely rare exceptions)."""
     # dcm2niix has an optional output param which if not set writes outputs to input file location
     if "workbench" in str(path) or "mrtrix" in str(path) or "dcm2niix" in str(path):

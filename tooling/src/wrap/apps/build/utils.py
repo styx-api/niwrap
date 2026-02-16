@@ -1,4 +1,4 @@
-def print_box(title: str, items: list[str]):
+def print_box(title: str, items: list[str]) -> None:
     """Print a formatted box with title and items."""
     item_widths = [len(item) + 2 for item in items]
     dividers = "┬".join("─" * w for w in item_widths)

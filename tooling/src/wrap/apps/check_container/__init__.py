@@ -73,14 +73,14 @@ class ContainerValidation:
 class DockerExecutor:
     """Handles Docker command execution with proper error handling."""
 
-    def __init__(self, timeout: int = 120):
+    def __init__(self, timeout: int = 120) -> None:
         self.timeout = timeout
         self._check_docker_available()
 
     def _check_docker_available(self) -> None:
         """Verify Docker is available on the system."""
         try:
-            result = subprocess.run(
+            subprocess.run(
                 ["docker", "--version"],
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
@@ -202,7 +202,9 @@ class BatchExecutableValidator:
 
     DEFAULT_CHUNK_SIZE = 100
 
-    def __init__(self, chunk_size: int = DEFAULT_CHUNK_SIZE, timeout: int = 120):
+    def __init__(
+        self, chunk_size: int = DEFAULT_CHUNK_SIZE, timeout: int = 120
+    ) -> None:
         """Initialize the validator.
 
         Args:
@@ -310,20 +312,20 @@ class BatchExecutableValidator:
                 )
                 validation.results.append(result)
 
-                symbol = "✓" if exists else "✗"
+                symbol = "PASS" if exists else "FAIL"
                 print(f"    {symbol} {exe}")
 
         except subprocess.TimeoutExpired:
             error = f"Timeout checking executables (>{self.docker.timeout}s)"
             validation.validation_errors.append(error)
-            print(f"  ✗ {error}")
+            print(f"  FAIL {error}")
         except RuntimeError as e:
             validation.validation_errors.append(str(e))
             print(f"  ✗ Error: {e}")
         except Exception as e:
             error = f"Unexpected error: {type(e).__name__}: {e}"
             validation.validation_errors.append(error)
-            print(f"  ✗ {error}")
+            print(f"  FAIL {error}")
 
         return validation
 
@@ -411,7 +413,7 @@ class BatchExecutableValidator:
                     for error in validation.validation_errors:
                         print(f"    - {error}")
         else:
-            print("✓ All validations passed!")
+            print("All validations passed!")
 
         print()
         print("=" * 80)

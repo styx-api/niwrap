@@ -14,6 +14,7 @@ class ResultStatus(IntEnum):
 
     OK = 1
     ERROR = 0
+    SKIP = 2
 
 
 @dataclass(frozen=True)
@@ -28,6 +29,11 @@ class TestResult:
         """Check if the test passed."""
         return self.status == ResultStatus.OK
 
+    @property
+    def is_skip(self) -> bool:
+        """Check if the test was skipped."""
+        return self.status == ResultStatus.SKIP
+
     @classmethod
     def ok(cls) -> "TestResult":
         """Create a successful test result."""
@@ -38,11 +44,20 @@ class TestResult:
         """Create a failed test result with an error message."""
         return cls(ResultStatus.ERROR, message or "Error")
 
+    @classmethod
+    def skipped(cls, reason: str | None = None) -> "TestResult":
+        """Create a skipped test result."""
+        return cls(ResultStatus.SKIP, reason or "Skipped")
+
 
 class BoutiquesTest(Protocol):
     """Protocol for boutiques test functions."""
 
-    def __call__(self, path: Path, data: dict[str, Any]) -> TestResult: ...
+    __name__: str
+
+    def __call__(self, path: Path, data: dict[str, Any]) -> TestResult:
+        """Run a test on a boutiques descriptor."""
+        ...
 
 
 @dataclass
@@ -128,7 +143,7 @@ class TestRunner:
         if results.error_count > 0:
             print(f"\nFile: {path}")
             for test_name, message in results.errors:
-                print(f"  ✗ {test_name}: {message}")
+                print(f"  FAIL {test_name}: {message}")
             print("-" * 80)
 
 
@@ -139,12 +154,15 @@ class ApplicationTestResults:
     path: Path
     ok_count: int = 0
     error_count: int = 0
+    skip_count: int = 0
     errors: list[tuple[str, str]] = field(default_factory=list)
 
     def add_result(self, test_name: str, result: TestResult) -> None:
         """Add a test result."""
         if result.is_ok:
             self.ok_count += 1
+        elif result.is_skip:
+            self.skip_count += 1
         else:
             self.error_count += 1
             self.errors.append((test_name, result.message))
@@ -152,7 +170,7 @@ class ApplicationTestResults:
     @property
     def total_tests(self) -> int:
         """Total number of tests run."""
-        return self.ok_count + self.error_count
+        return self.ok_count + self.error_count + self.skip_count
 
     @property
     def success_rate(self) -> float:
@@ -195,6 +213,11 @@ class TestSummary:
         return sum(r.error_count for r in self.applications.values())
 
     @property
+    def total_skipped(self) -> int:
+        """Total number of skipped tests."""
+        return sum(r.skip_count for r in self.applications.values())
+
+    @property
     def applications_with_errors(self) -> int:
         """Number of applications with at least one test failure."""
         return sum(1 for r in self.applications.values() if r.error_count > 0)
@@ -215,12 +238,13 @@ class TestSummary:
             return
 
         print(f"Applications tested: {self.total_applications}")
-        print(f"  ✓ All tests passed: {self.applications_all_passed}")
-        print(f"  ✗ With failures: {self.applications_with_errors}")
+        print(f"  PASS All tests passed: {self.applications_all_passed}")
+        print(f"  FAIL With failures: {self.applications_with_errors}")
 
         print(f"\nTotal tests run: {self.total_tests_run}")
-        print(f"  ✓ Passed: {self.total_passed}")
-        print(f"  ✗ Failed: {self.total_failed}")
+        print(f"  PASS Passed: {self.total_passed}")
+        print(f"  FAIL Failed: {self.total_failed}")
+        print(f"  SKIP Skipped: {self.total_skipped}")
 
         if self.total_tests_run > 0:
             success_rate = (self.total_passed / self.total_tests_run) * 100
@@ -240,7 +264,11 @@ _runner = TestRunner()
 
 # Public API
 test_boutiques = _runner.register
-run_tests = lambda: _runner.run().print_summary()
+
+
+def run_tests() -> None:
+    """Run all registered tests and print summary."""
+    _runner.run().print_summary()
 
 
 # Convenience functions
@@ -249,8 +277,9 @@ def ok() -> TestResult:
     return TestResult.ok()
 
 
-def skip(reason: str | None = None):
-    return ok()
+def skip(reason: str | None = None) -> TestResult:
+    """Create a skipped test result."""
+    return TestResult.skipped(reason)
 
 
 def error(message: str | None = None) -> TestResult:
