@@ -354,7 +354,6 @@
       "id": "transform",
       "name": "Transform",
       "value-key": "[TRANSFORM]",
-      "command-line-flag": "--transform",
       "optional": true,
       "list": true,
       "description": "Several transform options are supported including all those defined in the ITK library in addition to a deformation field transform. The ordering of the transformations follows the ordering specified on the command line. An identity transform is pushed onto the transformation stack. Each new transform encountered on the command line is also pushed onto the transformation stack. Then, to warp the input object, each point comprising the input object is warped first according to the last transform pushed onto the stack followed by the second to last transform, etc. until the last transform encountered which is the identity transform. Also, it should be noted that the inverse transform can be accommodated with the usual caveat that such an inverse must be defined by the specified transform class.",
@@ -362,7 +361,7 @@
         {
           "id": "transformFileName",
           "name": "Transform file name",
-          "command-line": "[TRANSFORM]",
+          "command-line": "--transform [TRANSFORM]",
           "description": "Transform file name.",
           "inputs": [
             {
