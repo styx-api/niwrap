@@ -6,12 +6,19 @@
   "default": "2.3.3",
   "docs": {
     "title": "FastSurfer",
-    "description": "FastSurfer is a fast and accurate deep-learning based neuroimaging pipeline. It provides a full FreeSurfer alternative for volumetric analysis (FastSurferVINN) and surface-based thickness analysis (recon-surf). The deep learning models were trained on 60+ manually annotated brain scans and provide state-of-the-art accuracy. FastSurfer can segment a full brain scan in less than 1 minute, is robust against changes in input scanner contrasts, and generalizes well to non-training data.\n\nFastSurfer includes three main components:\n1. FastSurferVINN - A deep learning architecture for whole brain segmentation\n2. CerebNet - For detailed cerebellum sub-segmentation\n3. HypVINN - For hypothalamus sub-segmentation\n\nThe pipeline produces FreeSurfer-compatible outputs and can be used as a drop-in replacement for FreeSurfer's recon-all pipeline, while being orders of magnitude faster.",
+    "description": "FastSurfer is a fast and accurate deep-learning-based neuroimaging pipeline that provides a full FreeSurfer alternative for volumetric analysis (via FastSurferVINN) and surface-based thickness analysis (via recon-surf). It can segment a whole brain MRI scan in under one minute on a GPU and produces FreeSurfer-compatible outputs, making it a drop-in replacement for FreeSurfer's recon-all pipeline. FastSurfer includes FastSurferVINN for whole brain segmentation, CerebNet for cerebellum sub-segmentation, and HypVINN for hypothalamus sub-segmentation.",
     "authors": [
-      "Deep-MI Lab, Massachusetts General Hospital"
+      "Martin Reuter",
+      "Leonie Henschel",
+      "David Kuegler"
     ],
     "urls": [
-      "https://github.com/Deep-MI/FastSurfer"
+      "https://github.com/Deep-MI/FastSurfer",
+      "https://deep-mi.org/"
+    ],
+    "literature": [
+      "Henschel, L., Conjeti, S., Estrada, S., Diers, K., Fischl, B., & Reuter, M. (2020). FastSurfer - A fast and accurate deep learning based neuroimaging pipeline. NeuroImage, 219, 117012. https://doi.org/10.1016/j.neuroimage.2020.117012",
+      "Henschel, L., Kuegler, D., & Reuter, M. (2022). FastSurferVINN: Building Resolution-Independence into Deep Learning Segmentation Methods - A Solution for HighRes Brain MRI. NeuroImage, 251, 118933. https://doi.org/10.1016/j.neuroimage.2022.118933"
     ]
   }
 }
