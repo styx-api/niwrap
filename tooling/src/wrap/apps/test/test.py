@@ -174,10 +174,11 @@ class ApplicationTestResults:
 
     @property
     def success_rate(self) -> float:
-        """Percentage of successful tests."""
-        if self.total_tests == 0:
+        """Percentage of successful tests (excluding skipped)."""
+        non_skipped = self.ok_count + self.error_count
+        if non_skipped == 0:
             return 0.0
-        return (self.ok_count / self.total_tests) * 100
+        return (self.ok_count / non_skipped) * 100
 
 
 @dataclass
@@ -238,16 +239,17 @@ class TestSummary:
             return
 
         print(f"Applications tested: {self.total_applications}")
-        print(f"  PASS All tests passed: {self.applications_all_passed}")
-        print(f"  FAIL With failures: {self.applications_with_errors}")
+        print(f"  Passed: {self.applications_all_passed}")
+        print(f"  Failed: {self.applications_with_errors}")
 
         print(f"\nTotal tests run: {self.total_tests_run}")
-        print(f"  PASS Passed: {self.total_passed}")
-        print(f"  FAIL Failed: {self.total_failed}")
-        print(f"  SKIP Skipped: {self.total_skipped}")
+        print(f"  Passed: {self.total_passed}")
+        print(f"  Failed: {self.total_failed}")
+        print(f"  Skipped: {self.total_skipped}")
 
-        if self.total_tests_run > 0:
-            success_rate = (self.total_passed / self.total_tests_run) * 100
+        non_skipped = self.total_passed + self.total_failed
+        if non_skipped > 0:
+            success_rate = (self.total_passed / non_skipped) * 100
             print(f"\nOverall success rate: {success_rate:.1f}%")
 
         if self.applications_with_errors > 0:
