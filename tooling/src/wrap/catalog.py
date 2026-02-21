@@ -23,6 +23,7 @@ class DocsType(TypedDict, total=False):
     title: str
     description: str
     authors: list[str]
+    affiliation: list[str]
     literature: list[str]
     urls: list[str]
 
