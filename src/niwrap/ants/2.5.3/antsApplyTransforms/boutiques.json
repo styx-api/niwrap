@@ -248,6 +248,12 @@
           ]
         },
         {
+          "id": "gaussianNoParams",
+          "name": "Gaussian no params",
+          "command-line": "Gaussian",
+          "description": "Gaussian interpolation."
+        },
+        {
           "id": "gaussian",
           "name": "Gaussian",
           "command-line": "Gaussian[[SIGMA][ALPHA]]",
@@ -259,7 +265,7 @@
               "type": "Number",
               "value-key": "[SIGMA]",
               "description": "Sigma value.",
-              "optional": true
+              "optional": false
             },
             {
               "id": "alpha",
@@ -274,6 +280,12 @@
           ]
         },
         {
+          "id": "bsplineNoParams",
+          "name": "BSpline no params",
+          "command-line": "BSpline",
+          "description": "BSpline interpolation."
+        },
+        {
           "id": "bspline",
           "name": "BSpline",
           "command-line": "BSpline[[ORDER]]",
@@ -285,7 +297,7 @@
               "type": "Number",
               "value-key": "[ORDER]",
               "description": "Order value.",
-              "optional": true,
+              "optional": false,
               "integer": true
             }
           ]
@@ -315,6 +327,12 @@
           "description": "Lanczos windowed sinc interpolation."
         },
         {
+          "id": "genericLabelNoParams",
+          "name": "Generic label no params",
+          "command-line": "GenericLabel",
+          "description": "Generic label interpolation."
+        },
+        {
           "id": "genericLabel",
           "name": "Generic label",
           "command-line": "GenericLabel[[INTERPOLATOR]]",
@@ -326,7 +344,7 @@
               "type": "String",
               "value-key": "[INTERPOLATOR]",
               "description": "Interpolator value.",
-              "optional": true
+              "optional": false
             }
           ]
         }
@@ -376,7 +394,7 @@
         {
           "id": "useInverse",
           "name": "Use inverse",
-          "command-line": "[[TRANSFORM],1]",
+          "command-line": "--transform [[TRANSFORM],1]",
           "description": "Use inverse.",
           "inputs": [
             {
