@@ -32,13 +32,13 @@ NiWrap provides seamless, programmatic access to powerful neuroimaging command-l
 | [Convert3D](http://www.itksnap.org/pmwiki/pmwiki.php?n=Convert3D.Convert3D) | [`1.1.0`](https://hub.docker.com/r/pyushkevich/itksnap) | ![4/4](https://progress-bar.xyz/4/?scale=4&suffix=%2F4) |
 | [dcm2niix](https://github.com/rordenlab/dcm2niix) | [`1.0.20240202`](https://hub.docker.com/r/vnmd/dcm2niix_v1.0.20240202) | ![1/1](https://progress-bar.xyz/1/?scale=1&suffix=%2F1) |
 | [FastSurfer](https://github.com/Deep-MI/FastSurfer) | [`2.3.3`](https://hub.docker.com/r/nx10x/fastsurfer) | ![1/1](https://progress-bar.xyz/1/?scale=1&suffix=%2F1) |
-| [FreeSurfer](https://github.com/freesurfer/freesurfer) | [`7.4.1`](https://hub.docker.com/r/freesurfer/freesurfer) | ![696/789](https://progress-bar.xyz/696/?scale=789&suffix=%2F789) |
+| [FreeSurfer](https://surfer.nmr.mgh.harvard.edu/) | [`7.4.1`](https://hub.docker.com/r/freesurfer/freesurfer) | ![696/789](https://progress-bar.xyz/696/?scale=789&suffix=%2F789) |
 | [FSL](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki) | [`6.0.4`](https://hub.docker.com/r/brainlife/fsl) | ![243/311](https://progress-bar.xyz/243/?scale=311&suffix=%2F311) |
-| [Greedy](https://sites.google.com/view/greedyreg/about) | [`1.0.1`](https://hub.docker.com/r/pyushkevich/itksnap) | ![1/1](https://progress-bar.xyz/1/?scale=1&suffix=%2F1) |
+| [Greedy](https://github.com/pyushkevich/greedy) | [`1.0.1`](https://hub.docker.com/r/pyushkevich/itksnap) | ![1/1](https://progress-bar.xyz/1/?scale=1&suffix=%2F1) |
 | [MRTrix3](https://www.mrtrix.org/) | [`3.0.4`](https://hub.docker.com/r/mrtrix3/mrtrix3) | ![115/121](https://progress-bar.xyz/115/?scale=121&suffix=%2F121) |
 | [MRTrix3Tissue](https://3tissue.github.io/) | [`5.2.8`](https://hub.docker.com/r/brainlife/3tissue) | ![1/1](https://progress-bar.xyz/1/?scale=1&suffix=%2F1) |
-| [NiftyReg](http://cmictig.cs.ucl.ac.uk/wiki/index.php/NiftyReg) | [`1.4.0`](https://hub.docker.com/r/vnmd/niftyreg_1.4.0) | ![7/7](https://progress-bar.xyz/7/?scale=7&suffix=%2F7) |
-| [Connectome Workbench](https://github.com/Washington-University/workbench) | [`2.1.0`](https://hub.docker.com/r/nx10x/workbench) | ![203/203](https://progress-bar.xyz/203/?scale=203&suffix=%2F203) |
+| [NiftyReg](https://github.com/KCL-BMEIS/niftyreg) | [`1.4.0`](https://hub.docker.com/r/vnmd/niftyreg_1.4.0) | ![7/7](https://progress-bar.xyz/7/?scale=7&suffix=%2F7) |
+| [Connectome Workbench](https://www.humanconnectome.org/software/connectome-workbench) | [`2.1.0`](https://hub.docker.com/r/nx10x/workbench) | ![203/203](https://progress-bar.xyz/203/?scale=203&suffix=%2F203) |
 <!-- END_PACKAGES_TABLE -->
 <small>*API Coverage: The percentages shown represent the proportion of tool binaries with available NiWrap descriptors, not the completeness of each descriptor.*</small>
 
