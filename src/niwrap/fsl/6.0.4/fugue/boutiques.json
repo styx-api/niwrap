@@ -1,6 +1,6 @@
 {
   "name": "fugue",
-  "command-line": "fugue [ASYM_SE_TIME] [DESPIKE_2DFILTER] [DESPIKE_THRESHOLD] [DWELL_TIME] [DWELL_TO_ASYM_RATIO] [FMAP_IN_FILE] [FMAP_OUT_FILE] [FORWARD_WARPING] [FOURIER_ORDER] [ICORR] [ICORR_ONLY] [IN_FILE] [MASK_FILE] [MEDIAN_2DFILTER] [NO_EXTEND] [NO_GAP_FILL] [NOKSPACE] [OUTPUT_TYPE] [PAVA] [PHASE_CONJUGATE] [PHASEMAP_IN_FILE] [POLY_ORDER] [SAVE_FMAP] [SAVE_SHIFT] [SAVE_UNMASKED_FMAP] [SAVE_UNMASKED_SHIFT] [SHIFT_IN_FILE] [SHIFT_OUT_FILE] [SMOOTH2D] [SMOOTH3D] [UNWARP_DIRECTION] [UNWARPED_FILE] [WARPED_FILE]",
+  "command-line": "fugue [ASYM_SE_TIME] [DESPIKE_2DFILTER] [DESPIKE_THRESHOLD] [DWELL_TIME] [DWELL_TO_ASYM_RATIO] [FMAP_IN_FILE] [FMAP_OUT_FILE] [FORWARD_WARPING] [FOURIER_ORDER] [ICORR] [ICORR_ONLY] [IN_FILE] [MASK_FILE] [MEDIAN_2DFILTER] [NO_EXTEND] [NO_GAP_FILL] [NOKSPACE] [OUTPUT_TYPE] [PAVA] [PHASE_CONJUGATE] [PHASEMAP_IN_FILE] [POLY_ORDER] [SAVE_UNMASKED_FMAP] [SAVE_UNMASKED_SHIFT] [SHIFT_IN_FILE] [SHIFT_OUT_FILE] [SMOOTH2D] [SMOOTH3D] [UNWARP_DIRECTION] [UNWARPED_FILE] [WARPED_FILE]",
   "author": "FMRIB Analysis Group, University of Oxford",
   "description": "FMRIB's Utility for Geometric Unwarping of EPIs",
   "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki",
@@ -211,22 +211,6 @@
       "command-line-flag-separator": "=",
       "description": "Apply polynomial fitting of order n.",
       "optional": true
-    },
-    {
-      "id": "save_fmap",
-      "name": "Save fmap",
-      "type": "Flag",
-      "value-key": "[SAVE_FMAP]",
-      "command-line-flag": "--save_fmap",
-      "description": "Write field map volume."
-    },
-    {
-      "id": "save_shift",
-      "name": "Save shift",
-      "type": "Flag",
-      "value-key": "[SAVE_SHIFT]",
-      "command-line-flag": "--save_shift",
-      "description": "Write pixel shift volume."
     },
     {
       "id": "save_unmasked_fmap",
