@@ -1,0 +1,15 @@
+diff --git a/lib/mrtrix3/app.py b/lib/mrtrix3/app.py
+index 7a49483c0..a8bed476d 100644
+--- a/lib/mrtrix3/app.py
++++ b/lib/mrtrix3/app.py
+@@ -147,6 +147,10 @@ def _execute(module): #pylint: disable=unused-variable
+   elif sys.argv[-1] == '__print_usage_rst__':
+     CMDLINE.print_usage_rst()
+     sys.exit(0)
++  elif sys.argv[-1] == '__print_argdump__':
++    import argdump
++    sys.stdout.write(argdump.dumps(CMDLINE, include_env=False))
++    sys.exit(0)
+ 
+   # Do the main command-line input parsing
+   ARGS = CMDLINE.parse_args()
