@@ -32,7 +32,12 @@ is no fork to maintain:
   `__print_usage_json__` hook to `core/app.cpp` (pure addition, ~190 lines).
 - [`patches/python-argdump.patch`](patches/python-argdump.patch) — adds a
   `__print_argdump__` branch to `lib/mrtrix3/app.py` that serializes the live
-  `argparse` parser (including all algorithm subparsers) with `argdump`.
+  `argparse` parser (including all algorithm subparsers) with `argdump`, plus a
+  `mrtrix` block carrying the descriptive metadata argparse doesn't hold
+  (synopsis, description, author, citations, copyright, version) — recursed into
+  each algorithm subparser. argparse-derived structure covers the interface;
+  input/output file semantics are not present in the Python source and are
+  recovered heuristically during processing.
 
 ### Run
 
