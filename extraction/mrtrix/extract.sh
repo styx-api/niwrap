@@ -14,14 +14,26 @@
 set -euo pipefail
 here="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+read_versions() {
+  if command -v jq >/dev/null 2>&1; then
+    jq -r '.[]' "$here/versions.json"
+  elif command -v python3 >/dev/null 2>&1; then
+    python3 -c "import json;print('\n'.join(json.load(open('$here/versions.json'))))"
+  fi
+}
+
+# Avoid `mapfile` (bash 4+) so this also runs on macOS's stock bash 3.2.
+versions=()
 if [ "$#" -gt 0 ]; then
   versions=("$@")
-elif command -v jq >/dev/null 2>&1; then
-  mapfile -t versions < <(jq -r '.[]' "$here/versions.json")
-elif command -v python3 >/dev/null 2>&1; then
-  mapfile -t versions < <(python3 -c "import json;print('\n'.join(json.load(open('$here/versions.json'))))")
 else
-  echo "error: need jq or python3 to read versions.json (or pass versions as args)" >&2
+  while IFS= read -r v; do
+    [ -n "$v" ] && versions+=("$v")
+  done < <(read_versions)
+fi
+
+if [ "${#versions[@]}" -eq 0 ]; then
+  echo "error: no versions (need jq or python3 to read versions.json, or pass versions as args)" >&2
   exit 1
 fi
 

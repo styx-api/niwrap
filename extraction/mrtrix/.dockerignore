@@ -1,0 +1,5 @@
+# The build only needs patches/ (COPY patches/). Exclude everything else —
+# the source/ submodule, dump/, json_docs/, driver scripts, docs — so the build
+# context stays tiny and deterministic.
+*
+!patches

@@ -25,8 +25,9 @@ by [`Dockerfile`](Dockerfile) + [`patches/`](patches) + [`versions.json`](versio
 
 ## Dump (this directory)
 
-Everything builds from an **official** MRtrix3 tag plus two small patches — there
-is no fork to maintain:
+The new pipeline builds from an **official** MRtrix3 tag plus two small patches
+applied at build time — no fork branch to rebase (the `source/` submodule
+referenced under "Legacy flow" belongs to the old flow and retires with it):
 
 - [`patches/cpp-json-usage.patch`](patches/cpp-json-usage.patch) — adds the
   `__print_usage_json__` hook to `core/app.cpp` (pure addition, ~190 lines).
@@ -47,8 +48,8 @@ One version:
 docker buildx build \
   --build-arg MRTRIX_VERSION=3.0.4 \
   --target artifact \
-  --output type=local,dest=dump/3.0.4 \
-  .
+  --output type=local,dest=extraction/mrtrix/dump/3.0.4 \
+  extraction/mrtrix
 ```
 
 The whole matrix in [`versions.json`](versions.json):
@@ -89,26 +90,32 @@ python extraction/mrtrix/process_metadata.py   # dump/<v>/ -> src/niwrap/mrtrix/
 ```
 
 For each command it copies the dump verbatim as the descriptor
-(`mrtrix.json` for C++ → `source.type: "mrtrix"`, `argparse.json` for Python →
-`source.type: "argparse"`), writes an `app.json` (name + source pointer +
-description), emits `<version>/version.json`, and registers the version in
-`package.json`. It does **not** interpret the interface — that is the frontend's
-job. Input/output file semantics (absent from argparse) are recovered there too.
+(`mrtrix.json` for C++ → `source.type: "mrtrix"`, `argdump.json` for Python →
+`source.type: "argdump"`), writes an `app.json` (name + source pointer +
+description), emits `<version>/version.json` (preserving the `executables`
+required/ignored lists), and registers the version in `package.json`. Commands in
+`executables.ignored` (e.g. `for_each`, `mrtrix_cleanup`) are skipped, and a stale
+`boutiques.json` in a rewritten command directory is pruned. It does **not**
+interpret the interface — that is the frontend's job; input/output file semantics
+(absent from argparse) are recovered there too.
 
 ## Compile (next step — not yet implemented)
 
-- `load_mrtrix` / `load_argparse` — Styx frontends in
-  `tooling/src/wrap/apps/build/loaders/` that compile the native dumps directly to
-  IR, replacing the Boutiques conversion. `load_argparse` (argdump JSON → IR) is
-  reusable for any argparse-based CLI. They also need wiring into `load_source`
-  and the `source.type` enum in `catalog.py` / `schemas/app.schema.json`.
+- `load_mrtrix` / `load_argdump` — Styx frontends in
+  `tooling/src/wrap/apps/build/loaders/` that compile the dumps directly to IR,
+  replacing the Boutiques conversion. `load_argdump` (argdump JSON → IR) is
+  reusable for any argparse-based CLI. The `source.type` values are already
+  registered in `catalog.py` and `schemas/app.schema.json`; only the `load_source`
+  dispatch remains. Because `process_metadata.py` rewrites `app.json` to these
+  types, run it against `src/niwrap` only **together with** this wiring — otherwise
+  the mrtrix build fails for every command.
 
 ## Legacy flow (superseded)
 
 The previous pipeline — `buildenv.Dockerfile` + `generate_json_docs.sh` +
 `mrt2bt.js` (Node → Boutiques) + the committed `source/` submodule and
-`json_docs/` — is kept for reference until the frontends above land. It only
-handled C++ commands; the Python descriptors under `src/niwrap/mrtrix` were
-hand-authored.
+`json_docs/` — is kept for reference until the frontends above land. It generated
+Boutiques only for the C++ commands; the Python commands' Boutiques descriptors
+under `src/niwrap/mrtrix` were hand-authored.
 
 [argdump]: https://github.com/styx-api/argdump

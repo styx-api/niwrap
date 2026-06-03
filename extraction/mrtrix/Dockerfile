@@ -20,7 +20,8 @@ ARG MRTRIX_VERSION=3.0.4
 # --------------------------------------------------------------------------- #
 # Stage 1 — build MRtrix3 from the official tag + our two metadata patches.    #
 # --------------------------------------------------------------------------- #
-FROM ubuntu:22.04 AS builder
+# Base image digest-pinned for reproducibility (ubuntu:22.04 at the 3.0.4 build).
+FROM ubuntu:22.04@sha256:4f838adc7181d9039ac795a7d0aba05a9bd9ecd480d294483169c5def983b64d AS builder
 ARG MRTRIX_VERSION
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -40,7 +41,12 @@ COPY patches/ /tmp/patches/
 # python-argdump  : adds the `__print_argdump__` hook to lib/mrtrix3/app.py
 # --recount keeps the hand-written python hunk robust to minor line drift.
 RUN git apply --recount --verbose /tmp/patches/cpp-json-usage.patch \
- && git apply --recount --verbose /tmp/patches/python-argdump.patch
+ && git apply --recount --verbose /tmp/patches/python-argdump.patch \
+ && git -c user.email=niwrap@styx-api.org -c user.name=niwrap commit -aqm "niwrap metadata patches" \
+ && git tag -f "${MRTRIX_VERSION}"
+# Commit the patches and re-point the tag at the result so MRtrix's build sees a
+# clean tag — otherwise `git describe --dirty` bakes a "<version>-dirty" string
+# into every dumped descriptor's version field.
 
 # Headless build — we only need command metadata, not the Qt GUI commands
 # (mrview, shview), so -nogui keeps the image small and the build fast.
@@ -51,7 +57,9 @@ RUN ./configure -nogui && ./build
 # --------------------------------------------------------------------------- #
 FROM builder AS dump
 ARG MRTRIX_VERSION
-RUN pip3 install --no-cache-dir argdump
+# argdump pinned for reproducibility. Plain `pip3 install` works because
+# ubuntu:22.04 ships pip < PEP 668; on a newer base add --break-system-packages.
+RUN pip3 install --no-cache-dir argdump==0.1.2
 ENV PATH="/opt/mrtrix3/bin:${PATH}"
 WORKDIR /opt/mrtrix3
 

@@ -1,8 +1,8 @@
 diff --git a/core/app.cpp b/core/app.cpp
-index bcb9843ae..c87c93d79 100644
+index bcb9843ae..e1f45b87c 100644
 --- a/core/app.cpp
 +++ b/core/app.cpp
-@@ -793,6 +793,189 @@ namespace MR
+@@ -793,6 +793,196 @@ namespace MR
      }
  
  
@@ -30,16 +30,23 @@ index bcb9843ae..c87c93d79 100644
 +    static std::string json_str_escape (const std::string& s) {
 +      std::string out;
 +      for (size_t i = 0; i < s.size(); ++i) {
-+        if (s[i] == '"')
++        const unsigned char c = static_cast<unsigned char>(s[i]);
++        if (c == '"')
 +          out += "\\\"";
-+        else if (s[i] == '\\')
++        else if (c == '\\')
 +          out += "\\\\";
-+        else if (s[i] == '\n')
++        else if (c == '\n')
 +          out += "\\n";
-+        else if (s[i] == '\r')
++        else if (c == '\r')
 +          out += "\\r";
-+        else if (s[i] == '\t')
++        else if (c == '\t')
 +          out += "\\t";
++        else if (c < 0x20) {
++          const char* hex = "0123456789abcdef";
++          out += "\\u00";
++          out += hex[(c >> 4) & 0xf];
++          out += hex[c & 0xf];
++        }
 +        else
 +          out += s[i];
 +      }
@@ -192,7 +199,7 @@ index bcb9843ae..c87c93d79 100644
  
  
      std::string restructured_text_usage ()
-@@ -1043,6 +1226,10 @@ namespace MR
+@@ -1043,6 +1233,10 @@ namespace MR
          print (markdown_usage ());
          throw 0;
        }
