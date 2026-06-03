@@ -16,7 +16,7 @@ descriptors track upstream exactly.
 
 ```
  dump  ── Docker, per version ──▶  raw JSON   (dump/<version>/{cpp,python}/*.json)
- process ── process_metadata.py ─▶  descriptors (src/niwrap/mrtrix/<version>/...)   [TODO]
+ process ── process_metadata.py ─▶  descriptors (src/niwrap/mrtrix/<version>/...)
  compile ── Styx frontends ──────▶  IR → bindings                                   [TODO]
 ```
 
@@ -78,15 +78,30 @@ tag and commit it.
 > collapses to `FROM mrtrix3/mrtrix3:${MRTRIX_VERSION}` + `pip install argdump`,
 > dropping the source build entirely.
 
-## Process & compile (next steps — not yet implemented)
+## Process
 
-- `process_metadata.py` — turn `dump/<version>/` into the repo descriptor layout
-  (`src/niwrap/mrtrix/<version>/<cmd>/{app.json, mrtrix.json | argparse.json}`),
-  mirroring [`../workbench/process_workbench_metadata.py`](../workbench/process_workbench_metadata.py).
+[`process_metadata.py`](process_metadata.py) lays the raw dumps out into the
+committed, build-consumable tree, mirroring
+[`../workbench/process_workbench_metadata.py`](../workbench/process_workbench_metadata.py):
+
+```bash
+python extraction/mrtrix/process_metadata.py   # dump/<v>/ -> src/niwrap/mrtrix/<v>/
+```
+
+For each command it copies the dump verbatim as the descriptor
+(`mrtrix.json` for C++ → `source.type: "mrtrix"`, `argparse.json` for Python →
+`source.type: "argparse"`), writes an `app.json` (name + source pointer +
+description), emits `<version>/version.json`, and registers the version in
+`package.json`. It does **not** interpret the interface — that is the frontend's
+job. Input/output file semantics (absent from argparse) are recovered there too.
+
+## Compile (next step — not yet implemented)
+
 - `load_mrtrix` / `load_argparse` — Styx frontends in
   `tooling/src/wrap/apps/build/loaders/` that compile the native dumps directly to
   IR, replacing the Boutiques conversion. `load_argparse` (argdump JSON → IR) is
-  reusable for any argparse-based CLI.
+  reusable for any argparse-based CLI. They also need wiring into `load_source`
+  and the `source.type` enum in `catalog.py` / `schemas/app.schema.json`.
 
 ## Legacy flow (superseded)
 
