@@ -629,14 +629,6 @@ wheels = [
 ]
 
 [[package]]
-name = "styx"
-version = "0.1.1"
-source = { git = "https://github.com/styx-api/styx.git#8750cce183b83bd438d9c3ee6d6f8d530871e47b" }
-dependencies = [
-    { name = "typing-extensions" },
-]
-
-[[package]]
 name = "typing-extensions"
 version = "4.15.0"
 source = { registry = "https://pypi.org/simple" }
@@ -679,7 +671,6 @@ source = { editable = "." }
 dependencies = [
     { name = "boutiques-schema-pydantic" },
     { name = "pytest" },
-    { name = "styx" },
 ]
 
 [package.dev-dependencies]
@@ -698,7 +689,6 @@ docs = [
 requires-dist = [
     { name = "boutiques-schema-pydantic", git = "https://github.com/styx-api/boutiques-schema-pydantic.git" },
     { name = "pytest", specifier = ">=9.0.2" },
-    { name = "styx", git = "https://github.com/styx-api/styx.git" },
 ]
 
 [package.metadata.requires-dev]

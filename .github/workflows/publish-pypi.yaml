@@ -19,12 +19,17 @@ jobs:
       with:
         ref: ${{ github.head_ref }}
 
+    - name: Set up Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22'
+
     - name: Install the latest version of uv
       uses: astral-sh/setup-uv@v7
 
     - name: Compile
       run: |
-        uv --directory tooling run wrap build python
+        bash tooling/compile.sh python
 
     - name: Build Python packages
       run: |
@@ -35,14 +40,8 @@ jobs:
         # Create a directory for the built packages
         mkdir -p dist/built_packages
 
-        # Build each package using uv
+        # Build each package using uv (the niwrap meta package + every niwrap_<pkg>)
         for pkg_dir in dist/niwrap-python/*/; do
-          # Skip symbolmaps directory
-          if [[ "$pkg_dir" == *"/symbolmaps/" ]]; then
-            echo "Skipping $pkg_dir"
-            continue
-          fi
-
           echo "Building package in $pkg_dir"
           cd "$pkg_dir"
 
