@@ -23,14 +23,14 @@ set -euo pipefail
 # releases are reproducible; bump deliberately and coordinate with the hub's
 # bundled @styx/core version (see the styx2 v1-replacement plan).
 #
-# Pinned to styx-ts main at styx-ts#28 (per-suite wrapper packages carry the
-# project/catalog version, not the wrapped tool version - so every niwrap_<pkg>
-# stays in lockstep with the niwrap meta release). That built on #27 (per-tool
-# json-schema file names) and #26 (Phase A codegen gaps). Bump deliberately when
-# adopting newer styx2 behavior.
+# Pinned to styx-ts main at styx-ts#29 (clamp the per-suite pyproject summary to
+# PyPI's 512-char limit). Builds on #28 (wrapper packages carry the project
+# version, not the wrapped tool version), #27 (per-tool json-schema file names),
+# and #26 (Phase A codegen gaps). Bump deliberately when adopting newer styx2
+# behavior.
 # -----------------------------------------------------------------------------
 STYX2_REPO="${STYX2_REPO:-https://github.com/styx-api/styx-ts.git}"
-STYX2_REF="${STYX2_REF:-b47a179bf610c28db12980c707d1075695f505db}"
+STYX2_REF="${STYX2_REF:-fd498a98d1ddef89fffe7cc2d1839ae7accaba5f}"
 
 TARGETS="${1:-python,typescript,json-schema}"
 
