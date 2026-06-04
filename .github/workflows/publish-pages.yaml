@@ -5,10 +5,11 @@ permissions:
   pages: write
   id-token: write
 
+# Decoupled from release tags during the styx2 cutover: this builds the legacy
+# hub source bundle (symbolmaps + js dist + json-schema), and styx2 no longer
+# emits Python symbolmaps. The Pages/hub artifact pipeline is reworked in the
+# niwrap-hub "architecture A" migration (Phase C); until then run it manually.
 on:
-  push:
-    tags:
-    - '*'
   workflow_dispatch:
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
@@ -32,9 +33,6 @@ jobs:
       with:
         ref: ${{ github.head_ref }}
 
-    - name: Install the latest version of uv
-      uses: astral-sh/setup-uv@v7
-
     - name: Setup Node.js
       uses: actions/setup-node@v6
       with:
@@ -46,7 +44,7 @@ jobs:
 
     - name: Styx compile
       run: |
-        uv --directory tooling run wrap build jsonschema typescript python
+        bash tooling/compile.sh json-schema,typescript,python
 
     - name: Build npm package
       run: |
@@ -82,12 +80,13 @@ jobs:
           exit 1
         fi
 
-        # Copy the built Python symbolmaps to the Pages site
+        # Copy the built Python symbolmaps to the Pages site, if present.
+        # styx2 does not emit symbolmaps (they are removed by the Phase C hub
+        # migration); skip rather than fail until the hub no longer needs them.
         if [ -d "dist/niwrap-python/symbolmaps" ]; then
           cp -r dist/niwrap-python/symbolmaps _site/python-symbolmaps
         else
-          echo "Warning: dist/niwrap-python/symbolmaps directory not found"
-          exit 1
+          echo "Note: dist/niwrap-python/symbolmaps not found (styx2 emits none); skipping"
         fi
 
         # Create index.html that redirects to the repository

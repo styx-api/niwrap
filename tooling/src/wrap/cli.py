@@ -4,7 +4,7 @@ import argparse
 import sys
 from typing import Optional, Sequence
 
-from wrap.apps import build, check_container, sync, test
+from wrap.apps import check_container, sync, test
 
 
 def create_parser() -> argparse.ArgumentParser:
@@ -25,7 +25,6 @@ def create_parser() -> argparse.ArgumentParser:
     )
 
     # Register each module's subcommand
-    build.register_command(subparsers)
     sync.register_command(subparsers)
     test.register_command(subparsers)
     check_container.register_command(subparsers)

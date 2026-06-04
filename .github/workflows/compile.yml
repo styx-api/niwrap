@@ -18,12 +18,14 @@ jobs:
       with:
         ref: ${{ github.head_ref }}
 
-    - name: Install the latest version of uv
-      uses: astral-sh/setup-uv@v7
+    - name: Set up Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22'
 
     - name: Compile
       run: |
-        uv --directory tooling run wrap build
+        bash tooling/compile.sh python,typescript,json-schema
 
     - name: Set up Git
       run: |

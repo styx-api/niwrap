@@ -1,0 +1,48 @@
+name: Typecheck codegen
+
+# B4 gate: compile the full catalog with styx2 and run the real type-checkers
+# (mypy --strict + tsc --noEmit) over the generated Python and TypeScript, so a
+# styx2 bump or a descriptor change can't silently emit code that doesn't
+# type-check. Mirrors styx2's own scripts/typecheck-codegen.mjs at catalog scale.
+
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  typecheck-codegen:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v6
+
+    - name: Set up Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22'
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+
+    - name: Compile (python + typescript)
+      run: bash tooling/compile.sh python,typescript
+
+    - name: Typecheck Python (mypy --strict)
+      run: |
+        python -m pip install --quiet mypy styxdefs
+        cd dist/niwrap-python
+        # Each niwrap_<pkg> is an independent package (imports only styxdefs);
+        # the meta `niwrap/` dir holds no code, so check the code packages.
+        pkgs=$(for d in */; do [ -e "${d}__init__.py" ] && echo "${d%/}"; done)
+        echo "Checking packages: $pkgs"
+        python -m mypy --strict --ignore-missing-imports $pkgs
+
+    - name: Typecheck TypeScript (tsc --noEmit)
+      working-directory: dist/niwrap-js
+      run: |
+        npm install --no-audit --no-fund
+        npx tsc --noEmit -p tsconfig.json
