@@ -27,6 +27,11 @@ jobs:
     - name: Install the latest version of uv
       uses: astral-sh/setup-uv@v7
 
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+
     - name: Compile
       run: |
         bash tooling/compile.sh python
@@ -55,6 +60,25 @@ jobs:
         echo "Built packages:"
         ls -la dist/built_packages/
 
+    - name: Validate package metadata before upload
+      run: |
+        # Guard against a mid-upload failure (which, without skip-existing, would
+        # leave a partial release on PyPI). The Summary 512-char limit is the one
+        # that bit us and `twine check` does NOT catch it, so assert it directly
+        # from the source pyprojects; twine check covers the rest.
+        python - <<'PY'
+        import glob, sys, tomllib
+        bad = []
+        for f in sorted(glob.glob("dist/niwrap-python/*/pyproject.toml")):
+            desc = tomllib.load(open(f, "rb")).get("project", {}).get("description", "")
+            if len(desc) > 512:
+                bad.append((f, len(desc)))
+        for f, n in bad:
+            print(f"::error file={f}::Summary is {n} chars (>512 PyPI limit)")
+        sys.exit(1 if bad else 0)
+        PY
+        uvx twine check dist/built_packages/*
+
     - name: Publish to PyPi
       id: pypi_publish
       uses: pypa/gh-action-pypi-publish@release/v1
@@ -62,4 +86,7 @@ jobs:
         user: __token__
         password: ${{ secrets.PYPI_TOKEN }}
         verbose: true
+        # Idempotent/resumable: re-running a release (or recovering from a
+        # partial upload) skips distributions already on PyPI instead of failing.
+        skip-existing: true
         packages-dir: dist/built_packages

@@ -31,6 +31,25 @@ jobs:
     - name: Compile (python + typescript)
       run: bash tooling/compile.sh python,typescript
 
+    - name: Validate Python package metadata (Summary length)
+      run: |
+        # pyproject's [project] description becomes the core-metadata Summary
+        # field, which PyPI rejects (400) above 512 chars - and `twine check`
+        # does NOT catch this, only the upload does. Assert it here so a long
+        # catalog description fails the PR instead of a partial release upload.
+        python - <<'PY'
+        import glob, sys, tomllib
+        bad = []
+        for f in sorted(glob.glob("dist/niwrap-python/*/pyproject.toml")):
+            desc = tomllib.load(open(f, "rb")).get("project", {}).get("description", "")
+            print(f"{f}: {len(desc)}")
+            if len(desc) > 512:
+                bad.append((f, len(desc)))
+        for f, n in bad:
+            print(f"::error file={f}::Summary is {n} chars (>512 PyPI limit)")
+        sys.exit(1 if bad else 0)
+        PY
+
     - name: Typecheck Python (mypy --strict)
       run: |
         python -m pip install --quiet mypy styxdefs
