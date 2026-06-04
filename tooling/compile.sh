@@ -23,12 +23,12 @@ set -euo pipefail
 # releases are reproducible; bump deliberately and coordinate with the hub's
 # bundled @styx/core version (see the styx2 v1-replacement plan).
 #
-# NOTE: this points at the head of styx-ts#27 (per-tool json-schema names),
-# which is required for the niwrap-json-schema distribution. Once that PR
-# squash-merges to styx-ts main, bump this to the resulting main SHA.
+# Pinned to styx-ts main at styx-ts#27 (per-tool json-schema file names, which
+# the niwrap-json-schema distribution needs); that built on #26 (the Phase A
+# codegen gaps). Bump deliberately when adopting newer styx2 behavior.
 # -----------------------------------------------------------------------------
 STYX2_REPO="${STYX2_REPO:-https://github.com/styx-api/styx-ts.git}"
-STYX2_REF="${STYX2_REF:-e8f1cc007f2bbf70703591fe10fbf9393f7ec99a}"
+STYX2_REF="${STYX2_REF:-1ae2686f5ad7299a165270824a32ce2bf4f30c40}"
 
 TARGETS="${1:-python,typescript,json-schema}"
 
