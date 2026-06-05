@@ -1,0 +1,35 @@
+name: Hub layout + gate
+
+# Builds the version-first hosted layout the niwrap.dev hub consumes
+# (catalog.json + verbatim descriptors) and runs the compiler-lockstep gate:
+# compile every descriptor with the pinned @styx-api/core the hub bundles, so a
+# compiler regression can't ship a tool that 500s in the browser.
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  hub-build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v6
+
+    - name: Install uv
+      uses: astral-sh/setup-uv@v7
+
+    - name: Set up Node
+      uses: actions/setup-node@v6
+      with:
+        node-version: '22'
+
+    - name: Build hosted layout
+      run: uv --directory tooling run wrap hub-build --out dist/pages
+
+    - name: Install gate deps
+      run: npm --prefix tooling/hub-gate ci
+
+    - name: Compiler-lockstep gate
+      run: node tooling/hub-gate/gate.mjs dist/pages

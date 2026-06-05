@@ -5,10 +5,18 @@ permissions:
   pages: write
   id-token: write
 
-# Decoupled from release tags during the styx2 cutover: this builds the legacy
-# hub source bundle (symbolmaps + js dist + json-schema), and styx2 no longer
-# emits Python symbolmaps. The Pages/hub artifact pipeline is reworked in the
-# niwrap-hub "architecture A" migration (Phase C); until then run it manually.
+# Manual deploy of the niwrap.dev/niwrap/ Pages content.
+#
+# Phase C migration is mid-flight, so this publishes BOTH:
+#   - the new version-first hosted layout (index.json + <version>/catalog.json +
+#     descriptors/), which the architecture-A hub compiles in-browser; and
+#   - the legacy artefacts the currently-deployed hub still reads when the
+#     compile-in-browser path is off: the raw catalog mirror (source/), the
+#     prebuilt JSON Schema (niwrap-json-schema/), and the JS runtime bundle (js/).
+#
+# Keep the legacy artefacts until the hub's H2 data-layer swap is deployed; a
+# follow-up then drops the legacy steps and this becomes new-layout-only. The
+# dead Python symbolmaps step is already removed (styx2 emits none).
 on:
   workflow_dispatch:
 
@@ -33,6 +41,9 @@ jobs:
       with:
         ref: ${{ github.head_ref }}
 
+    - name: Install uv
+      uses: astral-sh/setup-uv@v7
+
     - name: Setup Node.js
       uses: actions/setup-node@v6
       with:
@@ -42,54 +53,48 @@ jobs:
     - name: Setup Pages
       uses: actions/configure-pages@v6
 
-    - name: Styx compile
+    # --- New version-first hosted layout (architecture A) --------------------
+    - name: Build hosted layout
+      run: uv --directory tooling run wrap hub-build --out _site
+
+    - name: Compiler-lockstep gate
+      run: |
+        npm --prefix tooling/hub-gate ci
+        node tooling/hub-gate/gate.mjs _site
+
+    # --- Legacy artefacts (kept until the hub's H2 cutover is deployed) -------
+    - name: Styx compile (legacy json-schema + js)
       run: |
         bash tooling/compile.sh json-schema,typescript,python
 
-    - name: Build npm package
+    - name: Build npm package (legacy js bundle)
       run: |
         cd dist/niwrap-js
         npm install
         npm run build
 
-    - name: Prepare GitHub Pages content
+    - name: Add legacy hub sources + landing redirect
       run: |
-        # Create a temporary directory for GitHub Pages content
-        mkdir -p _site
+        # Raw catalog mirror (legacy catalog walker).
+        cp -r src _site/source
 
-        # Copy the source directories to the Pages site
-        if [ -d "src" ]; then
-          cp -r src _site/source
-        else
-          echo "Warning: src directory not found"
-          exit 1
-        fi
-
+        # Prebuilt JSON Schema (legacy forms).
         if [ -d "dist/niwrap-json-schema" ]; then
           cp -r dist/niwrap-json-schema _site/
         else
-          echo "Warning: dist/niwrap-json-schema directory not found"
+          echo "error: dist/niwrap-json-schema not found" >&2
           exit 1
         fi
 
-        # Copy the built JavaScript package dist folder to the Pages site
+        # JS runtime bundle (legacy command/outputs via niwrap.execute).
         if [ -d "dist/niwrap-js/dist" ]; then
           cp -r dist/niwrap-js/dist _site/js
         else
-          echo "Warning: dist/niwrap-js/dist directory not found"
+          echo "error: dist/niwrap-js/dist not found" >&2
           exit 1
         fi
 
-        # Copy the built Python symbolmaps to the Pages site, if present.
-        # styx2 does not emit symbolmaps (they are removed by the Phase C hub
-        # migration); skip rather than fail until the hub no longer needs them.
-        if [ -d "dist/niwrap-python/symbolmaps" ]; then
-          cp -r dist/niwrap-python/symbolmaps _site/python-symbolmaps
-        else
-          echo "Note: dist/niwrap-python/symbolmaps not found (styx2 emits none); skipping"
-        fi
-
-        # Create index.html that redirects to the repository
+        # Landing redirect for humans hitting the root.
         cat > _site/index.html << 'EOF'
         <!DOCTYPE html>
         <html>

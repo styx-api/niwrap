@@ -32,5 +32,8 @@ jobs:
     - name: Install the latest version of uv
       uses: astral-sh/setup-uv@v7
 
+    - name: Unit tests
+      run: uv --directory tooling run pytest
+
     - name: Test descriptors
       run: uv --directory tooling run wrap test
