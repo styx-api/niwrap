@@ -147,4 +147,4 @@ if (failures.length > 0) {
   process.exit(1);
 }
 
-console.log(`✓ all ${checked} descriptors compiled cleanly (forms + command + snippets path)`);
+console.log(`✓ all ${checked} descriptors compiled cleanly (forms + command codegen)`);

@@ -188,10 +188,11 @@ def build_hub_layout(out_dir: Path, compiler: str) -> dict[str, int]:
 
 
 def main(args: Any) -> int:
-    # Resolve before find_niwrap (which may chdir to the repo root) so a relative
-    # --out stays anchored to the original working directory.
-    out_dir = Path(args.out).resolve()
+    # find_niwrap() lands us at the repo root (it chdir's up from tooling/ when run
+    # via `uv --directory tooling`). Resolve --out *after* it, so a relative path is
+    # anchored to the repo root - not to uv's working directory.
     find_niwrap()
+    out_dir = Path(args.out).resolve()
 
     stats = build_hub_layout(out_dir, args.compiler)
     print(

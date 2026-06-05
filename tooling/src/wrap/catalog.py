@@ -66,7 +66,7 @@ class VersionType(TypedDict):
 
 
 class DescriptorSourceType(TypedDict):
-    type: Literal["boutiques"]
+    type: Literal["boutiques", "workbench"]
     path: str
 
 
