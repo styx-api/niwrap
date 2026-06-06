@@ -1,4 +1,4 @@
-name: Publish to GitHub Pages (includes Hub sources)
+name: Publish to GitHub Pages (Hub layout)
 
 permissions:
   contents: read
@@ -7,16 +7,10 @@ permissions:
 
 # Manual deploy of the niwrap.dev/niwrap/ Pages content.
 #
-# Phase C migration is mid-flight, so this publishes BOTH:
-#   - the new version-first hosted layout (index.json + <version>/catalog.json +
-#     descriptors/), which the architecture-A hub compiles in-browser; and
-#   - the legacy artefacts the currently-deployed hub still reads when the
-#     compile-in-browser path is off: the raw catalog mirror (source/), the
-#     prebuilt JSON Schema (niwrap-json-schema/), and the JS runtime bundle (js/).
-#
-# Keep the legacy artefacts until the hub's H2 data-layer swap is deployed; a
-# follow-up then drops the legacy steps and this becomes new-layout-only. The
-# dead Python symbolmaps step is already removed (styx2 emits none).
+# Publishes the version-first hosted layout (index.json + <version>/catalog.json +
+# descriptors/) that the architecture-A hub compiles in-browser. The legacy
+# artefacts (source/, niwrap-json-schema/, js/) were retired once the hub's H2
+# data-layer swap deployed - the hub no longer reads them.
 on:
   workflow_dispatch:
 
@@ -38,22 +32,18 @@ jobs:
     steps:
     - name: Checkout main
       uses: actions/checkout@v6
-      with:
-        ref: ${{ github.head_ref }}
 
     - name: Install uv
       uses: astral-sh/setup-uv@v7
 
-    - name: Setup Node.js
+    - name: Set up Node
       uses: actions/setup-node@v6
       with:
         node-version: '22'
-        registry-url: https://registry.npmjs.org
 
     - name: Setup Pages
       uses: actions/configure-pages@v6
 
-    # --- New version-first hosted layout (architecture A) --------------------
     - name: Build hosted layout
       run: uv --directory tooling run wrap hub-build --out _site
 
@@ -62,39 +52,8 @@ jobs:
         npm --prefix tooling/hub-gate ci
         node tooling/hub-gate/gate.mjs _site
 
-    # --- Legacy artefacts (kept until the hub's H2 cutover is deployed) -------
-    - name: Styx compile (legacy json-schema + js)
+    - name: Landing redirect
       run: |
-        bash tooling/compile.sh json-schema,typescript,python
-
-    - name: Build npm package (legacy js bundle)
-      run: |
-        cd dist/niwrap-js
-        npm install
-        npm run build
-
-    - name: Add legacy hub sources + landing redirect
-      run: |
-        # Raw catalog mirror (legacy catalog walker).
-        cp -r src _site/source
-
-        # Prebuilt JSON Schema (legacy forms).
-        if [ -d "dist/niwrap-json-schema" ]; then
-          cp -r dist/niwrap-json-schema _site/
-        else
-          echo "error: dist/niwrap-json-schema not found" >&2
-          exit 1
-        fi
-
-        # JS runtime bundle (legacy command/outputs via niwrap.execute).
-        if [ -d "dist/niwrap-js/dist" ]; then
-          cp -r dist/niwrap-js/dist _site/js
-        else
-          echo "error: dist/niwrap-js/dist not found" >&2
-          exit 1
-        fi
-
-        # Landing redirect for humans hitting the root.
         cat > _site/index.html << 'EOF'
         <!DOCTYPE html>
         <html>
