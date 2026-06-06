@@ -1,0 +1,15 @@
+{
+  "name": "niwrap-hub-gate",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Compiler-lockstep gate (Phase C / N2): compile every hosted descriptor with the pinned @styx-api/core and fail if any single one errors.",
+  "scripts": {
+    "gate": "node gate.mjs"
+  },
+  "dependencies": {
+    "@styx-api/core": "0.2.0",
+    "styxdefs": "^0.2.0",
+    "sucrase": "^3.35.0"
+  }
+}
