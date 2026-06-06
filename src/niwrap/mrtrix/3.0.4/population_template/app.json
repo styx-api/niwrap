@@ -1,3 +1,10 @@
 {
-  "name": "population_template"
+  "name": "population_template",
+  "source": {
+    "type": "argdump",
+    "path": "argdump.json"
+  },
+  "docs": {
+    "description": "Generates an unbiased group-average template from a series of images.\n\nFirst a template is optimised with linear registration (rigid and/or affine, both by default), then non-linear registration is used to optimise the template further."
+  }
 }

@@ -1,0 +1,791 @@
+{
+  "$schema": "https://niwrap.dev/argdump/schema-v1.json",
+  "prog": "dwibiascorrect",
+  "add_help": false,
+  "formatter_class": "HelpFormatter",
+  "actions": [
+    {
+      "option_strings": [
+        "-info"
+      ],
+      "dest": "info",
+      "action_type": "store_true",
+      "nargs": 0,
+      "const": true,
+      "default": false,
+      "help": "display information messages."
+    },
+    {
+      "option_strings": [
+        "-quiet"
+      ],
+      "dest": "quiet",
+      "action_type": "store_true",
+      "nargs": 0,
+      "const": true,
+      "default": false,
+      "help": "do not display information messages or progress status. Alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string."
+    },
+    {
+      "option_strings": [
+        "-debug"
+      ],
+      "dest": "debug",
+      "action_type": "store_true",
+      "nargs": 0,
+      "const": true,
+      "default": false,
+      "help": "display debugging messages."
+    },
+    {
+      "option_strings": [
+        "-force"
+      ],
+      "dest": "force",
+      "action_type": "store_true",
+      "nargs": 0,
+      "const": true,
+      "default": false,
+      "help": "force overwrite of output files."
+    },
+    {
+      "option_strings": [
+        "-nthreads"
+      ],
+      "dest": "nthreads",
+      "action_type": "store",
+      "type_info": {
+        "name": "int",
+        "builtin": true
+      },
+      "help": "use this number of threads in multi-threaded applications (set to 0 to disable multi-threading).",
+      "metavar": "number"
+    },
+    {
+      "option_strings": [
+        "-config"
+      ],
+      "dest": "config",
+      "action_type": "append",
+      "nargs": 2,
+      "help": "temporarily set the value of an MRtrix config file entry.",
+      "metavar": "key value"
+    },
+    {
+      "option_strings": [
+        "-help"
+      ],
+      "dest": "help",
+      "action_type": "store_true",
+      "nargs": 0,
+      "const": true,
+      "default": false,
+      "help": "display this information page and exit."
+    },
+    {
+      "option_strings": [
+        "-version"
+      ],
+      "dest": "version",
+      "action_type": "store_true",
+      "nargs": 0,
+      "const": true,
+      "default": false,
+      "help": "display version information and exit."
+    },
+    {
+      "option_strings": [
+        "-nocleanup"
+      ],
+      "dest": "nocleanup",
+      "action_type": "store_true",
+      "nargs": 0,
+      "const": true,
+      "default": false,
+      "help": "do not delete intermediate files during script execution, and do not delete scratch directory at script completion."
+    },
+    {
+      "option_strings": [
+        "-scratch"
+      ],
+      "dest": "scratch",
+      "action_type": "store",
+      "help": "manually specify the path in which to generate the scratch directory.",
+      "metavar": "/path/to/scratch/"
+    },
+    {
+      "option_strings": [
+        "-continue"
+      ],
+      "dest": "cont",
+      "action_type": "store",
+      "nargs": 2,
+      "help": "continue the script from a previous execution; must provide the scratch directory path, and the name of the last successfully-generated file.",
+      "metavar": [
+        "<ScratchDir>",
+        "<LastFile>"
+      ]
+    },
+    {
+      "option_strings": [
+        "-mask"
+      ],
+      "dest": "mask",
+      "action_type": "store",
+      "help": "Manually provide a mask image for bias field estimation",
+      "metavar": "image"
+    },
+    {
+      "option_strings": [
+        "-bias"
+      ],
+      "dest": "bias",
+      "action_type": "store",
+      "help": "Output the estimated bias field",
+      "metavar": "image"
+    },
+    {
+      "option_strings": [
+        "-grad"
+      ],
+      "dest": "grad",
+      "action_type": "store",
+      "help": "Provide the diffusion gradient table in MRtrix format"
+    },
+    {
+      "option_strings": [
+        "-fslgrad"
+      ],
+      "dest": "fslgrad",
+      "action_type": "store",
+      "nargs": 2,
+      "help": "Provide the diffusion gradient table in FSL bvecs/bvals format",
+      "metavar": [
+        "bvecs",
+        "bvals"
+      ]
+    },
+    {
+      "option_strings": [],
+      "dest": "algorithm",
+      "action_type": "parsers",
+      "nargs": "A...",
+      "choices": [
+        "ants",
+        "fsl"
+      ],
+      "help": "Select the algorithm to be used to complete the script operation; additional details and options become available once an algorithm is nominated. Options are: ants, fsl",
+      "subparsers": {
+        "ants": {
+          "prog": "dwibiascorrect ants",
+          "add_help": false,
+          "formatter_class": "HelpFormatter",
+          "actions": [
+            {
+              "option_strings": [
+                "-info"
+              ],
+              "dest": "info",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display information messages."
+            },
+            {
+              "option_strings": [
+                "-quiet"
+              ],
+              "dest": "quiet",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "do not display information messages or progress status. Alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string."
+            },
+            {
+              "option_strings": [
+                "-debug"
+              ],
+              "dest": "debug",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display debugging messages."
+            },
+            {
+              "option_strings": [
+                "-force"
+              ],
+              "dest": "force",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "force overwrite of output files."
+            },
+            {
+              "option_strings": [
+                "-nthreads"
+              ],
+              "dest": "nthreads",
+              "action_type": "store",
+              "type_info": {
+                "name": "int",
+                "builtin": true
+              },
+              "help": "use this number of threads in multi-threaded applications (set to 0 to disable multi-threading).",
+              "metavar": "number"
+            },
+            {
+              "option_strings": [
+                "-config"
+              ],
+              "dest": "config",
+              "action_type": "append",
+              "nargs": 2,
+              "help": "temporarily set the value of an MRtrix config file entry.",
+              "metavar": "key value"
+            },
+            {
+              "option_strings": [
+                "-help"
+              ],
+              "dest": "help",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display this information page and exit."
+            },
+            {
+              "option_strings": [
+                "-version"
+              ],
+              "dest": "version",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display version information and exit."
+            },
+            {
+              "option_strings": [
+                "-nocleanup"
+              ],
+              "dest": "nocleanup",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "do not delete intermediate files during script execution, and do not delete scratch directory at script completion."
+            },
+            {
+              "option_strings": [
+                "-scratch"
+              ],
+              "dest": "scratch",
+              "action_type": "store",
+              "help": "manually specify the path in which to generate the scratch directory.",
+              "metavar": "/path/to/scratch/"
+            },
+            {
+              "option_strings": [
+                "-continue"
+              ],
+              "dest": "cont",
+              "action_type": "store",
+              "nargs": 2,
+              "help": "continue the script from a previous execution; must provide the scratch directory path, and the name of the last successfully-generated file.",
+              "metavar": [
+                "<ScratchDir>",
+                "<LastFile>"
+              ]
+            },
+            {
+              "option_strings": [
+                "-mask"
+              ],
+              "dest": "mask",
+              "action_type": "store",
+              "help": "Manually provide a mask image for bias field estimation",
+              "metavar": "image"
+            },
+            {
+              "option_strings": [
+                "-bias"
+              ],
+              "dest": "bias",
+              "action_type": "store",
+              "help": "Output the estimated bias field",
+              "metavar": "image"
+            },
+            {
+              "option_strings": [
+                "-grad"
+              ],
+              "dest": "grad",
+              "action_type": "store",
+              "help": "Provide the diffusion gradient table in MRtrix format"
+            },
+            {
+              "option_strings": [
+                "-fslgrad"
+              ],
+              "dest": "fslgrad",
+              "action_type": "store",
+              "nargs": 2,
+              "help": "Provide the diffusion gradient table in FSL bvecs/bvals format",
+              "metavar": [
+                "bvecs",
+                "bvals"
+              ]
+            },
+            {
+              "option_strings": [
+                "-ants.b"
+              ],
+              "dest": "ants.b",
+              "action_type": "store",
+              "help": "N4BiasFieldCorrection option -b. [initial mesh resolution in mm, spline order] This value is optimised for human adult data and needs to be adjusted for rodent data.",
+              "metavar": "[100,3]"
+            },
+            {
+              "option_strings": [
+                "-ants.c"
+              ],
+              "dest": "ants.c",
+              "action_type": "store",
+              "help": "N4BiasFieldCorrection option -c. [numberOfIterations,convergenceThreshold]",
+              "metavar": "[1000,0.0]"
+            },
+            {
+              "option_strings": [
+                "-ants.s"
+              ],
+              "dest": "ants.s",
+              "action_type": "store",
+              "help": "N4BiasFieldCorrection option -s. shrink-factor applied to spatial dimensions",
+              "metavar": "4"
+            },
+            {
+              "option_strings": [],
+              "dest": "input",
+              "action_type": "store",
+              "required": true,
+              "help": "The input image series to be corrected"
+            },
+            {
+              "option_strings": [],
+              "dest": "output",
+              "action_type": "store",
+              "required": true,
+              "help": "The output corrected image series"
+            }
+          ],
+          "argument_groups": [
+            {
+              "title": "positional arguments",
+              "description": null,
+              "actions": [
+                "input",
+                "output"
+              ]
+            },
+            {
+              "title": "options",
+              "description": null,
+              "actions": []
+            },
+            {
+              "title": "Standard options",
+              "description": null,
+              "actions": [
+                "info",
+                "quiet",
+                "debug",
+                "force",
+                "nthreads",
+                "config",
+                "help",
+                "version"
+              ]
+            },
+            {
+              "title": "Additional standard options for Python scripts",
+              "description": null,
+              "actions": [
+                "nocleanup",
+                "scratch",
+                "cont"
+              ]
+            },
+            {
+              "title": "Options common to all dwibiascorrect algorithms",
+              "description": null,
+              "actions": [
+                "mask",
+                "bias"
+              ]
+            },
+            {
+              "title": "Options for importing the diffusion gradient table",
+              "description": null,
+              "actions": [
+                "grad",
+                "fslgrad"
+              ]
+            },
+            {
+              "title": "Options for ANTs N4BiasFieldCorrection command",
+              "description": null,
+              "actions": [
+                "ants.b",
+                "ants.c",
+                "ants.s"
+              ]
+            }
+          ]
+        },
+        "fsl": {
+          "prog": "dwibiascorrect fsl",
+          "add_help": false,
+          "formatter_class": "HelpFormatter",
+          "actions": [
+            {
+              "option_strings": [
+                "-info"
+              ],
+              "dest": "info",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display information messages."
+            },
+            {
+              "option_strings": [
+                "-quiet"
+              ],
+              "dest": "quiet",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "do not display information messages or progress status. Alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string."
+            },
+            {
+              "option_strings": [
+                "-debug"
+              ],
+              "dest": "debug",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display debugging messages."
+            },
+            {
+              "option_strings": [
+                "-force"
+              ],
+              "dest": "force",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "force overwrite of output files."
+            },
+            {
+              "option_strings": [
+                "-nthreads"
+              ],
+              "dest": "nthreads",
+              "action_type": "store",
+              "type_info": {
+                "name": "int",
+                "builtin": true
+              },
+              "help": "use this number of threads in multi-threaded applications (set to 0 to disable multi-threading).",
+              "metavar": "number"
+            },
+            {
+              "option_strings": [
+                "-config"
+              ],
+              "dest": "config",
+              "action_type": "append",
+              "nargs": 2,
+              "help": "temporarily set the value of an MRtrix config file entry.",
+              "metavar": "key value"
+            },
+            {
+              "option_strings": [
+                "-help"
+              ],
+              "dest": "help",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display this information page and exit."
+            },
+            {
+              "option_strings": [
+                "-version"
+              ],
+              "dest": "version",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display version information and exit."
+            },
+            {
+              "option_strings": [
+                "-nocleanup"
+              ],
+              "dest": "nocleanup",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "do not delete intermediate files during script execution, and do not delete scratch directory at script completion."
+            },
+            {
+              "option_strings": [
+                "-scratch"
+              ],
+              "dest": "scratch",
+              "action_type": "store",
+              "help": "manually specify the path in which to generate the scratch directory.",
+              "metavar": "/path/to/scratch/"
+            },
+            {
+              "option_strings": [
+                "-continue"
+              ],
+              "dest": "cont",
+              "action_type": "store",
+              "nargs": 2,
+              "help": "continue the script from a previous execution; must provide the scratch directory path, and the name of the last successfully-generated file.",
+              "metavar": [
+                "<ScratchDir>",
+                "<LastFile>"
+              ]
+            },
+            {
+              "option_strings": [
+                "-mask"
+              ],
+              "dest": "mask",
+              "action_type": "store",
+              "help": "Manually provide a mask image for bias field estimation",
+              "metavar": "image"
+            },
+            {
+              "option_strings": [
+                "-bias"
+              ],
+              "dest": "bias",
+              "action_type": "store",
+              "help": "Output the estimated bias field",
+              "metavar": "image"
+            },
+            {
+              "option_strings": [
+                "-grad"
+              ],
+              "dest": "grad",
+              "action_type": "store",
+              "help": "Provide the diffusion gradient table in MRtrix format"
+            },
+            {
+              "option_strings": [
+                "-fslgrad"
+              ],
+              "dest": "fslgrad",
+              "action_type": "store",
+              "nargs": 2,
+              "help": "Provide the diffusion gradient table in FSL bvecs/bvals format",
+              "metavar": [
+                "bvecs",
+                "bvals"
+              ]
+            },
+            {
+              "option_strings": [],
+              "dest": "input",
+              "action_type": "store",
+              "required": true,
+              "help": "The input image series to be corrected"
+            },
+            {
+              "option_strings": [],
+              "dest": "output",
+              "action_type": "store",
+              "required": true,
+              "help": "The output corrected image series"
+            }
+          ],
+          "argument_groups": [
+            {
+              "title": "positional arguments",
+              "description": null,
+              "actions": [
+                "input",
+                "output"
+              ]
+            },
+            {
+              "title": "options",
+              "description": null,
+              "actions": []
+            },
+            {
+              "title": "Standard options",
+              "description": null,
+              "actions": [
+                "info",
+                "quiet",
+                "debug",
+                "force",
+                "nthreads",
+                "config",
+                "help",
+                "version"
+              ]
+            },
+            {
+              "title": "Additional standard options for Python scripts",
+              "description": null,
+              "actions": [
+                "nocleanup",
+                "scratch",
+                "cont"
+              ]
+            },
+            {
+              "title": "Options common to all dwibiascorrect algorithms",
+              "description": null,
+              "actions": [
+                "mask",
+                "bias"
+              ]
+            },
+            {
+              "title": "Options for importing the diffusion gradient table",
+              "description": null,
+              "actions": [
+                "grad",
+                "fslgrad"
+              ]
+            }
+          ]
+        }
+      },
+      "subparsers_dest": "algorithm",
+      "subparsers_aliases": {}
+    }
+  ],
+  "argument_groups": [
+    {
+      "title": "positional arguments",
+      "description": null,
+      "actions": []
+    },
+    {
+      "title": "options",
+      "description": null,
+      "actions": []
+    },
+    {
+      "title": "Standard options",
+      "description": null,
+      "actions": [
+        "info",
+        "quiet",
+        "debug",
+        "force",
+        "nthreads",
+        "config",
+        "help",
+        "version"
+      ]
+    },
+    {
+      "title": "Additional standard options for Python scripts",
+      "description": null,
+      "actions": [
+        "nocleanup",
+        "scratch",
+        "cont"
+      ]
+    },
+    {
+      "title": "Options common to all dwibiascorrect algorithms",
+      "description": null,
+      "actions": [
+        "mask",
+        "bias"
+      ]
+    },
+    {
+      "title": "Options for importing the diffusion gradient table",
+      "description": null,
+      "actions": [
+        "grad",
+        "fslgrad"
+      ]
+    },
+    {
+      "title": "Algorithm choices",
+      "description": null,
+      "actions": [
+        "algorithm"
+      ]
+    }
+  ],
+  "mrtrix": {
+    "synopsis": "Perform B1 field inhomogeneity correction for a DWI volume series",
+    "description": [],
+    "author": "Robert E. Smith (robert.smith@florey.edu.au)",
+    "citations": [],
+    "copyright": "Copyright (c) 2008-2022 the MRtrix3 contributors.\n\nThis Source Code Form is subject to the terms of the Mozilla Public\nLicense, v. 2.0. If a copy of the MPL was not distributed with this\nfile, You can obtain one at http://mozilla.org/MPL/2.0/.\n\nCovered Software is provided under this License on an \"as is\"\nbasis, without warranty of any kind, either expressed, implied, or\nstatutory, including, without limitation, warranties that the\nCovered Software is free of defects, merchantable, fit for a\nparticular purpose or non-infringing.\nSee the Mozilla Public License v. 2.0 for more details.\n\nFor more details, see http://www.mrtrix.org/.",
+    "algorithms": {
+      "ants": {
+        "synopsis": "Perform DWI bias field correction using the N4 algorithm as provided in ANTs",
+        "description": [],
+        "author": "Robert E. Smith (robert.smith@florey.edu.au)",
+        "citations": [
+          [
+            null,
+            "Tustison, N.; Avants, B.; Cook, P.; Zheng, Y.; Egan, A.; Yushkevich, P. & Gee, J. N4ITK: Improved N3 Bias Correction. IEEE Transactions on Medical Imaging, 2010, 29, 1310-1320"
+          ]
+        ],
+        "copyright": "Copyright (c) 2008-2022 the MRtrix3 contributors.\n\nThis Source Code Form is subject to the terms of the Mozilla Public\nLicense, v. 2.0. If a copy of the MPL was not distributed with this\nfile, You can obtain one at http://mozilla.org/MPL/2.0/.\n\nCovered Software is provided under this License on an \"as is\"\nbasis, without warranty of any kind, either expressed, implied, or\nstatutory, including, without limitation, warranties that the\nCovered Software is free of defects, merchantable, fit for a\nparticular purpose or non-infringing.\nSee the Mozilla Public License v. 2.0 for more details.\n\nFor more details, see http://www.mrtrix.org/."
+      },
+      "fsl": {
+        "synopsis": "Perform DWI bias field correction using the 'fast' command as provided in FSL",
+        "description": [
+          "The FSL 'fast' command only estimates the bias field within a brain mask, and cannot extrapolate this smoothly-varying field beyond the defined mask. As such, this algorithm by necessity introduces a hard masking of the input DWI. Since this attribute may interfere with the purpose of using the command (e.g. correction of a bias field is commonly used to improve brain mask estimation), use of this particular algorithm is generally not recommended."
+        ],
+        "author": "Robert E. Smith (robert.smith@florey.edu.au)",
+        "citations": [
+          [
+            null,
+            "Zhang, Y.; Brady, M. & Smith, S. Segmentation of brain MR images through a hidden Markov random field model and the expectation-maximization algorithm. IEEE Transactions on Medical Imaging, 2001, 20, 45-57"
+          ],
+          [
+            null,
+            "Smith, S. M.; Jenkinson, M.; Woolrich, M. W.; Beckmann, C. F.; Behrens, T. E.; Johansen-Berg, H.; Bannister, P. R.; De Luca, M.; Drobnjak, I.; Flitney, D. E.; Niazy, R. K.; Saunders, J.; Vickers, J.; Zhang, Y.; De Stefano, N.; Brady, J. M. & Matthews, P. M. Advances in functional and structural MR image analysis and implementation as FSL. NeuroImage, 2004, 23, S208-S219"
+          ]
+        ],
+        "copyright": "Copyright (c) 2008-2022 the MRtrix3 contributors.\n\nThis Source Code Form is subject to the terms of the Mozilla Public\nLicense, v. 2.0. If a copy of the MPL was not distributed with this\nfile, You can obtain one at http://mozilla.org/MPL/2.0/.\n\nCovered Software is provided under this License on an \"as is\"\nbasis, without warranty of any kind, either expressed, implied, or\nstatutory, including, without limitation, warranties that the\nCovered Software is free of defects, merchantable, fit for a\nparticular purpose or non-infringing.\nSee the Mozilla Public License v. 2.0 for more details.\n\nFor more details, see http://www.mrtrix.org/."
+      }
+    },
+    "version": "3.0.4"
+  },
+  "description": "Perform B1 field inhomogeneity correction for a DWI volume series."
+}

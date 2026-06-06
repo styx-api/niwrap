@@ -1,0 +1,153 @@
+{
+  "name": "fixel2peaks",
+  "synopsis": "Convert data in the fixel directory format into a 4D image of 3-vectors",
+  "requires_at_least_one_argument": true,
+  "author": "Robert E. Smith (robert.smith@florey.edu.au)",
+  "version": "3.0.4",
+  "copyright": "Copyright (c) 2008-2022 the MRtrix3 contributors.\n\nThis Source Code Form is subject to the terms of the Mozilla Public\nLicense, v. 2.0. If a copy of the MPL was not distributed with this\nfile, You can obtain one at http://mozilla.org/MPL/2.0/.\n\nCovered Software is provided under this License on an \"as is\"\nbasis, without warranty of any kind, either expressed, implied, or\nstatutory, including, without limitation, warranties that the\nCovered Software is free of defects, merchantable, fit for a\nparticular purpose or non-infringing.\nSee the Mozilla Public License v. 2.0 for more details.\n\nFor more details, see http://www.mrtrix.org/.\n",
+  "description": [
+     "If a fixel data file is provided as input, then the 3-vectors in the output image will be scaled based on the data in that file. If the input is instead the fixel directory, or the index or directions file, then all output 3-vectors will possess unit norm."
+  ],
+  "references": [
+  ],
+  "examples": [
+  ],
+  "arguments": [
+    {
+      "id": "in",
+      "description": "the input fixel information",
+      "type": "various",
+      "optional": false,
+      "allow_multiple": false
+    },
+    {
+      "id": "out",
+      "description": "the output peaks image",
+      "type": "image out",
+      "optional": false,
+      "allow_multiple": false
+    }
+  ],
+  "option_groups": [
+    {
+      "name": "OPTIONS",
+      "options": [
+        {
+          "id": "number",
+          "description": "maximum number of fixels in each voxel (default: based on input data)",
+          "optional": true,
+          "allow_multiple": false,
+          "arguments": [
+            {
+              "id": "value",
+              "description": "",
+              "type": "integer",
+              "min": 1,
+              "optional": false,
+              "allow_multiple": false
+            }
+          ]
+        },
+        {
+          "id": "nan",
+          "description": "fill excess peak data with NaNs rather than zeroes",
+          "optional": true,
+          "allow_multiple": false,
+          "arguments": [
+          ]
+        }
+      ]
+    },
+    {
+      "name": "__standard_options",
+      "options": [
+        {
+          "id": "info",
+          "description": "display information messages.",
+          "optional": true,
+          "allow_multiple": false,
+          "arguments": [
+          ]
+        },
+        {
+          "id": "quiet",
+          "description": "do not display information messages or progress status; alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string.",
+          "optional": true,
+          "allow_multiple": false,
+          "arguments": [
+          ]
+        },
+        {
+          "id": "debug",
+          "description": "display debugging messages.",
+          "optional": true,
+          "allow_multiple": false,
+          "arguments": [
+          ]
+        },
+        {
+          "id": "force",
+          "description": "force overwrite of output files (caution: using the same file as input and output might cause unexpected behaviour).",
+          "optional": true,
+          "allow_multiple": false,
+          "arguments": [
+          ]
+        },
+        {
+          "id": "nthreads",
+          "description": "use this number of threads in multi-threaded applications (set to 0 to disable multi-threading).",
+          "optional": true,
+          "allow_multiple": false,
+          "arguments": [
+            {
+              "id": "number",
+              "description": "",
+              "type": "integer",
+              "min": 0,
+              "optional": false,
+              "allow_multiple": false
+            }
+          ]
+        },
+        {
+          "id": "config",
+          "description": "temporarily set the value of an MRtrix config file entry.",
+          "optional": true,
+          "allow_multiple": true,
+          "arguments": [
+            {
+              "id": "key",
+              "description": "",
+              "type": "text",
+              "optional": false,
+              "allow_multiple": false
+            },
+            {
+              "id": "value",
+              "description": "",
+              "type": "text",
+              "optional": false,
+              "allow_multiple": false
+            }
+          ]
+        },
+        {
+          "id": "help",
+          "description": "display this information page and exit.",
+          "optional": true,
+          "allow_multiple": false,
+          "arguments": [
+          ]
+        },
+        {
+          "id": "version",
+          "description": "display version information and exit.",
+          "optional": true,
+          "allow_multiple": false,
+          "arguments": [
+          ]
+        }
+      ]
+    }
+  ]
+}

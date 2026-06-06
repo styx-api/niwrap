@@ -1,0 +1,238 @@
+{
+  "name": "sh2peaks",
+  "synopsis": "Extract the peaks of a spherical harmonic function in each voxel",
+  "requires_at_least_one_argument": true,
+  "author": "J-Donald Tournier (jdtournier@gmail.com)",
+  "version": "3.0.4",
+  "copyright": "Copyright (c) 2008-2022 the MRtrix3 contributors.\n\nThis Source Code Form is subject to the terms of the Mozilla Public\nLicense, v. 2.0. If a copy of the MPL was not distributed with this\nfile, You can obtain one at http://mozilla.org/MPL/2.0/.\n\nCovered Software is provided under this License on an \"as is\"\nbasis, without warranty of any kind, either expressed, implied, or\nstatutory, including, without limitation, warranties that the\nCovered Software is free of defects, merchantable, fit for a\nparticular purpose or non-infringing.\nSee the Mozilla Public License v. 2.0 for more details.\n\nFor more details, see http://www.mrtrix.org/.\n",
+  "description": [
+     "Peaks of the spherical harmonic function in each voxel are located by commencing a Newton search along each of a set of pre-specified directions",
+     "The spherical harmonic coefficients are stored according the conventions described the main documentation, which can be found at the following link: \nhttps://mrtrix.readthedocs.io/en/3.0.4/concepts/spherical_harmonics.html"
+  ],
+  "references": [
+     "Jeurissen, B.; Leemans, A.; Tournier, J.-D.; Jones, D.K.; Sijbers, J. Investigating the prevalence of complex fiber configurations in white matter tissue with diffusion magnetic resonance imaging. Human Brain Mapping, 2013, 34(11), 2747-2766"
+  ],
+  "examples": [
+  ],
+  "arguments": [
+    {
+      "id": "SH",
+      "description": "the input image of SH coefficients.",
+      "type": "image in",
+      "optional": false,
+      "allow_multiple": false
+    },
+    {
+      "id": "output",
+      "description": "the output image. Each volume corresponds to the x, y & z component of each peak direction vector in turn.",
+      "type": "image out",
+      "optional": false,
+      "allow_multiple": false
+    }
+  ],
+  "option_groups": [
+    {
+      "name": "OPTIONS",
+      "options": [
+        {
+          "id": "num",
+          "description": "the number of peaks to extract (default: 3).",
+          "optional": true,
+          "allow_multiple": false,
+          "arguments": [
+            {
+              "id": "peaks",
+              "description": "",
+              "type": "integer",
+              "min": 0,
+              "optional": false,
+              "allow_multiple": false
+            }
+          ]
+        },
+        {
+          "id": "direction",
+          "description": "the direction of a peak to estimate. The algorithm will attempt to find the same number of peaks as have been specified using this option.",
+          "optional": true,
+          "allow_multiple": true,
+          "arguments": [
+            {
+              "id": "phi",
+              "description": "",
+              "type": "float",
+              "optional": false,
+              "allow_multiple": false
+            },
+            {
+              "id": "theta",
+              "description": "",
+              "type": "float",
+              "optional": false,
+              "allow_multiple": false
+            }
+          ]
+        },
+        {
+          "id": "peaks",
+          "description": "the program will try to find the peaks that most closely match those in the image provided.",
+          "optional": true,
+          "allow_multiple": false,
+          "arguments": [
+            {
+              "id": "image",
+              "description": "",
+              "type": "image in",
+              "optional": false,
+              "allow_multiple": false
+            }
+          ]
+        },
+        {
+          "id": "threshold",
+          "description": "only peak amplitudes greater than the threshold will be considered.",
+          "optional": true,
+          "allow_multiple": false,
+          "arguments": [
+            {
+              "id": "value",
+              "description": "",
+              "type": "float",
+              "min": 0,
+              "optional": false,
+              "allow_multiple": false
+            }
+          ]
+        },
+        {
+          "id": "seeds",
+          "description": "specify a set of directions from which to start the multiple restarts of the optimisation (by default, the built-in 60 direction set is used)",
+          "optional": true,
+          "allow_multiple": false,
+          "arguments": [
+            {
+              "id": "file",
+              "description": "",
+              "type": "file in",
+              "optional": false,
+              "allow_multiple": false
+            }
+          ]
+        },
+        {
+          "id": "mask",
+          "description": "only perform computation within the specified binary brain mask image.",
+          "optional": true,
+          "allow_multiple": false,
+          "arguments": [
+            {
+              "id": "image",
+              "description": "",
+              "type": "image in",
+              "optional": false,
+              "allow_multiple": false
+            }
+          ]
+        },
+        {
+          "id": "fast",
+          "description": "use lookup table to compute associated Legendre polynomials (faster, but approximate).",
+          "optional": true,
+          "allow_multiple": false,
+          "arguments": [
+          ]
+        }
+      ]
+    },
+    {
+      "name": "__standard_options",
+      "options": [
+        {
+          "id": "info",
+          "description": "display information messages.",
+          "optional": true,
+          "allow_multiple": false,
+          "arguments": [
+          ]
+        },
+        {
+          "id": "quiet",
+          "description": "do not display information messages or progress status; alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string.",
+          "optional": true,
+          "allow_multiple": false,
+          "arguments": [
+          ]
+        },
+        {
+          "id": "debug",
+          "description": "display debugging messages.",
+          "optional": true,
+          "allow_multiple": false,
+          "arguments": [
+          ]
+        },
+        {
+          "id": "force",
+          "description": "force overwrite of output files (caution: using the same file as input and output might cause unexpected behaviour).",
+          "optional": true,
+          "allow_multiple": false,
+          "arguments": [
+          ]
+        },
+        {
+          "id": "nthreads",
+          "description": "use this number of threads in multi-threaded applications (set to 0 to disable multi-threading).",
+          "optional": true,
+          "allow_multiple": false,
+          "arguments": [
+            {
+              "id": "number",
+              "description": "",
+              "type": "integer",
+              "min": 0,
+              "optional": false,
+              "allow_multiple": false
+            }
+          ]
+        },
+        {
+          "id": "config",
+          "description": "temporarily set the value of an MRtrix config file entry.",
+          "optional": true,
+          "allow_multiple": true,
+          "arguments": [
+            {
+              "id": "key",
+              "description": "",
+              "type": "text",
+              "optional": false,
+              "allow_multiple": false
+            },
+            {
+              "id": "value",
+              "description": "",
+              "type": "text",
+              "optional": false,
+              "allow_multiple": false
+            }
+          ]
+        },
+        {
+          "id": "help",
+          "description": "display this information page and exit.",
+          "optional": true,
+          "allow_multiple": false,
+          "arguments": [
+          ]
+        },
+        {
+          "id": "version",
+          "description": "display version information and exit.",
+          "optional": true,
+          "allow_multiple": false,
+          "arguments": [
+          ]
+        }
+      ]
+    }
+  ]
+}

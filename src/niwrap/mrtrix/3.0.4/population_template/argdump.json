@@ -1,0 +1,523 @@
+{
+  "$schema": "https://niwrap.dev/argdump/schema-v1.json",
+  "prog": "population_template",
+  "add_help": false,
+  "formatter_class": "HelpFormatter",
+  "actions": [
+    {
+      "option_strings": [
+        "-info"
+      ],
+      "dest": "info",
+      "action_type": "store_true",
+      "nargs": 0,
+      "const": true,
+      "default": false,
+      "help": "display information messages."
+    },
+    {
+      "option_strings": [
+        "-quiet"
+      ],
+      "dest": "quiet",
+      "action_type": "store_true",
+      "nargs": 0,
+      "const": true,
+      "default": false,
+      "help": "do not display information messages or progress status. Alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string."
+    },
+    {
+      "option_strings": [
+        "-debug"
+      ],
+      "dest": "debug",
+      "action_type": "store_true",
+      "nargs": 0,
+      "const": true,
+      "default": false,
+      "help": "display debugging messages."
+    },
+    {
+      "option_strings": [
+        "-force"
+      ],
+      "dest": "force",
+      "action_type": "store_true",
+      "nargs": 0,
+      "const": true,
+      "default": false,
+      "help": "force overwrite of output files."
+    },
+    {
+      "option_strings": [
+        "-nthreads"
+      ],
+      "dest": "nthreads",
+      "action_type": "store",
+      "type_info": {
+        "name": "int",
+        "builtin": true
+      },
+      "help": "use this number of threads in multi-threaded applications (set to 0 to disable multi-threading).",
+      "metavar": "number"
+    },
+    {
+      "option_strings": [
+        "-config"
+      ],
+      "dest": "config",
+      "action_type": "append",
+      "nargs": 2,
+      "help": "temporarily set the value of an MRtrix config file entry.",
+      "metavar": "key value"
+    },
+    {
+      "option_strings": [
+        "-help"
+      ],
+      "dest": "help",
+      "action_type": "store_true",
+      "nargs": 0,
+      "const": true,
+      "default": false,
+      "help": "display this information page and exit."
+    },
+    {
+      "option_strings": [
+        "-version"
+      ],
+      "dest": "version",
+      "action_type": "store_true",
+      "nargs": 0,
+      "const": true,
+      "default": false,
+      "help": "display version information and exit."
+    },
+    {
+      "option_strings": [
+        "-nocleanup"
+      ],
+      "dest": "nocleanup",
+      "action_type": "store_true",
+      "nargs": 0,
+      "const": true,
+      "default": false,
+      "help": "do not delete intermediate files during script execution, and do not delete scratch directory at script completion."
+    },
+    {
+      "option_strings": [
+        "-scratch"
+      ],
+      "dest": "scratch",
+      "action_type": "store",
+      "help": "manually specify the path in which to generate the scratch directory.",
+      "metavar": "/path/to/scratch/"
+    },
+    {
+      "option_strings": [
+        "-continue"
+      ],
+      "dest": "cont",
+      "action_type": "store",
+      "nargs": 2,
+      "help": "continue the script from a previous execution; must provide the scratch directory path, and the name of the last successfully-generated file.",
+      "metavar": [
+        "<ScratchDir>",
+        "<LastFile>"
+      ]
+    },
+    {
+      "option_strings": [],
+      "dest": "input_dir",
+      "action_type": "store",
+      "nargs": "+",
+      "required": true,
+      "help": "Input directory containing all images used to build the template"
+    },
+    {
+      "option_strings": [],
+      "dest": "template",
+      "action_type": "store",
+      "required": true,
+      "help": "Corresponding output template image. For multi-contrast registration, provide multiple paired input_dir and template arguments. Example: WM_dir WM_template.mif GM_dir GM_template.mif"
+    },
+    {
+      "option_strings": [
+        "-mc_weight_initial_alignment"
+      ],
+      "dest": "mc_weight_initial_alignment",
+      "action_type": "store",
+      "help": "Weight contribution of each contrast to the initial alignment. Comma separated, default: 1.0"
+    },
+    {
+      "option_strings": [
+        "-mc_weight_rigid"
+      ],
+      "dest": "mc_weight_rigid",
+      "action_type": "store",
+      "help": "Weight contribution of each contrast to the objective of rigid registration. Comma separated, default: 1.0"
+    },
+    {
+      "option_strings": [
+        "-mc_weight_affine"
+      ],
+      "dest": "mc_weight_affine",
+      "action_type": "store",
+      "help": "Weight contribution of each contrast to the objective of affine registration. Comma separated, default: 1.0"
+    },
+    {
+      "option_strings": [
+        "-mc_weight_nl"
+      ],
+      "dest": "mc_weight_nl",
+      "action_type": "store",
+      "help": "Weight contribution of each contrast to the objective of nonlinear registration. Comma separated, default: 1.0"
+    },
+    {
+      "option_strings": [
+        "-linear_no_pause"
+      ],
+      "dest": "linear_no_pause",
+      "action_type": "store_true",
+      "nargs": 0,
+      "const": true,
+      "default": false,
+      "help": "Do not pause the script if a linear registration seems implausible"
+    },
+    {
+      "option_strings": [
+        "-linear_estimator"
+      ],
+      "dest": "linear_estimator",
+      "action_type": "store",
+      "help": "Specify estimator for intensity difference metric. Valid choices are: l1 (least absolute: |x|), l2 (ordinary least squares), lp (least powers: |x|^1.2), Default: None (no robust estimator used)"
+    },
+    {
+      "option_strings": [
+        "-rigid_scale"
+      ],
+      "dest": "rigid_scale",
+      "action_type": "store",
+      "help": "Specify the multi-resolution pyramid used to build the rigid template, in the form of a list of scale factors (default: 0.3,0.4,0.6,0.8,1.0,1.0). This and affine_scale implicitly  define the number of template levels"
+    },
+    {
+      "option_strings": [
+        "-rigid_lmax"
+      ],
+      "dest": "rigid_lmax",
+      "action_type": "store",
+      "help": "Specify the lmax used for rigid registration for each scale factor, in the form of a list of integers (default: 2,2,2,4,4,4). The list must be the same length as the linear_scale factor list"
+    },
+    {
+      "option_strings": [
+        "-rigid_niter"
+      ],
+      "dest": "rigid_niter",
+      "action_type": "store",
+      "help": "Specify the number of registration iterations used within each level before updating the template, in the form of a list of integers (default:50 for each scale). This must be a single number or a list of same length as the linear_scale factor list"
+    },
+    {
+      "option_strings": [
+        "-affine_scale"
+      ],
+      "dest": "affine_scale",
+      "action_type": "store",
+      "help": "Specify the multi-resolution pyramid used to build the affine template, in the form of a list of scale factors (default: 0.3,0.4,0.6,0.8,1.0,1.0). This and rigid_scale implicitly define the number of template levels"
+    },
+    {
+      "option_strings": [
+        "-affine_lmax"
+      ],
+      "dest": "affine_lmax",
+      "action_type": "store",
+      "help": "Specify the lmax used for affine registration for each scale factor, in the form of a list of integers (default: 2,2,2,4,4,4). The list must be the same length as the linear_scale factor list"
+    },
+    {
+      "option_strings": [
+        "-affine_niter"
+      ],
+      "dest": "affine_niter",
+      "action_type": "store",
+      "help": "Specify the number of registration iterations used within each level before updating the template, in the form of a list of integers (default:500 for each scale). This must be a single number or a list of same length as the linear_scale factor list"
+    },
+    {
+      "option_strings": [
+        "-nl_scale"
+      ],
+      "dest": "nl_scale",
+      "action_type": "store",
+      "help": "Specify the multi-resolution pyramid used to build the non-linear template, in the form of a list of scale factors (default: 0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0). This implicitly defines the number of template levels"
+    },
+    {
+      "option_strings": [
+        "-nl_lmax"
+      ],
+      "dest": "nl_lmax",
+      "action_type": "store",
+      "help": "Specify the lmax used for non-linear registration for each scale factor, in the form of a list of integers (default: 2,2,2,2,2,2,2,2,4,4,4,4,4,4,4,4). The list must be the same length as the nl_scale factor list"
+    },
+    {
+      "option_strings": [
+        "-nl_niter"
+      ],
+      "dest": "nl_niter",
+      "action_type": "store",
+      "help": "Specify the number of registration iterations used within each level before updating the template, in the form of a list of integers (default: 5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5). The list must be the same length as the nl_scale factor list"
+    },
+    {
+      "option_strings": [
+        "-nl_update_smooth"
+      ],
+      "dest": "nl_update_smooth",
+      "action_type": "store",
+      "default": "2.0",
+      "help": "Regularise the gradient update field with Gaussian smoothing (standard deviation in voxel units, Default 2.0 x voxel_size)"
+    },
+    {
+      "option_strings": [
+        "-nl_disp_smooth"
+      ],
+      "dest": "nl_disp_smooth",
+      "action_type": "store",
+      "default": "1.0",
+      "help": "Regularise the displacement field with Gaussian smoothing (standard deviation in voxel units, Default 1.0 x voxel_size)"
+    },
+    {
+      "option_strings": [
+        "-nl_grad_step"
+      ],
+      "dest": "nl_grad_step",
+      "action_type": "store",
+      "default": "0.5",
+      "help": "The gradient step size for non-linear registration (Default: 0.5)"
+    },
+    {
+      "option_strings": [
+        "-type"
+      ],
+      "dest": "type",
+      "action_type": "store",
+      "default": "rigid_affine_nonlinear",
+      "help": "Specify the types of registration stages to perform. Options are \"rigid\" (perform rigid registration only which might be useful for intra-subject registration in longitudinal analysis), \"affine\" (perform affine registration) and \"nonlinear\" as well as cominations of registration types: \"rigid_affine\", \"rigid_nonlinear\", \"affine_nonlinear\", \"rigid_affine_nonlinear\". Default: rigid_affine_nonlinear"
+    },
+    {
+      "option_strings": [
+        "-voxel_size"
+      ],
+      "dest": "voxel_size",
+      "action_type": "store",
+      "help": "Define the template voxel size in mm. Use either a single value for isotropic voxels or 3 comma separated values."
+    },
+    {
+      "option_strings": [
+        "-initial_alignment"
+      ],
+      "dest": "initial_alignment",
+      "action_type": "store",
+      "default": "mass",
+      "help": "Method of alignment to form the initial template. Options are \"mass\" (default), \"robust_mass\" (requires masks), \"geometric\" and \"none\"."
+    },
+    {
+      "option_strings": [
+        "-mask_dir"
+      ],
+      "dest": "mask_dir",
+      "action_type": "store",
+      "help": "Optionally input a set of masks inside a single directory, one per input image (with the same file name prefix). Using masks will speed up registration significantly. Note that masks are used for registration, not for aggregation. To exclude areas from aggregation, NaN-mask your input images."
+    },
+    {
+      "option_strings": [
+        "-warp_dir"
+      ],
+      "dest": "warp_dir",
+      "action_type": "store",
+      "help": "Output a directory containing warps from each input to the template. If the folder does not exist it will be created"
+    },
+    {
+      "option_strings": [
+        "-transformed_dir"
+      ],
+      "dest": "transformed_dir",
+      "action_type": "store",
+      "help": "Output a directory containing the input images transformed to the template. If the folder does not exist it will be created. For multi-contrast registration, provide comma separated list of directories."
+    },
+    {
+      "option_strings": [
+        "-linear_transformations_dir"
+      ],
+      "dest": "linear_transformations_dir",
+      "action_type": "store",
+      "help": "Output a directory containing the linear transformations used to generate the template. If the folder does not exist it will be created"
+    },
+    {
+      "option_strings": [
+        "-template_mask"
+      ],
+      "dest": "template_mask",
+      "action_type": "store",
+      "help": "Output a template mask. Only works if -mask_dir has been input. The template mask is computed as the intersection of all subject masks in template space."
+    },
+    {
+      "option_strings": [
+        "-noreorientation"
+      ],
+      "dest": "noreorientation",
+      "action_type": "store_true",
+      "nargs": 0,
+      "const": true,
+      "default": false,
+      "help": "Turn off FOD reorientation in mrregister. Reorientation is on by default if the number of volumes in the 4th dimension corresponds to the number of coefficients in an antipodally symmetric spherical harmonic series (i.e. 6, 15, 28, 45, 66 etc)"
+    },
+    {
+      "option_strings": [
+        "-leave_one_out"
+      ],
+      "dest": "leave_one_out",
+      "action_type": "store",
+      "help": "Register each input image to a template that does not contain that image. Valid choices: 0, 1, auto. (Default: auto (true if n_subjects larger than 2 and smaller than 15)) "
+    },
+    {
+      "option_strings": [
+        "-aggregate"
+      ],
+      "dest": "aggregate",
+      "action_type": "store",
+      "help": "Measure used to aggregate information from transformed images to the template image. Valid choices: mean, median. Default: mean"
+    },
+    {
+      "option_strings": [
+        "-aggregation_weights"
+      ],
+      "dest": "aggregation_weights",
+      "action_type": "store",
+      "help": "Comma separated file containing weights used for weighted image aggregation. Each row must contain the identifiers of the input image and its weight. Note that this weighs intensity values not transformations (shape)."
+    },
+    {
+      "option_strings": [
+        "-nanmask"
+      ],
+      "dest": "nanmask",
+      "action_type": "store_true",
+      "nargs": 0,
+      "const": true,
+      "default": false,
+      "help": "Optionally apply masks to (transformed) input images using NaN values to specify include areas for registration and aggregation. Only works if -mask_dir has been input."
+    },
+    {
+      "option_strings": [
+        "-copy_input"
+      ],
+      "dest": "copy_input",
+      "action_type": "store_true",
+      "nargs": 0,
+      "const": true,
+      "default": false,
+      "help": "Copy input images and masks into local scratch directory."
+    }
+  ],
+  "argument_groups": [
+    {
+      "title": "positional arguments",
+      "description": null,
+      "actions": [
+        "input_dir",
+        "template"
+      ]
+    },
+    {
+      "title": "options",
+      "description": null,
+      "actions": []
+    },
+    {
+      "title": "Standard options",
+      "description": null,
+      "actions": [
+        "info",
+        "quiet",
+        "debug",
+        "force",
+        "nthreads",
+        "config",
+        "help",
+        "version"
+      ]
+    },
+    {
+      "title": "Additional standard options for Python scripts",
+      "description": null,
+      "actions": [
+        "nocleanup",
+        "scratch",
+        "cont"
+      ]
+    },
+    {
+      "title": "Multi-contrast options",
+      "description": null,
+      "actions": [
+        "mc_weight_initial_alignment",
+        "mc_weight_rigid",
+        "mc_weight_affine",
+        "mc_weight_nl"
+      ]
+    },
+    {
+      "title": "Options for the linear registration",
+      "description": null,
+      "actions": [
+        "linear_no_pause",
+        "linear_estimator",
+        "rigid_scale",
+        "rigid_lmax",
+        "rigid_niter",
+        "affine_scale",
+        "affine_lmax",
+        "affine_niter"
+      ]
+    },
+    {
+      "title": "Options for the non-linear registration",
+      "description": null,
+      "actions": [
+        "nl_scale",
+        "nl_lmax",
+        "nl_niter",
+        "nl_update_smooth",
+        "nl_disp_smooth",
+        "nl_grad_step"
+      ]
+    },
+    {
+      "title": "Input, output and general options",
+      "description": null,
+      "actions": [
+        "type",
+        "voxel_size",
+        "initial_alignment",
+        "mask_dir",
+        "warp_dir",
+        "transformed_dir",
+        "linear_transformations_dir",
+        "template_mask",
+        "noreorientation",
+        "leave_one_out",
+        "aggregate",
+        "aggregation_weights",
+        "nanmask",
+        "copy_input"
+      ]
+    }
+  ],
+  "mrtrix": {
+    "synopsis": "Generates an unbiased group-average template from a series of images",
+    "description": [
+      "First a template is optimised with linear registration (rigid and/or affine, both by default), then non-linear registration is used to optimise the template further."
+    ],
+    "author": "David Raffelt (david.raffelt@florey.edu.au) & Max Pietsch (maximilian.pietsch@kcl.ac.uk) & Thijs Dhollander (thijs.dhollander@gmail.com)",
+    "citations": [],
+    "copyright": "Copyright (c) 2008-2022 the MRtrix3 contributors.\n\nThis Source Code Form is subject to the terms of the Mozilla Public\nLicense, v. 2.0. If a copy of the MPL was not distributed with this\nfile, You can obtain one at http://mozilla.org/MPL/2.0/.\n\nCovered Software is provided under this License on an \"as is\"\nbasis, without warranty of any kind, either expressed, implied, or\nstatutory, including, without limitation, warranties that the\nCovered Software is free of defects, merchantable, fit for a\nparticular purpose or non-infringing.\nSee the Mozilla Public License v. 2.0 for more details.\n\nFor more details, see http://www.mrtrix.org/.",
+    "version": "3.0.4"
+  },
+  "description": "Generates an unbiased group-average template from a series of images.\n\nFirst a template is optimised with linear registration (rigid and/or affine, both by default), then non-linear registration is used to optimise the template further."
+}

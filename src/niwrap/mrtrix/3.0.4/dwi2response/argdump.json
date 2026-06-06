@@ -1,0 +1,2244 @@
+{
+  "$schema": "https://niwrap.dev/argdump/schema-v1.json",
+  "prog": "dwi2response",
+  "add_help": false,
+  "formatter_class": "HelpFormatter",
+  "actions": [
+    {
+      "option_strings": [
+        "-info"
+      ],
+      "dest": "info",
+      "action_type": "store_true",
+      "nargs": 0,
+      "const": true,
+      "default": false,
+      "help": "display information messages."
+    },
+    {
+      "option_strings": [
+        "-quiet"
+      ],
+      "dest": "quiet",
+      "action_type": "store_true",
+      "nargs": 0,
+      "const": true,
+      "default": false,
+      "help": "do not display information messages or progress status. Alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string."
+    },
+    {
+      "option_strings": [
+        "-debug"
+      ],
+      "dest": "debug",
+      "action_type": "store_true",
+      "nargs": 0,
+      "const": true,
+      "default": false,
+      "help": "display debugging messages."
+    },
+    {
+      "option_strings": [
+        "-force"
+      ],
+      "dest": "force",
+      "action_type": "store_true",
+      "nargs": 0,
+      "const": true,
+      "default": false,
+      "help": "force overwrite of output files."
+    },
+    {
+      "option_strings": [
+        "-nthreads"
+      ],
+      "dest": "nthreads",
+      "action_type": "store",
+      "type_info": {
+        "name": "int",
+        "builtin": true
+      },
+      "help": "use this number of threads in multi-threaded applications (set to 0 to disable multi-threading).",
+      "metavar": "number"
+    },
+    {
+      "option_strings": [
+        "-config"
+      ],
+      "dest": "config",
+      "action_type": "append",
+      "nargs": 2,
+      "help": "temporarily set the value of an MRtrix config file entry.",
+      "metavar": "key value"
+    },
+    {
+      "option_strings": [
+        "-help"
+      ],
+      "dest": "help",
+      "action_type": "store_true",
+      "nargs": 0,
+      "const": true,
+      "default": false,
+      "help": "display this information page and exit."
+    },
+    {
+      "option_strings": [
+        "-version"
+      ],
+      "dest": "version",
+      "action_type": "store_true",
+      "nargs": 0,
+      "const": true,
+      "default": false,
+      "help": "display version information and exit."
+    },
+    {
+      "option_strings": [
+        "-nocleanup"
+      ],
+      "dest": "nocleanup",
+      "action_type": "store_true",
+      "nargs": 0,
+      "const": true,
+      "default": false,
+      "help": "do not delete intermediate files during script execution, and do not delete scratch directory at script completion."
+    },
+    {
+      "option_strings": [
+        "-scratch"
+      ],
+      "dest": "scratch",
+      "action_type": "store",
+      "help": "manually specify the path in which to generate the scratch directory.",
+      "metavar": "/path/to/scratch/"
+    },
+    {
+      "option_strings": [
+        "-continue"
+      ],
+      "dest": "cont",
+      "action_type": "store",
+      "nargs": 2,
+      "help": "continue the script from a previous execution; must provide the scratch directory path, and the name of the last successfully-generated file.",
+      "metavar": [
+        "<ScratchDir>",
+        "<LastFile>"
+      ]
+    },
+    {
+      "option_strings": [
+        "-mask"
+      ],
+      "dest": "mask",
+      "action_type": "store",
+      "help": "Provide an initial mask for response voxel selection"
+    },
+    {
+      "option_strings": [
+        "-voxels"
+      ],
+      "dest": "voxels",
+      "action_type": "store",
+      "help": "Output an image showing the final voxel selection(s)"
+    },
+    {
+      "option_strings": [
+        "-shells"
+      ],
+      "dest": "shells",
+      "action_type": "store",
+      "help": "The b-value(s) to use in response function estimation (comma-separated list in case of multiple b-values, b=0 must be included explicitly)"
+    },
+    {
+      "option_strings": [
+        "-lmax"
+      ],
+      "dest": "lmax",
+      "action_type": "store",
+      "help": "The maximum harmonic degree(s) for response function estimation (comma-separated list in case of multiple b-values)"
+    },
+    {
+      "option_strings": [
+        "-grad"
+      ],
+      "dest": "grad",
+      "action_type": "store",
+      "help": "Provide the diffusion gradient table in MRtrix format"
+    },
+    {
+      "option_strings": [
+        "-fslgrad"
+      ],
+      "dest": "fslgrad",
+      "action_type": "store",
+      "nargs": 2,
+      "help": "Provide the diffusion gradient table in FSL bvecs/bvals format",
+      "metavar": [
+        "bvecs",
+        "bvals"
+      ]
+    },
+    {
+      "option_strings": [],
+      "dest": "algorithm",
+      "action_type": "parsers",
+      "nargs": "A...",
+      "choices": [
+        "dhollander",
+        "fa",
+        "manual",
+        "msmt_5tt",
+        "tax",
+        "tournier"
+      ],
+      "help": "Select the algorithm to be used to complete the script operation; additional details and options become available once an algorithm is nominated. Options are: dhollander, fa, manual, msmt_5tt, tax, tournier",
+      "subparsers": {
+        "dhollander": {
+          "prog": "dwi2response dhollander",
+          "add_help": false,
+          "formatter_class": "HelpFormatter",
+          "actions": [
+            {
+              "option_strings": [
+                "-info"
+              ],
+              "dest": "info",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display information messages."
+            },
+            {
+              "option_strings": [
+                "-quiet"
+              ],
+              "dest": "quiet",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "do not display information messages or progress status. Alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string."
+            },
+            {
+              "option_strings": [
+                "-debug"
+              ],
+              "dest": "debug",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display debugging messages."
+            },
+            {
+              "option_strings": [
+                "-force"
+              ],
+              "dest": "force",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "force overwrite of output files."
+            },
+            {
+              "option_strings": [
+                "-nthreads"
+              ],
+              "dest": "nthreads",
+              "action_type": "store",
+              "type_info": {
+                "name": "int",
+                "builtin": true
+              },
+              "help": "use this number of threads in multi-threaded applications (set to 0 to disable multi-threading).",
+              "metavar": "number"
+            },
+            {
+              "option_strings": [
+                "-config"
+              ],
+              "dest": "config",
+              "action_type": "append",
+              "nargs": 2,
+              "help": "temporarily set the value of an MRtrix config file entry.",
+              "metavar": "key value"
+            },
+            {
+              "option_strings": [
+                "-help"
+              ],
+              "dest": "help",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display this information page and exit."
+            },
+            {
+              "option_strings": [
+                "-version"
+              ],
+              "dest": "version",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display version information and exit."
+            },
+            {
+              "option_strings": [
+                "-nocleanup"
+              ],
+              "dest": "nocleanup",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "do not delete intermediate files during script execution, and do not delete scratch directory at script completion."
+            },
+            {
+              "option_strings": [
+                "-scratch"
+              ],
+              "dest": "scratch",
+              "action_type": "store",
+              "help": "manually specify the path in which to generate the scratch directory.",
+              "metavar": "/path/to/scratch/"
+            },
+            {
+              "option_strings": [
+                "-continue"
+              ],
+              "dest": "cont",
+              "action_type": "store",
+              "nargs": 2,
+              "help": "continue the script from a previous execution; must provide the scratch directory path, and the name of the last successfully-generated file.",
+              "metavar": [
+                "<ScratchDir>",
+                "<LastFile>"
+              ]
+            },
+            {
+              "option_strings": [
+                "-mask"
+              ],
+              "dest": "mask",
+              "action_type": "store",
+              "help": "Provide an initial mask for response voxel selection"
+            },
+            {
+              "option_strings": [
+                "-voxels"
+              ],
+              "dest": "voxels",
+              "action_type": "store",
+              "help": "Output an image showing the final voxel selection(s)"
+            },
+            {
+              "option_strings": [
+                "-shells"
+              ],
+              "dest": "shells",
+              "action_type": "store",
+              "help": "The b-value(s) to use in response function estimation (comma-separated list in case of multiple b-values, b=0 must be included explicitly)"
+            },
+            {
+              "option_strings": [
+                "-lmax"
+              ],
+              "dest": "lmax",
+              "action_type": "store",
+              "help": "The maximum harmonic degree(s) for response function estimation (comma-separated list in case of multiple b-values)"
+            },
+            {
+              "option_strings": [
+                "-grad"
+              ],
+              "dest": "grad",
+              "action_type": "store",
+              "help": "Provide the diffusion gradient table in MRtrix format"
+            },
+            {
+              "option_strings": [
+                "-fslgrad"
+              ],
+              "dest": "fslgrad",
+              "action_type": "store",
+              "nargs": 2,
+              "help": "Provide the diffusion gradient table in FSL bvecs/bvals format",
+              "metavar": [
+                "bvecs",
+                "bvals"
+              ]
+            },
+            {
+              "option_strings": [],
+              "dest": "input",
+              "action_type": "store",
+              "required": true,
+              "help": "Input DWI dataset"
+            },
+            {
+              "option_strings": [],
+              "dest": "out_sfwm",
+              "action_type": "store",
+              "required": true,
+              "help": "Output single-fibre WM response function text file"
+            },
+            {
+              "option_strings": [],
+              "dest": "out_gm",
+              "action_type": "store",
+              "required": true,
+              "help": "Output GM response function text file"
+            },
+            {
+              "option_strings": [],
+              "dest": "out_csf",
+              "action_type": "store",
+              "required": true,
+              "help": "Output CSF response function text file"
+            },
+            {
+              "option_strings": [
+                "-erode"
+              ],
+              "dest": "erode",
+              "action_type": "store",
+              "default": 3,
+              "type_info": {
+                "name": "int",
+                "builtin": true
+              },
+              "help": "Number of erosion passes to apply to initial (whole brain) mask. Set to 0 to not erode the brain mask. (default: 3)"
+            },
+            {
+              "option_strings": [
+                "-fa"
+              ],
+              "dest": "fa",
+              "action_type": "store",
+              "default": 0.2,
+              "type_info": {
+                "name": "float",
+                "builtin": true
+              },
+              "help": "FA threshold for crude WM versus GM-CSF separation. (default: 0.2)"
+            },
+            {
+              "option_strings": [
+                "-sfwm"
+              ],
+              "dest": "sfwm",
+              "action_type": "store",
+              "default": 0.5,
+              "type_info": {
+                "name": "float",
+                "builtin": true
+              },
+              "help": "Final number of single-fibre WM voxels to select, as a percentage of refined WM. (default: 0.5 per cent)"
+            },
+            {
+              "option_strings": [
+                "-gm"
+              ],
+              "dest": "gm",
+              "action_type": "store",
+              "default": 2.0,
+              "type_info": {
+                "name": "float",
+                "builtin": true
+              },
+              "help": "Final number of GM voxels to select, as a percentage of refined GM. (default: 2 per cent)"
+            },
+            {
+              "option_strings": [
+                "-csf"
+              ],
+              "dest": "csf",
+              "action_type": "store",
+              "default": 10.0,
+              "type_info": {
+                "name": "float",
+                "builtin": true
+              },
+              "help": "Final number of CSF voxels to select, as a percentage of refined CSF. (default: 10 per cent)"
+            },
+            {
+              "option_strings": [
+                "-wm_algo"
+              ],
+              "dest": "wm_algo",
+              "action_type": "store",
+              "choices": [
+                "fa",
+                "tax",
+                "tournier"
+              ],
+              "help": "Use external dwi2response algorithm for WM single-fibre voxel selection (options: fa, tax, tournier) (default: built-in Dhollander 2019)",
+              "metavar": "algorithm"
+            }
+          ],
+          "argument_groups": [
+            {
+              "title": "positional arguments",
+              "description": null,
+              "actions": [
+                "input",
+                "out_sfwm",
+                "out_gm",
+                "out_csf"
+              ]
+            },
+            {
+              "title": "options",
+              "description": null,
+              "actions": []
+            },
+            {
+              "title": "Standard options",
+              "description": null,
+              "actions": [
+                "info",
+                "quiet",
+                "debug",
+                "force",
+                "nthreads",
+                "config",
+                "help",
+                "version"
+              ]
+            },
+            {
+              "title": "Additional standard options for Python scripts",
+              "description": null,
+              "actions": [
+                "nocleanup",
+                "scratch",
+                "cont"
+              ]
+            },
+            {
+              "title": "General dwi2response options",
+              "description": null,
+              "actions": [
+                "mask",
+                "voxels",
+                "shells",
+                "lmax"
+              ]
+            },
+            {
+              "title": "Options for importing the diffusion gradient table",
+              "description": null,
+              "actions": [
+                "grad",
+                "fslgrad"
+              ]
+            },
+            {
+              "title": "Options for the 'dhollander' algorithm",
+              "description": null,
+              "actions": [
+                "erode",
+                "fa",
+                "sfwm",
+                "gm",
+                "csf",
+                "wm_algo"
+              ]
+            }
+          ]
+        },
+        "fa": {
+          "prog": "dwi2response fa",
+          "add_help": false,
+          "formatter_class": "HelpFormatter",
+          "actions": [
+            {
+              "option_strings": [
+                "-info"
+              ],
+              "dest": "info",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display information messages."
+            },
+            {
+              "option_strings": [
+                "-quiet"
+              ],
+              "dest": "quiet",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "do not display information messages or progress status. Alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string."
+            },
+            {
+              "option_strings": [
+                "-debug"
+              ],
+              "dest": "debug",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display debugging messages."
+            },
+            {
+              "option_strings": [
+                "-force"
+              ],
+              "dest": "force",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "force overwrite of output files."
+            },
+            {
+              "option_strings": [
+                "-nthreads"
+              ],
+              "dest": "nthreads",
+              "action_type": "store",
+              "type_info": {
+                "name": "int",
+                "builtin": true
+              },
+              "help": "use this number of threads in multi-threaded applications (set to 0 to disable multi-threading).",
+              "metavar": "number"
+            },
+            {
+              "option_strings": [
+                "-config"
+              ],
+              "dest": "config",
+              "action_type": "append",
+              "nargs": 2,
+              "help": "temporarily set the value of an MRtrix config file entry.",
+              "metavar": "key value"
+            },
+            {
+              "option_strings": [
+                "-help"
+              ],
+              "dest": "help",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display this information page and exit."
+            },
+            {
+              "option_strings": [
+                "-version"
+              ],
+              "dest": "version",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display version information and exit."
+            },
+            {
+              "option_strings": [
+                "-nocleanup"
+              ],
+              "dest": "nocleanup",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "do not delete intermediate files during script execution, and do not delete scratch directory at script completion."
+            },
+            {
+              "option_strings": [
+                "-scratch"
+              ],
+              "dest": "scratch",
+              "action_type": "store",
+              "help": "manually specify the path in which to generate the scratch directory.",
+              "metavar": "/path/to/scratch/"
+            },
+            {
+              "option_strings": [
+                "-continue"
+              ],
+              "dest": "cont",
+              "action_type": "store",
+              "nargs": 2,
+              "help": "continue the script from a previous execution; must provide the scratch directory path, and the name of the last successfully-generated file.",
+              "metavar": [
+                "<ScratchDir>",
+                "<LastFile>"
+              ]
+            },
+            {
+              "option_strings": [
+                "-mask"
+              ],
+              "dest": "mask",
+              "action_type": "store",
+              "help": "Provide an initial mask for response voxel selection"
+            },
+            {
+              "option_strings": [
+                "-voxels"
+              ],
+              "dest": "voxels",
+              "action_type": "store",
+              "help": "Output an image showing the final voxel selection(s)"
+            },
+            {
+              "option_strings": [
+                "-shells"
+              ],
+              "dest": "shells",
+              "action_type": "store",
+              "help": "The b-value(s) to use in response function estimation (comma-separated list in case of multiple b-values, b=0 must be included explicitly)"
+            },
+            {
+              "option_strings": [
+                "-lmax"
+              ],
+              "dest": "lmax",
+              "action_type": "store",
+              "help": "The maximum harmonic degree(s) for response function estimation (comma-separated list in case of multiple b-values)"
+            },
+            {
+              "option_strings": [
+                "-grad"
+              ],
+              "dest": "grad",
+              "action_type": "store",
+              "help": "Provide the diffusion gradient table in MRtrix format"
+            },
+            {
+              "option_strings": [
+                "-fslgrad"
+              ],
+              "dest": "fslgrad",
+              "action_type": "store",
+              "nargs": 2,
+              "help": "Provide the diffusion gradient table in FSL bvecs/bvals format",
+              "metavar": [
+                "bvecs",
+                "bvals"
+              ]
+            },
+            {
+              "option_strings": [],
+              "dest": "input",
+              "action_type": "store",
+              "required": true,
+              "help": "The input DWI"
+            },
+            {
+              "option_strings": [],
+              "dest": "output",
+              "action_type": "store",
+              "required": true,
+              "help": "The output response function text file"
+            },
+            {
+              "option_strings": [
+                "-erode"
+              ],
+              "dest": "erode",
+              "action_type": "store",
+              "default": 3,
+              "type_info": {
+                "name": "int",
+                "builtin": true
+              },
+              "help": "Number of brain mask erosion steps to apply prior to threshold (not used if mask is provided manually)"
+            },
+            {
+              "option_strings": [
+                "-number"
+              ],
+              "dest": "number",
+              "action_type": "store",
+              "default": 300,
+              "type_info": {
+                "name": "int",
+                "builtin": true
+              },
+              "help": "The number of highest-FA voxels to use"
+            },
+            {
+              "option_strings": [
+                "-threshold"
+              ],
+              "dest": "threshold",
+              "action_type": "store",
+              "type_info": {
+                "name": "float",
+                "builtin": true
+              },
+              "help": "Apply a hard FA threshold, rather than selecting the top voxels"
+            }
+          ],
+          "argument_groups": [
+            {
+              "title": "positional arguments",
+              "description": null,
+              "actions": [
+                "input",
+                "output"
+              ]
+            },
+            {
+              "title": "options",
+              "description": null,
+              "actions": []
+            },
+            {
+              "title": "Standard options",
+              "description": null,
+              "actions": [
+                "info",
+                "quiet",
+                "debug",
+                "force",
+                "nthreads",
+                "config",
+                "help",
+                "version"
+              ]
+            },
+            {
+              "title": "Additional standard options for Python scripts",
+              "description": null,
+              "actions": [
+                "nocleanup",
+                "scratch",
+                "cont"
+              ]
+            },
+            {
+              "title": "General dwi2response options",
+              "description": null,
+              "actions": [
+                "mask",
+                "voxels",
+                "shells",
+                "lmax"
+              ]
+            },
+            {
+              "title": "Options for importing the diffusion gradient table",
+              "description": null,
+              "actions": [
+                "grad",
+                "fslgrad"
+              ]
+            },
+            {
+              "title": "Options specific to the 'fa' algorithm",
+              "description": null,
+              "actions": [
+                "erode",
+                "number",
+                "threshold"
+              ]
+            }
+          ]
+        },
+        "manual": {
+          "prog": "dwi2response manual",
+          "add_help": false,
+          "formatter_class": "HelpFormatter",
+          "actions": [
+            {
+              "option_strings": [
+                "-info"
+              ],
+              "dest": "info",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display information messages."
+            },
+            {
+              "option_strings": [
+                "-quiet"
+              ],
+              "dest": "quiet",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "do not display information messages or progress status. Alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string."
+            },
+            {
+              "option_strings": [
+                "-debug"
+              ],
+              "dest": "debug",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display debugging messages."
+            },
+            {
+              "option_strings": [
+                "-force"
+              ],
+              "dest": "force",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "force overwrite of output files."
+            },
+            {
+              "option_strings": [
+                "-nthreads"
+              ],
+              "dest": "nthreads",
+              "action_type": "store",
+              "type_info": {
+                "name": "int",
+                "builtin": true
+              },
+              "help": "use this number of threads in multi-threaded applications (set to 0 to disable multi-threading).",
+              "metavar": "number"
+            },
+            {
+              "option_strings": [
+                "-config"
+              ],
+              "dest": "config",
+              "action_type": "append",
+              "nargs": 2,
+              "help": "temporarily set the value of an MRtrix config file entry.",
+              "metavar": "key value"
+            },
+            {
+              "option_strings": [
+                "-help"
+              ],
+              "dest": "help",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display this information page and exit."
+            },
+            {
+              "option_strings": [
+                "-version"
+              ],
+              "dest": "version",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display version information and exit."
+            },
+            {
+              "option_strings": [
+                "-nocleanup"
+              ],
+              "dest": "nocleanup",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "do not delete intermediate files during script execution, and do not delete scratch directory at script completion."
+            },
+            {
+              "option_strings": [
+                "-scratch"
+              ],
+              "dest": "scratch",
+              "action_type": "store",
+              "help": "manually specify the path in which to generate the scratch directory.",
+              "metavar": "/path/to/scratch/"
+            },
+            {
+              "option_strings": [
+                "-continue"
+              ],
+              "dest": "cont",
+              "action_type": "store",
+              "nargs": 2,
+              "help": "continue the script from a previous execution; must provide the scratch directory path, and the name of the last successfully-generated file.",
+              "metavar": [
+                "<ScratchDir>",
+                "<LastFile>"
+              ]
+            },
+            {
+              "option_strings": [
+                "-mask"
+              ],
+              "dest": "mask",
+              "action_type": "store",
+              "help": "Provide an initial mask for response voxel selection"
+            },
+            {
+              "option_strings": [
+                "-voxels"
+              ],
+              "dest": "voxels",
+              "action_type": "store",
+              "help": "Output an image showing the final voxel selection(s)"
+            },
+            {
+              "option_strings": [
+                "-shells"
+              ],
+              "dest": "shells",
+              "action_type": "store",
+              "help": "The b-value(s) to use in response function estimation (comma-separated list in case of multiple b-values, b=0 must be included explicitly)"
+            },
+            {
+              "option_strings": [
+                "-lmax"
+              ],
+              "dest": "lmax",
+              "action_type": "store",
+              "help": "The maximum harmonic degree(s) for response function estimation (comma-separated list in case of multiple b-values)"
+            },
+            {
+              "option_strings": [
+                "-grad"
+              ],
+              "dest": "grad",
+              "action_type": "store",
+              "help": "Provide the diffusion gradient table in MRtrix format"
+            },
+            {
+              "option_strings": [
+                "-fslgrad"
+              ],
+              "dest": "fslgrad",
+              "action_type": "store",
+              "nargs": 2,
+              "help": "Provide the diffusion gradient table in FSL bvecs/bvals format",
+              "metavar": [
+                "bvecs",
+                "bvals"
+              ]
+            },
+            {
+              "option_strings": [],
+              "dest": "input",
+              "action_type": "store",
+              "required": true,
+              "help": "The input DWI"
+            },
+            {
+              "option_strings": [],
+              "dest": "in_voxels",
+              "action_type": "store",
+              "required": true,
+              "help": "Input voxel selection mask"
+            },
+            {
+              "option_strings": [],
+              "dest": "output",
+              "action_type": "store",
+              "required": true,
+              "help": "Output response function text file"
+            },
+            {
+              "option_strings": [
+                "-dirs"
+              ],
+              "dest": "dirs",
+              "action_type": "store",
+              "help": "Manually provide the fibre direction in each voxel (a tensor fit will be used otherwise)"
+            }
+          ],
+          "argument_groups": [
+            {
+              "title": "positional arguments",
+              "description": null,
+              "actions": [
+                "input",
+                "in_voxels",
+                "output"
+              ]
+            },
+            {
+              "title": "options",
+              "description": null,
+              "actions": []
+            },
+            {
+              "title": "Standard options",
+              "description": null,
+              "actions": [
+                "info",
+                "quiet",
+                "debug",
+                "force",
+                "nthreads",
+                "config",
+                "help",
+                "version"
+              ]
+            },
+            {
+              "title": "Additional standard options for Python scripts",
+              "description": null,
+              "actions": [
+                "nocleanup",
+                "scratch",
+                "cont"
+              ]
+            },
+            {
+              "title": "General dwi2response options",
+              "description": null,
+              "actions": [
+                "mask",
+                "voxels",
+                "shells",
+                "lmax"
+              ]
+            },
+            {
+              "title": "Options for importing the diffusion gradient table",
+              "description": null,
+              "actions": [
+                "grad",
+                "fslgrad"
+              ]
+            },
+            {
+              "title": "Options specific to the 'manual' algorithm",
+              "description": null,
+              "actions": [
+                "dirs"
+              ]
+            }
+          ]
+        },
+        "msmt_5tt": {
+          "prog": "dwi2response msmt_5tt",
+          "add_help": false,
+          "formatter_class": "HelpFormatter",
+          "actions": [
+            {
+              "option_strings": [
+                "-info"
+              ],
+              "dest": "info",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display information messages."
+            },
+            {
+              "option_strings": [
+                "-quiet"
+              ],
+              "dest": "quiet",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "do not display information messages or progress status. Alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string."
+            },
+            {
+              "option_strings": [
+                "-debug"
+              ],
+              "dest": "debug",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display debugging messages."
+            },
+            {
+              "option_strings": [
+                "-force"
+              ],
+              "dest": "force",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "force overwrite of output files."
+            },
+            {
+              "option_strings": [
+                "-nthreads"
+              ],
+              "dest": "nthreads",
+              "action_type": "store",
+              "type_info": {
+                "name": "int",
+                "builtin": true
+              },
+              "help": "use this number of threads in multi-threaded applications (set to 0 to disable multi-threading).",
+              "metavar": "number"
+            },
+            {
+              "option_strings": [
+                "-config"
+              ],
+              "dest": "config",
+              "action_type": "append",
+              "nargs": 2,
+              "help": "temporarily set the value of an MRtrix config file entry.",
+              "metavar": "key value"
+            },
+            {
+              "option_strings": [
+                "-help"
+              ],
+              "dest": "help",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display this information page and exit."
+            },
+            {
+              "option_strings": [
+                "-version"
+              ],
+              "dest": "version",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display version information and exit."
+            },
+            {
+              "option_strings": [
+                "-nocleanup"
+              ],
+              "dest": "nocleanup",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "do not delete intermediate files during script execution, and do not delete scratch directory at script completion."
+            },
+            {
+              "option_strings": [
+                "-scratch"
+              ],
+              "dest": "scratch",
+              "action_type": "store",
+              "help": "manually specify the path in which to generate the scratch directory.",
+              "metavar": "/path/to/scratch/"
+            },
+            {
+              "option_strings": [
+                "-continue"
+              ],
+              "dest": "cont",
+              "action_type": "store",
+              "nargs": 2,
+              "help": "continue the script from a previous execution; must provide the scratch directory path, and the name of the last successfully-generated file.",
+              "metavar": [
+                "<ScratchDir>",
+                "<LastFile>"
+              ]
+            },
+            {
+              "option_strings": [
+                "-mask"
+              ],
+              "dest": "mask",
+              "action_type": "store",
+              "help": "Provide an initial mask for response voxel selection"
+            },
+            {
+              "option_strings": [
+                "-voxels"
+              ],
+              "dest": "voxels",
+              "action_type": "store",
+              "help": "Output an image showing the final voxel selection(s)"
+            },
+            {
+              "option_strings": [
+                "-shells"
+              ],
+              "dest": "shells",
+              "action_type": "store",
+              "help": "The b-value(s) to use in response function estimation (comma-separated list in case of multiple b-values, b=0 must be included explicitly)"
+            },
+            {
+              "option_strings": [
+                "-lmax"
+              ],
+              "dest": "lmax",
+              "action_type": "store",
+              "help": "The maximum harmonic degree(s) for response function estimation (comma-separated list in case of multiple b-values)"
+            },
+            {
+              "option_strings": [
+                "-grad"
+              ],
+              "dest": "grad",
+              "action_type": "store",
+              "help": "Provide the diffusion gradient table in MRtrix format"
+            },
+            {
+              "option_strings": [
+                "-fslgrad"
+              ],
+              "dest": "fslgrad",
+              "action_type": "store",
+              "nargs": 2,
+              "help": "Provide the diffusion gradient table in FSL bvecs/bvals format",
+              "metavar": [
+                "bvecs",
+                "bvals"
+              ]
+            },
+            {
+              "option_strings": [],
+              "dest": "input",
+              "action_type": "store",
+              "required": true,
+              "help": "The input DWI"
+            },
+            {
+              "option_strings": [],
+              "dest": "in_5tt",
+              "action_type": "store",
+              "required": true,
+              "help": "Input co-registered 5TT image"
+            },
+            {
+              "option_strings": [],
+              "dest": "out_wm",
+              "action_type": "store",
+              "required": true,
+              "help": "Output WM response text file"
+            },
+            {
+              "option_strings": [],
+              "dest": "out_gm",
+              "action_type": "store",
+              "required": true,
+              "help": "Output GM response text file"
+            },
+            {
+              "option_strings": [],
+              "dest": "out_csf",
+              "action_type": "store",
+              "required": true,
+              "help": "Output CSF response text file"
+            },
+            {
+              "option_strings": [
+                "-dirs"
+              ],
+              "dest": "dirs",
+              "action_type": "store",
+              "help": "Manually provide the fibre direction in each voxel (a tensor fit will be used otherwise)"
+            },
+            {
+              "option_strings": [
+                "-fa"
+              ],
+              "dest": "fa",
+              "action_type": "store",
+              "default": 0.2,
+              "type_info": {
+                "name": "float",
+                "builtin": true
+              },
+              "help": "Upper fractional anisotropy threshold for GM and CSF voxel selection (default: 0.2)"
+            },
+            {
+              "option_strings": [
+                "-pvf"
+              ],
+              "dest": "pvf",
+              "action_type": "store",
+              "default": 0.95,
+              "type_info": {
+                "name": "float",
+                "builtin": true
+              },
+              "help": "Partial volume fraction threshold for tissue voxel selection (default: 0.95)"
+            },
+            {
+              "option_strings": [
+                "-wm_algo"
+              ],
+              "dest": "wm_algo",
+              "action_type": "store",
+              "default": "tournier",
+              "choices": [
+                "fa",
+                "tax",
+                "tournier"
+              ],
+              "help": "dwi2response algorithm to use for WM single-fibre voxel selection (options: fa, tax, tournier; default: tournier)",
+              "metavar": "algorithm"
+            },
+            {
+              "option_strings": [
+                "-sfwm_fa_threshold"
+              ],
+              "dest": "sfwm_fa_threshold",
+              "action_type": "store",
+              "type_info": {
+                "name": "float",
+                "builtin": true
+              },
+              "help": "Sets -wm_algo to fa and allows to specify a hard FA threshold for single-fibre WM voxels, which is passed to the -threshold option of the fa algorithm (warning: overrides -wm_algo option)"
+            }
+          ],
+          "argument_groups": [
+            {
+              "title": "positional arguments",
+              "description": null,
+              "actions": [
+                "input",
+                "in_5tt",
+                "out_wm",
+                "out_gm",
+                "out_csf"
+              ]
+            },
+            {
+              "title": "options",
+              "description": null,
+              "actions": []
+            },
+            {
+              "title": "Standard options",
+              "description": null,
+              "actions": [
+                "info",
+                "quiet",
+                "debug",
+                "force",
+                "nthreads",
+                "config",
+                "help",
+                "version"
+              ]
+            },
+            {
+              "title": "Additional standard options for Python scripts",
+              "description": null,
+              "actions": [
+                "nocleanup",
+                "scratch",
+                "cont"
+              ]
+            },
+            {
+              "title": "General dwi2response options",
+              "description": null,
+              "actions": [
+                "mask",
+                "voxels",
+                "shells",
+                "lmax"
+              ]
+            },
+            {
+              "title": "Options for importing the diffusion gradient table",
+              "description": null,
+              "actions": [
+                "grad",
+                "fslgrad"
+              ]
+            },
+            {
+              "title": "Options specific to the 'msmt_5tt' algorithm",
+              "description": null,
+              "actions": [
+                "dirs",
+                "fa",
+                "pvf",
+                "wm_algo",
+                "sfwm_fa_threshold"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "prog": "dwi2response tax",
+          "add_help": false,
+          "formatter_class": "HelpFormatter",
+          "actions": [
+            {
+              "option_strings": [
+                "-info"
+              ],
+              "dest": "info",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display information messages."
+            },
+            {
+              "option_strings": [
+                "-quiet"
+              ],
+              "dest": "quiet",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "do not display information messages or progress status. Alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string."
+            },
+            {
+              "option_strings": [
+                "-debug"
+              ],
+              "dest": "debug",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display debugging messages."
+            },
+            {
+              "option_strings": [
+                "-force"
+              ],
+              "dest": "force",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "force overwrite of output files."
+            },
+            {
+              "option_strings": [
+                "-nthreads"
+              ],
+              "dest": "nthreads",
+              "action_type": "store",
+              "type_info": {
+                "name": "int",
+                "builtin": true
+              },
+              "help": "use this number of threads in multi-threaded applications (set to 0 to disable multi-threading).",
+              "metavar": "number"
+            },
+            {
+              "option_strings": [
+                "-config"
+              ],
+              "dest": "config",
+              "action_type": "append",
+              "nargs": 2,
+              "help": "temporarily set the value of an MRtrix config file entry.",
+              "metavar": "key value"
+            },
+            {
+              "option_strings": [
+                "-help"
+              ],
+              "dest": "help",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display this information page and exit."
+            },
+            {
+              "option_strings": [
+                "-version"
+              ],
+              "dest": "version",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display version information and exit."
+            },
+            {
+              "option_strings": [
+                "-nocleanup"
+              ],
+              "dest": "nocleanup",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "do not delete intermediate files during script execution, and do not delete scratch directory at script completion."
+            },
+            {
+              "option_strings": [
+                "-scratch"
+              ],
+              "dest": "scratch",
+              "action_type": "store",
+              "help": "manually specify the path in which to generate the scratch directory.",
+              "metavar": "/path/to/scratch/"
+            },
+            {
+              "option_strings": [
+                "-continue"
+              ],
+              "dest": "cont",
+              "action_type": "store",
+              "nargs": 2,
+              "help": "continue the script from a previous execution; must provide the scratch directory path, and the name of the last successfully-generated file.",
+              "metavar": [
+                "<ScratchDir>",
+                "<LastFile>"
+              ]
+            },
+            {
+              "option_strings": [
+                "-mask"
+              ],
+              "dest": "mask",
+              "action_type": "store",
+              "help": "Provide an initial mask for response voxel selection"
+            },
+            {
+              "option_strings": [
+                "-voxels"
+              ],
+              "dest": "voxels",
+              "action_type": "store",
+              "help": "Output an image showing the final voxel selection(s)"
+            },
+            {
+              "option_strings": [
+                "-shells"
+              ],
+              "dest": "shells",
+              "action_type": "store",
+              "help": "The b-value(s) to use in response function estimation (comma-separated list in case of multiple b-values, b=0 must be included explicitly)"
+            },
+            {
+              "option_strings": [
+                "-lmax"
+              ],
+              "dest": "lmax",
+              "action_type": "store",
+              "help": "The maximum harmonic degree(s) for response function estimation (comma-separated list in case of multiple b-values)"
+            },
+            {
+              "option_strings": [
+                "-grad"
+              ],
+              "dest": "grad",
+              "action_type": "store",
+              "help": "Provide the diffusion gradient table in MRtrix format"
+            },
+            {
+              "option_strings": [
+                "-fslgrad"
+              ],
+              "dest": "fslgrad",
+              "action_type": "store",
+              "nargs": 2,
+              "help": "Provide the diffusion gradient table in FSL bvecs/bvals format",
+              "metavar": [
+                "bvecs",
+                "bvals"
+              ]
+            },
+            {
+              "option_strings": [],
+              "dest": "input",
+              "action_type": "store",
+              "required": true,
+              "help": "The input DWI"
+            },
+            {
+              "option_strings": [],
+              "dest": "output",
+              "action_type": "store",
+              "required": true,
+              "help": "The output response function text file"
+            },
+            {
+              "option_strings": [
+                "-peak_ratio"
+              ],
+              "dest": "peak_ratio",
+              "action_type": "store",
+              "default": 0.1,
+              "type_info": {
+                "name": "float",
+                "builtin": true
+              },
+              "help": "Second-to-first-peak amplitude ratio threshold"
+            },
+            {
+              "option_strings": [
+                "-max_iters"
+              ],
+              "dest": "max_iters",
+              "action_type": "store",
+              "default": 20,
+              "type_info": {
+                "name": "int",
+                "builtin": true
+              },
+              "help": "Maximum number of iterations"
+            },
+            {
+              "option_strings": [
+                "-convergence"
+              ],
+              "dest": "convergence",
+              "action_type": "store",
+              "default": 0.5,
+              "type_info": {
+                "name": "float",
+                "builtin": true
+              },
+              "help": "Percentile change in any RF coefficient required to continue iterating"
+            }
+          ],
+          "argument_groups": [
+            {
+              "title": "positional arguments",
+              "description": null,
+              "actions": [
+                "input",
+                "output"
+              ]
+            },
+            {
+              "title": "options",
+              "description": null,
+              "actions": []
+            },
+            {
+              "title": "Standard options",
+              "description": null,
+              "actions": [
+                "info",
+                "quiet",
+                "debug",
+                "force",
+                "nthreads",
+                "config",
+                "help",
+                "version"
+              ]
+            },
+            {
+              "title": "Additional standard options for Python scripts",
+              "description": null,
+              "actions": [
+                "nocleanup",
+                "scratch",
+                "cont"
+              ]
+            },
+            {
+              "title": "General dwi2response options",
+              "description": null,
+              "actions": [
+                "mask",
+                "voxels",
+                "shells",
+                "lmax"
+              ]
+            },
+            {
+              "title": "Options for importing the diffusion gradient table",
+              "description": null,
+              "actions": [
+                "grad",
+                "fslgrad"
+              ]
+            },
+            {
+              "title": "Options specific to the 'tax' algorithm",
+              "description": null,
+              "actions": [
+                "peak_ratio",
+                "max_iters",
+                "convergence"
+              ]
+            }
+          ]
+        },
+        "tournier": {
+          "prog": "dwi2response tournier",
+          "add_help": false,
+          "formatter_class": "HelpFormatter",
+          "actions": [
+            {
+              "option_strings": [
+                "-info"
+              ],
+              "dest": "info",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display information messages."
+            },
+            {
+              "option_strings": [
+                "-quiet"
+              ],
+              "dest": "quiet",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "do not display information messages or progress status. Alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string."
+            },
+            {
+              "option_strings": [
+                "-debug"
+              ],
+              "dest": "debug",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display debugging messages."
+            },
+            {
+              "option_strings": [
+                "-force"
+              ],
+              "dest": "force",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "force overwrite of output files."
+            },
+            {
+              "option_strings": [
+                "-nthreads"
+              ],
+              "dest": "nthreads",
+              "action_type": "store",
+              "type_info": {
+                "name": "int",
+                "builtin": true
+              },
+              "help": "use this number of threads in multi-threaded applications (set to 0 to disable multi-threading).",
+              "metavar": "number"
+            },
+            {
+              "option_strings": [
+                "-config"
+              ],
+              "dest": "config",
+              "action_type": "append",
+              "nargs": 2,
+              "help": "temporarily set the value of an MRtrix config file entry.",
+              "metavar": "key value"
+            },
+            {
+              "option_strings": [
+                "-help"
+              ],
+              "dest": "help",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display this information page and exit."
+            },
+            {
+              "option_strings": [
+                "-version"
+              ],
+              "dest": "version",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display version information and exit."
+            },
+            {
+              "option_strings": [
+                "-nocleanup"
+              ],
+              "dest": "nocleanup",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "do not delete intermediate files during script execution, and do not delete scratch directory at script completion."
+            },
+            {
+              "option_strings": [
+                "-scratch"
+              ],
+              "dest": "scratch",
+              "action_type": "store",
+              "help": "manually specify the path in which to generate the scratch directory.",
+              "metavar": "/path/to/scratch/"
+            },
+            {
+              "option_strings": [
+                "-continue"
+              ],
+              "dest": "cont",
+              "action_type": "store",
+              "nargs": 2,
+              "help": "continue the script from a previous execution; must provide the scratch directory path, and the name of the last successfully-generated file.",
+              "metavar": [
+                "<ScratchDir>",
+                "<LastFile>"
+              ]
+            },
+            {
+              "option_strings": [
+                "-mask"
+              ],
+              "dest": "mask",
+              "action_type": "store",
+              "help": "Provide an initial mask for response voxel selection"
+            },
+            {
+              "option_strings": [
+                "-voxels"
+              ],
+              "dest": "voxels",
+              "action_type": "store",
+              "help": "Output an image showing the final voxel selection(s)"
+            },
+            {
+              "option_strings": [
+                "-shells"
+              ],
+              "dest": "shells",
+              "action_type": "store",
+              "help": "The b-value(s) to use in response function estimation (comma-separated list in case of multiple b-values, b=0 must be included explicitly)"
+            },
+            {
+              "option_strings": [
+                "-lmax"
+              ],
+              "dest": "lmax",
+              "action_type": "store",
+              "help": "The maximum harmonic degree(s) for response function estimation (comma-separated list in case of multiple b-values)"
+            },
+            {
+              "option_strings": [
+                "-grad"
+              ],
+              "dest": "grad",
+              "action_type": "store",
+              "help": "Provide the diffusion gradient table in MRtrix format"
+            },
+            {
+              "option_strings": [
+                "-fslgrad"
+              ],
+              "dest": "fslgrad",
+              "action_type": "store",
+              "nargs": 2,
+              "help": "Provide the diffusion gradient table in FSL bvecs/bvals format",
+              "metavar": [
+                "bvecs",
+                "bvals"
+              ]
+            },
+            {
+              "option_strings": [],
+              "dest": "input",
+              "action_type": "store",
+              "required": true,
+              "help": "The input DWI"
+            },
+            {
+              "option_strings": [],
+              "dest": "output",
+              "action_type": "store",
+              "required": true,
+              "help": "The output response function text file"
+            },
+            {
+              "option_strings": [
+                "-number"
+              ],
+              "dest": "number",
+              "action_type": "store",
+              "default": 300,
+              "type_info": {
+                "name": "int",
+                "builtin": true
+              },
+              "help": "Number of single-fibre voxels to use when calculating response function"
+            },
+            {
+              "option_strings": [
+                "-iter_voxels"
+              ],
+              "dest": "iter_voxels",
+              "action_type": "store",
+              "default": 0,
+              "type_info": {
+                "name": "int",
+                "builtin": true
+              },
+              "help": "Number of single-fibre voxels to select when preparing for the next iteration (default = 10 x value given in -number)"
+            },
+            {
+              "option_strings": [
+                "-dilate"
+              ],
+              "dest": "dilate",
+              "action_type": "store",
+              "default": 1,
+              "type_info": {
+                "name": "int",
+                "builtin": true
+              },
+              "help": "Number of mask dilation steps to apply when deriving voxel mask to test in the next iteration"
+            },
+            {
+              "option_strings": [
+                "-max_iters"
+              ],
+              "dest": "max_iters",
+              "action_type": "store",
+              "default": 10,
+              "type_info": {
+                "name": "int",
+                "builtin": true
+              },
+              "help": "Maximum number of iterations"
+            }
+          ],
+          "argument_groups": [
+            {
+              "title": "positional arguments",
+              "description": null,
+              "actions": [
+                "input",
+                "output"
+              ]
+            },
+            {
+              "title": "options",
+              "description": null,
+              "actions": []
+            },
+            {
+              "title": "Standard options",
+              "description": null,
+              "actions": [
+                "info",
+                "quiet",
+                "debug",
+                "force",
+                "nthreads",
+                "config",
+                "help",
+                "version"
+              ]
+            },
+            {
+              "title": "Additional standard options for Python scripts",
+              "description": null,
+              "actions": [
+                "nocleanup",
+                "scratch",
+                "cont"
+              ]
+            },
+            {
+              "title": "General dwi2response options",
+              "description": null,
+              "actions": [
+                "mask",
+                "voxels",
+                "shells",
+                "lmax"
+              ]
+            },
+            {
+              "title": "Options for importing the diffusion gradient table",
+              "description": null,
+              "actions": [
+                "grad",
+                "fslgrad"
+              ]
+            },
+            {
+              "title": "Options specific to the 'tournier' algorithm",
+              "description": null,
+              "actions": [
+                "number",
+                "iter_voxels",
+                "dilate",
+                "max_iters"
+              ]
+            }
+          ]
+        }
+      },
+      "subparsers_dest": "algorithm",
+      "subparsers_aliases": {}
+    }
+  ],
+  "argument_groups": [
+    {
+      "title": "positional arguments",
+      "description": null,
+      "actions": []
+    },
+    {
+      "title": "options",
+      "description": null,
+      "actions": []
+    },
+    {
+      "title": "Standard options",
+      "description": null,
+      "actions": [
+        "info",
+        "quiet",
+        "debug",
+        "force",
+        "nthreads",
+        "config",
+        "help",
+        "version"
+      ]
+    },
+    {
+      "title": "Additional standard options for Python scripts",
+      "description": null,
+      "actions": [
+        "nocleanup",
+        "scratch",
+        "cont"
+      ]
+    },
+    {
+      "title": "General dwi2response options",
+      "description": null,
+      "actions": [
+        "mask",
+        "voxels",
+        "shells",
+        "lmax"
+      ]
+    },
+    {
+      "title": "Options for importing the diffusion gradient table",
+      "description": null,
+      "actions": [
+        "grad",
+        "fslgrad"
+      ]
+    },
+    {
+      "title": "Algorithm choices",
+      "description": null,
+      "actions": [
+        "algorithm"
+      ]
+    }
+  ],
+  "mrtrix": {
+    "synopsis": "Estimate response function(s) for spherical deconvolution",
+    "description": [
+      "dwi2response offers different algorithms for performing various types of response function estimation. The name of the algorithm must appear as the first argument on the command-line after 'dwi2response'. The subsequent arguments and options depend on the particular algorithm being invoked.",
+      "Each algorithm available has its own help page, including necessary references; e.g. to see the help page of the 'fa' algorithm, type 'dwi2response fa'."
+    ],
+    "author": "Robert E. Smith (robert.smith@florey.edu.au) and Thijs Dhollander (thijs.dhollander@gmail.com)",
+    "citations": [],
+    "copyright": "Copyright (c) 2008-2022 the MRtrix3 contributors.\n\nThis Source Code Form is subject to the terms of the Mozilla Public\nLicense, v. 2.0. If a copy of the MPL was not distributed with this\nfile, You can obtain one at http://mozilla.org/MPL/2.0/.\n\nCovered Software is provided under this License on an \"as is\"\nbasis, without warranty of any kind, either expressed, implied, or\nstatutory, including, without limitation, warranties that the\nCovered Software is free of defects, merchantable, fit for a\nparticular purpose or non-infringing.\nSee the Mozilla Public License v. 2.0 for more details.\n\nFor more details, see http://www.mrtrix.org/.",
+    "algorithms": {
+      "dhollander": {
+        "synopsis": "Unsupervised estimation of WM, GM and CSF response functions that does not require a T1 image (or segmentation thereof)",
+        "description": [
+          "This is an improved version of the Dhollander et al. (2016) algorithm for unsupervised estimation of WM, GM and CSF response functions, which includes the Dhollander et al. (2019) improvements for single-fibre WM response function estimation (prior to this update, the \"dwi2response tournier\" algorithm had been utilised specifically for the single-fibre WM response function estimation step)."
+        ],
+        "author": "Thijs Dhollander (thijs.dhollander@gmail.com)",
+        "citations": [
+          [
+            null,
+            "Dhollander, T.; Raffelt, D. & Connelly, A. Unsupervised 3-tissue response function estimation from single-shell or multi-shell diffusion MR data without a co-registered T1 image. ISMRM Workshop on Breaking the Barriers of Diffusion MRI, 2016, 5"
+          ],
+          [
+            "If -wm_algo option is not used",
+            "Dhollander, T.; Mito, R.; Raffelt, D. & Connelly, A. Improved white matter response function estimation for 3-tissue constrained spherical deconvolution. Proc Intl Soc Mag Reson Med, 2019, 555"
+          ]
+        ],
+        "copyright": "Copyright (c) 2008-2022 the MRtrix3 contributors.\n\nThis Source Code Form is subject to the terms of the Mozilla Public\nLicense, v. 2.0. If a copy of the MPL was not distributed with this\nfile, You can obtain one at http://mozilla.org/MPL/2.0/.\n\nCovered Software is provided under this License on an \"as is\"\nbasis, without warranty of any kind, either expressed, implied, or\nstatutory, including, without limitation, warranties that the\nCovered Software is free of defects, merchantable, fit for a\nparticular purpose or non-infringing.\nSee the Mozilla Public License v. 2.0 for more details.\n\nFor more details, see http://www.mrtrix.org/."
+      },
+      "fa": {
+        "synopsis": "Use the old FA-threshold heuristic for single-fibre voxel selection and response function estimation",
+        "description": [],
+        "author": "Robert E. Smith (robert.smith@florey.edu.au)",
+        "citations": [
+          [
+            null,
+            "Tournier, J.-D.; Calamante, F.; Gadian, D. G. & Connelly, A. Direct estimation of the fiber orientation density function from diffusion-weighted MRI data using spherical deconvolution. NeuroImage, 2004, 23, 1176-1185"
+          ]
+        ],
+        "copyright": "Copyright (c) 2008-2022 the MRtrix3 contributors.\n\nThis Source Code Form is subject to the terms of the Mozilla Public\nLicense, v. 2.0. If a copy of the MPL was not distributed with this\nfile, You can obtain one at http://mozilla.org/MPL/2.0/.\n\nCovered Software is provided under this License on an \"as is\"\nbasis, without warranty of any kind, either expressed, implied, or\nstatutory, including, without limitation, warranties that the\nCovered Software is free of defects, merchantable, fit for a\nparticular purpose or non-infringing.\nSee the Mozilla Public License v. 2.0 for more details.\n\nFor more details, see http://www.mrtrix.org/."
+      },
+      "manual": {
+        "synopsis": "Derive a response function using an input mask image alone (i.e. pre-selected voxels)",
+        "description": [],
+        "author": "Robert E. Smith (robert.smith@florey.edu.au)",
+        "citations": [],
+        "copyright": "Copyright (c) 2008-2022 the MRtrix3 contributors.\n\nThis Source Code Form is subject to the terms of the Mozilla Public\nLicense, v. 2.0. If a copy of the MPL was not distributed with this\nfile, You can obtain one at http://mozilla.org/MPL/2.0/.\n\nCovered Software is provided under this License on an \"as is\"\nbasis, without warranty of any kind, either expressed, implied, or\nstatutory, including, without limitation, warranties that the\nCovered Software is free of defects, merchantable, fit for a\nparticular purpose or non-infringing.\nSee the Mozilla Public License v. 2.0 for more details.\n\nFor more details, see http://www.mrtrix.org/."
+      },
+      "msmt_5tt": {
+        "synopsis": "Derive MSMT-CSD tissue response functions based on a co-registered five-tissue-type (5TT) image",
+        "description": [],
+        "author": "Robert E. Smith (robert.smith@florey.edu.au)",
+        "citations": [
+          [
+            null,
+            "Jeurissen, B.; Tournier, J.-D.; Dhollander, T.; Connelly, A. & Sijbers, J. Multi-tissue constrained spherical deconvolution for improved analysis of multi-shell diffusion MRI data. NeuroImage, 2014, 103, 411-426"
+          ]
+        ],
+        "copyright": "Copyright (c) 2008-2022 the MRtrix3 contributors.\n\nThis Source Code Form is subject to the terms of the Mozilla Public\nLicense, v. 2.0. If a copy of the MPL was not distributed with this\nfile, You can obtain one at http://mozilla.org/MPL/2.0/.\n\nCovered Software is provided under this License on an \"as is\"\nbasis, without warranty of any kind, either expressed, implied, or\nstatutory, including, without limitation, warranties that the\nCovered Software is free of defects, merchantable, fit for a\nparticular purpose or non-infringing.\nSee the Mozilla Public License v. 2.0 for more details.\n\nFor more details, see http://www.mrtrix.org/."
+      },
+      "tax": {
+        "synopsis": "Use the Tax et al. (2014) recursive calibration algorithm for single-fibre voxel selection and response function estimation",
+        "description": [],
+        "author": "Robert E. Smith (robert.smith@florey.edu.au)",
+        "citations": [
+          [
+            null,
+            "Tax, C. M.; Jeurissen, B.; Vos, S. B.; Viergever, M. A. & Leemans, A. Recursive calibration of the fiber response function for spherical deconvolution of diffusion MRI data. NeuroImage, 2014, 86, 67-80"
+          ]
+        ],
+        "copyright": "Copyright (c) 2008-2022 the MRtrix3 contributors.\n\nThis Source Code Form is subject to the terms of the Mozilla Public\nLicense, v. 2.0. If a copy of the MPL was not distributed with this\nfile, You can obtain one at http://mozilla.org/MPL/2.0/.\n\nCovered Software is provided under this License on an \"as is\"\nbasis, without warranty of any kind, either expressed, implied, or\nstatutory, including, without limitation, warranties that the\nCovered Software is free of defects, merchantable, fit for a\nparticular purpose or non-infringing.\nSee the Mozilla Public License v. 2.0 for more details.\n\nFor more details, see http://www.mrtrix.org/."
+      },
+      "tournier": {
+        "synopsis": "Use the Tournier et al. (2013) iterative algorithm for single-fibre voxel selection and response function estimation",
+        "description": [],
+        "author": "Robert E. Smith (robert.smith@florey.edu.au)",
+        "citations": [
+          [
+            null,
+            "Tournier, J.-D.; Calamante, F. & Connelly, A. Determination of the appropriate b-value and number of gradient directions for high-angular-resolution diffusion-weighted imaging. NMR Biomedicine, 2013, 26, 1775-1786"
+          ]
+        ],
+        "copyright": "Copyright (c) 2008-2022 the MRtrix3 contributors.\n\nThis Source Code Form is subject to the terms of the Mozilla Public\nLicense, v. 2.0. If a copy of the MPL was not distributed with this\nfile, You can obtain one at http://mozilla.org/MPL/2.0/.\n\nCovered Software is provided under this License on an \"as is\"\nbasis, without warranty of any kind, either expressed, implied, or\nstatutory, including, without limitation, warranties that the\nCovered Software is free of defects, merchantable, fit for a\nparticular purpose or non-infringing.\nSee the Mozilla Public License v. 2.0 for more details.\n\nFor more details, see http://www.mrtrix.org/."
+      }
+    },
+    "version": "3.0.4"
+  },
+  "description": "Estimate response function(s) for spherical deconvolution.\n\ndwi2response offers different algorithms for performing various types of response function estimation. The name of the algorithm must appear as the first argument on the command-line after 'dwi2response'. The subsequent arguments and options depend on the particular algorithm being invoked.\n\nEach algorithm available has its own help page, including necessary references; e.g. to see the help page of the 'fa' algorithm, type 'dwi2response fa'."
+}

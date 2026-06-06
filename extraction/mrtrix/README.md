@@ -17,7 +17,7 @@ descriptors track upstream exactly.
 ```
  dump  ── Docker, per version ──▶  raw JSON   (dump/<version>/{cpp,python}/*.json)
  process ── process_metadata.py ─▶  descriptors (src/niwrap/mrtrix/<version>/...)
- compile ── Styx frontends ──────▶  IR → bindings                                   [TODO]
+ compile ── Styx frontends ──────▶  IR → bindings (mrtrix / argdump)
 ```
 
 Only the **dump** stage touches Docker and tool versions. It is fully described
@@ -25,9 +25,8 @@ by [`Dockerfile`](Dockerfile) + [`patches/`](patches) + [`versions.json`](versio
 
 ## Dump (this directory)
 
-The new pipeline builds from an **official** MRtrix3 tag plus two small patches
-applied at build time — no fork branch to rebase (the `source/` submodule
-referenced under "Legacy flow" belongs to the old flow and retires with it):
+The pipeline builds from an **official** MRtrix3 tag plus two small patches
+applied at build time — no fork branch to rebase:
 
 - [`patches/cpp-json-usage.patch`](patches/cpp-json-usage.patch) — adds the
   `__print_usage_json__` hook to `core/app.cpp` (pure addition). Per argument it
@@ -102,23 +101,14 @@ required/ignored lists), and registers the version in `package.json`. Commands i
 interpret the interface — that is the frontend's job; input/output file semantics
 (absent from argparse) are recovered there too.
 
-## Compile (next step — not yet implemented)
+## Compile
 
-- `load_mrtrix` / `load_argdump` — Styx frontends in
-  `tooling/src/wrap/apps/build/loaders/` that compile the dumps directly to IR,
-  replacing the Boutiques conversion. `load_argdump` (argdump JSON → IR) is
-  reusable for any argparse-based CLI. The `source.type` values are already
-  registered in `catalog.py` and `schemas/app.schema.json`; only the `load_source`
-  dispatch remains. Because `process_metadata.py` rewrites `app.json` to these
-  types, run it against `src/niwrap` only **together with** this wiring — otherwise
-  the mrtrix build fails for every command.
-
-## Legacy flow (superseded)
-
-The previous pipeline — `buildenv.Dockerfile` + `generate_json_docs.sh` +
-`mrt2bt.js` (Node → Boutiques) + the committed `source/` submodule and
-`json_docs/` — is kept for reference until the frontends above land. It generated
-Boutiques only for the C++ commands; the Python commands' Boutiques descriptors
-under `src/niwrap/mrtrix` were hand-authored.
+The dumps are compiled to IR by styx2's `mrtrix` / `argdump` frontends (in
+[`@styx-api/core`](https://github.com/styx-api/styx-ts)), selected per command by
+`app.json`'s `source.type`. `argdump` (argparse JSON → IR) is reusable for any
+argparse-based CLI. A few commands whose flat dump can't express paired
+input/output positionals (`dwi2fod`, `mtnormalise`) are split in
+`process_metadata.py`, which also folds the Python `mrtrix` metadata block into
+the argdump descriptor's `description`.
 
 [argdump]: https://github.com/styx-api/argdump

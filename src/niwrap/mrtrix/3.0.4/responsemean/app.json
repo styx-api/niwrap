@@ -1,10 +1,10 @@
 {
   "name": "responsemean",
   "source": {
-    "type": "boutiques",
-    "path": "boutiques.json"
+    "type": "argdump",
+    "path": "argdump.json"
   },
   "docs": {
-    "description": "Calculate the mean response function from a set of text files"
+    "description": "Calculate the mean response function from a set of text files.\n\nExample usage: responsemean input_response1.txt input_response2.txt input_response3.txt ... output_average_response.txt\n\nAll response function files provided must contain the same number of unique b-values (lines), as well as the same number of coefficients per line.\n\nAs long as the number of unique b-values is identical across all input files, the coefficients will be averaged. This is performed on the assumption that the actual acquired b-values are identical. This is however impossible for the responsemean command to determine based on the data provided; it is therefore up to the user to ensure that this requirement is satisfied."
   }
 }
