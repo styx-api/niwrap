@@ -72,6 +72,23 @@ jobs:
         </html>
         EOF
 
+    - name: Cache OG card assets (fonts + rasterized logo)
+      uses: actions/cache@v4
+      with:
+        path: tooling/og/.assets
+        key: og-assets-v1-${{ hashFiles('logo.svg') }}
+
+    - name: Prepare OG card assets
+      run: |
+        mkdir -p tooling/og/.assets
+        cd tooling/og/.assets
+        [ -f Inter.ttf ] || curl -sSfL -o Inter.ttf "https://github.com/google/fonts/raw/main/ofl/inter/Inter%5Bopsz,wght%5D.ttf"
+        [ -f JetBrainsMono.ttf ] || curl -sSfL -o JetBrainsMono.ttf "https://github.com/google/fonts/raw/main/ofl/jetbrainsmono/JetBrainsMono%5Bwght%5D.ttf"
+        [ -f logo.png ] || npx -y sharp-cli -i ../../../logo.svg --density 500 -o logo.png resize 720 900
+
+    - name: Render Open Graph card
+      run: uv --directory tooling run --with pillow python og/build_og.py --catalog-dir ../_site --logo og/.assets/logo.png --fonts-dir og/.assets --out ../_site/og-image.png
+
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v4
       with:
