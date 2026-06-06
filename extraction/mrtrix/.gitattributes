@@ -1,0 +1,9 @@
+# These files are consumed inside Linux containers (Docker build context) and
+# POSIX shells — force LF so `git apply` and bash don't choke on CRLF, even when
+# checked out on Windows with core.autocrlf=true.
+Dockerfile     text eol=lf
+.dockerignore  text eol=lf
+*.sh           text eol=lf
+*.py           text eol=lf
+*.patch        text eol=lf
+*.json         text eol=lf

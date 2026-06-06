@@ -1,0 +1,212 @@
+diff --git a/core/app.cpp b/core/app.cpp
+index bcb9843ae..e1f45b87c 100644
+--- a/core/app.cpp
++++ b/core/app.cpp
+@@ -793,6 +793,196 @@ namespace MR
+     }
+ 
+ 
++    static const char *arg_type_to_str(ArgType t) {
++      switch (t) {
++        case Integer: return "integer";
++        case Float: return "float";
++        case Text: return "text";
++        case ArgFileIn: return "file in";
++        case ArgFileOut: return "file out";
++        case ArgDirectoryIn: return "directory in";
++        case ArgDirectoryOut: return "directory out";
++        case ImageIn: return "image in";
++        case ImageOut: return "image out";
++        case Choice: return "choice";
++        case IntSeq: return "int seq";
++        case FloatSeq: return "float seq";
++        case TracksIn: return "tracks in";
++        case TracksOut: return "tracks out";
++        case Various: return "various";
++        default: return "undefined";
++      }
++    }
++
++    static std::string json_str_escape (const std::string& s) {
++      std::string out;
++      for (size_t i = 0; i < s.size(); ++i) {
++        const unsigned char c = static_cast<unsigned char>(s[i]);
++        if (c == '"')
++          out += "\\\"";
++        else if (c == '\\')
++          out += "\\\\";
++        else if (c == '\n')
++          out += "\\n";
++        else if (c == '\r')
++          out += "\\r";
++        else if (c == '\t')
++          out += "\\t";
++        else if (c < 0x20) {
++          const char* hex = "0123456789abcdef";
++          out += "\\u00";
++          out += hex[(c >> 4) & 0xf];
++          out += hex[c & 0xf];
++        }
++        else
++          out += s[i];
++      }
++      return out;
++    }
++
++    std::string json_usage ()
++    {
++      std::string s = std::string("{\n");
++      
++      // metadata
++      s += std::string() + "  \"name\": \"" + json_str_escape(NAME) + "\",\n";
++      s += std::string() + "  \"synopsis\": \"" + json_str_escape(SYNOPSIS) + "\",\n";
++      s += std::string() + "  \"requires_at_least_one_argument\": " + (REQUIRES_AT_LEAST_ONE_ARGUMENT ? "true" : "false") + ",\n";
++      s += std::string() + "  \"author\": \"" + json_str_escape(AUTHOR) + "\",\n";
++      s += std::string() + "  \"version\": \"" + (project_version ? project_version : mrtrix_version) + "\",\n";
++      s += std::string() + "  \"copyright\": \"" + json_str_escape(COPYRIGHT) + "\",\n";
++
++      // description
++      s += "  \"description\": [\n";
++      for (size_t i = 0; i < DESCRIPTION.size(); ++i) {
++        s += std::string("     \"") + json_str_escape(DESCRIPTION[i]) + "\"";
++        if (i < DESCRIPTION.size()-1)
++          s += ",";
++        s += "\n";
++      }
++      s += "  ],\n";
++
++      // references
++      s += "  \"references\": [\n";
++      for (size_t i = 0; i < REFERENCES.size(); ++i) {
++        s += std::string("     \"") + json_str_escape(REFERENCES[i]) + "\"";
++        if (i < REFERENCES.size()-1)
++          s += ",";
++        s += "\n";
++      }
++      s += "  ],\n";
++
++
++      // examples
++      s += "  \"examples\": [\n";
++      for (size_t i = 0; i < EXAMPLES.size(); ++i) {
++        s += "    {\n";
++        s += std::string("      \"title\": \"") + json_str_escape(EXAMPLES[i].title) + "\",\n";
++        s += std::string("      \"code\": \"") + json_str_escape(EXAMPLES[i].code) + "\",\n";
++        s += std::string("      \"description\": \"") + json_str_escape(EXAMPLES[i].description) + "\"\n";
++        s += "    }";
++        if (i < EXAMPLES.size()-1)
++          s += ",";
++        s += "\n";
++      }
++      s += "  ],\n";
++
++      // arguments
++      s += "  \"arguments\": [\n";
++      for (size_t i = 0; i < ARGUMENTS.size(); ++i) {
++        s += "    {\n";
++        s += std::string("      \"id\": \"") + json_str_escape(ARGUMENTS[i].id) + "\",\n";
++        s += std::string("      \"description\": \"") + json_str_escape(ARGUMENTS[i].desc) + "\",\n";
++        s += std::string("      \"type\": \"") + arg_type_to_str(ARGUMENTS[i].type) + "\",\n";
++        s += std::string("      \"optional\": ") + ((ARGUMENTS[i].flags & Optional) ? "true" : "false") + ",\n";
++        s += std::string("      \"allow_multiple\": ") + ((ARGUMENTS[i].flags & AllowMultiple) ? "true" : "false") + "\n";
++        s += "    }";
++        if (i < ARGUMENTS.size()-1)
++          s += ",";
++        s += "\n";
++      }
++      s += "  ],\n";
++
++      // options
++      s += "  \"option_groups\": [\n";
++      for (size_t i = 0; i < OPTIONS.size(); ++i) { // option_group
++        s += "    {\n";
++        s += std::string("      \"name\": \"") + json_str_escape(OPTIONS[i].name) + "\",\n";
++        s += "      \"options\": [\n";
++        for (size_t j = 0; j < OPTIONS[i].size(); ++j) {  // option
++          s += "        {\n";
++          s += std::string("          \"id\": \"") + json_str_escape(OPTIONS[i][j].id) + "\",\n";
++          s += std::string("          \"description\": \"") + json_str_escape(OPTIONS[i][j].desc) + "\",\n";
++          s += std::string("          \"optional\": ") + ((OPTIONS[i][j].flags & Optional) ? "true" : "false") + ",\n";
++          s += std::string("          \"allow_multiple\": ") + ((OPTIONS[i][j].flags & AllowMultiple) ? "true" : "false") + ",\n";
++          s += "          \"arguments\": [\n";
++          for (size_t k = 0; k < OPTIONS[i][j].size(); ++k) {  // argument
++            s += "            {\n";
++            s += std::string("              \"id\": \"") + json_str_escape(OPTIONS[i][j][k].id) + "\",\n";
++            s += std::string("              \"description\": \"") + json_str_escape(OPTIONS[i][j][k].desc) + "\",\n";
++            s += std::string("              \"type\": \"") + arg_type_to_str(OPTIONS[i][j][k].type) + "\",\n";
++            s += std::string("              \"optional\": ") + ((OPTIONS[i][j][k].flags & Optional) ? "true" : "false") + ",\n";
++            s += std::string("              \"allow_multiple\": ") + ((OPTIONS[i][j][k].flags & AllowMultiple) ? "true" : "false") + "\n";
++            s += "            }";
++            if (k < OPTIONS[i][j].size()-1)
++              s += ",";
++            s += "\n";
++          }  // argument
++          s += "          ]\n";
++          s += "        }";
++          if (j < OPTIONS[i].size()-1)
++            s += ",";
++          s += "\n";
++        }  // option
++        s += "      ]\n";
++        s += "    }";
++        s += ",";
++        s += "\n";
++
++      }  // option_group
++
++      // ---
++      // special group: __standard_options
++      s += "    {\n";
++      s += std::string("      \"name\": \"__standard_options\",\n");
++      s += "      \"options\": [\n";
++      for (size_t j = 0; j < __standard_options.size(); ++j) {
++        s += "        {\n";
++        s += std::string("          \"id\": \"") + json_str_escape(__standard_options[j].id) + "\",\n";
++        s += std::string("          \"description\": \"") + json_str_escape(__standard_options[j].desc) + "\",\n";
++        s += std::string("          \"optional\": ") + ((__standard_options[j].flags & Optional) ? "true" : "false") + ",\n";
++        s += std::string("          \"allow_multiple\": ") + ((__standard_options[j].flags & AllowMultiple) ? "true" : "false") + ",\n";
++        s += "          \"arguments\": [\n";
++        for (size_t k = 0; k < __standard_options[j].size(); ++k) {
++          s += "            {\n";
++          s += std::string("              \"id\": \"") + json_str_escape(__standard_options[j][k].id) + "\",\n";
++          s += std::string("              \"description\": \"") + json_str_escape(__standard_options[j][k].desc) + "\",\n";
++          s += std::string("              \"type\": \"") + arg_type_to_str(__standard_options[j][k].type) + "\",\n";
++          s += std::string("              \"optional\": ") + ((__standard_options[j][k].flags & Optional) ? "true" : "false") + ",\n";
++          s += std::string("              \"allow_multiple\": ") + ((__standard_options[j][k].flags & AllowMultiple) ? "true" : "false") + "\n";
++          s += "            }";
++          if (k < __standard_options[j].size()-1)
++            s += ",";
++          s += "\n";
++        }
++        s += "          ]\n";
++        s += "        }";
++        if (j < __standard_options.size()-1)
++          s += ",";
++        s += "\n";
++      }
++      s += "      ]\n";
++      s += "    }\n";
++      // ---
++        
++      s += "  ]\n";
++
++      s += "}\n";
++
++      return s;
++    }
++
++
+ 
+ 
+     std::string restructured_text_usage ()
+@@ -1043,6 +1233,10 @@ namespace MR
+         print (markdown_usage ());
+         throw 0;
+       }
++      if (strcmp (argv[1], "__print_usage_json__") == 0) {
++        print (json_usage ());
++        throw 0;
++      }
+       if (strcmp (argv[1], "__print_usage_rst__") == 0) {
+         print (restructured_text_usage ());
+         throw 0;

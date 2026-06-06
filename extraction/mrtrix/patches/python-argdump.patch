@@ -1,0 +1,28 @@
+diff --git a/lib/mrtrix3/app.py b/lib/mrtrix3/app.py
+index 7a49483c0..8a2f5a775 100644
+--- a/lib/mrtrix3/app.py
++++ b/lib/mrtrix3/app.py
+@@ -147,6 +147,23 @@ def _execute(module): #pylint: disable=unused-variable
+   elif sys.argv[-1] == '__print_usage_rst__':
+     CMDLINE.print_usage_rst()
+     sys.exit(0)
++  elif sys.argv[-1] == '__print_argdump__':
++    import argdump, json
++    def _argdump_meta(parser):
++      info = {'synopsis': parser._synopsis,
++              'description': parser._description,
++              'author': parser._author,
++              'citations': parser._citation_list,
++              'copyright': parser._copyright}
++      if parser._subparsers is not None:
++        info['algorithms'] = {name: _argdump_meta(sub) for name, sub
++                              in parser._subparsers._group_actions[0].choices.items()}
++      return info
++    data = argdump.dump(CMDLINE, include_env=False)
++    data['mrtrix'] = _argdump_meta(CMDLINE)
++    data['mrtrix']['version'] = __version__
++    sys.stdout.write(json.dumps(data, indent=2))
++    sys.exit(0)
+ 
+   # Do the main command-line input parsing
+   ARGS = CMDLINE.parse_args()
