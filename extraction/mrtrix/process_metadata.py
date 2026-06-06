@@ -116,6 +116,66 @@ def _python_description(dump: dict) -> str:
     )
 
 
+# A handful of C++ commands encode "pairs of input/output files" as a single
+# positional the flat dump can't model (an `undefined`/`various` arg flagged
+# allow_multiple). v1's mrt2bt.js hand-split each into a single (input, output)
+# pair; reproduce that here so the output file is recovered. Keeping the fixup on
+# this side keeps the styx `mrtrix` frontend format-general.
+_PAIRED_ARGS = {
+    "dwi2fod": (
+        "response odf",
+        [
+            {"id": "response", "description": "input tissue response", "type": "file in"},
+            {"id": "odf", "description": "output ODF image", "type": "image out"},
+        ],
+    ),
+    "mtnormalise": (
+        "input output",
+        [
+            {"id": "input", "description": "input tissue compartment image", "type": "image in"},
+            {
+                "id": "output",
+                "description": "output normalised tissue compartment image",
+                "type": "image out",
+            },
+        ],
+    ),
+}
+
+
+def _split_paired_arg(dump: dict, name: str) -> bool:
+    spec = _PAIRED_ARGS.get(name)
+    if not spec:
+        return False
+    target_id, replacements = spec
+    args = dump.get("arguments", [])
+    for i, arg in enumerate(args):
+        if arg.get("id") == target_id:
+            args[i : i + 1] = [
+                {**r, "optional": False, "allow_multiple": False} for r in replacements
+            ]
+            return True
+    return False
+
+
+def _apply_fixups(name: str, kind: str, dump: dict) -> bool:
+    """Patch the few commands the flat dump can't express, and fold the MRtrix
+    metadata block into the Python descriptor's `description`. Returns True when
+    the dump was modified, so the caller re-serializes it rather than copying the
+    raw dump verbatim."""
+    if kind == "cpp":
+        return _split_paired_arg(dump, name)
+    if kind == "python":
+        # argparse holds no description for MRtrix scripts (the synopsis lives in
+        # the `mrtrix` block); surface it so the argdump frontend, which reads
+        # `description`, renders the synopsis + citations in the wrapper docs.
+        desc = _python_description(dump)
+        if desc:
+            dump["description"] = desc
+            return True
+    return False
+
+
 def _load_json_or_none(path: Path):
     if not path.exists():
         return None
@@ -148,6 +208,8 @@ def process_version(version_dump: Path, out_root: Path, version: str) -> list:
                 skipped.append(name)
                 continue
 
+            fixed = _apply_fixups(name, kind, dump)
+
             description = (
                 _cpp_description(dump) if kind == "cpp" else _python_description(dump)
             )
@@ -160,7 +222,12 @@ def process_version(version_dump: Path, out_root: Path, version: str) -> list:
             for stale in ALL_DESCRIPTORS - {descriptor_name}:
                 (cmd_dir / stale).unlink(missing_ok=True)
 
-            shutil.copyfile(dump_file, cmd_dir / descriptor_name)
+            # Copy the dump verbatim, except for the fixed-up commands which are
+            # re-serialized from the patched dict.
+            if fixed:
+                _write_json(cmd_dir / descriptor_name, dump)
+            else:
+                shutil.copyfile(dump_file, cmd_dir / descriptor_name)
             _write_json(
                 cmd_dir / "app.json",
                 {

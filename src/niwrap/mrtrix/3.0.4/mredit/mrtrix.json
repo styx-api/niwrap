@@ -1,0 +1,219 @@
+{
+  "name": "mredit",
+  "synopsis": "Directly edit the intensities within an image from the command-line",
+  "requires_at_least_one_argument": true,
+  "author": "Robert E. Smith (robert.smith@florey.edu.au)",
+  "version": "3.0.4",
+  "copyright": "Copyright (c) 2008-2022 the MRtrix3 contributors.\n\nThis Source Code Form is subject to the terms of the Mozilla Public\nLicense, v. 2.0. If a copy of the MPL was not distributed with this\nfile, You can obtain one at http://mozilla.org/MPL/2.0/.\n\nCovered Software is provided under this License on an \"as is\"\nbasis, without warranty of any kind, either expressed, implied, or\nstatutory, including, without limitation, warranties that the\nCovered Software is free of defects, merchantable, fit for a\nparticular purpose or non-infringing.\nSee the Mozilla Public License v. 2.0 for more details.\n\nFor more details, see http://www.mrtrix.org/.\n",
+  "description": [
+     "A range of options are provided to enable direct editing of voxel intensities based on voxel / real-space coordinates. If only one image path is provided, the image will be edited in-place (use at own risk); if input and output image paths are provided, the output will contain the edited image, and the original image will not be modified in any way."
+  ],
+  "references": [
+  ],
+  "examples": [
+  ],
+  "arguments": [
+    {
+      "id": "input",
+      "description": "the input image",
+      "type": "image in",
+      "optional": false,
+      "allow_multiple": false
+    },
+    {
+      "id": "output",
+      "description": "the (optional) output image",
+      "type": "image out",
+      "optional": true,
+      "allow_multiple": false
+    }
+  ],
+  "option_groups": [
+    {
+      "name": "OPTIONS",
+      "options": [
+        {
+          "id": "plane",
+          "description": "fill one or more planes on a particular image axis",
+          "optional": true,
+          "allow_multiple": true,
+          "arguments": [
+            {
+              "id": "axis",
+              "description": "",
+              "type": "integer",
+              "min": 0,
+              "max": 2,
+              "optional": false,
+              "allow_multiple": false
+            },
+            {
+              "id": "coord",
+              "description": "",
+              "type": "int seq",
+              "optional": false,
+              "allow_multiple": false
+            },
+            {
+              "id": "value",
+              "description": "",
+              "type": "float",
+              "optional": false,
+              "allow_multiple": false
+            }
+          ]
+        },
+        {
+          "id": "sphere",
+          "description": "draw a sphere with radius in mm",
+          "optional": true,
+          "allow_multiple": true,
+          "arguments": [
+            {
+              "id": "position",
+              "description": "",
+              "type": "float seq",
+              "optional": false,
+              "allow_multiple": false
+            },
+            {
+              "id": "radius",
+              "description": "",
+              "type": "float",
+              "optional": false,
+              "allow_multiple": false
+            },
+            {
+              "id": "value",
+              "description": "",
+              "type": "float",
+              "optional": false,
+              "allow_multiple": false
+            }
+          ]
+        },
+        {
+          "id": "voxel",
+          "description": "change the image value within a single voxel",
+          "optional": true,
+          "allow_multiple": true,
+          "arguments": [
+            {
+              "id": "position",
+              "description": "",
+              "type": "float seq",
+              "optional": false,
+              "allow_multiple": false
+            },
+            {
+              "id": "value",
+              "description": "",
+              "type": "float",
+              "optional": false,
+              "allow_multiple": false
+            }
+          ]
+        },
+        {
+          "id": "scanner",
+          "description": "indicate that coordinates are specified in scanner space, rather than as voxel coordinates",
+          "optional": true,
+          "allow_multiple": false,
+          "arguments": [
+          ]
+        }
+      ]
+    },
+    {
+      "name": "__standard_options",
+      "options": [
+        {
+          "id": "info",
+          "description": "display information messages.",
+          "optional": true,
+          "allow_multiple": false,
+          "arguments": [
+          ]
+        },
+        {
+          "id": "quiet",
+          "description": "do not display information messages or progress status; alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string.",
+          "optional": true,
+          "allow_multiple": false,
+          "arguments": [
+          ]
+        },
+        {
+          "id": "debug",
+          "description": "display debugging messages.",
+          "optional": true,
+          "allow_multiple": false,
+          "arguments": [
+          ]
+        },
+        {
+          "id": "force",
+          "description": "force overwrite of output files (caution: using the same file as input and output might cause unexpected behaviour).",
+          "optional": true,
+          "allow_multiple": false,
+          "arguments": [
+          ]
+        },
+        {
+          "id": "nthreads",
+          "description": "use this number of threads in multi-threaded applications (set to 0 to disable multi-threading).",
+          "optional": true,
+          "allow_multiple": false,
+          "arguments": [
+            {
+              "id": "number",
+              "description": "",
+              "type": "integer",
+              "min": 0,
+              "optional": false,
+              "allow_multiple": false
+            }
+          ]
+        },
+        {
+          "id": "config",
+          "description": "temporarily set the value of an MRtrix config file entry.",
+          "optional": true,
+          "allow_multiple": true,
+          "arguments": [
+            {
+              "id": "key",
+              "description": "",
+              "type": "text",
+              "optional": false,
+              "allow_multiple": false
+            },
+            {
+              "id": "value",
+              "description": "",
+              "type": "text",
+              "optional": false,
+              "allow_multiple": false
+            }
+          ]
+        },
+        {
+          "id": "help",
+          "description": "display this information page and exit.",
+          "optional": true,
+          "allow_multiple": false,
+          "arguments": [
+          ]
+        },
+        {
+          "id": "version",
+          "description": "display version information and exit.",
+          "optional": true,
+          "allow_multiple": false,
+          "arguments": [
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,3 +1,10 @@
 {
-  "name": "dwicat"
+  "name": "dwicat",
+  "source": {
+    "type": "argdump",
+    "path": "argdump.json"
+  },
+  "docs": {
+    "description": "Concatenating multiple DWI series accounting for differential intensity scaling.\n\nThis script concatenates two or more 4D DWI series, accounting for the fact that there may be differences in intensity scaling between those series. This intensity scaling is corrected by determining scaling factors that will make the overall image intensities in the b=0 volumes of each series approximately equivalent."
+  }
 }

@@ -23,14 +23,14 @@ set -euo pipefail
 # releases are reproducible; bump deliberately and coordinate with the hub's
 # bundled @styx/core version (see the styx2 v1-replacement plan).
 #
-# Pinned to styx-ts main at styx-ts#29 (clamp the per-suite pyproject summary to
-# PyPI's 512-char limit). Builds on #28 (wrapper packages carry the project
-# version, not the wrapped tool version), #27 (per-tool json-schema file names),
-# and #26 (Phase A codegen gaps). Bump deliberately when adopting newer styx2
-# behavior.
+# Pinned to styx-ts main at the 0.4.0 release (#36) - the MRtrix `mrtrix`/
+# `argdump` frontends (#34) plus choice-enum + numeric-range support (#35).
+# Required by the MRtrix native cutover: the catalog now holds `mrtrix`/`argdump`
+# descriptors, which older styx-ts cannot compile. Keep in lockstep with the
+# hub-gate / DEFAULT_COMPILER @styx-api/core@0.4.0 pin; bump deliberately.
 # -----------------------------------------------------------------------------
 STYX2_REPO="${STYX2_REPO:-https://github.com/styx-api/styx-ts.git}"
-STYX2_REF="${STYX2_REF:-fd498a98d1ddef89fffe7cc2d1839ae7accaba5f}"
+STYX2_REF="${STYX2_REF:-b3b6dda34936d9e1ed47ddb75bb021a5cd11ab26}"
 
 TARGETS="${1:-python,typescript,json-schema}"
 
@@ -55,11 +55,11 @@ echo "==> Cloning styx-ts @ ${STYX2_REF}"
 git clone --quiet "$STYX2_REPO" "$STYX2_DIR"
 git -C "$STYX2_DIR" checkout --quiet "$STYX2_REF"
 
-echo "==> Building @styx/core + @styx/cli"
+echo "==> Building @styx-api/core + @styx-api/cli"
 (
   cd "$STYX2_DIR"
   npm ci
-  npm run build -w @styx/core -w @styx/cli
+  npm run build -w @styx-api/core -w @styx-api/cli
 )
 
 STYX_CLI="$STYX2_DIR/packages/cli/dist/bin.mjs"

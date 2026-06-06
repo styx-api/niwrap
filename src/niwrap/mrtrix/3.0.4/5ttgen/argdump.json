@@ -1,0 +1,1272 @@
+{
+  "$schema": "https://niwrap.dev/argdump/schema-v1.json",
+  "prog": "5ttgen",
+  "add_help": false,
+  "formatter_class": "HelpFormatter",
+  "actions": [
+    {
+      "option_strings": [
+        "-info"
+      ],
+      "dest": "info",
+      "action_type": "store_true",
+      "nargs": 0,
+      "const": true,
+      "default": false,
+      "help": "display information messages."
+    },
+    {
+      "option_strings": [
+        "-quiet"
+      ],
+      "dest": "quiet",
+      "action_type": "store_true",
+      "nargs": 0,
+      "const": true,
+      "default": false,
+      "help": "do not display information messages or progress status. Alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string."
+    },
+    {
+      "option_strings": [
+        "-debug"
+      ],
+      "dest": "debug",
+      "action_type": "store_true",
+      "nargs": 0,
+      "const": true,
+      "default": false,
+      "help": "display debugging messages."
+    },
+    {
+      "option_strings": [
+        "-force"
+      ],
+      "dest": "force",
+      "action_type": "store_true",
+      "nargs": 0,
+      "const": true,
+      "default": false,
+      "help": "force overwrite of output files."
+    },
+    {
+      "option_strings": [
+        "-nthreads"
+      ],
+      "dest": "nthreads",
+      "action_type": "store",
+      "type_info": {
+        "name": "int",
+        "builtin": true
+      },
+      "help": "use this number of threads in multi-threaded applications (set to 0 to disable multi-threading).",
+      "metavar": "number"
+    },
+    {
+      "option_strings": [
+        "-config"
+      ],
+      "dest": "config",
+      "action_type": "append",
+      "nargs": 2,
+      "help": "temporarily set the value of an MRtrix config file entry.",
+      "metavar": "key value"
+    },
+    {
+      "option_strings": [
+        "-help"
+      ],
+      "dest": "help",
+      "action_type": "store_true",
+      "nargs": 0,
+      "const": true,
+      "default": false,
+      "help": "display this information page and exit."
+    },
+    {
+      "option_strings": [
+        "-version"
+      ],
+      "dest": "version",
+      "action_type": "store_true",
+      "nargs": 0,
+      "const": true,
+      "default": false,
+      "help": "display version information and exit."
+    },
+    {
+      "option_strings": [
+        "-nocleanup"
+      ],
+      "dest": "nocleanup",
+      "action_type": "store_true",
+      "nargs": 0,
+      "const": true,
+      "default": false,
+      "help": "do not delete intermediate files during script execution, and do not delete scratch directory at script completion."
+    },
+    {
+      "option_strings": [
+        "-scratch"
+      ],
+      "dest": "scratch",
+      "action_type": "store",
+      "help": "manually specify the path in which to generate the scratch directory.",
+      "metavar": "/path/to/scratch/"
+    },
+    {
+      "option_strings": [
+        "-continue"
+      ],
+      "dest": "cont",
+      "action_type": "store",
+      "nargs": 2,
+      "help": "continue the script from a previous execution; must provide the scratch directory path, and the name of the last successfully-generated file.",
+      "metavar": [
+        "<ScratchDir>",
+        "<LastFile>"
+      ]
+    },
+    {
+      "option_strings": [
+        "-nocrop"
+      ],
+      "dest": "nocrop",
+      "action_type": "store_true",
+      "nargs": 0,
+      "const": true,
+      "default": false,
+      "help": "Do NOT crop the resulting 5TT image to reduce its size (keep the same dimensions as the input image)"
+    },
+    {
+      "option_strings": [
+        "-sgm_amyg_hipp"
+      ],
+      "dest": "sgm_amyg_hipp",
+      "action_type": "store_true",
+      "nargs": 0,
+      "const": true,
+      "default": false,
+      "help": "Represent the amygdalae and hippocampi as sub-cortical grey matter in the 5TT image"
+    },
+    {
+      "option_strings": [],
+      "dest": "algorithm",
+      "action_type": "parsers",
+      "nargs": "A...",
+      "choices": [
+        "freesurfer",
+        "fsl",
+        "gif",
+        "hsvs"
+      ],
+      "help": "Select the algorithm to be used to complete the script operation; additional details and options become available once an algorithm is nominated. Options are: freesurfer, fsl, gif, hsvs",
+      "subparsers": {
+        "freesurfer": {
+          "prog": "5ttgen freesurfer",
+          "add_help": false,
+          "formatter_class": "HelpFormatter",
+          "actions": [
+            {
+              "option_strings": [
+                "-info"
+              ],
+              "dest": "info",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display information messages."
+            },
+            {
+              "option_strings": [
+                "-quiet"
+              ],
+              "dest": "quiet",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "do not display information messages or progress status. Alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string."
+            },
+            {
+              "option_strings": [
+                "-debug"
+              ],
+              "dest": "debug",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display debugging messages."
+            },
+            {
+              "option_strings": [
+                "-force"
+              ],
+              "dest": "force",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "force overwrite of output files."
+            },
+            {
+              "option_strings": [
+                "-nthreads"
+              ],
+              "dest": "nthreads",
+              "action_type": "store",
+              "type_info": {
+                "name": "int",
+                "builtin": true
+              },
+              "help": "use this number of threads in multi-threaded applications (set to 0 to disable multi-threading).",
+              "metavar": "number"
+            },
+            {
+              "option_strings": [
+                "-config"
+              ],
+              "dest": "config",
+              "action_type": "append",
+              "nargs": 2,
+              "help": "temporarily set the value of an MRtrix config file entry.",
+              "metavar": "key value"
+            },
+            {
+              "option_strings": [
+                "-help"
+              ],
+              "dest": "help",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display this information page and exit."
+            },
+            {
+              "option_strings": [
+                "-version"
+              ],
+              "dest": "version",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display version information and exit."
+            },
+            {
+              "option_strings": [
+                "-nocleanup"
+              ],
+              "dest": "nocleanup",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "do not delete intermediate files during script execution, and do not delete scratch directory at script completion."
+            },
+            {
+              "option_strings": [
+                "-scratch"
+              ],
+              "dest": "scratch",
+              "action_type": "store",
+              "help": "manually specify the path in which to generate the scratch directory.",
+              "metavar": "/path/to/scratch/"
+            },
+            {
+              "option_strings": [
+                "-continue"
+              ],
+              "dest": "cont",
+              "action_type": "store",
+              "nargs": 2,
+              "help": "continue the script from a previous execution; must provide the scratch directory path, and the name of the last successfully-generated file.",
+              "metavar": [
+                "<ScratchDir>",
+                "<LastFile>"
+              ]
+            },
+            {
+              "option_strings": [
+                "-nocrop"
+              ],
+              "dest": "nocrop",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "Do NOT crop the resulting 5TT image to reduce its size (keep the same dimensions as the input image)"
+            },
+            {
+              "option_strings": [
+                "-sgm_amyg_hipp"
+              ],
+              "dest": "sgm_amyg_hipp",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "Represent the amygdalae and hippocampi as sub-cortical grey matter in the 5TT image"
+            },
+            {
+              "option_strings": [],
+              "dest": "input",
+              "action_type": "store",
+              "required": true,
+              "help": "The input FreeSurfer parcellation image (any image containing 'aseg' in its name)"
+            },
+            {
+              "option_strings": [],
+              "dest": "output",
+              "action_type": "store",
+              "required": true,
+              "help": "The output 5TT image"
+            },
+            {
+              "option_strings": [
+                "-lut"
+              ],
+              "dest": "lut",
+              "action_type": "store",
+              "help": "Manually provide path to the lookup table on which the input parcellation image is based (e.g. FreeSurferColorLUT.txt)"
+            }
+          ],
+          "argument_groups": [
+            {
+              "title": "positional arguments",
+              "description": null,
+              "actions": [
+                "input",
+                "output"
+              ]
+            },
+            {
+              "title": "options",
+              "description": null,
+              "actions": []
+            },
+            {
+              "title": "Standard options",
+              "description": null,
+              "actions": [
+                "info",
+                "quiet",
+                "debug",
+                "force",
+                "nthreads",
+                "config",
+                "help",
+                "version"
+              ]
+            },
+            {
+              "title": "Additional standard options for Python scripts",
+              "description": null,
+              "actions": [
+                "nocleanup",
+                "scratch",
+                "cont"
+              ]
+            },
+            {
+              "title": "Options common to all 5ttgen algorithms",
+              "description": null,
+              "actions": [
+                "nocrop",
+                "sgm_amyg_hipp"
+              ]
+            },
+            {
+              "title": "Options specific to the 'freesurfer' algorithm",
+              "description": null,
+              "actions": [
+                "lut"
+              ]
+            }
+          ]
+        },
+        "fsl": {
+          "prog": "5ttgen fsl",
+          "add_help": false,
+          "formatter_class": "HelpFormatter",
+          "actions": [
+            {
+              "option_strings": [
+                "-info"
+              ],
+              "dest": "info",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display information messages."
+            },
+            {
+              "option_strings": [
+                "-quiet"
+              ],
+              "dest": "quiet",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "do not display information messages or progress status. Alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string."
+            },
+            {
+              "option_strings": [
+                "-debug"
+              ],
+              "dest": "debug",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display debugging messages."
+            },
+            {
+              "option_strings": [
+                "-force"
+              ],
+              "dest": "force",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "force overwrite of output files."
+            },
+            {
+              "option_strings": [
+                "-nthreads"
+              ],
+              "dest": "nthreads",
+              "action_type": "store",
+              "type_info": {
+                "name": "int",
+                "builtin": true
+              },
+              "help": "use this number of threads in multi-threaded applications (set to 0 to disable multi-threading).",
+              "metavar": "number"
+            },
+            {
+              "option_strings": [
+                "-config"
+              ],
+              "dest": "config",
+              "action_type": "append",
+              "nargs": 2,
+              "help": "temporarily set the value of an MRtrix config file entry.",
+              "metavar": "key value"
+            },
+            {
+              "option_strings": [
+                "-help"
+              ],
+              "dest": "help",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display this information page and exit."
+            },
+            {
+              "option_strings": [
+                "-version"
+              ],
+              "dest": "version",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display version information and exit."
+            },
+            {
+              "option_strings": [
+                "-nocleanup"
+              ],
+              "dest": "nocleanup",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "do not delete intermediate files during script execution, and do not delete scratch directory at script completion."
+            },
+            {
+              "option_strings": [
+                "-scratch"
+              ],
+              "dest": "scratch",
+              "action_type": "store",
+              "help": "manually specify the path in which to generate the scratch directory.",
+              "metavar": "/path/to/scratch/"
+            },
+            {
+              "option_strings": [
+                "-continue"
+              ],
+              "dest": "cont",
+              "action_type": "store",
+              "nargs": 2,
+              "help": "continue the script from a previous execution; must provide the scratch directory path, and the name of the last successfully-generated file.",
+              "metavar": [
+                "<ScratchDir>",
+                "<LastFile>"
+              ]
+            },
+            {
+              "option_strings": [
+                "-nocrop"
+              ],
+              "dest": "nocrop",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "Do NOT crop the resulting 5TT image to reduce its size (keep the same dimensions as the input image)"
+            },
+            {
+              "option_strings": [
+                "-sgm_amyg_hipp"
+              ],
+              "dest": "sgm_amyg_hipp",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "Represent the amygdalae and hippocampi as sub-cortical grey matter in the 5TT image"
+            },
+            {
+              "option_strings": [],
+              "dest": "input",
+              "action_type": "store",
+              "required": true,
+              "help": "The input T1-weighted image"
+            },
+            {
+              "option_strings": [],
+              "dest": "output",
+              "action_type": "store",
+              "required": true,
+              "help": "The output 5TT image"
+            },
+            {
+              "option_strings": [
+                "-t2"
+              ],
+              "dest": "t2",
+              "action_type": "store",
+              "help": "Provide a T2-weighted image in addition to the default T1-weighted image; this will be used as a second input to FSL FAST",
+              "metavar": "<T2 image>"
+            },
+            {
+              "option_strings": [
+                "-mask"
+              ],
+              "dest": "mask",
+              "action_type": "store",
+              "help": "Manually provide a brain mask, rather than deriving one in the script"
+            },
+            {
+              "option_strings": [
+                "-premasked"
+              ],
+              "dest": "premasked",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "Indicate that brain masking has already been applied to the input image"
+            }
+          ],
+          "argument_groups": [
+            {
+              "title": "positional arguments",
+              "description": null,
+              "actions": [
+                "input",
+                "output"
+              ]
+            },
+            {
+              "title": "options",
+              "description": null,
+              "actions": []
+            },
+            {
+              "title": "Standard options",
+              "description": null,
+              "actions": [
+                "info",
+                "quiet",
+                "debug",
+                "force",
+                "nthreads",
+                "config",
+                "help",
+                "version"
+              ]
+            },
+            {
+              "title": "Additional standard options for Python scripts",
+              "description": null,
+              "actions": [
+                "nocleanup",
+                "scratch",
+                "cont"
+              ]
+            },
+            {
+              "title": "Options common to all 5ttgen algorithms",
+              "description": null,
+              "actions": [
+                "nocrop",
+                "sgm_amyg_hipp"
+              ]
+            },
+            {
+              "title": "Options specific to the 'fsl' algorithm",
+              "description": null,
+              "actions": [
+                "t2",
+                "mask",
+                "premasked"
+              ]
+            }
+          ]
+        },
+        "gif": {
+          "prog": "5ttgen gif",
+          "add_help": false,
+          "formatter_class": "HelpFormatter",
+          "actions": [
+            {
+              "option_strings": [
+                "-info"
+              ],
+              "dest": "info",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display information messages."
+            },
+            {
+              "option_strings": [
+                "-quiet"
+              ],
+              "dest": "quiet",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "do not display information messages or progress status. Alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string."
+            },
+            {
+              "option_strings": [
+                "-debug"
+              ],
+              "dest": "debug",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display debugging messages."
+            },
+            {
+              "option_strings": [
+                "-force"
+              ],
+              "dest": "force",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "force overwrite of output files."
+            },
+            {
+              "option_strings": [
+                "-nthreads"
+              ],
+              "dest": "nthreads",
+              "action_type": "store",
+              "type_info": {
+                "name": "int",
+                "builtin": true
+              },
+              "help": "use this number of threads in multi-threaded applications (set to 0 to disable multi-threading).",
+              "metavar": "number"
+            },
+            {
+              "option_strings": [
+                "-config"
+              ],
+              "dest": "config",
+              "action_type": "append",
+              "nargs": 2,
+              "help": "temporarily set the value of an MRtrix config file entry.",
+              "metavar": "key value"
+            },
+            {
+              "option_strings": [
+                "-help"
+              ],
+              "dest": "help",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display this information page and exit."
+            },
+            {
+              "option_strings": [
+                "-version"
+              ],
+              "dest": "version",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display version information and exit."
+            },
+            {
+              "option_strings": [
+                "-nocleanup"
+              ],
+              "dest": "nocleanup",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "do not delete intermediate files during script execution, and do not delete scratch directory at script completion."
+            },
+            {
+              "option_strings": [
+                "-scratch"
+              ],
+              "dest": "scratch",
+              "action_type": "store",
+              "help": "manually specify the path in which to generate the scratch directory.",
+              "metavar": "/path/to/scratch/"
+            },
+            {
+              "option_strings": [
+                "-continue"
+              ],
+              "dest": "cont",
+              "action_type": "store",
+              "nargs": 2,
+              "help": "continue the script from a previous execution; must provide the scratch directory path, and the name of the last successfully-generated file.",
+              "metavar": [
+                "<ScratchDir>",
+                "<LastFile>"
+              ]
+            },
+            {
+              "option_strings": [
+                "-nocrop"
+              ],
+              "dest": "nocrop",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "Do NOT crop the resulting 5TT image to reduce its size (keep the same dimensions as the input image)"
+            },
+            {
+              "option_strings": [
+                "-sgm_amyg_hipp"
+              ],
+              "dest": "sgm_amyg_hipp",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "Represent the amygdalae and hippocampi as sub-cortical grey matter in the 5TT image"
+            },
+            {
+              "option_strings": [],
+              "dest": "input",
+              "action_type": "store",
+              "required": true,
+              "help": "The input Geodesic Information Flow (GIF) segmentation image"
+            },
+            {
+              "option_strings": [],
+              "dest": "output",
+              "action_type": "store",
+              "required": true,
+              "help": "The output 5TT image"
+            }
+          ],
+          "argument_groups": [
+            {
+              "title": "positional arguments",
+              "description": null,
+              "actions": [
+                "input",
+                "output"
+              ]
+            },
+            {
+              "title": "options",
+              "description": null,
+              "actions": []
+            },
+            {
+              "title": "Standard options",
+              "description": null,
+              "actions": [
+                "info",
+                "quiet",
+                "debug",
+                "force",
+                "nthreads",
+                "config",
+                "help",
+                "version"
+              ]
+            },
+            {
+              "title": "Additional standard options for Python scripts",
+              "description": null,
+              "actions": [
+                "nocleanup",
+                "scratch",
+                "cont"
+              ]
+            },
+            {
+              "title": "Options common to all 5ttgen algorithms",
+              "description": null,
+              "actions": [
+                "nocrop",
+                "sgm_amyg_hipp"
+              ]
+            }
+          ]
+        },
+        "hsvs": {
+          "prog": "5ttgen hsvs",
+          "add_help": false,
+          "formatter_class": "HelpFormatter",
+          "actions": [
+            {
+              "option_strings": [
+                "-info"
+              ],
+              "dest": "info",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display information messages."
+            },
+            {
+              "option_strings": [
+                "-quiet"
+              ],
+              "dest": "quiet",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "do not display information messages or progress status. Alternatively, this can be achieved by setting the MRTRIX_QUIET environment variable to a non-empty string."
+            },
+            {
+              "option_strings": [
+                "-debug"
+              ],
+              "dest": "debug",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display debugging messages."
+            },
+            {
+              "option_strings": [
+                "-force"
+              ],
+              "dest": "force",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "force overwrite of output files."
+            },
+            {
+              "option_strings": [
+                "-nthreads"
+              ],
+              "dest": "nthreads",
+              "action_type": "store",
+              "type_info": {
+                "name": "int",
+                "builtin": true
+              },
+              "help": "use this number of threads in multi-threaded applications (set to 0 to disable multi-threading).",
+              "metavar": "number"
+            },
+            {
+              "option_strings": [
+                "-config"
+              ],
+              "dest": "config",
+              "action_type": "append",
+              "nargs": 2,
+              "help": "temporarily set the value of an MRtrix config file entry.",
+              "metavar": "key value"
+            },
+            {
+              "option_strings": [
+                "-help"
+              ],
+              "dest": "help",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display this information page and exit."
+            },
+            {
+              "option_strings": [
+                "-version"
+              ],
+              "dest": "version",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "display version information and exit."
+            },
+            {
+              "option_strings": [
+                "-nocleanup"
+              ],
+              "dest": "nocleanup",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "do not delete intermediate files during script execution, and do not delete scratch directory at script completion."
+            },
+            {
+              "option_strings": [
+                "-scratch"
+              ],
+              "dest": "scratch",
+              "action_type": "store",
+              "help": "manually specify the path in which to generate the scratch directory.",
+              "metavar": "/path/to/scratch/"
+            },
+            {
+              "option_strings": [
+                "-continue"
+              ],
+              "dest": "cont",
+              "action_type": "store",
+              "nargs": 2,
+              "help": "continue the script from a previous execution; must provide the scratch directory path, and the name of the last successfully-generated file.",
+              "metavar": [
+                "<ScratchDir>",
+                "<LastFile>"
+              ]
+            },
+            {
+              "option_strings": [
+                "-nocrop"
+              ],
+              "dest": "nocrop",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "Do NOT crop the resulting 5TT image to reduce its size (keep the same dimensions as the input image)"
+            },
+            {
+              "option_strings": [
+                "-sgm_amyg_hipp"
+              ],
+              "dest": "sgm_amyg_hipp",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "Represent the amygdalae and hippocampi as sub-cortical grey matter in the 5TT image"
+            },
+            {
+              "option_strings": [],
+              "dest": "input",
+              "action_type": "store",
+              "required": true,
+              "help": "The input FreeSurfer subject directory"
+            },
+            {
+              "option_strings": [],
+              "dest": "output",
+              "action_type": "store",
+              "required": true,
+              "help": "The output 5TT image"
+            },
+            {
+              "option_strings": [
+                "-template"
+              ],
+              "dest": "template",
+              "action_type": "store",
+              "help": "Provide an image that will form the template for the generated 5TT image"
+            },
+            {
+              "option_strings": [
+                "-hippocampi"
+              ],
+              "dest": "hippocampi",
+              "action_type": "store",
+              "choices": [
+                "subfields",
+                "first",
+                "aseg"
+              ],
+              "help": "Select method to be used for hippocampi (& amygdalae) segmentation; options are: subfields,first,aseg"
+            },
+            {
+              "option_strings": [
+                "-thalami"
+              ],
+              "dest": "thalami",
+              "action_type": "store",
+              "choices": [
+                "nuclei",
+                "first",
+                "aseg"
+              ],
+              "help": "Select method to be used for thalamic segmentation; options are: nuclei,first,aseg"
+            },
+            {
+              "option_strings": [
+                "-white_stem"
+              ],
+              "dest": "white_stem",
+              "action_type": "store_true",
+              "nargs": 0,
+              "const": true,
+              "default": false,
+              "help": "Classify the brainstem as white matter"
+            }
+          ],
+          "argument_groups": [
+            {
+              "title": "positional arguments",
+              "description": null,
+              "actions": [
+                "input",
+                "output"
+              ]
+            },
+            {
+              "title": "options",
+              "description": null,
+              "actions": [
+                "template",
+                "hippocampi",
+                "thalami",
+                "white_stem"
+              ]
+            },
+            {
+              "title": "Standard options",
+              "description": null,
+              "actions": [
+                "info",
+                "quiet",
+                "debug",
+                "force",
+                "nthreads",
+                "config",
+                "help",
+                "version"
+              ]
+            },
+            {
+              "title": "Additional standard options for Python scripts",
+              "description": null,
+              "actions": [
+                "nocleanup",
+                "scratch",
+                "cont"
+              ]
+            },
+            {
+              "title": "Options common to all 5ttgen algorithms",
+              "description": null,
+              "actions": [
+                "nocrop",
+                "sgm_amyg_hipp"
+              ]
+            }
+          ]
+        }
+      },
+      "subparsers_dest": "algorithm",
+      "subparsers_aliases": {}
+    }
+  ],
+  "argument_groups": [
+    {
+      "title": "positional arguments",
+      "description": null,
+      "actions": []
+    },
+    {
+      "title": "options",
+      "description": null,
+      "actions": []
+    },
+    {
+      "title": "Standard options",
+      "description": null,
+      "actions": [
+        "info",
+        "quiet",
+        "debug",
+        "force",
+        "nthreads",
+        "config",
+        "help",
+        "version"
+      ]
+    },
+    {
+      "title": "Additional standard options for Python scripts",
+      "description": null,
+      "actions": [
+        "nocleanup",
+        "scratch",
+        "cont"
+      ]
+    },
+    {
+      "title": "Options common to all 5ttgen algorithms",
+      "description": null,
+      "actions": [
+        "nocrop",
+        "sgm_amyg_hipp"
+      ]
+    },
+    {
+      "title": "Algorithm choices",
+      "description": null,
+      "actions": [
+        "algorithm"
+      ]
+    }
+  ],
+  "mrtrix": {
+    "synopsis": "Generate a 5TT image suitable for ACT",
+    "description": [
+      "5ttgen acts as a 'master' script for generating a five-tissue-type (5TT) segmented tissue image suitable for use in Anatomically-Constrained Tractography (ACT). A range of different algorithms are available for completing this task. When using this script, the name of the algorithm to be used must appear as the first argument on the command-line after '5ttgen'. The subsequent compulsory arguments and options available depend on the particular algorithm being invoked.",
+      "Each algorithm available also has its own help page, including necessary references; e.g. to see the help page of the 'fsl' algorithm, type '5ttgen fsl'."
+    ],
+    "author": "Robert E. Smith (robert.smith@florey.edu.au)",
+    "citations": [
+      [
+        null,
+        "Smith, R. E.; Tournier, J.-D.; Calamante, F. & Connelly, A. Anatomically-constrained tractography: Improved diffusion MRI streamlines tractography through effective use of anatomical information. NeuroImage, 2012, 62, 1924-1938"
+      ]
+    ],
+    "copyright": "Copyright (c) 2008-2022 the MRtrix3 contributors.\n\nThis Source Code Form is subject to the terms of the Mozilla Public\nLicense, v. 2.0. If a copy of the MPL was not distributed with this\nfile, You can obtain one at http://mozilla.org/MPL/2.0/.\n\nCovered Software is provided under this License on an \"as is\"\nbasis, without warranty of any kind, either expressed, implied, or\nstatutory, including, without limitation, warranties that the\nCovered Software is free of defects, merchantable, fit for a\nparticular purpose or non-infringing.\nSee the Mozilla Public License v. 2.0 for more details.\n\nFor more details, see http://www.mrtrix.org/.",
+    "algorithms": {
+      "freesurfer": {
+        "synopsis": "Generate the 5TT image based on a FreeSurfer parcellation image",
+        "description": [],
+        "author": "Robert E. Smith (robert.smith@florey.edu.au)",
+        "citations": [
+          [
+            null,
+            "Smith, R. E.; Tournier, J.-D.; Calamante, F. & Connelly, A. Anatomically-constrained tractography: Improved diffusion MRI streamlines tractography through effective use of anatomical information. NeuroImage, 2012, 62, 1924-1938"
+          ]
+        ],
+        "copyright": "Copyright (c) 2008-2022 the MRtrix3 contributors.\n\nThis Source Code Form is subject to the terms of the Mozilla Public\nLicense, v. 2.0. If a copy of the MPL was not distributed with this\nfile, You can obtain one at http://mozilla.org/MPL/2.0/.\n\nCovered Software is provided under this License on an \"as is\"\nbasis, without warranty of any kind, either expressed, implied, or\nstatutory, including, without limitation, warranties that the\nCovered Software is free of defects, merchantable, fit for a\nparticular purpose or non-infringing.\nSee the Mozilla Public License v. 2.0 for more details.\n\nFor more details, see http://www.mrtrix.org/."
+      },
+      "fsl": {
+        "synopsis": "Use FSL commands to generate the 5TT image based on a T1-weighted image",
+        "description": [],
+        "author": "Robert E. Smith (robert.smith@florey.edu.au)",
+        "citations": [
+          [
+            null,
+            "Smith, R. E.; Tournier, J.-D.; Calamante, F. & Connelly, A. Anatomically-constrained tractography: Improved diffusion MRI streamlines tractography through effective use of anatomical information. NeuroImage, 2012, 62, 1924-1938"
+          ],
+          [
+            null,
+            "Smith, S. M. Fast robust automated brain extraction. Human Brain Mapping, 2002, 17, 143-155"
+          ],
+          [
+            null,
+            "Zhang, Y.; Brady, M. & Smith, S. Segmentation of brain MR images through a hidden Markov random field model and the expectation-maximization algorithm. IEEE Transactions on Medical Imaging, 2001, 20, 45-57"
+          ],
+          [
+            null,
+            "Patenaude, B.; Smith, S. M.; Kennedy, D. N. & Jenkinson, M. A Bayesian model of shape and appearance for subcortical brain segmentation. NeuroImage, 2011, 56, 907-922"
+          ],
+          [
+            null,
+            "Smith, S. M.; Jenkinson, M.; Woolrich, M. W.; Beckmann, C. F.; Behrens, T. E.; Johansen-Berg, H.; Bannister, P. R.; De Luca, M.; Drobnjak, I.; Flitney, D. E.; Niazy, R. K.; Saunders, J.; Vickers, J.; Zhang, Y.; De Stefano, N.; Brady, J. M. & Matthews, P. M. Advances in functional and structural MR image analysis and implementation as FSL. NeuroImage, 2004, 23, S208-S219"
+          ]
+        ],
+        "copyright": "Copyright (c) 2008-2022 the MRtrix3 contributors.\n\nThis Source Code Form is subject to the terms of the Mozilla Public\nLicense, v. 2.0. If a copy of the MPL was not distributed with this\nfile, You can obtain one at http://mozilla.org/MPL/2.0/.\n\nCovered Software is provided under this License on an \"as is\"\nbasis, without warranty of any kind, either expressed, implied, or\nstatutory, including, without limitation, warranties that the\nCovered Software is free of defects, merchantable, fit for a\nparticular purpose or non-infringing.\nSee the Mozilla Public License v. 2.0 for more details.\n\nFor more details, see http://www.mrtrix.org/."
+      },
+      "gif": {
+        "synopsis": "Generate the 5TT image based on a Geodesic Information Flow (GIF) segmentation image",
+        "description": [],
+        "author": "Matteo Mancini (m.mancini@ucl.ac.uk)",
+        "citations": [
+          [
+            null,
+            "Smith, R. E.; Tournier, J.-D.; Calamante, F. & Connelly, A. Anatomically-constrained tractography: Improved diffusion MRI streamlines tractography through effective use of anatomical information. NeuroImage, 2012, 62, 1924-1938"
+          ]
+        ],
+        "copyright": "Copyright (c) 2008-2022 the MRtrix3 contributors.\n\nThis Source Code Form is subject to the terms of the Mozilla Public\nLicense, v. 2.0. If a copy of the MPL was not distributed with this\nfile, You can obtain one at http://mozilla.org/MPL/2.0/.\n\nCovered Software is provided under this License on an \"as is\"\nbasis, without warranty of any kind, either expressed, implied, or\nstatutory, including, without limitation, warranties that the\nCovered Software is free of defects, merchantable, fit for a\nparticular purpose or non-infringing.\nSee the Mozilla Public License v. 2.0 for more details.\n\nFor more details, see http://www.mrtrix.org/."
+      },
+      "hsvs": {
+        "synopsis": "Generate a 5TT image based on Hybrid Surface and Volume Segmentation (HSVS), using FreeSurfer and FSL tools",
+        "description": [],
+        "author": "Robert E. Smith (robert.smith@florey.edu.au)",
+        "citations": [
+          [
+            null,
+            "Smith, R. E.; Tournier, J.-D.; Calamante, F. & Connelly, A. Anatomically-constrained tractography: Improved diffusion MRI streamlines tractography through effective use of anatomical information. NeuroImage, 2012, 62, 1924-1938"
+          ],
+          [
+            null,
+            "Smith, R.; Skoch, A.; Bajada, C.; Caspers, S.; Connelly, A. Hybrid Surface-Volume Segmentation for improved Anatomically-Constrained Tractography. In Proc OHBM 2020"
+          ],
+          [
+            null,
+            "Fischl, B. Freesurfer. NeuroImage, 2012, 62(2), 774-781"
+          ],
+          [
+            "If FreeSurfer hippocampal subfields module is utilised",
+            "Iglesias, J.E.; Augustinack, J.C.; Nguyen, K.; Player, C.M.; Player, A.; Wright, M.; Roy, N.; Frosch, M.P.; Mc Kee, A.C.; Wald, L.L.; Fischl, B.; and Van Leemput, K. A computational atlas of the hippocampal formation using ex vivo, ultra-high resolution MRI: Application to adaptive segmentation of in vivo MRI. NeuroImage, 2015, 115, 117-137"
+          ],
+          [
+            "If FreeSurfer hippocampal subfields module is utilised and includes amygdalae segmentation",
+            "Saygin, Z.M. & Kliemann, D.; Iglesias, J.E.; van der Kouwe, A.J.W.; Boyd, E.; Reuter, M.; Stevens, A.; Van Leemput, K.; Mc Kee, A.; Frosch, M.P.; Fischl, B.; Augustinack, J.C. High-resolution magnetic resonance imaging reveals nuclei of the human amygdala: manual segmentation to automatic atlas. NeuroImage, 2017, 155, 370-382"
+          ],
+          [
+            "If -thalami nuclei is used",
+            "Iglesias, J.E.; Insausti, R.; Lerma-Usabiaga, G.; Bocchetta, M.; Van Leemput, K.; Greve, D.N.; van der Kouwe, A.; ADNI; Fischl, B.; Caballero-Gaudes, C.; Paz-Alonso, P.M. A probabilistic atlas of the human thalamic nuclei combining ex vivo MRI and histology. NeuroImage, 2018, 183, 314-326"
+          ],
+          [
+            "If ACPCDetect is installed",
+            "Ardekani, B.; Bachman, A.H. Model-based automatic detection of the anterior and posterior commissures on MRI scans. NeuroImage, 2009, 46(3), 677-682"
+          ]
+        ],
+        "copyright": "Copyright (c) 2008-2022 the MRtrix3 contributors.\n\nThis Source Code Form is subject to the terms of the Mozilla Public\nLicense, v. 2.0. If a copy of the MPL was not distributed with this\nfile, You can obtain one at http://mozilla.org/MPL/2.0/.\n\nCovered Software is provided under this License on an \"as is\"\nbasis, without warranty of any kind, either expressed, implied, or\nstatutory, including, without limitation, warranties that the\nCovered Software is free of defects, merchantable, fit for a\nparticular purpose or non-infringing.\nSee the Mozilla Public License v. 2.0 for more details.\n\nFor more details, see http://www.mrtrix.org/."
+      }
+    },
+    "version": "3.0.4"
+  },
+  "description": "Generate a 5TT image suitable for ACT.\n\n5ttgen acts as a 'master' script for generating a five-tissue-type (5TT) segmented tissue image suitable for use in Anatomically-Constrained Tractography (ACT). A range of different algorithms are available for completing this task. When using this script, the name of the algorithm to be used must appear as the first argument on the command-line after '5ttgen'. The subsequent compulsory arguments and options available depend on the particular algorithm being invoked.\n\nEach algorithm available also has its own help page, including necessary references; e.g. to see the help page of the 'fsl' algorithm, type '5ttgen fsl'.\n\nReferences:\n\nSmith, R. E.; Tournier, J.-D.; Calamante, F. & Connelly, A. Anatomically-constrained tractography: Improved diffusion MRI streamlines tractography through effective use of anatomical information. NeuroImage, 2012, 62, 1924-1938"
+}
