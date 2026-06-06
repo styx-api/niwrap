@@ -73,7 +73,8 @@ node "$STYX_CLI" build --catalog "$CATALOG_DIR" -o "$BUILD_OUT" --mode multi -b 
 
 # -----------------------------------------------------------------------------
 # Reshape the raw styx2 output (one dir per backend) into the dist/ layout the
-# workflows push: dist/niwrap-python, dist/niwrap-js, dist/niwrap-json-schema.
+# publish + typecheck workflows consume: dist/niwrap-python (-> PyPI),
+# dist/niwrap-js (-> npm). Each workflow compiles only the targets it needs.
 # -----------------------------------------------------------------------------
 echo "==> Reshaping into ${DIST_DIR}"
 rm -rf "$DIST_DIR"
