@@ -10,6 +10,7 @@ index bcb9843ae..e1f45b87c 100644
 +      switch (t) {
 +        case Integer: return "integer";
 +        case Float: return "float";
++        case Boolean: return "boolean";
 +        case Text: return "text";
 +        case ArgFileIn: return "file in";
 +        case ArgFileOut: return "file out";
@@ -49,6 +50,34 @@ index bcb9843ae..e1f45b87c 100644
 +        }
 +        else
 +          out += s[i];
++      }
++      return out;
++    }
++
++    // Emit the constraint fields (choices / numeric range) MRtrix stores in
++    // Argument::limits, each as a trailing "key": value, line at `indent`.
++    // Unbounded ranges use sentinels (INT64 min/max, +/-inf) which are skipped.
++    static std::string arg_constraints_json (const Argument& arg, const std::string& indent) {
++      std::string out;
++      if (arg.type == Choice && arg.limits.choices) {
++        out += indent + "\"choices\": [";
++        bool first = true;
++        for (const char* const* c = arg.limits.choices; *c; ++c) {
++          if (!first) out += ", ";
++          out += std::string("\"") + json_str_escape(*c) + "\"";
++          first = false;
++        }
++        out += "],\n";
++      } else if (arg.type == Integer) {
++        if (arg.limits.i.min != std::numeric_limits<int64_t>::min())
++          out += indent + "\"min\": " + str(arg.limits.i.min) + ",\n";
++        if (arg.limits.i.max != std::numeric_limits<int64_t>::max())
++          out += indent + "\"max\": " + str(arg.limits.i.max) + ",\n";
++      } else if (arg.type == Float) {
++        if (arg.limits.f.min != -std::numeric_limits<default_type>::infinity())
++          out += indent + "\"min\": " + str(arg.limits.f.min) + ",\n";
++        if (arg.limits.f.max != std::numeric_limits<default_type>::infinity())
++          out += indent + "\"max\": " + str(arg.limits.f.max) + ",\n";
 +      }
 +      return out;
 +    }
@@ -107,6 +136,7 @@ index bcb9843ae..e1f45b87c 100644
 +        s += std::string("      \"id\": \"") + json_str_escape(ARGUMENTS[i].id) + "\",\n";
 +        s += std::string("      \"description\": \"") + json_str_escape(ARGUMENTS[i].desc) + "\",\n";
 +        s += std::string("      \"type\": \"") + arg_type_to_str(ARGUMENTS[i].type) + "\",\n";
++        s += arg_constraints_json (ARGUMENTS[i], "      ");
 +        s += std::string("      \"optional\": ") + ((ARGUMENTS[i].flags & Optional) ? "true" : "false") + ",\n";
 +        s += std::string("      \"allow_multiple\": ") + ((ARGUMENTS[i].flags & AllowMultiple) ? "true" : "false") + "\n";
 +        s += "    }";
@@ -134,6 +164,7 @@ index bcb9843ae..e1f45b87c 100644
 +            s += std::string("              \"id\": \"") + json_str_escape(OPTIONS[i][j][k].id) + "\",\n";
 +            s += std::string("              \"description\": \"") + json_str_escape(OPTIONS[i][j][k].desc) + "\",\n";
 +            s += std::string("              \"type\": \"") + arg_type_to_str(OPTIONS[i][j][k].type) + "\",\n";
++            s += arg_constraints_json (OPTIONS[i][j][k], "              ");
 +            s += std::string("              \"optional\": ") + ((OPTIONS[i][j][k].flags & Optional) ? "true" : "false") + ",\n";
 +            s += std::string("              \"allow_multiple\": ") + ((OPTIONS[i][j][k].flags & AllowMultiple) ? "true" : "false") + "\n";
 +            s += "            }";
@@ -171,6 +202,7 @@ index bcb9843ae..e1f45b87c 100644
 +          s += std::string("              \"id\": \"") + json_str_escape(__standard_options[j][k].id) + "\",\n";
 +          s += std::string("              \"description\": \"") + json_str_escape(__standard_options[j][k].desc) + "\",\n";
 +          s += std::string("              \"type\": \"") + arg_type_to_str(__standard_options[j][k].type) + "\",\n";
++          s += arg_constraints_json (__standard_options[j][k], "              ");
 +          s += std::string("              \"optional\": ") + ((__standard_options[j][k].flags & Optional) ? "true" : "false") + ",\n";
 +          s += std::string("              \"allow_multiple\": ") + ((__standard_options[j][k].flags & AllowMultiple) ? "true" : "false") + "\n";
 +          s += "            }";
