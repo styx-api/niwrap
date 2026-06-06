@@ -90,7 +90,7 @@ jobs:
       run: uv --directory tooling run --with pillow python og/build_og.py --catalog-dir ../_site --logo og/.assets/logo.png --fonts-dir og/.assets --out ../_site/og-image.png
 
     - name: Upload artifact
-      uses: actions/upload-pages-artifact@v4
+      uses: actions/upload-pages-artifact@v5
       with:
         path: _site
 
