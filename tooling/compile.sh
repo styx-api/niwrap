@@ -23,14 +23,13 @@ set -euo pipefail
 # releases are reproducible; bump deliberately and coordinate with the hub's
 # bundled @styx/core version (see the styx2 v1-replacement plan).
 #
-# Pinned to styx-ts main at the 0.4.0 release (#36) - the MRtrix `mrtrix`/
-# `argdump` frontends (#34) plus choice-enum + numeric-range support (#35).
-# Required by the MRtrix native cutover: the catalog now holds `mrtrix`/`argdump`
-# descriptors, which older styx-ts cannot compile. Keep in lockstep with the
-# hub-gate / DEFAULT_COMPILER @styx-api/core@0.4.0 pin; bump deliberately.
+# Pinned to styx-ts main at the 0.5.0 release (#41) - the metapackage now
+# re-exports styxkit so `import niwrap; niwrap.use_docker()` works again (#39),
+# plus the module-naming hardening (#40). Keep in lockstep with the hub-gate /
+# DEFAULT_COMPILER @styx-api/core@0.5.0 pin; bump deliberately.
 # -----------------------------------------------------------------------------
 STYX2_REPO="${STYX2_REPO:-https://github.com/styx-api/styx-ts.git}"
-STYX2_REF="${STYX2_REF:-b3b6dda34936d9e1ed47ddb75bb021a5cd11ab26}"
+STYX2_REF="${STYX2_REF:-7d8b41aa20a0a677deb1ce0286d01fa9fc17e2ae}"
 
 TARGETS="${1:-python,typescript,json-schema}"
 
