@@ -30,7 +30,10 @@ applied at build time — no fork branch to rebase (the `source/` submodule
 referenced under "Legacy flow" belongs to the old flow and retires with it):
 
 - [`patches/cpp-json-usage.patch`](patches/cpp-json-usage.patch) — adds the
-  `__print_usage_json__` hook to `core/app.cpp` (pure addition, ~190 lines).
+  `__print_usage_json__` hook to `core/app.cpp` (pure addition). Per argument it
+  also serializes the constraints MRtrix keeps in `Argument::limits`: `choices`
+  for enum arguments and `min`/`max` for bounded integers/floats (the unbounded
+  sentinels are omitted) — data even MRtrix's own readthedocs docs throw away.
 - [`patches/python-argdump.patch`](patches/python-argdump.patch) — adds a
   `__print_argdump__` branch to `lib/mrtrix3/app.py` that serializes the live
   `argparse` parser (including all algorithm subparsers) with `argdump`, plus a
