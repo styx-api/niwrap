@@ -14,7 +14,8 @@ jobs:
     steps:
     - uses: actions/checkout@v6
     - name: Install the latest version of uv
-      uses: astral-sh/setup-uv@v7
+      # full pin: setup-uv stopped publishing rolling major tags (@v8) at v8
+      uses: astral-sh/setup-uv@v8.2.0
 
     - name: Ruff check
       run: uv --directory tooling run ruff check src/
@@ -30,7 +31,8 @@ jobs:
     steps:
     - uses: actions/checkout@v6
     - name: Install the latest version of uv
-      uses: astral-sh/setup-uv@v7
+      # full pin: setup-uv stopped publishing rolling major tags (@v8) at v8
+      uses: astral-sh/setup-uv@v8.2.0
 
     - name: Unit tests
       run: uv --directory tooling run pytest
