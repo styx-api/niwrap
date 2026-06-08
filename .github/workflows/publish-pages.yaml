@@ -52,6 +52,21 @@ jobs:
         npm --prefix tooling/hub-gate ci
         node tooling/hub-gate/gate.mjs _site
 
+    - name: Install embed deps
+      run: npm --prefix tooling/hub-embed ci
+
+    # Cache the transformers.js model download (ONNX weights) across runs. The
+    # build-embeddings step pins env.cacheDir to tooling/hub-embed/.cache (outside
+    # node_modules, so `npm ci` above doesn't wipe it); this path must match.
+    - name: Cache embedding model
+      uses: actions/cache@v4
+      with:
+        path: tooling/hub-embed/.cache
+        key: hf-${{ hashFiles('tooling/hub-embed/package-lock.json') }}-Xenova-all-MiniLM-L6-v2
+
+    - name: Precompute semantic-search embeddings
+      run: node tooling/hub-embed/build-embeddings.mjs _site
+
     - name: Landing redirect
       run: |
         cat > _site/index.html << 'EOF'

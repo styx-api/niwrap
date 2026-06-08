@@ -1,0 +1,13 @@
+{
+  "name": "niwrap-hub-embed",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Precompute semantic-search embeddings for the niwrap.dev hub: embed every callable tool once with the same ONNX model the clients query with, and publish the vectors to the Pages output next to catalog.json.",
+  "scripts": {
+    "embed": "node build-embeddings.mjs"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "^4.2.0"
+  }
+}
