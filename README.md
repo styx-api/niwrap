@@ -25,24 +25,22 @@ NiWrap provides seamless, programmatic access to powerful neuroimaging command-l
 
 <!-- START_PACKAGES_TABLE -->
 
-| Package                                                                               | Default Version                                                        | API Coverage                                                      |
-| ------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ----------------------------------------------------------------- |
-| [AFNI](https://afni.nimh.nih.gov/)                                                    | [`24.2.06`](https://hub.docker.com/r/afni/afni_make_build)             | ![565/611](https://progress-bar.xyz/565/?scale=611&suffix=%2F611) |
-| [ANTs](https://github.com/ANTsX/ANTs)                                                 | [`2.5.3`](https://hub.docker.com/r/antsx/ants)                         | ![72/113](https://progress-bar.xyz/72/?scale=113&suffix=%2F113)   |
-| [Convert3D](http://www.itksnap.org/pmwiki/pmwiki.php?n=Convert3D.Convert3D)           | [`1.1.0`](https://hub.docker.com/r/pyushkevich/itksnap)                | ![4/4](https://progress-bar.xyz/4/?scale=4&suffix=%2F4)           |
-| [dcm2niix](https://github.com/rordenlab/dcm2niix)                                     | [`1.0.20240202`](https://hub.docker.com/r/vnmd/dcm2niix_v1.0.20240202) | ![1/1](https://progress-bar.xyz/1/?scale=1&suffix=%2F1)           |
-| [FastSurfer](https://github.com/Deep-MI/FastSurfer)                                   | [`2.3.3`](https://hub.docker.com/r/nx10x/fastsurfer)                   | ![1/1](https://progress-bar.xyz/1/?scale=1&suffix=%2F1)           |
-| [FreeSurfer](https://surfer.nmr.mgh.harvard.edu/)                                     | [`7.4.1`](https://hub.docker.com/r/freesurfer/freesurfer)              | ![696/789](https://progress-bar.xyz/696/?scale=789&suffix=%2F789) |
-| [FSL](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki)                                         | [`6.0.4`](https://hub.docker.com/r/brainlife/fsl)                      | ![243/311](https://progress-bar.xyz/243/?scale=311&suffix=%2F311) |
-| [Greedy](https://github.com/pyushkevich/greedy)                                       | [`1.0.1`](https://hub.docker.com/r/pyushkevich/itksnap)                | ![1/1](https://progress-bar.xyz/1/?scale=1&suffix=%2F1)           |
-| [MRTrix3](https://www.mrtrix.org/)                                                    | [`3.0.4`](https://hub.docker.com/r/mrtrix3/mrtrix3)                    | ![121/121](https://progress-bar.xyz/121/?scale=121&suffix=%2F121) |
-| [MRTrix3Tissue](https://3tissue.github.io/)                                           | [`5.2.8`](https://hub.docker.com/r/brainlife/3tissue)                  | ![1/1](https://progress-bar.xyz/1/?scale=1&suffix=%2F1)           |
-| [NiftyReg](https://github.com/KCL-BMEIS/niftyreg)                                     | [`1.4.0`](https://hub.docker.com/r/vnmd/niftyreg_1.4.0)                | ![7/7](https://progress-bar.xyz/7/?scale=7&suffix=%2F7)           |
-| [Connectome Workbench](https://www.humanconnectome.org/software/connectome-workbench) | [`2.1.0`](https://hub.docker.com/r/nx10x/workbench)                    | ![203/203](https://progress-bar.xyz/203/?scale=203&suffix=%2F203) |
-
+| Package | Default Version | API Coverage |
+| --- | --- | --- |
+| [AFNI](https://afni.nimh.nih.gov/) | [`24.2.06`](https://hub.docker.com/r/afni/afni_make_build) | ![565/611](https://progress-bar.xyz/565/?scale=611&suffix=%2F611) |
+| [ANTs](https://github.com/ANTsX/ANTs) | [`2.5.3`](https://hub.docker.com/r/antsx/ants) | ![72/113](https://progress-bar.xyz/72/?scale=113&suffix=%2F113) |
+| [Convert3D](http://www.itksnap.org/pmwiki/pmwiki.php?n=Convert3D.Convert3D) | [`1.1.0`](https://hub.docker.com/r/pyushkevich/itksnap) | ![4/4](https://progress-bar.xyz/4/?scale=4&suffix=%2F4) |
+| [dcm2niix](https://github.com/rordenlab/dcm2niix) | [`1.0.20240202`](https://hub.docker.com/r/vnmd/dcm2niix_v1.0.20240202) | ![1/1](https://progress-bar.xyz/1/?scale=1&suffix=%2F1) |
+| [FastSurfer](https://github.com/Deep-MI/FastSurfer) | [`2.3.3`](https://hub.docker.com/r/nx10x/fastsurfer) | ![1/1](https://progress-bar.xyz/1/?scale=1&suffix=%2F1) |
+| [FreeSurfer](https://surfer.nmr.mgh.harvard.edu/) | [`7.4.1`](https://hub.docker.com/r/freesurfer/freesurfer) | ![696/789](https://progress-bar.xyz/696/?scale=789&suffix=%2F789) |
+| [FSL](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki) | [`6.0.4`](https://hub.docker.com/r/brainlife/fsl) | ![243/311](https://progress-bar.xyz/243/?scale=311&suffix=%2F311) |
+| [Greedy](https://github.com/pyushkevich/greedy) | [`1.0.1`](https://hub.docker.com/r/pyushkevich/itksnap) | ![1/1](https://progress-bar.xyz/1/?scale=1&suffix=%2F1) |
+| [MRTrix3](https://www.mrtrix.org/) | [`3.0.4`](https://hub.docker.com/r/mrtrix3/mrtrix3) | ![121/121](https://progress-bar.xyz/121/?scale=121&suffix=%2F121) |
+| [MRTrix3Tissue](https://3tissue.github.io/) | [`5.2.8`](https://hub.docker.com/r/brainlife/3tissue) | ![1/1](https://progress-bar.xyz/1/?scale=1&suffix=%2F1) |
+| [NiftyReg](https://github.com/KCL-BMEIS/niftyreg) | [`1.4.0`](https://hub.docker.com/r/vnmd/niftyreg_1.4.0) | ![7/7](https://progress-bar.xyz/7/?scale=7&suffix=%2F7) |
+| [Connectome Workbench](https://www.humanconnectome.org/software/connectome-workbench) | [`2.1.0`](https://hub.docker.com/r/nx10x/workbench) | ![203/203](https://progress-bar.xyz/203/?scale=203&suffix=%2F203) |
 <!-- END_PACKAGES_TABLE -->
-
-<small>_API Coverage: The percentages shown represent the proportion of tool binaries with available NiWrap descriptors, not the completeness of each descriptor._</small>
+<small>*API Coverage: The percentages shown represent the proportion of tool binaries with available NiWrap descriptors, not the completeness of each descriptor.*</small>
 
 ## 🚀 Getting Started
 
@@ -54,7 +52,6 @@ NiWrap provides seamless, programmatic access to powerful neuroimaging command-l
 ```bash
 pip install niwrap
 ```
-
 </details>
 
 <details>
@@ -65,7 +62,6 @@ npm install niwrap
 # or
 yarn add niwrap
 ```
-
 </details>
 
 <details>
@@ -75,7 +71,6 @@ yarn add niwrap
 # Not yet available on CRAN
 # Coming soon!
 ```
-
 </details>
 
 ### Basic Usage Examples
@@ -113,37 +108,35 @@ fod_outputs = mrtrix.dwi2fod(
 )
 # fod_outputs.response_odf[0].odf -> "wmfod.mif"
 ```
-
 </details>
 
 <details>
 <summary><b>TypeScript/JavaScript</b></summary>
 
 ```typescript
-import { niwrap, fsl, ants, mrtrix3 } from "niwrap";
+import { niwrap, fsl, ants, mrtrix3 } from 'niwrap';
 
 // Optional: Use Docker to run all tools (no local installation needed)
 niwrap.useDocker();
 
 // Run FSL's BET brain extraction
 const outputs = await fsl.bet({
-  input: "input.nii.gz",
-  output: "brain.nii.gz",
-  f: 0.5,
+    input: "input.nii.gz",
+    output: "brain.nii.gz",
+    f: 0.5
 });
 // outputs.outputFile -> "brain.nii.gz"
 // outputs.maskFile -> "brain_mask.nii.gz"
 
 // Calculate fiber orientation distributions with MRTrix3
 const fodOutputs = await mrtrix3.dwi2fod({
-  algorithm: "csd",
-  in_file: "dwi.mif",
-  wm_txt: "wm_response.txt",
-  wm_odf: "wmfod.mif",
+    algorithm: "csd",
+    in_file: "dwi.mif",
+    wm_txt: "wm_response.txt",
+    wm_odf: "wmfod.mif"
 });
 // fodOutputs.wmOdf -> "wmfod.mif"
 ```
-
 </details>
 
 <details>
@@ -162,7 +155,6 @@ outputs <- fsl$bet("input.nii.gz", "brain.nii.gz", fractional_intensity=0.5)
 
 # More functionality coming soon!
 ```
-
 </details>
 
 ## 🔧 Container Orchestration
@@ -184,14 +176,13 @@ niwrap.use_singularity()
 # Custom container configuration
 niwrap.use_docker()
 ```
-
 </details>
 
 <details>
 <summary><b>TypeScript/JavaScript</b></summary>
 
 ```typescript
-import { niwrap } from "niwrap";
+import { niwrap } from 'niwrap';
 
 // Use Docker containers
 niwrap.useDocker();
@@ -201,11 +192,10 @@ niwrap.useSingularity();
 
 // Custom container configuration
 niwrap.useDocker({
-  bindMounts: ["/data:/data"],
-  envs: { CUDA_VISIBLE_DEVICES: "0" },
+    bindMounts: ["/data:/data"],
+    envs: {"CUDA_VISIBLE_DEVICES": "0"}
 });
 ```
-
 </details>
 
 <details>
@@ -226,7 +216,6 @@ niwrap$use_docker(
     envs = list(CUDA_VISIBLE_DEVICES = "0")
 )
 ```
-
 </details>
 
 ## 🔍 How It Works
@@ -279,15 +268,30 @@ If you use NiWrap in your research, please consider citing:
 
 ## 🤜🤛 In collaboration with
 
-<!-- BIDS -->
-<img src="https://github.com/user-attachments/assets/739e914a-fdd8-41cb-8d04-c97f93a5a859?raw=True#gh-dark-mode-only" alt="bids-logo" width="35%"/>
-<img src="https://github.com/user-attachments/assets/5b0ac9a1-233b-4f8b-8b6d-eef79256eea1?raw=True#gh-light-mode-only" alt="bids-logo" width="35%"/>  
-<!-- Boutiques -->
-<img src=https://github.com/user-attachments/assets/fae23d93-2690-4b36-a44d-b1692c0b0524?raw=true" alt="boutiques-logo" width="25%">  
-<!-- Neurodesk -->
-<img src="https://github.com/user-attachments/assets/a60f18fd-0aa2-421c-9a69-63fa20da2177?raw=true" alt="neurodesk-logo" width="25%">
-<img src="https://github.com/user-attachments/assets/d9902da5-f9f8-4bed-82ae-5da943b53f08?raw=true#gh-light-mode-only" alt="neurodesk-logo" width="25%"> 
-<!-- Nipoppy -->
-<img src="https://github.com/user-attachments/assets/75b54786-ac20-4a47-a9e1-66639caa8209?raw=true" alt="nipoppy-logo" width="25%"> 
-<!-- Pydra -->
-<img src="https://github.com/user-attachments/assets/baaf7430-64ee-4969-bfc7-76c7a5001168?raw=true" alt="pydra-logo" width="25%">
+<p align="center">
+  <a href="https://bids.neuroimaging.io/">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="assets/logos/bids-dark.png">
+      <img alt="BIDS" height="48" src="assets/logos/bids-light.png">
+    </picture>
+  </a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://boutiques.github.io/">
+    <img alt="Boutiques" height="48" src="assets/logos/boutiques.png">
+  </a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://www.neurodesk.org/">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="assets/logos/neurodesk-dark.png">
+      <img alt="Neurodesk" height="48" src="assets/logos/neurodesk-light.png">
+    </picture>
+  </a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://nipoppy.readthedocs.io/">
+    <img alt="Nipoppy" height="48" src="assets/logos/nipoppy.svg">
+  </a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://nipype.github.io/pydra/">
+    <img alt="Pydra" height="48" src="assets/logos/pydra.svg">
+  </a>
+</p>
