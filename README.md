@@ -265,3 +265,33 @@ If you use NiWrap in your research, please consider citing:
 - [Styx Compiler](https://github.com/styx-api/styx-ts)
 - [Styx Documentation](https://styx-api.github.io/styxbook/)
 - [Boutiques](https://boutiques.github.io/)
+
+## 🤜🤛 In collaboration with
+
+<p align="center">
+  <a href="https://bids.neuroimaging.io/">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="assets/logos/bids-dark.png">
+      <img alt="BIDS" height="48" src="assets/logos/bids-light.png">
+    </picture>
+  </a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://boutiques.github.io/">
+    <img alt="Boutiques" height="48" src="assets/logos/boutiques.png">
+  </a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://www.neurodesk.org/">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="assets/logos/neurodesk-dark.png">
+      <img alt="Neurodesk" height="48" src="assets/logos/neurodesk-light.png">
+    </picture>
+  </a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://nipoppy.readthedocs.io/">
+    <img alt="Nipoppy" height="48" src="assets/logos/nipoppy.svg">
+  </a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://nipype.github.io/pydra/">
+    <img alt="Pydra" height="48" src="assets/logos/pydra.svg">
+  </a>
+</p>
