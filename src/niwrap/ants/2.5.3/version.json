@@ -241,5 +241,18 @@
       "waitForSlurmJobs.pl",
       "waitForXGridJobs.pl"
     ]
-  }
+  },
+  "sources": [
+    {
+      "repo": "https://github.com/ANTsX/ANTs.git",
+      "ref": "v2.5.3",
+      "role": "primary"
+    },
+    {
+      "repo": "https://github.com/InsightSoftwareConsortium/ITK.git",
+      "ref": "4535548a8539757c5fe9d81f8de5d804cd0a384f",
+      "role": "dependency",
+      "note": "ITK 5.4 pinned by ANTs v2.5.3 SuperBuild/External_ITKv5.cmake; ANTs CLIs expose ITK filter/IO options"
+    }
+  ]
 }

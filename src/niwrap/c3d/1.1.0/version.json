@@ -17,5 +17,19 @@
     "ignored": [
       "c3d_gui"
     ]
-  }
+  },
+  "sources": [
+    {
+      "repo": "https://github.com/pyushkevich/c3d.git",
+      "ref": "677563203e45889138a5188b82b378c148019353",
+      "role": "primary",
+      "note": "commit bundled as a submodule by ITK-SNAP v3.8.2 (container pyushkevich/itksnap:v3.8.2); no upstream tag for niwrap version 1.1.0"
+    },
+    {
+      "repo": "https://github.com/InsightSoftwareConsortium/ITK.git",
+      "ref": "v4.12.2",
+      "role": "dependency",
+      "note": "ITK version required by ITK-SNAP 3.8.x (Convert3D builds against ITK)"
+    }
+  ]
 }
