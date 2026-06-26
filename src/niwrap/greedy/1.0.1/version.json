@@ -8,5 +8,19 @@
     "required": [
       "greedy"
     ]
-  }
+  },
+  "sources": [
+    {
+      "repo": "https://github.com/pyushkevich/greedy.git",
+      "ref": "3ed5a0dc480bf0ca3f850e6783208bae3aef570c",
+      "role": "primary",
+      "note": "commit bundled as a submodule by ITK-SNAP v3.8.2 (container pyushkevich/itksnap:v3.8.2); no upstream tag for niwrap version 1.0.1"
+    },
+    {
+      "repo": "https://github.com/InsightSoftwareConsortium/ITK.git",
+      "ref": "v4.12.2",
+      "role": "dependency",
+      "note": "ITK version required by ITK-SNAP 3.8.x (greedy builds against ITK)"
+    }
+  ]
 }

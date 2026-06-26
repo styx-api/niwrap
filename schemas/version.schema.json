@@ -42,6 +42,35 @@
       },
       "additionalProperties": false
     },
+    "sources": {
+      "type": "array",
+      "description": "Upstream source repositories used to generate this version's descriptors, pinned to match the container build.",
+      "items": {
+        "type": "object",
+        "required": ["repo", "role"],
+        "properties": {
+          "repo": {
+            "type": "string",
+            "format": "uri",
+            "description": "Git clone URL (.git)"
+          },
+          "ref": {
+            "type": ["string", "null"],
+            "description": "Pinned git ref (tag, branch, or commit SHA). null means unpinned (clone the default branch)."
+          },
+          "role": {
+            "type": "string",
+            "enum": ["primary", "dependency"],
+            "description": "primary: the tool's own source code. dependency: a supporting repo (e.g. ITK for ANTs) read for type/output context during descriptor generation."
+          },
+          "note": {
+            "type": "string",
+            "description": "Optional rationale: why a dependency is included, or how/why a ref was chosen."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
     "release_date": {
       "type": "string",
       "format": "date",

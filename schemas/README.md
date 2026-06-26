@@ -150,6 +150,13 @@ Specifies configuration and available apps for a specific package version.
 - `executables` - Executable validation configuration for CI
   - `required` - Executables that must exist in the container (validated by CI)
   - `ignored` - Executables explicitly excluded from wrapping
+- `sources` - Upstream source repositories used to generate this version's
+  descriptors, pinned to match the container build. Each entry has:
+  - `repo` - Git clone URL (`.git`)
+  - `ref` - Pinned git ref (tag, branch, or commit SHA); `null` = default branch
+  - `role` - `"primary"` (the tool's own source) or `"dependency"` (a supporting
+    repo read for type/output context, e.g. ITK for ANTs)
+  - `note` - Optional rationale for the dependency or ref choice
 - `release_date` - Release date in ISO 8601 format (`"YYYY-MM-DD"`)
 - `deprecated` - Boolean flag indicating deprecated versions
 - `docs` - Version-specific documentation
