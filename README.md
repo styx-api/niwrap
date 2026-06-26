@@ -27,12 +27,12 @@ NiWrap provides seamless, programmatic access to powerful neuroimaging command-l
 
 | Package | Default Version | API Coverage |
 | --- | --- | --- |
-| [AFNI](https://afni.nimh.nih.gov/) | [`24.2.06`](https://hub.docker.com/r/afni/afni_make_build) | ![565/611](https://progress-bar.xyz/565/?scale=611&suffix=%2F611) |
+| [AFNI](https://afni.nimh.nih.gov/) | [`24.2.06`](https://hub.docker.com/r/afni/afni_make_build) | ![552/579](https://progress-bar.xyz/552/?scale=579&suffix=%2F579) |
 | [ANTs](https://github.com/ANTsX/ANTs) | [`2.5.3`](https://hub.docker.com/r/antsx/ants) | ![72/113](https://progress-bar.xyz/72/?scale=113&suffix=%2F113) |
 | [Convert3D](http://www.itksnap.org/pmwiki/pmwiki.php?n=Convert3D.Convert3D) | [`1.1.0`](https://hub.docker.com/r/pyushkevich/itksnap) | ![4/4](https://progress-bar.xyz/4/?scale=4&suffix=%2F4) |
 | [dcm2niix](https://github.com/rordenlab/dcm2niix) | [`1.0.20240202`](https://hub.docker.com/r/vnmd/dcm2niix_v1.0.20240202) | ![1/1](https://progress-bar.xyz/1/?scale=1&suffix=%2F1) |
 | [FastSurfer](https://github.com/Deep-MI/FastSurfer) | [`2.3.3`](https://hub.docker.com/r/nx10x/fastsurfer) | ![1/1](https://progress-bar.xyz/1/?scale=1&suffix=%2F1) |
-| [FreeSurfer](https://surfer.nmr.mgh.harvard.edu/) | [`7.4.1`](https://hub.docker.com/r/freesurfer/freesurfer) | ![696/789](https://progress-bar.xyz/696/?scale=789&suffix=%2F789) |
+| [FreeSurfer](https://surfer.nmr.mgh.harvard.edu/) | [`7.4.1`](https://hub.docker.com/r/freesurfer/freesurfer) | ![672/763](https://progress-bar.xyz/672/?scale=763&suffix=%2F763) |
 | [FSL](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki) | [`6.0.4`](https://hub.docker.com/r/brainlife/fsl) | ![243/311](https://progress-bar.xyz/243/?scale=311&suffix=%2F311) |
 | [Greedy](https://github.com/pyushkevich/greedy) | [`1.0.1`](https://hub.docker.com/r/pyushkevich/itksnap) | ![1/1](https://progress-bar.xyz/1/?scale=1&suffix=%2F1) |
 | [MRTrix3](https://www.mrtrix.org/) | [`3.0.4`](https://hub.docker.com/r/mrtrix3/mrtrix3) | ![121/121](https://progress-bar.xyz/121/?scale=121&suffix=%2F121) |
