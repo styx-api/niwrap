@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://niwrap.org/schemas/glossary.schema.json",
+  "title": "NiWrap Glossary Schema",
+  "description": "Neuroimaging terminology glossary: abbreviations and terms paired with their expanded names and short definitions. Front-ends (the hub, the docs site) match these terms in tool documentation to surface inline definitions.",
+  "type": "object",
+  "required": ["entries"],
+  "properties": {
+    "entries": {
+      "type": "array",
+      "description": "Glossary entries.",
+      "items": {
+        "type": "object",
+        "required": ["terms", "title", "description"],
+        "properties": {
+          "terms": {
+            "type": "array",
+            "description": "Exact, case-sensitive spellings that should match in text (e.g. ['ANTs', 'ANTS']). Case sensitivity keeps common English words from matching unless written in their acronym form.",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          },
+          "title": {
+            "type": "string",
+            "description": "Canonical or expanded name of the term."
+          },
+          "description": {
+            "type": "string",
+            "description": "Short, one-line definition."
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": true
+}

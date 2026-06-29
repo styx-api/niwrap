@@ -64,7 +64,7 @@ jobs:
             // Extract expected name from path
             const parts = file.split('/');
             const jsonFile = parts[parts.length - 1];
-            const expectedName = jsonFile === 'projects.json' ? null : parts[parts.length - 2];
+            const expectedName = ['projects.json', 'glossary.json'].includes(jsonFile) ? null : parts[parts.length - 2];
             
             if (expectedName && data.name !== expectedName) {
               err(`Name mismatch in ${file}: "${data.name}" vs "${expectedName}"`, file);

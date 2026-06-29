@@ -124,6 +124,37 @@ def test_descriptors_copied_verbatim(catalog_root: pl.Path) -> None:
     assert dst.read_bytes() == src.read_bytes()
 
 
+def test_glossary_published_when_present(catalog_root: pl.Path) -> None:
+    glossary = {
+        "entries": [
+            {
+                "terms": ["FSL"],
+                "title": "FMRIB Software Library",
+                "description": "A neuroimaging analysis library.",
+            }
+        ]
+    }
+    _write(catalog_root / "src" / "niwrap" / "glossary.json", glossary)
+
+    out = catalog_root / "out"
+    build_hub_layout(out, DEFAULT_COMPILER)
+
+    catalog = json.loads((out / "9.9.9" / "catalog.json").read_text(encoding="utf-8"))
+    assert catalog["glossary"] == "glossary.json"
+    published = json.loads((out / "9.9.9" / "glossary.json").read_text(encoding="utf-8"))
+    assert published == glossary
+
+
+def test_glossary_absent_omits_key(catalog_root: pl.Path) -> None:
+    # The default fixture has no glossary.json; the key and file are simply absent.
+    out = catalog_root / "out"
+    build_hub_layout(out, DEFAULT_COMPILER)
+
+    catalog = json.loads((out / "9.9.9" / "catalog.json").read_text(encoding="utf-8"))
+    assert "glossary" not in catalog
+    assert not (out / "9.9.9" / "glossary.json").exists()
+
+
 def test_clean_rebuild_drops_stale_descriptors(catalog_root: pl.Path) -> None:
     out = catalog_root / "out"
     build_hub_layout(out, DEFAULT_COMPILER)

@@ -9,6 +9,7 @@ Emitted under ``--out`` (which maps to ``niwrap.dev/niwrap/`` once published):
     index.json                                releases registry (latest + versions)
     <version>/catalog.json                    the one manifest the hub fetches
     <version>/descriptors/<pkg>/<app>.json     verbatim descriptor copies
+    <version>/glossary.json                   neuroimaging term glossary (when present)
 
 ``<version>`` is the niwrap release version (``project.json``). Each package
 contributes its default version as metadata; the descriptor path is keyed by
@@ -33,7 +34,7 @@ from wrap.catalog_niwrap import (
     iter_apps_niwrap,
     iter_packages_niwrap,
 )
-from wrap.utils import write_json
+from wrap.utils import read_json, write_json
 
 #: Default compiler pin recorded in the manifest. Must match the ``@styx-api/core``
 #: version the hub bundles, so the rendered snippets/command line a user sees match
@@ -45,6 +46,10 @@ SCHEMA_VERSION = 1
 
 #: Sub-directory (relative to a version's catalog.json) holding the descriptors.
 DESCRIPTOR_BASE = "descriptors"
+
+#: Filename of the published glossary (relative to a version's catalog.json),
+#: copied from the project source (``src/<project>/glossary.json``) when present.
+GLOSSARY_FILE = "glossary.json"
 
 #: Cap on the embedded per-app summary; full text stays in the descriptor.
 MAX_SUMMARY_CHARS = 240
@@ -151,15 +156,24 @@ def build_hub_layout(out_dir: Path, compiler: str) -> dict[str, int]:
 
     packages = [_package_entry(pkg, version_dir) for pkg in iter_packages_niwrap()]
 
-    catalog = {
+    # Publish the project's neuroimaging glossary next to the catalog when present,
+    # so every front-end (hub, docs) annotates descriptions from one shared source.
+    glossary_src = project["__path__"].parent / GLOSSARY_FILE
+    has_glossary = glossary_src.exists()
+    if has_glossary:
+        write_json(version_dir / GLOSSARY_FILE, read_json(glossary_src))
+
+    catalog: dict[str, Any] = {
         "schemaVersion": SCHEMA_VERSION,
         "project": project["name"],
         "version": version,
         "compiler": _compiler_object(compiler),
         "descriptorBase": DESCRIPTOR_BASE,
-        "docs": project.get("docs", {}),
-        "packages": packages,
     }
+    if has_glossary:
+        catalog["glossary"] = GLOSSARY_FILE
+    catalog["docs"] = project.get("docs", {})
+    catalog["packages"] = packages
     write_json(version_dir / "catalog.json", catalog)
 
     index = {
