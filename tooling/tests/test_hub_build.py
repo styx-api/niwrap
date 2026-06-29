@@ -88,7 +88,7 @@ def test_build_hub_layout(catalog_root: pl.Path) -> None:
     assert catalog["schemaVersion"] == 1
     assert catalog["project"] == "niwrap"
     assert catalog["version"] == "9.9.9"
-    assert catalog["compiler"] == {"name": "@styx-api/core", "version": "0.5.0"}
+    assert catalog["compiler"] == {"name": "@styx-api/core", "version": "0.5.1"}
     assert catalog["descriptorBase"] == "descriptors"
     assert catalog["docs"]["title"] == "Demo"
     assert len(catalog["packages"]) == 1
@@ -175,9 +175,9 @@ def test_summary_first_line_and_cap() -> None:
 
 
 def test_compiler_object_keeps_scope() -> None:
-    assert _compiler_object("@styx-api/core@0.5.0") == {
+    assert _compiler_object("@styx-api/core@0.5.1") == {
         "name": "@styx-api/core",
-        "version": "0.5.0",
+        "version": "0.5.1",
     }
     assert _compiler_object("styx@1.2.3") == {"name": "styx", "version": "1.2.3"}
     with pytest.raises(ValueError):
