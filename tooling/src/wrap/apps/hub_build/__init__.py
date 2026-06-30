@@ -39,7 +39,7 @@ from wrap.utils import read_json, write_json
 #: Default compiler pin recorded in the manifest. Must match the ``@styx-api/core``
 #: version the hub bundles, so the rendered snippets/command line a user sees match
 #: the published ``niwrap`` package (the C8 lockstep). Override with ``--compiler``.
-DEFAULT_COMPILER = "@styx-api/core@0.5.3"
+DEFAULT_COMPILER = "@styx-api/core@0.6.0"
 
 #: Bump when the manifest shape changes incompatibly, so the hub can guard on it.
 SCHEMA_VERSION = 1
