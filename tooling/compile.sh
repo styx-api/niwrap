@@ -23,15 +23,17 @@ set -euo pipefail
 # releases are reproducible; bump deliberately and coordinate with the hub's
 # bundled @styx/core version (see the styx2 v1-replacement plan).
 #
-# Pinned to styx-ts main at the 0.5.3 release (#47) - tool Metadata now carries
-# the package/version container image (#46), so the docker/singularity runners
-# have an image to pull again. Also includes the suite-dep pinning fix (#44, so a
-# mid-propagation `pip install` can't mix versions) on top of the 0.5.1 suite-
-# namespace fix (#42). Keep in lockstep with the hub-gate / DEFAULT_COMPILER
-# @styx-api/core@0.5.3 pin; bump deliberately.
+# Pinned to styx-ts main at the 0.6.0 release (#48) - the Python backend now
+# emits a `_params` factory for every nested struct / union variant (restoring
+# the v1 builder pattern, e.g. `ants.n4_bias_field_correction_corrected_output_params(...)`
+# instead of a hand-authored `{"@type": ...}` dict) and snake_cases the host
+# kwarg names. NOTE: snake_casing applies to root wrappers too, so tools with
+# camelCase wire ids change their public kwargs - a breaking change for end-user
+# code. TypeScript snippets are unchanged. Keep in lockstep with the hub-gate /
+# DEFAULT_COMPILER @styx-api/core@0.6.0 pin; bump deliberately.
 # -----------------------------------------------------------------------------
 STYX2_REPO="${STYX2_REPO:-https://github.com/styx-api/styx-ts.git}"
-STYX2_REF="${STYX2_REF:-41e8aa708c480042bdc4c21813e3faee8aab07be}"
+STYX2_REF="${STYX2_REF:-c474f3c17613f73accd03471361602564a62a07a}"
 
 TARGETS="${1:-python,typescript,json-schema}"
 
