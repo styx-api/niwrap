@@ -60,7 +60,7 @@ jobs:
     # build-embeddings step pins env.cacheDir to tooling/hub-embed/.cache (outside
     # node_modules, so `npm ci` above doesn't wipe it); this path must match.
     - name: Cache embedding model
-      uses: actions/cache@v5
+      uses: actions/cache@v6
       with:
         path: tooling/hub-embed/.cache
         key: hf-${{ hashFiles('tooling/hub-embed/package-lock.json') }}-Xenova-all-MiniLM-L6-v2
@@ -89,7 +89,7 @@ jobs:
         EOF
 
     - name: Cache OG card assets (fonts + rasterized logo)
-      uses: actions/cache@v5
+      uses: actions/cache@v6
       with:
         path: tooling/og/.assets
         key: og-assets-v1-${{ hashFiles('logo.svg') }}
