@@ -12,7 +12,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v7
     - name: Install the latest version of uv
       # full pin: setup-uv stopped publishing rolling major tags (@v8) at v8
       uses: astral-sh/setup-uv@v8.2.0
@@ -29,7 +29,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v7
     - name: Install the latest version of uv
       # full pin: setup-uv stopped publishing rolling major tags (@v8) at v8
       uses: astral-sh/setup-uv@v8.2.0
