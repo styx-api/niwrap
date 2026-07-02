@@ -92,6 +92,16 @@ for target in "${TARGET_ARR[@]}"; do
       mv "$src/pyproject.toml" "$out/niwrap/pyproject.toml"
       mv "$src/README.md" "$out/niwrap/README.md"
       rm -f "$src/requirements.txt"
+      # Determine the sub-package version (all share the same one) so we can
+      # pin the meta-package dependencies with a compatible-release (~=) spec.
+      # Read from $src before the move loop below consumes the directories.
+      first_pkg="$(dirname "$(ls -1 "$src"/*/pyproject.toml | head -1)" | xargs basename)"
+      sub_ver="$(grep '^version' "$src/$first_pkg/pyproject.toml" | head -1 \
+                | sed 's/.*"\([^"]*\)".*/\1/')"
+      major="${sub_ver%%.*}"
+      minor="${sub_ver#*.}"; minor="${minor%%.*}"
+      sed -i "s/\"niwrap_\([a-z0-9_]*\)\"/\"niwrap_\1~=${major}.${minor}\"/g" \
+            "$out/niwrap/pyproject.toml"
       # Each remaining sub-package dir (afni, fsl, ...) becomes a sibling of
       # niwrap/, so `for d in dist/niwrap-python/*/` builds meta + every package.
       for d in "$src"/*/; do
