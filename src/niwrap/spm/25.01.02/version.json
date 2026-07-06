@@ -1,0 +1,23 @@
+{
+  "name": "25.01.02",
+  "container": "vnmd/spm25_25.01.02",
+  "apps": [
+    "spm"
+  ],
+  "executables": {
+    "required": [
+        "spm"
+    ],
+    "ignored": [        
+        "spm-matlab",
+        "spm-mcr",
+        "spm-octave"]
+  },
+  "sources": [
+    {
+      "repo": "https://github.com/spm/spm",
+      "ref": "25.01.02",
+      "role": "primary"
+    }
+  ]
+}
