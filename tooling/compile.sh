@@ -23,17 +23,19 @@ set -euo pipefail
 # releases are reproducible; bump deliberately and coordinate with the hub's
 # bundled @styx/core version (see the styx2 v1-replacement plan).
 #
-# Pinned to styx-ts main at the 0.6.0 release (#48) - the Python backend now
-# emits a `_params` factory for every nested struct / union variant (restoring
-# the v1 builder pattern, e.g. `ants.n4_bias_field_correction_corrected_output_params(...)`
-# instead of a hand-authored `{"@type": ...}` dict) and snake_cases the host
-# kwarg names. NOTE: snake_casing applies to root wrappers too, so tools with
-# camelCase wire ids change their public kwargs - a breaking change for end-user
-# code. TypeScript snippets are unchanged. Keep in lockstep with the hub-gate /
-# DEFAULT_COMPILER @styx-api/core@0.6.0 pin; bump deliberately.
+# Pinned to styx-ts main at the 0.6.1 release (#53) - a patch over 0.6.0 (#48,
+# nested `_params` factories + snake_case kwargs) bundling two codegen fixes:
+#   - #49 (boutiques): a `command-line-flag-separator` flag and its value now
+#     fuse into a single argv token (e.g. `--imain=<file>`) instead of two
+#     separate tokens - fixes 27 tools (fsl/afni/dcm2niix).
+#   - #50 (python): a command-less union variant (an off/none/help mode) emits
+#     `pass` instead of an empty dispatch branch - repairs 5 ants modules that
+#     were an IndentationError (making `import niwrap.ants` fail).
+# Keep in lockstep with the hub-gate / DEFAULT_COMPILER @styx-api/core@0.6.1
+# pin; bump deliberately.
 # -----------------------------------------------------------------------------
 STYX2_REPO="${STYX2_REPO:-https://github.com/styx-api/styx-ts.git}"
-STYX2_REF="${STYX2_REF:-c474f3c17613f73accd03471361602564a62a07a}"
+STYX2_REF="${STYX2_REF:-9f7b7102ac90517e31c1f44435a0a490eb567edd}"
 
 TARGETS="${1:-python,typescript,json-schema}"
 
