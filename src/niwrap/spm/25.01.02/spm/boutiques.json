@@ -1,0 +1,210 @@
+{
+  "description": "SPM command-line launcher and gateway. The spm shell script selects a MATLAB/Octave/MATLAB-Runtime backend and forwards arguments to spm_standalone, which dispatches to the SPM GUI, the batch system, script/function execution, or a MATLABBATCH node via spm_cli.",
+  "command-line": "spm [MATLAB_EXEC] [MCR_HOME] [SPM_HOME] [OCTAVE_EXEC] [MODE]",
+  "inputs": [
+    {
+      "id": "matlab_exec",
+      "name": "MATLAB executable",
+      "description": "Name (and path) of the MATLAB executable (tool default: matlab).",
+      "type": "String",
+      "value-key": "[MATLAB_EXEC]",
+      "command-line-flag": "MATLAB_EXEC=",
+      "command-line-flag-separator": "",
+      "optional": true
+    },
+    {
+      "id": "mcr_home",
+      "name": "MATLAB Runtime home",
+      "description": "Directory containing the MATLAB Runtime; required only to use the MCR backend.",
+      "type": "String",
+      "value-key": "[MCR_HOME]",
+      "command-line-flag": "MCR_HOME=",
+      "command-line-flag-separator": "",
+      "optional": true
+    },
+    {
+      "id": "spm_home",
+      "name": "SPM home directory",
+      "description": "Directory containing (standalone) SPM (tool default: parent directory of the invoked bin script).",
+      "type": "String",
+      "value-key": "[SPM_HOME]",
+      "command-line-flag": "SPM_HOME=",
+      "command-line-flag-separator": "",
+      "optional": true
+    },
+    {
+      "id": "octave_exec",
+      "name": "Octave executable",
+      "description": "Name (and path) of the Octave executable (tool default: octave).",
+      "type": "String",
+      "value-key": "[OCTAVE_EXEC]",
+      "command-line-flag": "OCTAVE_EXEC=",
+      "command-line-flag-separator": "",
+      "optional": true
+    },
+    {
+      "id": "mode",
+      "name": "SPM mode",
+      "description": "Top-level action/router token. If omitted, the SPM GUI is started.",
+      "value-key": "[MODE]",
+      "optional": true,
+      "type": [
+        {
+          "id": "gui",
+          "command-line": "[GUI_MODALITY]",
+          "inputs": [
+            {
+              "id": "gui_modality",
+              "name": "GUI modality",
+              "description": "SPM modality/defaults used when starting the GUI (case-insensitive). If omitted, the default GUI is started.",
+              "type": "String",
+              "value-key": "[GUI_MODALITY]",
+              "value-choices": [
+                "fmri",
+                "eeg",
+                "pet",
+                "quit"
+              ],
+              "optional": true
+            }
+          ]
+        },
+        {
+          "id": "batch",
+          "command-line": "batch [BATCH_SILENT] [BATCH_MODALITY] [BATCH_CMDLINE] [BATCH_JOBS]",
+          "inputs": [
+            {
+              "id": "batch_silent",
+              "name": "Silent",
+              "description": "Suppress the SPM banner for the batch command.",
+              "type": "Flag",
+              "value-key": "[BATCH_SILENT]",
+              "command-line-flag": "--silent",
+              "optional": true
+            },
+            {
+              "id": "batch_modality",
+              "name": "Batch modality",
+              "description": "Select the SPM modality/defaults for the batch command (tool default: fmri). Values are case-insensitive; numeric indices 1=PET, 2=FMRI, 3=EEG are also accepted.",
+              "type": "String",
+              "value-key": "[BATCH_MODALITY]",
+              "command-line-flag": "--modality",
+              "value-choices": [
+                "PET",
+                "FMRI",
+                "EEG",
+                "1",
+                "2",
+                "3"
+              ],
+              "optional": true
+            },
+            {
+              "id": "batch_cmdline",
+              "name": "Command-line defaults",
+              "description": "Set SPM cmdline defaults flag for the batch command.",
+              "type": "Flag",
+              "value-key": "[BATCH_CMDLINE]",
+              "command-line-flag": "--cmdline",
+              "optional": true
+            },
+            {
+              "id": "batch_jobs",
+              "name": "Batch job files/arguments",
+              "description": "Remaining positional arguments passed to spm_jobman('run', ...). If none remain, an interactive batch manager window is opened.",
+              "type": "String",
+              "value-key": "[BATCH_JOBS]",
+              "list": true,
+              "optional": true
+            }
+          ]
+        },
+        {
+          "id": "script",
+          "command-line": "script [SCRIPT_NAME] [SCRIPT_ARGS]",
+          "inputs": [
+            {
+              "id": "script_name",
+              "name": "MATLAB script",
+              "description": "MATLAB script to execute. If omitted, SPM prompts interactively.",
+              "type": "String",
+              "value-key": "[SCRIPT_NAME]",
+              "optional": true
+            },
+            {
+              "id": "script_args",
+              "name": "Script arguments",
+              "description": "Remaining arguments assigned to the base workspace variable 'inputs'.",
+              "type": "String",
+              "value-key": "[SCRIPT_ARGS]",
+              "list": true,
+              "optional": true
+            }
+          ]
+        },
+        {
+          "id": "function",
+          "command-line": "function [FUNCTION_NAME] [FUNCTION_ARGS]",
+          "inputs": [
+            {
+              "id": "function_name",
+              "name": "MATLAB function",
+              "description": "MATLAB function to evaluate. If omitted, SPM prompts interactively.",
+              "type": "String",
+              "value-key": "[FUNCTION_NAME]",
+              "optional": true
+            },
+            {
+              "id": "function_args",
+              "name": "Function arguments",
+              "description": "Remaining arguments passed as inputs to feval.",
+              "type": "String",
+              "value-key": "[FUNCTION_ARGS]",
+              "list": true,
+              "optional": true
+            }
+          ]
+        },
+        {
+          "id": "eval",
+          "command-line": "eval [EXPRESSION]",
+          "inputs": [
+            {
+              "id": "expression",
+              "name": "MATLAB expression",
+              "description": "MATLAB expression to evaluate. If omitted, SPM prompts interactively.",
+              "type": "String",
+              "value-key": "[EXPRESSION]",
+              "optional": true
+            }
+          ]
+        },
+        {
+          "id": "node",
+          "command-line": "[NODE_PATH] [NODE_ARGS]",
+          "inputs": [
+            {
+              "id": "node_path",
+              "name": "MATLABBATCH node path",
+              "description": "Dot-separated node path or shortcut to run (e.g. spatial.smooth).",
+              "type": "String",
+              "value-key": "[NODE_PATH]",
+              "optional": false
+            },
+            {
+              "id": "node_args",
+              "name": "Node options and values",
+              "description": "Node-specific --flag tokens and their values, supplied as separate tokens. The next token starting with '-' terminates value consumption for the preceding flag.",
+              "type": "String",
+              "value-key": "[NODE_ARGS]",
+              "list": true,
+              "optional": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "name": "spm",
+  "schema-version": "0.5+styx"
+}
