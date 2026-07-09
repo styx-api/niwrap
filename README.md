@@ -41,7 +41,7 @@ NiWrap provides seamless, programmatic access to powerful neuroimaging command-l
 | [Connectome Workbench](https://www.humanconnectome.org/software/connectome-workbench) | [`2.1.0`](https://hub.docker.com/r/nx10x/workbench) | ![203/203](https://progress-bar.xyz/203/?scale=203&suffix=%2F203) |
 <!-- END_PACKAGES_TABLE -->
 
-<small>_API Coverage: The percentages shown represent the proportion of tool binaries with available NiWrap descriptors, not the completeness of each descriptor._</small>
+<small>*API Coverage: The percentages shown represent the proportion of tool binaries with available NiWrap descriptors, not the completeness of each descriptor.*</small>
 
 ## 🚀 Getting Started
 
