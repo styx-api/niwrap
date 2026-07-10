@@ -40,6 +40,7 @@ NiWrap provides seamless, programmatic access to powerful neuroimaging command-l
 | [NiftyReg](https://github.com/KCL-BMEIS/niftyreg) | [`1.4.0`](https://hub.docker.com/r/vnmd/niftyreg_1.4.0) | ![7/7](https://progress-bar.xyz/7/?scale=7&suffix=%2F7) |
 | [Connectome Workbench](https://www.humanconnectome.org/software/connectome-workbench) | [`2.1.0`](https://hub.docker.com/r/nx10x/workbench) | ![203/203](https://progress-bar.xyz/203/?scale=203&suffix=%2F203) |
 <!-- END_PACKAGES_TABLE -->
+
 <small>*API Coverage: The percentages shown represent the proportion of tool binaries with available NiWrap descriptors, not the completeness of each descriptor.*</small>
 
 ## 🚀 Getting Started
@@ -52,6 +53,7 @@ NiWrap provides seamless, programmatic access to powerful neuroimaging command-l
 ```bash
 pip install niwrap
 ```
+
 </details>
 
 <details>
@@ -62,6 +64,7 @@ npm install niwrap
 # or
 yarn add niwrap
 ```
+
 </details>
 
 <details>
@@ -71,6 +74,7 @@ yarn add niwrap
 # Not yet available on CRAN
 # Coming soon!
 ```
+
 </details>
 
 ### Basic Usage Examples
@@ -108,35 +112,37 @@ fod_outputs = mrtrix.dwi2fod(
 )
 # fod_outputs.response_odf[0].odf -> "wmfod.mif"
 ```
+
 </details>
 
 <details>
 <summary><b>TypeScript/JavaScript</b></summary>
 
 ```typescript
-import { niwrap, fsl, ants, mrtrix3 } from 'niwrap';
+import { niwrap, fsl, ants, mrtrix3 } from "niwrap";
 
 // Optional: Use Docker to run all tools (no local installation needed)
 niwrap.useDocker();
 
 // Run FSL's BET brain extraction
 const outputs = await fsl.bet({
-    input: "input.nii.gz",
-    output: "brain.nii.gz",
-    f: 0.5
+  input: "input.nii.gz",
+  output: "brain.nii.gz",
+  f: 0.5,
 });
 // outputs.outputFile -> "brain.nii.gz"
 // outputs.maskFile -> "brain_mask.nii.gz"
 
 // Calculate fiber orientation distributions with MRTrix3
 const fodOutputs = await mrtrix3.dwi2fod({
-    algorithm: "csd",
-    in_file: "dwi.mif",
-    wm_txt: "wm_response.txt",
-    wm_odf: "wmfod.mif"
+  algorithm: "csd",
+  in_file: "dwi.mif",
+  wm_txt: "wm_response.txt",
+  wm_odf: "wmfod.mif",
 });
 // fodOutputs.wmOdf -> "wmfod.mif"
 ```
+
 </details>
 
 <details>
@@ -155,6 +161,7 @@ outputs <- fsl$bet("input.nii.gz", "brain.nii.gz", fractional_intensity=0.5)
 
 # More functionality coming soon!
 ```
+
 </details>
 
 ## 🔧 Container Orchestration
@@ -176,13 +183,14 @@ niwrap.use_singularity()
 # Custom container configuration
 niwrap.use_docker()
 ```
+
 </details>
 
 <details>
 <summary><b>TypeScript/JavaScript</b></summary>
 
 ```typescript
-import { niwrap } from 'niwrap';
+import { niwrap } from "niwrap";
 
 // Use Docker containers
 niwrap.useDocker();
@@ -192,10 +200,11 @@ niwrap.useSingularity();
 
 // Custom container configuration
 niwrap.useDocker({
-    bindMounts: ["/data:/data"],
-    envs: {"CUDA_VISIBLE_DEVICES": "0"}
+  bindMounts: ["/data:/data"],
+  envs: { CUDA_VISIBLE_DEVICES: "0" },
 });
 ```
+
 </details>
 
 <details>
@@ -216,6 +225,7 @@ niwrap$use_docker(
     envs = list(CUDA_VISIBLE_DEVICES = "0")
 )
 ```
+
 </details>
 
 ## 🔍 How It Works

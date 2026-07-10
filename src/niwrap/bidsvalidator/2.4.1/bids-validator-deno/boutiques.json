@@ -1,0 +1,207 @@
+{
+  "description": "bids-validator-deno checks whether a directory is compatible with the Brain Imaging Data Structure (BIDS) specification and reports validation issues in text or JSON format.",
+  "command-line": "bids-validator-deno [JSON] [FORMAT] [SCHEMA] [CONFIG] [MAX_ROWS] [VERBOSE] [IGNORE_WARNINGS] [IGNORE_NIFTI_HEADERS] [DEBUG] [FILENAME_MODE] [DATASET_TYPES] [BLACKLIST_MODALITIES] [RECURSIVE] [PRUNE] [OUTFILE] [PREFERRED_REMOTE] [COLOR] [DATASET_DIRECTORY]",
+  "inputs": [
+    {
+      "id": "dataset_directory",
+      "name": "Dataset directory",
+      "description": "Path to the BIDS dataset directory to validate.",
+      "type": "File",
+      "value-key": "[DATASET_DIRECTORY]"
+    },
+    {
+      "id": "json",
+      "name": "JSON output (deprecated)",
+      "description": "[Deprecated] Use --format json instead. Output machine readable JSON. When present, overrides --format and forces JSON output.",
+      "type": "Flag",
+      "command-line-flag": "--json",
+      "value-key": "[JSON]",
+      "optional": true
+    },
+    {
+      "id": "format",
+      "name": "Output format",
+      "description": "Output format: text (default), json, or json_pp (pretty-printed JSON).",
+      "type": "String",
+      "value-choices": [
+        "text",
+        "json",
+        "json_pp"
+      ],
+      "command-line-flag": "--format",
+      "value-key": "[FORMAT]",
+      "optional": true
+    },
+    {
+      "id": "schema",
+      "name": "Schema version",
+      "description": "Specify a schema version to use for validation. Accepts an arbitrary URL or a tag such as vX.Y.Z, stable, or latest. The BIDS_SCHEMA environment variable overrides this option.",
+      "type": "String",
+      "command-line-flag": "--schema",
+      "value-key": "[SCHEMA]",
+      "optional": true
+    },
+    {
+      "id": "config",
+      "name": "Configuration file",
+      "description": "Path to a JSON configuration file. The file must contain a JSON object mapping severity keys (error, warning, ignore) to arrays of issue filters.",
+      "type": "File",
+      "media-types": [
+        "application/json"
+      ],
+      "command-line-flag": "--config",
+      "value-key": "[CONFIG]",
+      "optional": true
+    },
+    {
+      "id": "max_rows",
+      "name": "Maximum TSV rows",
+      "description": "Maximum number of rows to validate in TSVs (tool default: 1000).",
+      "type": "Number",
+      "integer": true,
+      "command-line-flag": "--max-rows",
+      "value-key": "[MAX_ROWS]",
+      "optional": true
+    },
+    {
+      "id": "verbose",
+      "name": "Verbose logging",
+      "description": "Log more extensive information about issues.",
+      "type": "Flag",
+      "command-line-flag": "--verbose",
+      "value-key": "[VERBOSE]",
+      "optional": true
+    },
+    {
+      "id": "ignore_warnings",
+      "name": "Ignore warnings",
+      "description": "Disables reporting of warnings.",
+      "type": "Flag",
+      "command-line-flag": "--ignoreWarnings",
+      "value-key": "[IGNORE_WARNINGS]",
+      "optional": true
+    },
+    {
+      "id": "ignore_nifti_headers",
+      "name": "Ignore NIfTI headers",
+      "description": "Disables reading of NIfTI headers.",
+      "type": "Flag",
+      "command-line-flag": "--ignoreNiftiHeaders",
+      "value-key": "[IGNORE_NIFTI_HEADERS]",
+      "optional": true
+    },
+    {
+      "id": "debug",
+      "name": "Debug logging level",
+      "description": "Enable debug logging (tool default: ERROR; allowed values: NOTSET, DEBUG, INFO, WARNING, ERROR, CRITICAL).",
+      "type": "String",
+      "value-choices": [
+        "NOTSET",
+        "DEBUG",
+        "INFO",
+        "WARNING",
+        "ERROR",
+        "CRITICAL"
+      ],
+      "command-line-flag": "--debug",
+      "value-key": "[DEBUG]",
+      "optional": true
+    },
+    {
+      "id": "filename_mode",
+      "name": "Filename-only mode",
+      "description": "Disable schema-based filename validation and only check whether files are valid BIDS filenames.",
+      "type": "Flag",
+      "command-line-flag": "--filenameMode",
+      "value-key": "[FILENAME_MODE]",
+      "optional": true
+    },
+    {
+      "id": "dataset_types",
+      "name": "Permitted dataset types",
+      "description": "Permitted dataset types to validate against (tool default: empty list, which permits all types).",
+      "type": "String",
+      "value-choices": [
+        "raw",
+        "derivative"
+      ],
+      "list": true,
+      "command-line-flag": "--datasetTypes",
+      "value-key": "[DATASET_TYPES]",
+      "optional": true
+    },
+    {
+      "id": "blacklist_modalities",
+      "name": "Blacklisted modalities",
+      "description": "Modalities to exclude from validation (tool default: empty list). Unknown values produce a warning and are ignored; supplied values are lower-cased before lookup.",
+      "type": "String",
+      "list": true,
+      "command-line-flag": "--blacklistModalities",
+      "value-key": "[BLACKLIST_MODALITIES]",
+      "optional": true
+    },
+    {
+      "id": "recursive",
+      "name": "Recursive derivative validation",
+      "description": "Validate derivatives recursively (disabled by --prune).",
+      "type": "Flag",
+      "command-line-flag": "--recursive",
+      "value-key": "[RECURSIVE]",
+      "optional": true
+    },
+    {
+      "id": "prune",
+      "name": "Prune sourcedata, derivatives, and code",
+      "description": "Skip the sourcedata, derivatives, and code directories. Disables recursive derivative validation.",
+      "type": "Flag",
+      "command-line-flag": "--prune",
+      "value-key": "[PRUNE]",
+      "optional": true
+    },
+    {
+      "id": "outfile",
+      "name": "Output file",
+      "description": "Write the validation results to a file. Only writes a file when running under Deno; otherwise output goes to stdout.",
+      "type": "String",
+      "command-line-flag": "--outfile",
+      "value-key": "[OUTFILE]",
+      "optional": true
+    },
+    {
+      "id": "preferred_remote",
+      "name": "Preferred remote source",
+      "description": "Prefer a remote file source over local files.",
+      "type": "String",
+      "command-line-flag": "--preferredRemote",
+      "value-key": "[PREFERRED_REMOTE]",
+      "optional": true
+    },
+    {
+      "id": "color",
+      "name": "Color output",
+      "description": "Enable/disable color output (defaults to detected support).",
+      "type": "String",
+      "value-choices": [
+        "--color",
+        "--no-color"
+      ],
+      "value-key": "[COLOR]",
+      "optional": true
+    }
+  ],
+  "output-files": [
+    {
+      "id": "validation_report_file",
+      "name": "Validation report file",
+      "description": "Validation results written to the path supplied by --outfile when running under Deno.",
+      "path-template": "[OUTFILE]"
+    }
+  ],
+  "stdout-output": {
+    "id": "stdout_report",
+    "name": "Validation report (stdout)",
+    "description": "Formatted validation report printed to stdout when --outfile is not provided or the Deno runtime is unavailable."
+  },
+  "name": "bids-validator-deno",
+  "schema-version": "0.5+styx"
+}
