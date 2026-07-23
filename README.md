@@ -231,7 +231,7 @@ niwrap$use_docker(
 
 ## 🔍 How It Works
 
-NiWrap is powered by the [Styx](https://github.com/styx-api/styx-ts) compiler, which transforms structured descriptors (using the [Boutiques](https://boutiques.github.io/) standard) into type-safe language bindings. This repository contains the descriptors; the compiled packages are published to [PyPI](https://pypi.org/project/niwrap/) (`pip install niwrap`) and [npm](https://www.npmjs.com/package/niwrap) (`npm install niwrap`).
+NiWrap is powered by the [Styx](https://github.com/styx-api/styx) compiler, which transforms structured descriptors (using the [Boutiques](https://boutiques.github.io/) standard) into type-safe language bindings. This repository contains the descriptors; the compiled packages are published to [PyPI](https://pypi.org/project/niwrap/) (`pip install niwrap`) and [npm](https://www.npmjs.com/package/niwrap) (`npm install niwrap`).
 
 ## 📚 Documentation
 
@@ -273,7 +273,7 @@ If you use NiWrap in your research, please consider citing:
 
 ## 🔗 Related Projects
 
-- [Styx Compiler](https://github.com/styx-api/styx-ts)
+- [Styx Compiler](https://github.com/styx-api/styx)
 - [Styx Documentation](https://styx-api.github.io/styxbook/)
 - [Boutiques](https://boutiques.github.io/)
 
