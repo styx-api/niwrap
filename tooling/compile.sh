@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 # Compile the NiWrap catalog into per-language distributions with styx2 (the
-# styx-ts compiler), then reshape the output into the dist/ layout that the
+# styx compiler), then reshape the output into the dist/ layout that the
 # compile + publish workflows push to the styx-api/niwrap-* repos.
 #
 # This replaces the v1 `wrap build` command: compilation is now owned by the
@@ -12,18 +12,18 @@
 #   targets  comma-separated styx2 backends (default: python,typescript,json-schema)
 #
 # Env overrides:
-#   STYX2_REF   styx-ts git ref to build (default: pinned SHA below)
-#   STYX2_REPO  styx-ts repo URL (default: the public repo)
+#   STYX2_REF   styx git ref to build (default: pinned SHA below)
+#   STYX2_REPO  styx repo URL (default: the public repo)
 #
 # Run from the niwrap repo root.
 set -euo pipefail
 
 # -----------------------------------------------------------------------------
-# Pin: the styx-ts commit the catalog is compiled with. Kept at a fixed SHA so
+# Pin: the styx commit the catalog is compiled with. Kept at a fixed SHA so
 # releases are reproducible; bump deliberately and coordinate with the hub's
 # bundled @styx/core version (see the styx2 v1-replacement plan).
 #
-# Pinned to styx-ts main at the 0.6.1 release (#53) - a patch over 0.6.0 (#48,
+# Pinned to styx main at the 0.6.1 release (#53) - a patch over 0.6.0 (#48,
 # nested `_params` factories + snake_case kwargs) bundling two codegen fixes:
 #   - #49 (boutiques): a `command-line-flag-separator` flag and its value now
 #     fuse into a single argv token (e.g. `--imain=<file>`) instead of two
@@ -34,7 +34,7 @@ set -euo pipefail
 # Keep in lockstep with the hub-gate / DEFAULT_COMPILER @styx-api/core@0.6.1
 # pin; bump deliberately.
 # -----------------------------------------------------------------------------
-STYX2_REPO="${STYX2_REPO:-https://github.com/styx-api/styx-ts.git}"
+STYX2_REPO="${STYX2_REPO:-https://github.com/styx-api/styx.git}"
 STYX2_REF="${STYX2_REF:-9f7b7102ac90517e31c1f44435a0a490eb567edd}"
 
 TARGETS="${1:-python,typescript,json-schema}"
@@ -56,7 +56,7 @@ trap 'rm -rf "${STYX2_DIR:-}" "${BUILD_OUT:-}"' EXIT
 # -----------------------------------------------------------------------------
 # Build the styx2 compiler at the pinned ref.
 # -----------------------------------------------------------------------------
-echo "==> Cloning styx-ts @ ${STYX2_REF}"
+echo "==> Cloning styx @ ${STYX2_REF}"
 git clone --quiet "$STYX2_REPO" "$STYX2_DIR"
 git -C "$STYX2_DIR" checkout --quiet "$STYX2_REF"
 

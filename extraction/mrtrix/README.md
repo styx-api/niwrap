@@ -104,7 +104,7 @@ interpret the interface — that is the frontend's job; input/output file semant
 ## Compile
 
 The dumps are compiled to IR by styx2's `mrtrix` / `argdump` frontends (in
-[`@styx-api/core`](https://github.com/styx-api/styx-ts)), selected per command by
+[`@styx-api/core`](https://github.com/styx-api/styx)), selected per command by
 `app.json`'s `source.type`. `argdump` (argparse JSON → IR) is reusable for any
 argparse-based CLI. A few commands whose flat dump can't express paired
 input/output positionals (`dwi2fod`, `mtnormalise`) are split in
