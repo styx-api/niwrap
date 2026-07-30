@@ -23,19 +23,23 @@ set -euo pipefail
 # releases are reproducible; bump deliberately and coordinate with the hub's
 # bundled @styx/core version (see the styx2 v1-replacement plan).
 #
-# Pinned to styx main at the 0.6.1 release (#53) - a patch over 0.6.0 (#48,
-# nested `_params` factories + snake_case kwargs) bundling two codegen fixes:
-#   - #49 (boutiques): a `command-line-flag-separator` flag and its value now
-#     fuse into a single argv token (e.g. `--imain=<file>`) instead of two
-#     separate tokens - fixes 27 tools (fsl/afni/dcm2niix).
-#   - #50 (python): a command-less union variant (an off/none/help mode) emits
-#     `pass` instead of an empty dispatch branch - repairs 5 ants modules that
-#     were an IndentationError (making `import niwrap.ants` fail).
-# Keep in lockstep with the hub-gate / DEFAULT_COMPILER @styx-api/core@0.6.1
+# Pinned to styx main at the 0.9.0 release (#84). This jumps three minors from
+# the previous 0.6.1 pin, so regenerated wrappers differ in more than one way:
+#   - #59 (boutiques): struct-typed input flags emit once, with sub-descriptor
+#     ids, instead of being repeated per sub-input.
+#   - #60 (boutiques): a zero-minimum count input is marked optional.
+#   - #69/#70 (codegen): subcommand and parameterless output fixes, NamedTuple
+#     outputs, and a shape guard on the mixed-union variant gate.
+#   - #81 (ir): anonymous structs that survive the passes get a synthetic name
+#     rather than an opaque one, so some generated type names change.
+#   - #83 (ir): a sequence whose only meta is outputs is flattened away.
+# 0.7.0 (#52-#56) added the argtype DSL frontend/backend, which the Boutiques
+# catalog does not exercise.
+# Keep in lockstep with the hub-gate / DEFAULT_COMPILER @styx-api/core@0.9.0
 # pin; bump deliberately.
 # -----------------------------------------------------------------------------
 STYX2_REPO="${STYX2_REPO:-https://github.com/styx-api/styx.git}"
-STYX2_REF="${STYX2_REF:-9f7b7102ac90517e31c1f44435a0a490eb567edd}"
+STYX2_REF="${STYX2_REF:-7e84af75d5c755a6fa15e48ad1ee8c713323b71a}"
 
 TARGETS="${1:-python,typescript,json-schema}"
 
